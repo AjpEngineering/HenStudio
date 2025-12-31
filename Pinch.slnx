@@ -1,4 +1,5 @@
 <Solution Description="AJP Pinch 4">
   <Project Path="../_PinchGlobal/_PinchGlobal.csproj" Id="e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9" />
   <Project Path="Pinch.csproj" Id="759cbd9c-52b2-44f0-b3ae-695ad1fc508a" />
+  <Project Path="_PinchTargets/_PinchTargets.csproj" Id="d0cd902a-466a-40c4-937a-6b3d7b8f86e5" />
 </Solution>
