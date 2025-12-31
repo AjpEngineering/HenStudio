@@ -65,27 +65,41 @@ namespace PinchGlobal
 
         #region ENUMS
 
-        #region enum PinchUnits
+        #region enum HeatLoadType
         /// <summary>
-        /// ENUMERATION: Pinch Units
+        /// ENUMERATION: Heat Load Type
         /// </summary>
-        public enum PinchUnits
+        public enum HeatLoadType
         {
-            ENGLISH,
-            METRIC
+            HEAT_LOAD_UNKNOWN,   // UNKNOWN
+            HEAT_LOAD_RELEASE,   // HEAT RELEASED (Surplus)
+            HEAT_LOAD_SENSIBLE   // HEAT REQUIRED (Deficit)
         };
-        #endregion      // enum PinchUnits
+        #endregion      // enum HeatLoadType
 
-        #region enum PinchCalcModeCP
+        #region enum HeatType
         /// <summary>
-        /// ENUMERATION: Pinch CP Calculation Mode
+        /// ENUMERATION: Heat Type
         /// </summary>
-        public enum PinchCalcModeCP
+        public enum HeatType
         {
-            CALC_MODE_USE_F_CP,
-            CALC_MODE_USE_CP
+            HEAT_UNKNOWN,   // UNKNOWN
+            HEAT_LATENT,    // LATENT   HEAT (Two-Phase)
+            HEAT_SENSIBLE   // SENSIBLE HEAT (Single Phase)
         };
-        #endregion      // enum PinchCalcModeCP
+        #endregion      // enum HeatType
+
+        #region enum LatentHeatType
+        /// <summary>
+        /// ENUMERATION: Latent Heat Type
+        /// </summary>
+        public enum LatentHeatType
+        {
+            LATENT_UNKNOWN,    // UNKNOWN
+            LATENT_BOILING,    // BOILING    LATENT HEAT (Cold Stream)
+            LATENT_CONDENSING  // CONDENSING LATENT HEAT (Hot  Stream)
+        };
+        #endregion      // enum LatentHeatType
 
         #region enum LogLevel
         /// <summary>
@@ -100,6 +114,53 @@ namespace PinchGlobal
             LOG_ALL             // LOG ALL MESSAGES
         };
         #endregion      // enum LogLevel
+
+        #region enum PinchCalcModeCP
+        /// <summary>
+        /// ENUMERATION: Pinch CP Calculation Mode
+        /// </summary>
+        public enum PinchCalcModeCP
+        {
+            CALC_MODE_USE_F_CP,
+            CALC_MODE_USE_CP
+        };
+        #endregion      // enum PinchCalcModeCP
+
+        #region enum PinchUnits
+        /// <summary>
+        /// ENUMERATION: Pinch Units
+        /// </summary>
+        public enum PinchUnits
+        {
+            ENGLISH,
+            METRIC
+        };
+        #endregion      // enum PinchUnits
+
+        #region enum ProgressStates
+        /// <summary>
+        /// ENUMERATION: Progress States
+        /// </summary>
+        public enum ProgressStates
+        {
+            PROGRESS_TO_BE_DONE,
+            PROGRESS_WORKING,
+            PROGRESS_DONE,
+            PROGRESS_FAIL
+        };
+        #endregion      // enum ProgressStates
+
+        #region enum SensibleHeatType
+        /// <summary>
+        /// ENUMERATION: Sensible Heat Type
+        /// </summary>
+        public enum SensibleHeatType
+        {
+            SENSIBLE_UNKNOWN, // UNKNOWN
+            SENSIBLE_LIQUID,  // LIQUID SENSIBLE HEAT
+            SENSIBLE_VAPOR    // VAPOR  SENSIBLE HEAT
+        };
+        #endregion      // enum SensibleHeatType
 
         #region enum StreamPhase
         /// <summary>
