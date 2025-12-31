@@ -3,5 +3,6 @@
   <Project Path="_PinchFigures/_PinchFigures.csproj" Id="9b65f7c0-05f4-4363-9a10-7c5ce28aba4c" />
   <Project Path="_PinchGlobal/_PinchGlobal.csproj" Id="e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9" />
   <Project Path="_PinchHen/_PinchHen.csproj" Id="57cf15c7-2050-4948-b9ef-de7161c6bf69" />
+  <Project Path="_PinchReports/_PinchReports.csproj" Id="8d49dc4c-e374-4d1b-9e5e-1f189e68277b" />
   <Project Path="_PinchTargets/_PinchTargets.csproj" Id="d0cd902a-466a-40c4-937a-6b3d7b8f86e5" />
 </Solution>

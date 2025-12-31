@@ -57,6 +57,10 @@
       <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
       <Name>_PinchGlobal</Name>
     </ProjectReference>
+    <ProjectReference Include="..\_PinchReports\_PinchReports.csproj">
+      <Project>{8d49dc4c-e374-4d1b-9e5e-1f189e68277b}</Project>
+      <Name>_PinchReports</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
