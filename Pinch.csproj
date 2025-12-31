@@ -110,6 +110,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="_PinchData\_PinchData.csproj">
+      <Project>{41b4ad50-a07f-4c7d-89bd-b9979fc76833}</Project>
+      <Name>_PinchData</Name>
+    </ProjectReference>
     <ProjectReference Include="_PinchGlobal\_PinchGlobal.csproj">
       <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
       <Name>_PinchGlobal</Name>
