@@ -410,12 +410,16 @@ namespace Pinch
 
         #region EVENT HANDLERS
 
+        #region FORM EVENTS
+
+        #endregion  // FORM EVENTS
+
         #region MENU BAR EVENTS
 
         #region EXIT ITEM CLICK
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            ExitPinch();    // Exit Pinch Application
         }
         #endregion       // EXIT ITEM CLICK
 
@@ -491,6 +495,7 @@ namespace Pinch
             //----------------------------------
             return strFixedLengthString;
         }
+
         #endregion      // private string GetFixedLengthString(string strOriginal, int nLen=15)
 
         #endregion      // LOG METHODS
