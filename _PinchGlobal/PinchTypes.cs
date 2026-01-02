@@ -58,8 +58,6 @@ namespace PinchGlobal
         const string NAMESPACE = "PinchGlobal";
         const string CLASS = "PinchTypes";
 
-        public const double kZERO = 0.000000001;    // Use for zero equality tests of reals
-
         public const int LINE_LEN = 80;  // Report Line Length in Number of Characters (Courier New, 11 pt, Regular)
         #endregion      // CONSTANTS
 
