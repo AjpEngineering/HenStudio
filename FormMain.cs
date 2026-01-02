@@ -46,7 +46,10 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;   // Chart Component
 using System.Xml.Linq;
 
+using PinchData;
 using PinchGlobal;
+using PinchHen;
+using PinchTargets;
 #endregion  // REFERENCES
 
 #region namespace Pinch
@@ -84,44 +87,119 @@ namespace Pinch
         #region FIELDS
 
         #region COLORS
+        //--------------------------------
         //--- Stream Background Colors ---
-        private Color colorBackgroundHotStream  = Color.LightCoral;
-        private Color colorBackgroundColdStream = Color.LightBlue;
-        private Color colorBackgroundNA_Stream  = Color.WhiteSmoke;
-
-        //--- Stream Text Colors --- 
-        private Color colorTextHotStream  = Color.Black;
-        private Color colorTextColdStream = Color.Black;
-        private Color colorTextNA_Stream  = Color.Black;
-
+        //--------------------------------
+        private Color _colorBackgroundHotStream  = Color.LightCoral;
+        private Color _colorBackgroundColdStream = Color.LightBlue;
+        private Color _colorBackgroundNA_Stream  = Color.WhiteSmoke;
+        //--------------------------
+        //--- Stream Text Colors ---
+        //--------------------------
+        private Color _colorTextHotStream  = Color.Black;
+        private Color _colorTextColdStream = Color.Black;
+        private Color _colorTextNA_Stream  = Color.Black;
         #endregion  // COLORS
 
-        //private PinchProjectData _projectPropertiesDataObj;
-
+        #region SETTINGS
         private bool _bPinchEnglishUnits;   // Pinch English Units ... English (true)  Metric (false)
         private bool _bPinchCalcModeFCp;    // Pinch Calculation Mode ... Use CP (false)  Use F Cp (true)
         private bool _bInputVerified;       // Pinch Input Stream Data Verified
+        #endregion  // SETTINGS
 
+        #region OBJECTS
+        //---------------
+        //--- OBJECTS ---
+        //---------------
+        private PinchTypes _pinchTypes;
         private PinchFileSystem _pinchFileSys;
+
+        //private PinchProjectData _projectPropertiesDataObj;
         //private PinchInputMgr _pinchInput;
         //private EnergyTargetsMgr _pinchEnergyTargets;
         //private PinchReportMgr _pinchReport;
+        #endregion  // OBJECTS
 
         #endregion      // FIELDS
 
         #region PROPERTIES
 
-        //#region projectPropertiesDataObj
-        ///// <summary>
-        ///// projectPropertiesDataObj Property
-        ///// </summary>
-        //public PinchProjectData projectPropertiesDataObj
-        //{
-        //    get { return _projectPropertiesDataObj; }
-        //    set { _projectPropertiesDataObj = value; }
-        //}
-        //#endregion      // projectPropertiesDataObj
+        #region COLORS
+        //--------------
+        //--- COLORS ---
+        //--------------
+        #region ColorBackgroundHotStream
+        /// <summary>
+        /// ColorBackgroundHotStream Property
+        /// </summary>
+        public Color ColorBackgroundHotStream
+        {
+            get { return _colorBackgroundHotStream; }
+            set { _colorBackgroundHotStream = value; }
+        }
+        #endregion      // ColorBackgroundHotStream
 
+        #region ColorBackgroundColdStream
+        /// <summary>
+        /// ColorBackgroundColdStream Property
+        /// </summary>
+        public Color ColorBackgroundColdStream
+        {
+            get { return _colorBackgroundColdStream; }
+            set { _colorBackgroundColdStream = value; }
+        }
+        #endregion      // ColorBackgroundColdStream
+
+        #region ColorBackgroundNA_Stream
+        /// <summary>
+        /// ColorBackgroundNA_Stream Property
+        /// </summary>
+        public Color ColorBackgroundNA_Stream
+        {
+            get { return _colorBackgroundNA_Stream; }
+            set { _colorBackgroundNA_Stream = value; }
+        }
+        #endregion      // ColorBackgroundNA_Stream
+
+        #region ColorTextHotStream
+        /// <summary>
+        /// ColorTextHotStream Property
+        /// </summary>
+        public Color ColorTextHotStream
+        {
+            get { return _colorTextHotStream; }
+            set { _colorTextHotStream = value; }
+        }
+        #endregion      // ColorTextHotStream
+
+        #region ColorTextColdStream
+        /// <summary>
+        /// ColorTextColdStream Property
+        /// </summary>
+        public Color ColorTextColdStream
+        {
+            get { return _colorTextColdStream; }
+            set { _colorTextColdStream = value; }
+        }
+        #endregion      // ColorTextColdStream
+
+        #region ColorTextNA_Stream
+        /// <summary>
+        /// ColorTextNA_Stream Property
+        /// </summary>
+        public Color ColorTextNA_Stream
+        {
+            get { return _colorTextNA_Stream; }
+            set { _colorTextNA_Stream = value; }
+        }
+        #endregion      // ColorTextNA_Stream
+
+        #endregion  // COLORS
+
+        #region SETTINGS
+        //----------------
+        //--- SETTINGS ---
+        //----------------
         #region bPinchEnglishUnitsFlag
         /// <summary>
         /// bPinchEnglishUnitsFlag Property
@@ -155,6 +233,24 @@ namespace Pinch
         }
         #endregion      // bInputVerifiedFlag
 
+        #endregion  // SETTINGS
+
+        #region GLOBL OBJECTS
+        //---------------------
+        //--- GLOBL OBJECTS ---
+        //---------------------
+        #region PinchTypesObj
+        /// <summary>
+        /// PinchTypesObj Property
+        /// </summary>
+        public PinchTypes PinchTypesObj
+        {
+            get { return _pinchTypes; }
+            set { _pinchTypes = value; }
+        }
+
+        #endregion      // PinchTypesObj
+
         #region PinchFileSysObj
         /// <summary>
         /// PinchFileSystem Property
@@ -165,6 +261,23 @@ namespace Pinch
             set { _pinchFileSys = value; }
         }
         #endregion      // PinchFileSysObj
+
+        #endregion  // GLOBL OBJECTS
+
+        #region DATA OBJECTS
+        //--------------------
+        //--- DATA OBJECTS ---
+        //--------------------
+        //#region projectPropertiesDataObj
+        ///// <summary>
+        ///// projectPropertiesDataObj Property
+        ///// </summary>
+        //public PinchProjectData projectPropertiesDataObj
+        //{
+        //    get { return _projectPropertiesDataObj; }
+        //    set { _projectPropertiesDataObj = value; }
+        //}
+        //#endregion      // projectPropertiesDataObj
 
         //#region PinchInputObj
         ///// <summary>
@@ -177,6 +290,9 @@ namespace Pinch
         //}
         //#endregion      // PinchInputObj
 
+        #endregion  // DATA OBJECTS
+
+        #region TARGETS OBJECTS
         //#region PinchEnergyTargetsObj
         ///// <summary>
         ///// PinchEnergyTargetsObj Property
@@ -188,6 +304,9 @@ namespace Pinch
         //}
         //#endregion      // PinchEnergyTargetsObj
 
+        #endregion  // TARGETS OBJECTS
+
+        #region REPORTS OBJECTS
         //#region PinchReportObj
         ///// <summary>
         ///// PinchReport Property
@@ -198,6 +317,14 @@ namespace Pinch
         //    set { _pinchReport = value; }
         //}
         //#endregion      // PinchReportObj
+
+        #endregion  // REPORTS OBJECTS
+
+        #region FIGURES OBJECTS
+        #endregion  // FIGURES OBJECTS
+
+        #region HEN OBJECTS
+        #endregion  // HEN OBJECTS
 
         #endregion      // PROPERTIES
 
@@ -214,14 +341,16 @@ namespace Pinch
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
             try
             {
-                this.Text = "Pinch 4";
                 InitializeComponent();
+                this.Text = "AJP Pinch 4";
                 //----------------------
                 //--- Create Objects ---
                 //----------------------
+                PinchTypesObj = new PinchTypes();
+                PinchFileSysObj = new PinchFileSystem();
+
                 //projectPropertiesDataObj = new PinchProjectData();
 
-                //PinchFileSysObj = new PinchFileSysStructure();
                 //PinchInputObj = new PinchInputMgr(PinchFileSysObj);
                 //PinchEnergyTargetsObj = new EnergyTargetsMgr(PinchFileSysObj);
                 //PinchReportObj = new PinchReportMgr(PinchFileSysObj);
@@ -232,7 +361,7 @@ namespace Pinch
                 //---------------------------
                 //--- Initialize Controls ---
                 //---------------------------
-                //InitializeControls();       // Set inital state of the Form Controls
+                InitializeControls();       // Set inital state of the Form Controls
 
             }
             catch (Exception ex)
@@ -258,7 +387,7 @@ namespace Pinch
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
             try
             {
-
+                this.BackColor = PinchTypesObj.AjpEngineeringGreen; // Form Background Color
 
             }
             catch (Exception ex)

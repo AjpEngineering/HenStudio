@@ -45,10 +45,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pinch.csproj">
-      <Project>{759cbd9c-52b2-44f0-b3ae-695ad1fc508a}</Project>
-      <Name>Pinch</Name>
-    </ProjectReference>
     <ProjectReference Include="..\_PinchData\_PinchData.csproj">
       <Project>{41b4ad50-a07f-4c7d-89bd-b9979fc76833}</Project>
       <Name>_PinchData</Name>

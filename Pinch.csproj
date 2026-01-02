@@ -123,6 +123,10 @@
       <Project>{57cf15c7-2050-4948-b9ef-de7161c6bf69}</Project>
       <Name>_PinchHen</Name>
     </ProjectReference>
+    <ProjectReference Include="_PinchTargets\_PinchTargets.csproj">
+      <Project>{d0cd902a-466a-40c4-937a-6b3d7b8f86e5}</Project>
+      <Name>_PinchTargets</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
