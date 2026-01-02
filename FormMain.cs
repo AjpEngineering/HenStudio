@@ -47,9 +47,14 @@ using System.Windows.Forms.DataVisualization.Charting;   // Chart Component
 using System.Xml.Linq;
 
 using PinchData;
+
 using PinchGlobal;
+
 using PinchHen;
+
 using PinchTargets;
+
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 #endregion  // REFERENCES
 
 #region namespace Pinch
@@ -387,6 +392,7 @@ namespace Pinch
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
             try
             {
+                this.Text = "AJP Pinch 4";
                 this.BackColor = PinchTypesObj.AjpEngineeringGreen; // Form Background Color
 
             }
@@ -404,9 +410,46 @@ namespace Pinch
 
         #region EVENT HANDLERS
 
+        #region MENU BAR EVENTS
+
+        #region EXIT ITEM CLICK
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion       // EXIT ITEM CLICK
+
+        #endregion  // MENU BAR EVENTS
+
+        #region TOOL BAR EVENTS
+
+        #endregion      // TOOL BAR EVENTS
 
         #endregion      // EVENT HANDLERS
 
+        #region ExitPinch METHOD
+        /// <summary>
+        /// Common Exit Pinch Application ... invoked from Menu Item and Toolbar Click events
+        /// </summary>
+        private void ExitPinch()
+        {
+            string strMethod = "ExitPinch";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Exiting Pinch Application");
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // ExitPinch METHOD
 
         #region LOG METHODS
 
@@ -451,6 +494,8 @@ namespace Pinch
         #endregion      // private string GetFixedLengthString(string strOriginal, int nLen=15)
 
         #endregion      // LOG METHODS
+
+
     }
     #endregion      // class FormPinch
 }

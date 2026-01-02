@@ -317,9 +317,9 @@ namespace PinchGlobal
                 strMsg = string.Format("     HEN REPORTS FOLDER LOCATION: {0}", HenReportsFolderPath);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                 strMsg = string.Format("        TARGETS FOLDER LOCATION: {0}", TargetsFolderPath);
+                strMsg = string.Format("         TARGETS FOLDER LOCATION: {0}", TargetsFolderPath);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-               strMsg = string.Format("     TARGETS DATA FOLDER LOCATION: {0}", TargetsDataFolderPath);
+                strMsg = string.Format("    TARGETS DATA FOLDER LOCATION: {0}", TargetsDataFolderPath);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = string.Format(" TARGETS FIGURES FOLDER LOCATION: {0}", TargetsFiguresFolderPath);
