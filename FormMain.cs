@@ -416,20 +416,93 @@ namespace Pinch
 
         #region MENU BAR EVENTS
 
-        #region EXIT ITEM CLICK
+        #region FILE MENU ITEMS
+
+        #region NEW MENU ITEM HANDLER
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("New Menu Item Selected!");
+        }
+        #endregion  // NEW MENU ITEM HANDLER
+
+        #region OPEN MENU ITEM HANDLER
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("Open Menu Item Selected!");
+        }
+        #endregion  // OPEN MENU ITEM HANDLER
+
+        #region SAVE MENU ITEM HANDLER
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("Save Menu Item Selected!");
+        }
+        #endregion  // SAVE MENU ITEM HANDLER
+
+        #region SAVE AS MENU ITEM HANDLER
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("Save As Menu Item Selected!");
+        }
+        #endregion  // SAVE AS MENU ITEM HANDLER
+
+        #region EXIT MEMU ITEM HANDLER
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ExitPinch();    // Exit Pinch Application
         }
-        #endregion       // EXIT ITEM CLICK
+        #endregion       // EXIT MEMU ITEM HANDLER
+
+        #endregion  // FILE MENU ITEMS
+
+        #region ANALYSIS MENU ITEMS
+
+        #region SPECIFY INPUT
+        private void specifyInputToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
+        }
+        #endregion  // SPECIFY INPUT
+
+        #region CALCULATE TARGETS
+        private void calculateTargetsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
+        }
+        #endregion  // CALCULATE TARGETS
+
+        #region DESIGN HEAT EXCHANGER NETWORK
+        private void designHeatExchangerNetworkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
+        }
+        #endregion  // DESIGN HEAT EXCHANGER NETWORK
+
+        #endregion  // ANALYSIS MENU ITEMS
+
+        #region HELP MENU ITEMS
+
+        #region LICENSE
+        private void licenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("License Menu Item Selected!");
+        }
+        #endregion      // LICENSE
+
+        #region ABOUT
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("About Menu Item Selected!");
+        }
+        #endregion  // ABOUT
+
+        #endregion  // HELP MENU ITEMS
 
         #endregion  // MENU BAR EVENTS
 
-        #region TOOL BAR EVENTS
-
-        #endregion      // TOOL BAR EVENTS
-
         #endregion      // EVENT HANDLERS
+
+        #region METHODS
 
         #region ExitPinch METHOD
         /// <summary>
@@ -496,9 +569,19 @@ namespace Pinch
             return strFixedLengthString;
         }
 
+
+
+
+
+
+
+
+
         #endregion      // private string GetFixedLengthString(string strOriginal, int nLen=15)
 
         #endregion      // LOG METHODS
+
+        #endregion  // METHODS
 
 
     }
