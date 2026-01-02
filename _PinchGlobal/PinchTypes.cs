@@ -58,6 +58,16 @@ namespace PinchGlobal
         const string NAMESPACE = "PinchGlobal";
         const string CLASS = "PinchTypes";
 
+        //--- Colors ---
+        public Color AjpEngineeringGreen  = Color.FromArgb(255, 0, 204, 153);   // Caribbean Green
+        public Color AjpEngineeringOrange = Color.FromArgb(255, 255, 153, 0);   // Vivid Gamboge
+        public Color AjpPinchRedOrange    = Color.FromArgb(255, 255, 83, 73);   // Red-Orange
+        public Color AjpPinchSkyBlue      = Color.FromArgb(255, 0, 191, 255);   // Deep Sky Blue
+
+        //--- Fonts ---
+        public Font AjpPinchDisplayFont = new Font("Segoe UI Variable Display", 10.0f); // Display
+        public Font AjpPinchMonoFont    = new Font("Cascadia Mono", 9.0f);              // Monospace for Numbers
+
         public const int LINE_LEN = 80;  // Report Line Length in Number of Characters (Courier New, 11 pt, Regular)
         #endregion      // CONSTANTS
 
