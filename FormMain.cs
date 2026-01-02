@@ -81,13 +81,19 @@ namespace Pinch
         #endregion      // ENUMS
 
         #region FIELDS
-        private Color colorBackgroundHotStream = Color.LightCoral;
-        private Color colorBackgroundColdStream = Color.LightBlue;
-        private Color colorBackgroundNA_Stream = Color.WhiteSmoke;
 
-        private Color colorTextHotStream = Color.Black;
+        #region COLORS
+        //--- Stream Background Colors ---
+        private Color colorBackgroundHotStream  = Color.LightCoral;
+        private Color colorBackgroundColdStream = Color.LightBlue;
+        private Color colorBackgroundNA_Stream  = Color.WhiteSmoke;
+
+        //--- Stream Text Colors --- 
+        private Color colorTextHotStream  = Color.Black;
         private Color colorTextColdStream = Color.Black;
-        private Color colorTextNA_Stream = Color.Black;
+        private Color colorTextNA_Stream  = Color.Black;
+
+        #endregion  // COLORS
 
         //private PinchProjectData _projectPropertiesDataObj;
 
@@ -207,6 +213,7 @@ namespace Pinch
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
             try
             {
+                this.Text = "Pinch 4";
                 InitializeComponent();
                 //----------------------
                 //--- Create Objects ---
@@ -266,6 +273,8 @@ namespace Pinch
         #endregion      // public void Initialize Controls
 
         #region EVENT HANDLERS
+
+
         #endregion      // EVENT HANDLERS
 
 
