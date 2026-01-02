@@ -112,12 +112,14 @@
             // 
             // saveToolStripMenuItem
             // 
+            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
+            this.saveAsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveAsToolStripMenuItem.Image")));
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
@@ -141,6 +143,7 @@
             // 
             // calculateTargetsToolStripMenuItem
             // 
+            this.calculateTargetsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("calculateTargetsToolStripMenuItem.Image")));
             this.calculateTargetsToolStripMenuItem.Name = "calculateTargetsToolStripMenuItem";
             this.calculateTargetsToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.calculateTargetsToolStripMenuItem.Text = "Calculate Targets...";
@@ -152,6 +155,7 @@
             // 
             // designHeatExchangerNetworkToolStripMenuItem
             // 
+            this.designHeatExchangerNetworkToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("designHeatExchangerNetworkToolStripMenuItem.Image")));
             this.designHeatExchangerNetworkToolStripMenuItem.Name = "designHeatExchangerNetworkToolStripMenuItem";
             this.designHeatExchangerNetworkToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.designHeatExchangerNetworkToolStripMenuItem.Text = "Design Heat Exchanger Network...";
@@ -164,12 +168,14 @@
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About...";
             // 
             // specifyInputToolStripMenuItem
             // 
+            this.specifyInputToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("specifyInputToolStripMenuItem.Image")));
             this.specifyInputToolStripMenuItem.Name = "specifyInputToolStripMenuItem";
             this.specifyInputToolStripMenuItem.Size = new System.Drawing.Size(283, 22);
             this.specifyInputToolStripMenuItem.Text = "Specify Input...";
