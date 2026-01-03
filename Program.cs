@@ -78,10 +78,11 @@ namespace Pinch
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
-
+            //--------------------------------------------------------------------------------------
+            //--------------------------- WRITE LOG FOOTER and FLUSH FILE --------------------------
+            //--------------------------------------------------------------------------------------
             PinchLogger.WriteFooter();  // Write Footer
             PinchLogger.FlushLog();     // Flush Log to Listener
-
         }
     }
     #endregion      // internal static class Program
