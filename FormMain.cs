@@ -555,7 +555,10 @@ namespace Pinch
         #region ABOUT
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("About Menu Item Selected!");
+            FormAboutPinch dlg = new FormAboutPinch();
+            dlg.ShowDialog();
+            
+            //PinchMsgDlg.DisplayWarningDlg("About Menu Item Selected!");
         }
         #endregion  // ABOUT
 
