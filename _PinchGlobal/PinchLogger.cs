@@ -235,13 +235,14 @@ namespace PinchGlobal
                                           bAutoflush.ToString(),
                                           nFlushCountLimit.ToString()));
             WriteSeparatorLine();
-            Trace.WriteLine(strIndent + "      A           JJJJJJJJ   PPPPPPPP          EEEEEEEEE   NN     NN    GGGGGGG    IIIIII   NN     NN  EEEEEEEEE  RRRRRRRR    IIIIII   NN     NN    GGGGGGG");
-            Trace.WriteLine(strIndent + "     A A             JJ      PP     PP         EE          NNN    NN   GG     GG     II     NNN    NN  EE         RR     RR     II     NNN    NN   GG     GG");
-            Trace.WriteLine(strIndent + "    A   A            JJ      PP     PP         EE          NNNN   NN   GG            II     NNNN   NN  EE         RR     RR     II     NNNN   NN   GG");
-            Trace.WriteLine(strIndent + "   AAAAAAA      JJ   JJ      PPPPPPPPP         EEEEEEE     NN NN  NN   GG            II     NN NN  NN  EEEEEEE    RRRRRRRRR     II     NN NN  NN   GG");
-            Trace.WriteLine(strIndent + "  AA     AA     JJ   JJ      PP                EE          NN   NNNN   GG    GGGG    II     NN   NNNN  EE         RR     RR     II     NN   NNNN   GG    GGGG");
-            Trace.WriteLine(strIndent + " AA       AA    JJ   JJ      PP                EE          NN    NNN   GG     GG     II     NN    NNN  EE         RR      RR    II     NN    NNN   GG     GG");
-            Trace.WriteLine(strIndent + "AA         AA    JJJJJJ      PP                EEEEEEEEE   NN     NN    GGGGGGG    IIIIII   Nn     NN  EEEEEEEEE  RR      RR  IIIIII   NN     NN    GGGGGGG"); WriteSeparatorLine();
+            Trace.WriteLine(strIndent + "      A           JJJJJJJJ   PPPPPPPP          EEEEEEEEE   NN     NN    GGGGGGG    IIIIII   NN     NN  EEEEEEEEE  EEEEEEEEE  RRRRRRRR     IIIIII   NN     NN    GGGGGGG");
+            Trace.WriteLine(strIndent + "     A A             JJ      PP     PP         EE          NNN    NN   GG     GG     II     NNN    NN  EE         EE         RR     RR      II     NNN    NN   GG     GG");
+            Trace.WriteLine(strIndent + "    A   A            JJ      PP     PP         EE          NNNN   NN   GG            II     NNNN   NN  EE         EE         RR     RR      II     NNNN   NN   GG");
+            Trace.WriteLine(strIndent + "   AAAAAAA      JJ   JJ      PPPPPPPPP         EEEEEEE     NN NN  NN   GG            II     NN NN  NN  EEEEEEE    EEEEEEE    RRRRRRRR       II     NN NN  NN   GG");
+            Trace.WriteLine(strIndent + "  AA     AA     JJ   JJ      PP                EE          NN   NNNN   GG    GGGG    II     NN   NNNN  EE         EE         RR     RR      II     NN   NNNN   GG    GGGG");
+            Trace.WriteLine(strIndent + " AA       AA    JJ   JJ      PP                EE          NN    NNN   GG     GG     II     NN    NNN  EE         EE         RR      RR     II     NN    NNN   GG     GG");
+            Trace.WriteLine(strIndent + "AA         AA    JJJJJJ      PP                EEEEEEEEE   NN     NN    GGGGGGG    IIIIII   Nn     NN  EEEEEEEEE  EEEEEEEEE  RR      RR   IIIIII   NN     NN    GGGGGGG"); 
+            WriteSeparatorLine();
             FlushLog();
         }
         #endregion      // public static void WriteHeader
