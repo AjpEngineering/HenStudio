@@ -44,17 +44,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;   // Chart Component
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Xml.Linq;
 
 using PinchData;
-
 using PinchGlobal;
-
 using PinchHen;
-
 using PinchTargets;
+using System.CodeDom;
 
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 #endregion  // REFERENCES
 
 #region namespace Pinch
@@ -69,6 +67,16 @@ namespace Pinch
         #region CONSTANTS
         const string NAMESPACE = "Pinch";
         const string CLASS = "FormMain";
+
+        #region PANEL INDICES
+        //------------------------
+        //--- MAIN TAB CONTROL ---
+        //------------------------
+        const int INDEX_INPUT_PANEL   = 0;
+        const int INDEX_TARGETS_PANEL = 1;
+        const int INDEX_HEN_PANEL     = 2;
+
+        #endregion  // PANEL INDICES
 
         const string PINCH_UNITS_ENGLISH = "English";
         const string PINCH_UNITS_METRIC = "Metric";
@@ -124,6 +132,18 @@ namespace Pinch
         //private EnergyTargetsMgr _pinchEnergyTargets;
         //private PinchReportMgr _pinchReport;
         #endregion  // OBJECTS
+
+        #region PANELS
+        //--------------------------
+        //--- On MAIN TabControl ---
+        //--------------------------
+        private TabControl MAIN_TAB_CONTROL;
+        private Panel INPUT_PANEL;      // INPUT Panel   - Index: INDEX_INPUT_PANEL
+        private Panel TARGETS_PANEL;    // TARGETS Panel - Index: INDEX_TARGETS_PANEL
+        private Panel HEN_PANEL;        // HEN Panel     - Index: INDEX_HEN_PANEL
+
+
+        #endregion  // PANELS
 
         #endregion      // FIELDS
 
@@ -367,7 +387,15 @@ namespace Pinch
                 //--- Initialize Controls ---
                 //---------------------------
                 InitializeControls();       // Set inital state of the Form Controls
+                //--------------------------------------------
+                //--- Assign MAIN TabControl Panel Members ---
+                //--------------------------------------------
+                MAIN_TAB_CONTROL = tabControlMain;
+                INPUT_PANEL = this.panelINPUT;
+                TARGETS_PANEL = this.panelTARGETS;
+                HEN_PANEL = this.panelHEN;
 
+                SelectAnalysisPanel(INDEX_INPUT_PANEL); // Initially Display INPUT Panel
             }
             catch (Exception ex)
             {
@@ -394,7 +422,6 @@ namespace Pinch
             {
                 this.Text = "AJP Pinch 4";
                 this.BackColor = PinchTypesObj.AjpEngineeringGreen; // Form Background Color
-
             }
             catch (Exception ex)
             {
@@ -411,6 +438,36 @@ namespace Pinch
         #region EVENT HANDLERS
 
         #region FORM EVENTS
+
+        #region tabControlMain_SelectedIndexChanged
+        /// <summary>
+        /// MAIN TabControl Selected Index Changed Event Handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string strMethod = "tabControlMain_SelectedIndexChanged()";
+            string strMsg = string.Empty;
+            int nSelectedIndex = MAIN_TAB_CONTROL.SelectedIndex;
+           try
+            {
+                //----------------------------------------------------
+                //--- Select the correct Analysis Panel to Display ---
+                //----------------------------------------------------
+                SelectAnalysisPanel(nSelectedIndex);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally 
+            {
+            }
+        }
+        #endregion  // tabControlMain_SelectedIndexChanged
 
         #endregion  // FORM EVENTS
 
@@ -460,21 +517,27 @@ namespace Pinch
         #region SPECIFY INPUT
         private void specifyInputToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
+            SelectAnalysisPanel(INDEX_INPUT_PANEL);     // Display INPUT Panel
+
+            //PinchMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
         }
         #endregion  // SPECIFY INPUT
 
         #region CALCULATE TARGETS
         private void calculateTargetsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
+            SelectAnalysisPanel(INDEX_TARGETS_PANEL);     // Display TARGETS Panel
+
+            //PinchMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
         }
         #endregion  // CALCULATE TARGETS
 
         #region DESIGN HEAT EXCHANGER NETWORK
         private void designHeatExchangerNetworkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
+            SelectAnalysisPanel(INDEX_HEN_PANEL);     // Display HEN Panel
+
+            //PinchMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
         }
         #endregion  // DESIGN HEAT EXCHANGER NETWORK
 
@@ -503,6 +566,78 @@ namespace Pinch
         #endregion      // EVENT HANDLERS
 
         #region METHODS
+
+        #region SelectAnalysisPanel METHOD
+        /// <summary>
+        /// Select the correct Analysis Panel to Display 
+        /// based on selected index supplied to method
+        ///     INDEX_INPUT_PANEL ..... [0] ---> INPUT Panel
+        ///     INDEX_TARGETS_PANEL ... [1] ---> TARGETS Panel
+        ///     INDEX_HEN_PANEL ....... [2] ---> HEN Panel
+        /// </summary>
+        /// <param name="nSelectedIndex">Selected Panel Index</param>
+        private void SelectAnalysisPanel(int nSelectedIndex)
+        {
+            string strMethod = "SelectAnalysisPanel";
+            string strMsg = string.Empty;
+            try
+            {
+                switch (nSelectedIndex)
+                {
+                    case 0:
+                        INPUT_PANEL.Visible = true;
+                        TARGETS_PANEL.Visible = false;
+                        HEN_PANEL.Visible = false;
+
+                        INPUT_PANEL.Show();
+                        INPUT_PANEL.Focus();
+                        INPUT_PANEL.Select();
+                        INPUT_PANEL.BringToFront();
+                        break;
+                    case 1:
+                        TARGETS_PANEL.Visible = true;
+                        INPUT_PANEL.Visible = false;
+                        HEN_PANEL.Visible = false;
+
+                        TARGETS_PANEL.Show();
+                        TARGETS_PANEL.Focus();
+                        TARGETS_PANEL.Select();
+                        TARGETS_PANEL.BringToFront();
+                        break;
+                    case 2:
+                        HEN_PANEL.Visible = true;
+                        TARGETS_PANEL.Visible = false;
+                        INPUT_PANEL.Visible = false;
+
+                        HEN_PANEL.Show();
+                        HEN_PANEL.Focus();
+                        HEN_PANEL.Select();
+                        HEN_PANEL.BringToFront();
+                        break;
+                }
+
+                //----------------------------------------
+                //--- Update Main Analysis Tab Control ---
+                //----------------------------------------
+                MAIN_TAB_CONTROL.SelectedIndex = nSelectedIndex;
+
+                //****************
+                //***** TEST *****
+                //****************
+                //string strTemp = String.Format("SELECTED INDEX = {0}", nSelectedIndex);
+                //PinchMsgDlg.DisplayInfoDlg(strTemp);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }        
+        #endregion  // SelectAnalysisPanel METHOD
 
         #region ExitPinch METHOD
         /// <summary>
@@ -577,12 +712,12 @@ namespace Pinch
 
 
 
+
         #endregion      // private string GetFixedLengthString(string strOriginal, int nLen=15)
 
         #endregion      // LOG METHODS
 
         #endregion  // METHODS
-
 
     }
     #endregion      // class FormPinch
