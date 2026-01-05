@@ -421,7 +421,7 @@ namespace Pinch
             try
             {
                 this.Text = "AJP Pinch 4";
-                this.BackColor = PinchTypesObj.AjpEngineeringGreen; // Form Background Color
+                this.BackColor = PinchTypesObj.AJP_ENGINEERING_GREEN; // Form Background Color
             }
             catch (Exception ex)
             {
@@ -556,8 +556,9 @@ namespace Pinch
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAboutPinch dlg = new FormAboutPinch();
+            dlg.PinchTypesObj = this.PinchTypesObj;     // Assign Global Types and Properties
             dlg.ShowDialog();
-            
+
             //PinchMsgDlg.DisplayWarningDlg("About Menu Item Selected!");
         }
         #endregion  // ABOUT

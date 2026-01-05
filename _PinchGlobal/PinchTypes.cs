@@ -34,6 +34,7 @@
 
 #region REFERENCES
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -58,20 +59,39 @@ namespace PinchGlobal
         const string NAMESPACE = "PinchGlobal";
         const string CLASS = "PinchTypes";
 
-        //--- Colors ---
-        public Color AjpEngineeringGreen  = Color.FromArgb(255, 0, 204, 153);   // Caribbean Green
-        public Color AjpEngineeringOrange = Color.FromArgb(255, 255, 153, 0);   // Vivid Gamboge
-        public Color AjpPinchRedOrange    = Color.FromArgb(255, 255, 83, 73);   // Red-Orange
-        public Color AjpPinchSkyBlue      = Color.FromArgb(255, 0, 191, 255);   // Deep Sky Blue
-
-        //--- Fonts ---
-        public Font AjpPinchDisplayFont = new Font("Segoe UI Variable Display", 10.0f); // Display
-        public Font AjpPinchMonoFont    = new Font("Cascadia Mono", 9.0f);              // Monospace for Numbers
-
+        //-------------------------------------------------------------------------------
+        //--- Supplier Information ... Check Against What is Supplied in License File ---
+        //-------------------------------------------------------------------------------
+        public const string AJP_SUPPLIER_NAME = "AJP Engineering";
+        public const string AJP_SUPPLIER_URL = "http:://www.AJPEngineering.com";
+        //------------------------------------------------------------------------------
+        //--- Product Information ... Check Against What is Supplied in License File ---
+        //------------------------------------------------------------------------------
+        public const string AJP_PRODUCT_FULLNAME = "AJP Pinch 4.0";
+        public const string AJP_PRODUCT_NAME = "AJP Pinch";
+        public const string AJP_PRODUCT_VERSION = "4.0.1";
+        public const string AJP_PRODUCT_CODE = "{6C6D7807-B72E-4460-9D5C-1A911D1299FB}";
+        public const string AJP_PRODUCT_SERIAL_NUMBER = "{6C6D7807-B72E-4460-9D5C-1A911D1299FB}";
+        //--------------------
+        //--- REPORT SPECS ---
+        //--------------------
         public const int LINE_LEN = 80;  // Report Line Length in Number of Characters (Courier New, 11 pt, Regular)
         #endregion      // CONSTANTS
 
         #region ENUMS
+
+        #region enum LicenseType
+        /// <summary>
+        /// ENUMERATION: License Type
+        /// </summary>
+        public enum LicenseType
+        {
+            LICENSE_UNKNOWN,   // UNKNOWN
+            LICENSE_SITE,      // SITE LICENSE
+            LICENSE_USER,      // USER LICENSE
+            LICENSE_SEAT       // SEAT LICENSE
+        };
+        #endregion      // enum LicenseType
 
         #region enum HeatLoadType
         /// <summary>
@@ -197,6 +217,34 @@ namespace PinchGlobal
         #endregion      // ENUMS
 
         #region FIELDS
+        //---------------------------------------------------------
+        //--- Customer Information ... Specifed in License File ---
+        //---------------------------------------------------------
+        public string CUSTOMER_NAME  = "TBD - REQUIRED!";
+        public string CUSTOMER_EMAIL = "TBD";
+
+        //--------------------------------
+        //--- Pinch Product Components ---
+        //--------------------------------
+        public ArrayList AJP_PINCH_COMPONENTS = new ArrayList();
+
+        //---------------------------------------------------------
+        //--- License Information ... Specified in License File ---
+        //---------------------------------------------------------
+
+        //--------------
+        //--- Colors ---
+        //--------------
+        public Color AJP_ENGINEERING_GREEN = Color.FromArgb(255, 0, 204, 153);   // Caribbean Green
+        public Color AJP_ENGINEERING_ORANGE = Color.FromArgb(255, 255, 153, 0);  // Vivid Gamboge
+        public Color AJP_PINCH_RED_ORANGE = Color.FromArgb(255, 255, 83, 73);    // Red-Orange
+        public Color AJP_PINCH_SKY_BLUE = Color.FromArgb(255, 0, 191, 255);      // Deep Sky Blue
+        //-------------
+        //--- Fonts ---
+        //-------------
+        public Font AJP_PINCH_DISPLAY_FONT = new Font("Segoe UI Variable Display", 10.0f); // Display
+        public Font AJP_PINCH_MONO_FONT = new Font("Cascadia Mono", 9.0f);              // Monospace for Numbers
+
         #endregion      // FIELDS
 
         #region PROPERTIES
@@ -209,8 +257,31 @@ namespace PinchGlobal
         /// </summary>
         public PinchTypes()
         {
-            //string strMethod = "CTOR";
-            //ExchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            string strMethod = "CTOR";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+
+            //------------------------
+            //--- GET LICENSE DATA ---
+            //------------------------
+            // TBD: Read License File (XML to Data Object)
+            // TBD: Compare License Data to Specified Supplier, Customer, Product, License Type, License Key
+            //-----------------------------------------------------------------------------------------------
+
+            //------------------------
+            //--- PINCH COMPONENTS ---
+            //------------------------
+            AJP_PINCH_COMPONENTS.Clear();
+            AJP_PINCH_COMPONENTS.Add("Pinch.exe");
+            AJP_PINCH_COMPONENTS.Add("_PinchData.dll");
+            AJP_PINCH_COMPONENTS.Add("_PinchFigures.dll");
+            AJP_PINCH_COMPONENTS.Add("_PinchGlobal.dll");
+            AJP_PINCH_COMPONENTS.Add("_PinchHen.dll");
+            AJP_PINCH_COMPONENTS.Add("_PinchReports.dll");
+            AJP_PINCH_COMPONENTS.Add("_PinchTargets.dll");
+
+            WriteSupplierDataToLog();   // Write Supplier Data to Log
+            WriteCustomerDataToLog();   // Write Customer Data to Log
+            WriteProductDataToLog();    // Write Product  Data to Log
         }
         #endregion      // CTOR
 
@@ -333,6 +404,102 @@ namespace PinchGlobal
         #endregion      // StringCheckIsDoubleNonPositive ... CHECK ID: CHECK_DOUBLE_NON_POSITIVE
 
         #endregion      // STRING VALUE CHECK STATIC METHODS
+
+        #region WRITE LOG METHODS
+
+        #region WriteSupplierDataToLog()
+        /// <summary>
+        /// Write AJP Pinch Supplier Metadata to Log
+        /// </summary>
+        private void WriteSupplierDataToLog()
+        {
+            string strMethod = "WriteSupplierDataToLog()";
+            try
+            {
+                PinchLogger.WriteSection("PINCH SUPPLIER INFORMATION");
+
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] AJP SUPPLIER NAME    : " + AJP_SUPPLIER_NAME);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "           AJP SUPPLIER URL     : " + AJP_SUPPLIER_URL);
+
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // WriteSupplierDataToLog()
+
+        #region WriteCustomerDataToLog()
+        /// <summary>
+        /// Write Customer Metadata to Log
+        /// </summary>
+        private void WriteCustomerDataToLog()
+        {
+            string strMethod = "WriteCustomerDataToLog()";
+            try
+            {
+                PinchLogger.WriteSection("CUSTOMER INFORMATION");
+
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] CUSTOMER NAME        : " + CUSTOMER_NAME);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "           CUSTOMER EMAIL       : " + CUSTOMER_EMAIL);
+
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // WriteCustomerDataToLog()
+
+        #region WriteProductDataToLog()
+        /// <summary>
+        /// Write AJP Pinch Product Metadata to Log
+        /// </summary>
+        private void WriteProductDataToLog()
+        {
+            string strMethod = "WriteProductDataToLog()";
+            try
+            {
+                PinchLogger.WriteSection("PINCH PRODUCT INFORMATION");
+
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT FULLNAME      : " + AJP_PRODUCT_FULLNAME);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT NAME          : " + AJP_PRODUCT_NAME);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT VERSION       : " + AJP_PRODUCT_VERSION);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT SERIAL_NUMBER : " + AJP_PRODUCT_SERIAL_NUMBER);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT CODE          : " + AJP_PRODUCT_CODE);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "----------- COMPONENTS ----------- ");
+                foreach(string str in AJP_PINCH_COMPONENTS)
+                {
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  > " + str);
+                }
+                //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "----------- COMPONENTS ----------- ");
+                PinchLogger.WriteSeparatorLine('=');
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // WriteProductDataToLog()
+
+        #endregion  // WRITE LOG METHODS
 
     }
     #endregion      // public class PinchTypes
