@@ -70,8 +70,8 @@ namespace PinchGlobal
         public const string AJP_PRODUCT_FULLNAME = "AJP Pinch 4.0";
         public const string AJP_PRODUCT_NAME = "AJP Pinch";
         public const string AJP_PRODUCT_VERSION = "4.0.1";
-        public const string AJP_PRODUCT_CODE = "{6C6D7807-B72E-4460-9D5C-1A911D1299FB}";
         public const string AJP_PRODUCT_SERIAL_NUMBER = "{6C6D7807-B72E-4460-9D5C-1A911D1299FB}";
+        public const string AJP_PRODUCT_CODE = "1022-456-1189";
         //--------------------
         //--- REPORT SPECS ---
         //--------------------

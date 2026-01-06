@@ -83,9 +83,39 @@ namespace Pinch
         public FormAboutPinch()
         {
             InitializeComponent();
-        }
 
+            InitializeControls();
+        }
         #endregion  // CTOR
+
+        #region InitializeControls() METHOD
+        /// <summary>
+        /// Initialize Contols Method
+        /// </summary>
+        private void InitializeControls()
+        {
+            string strMethod = "InitializeControls";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initialize Contols");
+            try
+            {
+                this.labelSupplierNameValue.Text = PinchTypes.AJP_SUPPLIER_NAME;
+                this.labelProductFullNameValue.Text = PinchTypes.AJP_PRODUCT_FULLNAME;
+                this.labelProductNameValue.Text = PinchTypes.AJP_PRODUCT_NAME;
+                this.labelProductVersionValue.Text = PinchTypes.AJP_PRODUCT_VERSION;
+                this.labelSerialNumberValue.Text = PinchTypes.AJP_PRODUCT_SERIAL_NUMBER;
+                this.labelProductCodeValue.Text = PinchTypes.AJP_PRODUCT_CODE;
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // InitializeControls() METHOD
     }
     #endregion  // public partial class FormAboutPinch : Form
 }
