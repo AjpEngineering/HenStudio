@@ -68,15 +68,15 @@ namespace Pinch
         const string NAMESPACE = "Pinch";
         const string CLASS = "FormMain";
 
-        #region PANEL INDICES
-        //------------------------
-        //--- MAIN TAB CONTROL ---
-        //------------------------
-        const int INDEX_INPUT_PANEL   = 0;
-        const int INDEX_TARGETS_PANEL = 1;
-        const int INDEX_HEN_PANEL     = 2;
+        //#region PANEL INDICES
+        ////------------------------
+        ////--- MAIN TAB CONTROL ---
+        ////------------------------
+        //const int INDEX_INPUT_PANEL   = 0;
+        //const int INDEX_TARGETS_PANEL = 1;
+        //const int INDEX_HEN_PANEL     = 2;
 
-        #endregion  // PANEL INDICES
+        //#endregion  // PANEL INDICES
 
         const string PINCH_UNITS_ENGLISH = "English";
         const string PINCH_UNITS_METRIC = "Metric";
@@ -127,6 +127,8 @@ namespace Pinch
         private PinchTypes _pinchTypes;
         private PinchFileSystem _pinchFileSys;
 
+        private PanelTableMgr _panelTableMgr;
+
         //private PinchProjectData _projectPropertiesDataObj;
         //private PinchInputMgr _pinchInput;
         //private EnergyTargetsMgr _pinchEnergyTargets;
@@ -138,9 +140,9 @@ namespace Pinch
         //--- On MAIN TabControl ---
         //--------------------------
         private TabControl MAIN_TAB_CONTROL;
-        private Panel INPUT_PANEL;      // INPUT Panel   - Index: INDEX_INPUT_PANEL
-        private Panel TARGETS_PANEL;    // TARGETS Panel - Index: INDEX_TARGETS_PANEL
-        private Panel HEN_PANEL;        // HEN Panel     - Index: INDEX_HEN_PANEL
+        //private Panel INPUT_PANEL;      // INPUT Panel   - Index: INDEX_INPUT_PANEL
+        //private Panel TARGETS_PANEL;    // TARGETS Panel - Index: INDEX_TARGETS_PANEL
+        //private Panel HEN_PANEL;        // HEN Panel     - Index: INDEX_HEN_PANEL
 
 
         #endregion  // PANELS
@@ -260,10 +262,25 @@ namespace Pinch
 
         #endregion  // SETTINGS
 
+        #region PINCH OBJECTS
+
+        #region PanelTableMgrObj
+        /// <summary>
+        /// PanelTableMgrObj Property
+        /// </summary>
+        public PanelTableMgr PanelTableMgrObj
+        {
+            get { return _panelTableMgr; }
+            set { _panelTableMgr = value; }
+        }
+        #endregion      // PanelTableMgrObj
+
+        #endregion  // PINCH OBJECTS
+
         #region GLOBL OBJECTS
-        //---------------------
-        //--- GLOBL OBJECTS ---
-        //---------------------
+        //----------------------
+        //--- GLOBAL OBJECTS ---
+        //----------------------
         #region PinchTypesObj
         /// <summary>
         /// PinchTypesObj Property
@@ -373,29 +390,53 @@ namespace Pinch
                 //----------------------
                 PinchTypesObj = new PinchTypes();
                 PinchFileSysObj = new PinchFileSystem();
-
-                //projectPropertiesDataObj = new PinchProjectData();
-
-                //PinchInputObj = new PinchInputMgr(PinchFileSysObj);
-                //PinchEnergyTargetsObj = new EnergyTargetsMgr(PinchFileSysObj);
-                //PinchReportObj = new PinchReportMgr(PinchFileSysObj);
-
+                //------------------------
+                //--- Initialize Flags ---
+                //------------------------
                 //bPinchEnglishUnitsFlag = true;
                 //bPinchCalcModeFCpFlag = false;
                 //bInputVerifiedFlag = false;
                 //---------------------------
                 //--- Initialize Controls ---
                 //---------------------------
-                InitializeControls();       // Set inital state of the Form Controls
-                //--------------------------------------------
-                //--- Assign MAIN TabControl Panel Members ---
-                //--------------------------------------------
-                MAIN_TAB_CONTROL = tabControlMain;
-                INPUT_PANEL = this.panelINPUT;
-                TARGETS_PANEL = this.panelTARGETS;
-                HEN_PANEL = this.panelHEN;
+                InitializeControls();       // Set Inital State of the Form Controls
+                //-----------------------------------
+                //--- Create PanelTableMgr Object ---
+                //-----------------------------------
+                PanelTableMgrObj = new PanelTableMgr();
+                PanelTableMgrObj.PinchTypesObj = PinchTypesObj; // Assign PinchTypes Object
+                //-----------------------------------------------------------------------------------------------------
+                //---------------------------- Assign ANALYSIS TabControl Panel Members -------------------------------
+                //-----------------------------------------------------------------------------------------------------
+                MAIN_TAB_CONTROL = this.tabControlMain;    // ANALYSIS Tab Control <<*** TEMP *************************
+                PanelTableMgrObj.MAIN_TAB_CONTROL = this.tabControlMain;    // ANALYSIS Tab Control
+                PanelTableMgrObj.INPUT_PANEL   = this.panelINPUT;           // SUB-ANALYSIS Tab Control
+                PanelTableMgrObj.TARGETS_PANEL = this.panelTARGETS;         // SUB-ANALYSIS Tab Control
+                PanelTableMgrObj.HEN_PANEL     = this.panelHEN;             // SUB-ANALYSIS Tab Control
+                //-----------------------------------------------------------------------------------------------------
+                //-------------------------- Assign SUB-ANALYSIS TabControl Panel Members -----------------------------
+                //-----------------------------------------------------------------------------------------------------
+                //PanelTableMgrObj.INPUT_TAB_CONTROL       = this.tabControlINPUT;          // Tab Control
+                //PanelTableMgrObj.INPUT_PROJECT_PANEL     = this.panelINPUT_PROJECT;       // Panel - PK: 00 ... [0,0]
+                //PanelTableMgrObj.INPUT_STREAMS_PANEL     = this.panelINPUT_STREAMS;       // Panel - PK: 01 ... [0,1]
+                //PanelTableMgrObj.INPUT_UTILITIES_PANEL   = this.panelINPUT_UTILITIES;     // Panel - PK: 02 ... [0,2]
+                //PanelTableMgrObj.INPUT_COST_PANEL        = this.panelINPUT_COST;          // Panel - PK: 03 ... [0,3]
+                //PanelTableMgrObj.INPUT_EXCHANGER_PANEL   = this.panelINPUT_EXCHANGER;     // Panel - PK: 04 ... [0,4]
+                //PanelTableMgrObj.INPUT_VALIDATE_PANEL    = this.panelINPUT_VALIDATE;      // Panel - PK: 05 ... [0,5]
+                //-----------------------------------------------------------------------------------------------------
+                //PanelTableMgrObj.TARGETS_TAB_CONTROL     = this.tabControlTARGETS;        // Tab Control
+                //PanelTableMgrObj.TARGETS_CALCULATE_PANEL = this.panelTARGETS_CALCULATE;   // Panel - PK: 06 ... [1,0]
+                //PanelTableMgrObj.TARGETS_COMPOSITE_PANEL = this.panelTARGETS_COMPOSITE;   // Panel - PK: 07 ... [1,1]
+                //PanelTableMgrObj.TARGETS_INTERVAL_PANEL  = this.panelTARGETS_INTERVAL;    // Panel - PK: 08 ... [1,2]
+                //PanelTableMgrObj.TARGETS_OPTIMIZE_PANEL  = this.panelTARGETS_OPTIMIZE;    // Panel - PK: 09 ... [1,3]
+                //-----------------------------------------------------------------------------------------------------
+                //PanelTableMgrObj.HEN_TAB_CONTROL         = this.tabControlHEN;            // Tab Control
+                //PanelTableMgrObj.HEN_DESIGN_PANEL        = this.panelHEN_DESIGN;          // Panel - PK: 10 ... [2,0]
+                //-----------------------------------------------------------------------------------------------------
 
-                SelectAnalysisPanel(INDEX_INPUT_PANEL); // Initially Display INPUT Panel
+                PanelTableMgrObj.InitializeMgrObjects();    // Initialize Lists and Table in Mgr
+
+                //SelectAnalysisPanel(0); // Initially Display INPUT Panel
             }
             catch (Exception ex)
             {
@@ -455,7 +496,9 @@ namespace Pinch
                 //----------------------------------------------------
                 //--- Select the correct Analysis Panel to Display ---
                 //----------------------------------------------------
-                SelectAnalysisPanel(nSelectedIndex);
+                //SelectAnalysisPanel(nSelectedIndex);
+                PinchMsgDlg.DisplayWarningDlg("Main Tab Control Index Selected Changed!");
+
             }
             catch (Exception ex)
             {
@@ -517,27 +560,27 @@ namespace Pinch
         #region SPECIFY INPUT
         private void specifyInputToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SelectAnalysisPanel(INDEX_INPUT_PANEL);     // Display INPUT Panel
+            //SelectAnalysisPanel(PanelTableMgr.INDEX_INPUT_PANEL);     // Display INPUT Panel
 
-            //PinchMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
+            PinchMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
         }
         #endregion  // SPECIFY INPUT
 
         #region CALCULATE TARGETS
         private void calculateTargetsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SelectAnalysisPanel(INDEX_TARGETS_PANEL);     // Display TARGETS Panel
+            //SelectAnalysisPanel(PanelTableMgr.INDEX_TARGETS_PANEL);     // Display TARGETS Panel
 
-            //PinchMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
+            PinchMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
         }
         #endregion  // CALCULATE TARGETS
 
         #region DESIGN HEAT EXCHANGER NETWORK
         private void designHeatExchangerNetworkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SelectAnalysisPanel(INDEX_HEN_PANEL);     // Display HEN Panel
+            //SelectAnalysisPanel(PanelTableMgr.INDEX_HEN_PANEL);     // Display HEN Panel
 
-            //PinchMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
+            PinchMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
         }
         #endregion  // DESIGN HEAT EXCHANGER NETWORK
 
@@ -549,6 +592,7 @@ namespace Pinch
         private void licenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PinchMsgDlg.DisplayWarningDlg("License Menu Item Selected!");
+            // TODO: Create FormLicense dialog - pass in LicenceData Object
         }
         #endregion      // LICENSE
 
@@ -569,77 +613,77 @@ namespace Pinch
 
         #region METHODS
 
-        #region SelectAnalysisPanel METHOD
-        /// <summary>
-        /// Select the correct Analysis Panel to Display 
-        /// based on selected index supplied to method
-        ///     INDEX_INPUT_PANEL ..... [0] ---> INPUT Panel
-        ///     INDEX_TARGETS_PANEL ... [1] ---> TARGETS Panel
-        ///     INDEX_HEN_PANEL ....... [2] ---> HEN Panel
-        /// </summary>
-        /// <param name="nSelectedIndex">Selected Panel Index</param>
-        private void SelectAnalysisPanel(int nSelectedIndex)
-        {
-            string strMethod = "SelectAnalysisPanel";
-            string strMsg = string.Empty;
-            try
-            {
-                switch (nSelectedIndex)
-                {
-                    case 0:
-                        INPUT_PANEL.Visible = true;
-                        TARGETS_PANEL.Visible = false;
-                        HEN_PANEL.Visible = false;
+        //#region SelectAnalysisPanel METHOD
+        ///// <summary>
+        ///// Select the correct Analysis Panel to Display 
+        ///// based on selected index supplied to method
+        /////     INDEX_INPUT_PANEL ..... [0] ---> INPUT Panel
+        /////     INDEX_TARGETS_PANEL ... [1] ---> TARGETS Panel
+        /////     INDEX_HEN_PANEL ....... [2] ---> HEN Panel
+        ///// </summary>
+        ///// <param name="nSelectedIndex">Selected Panel Index</param>
+        //private void SelectAnalysisPanel(int nSelectedIndex)
+        //{
+        //    string strMethod = "SelectAnalysisPanel";
+        //    string strMsg = string.Empty;
+        //    try
+        //    {
+        //        switch (nSelectedIndex)
+        //        {
+        //            case 0:
+        //                INPUT_PANEL.Visible = true;
+        //                TARGETS_PANEL.Visible = false;
+        //                HEN_PANEL.Visible = false;
 
-                        INPUT_PANEL.Show();
-                        INPUT_PANEL.Focus();
-                        INPUT_PANEL.Select();
-                        INPUT_PANEL.BringToFront();
-                        break;
-                    case 1:
-                        TARGETS_PANEL.Visible = true;
-                        INPUT_PANEL.Visible = false;
-                        HEN_PANEL.Visible = false;
+        //                INPUT_PANEL.Show();
+        //                INPUT_PANEL.Focus();
+        //                INPUT_PANEL.Select();
+        //                INPUT_PANEL.BringToFront();
+        //                break;
+        //            case 1:
+        //                TARGETS_PANEL.Visible = true;
+        //                INPUT_PANEL.Visible = false;
+        //                HEN_PANEL.Visible = false;
 
-                        TARGETS_PANEL.Show();
-                        TARGETS_PANEL.Focus();
-                        TARGETS_PANEL.Select();
-                        TARGETS_PANEL.BringToFront();
-                        break;
-                    case 2:
-                        HEN_PANEL.Visible = true;
-                        TARGETS_PANEL.Visible = false;
-                        INPUT_PANEL.Visible = false;
+        //                TARGETS_PANEL.Show();
+        //                TARGETS_PANEL.Focus();
+        //                TARGETS_PANEL.Select();
+        //                TARGETS_PANEL.BringToFront();
+        //                break;
+        //            case 2:
+        //                HEN_PANEL.Visible = true;
+        //                TARGETS_PANEL.Visible = false;
+        //                INPUT_PANEL.Visible = false;
 
-                        HEN_PANEL.Show();
-                        HEN_PANEL.Focus();
-                        HEN_PANEL.Select();
-                        HEN_PANEL.BringToFront();
-                        break;
-                }
+        //                HEN_PANEL.Show();
+        //                HEN_PANEL.Focus();
+        //                HEN_PANEL.Select();
+        //                HEN_PANEL.BringToFront();
+        //                break;
+        //        }
 
-                //----------------------------------------
-                //--- Update Main Analysis Tab Control ---
-                //----------------------------------------
-                MAIN_TAB_CONTROL.SelectedIndex = nSelectedIndex;
+        //        //----------------------------------------
+        //        //--- Update Main Analysis Tab Control ---
+        //        //----------------------------------------
+        //        MAIN_TAB_CONTROL.SelectedIndex = nSelectedIndex;
 
-                //****************
-                //***** TEST *****
-                //****************
-                //string strTemp = String.Format("SELECTED INDEX = {0}", nSelectedIndex);
-                //PinchMsgDlg.DisplayInfoDlg(strTemp);
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }        
-        #endregion  // SelectAnalysisPanel METHOD
+        //        //****************
+        //        //***** TEST *****
+        //        //****************
+        //        //string strTemp = String.Format("SELECTED INDEX = {0}", nSelectedIndex);
+        //        //PinchMsgDlg.DisplayInfoDlg(strTemp);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        PinchLogger.WriteSeparatorLine('*');
+        //        PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+        //        PinchLogger.WriteSeparatorLine('*');
+        //    }
+        //    finally
+        //    {
+        //    }
+        //}
+        //#endregion  // SelectAnalysisPanel METHOD
 
         #region ExitPinch METHOD
         /// <summary>
