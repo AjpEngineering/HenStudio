@@ -558,8 +558,6 @@ namespace Pinch
             FormAboutPinch dlg = new FormAboutPinch();
             dlg.PinchTypesObj = this.PinchTypesObj;     // Assign Global Types and Properties
             dlg.ShowDialog();
-
-            //PinchMsgDlg.DisplayWarningDlg("About Menu Item Selected!");
         }
         #endregion  // ABOUT
 
