@@ -64,6 +64,10 @@ namespace Pinch
         public const int INDEX_INPUT_PANEL = 0;
         public const int INDEX_TARGETS_PANEL = 1;
         public const int INDEX_HEN_PANEL = 2;
+
+        public const string NAME_INPUT_PANEL = "INPUT";
+        public const string NAME_TARGETS_PANEL = "TARGETS";
+        public const string NAME_HEN_PANEL = "HEN";
         //----------------------------------------
         //--- INPUT SUB-ACTIVITIES TAB CONTROL ---
         //----------------------------------------
@@ -73,6 +77,13 @@ namespace Pinch
         public const int INDEX_INPUT_COST_PANEL = 3;
         public const int INDEX_INPUT_EXCHANGER_PANEL = 4;
         public const int INDEX_INPUT_VALIDATE_PANEL = 5;
+
+        public const string NAME_INPUT_PROJECT_PANEL = "PROJECT";
+        public const string NAME_INPUT_STREAMS_PANEL = "STREAMS";
+        public const string NAME_INPUT_UTILITIES_PANEL = "UTILITIES";
+        public const string NAME_INPUT_COST_PANEL = "COST";
+        public const string NAME_INPUT_EXCHANGER_PANEL = "EXCHANGER";
+        public const string NAME_INPUT_VALIDATE_PANEL = "VALIDATE";
         //------------------------------------------
         //--- TARGETS SUB-ACTIVITIES TAB CONTROL ---
         //------------------------------------------
@@ -80,10 +91,17 @@ namespace Pinch
         public const int INDEX_TARGETS_COMPOSITE_PANEL = 1;
         public const int INDEX_TARGETS_INTERVAL_PANEL = 2;
         public const int INDEX_TARGETS_OPTIMIZE_PANEL = 3;
+
+        public const string NAME_TARGETS_CALCULATE_PANEL = "CALCULATE";
+        public const string NAME_TARGETS_COMPOSITE_PANEL = "COMPOSITE";
+        public const string NAME_TARGETS_INTERVAL_PANEL = "INTERVAL";
+        public const string NAME_TARGETS_OPTIMIZE_PANEL = "OPTIMIZE";
         //--------------------------------------
         //--- HEN SUB-ACTIVITIES TAB CONTROL ---
         //--------------------------------------
         public const int INDEX_HEN_DESIGN_PANEL = 0;
+
+        public const string NAME_HEN_DESIGN_PANEL = "DESIGN";
         #endregion  // TAB CONTROL PANEL INDICES
 
         #region UNIQUE PANEL TABLE PK VALUES
@@ -117,16 +135,16 @@ namespace Pinch
         //---------------
         private PinchTypes _pinchTypes;
 
+        private ArrayList _activitiesPanelList;     // List of Activity Panels (indexed by Main Tab Control Index)
+        private ArrayList _subActivitiesPanelList;  // List of Sub-Activity Panels (indexed by PK)
+        private ArrayList _lookupPanelInfoTable;    // List of Panel Table Row objects (indexed by PK)
+
         #region TAB CONTROLS
         public TabControl MAIN_TAB_CONTROL;
         public TabControl INPUT_TAB_CONTROL;
         public TabControl TARGETS_TAB_CONTROL;
         public TabControl HEN_TAB_CONTROL;
         #endregion  // TAB CONTROLS
-
-        private ArrayList _activitiesPanelList;     // List of Activity Panels (indexed by Main Tab Control Index)
-        private ArrayList _subActivitiesPanelList;  // List of Sub-Activity Panels (indexed by PK)
-        private ArrayList _lookupPanelInfoTable;    // List of Panel Table Row objects (indexed by PK)
 
         #region PUBLIC ACTIVITIES PANELS
         //-------------------------------------
@@ -319,7 +337,7 @@ namespace Pinch
                 //-----------------------------------------------------------------------------
                 //--- ROW: [PK,ActivityIndex,SubActivityIndex,ActivityName,SubActivityName] ---
                 //-----------------------------------------------------------------------------
-                row = new PanelTableRow(0, 0, 0, String.Format("INPUT"), String.Format("PROJECT") );
+                row = new PanelTableRow(0, 0, 0, "INPUT", String.Format("PROJECT") );
                 LookupPanelInfoTable.Add(row);
 
                 row = new PanelTableRow(1, 0, 1, "INPUT", "STREAMS");
@@ -446,7 +464,7 @@ namespace Pinch
             }
             finally
             {
-                PinchLogger.WriteSeparatorLine('=');
+                //PinchLogger.WriteSeparatorLine('=');
             }
         }
         #endregion  // LogLookupPanelInfoTable()
