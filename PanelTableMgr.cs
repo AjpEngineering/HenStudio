@@ -311,6 +311,8 @@ namespace Pinch
 
         #region PRIVATE METHODS
 
+        #region POPULATE METHODS
+
         #region private void PopulateActivitiesPanelList()
         /// <summary>
         /// Populates the Activities Panel List
@@ -508,6 +510,8 @@ namespace Pinch
         }
         #endregion  // private void PopulateLookupPanelInfoTable()
 
+        #endregion  // POPULATE METHODS
+
         #endregion  // PRIVATE METHODS
 
         #region PUBLIC METHODS
@@ -550,6 +554,82 @@ namespace Pinch
             }
         }
         #endregion  // InitializeMgrObjects()
+
+        #region GET CURRENT PANEL METHODS
+
+
+
+        #endregion  // GET CURRENT PANEL METHODS
+
+        #region TABLE LOOKUP METHODS
+
+        #region LookupPK()
+        /// <summary>
+        /// Look through the Lookup Panel Info Table for row matching user supplierd PK index
+        /// </summary>
+        /// <param name="nPK">Primary Key Index</param>
+        /// <returns>PanelTableRow object if matching PK found; otherwise Null</returns>
+        public PanelTableRow LookupPK(int nPK)
+        {
+            string strMethod = "LookupPK()";
+            string strMsg = string.Empty;
+            PanelTableRow row = null;
+            try
+            {
+                foreach(PanelTableRow currRow in LookupPanelInfoTable)
+                {
+                    if (currRow.PK == nPK) return currRow;
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }            
+            return row;     // Rturn row with assocated PK if found, otherwise NULL
+        }
+        #endregion  // LookupPK()
+
+        #region LookupIndices()
+        /// <summary>
+        /// Look through the Lookup Panel Info Table for row 
+        /// matching user supplierd Activity and SubActivity indices
+        /// </summary>
+        /// <param name="nPK">Primary Key Index</param>
+        /// <returns>PanelTableRow object if matching indices are found; otherwise Null</returns>
+        public PanelTableRow LookupIndices(int nActivity, int nSubActivity)
+        {
+            string strMethod = "LookupIndices()";
+            string strMsg = string.Empty;
+            PanelTableRow row = null;
+            try
+            {
+                foreach (PanelTableRow currRow in LookupPanelInfoTable)
+                {
+                    if ((currRow.ActivityIndex == nActivity) &&
+                        (currRow.SubActivityIndex == nSubActivity)) return currRow;
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return row;     // Rturn row with assocated PK if found, otherwise NULL
+        }
+        #endregion  // LookupIndices()
+
+        #endregion  // TABLE LOOKUP METHODS
+
+        #region LOG METHODS
 
         #region LogCurrentState()
         /// <summary>
@@ -711,6 +791,8 @@ namespace Pinch
             }
         }
         #endregion  // LogLookupPanelInfoTable()
+
+        #endregion  // LOG METHODS
 
         #endregion  // PUBLIC METHODS
 
