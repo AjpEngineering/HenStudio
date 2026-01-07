@@ -64,7 +64,7 @@ namespace Pinch
         public const int INDEX_INPUT_PANEL = 0;
         public const int INDEX_TARGETS_PANEL = 1;
         public const int INDEX_HEN_PANEL = 2;
-
+        //---------------------------------------------------------------------
         public const string NAME_INPUT_PANEL = "INPUT";
         public const string NAME_TARGETS_PANEL = "TARGETS";
         public const string NAME_HEN_PANEL = "HEN";
@@ -77,7 +77,7 @@ namespace Pinch
         public const int INDEX_INPUT_COST_PANEL = 3;
         public const int INDEX_INPUT_EXCHANGER_PANEL = 4;
         public const int INDEX_INPUT_VALIDATE_PANEL = 5;
-
+        //---------------------------------------------------------------------
         public const string NAME_INPUT_PROJECT_PANEL = "PROJECT";
         public const string NAME_INPUT_STREAMS_PANEL = "STREAMS";
         public const string NAME_INPUT_UTILITIES_PANEL = "UTILITIES";
@@ -91,7 +91,7 @@ namespace Pinch
         public const int INDEX_TARGETS_COMPOSITE_PANEL = 1;
         public const int INDEX_TARGETS_INTERVAL_PANEL = 2;
         public const int INDEX_TARGETS_OPTIMIZE_PANEL = 3;
-
+        //---------------------------------------------------------------------
         public const string NAME_TARGETS_CALCULATE_PANEL = "CALCULATE";
         public const string NAME_TARGETS_COMPOSITE_PANEL = "COMPOSITE";
         public const string NAME_TARGETS_INTERVAL_PANEL = "INTERVAL";
@@ -100,7 +100,7 @@ namespace Pinch
         //--- HEN SUB-ACTIVITIES TAB CONTROL ---
         //--------------------------------------
         public const int INDEX_HEN_DESIGN_PANEL = 0;
-
+        //---------------------------------------------------------------------
         public const string NAME_HEN_DESIGN_PANEL = "DESIGN";
         #endregion  // TAB CONTROL PANEL INDICES
 
@@ -331,44 +331,110 @@ namespace Pinch
         {
             string strMethod = "PopulateLookupPanelInfoTable()";
             string strMsg = string.Empty;
+            string strPanelStatusName = string.Empty;   // Panel Status Name
             PanelTableRow row;
             try
             {
-                //-----------------------------------------------------------------------------
-                //--- ROW: [PK,ActivityIndex,SubActivityIndex,ActivityName,SubActivityName] ---
-                //-----------------------------------------------------------------------------
-                row = new PanelTableRow(0, 0, 0, "INPUT", String.Format("PROJECT") );
+                //---------------------------------------------------------------------------------
+                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_PROJECT_PANEL);
+                row = new PanelTableRow(PK_INPUT_PROJECT_PANEL,      // Primary Key (PK)
+                                        INDEX_INPUT_PANEL,           // Activity Index
+                                        INDEX_INPUT_PROJECT_PANEL,   // SubActivity Index
+                                        NAME_INPUT_PANEL,            // Activity Name
+                                        NAME_INPUT_PROJECT_PANEL,    // SubActivity Name
+                                        strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
-
-                row = new PanelTableRow(1, 0, 1, "INPUT", "STREAMS");
+                //---------------------------------------------------------------------------------
+                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_STREAMS_PANEL);
+                row = new PanelTableRow(PK_INPUT_STREAMS_PANEL,      // Primary Key (PK)
+                                        INDEX_INPUT_PANEL,           // Activity Index
+                                        INDEX_INPUT_STREAMS_PANEL,   // SubActivity Index
+                                        NAME_INPUT_PANEL,            // Activity Name
+                                        NAME_INPUT_STREAMS_PANEL,    // SubActivity Name
+                                        strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
-
-                row = new PanelTableRow(2, 0, 2, "INPUT", "UTILITIES");
+                //---------------------------------------------------------------------------------
+                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_UTILITIES_PANEL);
+                row = new PanelTableRow(PK_INPUT_UTILITIES_PANEL,    // Primary Key (PK)
+                                        INDEX_INPUT_PANEL,           // Activity Index
+                                        INDEX_INPUT_UTILITIES_PANEL, // SubActivity Index
+                                        NAME_INPUT_PANEL,            // Activity Name
+                                        NAME_INPUT_UTILITIES_PANEL,  // SubActivity Name
+                                        strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
-
-                row = new PanelTableRow(3, 0, 3, "INPUT", "COST");
+                //---------------------------------------------------------------------------------
+                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_COST_PANEL);
+                row = new PanelTableRow(PK_INPUT_COST_PANEL,         // Primary Key (PK)
+                                        INDEX_INPUT_PANEL,           // Activity Index
+                                        INDEX_INPUT_COST_PANEL,      // SubActivity Index
+                                        NAME_INPUT_PANEL,            // Activity Name
+                                        NAME_INPUT_COST_PANEL,       // SubActivity Name
+                                        strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
-
-                row = new PanelTableRow(4, 0, 4, "INPUT", "EXCHANGER");
+                //---------------------------------------------------------------------------------
+                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_EXCHANGER_PANEL);
+                row = new PanelTableRow(PK_INPUT_EXCHANGER_PANEL,    // Primary Key (PK)
+                                        INDEX_INPUT_PANEL,           // Activity Index
+                                        INDEX_INPUT_EXCHANGER_PANEL, // SubActivity Index
+                                        NAME_INPUT_PANEL,            // Activity Name
+                                        NAME_INPUT_EXCHANGER_PANEL,  // SubActivity Name
+                                        strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
-
-                row = new PanelTableRow(5, 0, 5, "INPUT", "VALIDATE");
+                //---------------------------------------------------------------------------------
+                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_VALIDATE_PANEL);
+                row = new PanelTableRow(PK_INPUT_VALIDATE_PANEL,     // Primary Key (PK)
+                                        INDEX_INPUT_PANEL,           // Activity Index
+                                        INDEX_INPUT_VALIDATE_PANEL,  // SubActivity Index
+                                        NAME_INPUT_PANEL,            // Activity Name
+                                        NAME_INPUT_VALIDATE_PANEL,   // SubActivity Name
+                                        strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
-
-                row = new PanelTableRow(6, 1, 0, "TARGETS", "CALCULATE");
+                //=================================================================================
+                strPanelStatusName = (NAME_TARGETS_PANEL + ":" + NAME_TARGETS_CALCULATE_PANEL);
+                row = new PanelTableRow(PK_TARGETS_CALCULATE_PANEL,    // Primary Key (PK)
+                                        INDEX_TARGETS_PANEL,           // Activity Index
+                                        INDEX_TARGETS_CALCULATE_PANEL, // SubActivity Index
+                                        NAME_TARGETS_PANEL,            // Activity Name
+                                        NAME_TARGETS_CALCULATE_PANEL,  // SubActivity Name
+                                        strPanelStatusName);           // Panel Status Name
                 LookupPanelInfoTable.Add(row);
-
-                row = new PanelTableRow(7, 1, 1, "TARGETS", "COMPOSITE");
+                //---------------------------------------------------------------------------------
+                strPanelStatusName = (NAME_TARGETS_PANEL + ":" + NAME_TARGETS_COMPOSITE_PANEL);
+                row = new PanelTableRow(PK_TARGETS_COMPOSITE_PANEL,    // Primary Key (PK)
+                                        INDEX_TARGETS_PANEL,           // Activity Index
+                                        INDEX_TARGETS_COMPOSITE_PANEL, // SubActivity Index
+                                        NAME_TARGETS_PANEL,            // Activity Name
+                                        NAME_TARGETS_COMPOSITE_PANEL,  // SubActivity Name
+                                        strPanelStatusName);           // Panel Status Name
                 LookupPanelInfoTable.Add(row);
-
-                row = new PanelTableRow(8, 1, 2, "TARGETS", "INTERVAL");
+                //---------------------------------------------------------------------------------
+                strPanelStatusName = (NAME_TARGETS_PANEL + ":" + NAME_TARGETS_INTERVAL_PANEL);
+                row = new PanelTableRow(PK_TARGETS_INTERVAL_PANEL,     // Primary Key (PK)
+                                        INDEX_TARGETS_PANEL,           // Activity Index
+                                        INDEX_TARGETS_INTERVAL_PANEL,  // SubActivity Index
+                                        NAME_TARGETS_PANEL,            // Activity Name
+                                        NAME_TARGETS_INTERVAL_PANEL,   // SubActivity Name
+                                        strPanelStatusName);           // Panel Status Name
                 LookupPanelInfoTable.Add(row);
-
-                row = new PanelTableRow(9, 1, 3, "TARGETS", "OPTIMIZE");
+                //---------------------------------------------------------------------------------
+                strPanelStatusName = (NAME_TARGETS_PANEL + ":" + NAME_TARGETS_OPTIMIZE_PANEL);
+                row = new PanelTableRow(PK_TARGETS_OPTIMIZE_PANEL,     // Primary Key (PK)
+                                        INDEX_TARGETS_PANEL,           // Activity Index
+                                        INDEX_TARGETS_OPTIMIZE_PANEL,  // SubActivity Index
+                                        NAME_TARGETS_PANEL,            // Activity Name
+                                        NAME_TARGETS_OPTIMIZE_PANEL,   // SubActivity Name
+                                        strPanelStatusName);           // Panel Status Name
                 LookupPanelInfoTable.Add(row);
-
-                row = new PanelTableRow(10, 2, 0, "HEN", "DESIGN");
+                //=================================================================================
+                strPanelStatusName = (NAME_HEN_PANEL + ":" + NAME_HEN_DESIGN_PANEL);
+                row = new PanelTableRow(PK_HEN_DESIGN_PANEL,           // Primary Key (PK)
+                                        INDEX_HEN_PANEL,               // Activity Index
+                                        INDEX_HEN_DESIGN_PANEL,        // SubActivity Index
+                                        NAME_HEN_PANEL,                // Activity Name
+                                        NAME_HEN_DESIGN_PANEL,         // SubActivity Name
+                                        strPanelStatusName);           // Panel Status Name
                 LookupPanelInfoTable.Add(row);
+                //=================================================================================
 
                 LogLookupPanelInfoTable();      // Log Table Contents
             }
@@ -439,20 +505,21 @@ namespace Pinch
             {
                 PinchLogger.WriteSection("LOOKUP PANEL INFORMATION TABLE");
 
-                strMsg = String.Format("      ACTIVITY       SUB-ACTIVITY ");
+                strMsg = String.Format("      ACTIVITY        SUB-ACTIVITY         PANEL STATUS");
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format(" PK  INDEX  NAME     INDEX   NAME ");
+                strMsg = String.Format(" PK  INDEX  NAME     INDEX   NAME          NAME");
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 PinchLogger.WriteSeparatorLine('-');
 
                 foreach (PanelTableRow row in LookupPanelInfoTable)
                 {
-                    strMsg = String.Format(" {0:00}   {1}     {2,-9} {3}      {4,-12} ",
+                    strMsg = String.Format(" {0:00}   {1}     {2,-9} {3}      {4,-12}  {5,-25} ",
                                             row.PK, 
                                             row.ActivityIndex,    row.ActivityName,
-                                            row.SubActivityIndex, row.SubActivityName);
+                                            row.SubActivityIndex, row.SubActivityName,
+                                            row.PanelStatusName);
                     PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
             }

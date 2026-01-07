@@ -64,6 +64,7 @@ namespace Pinch
         private int _nSubActivityIndex;     // Sub-Activity Index (Sub-Activity Tab Control Index)
         private string _strActivityName;    // Activity Name
         private string _strSubActivityName; // Sub-Activity Name
+        private string _strPanelStatusName; // Panel Status Name
         #endregion  // FIELDS
 
         #region PROPERTIES
@@ -123,6 +124,17 @@ namespace Pinch
         }
         #endregion      // SubActivityName
 
+        #region PanelStatusName
+        /// <summary>
+        /// PanelStatusName Property
+        /// </summary>
+        public string PanelStatusName
+        {
+            get { return _strPanelStatusName; }
+            set { _strPanelStatusName = value; }
+        }
+        #endregion      // PanelStatusName
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -131,9 +143,10 @@ namespace Pinch
         /// </summary>
         public PanelTableRow(int nPK = -1, 
                              int nActivityIndex = -1, 
-                             int nSubActivityIndex = -1, 
-                             string strActivityName = "", 
-                             string strSuActivityName = "")
+                             int nSubActivityIndex = -1,
+                             string strActivityName = "",
+                             string strSubActivityName = "",
+                             string strPanelStatusName = "")
         {
             string strMethod = "CTOR";
             string strMsg = string.Empty;
@@ -146,7 +159,8 @@ namespace Pinch
                 ActivityIndex = nActivityIndex;
                 SubActivityIndex = nSubActivityIndex;
                 ActivityName = strActivityName;
-                SubActivityName = strSuActivityName;
+                SubActivityName = strSubActivityName;
+                PanelStatusName = strPanelStatusName;
             }
             catch (Exception ex)
             {
@@ -156,8 +170,8 @@ namespace Pinch
             }
             finally
             {
-                strMsg = String.Format("  ==> Panel Table Row: PK: {0:00}  Activity [{1}] Name: {2,-10} SubActivity[{3}] Name: {4,-12}",
-                                        PK, ActivityIndex, ActivityName, SubActivityIndex, SubActivityName);
+                strMsg = String.Format("  ==> Panel Table Row: PK: {0:00}  Activity [{1}] Name: {2,-10} SubActivity[{3}] Name: {4,-12} STATUS Name: {5,-25}",
+                                        PK, ActivityIndex, ActivityName, SubActivityIndex, SubActivityName, PanelStatusName);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
             }
         }
