@@ -292,7 +292,7 @@ namespace Pinch
             }
             finally
             {
-                
+                    LogActivitiesPanelList();   // Log Activities Panel List            
             }
         }
         #endregion  // private void PopulateActivitiesPanelList()
@@ -307,8 +307,22 @@ namespace Pinch
             string strMsg = string.Empty;
             try
             {
-
-
+                SubActivitiesPanelList.Clear();
+                //-------------------------------------------------------------
+                SubActivitiesPanelList.Add(INPUT_PROJECT_PANEL);
+                SubActivitiesPanelList.Add(INPUT_STREAMS_PANEL);
+                SubActivitiesPanelList.Add(INPUT_UTILITIES_PANEL);
+                SubActivitiesPanelList.Add(INPUT_COST_PANEL);
+                SubActivitiesPanelList.Add(INPUT_EXCHANGER_PANEL);
+                SubActivitiesPanelList.Add(INPUT_VALIDATE_PANEL);
+                //-------------------------------------------------------------
+                SubActivitiesPanelList.Add(TARGETS_CALCULATE_PANEL);
+                SubActivitiesPanelList.Add(TARGETS_COMPOSITE_PANEL);
+                SubActivitiesPanelList.Add(TARGETS_INTERVAL_PANEL);
+                SubActivitiesPanelList.Add(TARGETS_OPTIMIZE_PANEL);
+                //-------------------------------------------------------------
+                SubActivitiesPanelList.Add(HEN_DESIGN_PANEL);
+                //-------------------------------------------------------------
             }
             catch (Exception ex)
             {
@@ -318,7 +332,7 @@ namespace Pinch
             }
             finally
             {
-
+               LogSubActivitiesPanelList();    // Log Sub-Activities Panel list
             }
         }
         #endregion  // private void PopulateSubActivitiesPanelTable()
@@ -335,6 +349,7 @@ namespace Pinch
             PanelTableRow row;
             try
             {
+                PinchLogger.WriteSection("LOOKUP PANEL INFORMATION TABLE");
                 //---------------------------------------------------------------------------------
                 strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_PROJECT_PANEL);
                 row = new PanelTableRow(PK_INPUT_PROJECT_PANEL,      // Primary Key (PK)
@@ -435,8 +450,8 @@ namespace Pinch
                                         strPanelStatusName);           // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //=================================================================================
+                PinchLogger.WriteSeparatorLine('-');
 
-                LogLookupPanelInfoTable();      // Log Table Contents
             }
             catch (Exception ex)
             {
@@ -446,7 +461,8 @@ namespace Pinch
             }
             finally
             {
-            }
+                 LogLookupPanelInfoTable();      // Log Table Contents
+           }
         }
         #endregion  // private void PopulateLookupPanelInfoTable()
 
@@ -493,6 +509,92 @@ namespace Pinch
         }
         #endregion  // InitializeMgrObjects()
 
+        #region LogActivitiesPanelList()
+        /// <summary>
+        /// Log the contents of the Activities Panel List.
+        /// </summary>
+        public void LogActivitiesPanelList()
+        {
+            string strMethod = "LogActivitiesPanelList()";
+            string strMsg = string.Empty;
+            int nIndex = 0;     // ArrayList index
+            try
+            {
+                PinchLogger.WriteSection("ACTIVITIES PANEL LIST");
+
+                strMsg = String.Format("ACTIVITY   PANEL ");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format(" INDEX     NAME");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                PinchLogger.WriteSeparatorLine('-');
+
+                foreach (Panel panel in ActivitiesPanelList)
+                {
+                    if(panel==null) strMsg = String.Format("   {0:00}      NULL ", nIndex);
+                    else strMsg = String.Format("   {0:00}      {1} ", nIndex, panel.Name);
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    
+                    nIndex++;   // Increment Index
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+        }
+        #endregion  // LogActivitiesPanelList()
+
+        #region LogSubActivitiesPanelList()
+        /// <summary>
+        /// Log the contents of the Aub-ctivities Panel List.
+        /// </summary>
+        public void LogSubActivitiesPanelList()
+        {
+            string strMethod = "LogSubActivitiesPanelList()";
+            string strMsg = string.Empty;
+            int nIndex = 0;     // ArrayList index
+            try
+            {
+                PinchLogger.WriteSection("SUB-ACTIVITIES PANEL LIST");
+
+                strMsg = String.Format("SUB-ACTIVITY   PANEL ");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("   INDEX       NAME");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                PinchLogger.WriteSeparatorLine('-');
+
+                foreach (Panel panel in SubActivitiesPanelList)
+                {
+                    if (panel == null) strMsg = String.Format("     {0:00}        NULL ", nIndex);
+                    else strMsg = String.Format("     {0:00}        {1} ", nIndex, panel.Name);
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                    nIndex++;   // Increment Index
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+        }
+        #endregion  // LogSubActivitiesPanelList()
+
         #region LogLookupPanelInfoTable()
         /// <summary>
         /// Log the contents of the Looup Panel Information Table.
@@ -503,7 +605,7 @@ namespace Pinch
             string strMsg = string.Empty;
             try
             {
-                PinchLogger.WriteSection("LOOKUP PANEL INFORMATION TABLE");
+                //PinchLogger.WriteSection("LOOKUP PANEL INFORMATION TABLE");
 
                 strMsg = String.Format("      ACTIVITY        SUB-ACTIVITY         PANEL STATUS");
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
