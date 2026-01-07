@@ -446,6 +446,7 @@ namespace Pinch
             }
             finally
             {
+                PanelTableMgrObj.LogCurrentState(); // Log the current index state of the Panel Table Manager
                 PinchLogger.WriteSection("END CONSTRUCTION SECTION");
             }
         }

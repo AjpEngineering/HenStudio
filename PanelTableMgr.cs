@@ -42,6 +42,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using PinchGlobal;
+
+using static System.Windows.Forms.AxHost;
 #endregion  // REFERENCES
 
 #region namespace Pinch
@@ -139,6 +141,10 @@ namespace Pinch
         private ArrayList _subActivitiesPanelList;  // List of Sub-Activity Panels (indexed by PK)
         private ArrayList _lookupPanelInfoTable;    // List of Panel Table Row objects (indexed by PK)
 
+        private int _nCurrActivity = 0;     // Currently Selected Activity     (Activity     Tab Control) Index
+        private int _nCurrSubActivity = 0;  // Currently Selected Sub-Activity (Sub-Activity Tab Control) Index
+        private int _nCurrPK = 0;           // Current Panel Primary Key (Lookup Table & SubActivity List)
+
         #region TAB CONTROLS
         public TabControl MAIN_TAB_CONTROL;
         public TabControl INPUT_TAB_CONTROL;
@@ -182,8 +188,6 @@ namespace Pinch
         #endregion  // FIELDS
 
         #region PROPERTIES
-
-        #region OBJECTS
 
         #region PinchTypesObj
         /// <summary>
@@ -230,7 +234,38 @@ namespace Pinch
         }
         #endregion      // LookupPanelInfoTable
 
-        #endregion  // OBJECTS
+        #region CurrActivity
+        /// <summary>
+        /// CurrActivity Property
+        /// </summary>
+        public int CurrActivity
+        {
+            get { return _nCurrActivity; }
+            set { _nCurrActivity = value; }
+        }
+        #endregion      // CurrActivity
+
+        #region CurrSubActivity
+        /// <summary>
+        /// CurrSubActivity Property
+        /// </summary>
+        public int CurrSubActivity
+        {
+            get { return _nCurrSubActivity; }
+            set { _nCurrSubActivity = value; }
+        }
+        #endregion      // CurrSubActivity
+
+        #region CurrPK
+        /// <summary>
+        /// CurrPK Property
+        /// </summary>
+        public int CurrPK
+        {
+            get { return _nCurrPK; }
+            set { _nCurrPK = value; }
+        }
+        #endregion      // CurrPK
 
         #endregion  // PROPERTIES
 
@@ -253,6 +288,12 @@ namespace Pinch
                 SubActivitiesPanelList = new ArrayList();   // Sub-Activities Panel List
                 LookupPanelInfoTable = new ArrayList();     // Lookup Panel Info Table
                                                             // PK used as index into SubActivities Panel List
+                //-----------------------------------------
+                //--- Set Initial Current Indices State ---
+                //-----------------------------------------
+                CurrActivity = 0;       // Current Activity Index
+                CurrSubActivity = 0;    // Current Sub-Activity Index
+                CurrPK = 0;             // Current Primary Key for SubActivities List and Lookup Table
             }
             catch (Exception ex)
             {
@@ -262,6 +303,7 @@ namespace Pinch
             }
             finally
             {
+                LogCurrentState(); // Log the current index state of the Panel Table Manager
                 PinchLogger.WriteSection("END PANEL TABLE CONSTRUCTION SECTION");
             }
         }
@@ -508,6 +550,38 @@ namespace Pinch
             }
         }
         #endregion  // InitializeMgrObjects()
+
+        #region LogCurrentState()
+        /// <summary>
+        /// Log the current index state of the Panel Table Manager.
+        /// </summary>
+        public void LogCurrentState()
+        {
+            string strMethod = "LogCurrentState()";
+            string strMsg = string.Empty;
+            try
+            {
+                PinchLogger.WriteSection("CURRENT TABLE MANAGER STATE");
+
+                strMsg = String.Format(" ==> Current Activity    Index: {0:00} ", CurrActivity);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = String.Format(" ==> Current SubActivity Index: {0:00} ", CurrSubActivity);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = String.Format(" ==> Current Primary Key (PK) : {0:00} ", CurrPK);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+        }
+        #endregion  // LogCurrentState()
 
         #region LogActivitiesPanelList()
         /// <summary>
