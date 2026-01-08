@@ -40,6 +40,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Schema;
 
 using PinchGlobal;
 
@@ -56,10 +57,10 @@ namespace Pinch
     public class PanelTableMgr
     {
         #region CONSTANTS
-        const string NAMESPACE = "Pinch";
-        const string CLASS = "PanelTableMgr";
+        private const string NAMESPACE = "Pinch";
+        private const string CLASS = "PanelTableMgr";
 
-        #region TAB CONTROL PANEL INDICES
+        #region TAB CONTROL AND PANEL INDICES
         //-----------------------------------
         //--- MAIN ACTIVITIES TAB CONTROL ---
         //-----------------------------------
@@ -104,7 +105,7 @@ namespace Pinch
         public const int INDEX_HEN_DESIGN_PANEL = 0;
         //---------------------------------------------------------------------
         public const string NAME_HEN_DESIGN_PANEL = "DESIGN";
-        #endregion  // TAB CONTROL PANEL INDICES
+        #endregion  // TAB CONTROL AND PANEL INDICES
 
         #region UNIQUE PANEL TABLE PK VALUES
         //----------------------------------------
@@ -132,36 +133,50 @@ namespace Pinch
         #endregion      // CONSTANTS        
 
         #region FIELDS
-        //---------------
-        //--- OBJECTS ---
-        //---------------
         private PinchTypes _pinchTypes;
 
+        //-------------------------------------------- ArrayList Objects ----------------------------------------------
         private ArrayList _activitiesPanelList;     // List of Activity Panels (indexed by Main Tab Control Index)
         private ArrayList _subActivitiesPanelList;  // List of Sub-Activity Panels (indexed by PK)
         private ArrayList _lookupPanelInfoTable;    // List of Panel Table Row objects (indexed by PK)
 
-        private int _nCurrActivity = 0;     // Currently Selected Activity     (Activity     Tab Control) Index
-        private int _nCurrSubActivity = 0;  // Currently Selected Sub-Activity (Sub-Activity Tab Control) Index
-        private int _nCurrPK = 0;           // Current Panel Primary Key (Lookup Table & SubActivity List)
+        //-------------------------------------------- Selected State -------------------------------------------------
+        private int _nSelActivity = 0;              // Selected Activity     (Activity     Tab Control) Index
+        private int _nSelSubActivity = 0;           // Selected Sub-Activity (Sub-Activity Tab Control) Index
+        private int _nSelPK = 0;                    // Selected Panel Primary Key (Lookup Table & SubActivity List)
 
-        #region TAB CONTROLS
-        public TabControl MAIN_TAB_CONTROL;
-        public TabControl INPUT_TAB_CONTROL;
-        public TabControl TARGETS_TAB_CONTROL;
-        public TabControl HEN_TAB_CONTROL;
-        #endregion  // TAB CONTROLS
+        private PanelTableRow _selRow;              // Selected Lookup Table Row
 
-        #region PUBLIC ACTIVITIES PANELS
+        private string _strSelActivityName = String.Empty;     // Selected Activity     Name
+        private string _strSelSubActivityName = String.Empty;  // Selected SubActivity  Name
+        private string _strSelPanelStatusName = String.Empty;  // Selected Panel Status Name
+
+        private TabControl _selActivityTabControl = null;       // Selected Activity TabControl
+        private TabControl _selSubActivityTabControl = null;    // Selected Sub-Activity TabControl
+
+        private Panel _selActivityPanel = null;     // Selected Activity Panel
+        private Panel _selSubActivityPanel = null;  // Selected Sub-Activity Panel
+        //-------------------------------------------------------------------------------------------------------------
+
+        #region FORM CONTROLS ... public ... Assign in FormMain Construction
+
+        #region TAB CONTROLS ... public ... Assign in FormMain Construction
+        public TabControl MAIN_TAB_CONTROL;         // Main Activity TabControl
+        public TabControl INPUT_TAB_CONTROL;        // INPUT Sub-Activity TabControl 
+        public TabControl TARGETS_TAB_CONTROL;      // TARGETS  Sub-Activity TabControl 
+        public TabControl HEN_TAB_CONTROL;          // HEN Sub-Activity TabControl 
+        #endregion  // TAB CONTROLS ...public ... Assign in FormMain Construction
+
+        #region PUBLIC ACTIVITIES PANELS ... public ... Assign in FormMain Construction
         //-------------------------------------
         //--- On MAIN ACTIVITIES TabControl ---
         //-------------------------------------
-        public Panel INPUT_PANEL;      // INPUT Panel   - Index: INDEX_INPUT_PANEL
-        public Panel TARGETS_PANEL;    // TARGETS Panel - Index: INDEX_TARGETS_PANEL
-        public Panel HEN_PANEL;        // HEN Panel     - Index: INDEX_HEN_PANEL
-        #endregion  // PUBLIC ACTIVITIES PANELS
+        public Panel INPUT_PANEL;      // INPUT Panel   - Index: INDEX_INPUT_PANEL ..... Name: "INPUT"
+        public Panel TARGETS_PANEL;    // TARGETS Panel - Index: INDEX_TARGETS_PANEL ... Name: "TARGETS"
+        public Panel HEN_PANEL;        // HEN Panel     - Index: INDEX_HEN_PANEL ....... Name: "HEN"
+        #endregion  // PUBLIC ACTIVITIES PANELS ... public ... Assign in FormMain Construction
 
-        #region PUBLIC SUB-ACTIVITIES PANELS
+        #region PUBLIC SUB-ACTIVITIES PANELS ... public ... Assign in FormMain Construction
         //------------------------------------------------------------------------------------
         //--- INPUT SUB-ACTIVITIES Panels   -> PK Index ... [Activity,Sub-Activity Indices ---
         //------------------------------------------------------------------------------------
@@ -183,7 +198,9 @@ namespace Pinch
         //------------------------------------------------------------------------------------
         public Panel HEN_DESIGN_PANEL;         // HEN-DESIGN        Panel - PK: 10 ... [2,0]
         //------------------------------------------------------------------------------------
-        #endregion  // PUBLIC SUB-ACTIVITIES PANELS
+        #endregion  // PUBLIC SUB-ACTIVITIES PANELS ... public ... Assign in FormMain Construction
+
+        #endregion  // FORM CONTROLS ... public ... Assign in FormMain Construction
 
         #endregion  // FIELDS
 
@@ -234,46 +251,134 @@ namespace Pinch
         }
         #endregion      // LookupPanelInfoTable
 
-        #region CurrActivity
+        #region SelActivity
         /// <summary>
-        /// CurrActivity Property
+        /// SelActivity Property
         /// </summary>
-        public int CurrActivity
+        public int SelActivity
         {
-            get { return _nCurrActivity; }
-            set { _nCurrActivity = value; }
+            get { return _nSelActivity; }
+            set { _nSelActivity = value; }
         }
-        #endregion      // CurrActivity
+        #endregion      // SelActivity
 
-        #region CurrSubActivity
+        #region SelSubActivity
         /// <summary>
-        /// CurrSubActivity Property
+        /// SelSubActivity Property
         /// </summary>
-        public int CurrSubActivity
+        public int SelSubActivity
         {
-            get { return _nCurrSubActivity; }
-            set { _nCurrSubActivity = value; }
+            get { return _nSelSubActivity; }
+            set { _nSelSubActivity = value; }
         }
-        #endregion      // CurrSubActivity
+        #endregion      // SelSubActivity
 
-        #region CurrPK
+        #region SelPK
         /// <summary>
-        /// CurrPK Property
+        /// SelPK Property
         /// </summary>
-        public int CurrPK
+        public int SelPK
         {
-            get { return _nCurrPK; }
-            set { _nCurrPK = value; }
+            get { return _nSelPK; }
+            set { _nSelPK = value; }
         }
-        #endregion      // CurrPK
+        #endregion      // SelPK
+
+        #region SelRow
+        /// <summary>
+        /// SelRow Property
+        /// </summary>
+        public PanelTableRow SelRow
+        {
+            get { return _selRow; }
+            set { _selRow = value; }
+        }
+        #endregion      // SelRow
+
+        #region SelActivityName
+        /// <summary>
+        /// ActivityName Property
+        /// </summary>
+        public string SelActivityName
+        {
+            get { return _strSelActivityName; }
+            set { _strSelActivityName = value; }
+        }
+        #endregion      // SelActivityName
+
+        #region SelSubActivityName
+        /// <summary>
+        /// SelSubActivityName Property
+        /// </summary>
+        public string SelSubActivityName
+        {
+            get { return _strSelSubActivityName; }
+            set { _strSelSubActivityName = value; }
+        }
+        #endregion      // SelSubActivityName
+
+        #region SelPanelStatusName
+        /// <summary>
+        /// SelPanelStatusName Property
+        /// </summary>
+        public string SelPanelStatusName
+        {
+            get { return _strSelPanelStatusName; }
+            set { _strSelPanelStatusName = value; }
+        }
+        #endregion      // SelPanelStatusName
+
+        #region SelActivityTabControl
+        /// <summary>
+        /// SelActivityTabControl Property
+        /// </summary>
+        public TabControl SelActivityTabControl
+        {
+            get { return _selActivityTabControl; }
+            set { _selActivityTabControl = value; }
+        }
+        #endregion      // SelActivityTabControl
+
+        #region SelSubActivityTabControl
+        /// <summary>
+        /// SelSubActivityTabControl Property
+        /// </summary>
+        public TabControl SelSubActivityTabControl
+        {
+            get { return _selSubActivityTabControl; }
+            set { _selSubActivityTabControl = value; }
+        }
+        #endregion      // SelSubActivityTabControl
+
+        #region SelActivityPanel
+        /// <summary>
+        /// SelActivityPanel Property
+        /// </summary>
+        public Panel SelActivityPanel
+        {
+            get { return _selActivityPanel; }
+            set { _selActivityPanel = value; }
+        }
+        #endregion      // SelActivityPanel
+
+        #region SelSubActivityPanel
+        /// <summary>
+        /// SelSubActivityPanel Property
+        /// </summary>
+        public Panel SelSubActivityPanel
+        {
+            get { return _selSubActivityPanel; }
+            set { _selSubActivityPanel = value; }
+        }
+        #endregion      // SelSubActivityPanel
 
         #endregion  // PROPERTIES
 
         #region CTOR
         /// <summary>
-        /// Default Constructor
+        /// Parameterized Constructor
         /// </summary>
-        public PanelTableMgr()
+        public PanelTableMgr(PinchTypes pinchTypesObj)
         {
             string strMethod = "CTOR";
             string strMsg = string.Empty;
@@ -281,6 +386,7 @@ namespace Pinch
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
             try
             {
+                PinchTypesObj = pinchTypesObj;              // Assign PinchTypes Object
                 //---------------------------------
                 //--- Create Empty List Objects ---
                 //---------------------------------
@@ -288,12 +394,13 @@ namespace Pinch
                 SubActivitiesPanelList = new ArrayList();   // Sub-Activities Panel List
                 LookupPanelInfoTable = new ArrayList();     // Lookup Panel Info Table
                                                             // PK used as index into SubActivities Panel List
-                //-----------------------------------------
-                //--- Set Initial Current Indices State ---
-                //-----------------------------------------
-                CurrActivity = 0;       // Current Activity Index
-                CurrSubActivity = 0;    // Current Sub-Activity Index
-                CurrPK = 0;             // Current Primary Key for SubActivities List and Lookup Table
+                //----------------------------------------------------------------------
+                //--- Set Initial Current Indices                                    ---
+                //--- Initial State Set in InitializeMgrObjects() ... from FormMain  ---
+                //----------------------------------------------------------------------
+                SelActivity = -1;       // Initialize Activity Index
+                SelSubActivity = -1;    // Initialize Sub-Activity Index
+                SelPK = -1;             // Initialize Primary Key for SubActivities List and Lookup Table
             }
             catch (Exception ex)
             {
@@ -313,7 +420,7 @@ namespace Pinch
 
         #region POPULATE METHODS
 
-        #region private void PopulateActivitiesPanelList()
+        #region PopulateActivitiesPanelList()
         /// <summary>
         /// Populates the Activities Panel List
         /// </summary>
@@ -339,9 +446,9 @@ namespace Pinch
                     LogActivitiesPanelList();   // Log Activities Panel List            
             }
         }
-        #endregion  // private void PopulateActivitiesPanelList()
+        #endregion  // PopulateActivitiesPanelList()
 
-        #region private void PopulateSubActivitiesPanelTable()
+        #region PopulateSubActivitiesPanelTable()
         /// <summary>
         /// Populates the Sub-Activities Panels Table
         /// </summary>
@@ -379,9 +486,9 @@ namespace Pinch
                LogSubActivitiesPanelList();    // Log Sub-Activities Panel list
             }
         }
-        #endregion  // private void PopulateSubActivitiesPanelTable()
+        #endregion  // PopulateSubActivitiesPanelTable()
 
-        #region private void PopulateLookupPanelInfoTable()
+        #region PopulateLookupPanelInfoTable()
         /// <summary>
         /// Populates the Lookup Panels Info Table
         /// </summary>
@@ -508,70 +615,21 @@ namespace Pinch
                  LogLookupPanelInfoTable();      // Log Table Contents
            }
         }
-        #endregion  // private void PopulateLookupPanelInfoTable()
+        #endregion  // PopulateLookupPanelInfoTable()
 
         #endregion  // POPULATE METHODS
 
-        #endregion  // PRIVATE METHODS
-
-        #region PUBLIC METHODS
-
-        #region InitializeMgrObjects()
-        /// <summary>
-        /// Initialize the Lists and Table objects 
-        /// Ensure all Panel objects are assigned to the public fields before invoking this method.
-        /// Ensure all assigned Panel objects align with CONST indices
-        /// (i.e., FormMain create Mgr object, assigns Panels and TabContols objects).
-        /// </summary>
-        public void InitializeMgrObjects()
-        {
-            string strMethod = "InitializeMgrObjects()";
-            string strMsg = string.Empty;
-            try
-            {
-                //-----------------------------
-                //--- Activities Panel List ---
-                //-----------------------------
-                PopulateActivitiesPanelList();
-                //---------------------------------
-                //--- Sub-Activities Panel List ---
-                //---------------------------------
-                PopulateSubActivitiesPanelTable();
-                //----------------------------------------------------------------------------------
-                //--- Lookup Panel Info Table ... PK used as index into SubActivities Panel List ---
-                //----------------------------------------------------------------------------------
-                PopulateLookupPanelInfoTable();
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-
-            }
-        }
-        #endregion  // InitializeMgrObjects()
-
-        #region GET CURRENT PANEL METHODS
-
-
-
-        #endregion  // GET CURRENT PANEL METHODS
-
         #region TABLE LOOKUP METHODS
 
-        #region LookupPK()
+        #region FindTableRow(int nPK)
         /// <summary>
         /// Look through the Lookup Panel Info Table for row matching user supplierd PK index
         /// </summary>
         /// <param name="nPK">Primary Key Index</param>
         /// <returns>PanelTableRow object if matching PK found; otherwise Null</returns>
-        public PanelTableRow LookupPK(int nPK)
+        private PanelTableRow FindTableRow(int nPK)
         {
-            string strMethod = "LookupPK()";
+            string strMethod = "FindTableRow()";
             string strMsg = string.Empty;
             PanelTableRow row = null;
             try
@@ -592,18 +650,18 @@ namespace Pinch
             }            
             return row;     // Rturn row with assocated PK if found, otherwise NULL
         }
-        #endregion  // LookupPK()
+        #endregion  // FindTableRow(int nPK)
 
-        #region LookupIndices()
+        #region FindTableRow(int nActivity, int nSubActivity)
         /// <summary>
         /// Look through the Lookup Panel Info Table for row 
         /// matching user supplierd Activity and SubActivity indices
         /// </summary>
         /// <param name="nPK">Primary Key Index</param>
         /// <returns>PanelTableRow object if matching indices are found; otherwise Null</returns>
-        public PanelTableRow LookupIndices(int nActivity, int nSubActivity)
+        private PanelTableRow FindTableRow(int nActivity, int nSubActivity)
         {
-            string strMethod = "LookupIndices()";
+            string strMethod = "FindTableRow()";
             string strMsg = string.Empty;
             PanelTableRow row = null;
             try
@@ -623,11 +681,120 @@ namespace Pinch
             finally
             {
             }
-            return row;     // Rturn row with assocated PK if found, otherwise NULL
+            return row;     // Return row with assocated PK if found, otherwise NULL
         }
-        #endregion  // LookupIndices()
+        #endregion  // FindTableRow(int nActivity, int nSubActivity)
 
         #endregion  // TABLE LOOKUP METHODS
+
+        #endregion  // PRIVATE METHODS
+
+        #region PUBLIC METHODS
+
+        #region InitializeMgrObjects()
+        /// <summary>
+        /// Initialize the Lists and Table objects 
+        /// Ensure all Panel objects are assigned to the public fields before invoking this method.
+        /// Ensure all assigned Panel objects align with CONST indices
+        /// (i.e., FormMain create Mgr object, assigns Panels and TabContols objects).
+        /// Initial Selected State set.
+        /// </summary>
+        public void InitializeMgrObjects()
+        {
+            string strMethod = "InitializeMgrObjects()";
+            string strMsg = string.Empty;
+
+            int nInitialActivityIndex = 0;      // Initial Activity Index
+            int nInitialSubActivityIndex = 0;   // Initial SubActivity Index
+            try
+            {
+                PopulateActivitiesPanelList();      // Populate Activities Panel List
+                PopulateSubActivitiesPanelTable();  // Populate SubActivities Panel List (PK as Index)
+                PopulateLookupPanelInfoTable();     // Populate Lookup Panel Table (PK)
+
+                SetSelectedState(nInitialActivityIndex, nInitialSubActivityIndex);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
+            }
+        }
+        #endregion  // InitializeMgrObjects()
+
+        #region SetSelectedState()
+        /// <summary>
+        /// Assign the Current Selected Settings
+        /// </summary>
+        /// <param name="nActivityIndex">Activity Index</param>
+        /// <param name="nSubActivityIndex">SubActivity Index</param>
+        /// <returns>Lookup Table Row Matching Indices</returns>
+        public PanelTableRow SetSelectedState(int nActivityIndex, int nSubActivityIndex)
+        {
+            string strMethod = "SetSelectedState()";
+            string strMsg = string.Empty;
+            PanelTableRow row = null;
+            try
+            {
+                SelActivity = nActivityIndex;           // Set Selected Activity     Index
+                SelSubActivity = nSubActivityIndex;     // Set Selected Sub-Activity Index
+                //--------------------------------------------------
+                //--- Find Lookup Table Row for Selected Indices ---
+                //--------------------------------------------------
+                row = FindTableRow(SelActivity, SelSubActivity);   // Find Lookup Table Row for Selected Indices 
+                if (row != null)
+                {
+                    SelPK = row.PK;
+
+                    SelActivityName = row.ActivityName;
+                    SelSubActivityName = row.SubActivityName;
+                    SelPanelStatusName = row.PanelStatusName;
+
+                    SelActivityPanel = (Panel)ActivitiesPanelList[SelActivity];
+                    SelSubActivityPanel = (Panel)SubActivitiesPanelList[SelSubActivity];
+                }
+                //---------------------------------
+                //--- Main Activity Tab Control ---
+                //---------------------------------
+                SelActivityTabControl = MAIN_TAB_CONTROL;   // Activity TabControl ... ALWAYS MAIN_TAB_CONTROL
+                //--------------------------------
+                //--- Sub-Activity Tab Control ---
+                //--------------------------------
+                switch (SelActivity)
+                {
+                    case INDEX_INPUT_PANEL:
+                        SelSubActivityTabControl = INPUT_TAB_CONTROL;   // INPUT SubActivity TabControl
+                        break;
+                    case INDEX_TARGETS_PANEL:
+                        SelSubActivityTabControl = TARGETS_TAB_CONTROL; // TARGETS SubActivity TabControl
+                        break;
+                    case INDEX_HEN_PANEL:
+                        SelSubActivityTabControl = HEN_TAB_CONTROL;     // HEN SubActivity TabControl
+                        break;
+                    default:
+                        throw new Exception("*** INVALID Selected Activity Index for AubActivity Tab Control ***");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                SelRow = row;
+            }
+            return row;     // Return PanelTable Row Object
+        }
+
+        #endregion  // SetSelectedState()
 
         #region LOG METHODS
 
@@ -643,12 +810,20 @@ namespace Pinch
             {
                 PinchLogger.WriteSection("CURRENT TABLE MANAGER STATE");
 
-                strMsg = String.Format(" ==> Current Activity    Index: {0:00} ", CurrActivity);
+                strMsg = String.Format(" ==> Current Primary Key (PK) : {0:00}  PANEL NAME: {1}", 
+                                       SelPK, SelPanelStatusName);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = String.Format(" ==> Current SubActivity Index: {0:00} ", CurrSubActivity);
+
+                strMsg = String.Format(" ==> Current Activity    Index: {0:00}  NAME: {1}", 
+                                       SelActivity, SelActivityName);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = String.Format(" ==> Current Primary Key (PK) : {0:00} ", CurrPK);
+
+                strMsg = String.Format(" ==> Current SubActivity Index: {0:00}  Name: {1}", 
+                                       SelSubActivity, SelSubActivityName);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                if(SelRow != null)  SelRow.LogRow();  // Log Row Data
+                else PinchLogger.LogWarning(NAMESPACE, CLASS, strMethod, "Selected Row is Null! ... NOT Initialized Yet!");
             }
             catch (Exception ex)
             {

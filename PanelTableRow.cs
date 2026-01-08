@@ -170,12 +170,40 @@ namespace Pinch
             }
             finally
             {
-                strMsg = String.Format("  ==> Panel Table Row: PK: {0:00}  Activity [{1}] Name: {2,-10} SubActivity[{3}] Name: {4,-12} STATUS Name: {5,-25}",
-                                        PK, ActivityIndex, ActivityName, SubActivityIndex, SubActivityName, PanelStatusName);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                LogRow();   // Log Row Data
             }
         }
         #endregion  // CTOR
+
+        #region LogRow
+        /// <summary>
+        /// Log Row Data
+        /// </summary>
+        public void LogRow()
+        {
+            string strMethod = "LogRow()";
+            string strMsg = string.Empty;
+            try
+            {
+                strMsg = String.Format("  ==> Panel Table Row: PK: {0:00}  Activity [{1}] Name: {2,-10} SubActivity[{3}] Name: {4,-12} STATUS Name: {5,-25}",
+                                        PK, 
+                                        ActivityIndex, ActivityName, 
+                                        SubActivityIndex, SubActivityName, 
+                                        PanelStatusName);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // LogRow
 
     }
     #endregion  // public class PanelTableRow

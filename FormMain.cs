@@ -403,8 +403,7 @@ namespace Pinch
                 //-----------------------------------
                 //--- Create PanelTableMgr Object ---
                 //-----------------------------------
-                PanelTableMgrObj = new PanelTableMgr();
-                PanelTableMgrObj.PinchTypesObj = PinchTypesObj; // Assign PinchTypes Object
+                PanelTableMgrObj = new PanelTableMgr(PinchTypesObj);
                 //-----------------------------------------------------------------------------------------------------
                 //---------------------------- Assign ANALYSIS TabControl Panel Members -------------------------------
                 //-----------------------------------------------------------------------------------------------------
