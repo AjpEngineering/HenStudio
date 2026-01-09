@@ -415,22 +415,22 @@ namespace Pinch
                 //-----------------------------------------------------------------------------------------------------
                 //-------------------------- Assign SUB-ANALYSIS TabControl Panel Members -----------------------------
                 //-----------------------------------------------------------------------------------------------------
-                //PanelTableMgrObj.INPUT_TAB_CONTROL       = this.tabControlINPUT;          // Tab Control
-                //PanelTableMgrObj.INPUT_PROJECT_PANEL     = this.panelINPUT_PROJECT;       // Panel - PK: 00 ... [0,0]
-                //PanelTableMgrObj.INPUT_STREAMS_PANEL     = this.panelINPUT_STREAMS;       // Panel - PK: 01 ... [0,1]
-                //PanelTableMgrObj.INPUT_UTILITIES_PANEL   = this.panelINPUT_UTILITIES;     // Panel - PK: 02 ... [0,2]
-                //PanelTableMgrObj.INPUT_COST_PANEL        = this.panelINPUT_COST;          // Panel - PK: 03 ... [0,3]
-                //PanelTableMgrObj.INPUT_EXCHANGER_PANEL   = this.panelINPUT_EXCHANGER;     // Panel - PK: 04 ... [0,4]
-                //PanelTableMgrObj.INPUT_VALIDATE_PANEL    = this.panelINPUT_VALIDATE;      // Panel - PK: 05 ... [0,5]
+                PanelTableMgrObj.INPUT_TAB_CONTROL       = this.tabControlINPUT;          // Tab Control
+                PanelTableMgrObj.INPUT_PROJECT_PANEL     = this.panelINPUT_PROJECT;       // Panel - PK: 00 ... [0,0]
+                PanelTableMgrObj.INPUT_STREAMS_PANEL     = this.panelINPUT_STREAMS;       // Panel - PK: 01 ... [0,1]
+                PanelTableMgrObj.INPUT_UTILITIES_PANEL   = this.panelINPUT_UTILITIES;     // Panel - PK: 02 ... [0,2]
+                PanelTableMgrObj.INPUT_COST_PANEL        = this.panelINPUT_COST;          // Panel - PK: 03 ... [0,3]
+                PanelTableMgrObj.INPUT_EXCHANGER_PANEL   = this.panelINPUT_EXCHANGER;     // Panel - PK: 04 ... [0,4]
+                PanelTableMgrObj.INPUT_VALIDATE_PANEL    = this.panelINPUT_VALIDATE;      // Panel - PK: 05 ... [0,5]
                 //-----------------------------------------------------------------------------------------------------
-                //PanelTableMgrObj.TARGETS_TAB_CONTROL     = this.tabControlTARGETS;        // Tab Control
-                //PanelTableMgrObj.TARGETS_CALCULATE_PANEL = this.panelTARGETS_CALCULATE;   // Panel - PK: 06 ... [1,0]
-                //PanelTableMgrObj.TARGETS_COMPOSITE_PANEL = this.panelTARGETS_COMPOSITE;   // Panel - PK: 07 ... [1,1]
-                //PanelTableMgrObj.TARGETS_INTERVAL_PANEL  = this.panelTARGETS_INTERVAL;    // Panel - PK: 08 ... [1,2]
-                //PanelTableMgrObj.TARGETS_OPTIMIZE_PANEL  = this.panelTARGETS_OPTIMIZE;    // Panel - PK: 09 ... [1,3]
+                PanelTableMgrObj.TARGETS_TAB_CONTROL     = this.tabControlTARGETS;        // Tab Control
+                PanelTableMgrObj.TARGETS_CALCULATE_PANEL = this.panelTARGETS_CALCULATE;   // Panel - PK: 06 ... [1,0]
+                PanelTableMgrObj.TARGETS_COMPOSITE_PANEL = this.panelTARGETS_COMPOSITE;   // Panel - PK: 07 ... [1,1]
+                PanelTableMgrObj.TARGETS_INTERVAL_PANEL  = this.panelTARGETS_INTERVAL;    // Panel - PK: 08 ... [1,2]
+                PanelTableMgrObj.TARGETS_OPTIMIZE_PANEL  = this.panelTARGETS_OPTIMIZE;    // Panel - PK: 09 ... [1,3]
                 //-----------------------------------------------------------------------------------------------------
-                //PanelTableMgrObj.HEN_TAB_CONTROL         = this.tabControlHEN;            // Tab Control
-                //PanelTableMgrObj.HEN_DESIGN_PANEL        = this.panelHEN_DESIGN;          // Panel - PK: 10 ... [2,0]
+                PanelTableMgrObj.HEN_TAB_CONTROL         = this.tabControlHEN;            // Tab Control
+                PanelTableMgrObj.HEN_DESIGN_PANEL        = this.panelHEN_DESIGN;          // Panel - PK: 10 ... [2,0]
                 //-----------------------------------------------------------------------------------------------------
 
                 PanelTableMgrObj.InitializeMgrObjects();    // Initialize Lists and Table in Mgr
@@ -478,42 +478,6 @@ namespace Pinch
 
         #region EVENT HANDLERS
 
-        #region FORM EVENTS
-
-        #region tabControlMain_SelectedIndexChanged
-        /// <summary>
-        /// MAIN TabControl Selected Index Changed Event Handler
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string strMethod = "tabControlMain_SelectedIndexChanged()";
-            string strMsg = string.Empty;
-            int nSelectedIndex = MAIN_TAB_CONTROL.SelectedIndex;
-           try
-            {
-                //----------------------------------------------------
-                //--- Select the correct Analysis Panel to Display ---
-                //----------------------------------------------------
-                //SelectAnalysisPanel(nSelectedIndex);
-                PinchMsgDlg.DisplayWarningDlg("Main Tab Control Index Selected Changed!");
-
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally 
-            {
-            }
-        }
-        #endregion  // tabControlMain_SelectedIndexChanged
-
-        #endregion  // FORM EVENTS
-
         #region MENU BAR EVENTS
 
         #region FILE MENU ITEMS
@@ -535,14 +499,16 @@ namespace Pinch
         #region SAVE MENU ITEM HANDLER
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("Save Menu Item Selected!");
+            //PinchMsgDlg.DisplayWarningDlg("Save Menu Item Selected!");
+            HandleSave();
         }
         #endregion  // SAVE MENU ITEM HANDLER
 
         #region SAVE AS MENU ITEM HANDLER
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("Save As Menu Item Selected!");
+            //PinchMsgDlg.DisplayWarningDlg("Save As Menu Item Selected!");
+            HandleSaveAs();
         }
         #endregion  // SAVE AS MENU ITEM HANDLER
 
@@ -586,6 +552,102 @@ namespace Pinch
 
         #endregion  // ANALYSIS MENU ITEMS
 
+        #region SUB-ANALYSIS MENU ITEMS
+
+        //=========================================================================================
+        //======================================== INPUT ==========================================
+        //=========================================================================================
+
+        #region INPUT-PROJECT MENU EVENT
+        private void inputProjectDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("INPUT-PROJECT Menu Item Selected!");
+        }
+        #endregion  // INPUT-PROJECT MENU EVENT
+
+        #region INPUT-STREAMS MENU EVENT
+        private void inputStreamsDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("INPUT-STREAMS Menu Item Selected!");
+        }
+        #endregion  // INPUT-STREAMS MENU EVENT
+
+        #region INPUT-UTILITIES MENU EVENT
+        private void utilitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("INPUT-UTILITIES Menu Item Selected!");
+        }
+        #endregion  // INPUT-UTILITIES MENU EVENT
+
+        #region INPUT-COST MENU EVENT
+        private void costToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("INPUT-COST Menu Item Selected!");
+        }
+        #endregion  // INPUT-COST MENU EVENT
+
+        #region INPUT-EXCHANGER MENU EVENT
+        private void exchangerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("INPUT-EXCHANGER Menu Item Selected!");
+        }
+        #endregion  // INPUT-EXCHANGER MENU EVENT
+
+        #region INPUT-VALIDATE MENU EVENT
+        private void validateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("INPUT-VALIDATE Menu Item Selected!");
+        }
+        #endregion  // INPUT-VALIDATE MENU EVENT
+
+
+        //=========================================================================================
+        //======================================= TARGETS =========================================
+        //=========================================================================================
+
+        #region TARGETS-CALCULATE MENU EVENT
+        private void calculateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("TARGETS-CALCULATE Menu Item Selected!");
+        }
+
+        #endregion  // TARGETS-CALCULATE MENU EVENT
+
+        #region TARGETS-COMPOSITE MENU EVENT
+        private void compositeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("TARGETS-COMPOSITE Menu Item Selected!");
+        }
+        #endregion  // TARGETS-COMPOSITE MENU EVENT
+
+        #region TARGETS-INTERVAL MENU EVENT
+        private void intervalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("TARGETS-INTERVAL Menu Item Selected!");
+        }
+        #endregion  // TARGETS-INTERVAL MENU EVENT
+
+        #region TARGETS-OPTIMIZE MENU EVENT
+        private void optimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("TARGETS-OPTIMIZE Menu Item Selected!");
+        }
+        #endregion  // TARGETS-OPTIMIZE MENU EVENT
+
+
+        //=========================================================================================
+        //========================================== HEN ==========================================
+        //=========================================================================================
+
+        #region HEN-DESIGN MENU EVENT
+        private void designToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("HEN-DESIGN Menu Item Selected!");
+        }
+        #endregion  // HEN-DESIGN MENU EVENT
+
+        #endregion  // SUB-ANALYSIS MENU ITEMS
+
         #region HELP MENU ITEMS
 
         #region LICENSE
@@ -608,6 +670,148 @@ namespace Pinch
         #endregion  // HELP MENU ITEMS
 
         #endregion  // MENU BAR EVENTS
+
+        #region TOOLBAR EVENTS
+
+        #region TOOLBAR SAVE BUTTON EVENT
+        private void toolStripButtonSave_Click(object sender, EventArgs e)
+        {
+            //PinchMsgDlg.DisplayWarningDlg("Save Toobar Button Pressed!");
+            HandleSave();
+        }
+        #endregion  // TOOLBAR SAVE BUTTON EVENT
+
+        #region TOOLBAR SAVE AS BUTTON EVENT
+        private void toolStripButtonSaveAs_Click(object sender, EventArgs e)
+        {
+            //PinchMsgDlg.DisplayWarningDlg("Save As Toobar Button Pressed!");
+            HandleSaveAs();
+        }
+        #endregion      // TOOLBAR SAVE AS BUTTON EVENT
+
+        #endregion  // TOOLBAR EVENTS
+
+        #region TAB CONTROL EVENTS
+
+        #region MAIN ANALYSIS TAB CONTROL
+
+        #region tabControlMain_SelectedIndexChanged
+        /// <summary>
+        /// MAIN TabControl Selected Index Changed Event Handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string strMethod = "tabControlMain_SelectedIndexChanged()";
+            string strMsg = string.Empty;
+            int nSelectedIndex = MAIN_TAB_CONTROL.SelectedIndex;
+           try
+            {
+                //---------------------------------------------------------
+                //--- Select the correct MAIN Analysis Panel to Display ---
+                //---------------------------------------------------------
+                PinchMsgDlg.DisplayWarningDlg("MAIN ANALYSIS Tab Control Index Selected Changed!");
+
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally 
+            {
+            }
+        }
+        #endregion  // tabControlMain_SelectedIndexChanged
+
+        #endregion  // MAIN ANALYSIS TAB CONTROL
+
+        #region INPUT TAB CONTROL
+        private void tabControlINPUT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string strMethod = "tabControlINPUT_SelectedIndexChanged()";
+            string strMsg = string.Empty;
+            int nSelectedIndex = this.tabControlINPUT.SelectedIndex;
+            try
+            {
+                //----------------------------------------------------
+                //--- Select the correct INPUT Panel to Display ---
+                //----------------------------------------------------
+                //SelectAnalysisPanel(nSelectedIndex);
+                PinchMsgDlg.DisplayWarningDlg("INPUT Tab Control Index Selected Changed!");
+
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // INPUT TAB CONTROL
+
+        #region TARGETS TAB CONTROL
+        private void tabControlTARGETS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string strMethod = "tabControlTARGETS_SelectedIndexChanged()";
+            string strMsg = string.Empty;
+            int nSelectedIndex = this.tabControlTARGETS.SelectedIndex;
+            try
+            {
+                //--------------------------------------------------
+                //--- Select the correct TARGETS Panel to Display ---
+                //--------------------------------------------------
+                //SelectAnalysisPanel(nSelectedIndex);
+                PinchMsgDlg.DisplayWarningDlg("TARGETS Tab Control Index Selected Changed!");
+
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+
+        #endregion  // TARGETS TAB CONTROL
+
+        #region HEN TAB CONTROL
+        private void tabControlHEN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string strMethod = "tabControlHEN_SelectedIndexChanged()";
+            string strMsg = string.Empty;
+            int nSelectedIndex = this.tabControlTARGETS.SelectedIndex;
+            try
+            {
+                //-----------------------------------------------
+                //--- Select the correct HEN Panel to Display ---
+                //-----------------------------------------------
+                PinchMsgDlg.DisplayWarningDlg("HEN Tab Control Index Selected Changed!");
+
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+
+        #endregion  // HEN TAB CONTROL
+
+        #endregion  // TAB CONTROL EVENTS
+
 
         #endregion      // EVENT HANDLERS
 
@@ -685,7 +889,56 @@ namespace Pinch
         //}
         //#endregion  // SelectAnalysisPanel METHOD
 
-        #region ExitPinch METHOD
+
+        #region HandleSave
+        /// <summary>
+        /// Common Save Command Handler
+        /// </summary>
+        private void HandleSave()
+        {
+            string strMethod = "HandleSave";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Save Project");
+            try
+            {
+                PinchMsgDlg.DisplayWarningDlg("Handle SAVE Command!");
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleSave
+
+        #region HandleSaveAs
+        /// <summary>
+        /// Common Save A Command Handler
+        /// </summary>
+        private void HandleSaveAs()
+        {
+            string strMethod = "HandleSaveAs";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Save Project");
+            try
+            {
+                PinchMsgDlg.DisplayWarningDlg("Handle SAVE AS Command!");
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleSaveAs
+
+        #region ExitPinch()
         /// <summary>
         /// Common Exit Pinch Application ... invoked from Menu Item and Toolbar Click events
         /// </summary>
@@ -707,7 +960,7 @@ namespace Pinch
             {
             }
         }
-        #endregion  // ExitPinch METHOD
+        #endregion  // ExitPinch()
 
         #region LOG METHODS
 
@@ -764,7 +1017,6 @@ namespace Pinch
         #endregion      // LOG METHODS
 
         #endregion  // METHODS
-
     }
     #endregion      // class FormPinch
 }

@@ -140,9 +140,14 @@ namespace Pinch
         private ArrayList _subActivitiesPanelList;  // List of Sub-Activity Panels (indexed by PK)
         private ArrayList _lookupPanelInfoTable;    // List of Panel Table Row objects (indexed by PK)
 
+        //------------------------------------- Last SubActivity Index State ------------------------------------------
+        private int _nLastInputSubActivityIndex = 0;    // Last INPUT SubActivity Index
+        private int _nLastTargetsSubActivityIndex = 0;  // Last TARGETS SubActivity Index
+        private int _nLastHenSubActivityIndex = 0;      // Last HEN SubActivity Index
+
         //-------------------------------------------- Selected State -------------------------------------------------
-        private int _nSelActivity = 0;              // Selected Activity     (Activity     Tab Control) Index
-        private int _nSelSubActivity = 0;           // Selected Sub-Activity (Sub-Activity Tab Control) Index
+        private int _nSelActivity = 0;              // Selected Activity     (Activity     Tab Control) Index - Bottom
+        private int _nSelSubActivity = 0;           // Selected Sub-Activity (Sub-Activity Tab Control) Index - Top
         private int _nSelPK = 0;                    // Selected Panel Primary Key (Lookup Table & SubActivity List)
 
         private PanelTableRow _selRow;              // Selected Lookup Table Row
@@ -217,6 +222,10 @@ namespace Pinch
         }
         #endregion      // PinchTypesObj
 
+        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------- ArrayList Objects ----------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
+
         #region ActivitiesPanelList
         /// <summary>
         /// ActivitiesPanelList ArrayList Property (indexed by Main Tab Control Index)
@@ -250,6 +259,47 @@ namespace Pinch
             set { _lookupPanelInfoTable = value; }
         }
         #endregion      // LookupPanelInfoTable
+
+        //-------------------------------------------------------------------------------------------------------------
+        //------------------------------------- Last SubActivity Index State ------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
+
+        #region LastInputSubActivityIndex
+        /// <summary>
+        /// LastInputSubActivityIndex Property
+        /// </summary>
+        public int LastInputSubActivityIndex
+        {
+            get { return _nLastInputSubActivityIndex; }
+            set { _nLastInputSubActivityIndex = value; }
+        }
+        #endregion      // LastInputSubActivityIndex
+
+        #region LastTargetsSubActivityIndex
+        /// <summary>
+        /// LastTargetsSubActivityIndex Property
+        /// </summary>
+        public int LastTargetsSubActivityIndex
+        {
+            get { return _nLastTargetsSubActivityIndex; }
+            set { _nLastTargetsSubActivityIndex = value; }
+        }
+        #endregion      // LastTargetsSubActivityIndex
+
+        #region LastHenSubActivityIndex
+        /// <summary>
+        /// LastHenSubActivityIndex Property
+        /// </summary>
+        public int LastHenSubActivityIndex
+        {
+            get { return _nLastHenSubActivityIndex; }
+            set { _nLastHenSubActivityIndex = value; }
+        }
+        #endregion      // LastHenSubActivityIndex
+
+        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------- Selected State -------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
 
         #region SelActivity
         /// <summary>
@@ -713,6 +763,10 @@ namespace Pinch
                 PopulateLookupPanelInfoTable();     // Populate Lookup Panel Table (PK)
 
                 SetSelectedState(nInitialActivityIndex, nInitialSubActivityIndex);
+
+                LastInputSubActivityIndex = nInitialSubActivityIndex;
+                LastTargetsSubActivityIndex = nInitialSubActivityIndex;
+                LastHenSubActivityIndex = nInitialSubActivityIndex;
             }
             catch (Exception ex)
             {
