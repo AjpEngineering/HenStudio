@@ -60,15 +60,23 @@
             this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelSELECTED_STATE = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageINPUT = new System.Windows.Forms.TabPage();
             this.tabPageTARGETS = new System.Windows.Forms.TabPage();
             this.tabPageHEN = new System.Windows.Forms.TabPage();
             this.imageListAnalysis = new System.Windows.Forms.ImageList(this.components);
             this.panelINPUT = new System.Windows.Forms.Panel();
-            this.panelTARGETS = new System.Windows.Forms.Panel();
-            this.panelHEN = new System.Windows.Forms.Panel();
-            this.panelINPUT_PROJECT = new System.Windows.Forms.Panel();
+            this.panelINPUT_VALIDATE = new System.Windows.Forms.Panel();
+            this.labelTitleInputValidatePanel = new System.Windows.Forms.Label();
+            this.panelINPUT_EXCHANGER = new System.Windows.Forms.Panel();
+            this.labelTitleInputExchangerPanel = new System.Windows.Forms.Label();
+            this.panelINPUT_COST = new System.Windows.Forms.Panel();
+            this.labelTitleInputCostPanel = new System.Windows.Forms.Label();
+            this.panelINPUT_UTILITIES = new System.Windows.Forms.Panel();
+            this.labelTitleInputUtilitiesPanel = new System.Windows.Forms.Label();
+            this.panelINPUT_STREAMS = new System.Windows.Forms.Panel();
+            this.labelTitleInputStreamsPanel = new System.Windows.Forms.Label();
             this.tabControlINPUT = new System.Windows.Forms.TabControl();
             this.tabPageProject = new System.Windows.Forms.TabPage();
             this.tabPageStreams = new System.Windows.Forms.TabPage();
@@ -76,59 +84,51 @@
             this.tabPageCost = new System.Windows.Forms.TabPage();
             this.tabPageExchanger = new System.Windows.Forms.TabPage();
             this.tabPageValidate = new System.Windows.Forms.TabPage();
-            this.toolStripMain = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSaveAs = new System.Windows.Forms.ToolStripButton();
+            this.panelINPUT_PROJECT = new System.Windows.Forms.Panel();
             this.labelTitleInputProjectPanel = new System.Windows.Forms.Label();
-            this.panelINPUT_STREAMS = new System.Windows.Forms.Panel();
-            this.labelTitleInputStreamsPanel = new System.Windows.Forms.Label();
-            this.toolStripStatusLabelSELECTED_STATE = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panelTARGETS = new System.Windows.Forms.Panel();
+            this.panelTARGETS_OPTIMIZE = new System.Windows.Forms.Panel();
+            this.labelTitleTargetsOptimizePanel = new System.Windows.Forms.Label();
+            this.panelTARGETS_INTERVAL = new System.Windows.Forms.Panel();
+            this.labelTitleTargetsIntervalPanel = new System.Windows.Forms.Label();
+            this.panelTARGETS_COMPOSITE = new System.Windows.Forms.Panel();
+            this.labelTitleTargetsCompositePanel = new System.Windows.Forms.Label();
+            this.panelTARGETS_CALCULATE = new System.Windows.Forms.Panel();
+            this.labelTitleTargetsCalculatePanel = new System.Windows.Forms.Label();
             this.tabControlTARGETS = new System.Windows.Forms.TabControl();
             this.tabPageCalculate = new System.Windows.Forms.TabPage();
             this.tabPageComposite = new System.Windows.Forms.TabPage();
             this.tabPageInterval = new System.Windows.Forms.TabPage();
             this.tabPageOptimize = new System.Windows.Forms.TabPage();
-            this.tabControlHEN = new System.Windows.Forms.TabControl();
-            this.tabPageDesign = new System.Windows.Forms.TabPage();
-            this.panelINPUT_UTILITIES = new System.Windows.Forms.Panel();
-            this.labelTitleInputUtilitiesPanel = new System.Windows.Forms.Label();
-            this.panelINPUT_COST = new System.Windows.Forms.Panel();
-            this.labelTitleInputCostPanel = new System.Windows.Forms.Label();
-            this.panelINPUT_EXCHANGER = new System.Windows.Forms.Panel();
-            this.labelTitleInputExchangerPanel = new System.Windows.Forms.Label();
-            this.panelINPUT_VALIDATE = new System.Windows.Forms.Panel();
-            this.labelTitleInputValidatePanel = new System.Windows.Forms.Label();
-            this.panelTARGETS_CALCULATE = new System.Windows.Forms.Panel();
-            this.labelTitleTargetsCalculatePanel = new System.Windows.Forms.Label();
-            this.panelTARGETS_COMPOSITE = new System.Windows.Forms.Panel();
-            this.labelTitleTargetsCompositePanel = new System.Windows.Forms.Label();
-            this.panelTARGETS_INTERVAL = new System.Windows.Forms.Panel();
-            this.labelTitleTargetsIntervalPanel = new System.Windows.Forms.Label();
-            this.panelTARGETS_OPTIMIZE = new System.Windows.Forms.Panel();
-            this.labelTitleTargetsOptimizePanel = new System.Windows.Forms.Label();
+            this.panelHEN = new System.Windows.Forms.Panel();
             this.panelHEN_DESIGN = new System.Windows.Forms.Panel();
             this.labelTitleHenDesignPanel = new System.Windows.Forms.Label();
+            this.tabControlHEN = new System.Windows.Forms.TabControl();
+            this.tabPageDesign = new System.Windows.Forms.TabPage();
+            this.toolStripMain = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSaveAs = new System.Windows.Forms.ToolStripButton();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.panelINPUT.SuspendLayout();
-            this.panelTARGETS.SuspendLayout();
-            this.panelHEN.SuspendLayout();
-            this.panelINPUT_PROJECT.SuspendLayout();
-            this.tabControlINPUT.SuspendLayout();
-            this.toolStripMain.SuspendLayout();
-            this.panelINPUT_STREAMS.SuspendLayout();
-            this.tabControlTARGETS.SuspendLayout();
-            this.tabControlHEN.SuspendLayout();
-            this.panelINPUT_UTILITIES.SuspendLayout();
-            this.panelINPUT_COST.SuspendLayout();
-            this.panelINPUT_EXCHANGER.SuspendLayout();
             this.panelINPUT_VALIDATE.SuspendLayout();
-            this.panelTARGETS_CALCULATE.SuspendLayout();
-            this.panelTARGETS_COMPOSITE.SuspendLayout();
-            this.panelTARGETS_INTERVAL.SuspendLayout();
+            this.panelINPUT_EXCHANGER.SuspendLayout();
+            this.panelINPUT_COST.SuspendLayout();
+            this.panelINPUT_UTILITIES.SuspendLayout();
+            this.panelINPUT_STREAMS.SuspendLayout();
+            this.tabControlINPUT.SuspendLayout();
+            this.panelINPUT_PROJECT.SuspendLayout();
+            this.panelTARGETS.SuspendLayout();
             this.panelTARGETS_OPTIMIZE.SuspendLayout();
+            this.panelTARGETS_INTERVAL.SuspendLayout();
+            this.panelTARGETS_COMPOSITE.SuspendLayout();
+            this.panelTARGETS_CALCULATE.SuspendLayout();
+            this.tabControlTARGETS.SuspendLayout();
+            this.panelHEN.SuspendLayout();
             this.panelHEN_DESIGN.SuspendLayout();
+            this.tabControlHEN.SuspendLayout();
+            this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -162,27 +162,27 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(137, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -190,19 +190,19 @@
             // 
             this.saveAsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveAsToolStripMenuItem.Image")));
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(137, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -239,7 +239,7 @@
             // 
             this.inputProjectDataToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.inputProjectDataToolStripMenuItem.Name = "inputProjectDataToolStripMenuItem";
-            this.inputProjectDataToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inputProjectDataToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.inputProjectDataToolStripMenuItem.Text = "Project";
             this.inputProjectDataToolStripMenuItem.ToolTipText = "Input Project Data";
             this.inputProjectDataToolStripMenuItem.Click += new System.EventHandler(this.inputProjectDataToolStripMenuItem_Click);
@@ -248,7 +248,7 @@
             // 
             this.inputStreamsDataToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.inputStreamsDataToolStripMenuItem.Name = "inputStreamsDataToolStripMenuItem";
-            this.inputStreamsDataToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inputStreamsDataToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.inputStreamsDataToolStripMenuItem.Text = "Streams";
             this.inputStreamsDataToolStripMenuItem.ToolTipText = "Input Streams Data";
             this.inputStreamsDataToolStripMenuItem.Click += new System.EventHandler(this.inputStreamsDataToolStripMenuItem_Click);
@@ -257,7 +257,7 @@
             // 
             this.utilitiesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
-            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.utilitiesToolStripMenuItem.Text = "Utilities";
             this.utilitiesToolStripMenuItem.ToolTipText = "Input Utilities Data";
             this.utilitiesToolStripMenuItem.Click += new System.EventHandler(this.utilitiesToolStripMenuItem_Click);
@@ -266,7 +266,7 @@
             // 
             this.costToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.costToolStripMenuItem.Name = "costToolStripMenuItem";
-            this.costToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.costToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.costToolStripMenuItem.Text = "Cost";
             this.costToolStripMenuItem.ToolTipText = "Input Cost Data";
             this.costToolStripMenuItem.Click += new System.EventHandler(this.costToolStripMenuItem_Click);
@@ -275,7 +275,7 @@
             // 
             this.exchangerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.exchangerToolStripMenuItem.Name = "exchangerToolStripMenuItem";
-            this.exchangerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exchangerToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.exchangerToolStripMenuItem.Text = "Exchanger";
             this.exchangerToolStripMenuItem.ToolTipText = "Input Exchanger Data";
             this.exchangerToolStripMenuItem.Click += new System.EventHandler(this.exchangerToolStripMenuItem_Click);
@@ -284,7 +284,7 @@
             // 
             this.validateToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.validateToolStripMenuItem.Name = "validateToolStripMenuItem";
-            this.validateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.validateToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.validateToolStripMenuItem.Text = "Validate";
             this.validateToolStripMenuItem.ToolTipText = "Validate Input Data";
             this.validateToolStripMenuItem.Click += new System.EventHandler(this.validateToolStripMenuItem_Click);
@@ -313,7 +313,7 @@
             // 
             this.calculateToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.calculateToolStripMenuItem.Name = "calculateToolStripMenuItem";
-            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.calculateToolStripMenuItem.Text = "Calculate";
             this.calculateToolStripMenuItem.ToolTipText = "Calculate Pinch Targets";
             this.calculateToolStripMenuItem.Click += new System.EventHandler(this.calculateToolStripMenuItem_Click);
@@ -322,7 +322,7 @@
             // 
             this.compositeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.compositeToolStripMenuItem.Name = "compositeToolStripMenuItem";
-            this.compositeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.compositeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.compositeToolStripMenuItem.Text = "Composite";
             this.compositeToolStripMenuItem.ToolTipText = "Display Compoiste Curve Data";
             this.compositeToolStripMenuItem.Click += new System.EventHandler(this.compositeToolStripMenuItem_Click);
@@ -331,7 +331,7 @@
             // 
             this.intervalToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.intervalToolStripMenuItem.Name = "intervalToolStripMenuItem";
-            this.intervalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.intervalToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.intervalToolStripMenuItem.Text = "Interval";
             this.intervalToolStripMenuItem.ToolTipText = "Display Interval Data";
             this.intervalToolStripMenuItem.Click += new System.EventHandler(this.intervalToolStripMenuItem_Click);
@@ -340,7 +340,7 @@
             // 
             this.optimizeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.optimizeToolStripMenuItem.Name = "optimizeToolStripMenuItem";
-            this.optimizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optimizeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.optimizeToolStripMenuItem.Text = "Optimize";
             this.optimizeToolStripMenuItem.ToolTipText = "Perform Optimization Analyses";
             this.optimizeToolStripMenuItem.Click += new System.EventHandler(this.optimizeToolStripMenuItem_Click);
@@ -366,7 +366,7 @@
             // 
             this.designToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.designToolStripMenuItem.Name = "designToolStripMenuItem";
-            this.designToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.designToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.designToolStripMenuItem.Text = "Design";
             this.designToolStripMenuItem.Click += new System.EventHandler(this.designToolStripMenuItem_Click);
             // 
@@ -382,7 +382,7 @@
             // licenseToolStripMenuItem
             // 
             this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
-            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(136, 30);
             this.licenseToolStripMenuItem.Text = "License...";
             this.licenseToolStripMenuItem.Click += new System.EventHandler(this.licenseToolStripMenuItem_Click);
             // 
@@ -390,7 +390,7 @@
             // 
             this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(136, 30);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -404,6 +404,15 @@
             this.statusStripMain.Size = new System.Drawing.Size(1264, 22);
             this.statusStripMain.TabIndex = 1;
             this.statusStripMain.Text = "statusStripPinch";
+            // 
+            // toolStripStatusLabelSELECTED_STATE
+            // 
+            this.toolStripStatusLabelSELECTED_STATE.BackColor = System.Drawing.Color.DodgerBlue;
+            this.toolStripStatusLabelSELECTED_STATE.Font = new System.Drawing.Font("Cascadia Mono SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripStatusLabelSELECTED_STATE.ForeColor = System.Drawing.Color.Yellow;
+            this.toolStripStatusLabelSELECTED_STATE.Name = "toolStripStatusLabelSELECTED_STATE";
+            this.toolStripStatusLabelSELECTED_STATE.Size = new System.Drawing.Size(147, 17);
+            this.toolStripStatusLabelSELECTED_STATE.Text = "ACTIVITY:SUBACTIVITY";
             // 
             // tabControlMain
             // 
@@ -484,47 +493,109 @@
             this.panelINPUT.Controls.Add(this.panelINPUT_PROJECT);
             this.panelINPUT.Location = new System.Drawing.Point(0, 53);
             this.panelINPUT.Name = "panelINPUT";
-            this.panelINPUT.Size = new System.Drawing.Size(1264, 560);
+            this.panelINPUT.Size = new System.Drawing.Size(1264, 201);
             this.panelINPUT.TabIndex = 3;
             // 
-            // panelTARGETS
+            // panelINPUT_VALIDATE
             // 
-            this.panelTARGETS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelTARGETS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelTARGETS.Controls.Add(this.panelTARGETS_OPTIMIZE);
-            this.panelTARGETS.Controls.Add(this.panelTARGETS_INTERVAL);
-            this.panelTARGETS.Controls.Add(this.panelTARGETS_COMPOSITE);
-            this.panelTARGETS.Controls.Add(this.panelTARGETS_CALCULATE);
-            this.panelTARGETS.Controls.Add(this.tabControlTARGETS);
-            this.panelTARGETS.Controls.Add(this.panelHEN);
-            this.panelTARGETS.Location = new System.Drawing.Point(0, 260);
-            this.panelTARGETS.Name = "panelTARGETS";
-            this.panelTARGETS.Size = new System.Drawing.Size(1264, 353);
-            this.panelTARGETS.TabIndex = 4;
+            this.panelINPUT_VALIDATE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_VALIDATE.Controls.Add(this.labelTitleInputValidatePanel);
+            this.panelINPUT_VALIDATE.Location = new System.Drawing.Point(791, 109);
+            this.panelINPUT_VALIDATE.Name = "panelINPUT_VALIDATE";
+            this.panelINPUT_VALIDATE.Size = new System.Drawing.Size(379, 76);
+            this.panelINPUT_VALIDATE.TabIndex = 6;
             // 
-            // panelHEN
+            // labelTitleInputValidatePanel
             // 
-            this.panelHEN.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelHEN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panelHEN.Controls.Add(this.panelHEN_DESIGN);
-            this.panelHEN.Controls.Add(this.tabControlHEN);
-            this.panelHEN.Location = new System.Drawing.Point(0, 218);
-            this.panelHEN.Name = "panelHEN";
-            this.panelHEN.Size = new System.Drawing.Size(1264, 206);
-            this.panelHEN.TabIndex = 5;
+            this.labelTitleInputValidatePanel.AutoSize = true;
+            this.labelTitleInputValidatePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleInputValidatePanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputValidatePanel.Location = new System.Drawing.Point(17, 16);
+            this.labelTitleInputValidatePanel.Name = "labelTitleInputValidatePanel";
+            this.labelTitleInputValidatePanel.Size = new System.Drawing.Size(287, 36);
+            this.labelTitleInputValidatePanel.TabIndex = 0;
+            this.labelTitleInputValidatePanel.Text = "INPUT VALIDATE DATA";
             // 
-            // panelINPUT_PROJECT
+            // panelINPUT_EXCHANGER
             // 
-            this.panelINPUT_PROJECT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panelINPUT_PROJECT.Controls.Add(this.labelTitleInputProjectPanel);
-            this.panelINPUT_PROJECT.Location = new System.Drawing.Point(12, 36);
-            this.panelINPUT_PROJECT.Name = "panelINPUT_PROJECT";
-            this.panelINPUT_PROJECT.Size = new System.Drawing.Size(331, 66);
-            this.panelINPUT_PROJECT.TabIndex = 1;
+            this.panelINPUT_EXCHANGER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_EXCHANGER.Controls.Add(this.labelTitleInputExchangerPanel);
+            this.panelINPUT_EXCHANGER.Location = new System.Drawing.Point(370, 108);
+            this.panelINPUT_EXCHANGER.Name = "panelINPUT_EXCHANGER";
+            this.panelINPUT_EXCHANGER.Size = new System.Drawing.Size(385, 77);
+            this.panelINPUT_EXCHANGER.TabIndex = 5;
+            // 
+            // labelTitleInputExchangerPanel
+            // 
+            this.labelTitleInputExchangerPanel.AutoSize = true;
+            this.labelTitleInputExchangerPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleInputExchangerPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputExchangerPanel.Location = new System.Drawing.Point(15, 17);
+            this.labelTitleInputExchangerPanel.Name = "labelTitleInputExchangerPanel";
+            this.labelTitleInputExchangerPanel.Size = new System.Drawing.Size(328, 36);
+            this.labelTitleInputExchangerPanel.TabIndex = 0;
+            this.labelTitleInputExchangerPanel.Text = "INPUT EXCHANGER DATA";
+            // 
+            // panelINPUT_COST
+            // 
+            this.panelINPUT_COST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_COST.Controls.Add(this.labelTitleInputCostPanel);
+            this.panelINPUT_COST.Location = new System.Drawing.Point(12, 108);
+            this.panelINPUT_COST.Name = "panelINPUT_COST";
+            this.panelINPUT_COST.Size = new System.Drawing.Size(331, 77);
+            this.panelINPUT_COST.TabIndex = 4;
+            // 
+            // labelTitleInputCostPanel
+            // 
+            this.labelTitleInputCostPanel.AutoSize = true;
+            this.labelTitleInputCostPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleInputCostPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputCostPanel.Location = new System.Drawing.Point(3, 17);
+            this.labelTitleInputCostPanel.Name = "labelTitleInputCostPanel";
+            this.labelTitleInputCostPanel.Size = new System.Drawing.Size(239, 36);
+            this.labelTitleInputCostPanel.TabIndex = 0;
+            this.labelTitleInputCostPanel.Text = "INPUT COST DATA";
+            // 
+            // panelINPUT_UTILITIES
+            // 
+            this.panelINPUT_UTILITIES.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_UTILITIES.Controls.Add(this.labelTitleInputUtilitiesPanel);
+            this.panelINPUT_UTILITIES.Location = new System.Drawing.Point(791, 36);
+            this.panelINPUT_UTILITIES.Name = "panelINPUT_UTILITIES";
+            this.panelINPUT_UTILITIES.Size = new System.Drawing.Size(379, 67);
+            this.panelINPUT_UTILITIES.TabIndex = 3;
+            // 
+            // labelTitleInputUtilitiesPanel
+            // 
+            this.labelTitleInputUtilitiesPanel.AutoSize = true;
+            this.labelTitleInputUtilitiesPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleInputUtilitiesPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputUtilitiesPanel.Location = new System.Drawing.Point(14, 12);
+            this.labelTitleInputUtilitiesPanel.Name = "labelTitleInputUtilitiesPanel";
+            this.labelTitleInputUtilitiesPanel.Size = new System.Drawing.Size(286, 36);
+            this.labelTitleInputUtilitiesPanel.TabIndex = 0;
+            this.labelTitleInputUtilitiesPanel.Text = "INPUT UTILITIES DATA";
+            // 
+            // panelINPUT_STREAMS
+            // 
+            this.panelINPUT_STREAMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_STREAMS.Controls.Add(this.labelTitleInputStreamsPanel);
+            this.panelINPUT_STREAMS.Location = new System.Drawing.Point(370, 35);
+            this.panelINPUT_STREAMS.Name = "panelINPUT_STREAMS";
+            this.panelINPUT_STREAMS.Size = new System.Drawing.Size(385, 66);
+            this.panelINPUT_STREAMS.TabIndex = 2;
+            // 
+            // labelTitleInputStreamsPanel
+            // 
+            this.labelTitleInputStreamsPanel.AutoSize = true;
+            this.labelTitleInputStreamsPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleInputStreamsPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputStreamsPanel.Location = new System.Drawing.Point(12, 11);
+            this.labelTitleInputStreamsPanel.Name = "labelTitleInputStreamsPanel";
+            this.labelTitleInputStreamsPanel.Size = new System.Drawing.Size(291, 36);
+            this.labelTitleInputStreamsPanel.TabIndex = 0;
+            this.labelTitleInputStreamsPanel.Text = "INPUT STREAMS DATA";
+            this.labelTitleInputStreamsPanel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabControlINPUT
             // 
@@ -576,7 +647,7 @@
             this.tabPageUtilities.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPageUtilities.Location = new System.Drawing.Point(4, 29);
             this.tabPageUtilities.Name = "tabPageUtilities";
-            this.tabPageUtilities.Size = new System.Drawing.Size(1237, 0);
+            this.tabPageUtilities.Size = new System.Drawing.Size(1256, 0);
             this.tabPageUtilities.TabIndex = 2;
             this.tabPageUtilities.Text = "UTILITIES";
             this.tabPageUtilities.ToolTipText = "Input Utilities Data";
@@ -588,7 +659,7 @@
             this.tabPageCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPageCost.Location = new System.Drawing.Point(4, 29);
             this.tabPageCost.Name = "tabPageCost";
-            this.tabPageCost.Size = new System.Drawing.Size(1237, 0);
+            this.tabPageCost.Size = new System.Drawing.Size(1256, 0);
             this.tabPageCost.TabIndex = 3;
             this.tabPageCost.Text = "COST";
             this.tabPageCost.ToolTipText = "Input Cost Data";
@@ -600,7 +671,7 @@
             this.tabPageExchanger.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPageExchanger.Location = new System.Drawing.Point(4, 29);
             this.tabPageExchanger.Name = "tabPageExchanger";
-            this.tabPageExchanger.Size = new System.Drawing.Size(1237, 0);
+            this.tabPageExchanger.Size = new System.Drawing.Size(1256, 0);
             this.tabPageExchanger.TabIndex = 4;
             this.tabPageExchanger.Text = "EXCHANGER";
             this.tabPageExchanger.ToolTipText = "Input Exchanger Data";
@@ -612,11 +683,241 @@
             this.tabPageValidate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPageValidate.Location = new System.Drawing.Point(4, 29);
             this.tabPageValidate.Name = "tabPageValidate";
-            this.tabPageValidate.Size = new System.Drawing.Size(1237, 0);
+            this.tabPageValidate.Size = new System.Drawing.Size(1256, 0);
             this.tabPageValidate.TabIndex = 5;
             this.tabPageValidate.Text = "VALIDATE";
             this.tabPageValidate.ToolTipText = "Validate Input";
             this.tabPageValidate.UseVisualStyleBackColor = true;
+            // 
+            // panelINPUT_PROJECT
+            // 
+            this.panelINPUT_PROJECT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_PROJECT.Controls.Add(this.labelTitleInputProjectPanel);
+            this.panelINPUT_PROJECT.Location = new System.Drawing.Point(12, 36);
+            this.panelINPUT_PROJECT.Name = "panelINPUT_PROJECT";
+            this.panelINPUT_PROJECT.Size = new System.Drawing.Size(331, 66);
+            this.panelINPUT_PROJECT.TabIndex = 1;
+            // 
+            // labelTitleInputProjectPanel
+            // 
+            this.labelTitleInputProjectPanel.AutoSize = true;
+            this.labelTitleInputProjectPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleInputProjectPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputProjectPanel.Location = new System.Drawing.Point(3, 11);
+            this.labelTitleInputProjectPanel.Name = "labelTitleInputProjectPanel";
+            this.labelTitleInputProjectPanel.Size = new System.Drawing.Size(284, 36);
+            this.labelTitleInputProjectPanel.TabIndex = 0;
+            this.labelTitleInputProjectPanel.Text = "INPUT PROJECT DATA";
+            this.labelTitleInputProjectPanel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelTARGETS
+            // 
+            this.panelTARGETS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTARGETS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelTARGETS.Controls.Add(this.panelTARGETS_OPTIMIZE);
+            this.panelTARGETS.Controls.Add(this.panelTARGETS_INTERVAL);
+            this.panelTARGETS.Controls.Add(this.panelTARGETS_COMPOSITE);
+            this.panelTARGETS.Controls.Add(this.panelTARGETS_CALCULATE);
+            this.panelTARGETS.Controls.Add(this.tabControlTARGETS);
+            this.panelTARGETS.Location = new System.Drawing.Point(0, 260);
+            this.panelTARGETS.Name = "panelTARGETS";
+            this.panelTARGETS.Size = new System.Drawing.Size(851, 357);
+            this.panelTARGETS.TabIndex = 4;
+            // 
+            // panelTARGETS_OPTIMIZE
+            // 
+            this.panelTARGETS_OPTIMIZE.BackColor = System.Drawing.Color.White;
+            this.panelTARGETS_OPTIMIZE.Controls.Add(this.labelTitleTargetsOptimizePanel);
+            this.panelTARGETS_OPTIMIZE.Location = new System.Drawing.Point(12, 133);
+            this.panelTARGETS_OPTIMIZE.Name = "panelTARGETS_OPTIMIZE";
+            this.panelTARGETS_OPTIMIZE.Size = new System.Drawing.Size(331, 58);
+            this.panelTARGETS_OPTIMIZE.TabIndex = 9;
+            // 
+            // labelTitleTargetsOptimizePanel
+            // 
+            this.labelTitleTargetsOptimizePanel.AutoSize = true;
+            this.labelTitleTargetsOptimizePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleTargetsOptimizePanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleTargetsOptimizePanel.Location = new System.Drawing.Point(6, 13);
+            this.labelTitleTargetsOptimizePanel.Name = "labelTitleTargetsOptimizePanel";
+            this.labelTitleTargetsOptimizePanel.Size = new System.Drawing.Size(253, 36);
+            this.labelTitleTargetsOptimizePanel.TabIndex = 0;
+            this.labelTitleTargetsOptimizePanel.Text = "TARGETS OPTIMIZE";
+            // 
+            // panelTARGETS_INTERVAL
+            // 
+            this.panelTARGETS_INTERVAL.BackColor = System.Drawing.Color.White;
+            this.panelTARGETS_INTERVAL.Controls.Add(this.labelTitleTargetsIntervalPanel);
+            this.panelTARGETS_INTERVAL.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTARGETS_INTERVAL.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.panelTARGETS_INTERVAL.Location = new System.Drawing.Point(370, 133);
+            this.panelTARGETS_INTERVAL.Name = "panelTARGETS_INTERVAL";
+            this.panelTARGETS_INTERVAL.Size = new System.Drawing.Size(379, 65);
+            this.panelTARGETS_INTERVAL.TabIndex = 8;
+            // 
+            // labelTitleTargetsIntervalPanel
+            // 
+            this.labelTitleTargetsIntervalPanel.AutoSize = true;
+            this.labelTitleTargetsIntervalPanel.Location = new System.Drawing.Point(14, 16);
+            this.labelTitleTargetsIntervalPanel.Name = "labelTitleTargetsIntervalPanel";
+            this.labelTitleTargetsIntervalPanel.Size = new System.Drawing.Size(252, 36);
+            this.labelTitleTargetsIntervalPanel.TabIndex = 0;
+            this.labelTitleTargetsIntervalPanel.Text = "TARGETS INTERVAL";
+            // 
+            // panelTARGETS_COMPOSITE
+            // 
+            this.panelTARGETS_COMPOSITE.BackColor = System.Drawing.Color.White;
+            this.panelTARGETS_COMPOSITE.Controls.Add(this.labelTitleTargetsCompositePanel);
+            this.panelTARGETS_COMPOSITE.Location = new System.Drawing.Point(370, 46);
+            this.panelTARGETS_COMPOSITE.Name = "panelTARGETS_COMPOSITE";
+            this.panelTARGETS_COMPOSITE.Size = new System.Drawing.Size(385, 65);
+            this.panelTARGETS_COMPOSITE.TabIndex = 7;
+            // 
+            // labelTitleTargetsCompositePanel
+            // 
+            this.labelTitleTargetsCompositePanel.AutoSize = true;
+            this.labelTitleTargetsCompositePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleTargetsCompositePanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleTargetsCompositePanel.Location = new System.Drawing.Point(18, 16);
+            this.labelTitleTargetsCompositePanel.Name = "labelTitleTargetsCompositePanel";
+            this.labelTitleTargetsCompositePanel.Size = new System.Drawing.Size(284, 36);
+            this.labelTitleTargetsCompositePanel.TabIndex = 0;
+            this.labelTitleTargetsCompositePanel.Text = "TARGETS COMPOSITE";
+            // 
+            // panelTARGETS_CALCULATE
+            // 
+            this.panelTARGETS_CALCULATE.BackColor = System.Drawing.Color.White;
+            this.panelTARGETS_CALCULATE.Controls.Add(this.labelTitleTargetsCalculatePanel);
+            this.panelTARGETS_CALCULATE.Location = new System.Drawing.Point(12, 46);
+            this.panelTARGETS_CALCULATE.Name = "panelTARGETS_CALCULATE";
+            this.panelTARGETS_CALCULATE.Size = new System.Drawing.Size(331, 65);
+            this.panelTARGETS_CALCULATE.TabIndex = 6;
+            // 
+            // labelTitleTargetsCalculatePanel
+            // 
+            this.labelTitleTargetsCalculatePanel.AutoSize = true;
+            this.labelTitleTargetsCalculatePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleTargetsCalculatePanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleTargetsCalculatePanel.Location = new System.Drawing.Point(6, 16);
+            this.labelTitleTargetsCalculatePanel.Name = "labelTitleTargetsCalculatePanel";
+            this.labelTitleTargetsCalculatePanel.Size = new System.Drawing.Size(278, 36);
+            this.labelTitleTargetsCalculatePanel.TabIndex = 0;
+            this.labelTitleTargetsCalculatePanel.Text = "TARGETS CALCULATE";
+            // 
+            // tabControlTARGETS
+            // 
+            this.tabControlTARGETS.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.tabControlTARGETS.Controls.Add(this.tabPageCalculate);
+            this.tabControlTARGETS.Controls.Add(this.tabPageComposite);
+            this.tabControlTARGETS.Controls.Add(this.tabPageInterval);
+            this.tabControlTARGETS.Controls.Add(this.tabPageOptimize);
+            this.tabControlTARGETS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControlTARGETS.Location = new System.Drawing.Point(0, 0);
+            this.tabControlTARGETS.Name = "tabControlTARGETS";
+            this.tabControlTARGETS.SelectedIndex = 0;
+            this.tabControlTARGETS.Size = new System.Drawing.Size(851, 30);
+            this.tabControlTARGETS.TabIndex = 0;
+            this.tabControlTARGETS.SelectedIndexChanged += new System.EventHandler(this.tabControlTARGETS_SelectedIndexChanged);
+            // 
+            // tabPageCalculate
+            // 
+            this.tabPageCalculate.Location = new System.Drawing.Point(4, 29);
+            this.tabPageCalculate.Name = "tabPageCalculate";
+            this.tabPageCalculate.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCalculate.Size = new System.Drawing.Size(843, 0);
+            this.tabPageCalculate.TabIndex = 0;
+            this.tabPageCalculate.Text = "CALCULATE";
+            this.tabPageCalculate.ToolTipText = "Calculate Pinch Targets";
+            this.tabPageCalculate.UseVisualStyleBackColor = true;
+            // 
+            // tabPageComposite
+            // 
+            this.tabPageComposite.Location = new System.Drawing.Point(4, 29);
+            this.tabPageComposite.Name = "tabPageComposite";
+            this.tabPageComposite.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageComposite.Size = new System.Drawing.Size(1256, 0);
+            this.tabPageComposite.TabIndex = 1;
+            this.tabPageComposite.Text = "COMPOSITE";
+            this.tabPageComposite.ToolTipText = "Display Composite Curves";
+            this.tabPageComposite.UseVisualStyleBackColor = true;
+            // 
+            // tabPageInterval
+            // 
+            this.tabPageInterval.Location = new System.Drawing.Point(4, 29);
+            this.tabPageInterval.Name = "tabPageInterval";
+            this.tabPageInterval.Size = new System.Drawing.Size(1256, 0);
+            this.tabPageInterval.TabIndex = 2;
+            this.tabPageInterval.Text = "INTERVAL";
+            this.tabPageInterval.ToolTipText = "Display Interval Table";
+            this.tabPageInterval.UseVisualStyleBackColor = true;
+            // 
+            // tabPageOptimize
+            // 
+            this.tabPageOptimize.Location = new System.Drawing.Point(4, 29);
+            this.tabPageOptimize.Name = "tabPageOptimize";
+            this.tabPageOptimize.Size = new System.Drawing.Size(1256, 0);
+            this.tabPageOptimize.TabIndex = 3;
+            this.tabPageOptimize.Text = "OPTIMIZE";
+            this.tabPageOptimize.ToolTipText = "Perform Optimization Analyses";
+            this.tabPageOptimize.UseVisualStyleBackColor = true;
+            // 
+            // panelHEN
+            // 
+            this.panelHEN.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelHEN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelHEN.Controls.Add(this.panelHEN_DESIGN);
+            this.panelHEN.Controls.Add(this.tabControlHEN);
+            this.panelHEN.Location = new System.Drawing.Point(857, 260);
+            this.panelHEN.Name = "panelHEN";
+            this.panelHEN.Size = new System.Drawing.Size(395, 210);
+            this.panelHEN.TabIndex = 5;
+            // 
+            // panelHEN_DESIGN
+            // 
+            this.panelHEN_DESIGN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelHEN_DESIGN.Controls.Add(this.labelTitleHenDesignPanel);
+            this.panelHEN_DESIGN.Location = new System.Drawing.Point(12, 40);
+            this.panelHEN_DESIGN.Name = "panelHEN_DESIGN";
+            this.panelHEN_DESIGN.Size = new System.Drawing.Size(331, 71);
+            this.panelHEN_DESIGN.TabIndex = 1;
+            // 
+            // labelTitleHenDesignPanel
+            // 
+            this.labelTitleHenDesignPanel.AutoSize = true;
+            this.labelTitleHenDesignPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleHenDesignPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleHenDesignPanel.Location = new System.Drawing.Point(9, 18);
+            this.labelTitleHenDesignPanel.Name = "labelTitleHenDesignPanel";
+            this.labelTitleHenDesignPanel.Size = new System.Drawing.Size(171, 36);
+            this.labelTitleHenDesignPanel.TabIndex = 0;
+            this.labelTitleHenDesignPanel.Text = "HEN DESIGN";
+            // 
+            // tabControlHEN
+            // 
+            this.tabControlHEN.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.tabControlHEN.Controls.Add(this.tabPageDesign);
+            this.tabControlHEN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControlHEN.Location = new System.Drawing.Point(0, 0);
+            this.tabControlHEN.Name = "tabControlHEN";
+            this.tabControlHEN.SelectedIndex = 0;
+            this.tabControlHEN.Size = new System.Drawing.Size(395, 34);
+            this.tabControlHEN.TabIndex = 0;
+            this.tabControlHEN.SelectedIndexChanged += new System.EventHandler(this.tabControlHEN_SelectedIndexChanged);
+            // 
+            // tabPageDesign
+            // 
+            this.tabPageDesign.Location = new System.Drawing.Point(4, 29);
+            this.tabPageDesign.Name = "tabPageDesign";
+            this.tabPageDesign.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDesign.Size = new System.Drawing.Size(387, 1);
+            this.tabPageDesign.TabIndex = 0;
+            this.tabPageDesign.Text = "DESIGN";
+            this.tabPageDesign.ToolTipText = "Design Heat Exchanger Network Options";
+            this.tabPageDesign.UseVisualStyleBackColor = true;
             // 
             // toolStripMain
             // 
@@ -651,308 +952,6 @@
             this.toolStripButtonSaveAs.ToolTipText = "Save Project As";
             this.toolStripButtonSaveAs.Click += new System.EventHandler(this.toolStripButtonSaveAs_Click);
             // 
-            // labelTitleInputProjectPanel
-            // 
-            this.labelTitleInputProjectPanel.AutoSize = true;
-            this.labelTitleInputProjectPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputProjectPanel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelTitleInputProjectPanel.Location = new System.Drawing.Point(3, 11);
-            this.labelTitleInputProjectPanel.Name = "labelTitleInputProjectPanel";
-            this.labelTitleInputProjectPanel.Size = new System.Drawing.Size(284, 36);
-            this.labelTitleInputProjectPanel.TabIndex = 0;
-            this.labelTitleInputProjectPanel.Text = "INPUT PROJECT DATA";
-            this.labelTitleInputProjectPanel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panelINPUT_STREAMS
-            // 
-            this.panelINPUT_STREAMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panelINPUT_STREAMS.Controls.Add(this.labelTitleInputStreamsPanel);
-            this.panelINPUT_STREAMS.Location = new System.Drawing.Point(370, 35);
-            this.panelINPUT_STREAMS.Name = "panelINPUT_STREAMS";
-            this.panelINPUT_STREAMS.Size = new System.Drawing.Size(385, 66);
-            this.panelINPUT_STREAMS.TabIndex = 2;
-            // 
-            // labelTitleInputStreamsPanel
-            // 
-            this.labelTitleInputStreamsPanel.AutoSize = true;
-            this.labelTitleInputStreamsPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputStreamsPanel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelTitleInputStreamsPanel.Location = new System.Drawing.Point(12, 11);
-            this.labelTitleInputStreamsPanel.Name = "labelTitleInputStreamsPanel";
-            this.labelTitleInputStreamsPanel.Size = new System.Drawing.Size(291, 36);
-            this.labelTitleInputStreamsPanel.TabIndex = 0;
-            this.labelTitleInputStreamsPanel.Text = "INPUT STREAMS DATA";
-            this.labelTitleInputStreamsPanel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // toolStripStatusLabelSELECTED_STATE
-            // 
-            this.toolStripStatusLabelSELECTED_STATE.BackColor = System.Drawing.Color.DodgerBlue;
-            this.toolStripStatusLabelSELECTED_STATE.Font = new System.Drawing.Font("Cascadia Mono SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripStatusLabelSELECTED_STATE.ForeColor = System.Drawing.Color.Yellow;
-            this.toolStripStatusLabelSELECTED_STATE.Name = "toolStripStatusLabelSELECTED_STATE";
-            this.toolStripStatusLabelSELECTED_STATE.Size = new System.Drawing.Size(147, 17);
-            this.toolStripStatusLabelSELECTED_STATE.Text = "ACTIVITY:SUBACTIVITY";
-            // 
-            // tabControlTARGETS
-            // 
-            this.tabControlTARGETS.Appearance = System.Windows.Forms.TabAppearance.Buttons;
-            this.tabControlTARGETS.Controls.Add(this.tabPageCalculate);
-            this.tabControlTARGETS.Controls.Add(this.tabPageComposite);
-            this.tabControlTARGETS.Controls.Add(this.tabPageInterval);
-            this.tabControlTARGETS.Controls.Add(this.tabPageOptimize);
-            this.tabControlTARGETS.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabControlTARGETS.Location = new System.Drawing.Point(0, 0);
-            this.tabControlTARGETS.Name = "tabControlTARGETS";
-            this.tabControlTARGETS.SelectedIndex = 0;
-            this.tabControlTARGETS.Size = new System.Drawing.Size(1264, 30);
-            this.tabControlTARGETS.TabIndex = 0;
-            this.tabControlTARGETS.SelectedIndexChanged += new System.EventHandler(this.tabControlTARGETS_SelectedIndexChanged);
-            // 
-            // tabPageCalculate
-            // 
-            this.tabPageCalculate.Location = new System.Drawing.Point(4, 29);
-            this.tabPageCalculate.Name = "tabPageCalculate";
-            this.tabPageCalculate.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCalculate.Size = new System.Drawing.Size(1256, 0);
-            this.tabPageCalculate.TabIndex = 0;
-            this.tabPageCalculate.Text = "CALCULATE";
-            this.tabPageCalculate.ToolTipText = "Calculate Pinch Targets";
-            this.tabPageCalculate.UseVisualStyleBackColor = true;
-            // 
-            // tabPageComposite
-            // 
-            this.tabPageComposite.Location = new System.Drawing.Point(4, 29);
-            this.tabPageComposite.Name = "tabPageComposite";
-            this.tabPageComposite.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageComposite.Size = new System.Drawing.Size(192, 67);
-            this.tabPageComposite.TabIndex = 1;
-            this.tabPageComposite.Text = "COMPOSITE";
-            this.tabPageComposite.ToolTipText = "Display Composite Curves";
-            this.tabPageComposite.UseVisualStyleBackColor = true;
-            // 
-            // tabPageInterval
-            // 
-            this.tabPageInterval.Location = new System.Drawing.Point(4, 29);
-            this.tabPageInterval.Name = "tabPageInterval";
-            this.tabPageInterval.Size = new System.Drawing.Size(192, 67);
-            this.tabPageInterval.TabIndex = 2;
-            this.tabPageInterval.Text = "INTERVAL";
-            this.tabPageInterval.ToolTipText = "Display Interval Table";
-            this.tabPageInterval.UseVisualStyleBackColor = true;
-            // 
-            // tabPageOptimize
-            // 
-            this.tabPageOptimize.Location = new System.Drawing.Point(4, 29);
-            this.tabPageOptimize.Name = "tabPageOptimize";
-            this.tabPageOptimize.Size = new System.Drawing.Size(192, 67);
-            this.tabPageOptimize.TabIndex = 3;
-            this.tabPageOptimize.Text = "OPTIMIZE";
-            this.tabPageOptimize.ToolTipText = "Perform Optimization Analyses";
-            this.tabPageOptimize.UseVisualStyleBackColor = true;
-            // 
-            // tabControlHEN
-            // 
-            this.tabControlHEN.Appearance = System.Windows.Forms.TabAppearance.Buttons;
-            this.tabControlHEN.Controls.Add(this.tabPageDesign);
-            this.tabControlHEN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabControlHEN.Location = new System.Drawing.Point(0, 0);
-            this.tabControlHEN.Name = "tabControlHEN";
-            this.tabControlHEN.SelectedIndex = 0;
-            this.tabControlHEN.Size = new System.Drawing.Size(1264, 34);
-            this.tabControlHEN.TabIndex = 0;
-            this.tabControlHEN.SelectedIndexChanged += new System.EventHandler(this.tabControlHEN_SelectedIndexChanged);
-            // 
-            // tabPageDesign
-            // 
-            this.tabPageDesign.Location = new System.Drawing.Point(4, 29);
-            this.tabPageDesign.Name = "tabPageDesign";
-            this.tabPageDesign.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDesign.Size = new System.Drawing.Size(1256, 1);
-            this.tabPageDesign.TabIndex = 0;
-            this.tabPageDesign.Text = "DESIGN";
-            this.tabPageDesign.ToolTipText = "Design Heat Exchanger Network Options";
-            this.tabPageDesign.UseVisualStyleBackColor = true;
-            // 
-            // panelINPUT_UTILITIES
-            // 
-            this.panelINPUT_UTILITIES.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panelINPUT_UTILITIES.Controls.Add(this.labelTitleInputUtilitiesPanel);
-            this.panelINPUT_UTILITIES.Location = new System.Drawing.Point(791, 36);
-            this.panelINPUT_UTILITIES.Name = "panelINPUT_UTILITIES";
-            this.panelINPUT_UTILITIES.Size = new System.Drawing.Size(379, 67);
-            this.panelINPUT_UTILITIES.TabIndex = 3;
-            // 
-            // labelTitleInputUtilitiesPanel
-            // 
-            this.labelTitleInputUtilitiesPanel.AutoSize = true;
-            this.labelTitleInputUtilitiesPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputUtilitiesPanel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelTitleInputUtilitiesPanel.Location = new System.Drawing.Point(14, 12);
-            this.labelTitleInputUtilitiesPanel.Name = "labelTitleInputUtilitiesPanel";
-            this.labelTitleInputUtilitiesPanel.Size = new System.Drawing.Size(286, 36);
-            this.labelTitleInputUtilitiesPanel.TabIndex = 0;
-            this.labelTitleInputUtilitiesPanel.Text = "INPUT UTILITIES DATA";
-            // 
-            // panelINPUT_COST
-            // 
-            this.panelINPUT_COST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panelINPUT_COST.Controls.Add(this.labelTitleInputCostPanel);
-            this.panelINPUT_COST.Location = new System.Drawing.Point(12, 108);
-            this.panelINPUT_COST.Name = "panelINPUT_COST";
-            this.panelINPUT_COST.Size = new System.Drawing.Size(331, 77);
-            this.panelINPUT_COST.TabIndex = 4;
-            // 
-            // labelTitleInputCostPanel
-            // 
-            this.labelTitleInputCostPanel.AutoSize = true;
-            this.labelTitleInputCostPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputCostPanel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelTitleInputCostPanel.Location = new System.Drawing.Point(3, 17);
-            this.labelTitleInputCostPanel.Name = "labelTitleInputCostPanel";
-            this.labelTitleInputCostPanel.Size = new System.Drawing.Size(239, 36);
-            this.labelTitleInputCostPanel.TabIndex = 0;
-            this.labelTitleInputCostPanel.Text = "INPUT COST DATA";
-            // 
-            // panelINPUT_EXCHANGER
-            // 
-            this.panelINPUT_EXCHANGER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panelINPUT_EXCHANGER.Controls.Add(this.labelTitleInputExchangerPanel);
-            this.panelINPUT_EXCHANGER.Location = new System.Drawing.Point(370, 108);
-            this.panelINPUT_EXCHANGER.Name = "panelINPUT_EXCHANGER";
-            this.panelINPUT_EXCHANGER.Size = new System.Drawing.Size(385, 77);
-            this.panelINPUT_EXCHANGER.TabIndex = 5;
-            // 
-            // labelTitleInputExchangerPanel
-            // 
-            this.labelTitleInputExchangerPanel.AutoSize = true;
-            this.labelTitleInputExchangerPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputExchangerPanel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelTitleInputExchangerPanel.Location = new System.Drawing.Point(15, 17);
-            this.labelTitleInputExchangerPanel.Name = "labelTitleInputExchangerPanel";
-            this.labelTitleInputExchangerPanel.Size = new System.Drawing.Size(328, 36);
-            this.labelTitleInputExchangerPanel.TabIndex = 0;
-            this.labelTitleInputExchangerPanel.Text = "INPUT EXCHANGER DATA";
-            // 
-            // panelINPUT_VALIDATE
-            // 
-            this.panelINPUT_VALIDATE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panelINPUT_VALIDATE.Controls.Add(this.labelTitleInputValidatePanel);
-            this.panelINPUT_VALIDATE.Location = new System.Drawing.Point(791, 109);
-            this.panelINPUT_VALIDATE.Name = "panelINPUT_VALIDATE";
-            this.panelINPUT_VALIDATE.Size = new System.Drawing.Size(379, 76);
-            this.panelINPUT_VALIDATE.TabIndex = 6;
-            // 
-            // labelTitleInputValidatePanel
-            // 
-            this.labelTitleInputValidatePanel.AutoSize = true;
-            this.labelTitleInputValidatePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputValidatePanel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelTitleInputValidatePanel.Location = new System.Drawing.Point(17, 16);
-            this.labelTitleInputValidatePanel.Name = "labelTitleInputValidatePanel";
-            this.labelTitleInputValidatePanel.Size = new System.Drawing.Size(287, 36);
-            this.labelTitleInputValidatePanel.TabIndex = 0;
-            this.labelTitleInputValidatePanel.Text = "INPUT VALIDATE DATA";
-            // 
-            // panelTARGETS_CALCULATE
-            // 
-            this.panelTARGETS_CALCULATE.BackColor = System.Drawing.Color.White;
-            this.panelTARGETS_CALCULATE.Controls.Add(this.labelTitleTargetsCalculatePanel);
-            this.panelTARGETS_CALCULATE.Location = new System.Drawing.Point(12, 46);
-            this.panelTARGETS_CALCULATE.Name = "panelTARGETS_CALCULATE";
-            this.panelTARGETS_CALCULATE.Size = new System.Drawing.Size(331, 65);
-            this.panelTARGETS_CALCULATE.TabIndex = 6;
-            // 
-            // labelTitleTargetsCalculatePanel
-            // 
-            this.labelTitleTargetsCalculatePanel.AutoSize = true;
-            this.labelTitleTargetsCalculatePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleTargetsCalculatePanel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelTitleTargetsCalculatePanel.Location = new System.Drawing.Point(6, 16);
-            this.labelTitleTargetsCalculatePanel.Name = "labelTitleTargetsCalculatePanel";
-            this.labelTitleTargetsCalculatePanel.Size = new System.Drawing.Size(278, 36);
-            this.labelTitleTargetsCalculatePanel.TabIndex = 0;
-            this.labelTitleTargetsCalculatePanel.Text = "TARGETS CALCULATE";
-            // 
-            // panelTARGETS_COMPOSITE
-            // 
-            this.panelTARGETS_COMPOSITE.BackColor = System.Drawing.Color.White;
-            this.panelTARGETS_COMPOSITE.Controls.Add(this.labelTitleTargetsCompositePanel);
-            this.panelTARGETS_COMPOSITE.Location = new System.Drawing.Point(370, 46);
-            this.panelTARGETS_COMPOSITE.Name = "panelTARGETS_COMPOSITE";
-            this.panelTARGETS_COMPOSITE.Size = new System.Drawing.Size(385, 65);
-            this.panelTARGETS_COMPOSITE.TabIndex = 7;
-            // 
-            // labelTitleTargetsCompositePanel
-            // 
-            this.labelTitleTargetsCompositePanel.AutoSize = true;
-            this.labelTitleTargetsCompositePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleTargetsCompositePanel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelTitleTargetsCompositePanel.Location = new System.Drawing.Point(18, 16);
-            this.labelTitleTargetsCompositePanel.Name = "labelTitleTargetsCompositePanel";
-            this.labelTitleTargetsCompositePanel.Size = new System.Drawing.Size(284, 36);
-            this.labelTitleTargetsCompositePanel.TabIndex = 0;
-            this.labelTitleTargetsCompositePanel.Text = "TARGETS COMPOSITE";
-            // 
-            // panelTARGETS_INTERVAL
-            // 
-            this.panelTARGETS_INTERVAL.BackColor = System.Drawing.Color.White;
-            this.panelTARGETS_INTERVAL.Controls.Add(this.labelTitleTargetsIntervalPanel);
-            this.panelTARGETS_INTERVAL.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTARGETS_INTERVAL.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.panelTARGETS_INTERVAL.Location = new System.Drawing.Point(791, 46);
-            this.panelTARGETS_INTERVAL.Name = "panelTARGETS_INTERVAL";
-            this.panelTARGETS_INTERVAL.Size = new System.Drawing.Size(379, 65);
-            this.panelTARGETS_INTERVAL.TabIndex = 8;
-            // 
-            // labelTitleTargetsIntervalPanel
-            // 
-            this.labelTitleTargetsIntervalPanel.AutoSize = true;
-            this.labelTitleTargetsIntervalPanel.Location = new System.Drawing.Point(14, 16);
-            this.labelTitleTargetsIntervalPanel.Name = "labelTitleTargetsIntervalPanel";
-            this.labelTitleTargetsIntervalPanel.Size = new System.Drawing.Size(252, 36);
-            this.labelTitleTargetsIntervalPanel.TabIndex = 0;
-            this.labelTitleTargetsIntervalPanel.Text = "TARGETS INTERVAL";
-            // 
-            // panelTARGETS_OPTIMIZE
-            // 
-            this.panelTARGETS_OPTIMIZE.BackColor = System.Drawing.Color.White;
-            this.panelTARGETS_OPTIMIZE.Controls.Add(this.labelTitleTargetsOptimizePanel);
-            this.panelTARGETS_OPTIMIZE.Location = new System.Drawing.Point(12, 133);
-            this.panelTARGETS_OPTIMIZE.Name = "panelTARGETS_OPTIMIZE";
-            this.panelTARGETS_OPTIMIZE.Size = new System.Drawing.Size(331, 58);
-            this.panelTARGETS_OPTIMIZE.TabIndex = 9;
-            // 
-            // labelTitleTargetsOptimizePanel
-            // 
-            this.labelTitleTargetsOptimizePanel.AutoSize = true;
-            this.labelTitleTargetsOptimizePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleTargetsOptimizePanel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelTitleTargetsOptimizePanel.Location = new System.Drawing.Point(6, 13);
-            this.labelTitleTargetsOptimizePanel.Name = "labelTitleTargetsOptimizePanel";
-            this.labelTitleTargetsOptimizePanel.Size = new System.Drawing.Size(253, 36);
-            this.labelTitleTargetsOptimizePanel.TabIndex = 0;
-            this.labelTitleTargetsOptimizePanel.Text = "TARGETS OPTIMIZE";
-            // 
-            // panelHEN_DESIGN
-            // 
-            this.panelHEN_DESIGN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelHEN_DESIGN.Controls.Add(this.labelTitleHenDesignPanel);
-            this.panelHEN_DESIGN.Location = new System.Drawing.Point(12, 40);
-            this.panelHEN_DESIGN.Name = "panelHEN_DESIGN";
-            this.panelHEN_DESIGN.Size = new System.Drawing.Size(331, 71);
-            this.panelHEN_DESIGN.TabIndex = 1;
-            // 
-            // labelTitleHenDesignPanel
-            // 
-            this.labelTitleHenDesignPanel.AutoSize = true;
-            this.labelTitleHenDesignPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleHenDesignPanel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelTitleHenDesignPanel.Location = new System.Drawing.Point(9, 18);
-            this.labelTitleHenDesignPanel.Name = "labelTitleHenDesignPanel";
-            this.labelTitleHenDesignPanel.Size = new System.Drawing.Size(171, 36);
-            this.labelTitleHenDesignPanel.TabIndex = 0;
-            this.labelTitleHenDesignPanel.Text = "HEN DESIGN";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -966,6 +965,7 @@
             this.Controls.Add(this.panelINPUT);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.statusStripMain);
+            this.Controls.Add(this.panelHEN);
             this.Controls.Add(this.menuStripMain);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Cascadia Mono SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -982,35 +982,35 @@
             this.statusStripMain.PerformLayout();
             this.tabControlMain.ResumeLayout(false);
             this.panelINPUT.ResumeLayout(false);
-            this.panelTARGETS.ResumeLayout(false);
-            this.panelHEN.ResumeLayout(false);
-            this.panelINPUT_PROJECT.ResumeLayout(false);
-            this.panelINPUT_PROJECT.PerformLayout();
-            this.tabControlINPUT.ResumeLayout(false);
-            this.toolStripMain.ResumeLayout(false);
-            this.toolStripMain.PerformLayout();
-            this.panelINPUT_STREAMS.ResumeLayout(false);
-            this.panelINPUT_STREAMS.PerformLayout();
-            this.tabControlTARGETS.ResumeLayout(false);
-            this.tabControlHEN.ResumeLayout(false);
-            this.panelINPUT_UTILITIES.ResumeLayout(false);
-            this.panelINPUT_UTILITIES.PerformLayout();
-            this.panelINPUT_COST.ResumeLayout(false);
-            this.panelINPUT_COST.PerformLayout();
-            this.panelINPUT_EXCHANGER.ResumeLayout(false);
-            this.panelINPUT_EXCHANGER.PerformLayout();
             this.panelINPUT_VALIDATE.ResumeLayout(false);
             this.panelINPUT_VALIDATE.PerformLayout();
-            this.panelTARGETS_CALCULATE.ResumeLayout(false);
-            this.panelTARGETS_CALCULATE.PerformLayout();
-            this.panelTARGETS_COMPOSITE.ResumeLayout(false);
-            this.panelTARGETS_COMPOSITE.PerformLayout();
-            this.panelTARGETS_INTERVAL.ResumeLayout(false);
-            this.panelTARGETS_INTERVAL.PerformLayout();
+            this.panelINPUT_EXCHANGER.ResumeLayout(false);
+            this.panelINPUT_EXCHANGER.PerformLayout();
+            this.panelINPUT_COST.ResumeLayout(false);
+            this.panelINPUT_COST.PerformLayout();
+            this.panelINPUT_UTILITIES.ResumeLayout(false);
+            this.panelINPUT_UTILITIES.PerformLayout();
+            this.panelINPUT_STREAMS.ResumeLayout(false);
+            this.panelINPUT_STREAMS.PerformLayout();
+            this.tabControlINPUT.ResumeLayout(false);
+            this.panelINPUT_PROJECT.ResumeLayout(false);
+            this.panelINPUT_PROJECT.PerformLayout();
+            this.panelTARGETS.ResumeLayout(false);
             this.panelTARGETS_OPTIMIZE.ResumeLayout(false);
             this.panelTARGETS_OPTIMIZE.PerformLayout();
+            this.panelTARGETS_INTERVAL.ResumeLayout(false);
+            this.panelTARGETS_INTERVAL.PerformLayout();
+            this.panelTARGETS_COMPOSITE.ResumeLayout(false);
+            this.panelTARGETS_COMPOSITE.PerformLayout();
+            this.panelTARGETS_CALCULATE.ResumeLayout(false);
+            this.panelTARGETS_CALCULATE.PerformLayout();
+            this.tabControlTARGETS.ResumeLayout(false);
+            this.panelHEN.ResumeLayout(false);
             this.panelHEN_DESIGN.ResumeLayout(false);
             this.panelHEN_DESIGN.PerformLayout();
+            this.tabControlHEN.ResumeLayout(false);
+            this.toolStripMain.ResumeLayout(false);
+            this.toolStripMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -140,6 +140,9 @@ namespace Pinch
         private ArrayList _subActivitiesPanelList;  // List of Sub-Activity Panels (indexed by PK)
         private ArrayList _lookupPanelInfoTable;    // List of Panel Table Row objects (indexed by PK)
 
+        //--------------------------------------- Last Activity Index State -------------------------------------------
+        private int _nLastActivityIndex = 0;            // Last Activity Index
+
         //------------------------------------- Last SubActivity Index State ------------------------------------------
         private int _nLastInputSubActivityIndex = 0;    // Last INPUT SubActivity Index
         private int _nLastTargetsSubActivityIndex = 0;  // Last TARGETS SubActivity Index
@@ -205,6 +208,10 @@ namespace Pinch
         //------------------------------------------------------------------------------------
         #endregion  // PUBLIC SUB-ACTIVITIES PANELS ... public ... Assign in FormMain Construction
 
+        #region PUBLIC STATUS BAR Text ... public ... Assign in FormMain Construction
+        public ToolStripStatusLabel STATUS_BAR_LABEL_SELECTED_STATE;    // Status Bar Selected View ... Label
+        #endregion  // PUBLIC STATUS BAR Text ... public ... Assign in FormMain Construction
+
         #endregion  // FORM CONTROLS ... public ... Assign in FormMain Construction
 
         #endregion  // FIELDS
@@ -260,6 +267,20 @@ namespace Pinch
         }
         #endregion      // LookupPanelInfoTable
 
+        //-------------------------------------------------------------------------------------------------------------
+        //--------------------------------------- Last Activity Index State -------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
+
+        #region LastActivityIndex
+        /// <summary>
+        /// LastActivityIndex Property
+        /// </summary>
+        public int LastActivityIndex
+        {
+            get { return _nLastActivityIndex; }
+            set { _nLastActivityIndex = value; }
+        }
+        #endregion      // LastActivityIndex
         //-------------------------------------------------------------------------------------------------------------
         //------------------------------------- Last SubActivity Index State ------------------------------------------
         //-------------------------------------------------------------------------------------------------------------
@@ -465,6 +486,293 @@ namespace Pinch
             }
         }
         #endregion  // CTOR
+
+        #region PUBLIC METHODS
+
+        #region InitializeMgrObjects()
+        /// <summary>
+        /// Initialize the Lists and Table objects 
+        /// Ensure all Panel objects are assigned to the public fields before invoking this method.
+        /// Ensure all assigned Panel objects align with CONST indices
+        /// (i.e., FormMain create Mgr object, assigns Panels and TabContols objects).
+        /// Initial Selected State set.
+        /// </summary>
+        public void InitializeMgrObjects()
+        {
+            string strMethod = "InitializeMgrObjects()";
+            string strMsg = string.Empty;
+
+            int nInitialActivityIndex = INDEX_INPUT_PANEL;              // Initial Activity Index
+            int nInitialSubActivityIndex = INDEX_INPUT_PROJECT_PANEL;   // Initial SubActivity Index
+            try
+            {
+                //---------------------------
+                //--- Populate ArrayLists ---
+                //---------------------------
+                PopulateActivitiesPanelList();      // Populate Activities Panel List
+                PopulateSubActivitiesPanelTable();  // Populate SubActivities Panel List (PK as Index)
+                PopulateLookupPanelInfoTable();     // Populate Lookup Panel Table (PK)
+                //----------------------------------
+                //--- Set Initial Selected State ---
+                //----------------------------------
+                SetSelectedState(nInitialActivityIndex, nInitialSubActivityIndex);
+                //---------------------------------------
+                //--- Set Initial Last Selected State ---
+                //---------------------------------------
+                LastActivityIndex = nInitialActivityIndex;
+                LastInputSubActivityIndex = nInitialSubActivityIndex;
+                LastTargetsSubActivityIndex = nInitialSubActivityIndex;
+                LastHenSubActivityIndex = nInitialSubActivityIndex;
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // InitializeMgrObjects()
+
+        #region DisplaySelectedView
+        /// <summary>
+        /// Display the Selected View which includes,
+        ///   + the Main Tab Control
+        ///   + the Activity Panel  [0:INPUT | 1:TARGETS | 2:HEN]
+        ///   + Associated SubActivity Panel
+        ///     - [0]:INPUT   : [0:PROJECT   | 1:STREAMS   | 2:UTILITIES | 
+        ///                      3:COST      | 4:EXCHANGER | 5:VALIDATE  ]
+        ///     - [1]:TARGETS : [0:CALCULATE | 1:COMPOSITE | 
+        ///                      2:INTERVAL  | 3:OPTIMIZE  ]
+        ///     - [2]:HEN     : [0:DESIGN ]
+        ///   + Status Bar text ... [Activity, SUbActivity]
+        ///        [0,0] : "INPUT:PROJECT"
+        ///        [0,1] : "INPUT:STREAMS"
+        ///        [0,2] : "INPUT:UTILITIES"
+        ///        [0,3] : "INPUT:COST"
+        ///        [0,4] : "INPUT:EXCHANGER"
+        ///        [0,5] : "INPUT:VALIDATE"
+        ///        [0,0] : "TARGETS:CALCULATE"
+        ///        [1,1] : "TARGETS:COMPOSITE"
+        ///        [1,2] : "TARGETS:INTERVAL"
+        ///        [1,3] : "TARGETS:OPTIMIZE"
+        ///        [2,0] : "HEN:DESIGN"
+        /// </summary>
+        /// <param name="nActivity">Activity Index</param>
+        /// <param name="nSubActivity">SubActivity Index</param>
+        /// <returns>PanelTableRow object on success; otherwise null</returns>
+        public PanelTableRow DisplaySelectedView(int nActivity, int nSubActivity)
+        {
+            string strMethod = "DisplaySelectedView()";
+            string strView = string.Empty;
+            PanelTableRow row = null;
+            try
+            {
+                ClearView();    // Clear View ... set Visible=false on Controls
+
+                SetLastSelectedState(nActivity, nSubActivity);
+                row = SetSelectedState(nActivity, nSubActivity);
+
+                MAIN_TAB_CONTROL.Visible = true;
+
+                //SelActivityPanel.Visible = true;
+                //SelSubActivityPanel.Visible = true;
+
+                ((Panel)ActivitiesPanelList[nActivity]).Visible = true;
+                ((Panel)SubActivitiesPanelList[row.PK]).Visible = true;
+
+                strView = row.PanelStatusName;
+                STATUS_BAR_LABEL_SELECTED_STATE.Text = strView;
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return row;     // Return Selected PanelTableRow object
+        }
+        #endregion      // DisplaySelectedView
+
+        #region LOG METHODS
+
+        #region LogCurrentState()
+        /// <summary>
+        /// Log the current index state of the Panel Table Manager.
+        /// </summary>
+        public void LogCurrentState()
+        {
+            string strMethod = "LogCurrentState()";
+            string strMsg = string.Empty;
+            try
+            {
+                PinchLogger.WriteSection("CURRENT TABLE MANAGER STATE");
+
+                strMsg = String.Format(" ==> Current Primary Key (PK) : {0:00}  PANEL NAME: {1}", 
+                                       SelPK, SelPanelStatusName);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format(" ==> Current Activity    Index: {0:00}  NAME: {1}", 
+                                       SelActivity, SelActivityName);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format(" ==> Current SubActivity Index: {0:00}  Name: {1}", 
+                                       SelSubActivity, SelSubActivityName);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                if(SelRow != null)  SelRow.LogRow();  // Log Row Data
+                else PinchLogger.LogWarning(NAMESPACE, CLASS, strMethod, "Selected Row is Null! ... NOT Initialized Yet!");
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+        }
+        #endregion  // LogCurrentState()
+
+        #region LogActivitiesPanelList()
+        /// <summary>
+        /// Log the contents of the Activities Panel List.
+        /// </summary>
+        public void LogActivitiesPanelList()
+        {
+            string strMethod = "LogActivitiesPanelList()";
+            string strMsg = string.Empty;
+            int nIndex = 0;     // ArrayList index
+            try
+            {
+                PinchLogger.WriteSection("ACTIVITIES PANEL LIST");
+
+                strMsg = String.Format("ACTIVITY   PANEL ");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format(" INDEX     NAME");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                PinchLogger.WriteSeparatorLine('-');
+
+                foreach (Panel panel in ActivitiesPanelList)
+                {
+                    if(panel==null) strMsg = String.Format("   {0:00}      NULL ", nIndex);
+                    else strMsg = String.Format("   {0:00}      {1} ", nIndex, panel.Name);
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    
+                    nIndex++;   // Increment Index
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+        }
+        #endregion  // LogActivitiesPanelList()
+
+        #region LogSubActivitiesPanelList()
+        /// <summary>
+        /// Log the contents of the Aub-ctivities Panel List.
+        /// </summary>
+        public void LogSubActivitiesPanelList()
+        {
+            string strMethod = "LogSubActivitiesPanelList()";
+            string strMsg = string.Empty;
+            int nIndex = 0;     // ArrayList index
+            try
+            {
+                PinchLogger.WriteSection("SUB-ACTIVITIES PANEL LIST");
+
+                strMsg = String.Format("SUB-ACTIVITY   PANEL ");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("   INDEX       NAME");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                PinchLogger.WriteSeparatorLine('-');
+
+                foreach (Panel panel in SubActivitiesPanelList)
+                {
+                    if (panel == null) strMsg = String.Format("     {0:00}        NULL ", nIndex);
+                    else strMsg = String.Format("     {0:00}        {1} ", nIndex, panel.Name);
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                    nIndex++;   // Increment Index
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+        }
+        #endregion  // LogSubActivitiesPanelList()
+
+        #region LogLookupPanelInfoTable()
+        /// <summary>
+        /// Log the contents of the Looup Panel Information Table.
+        /// </summary>
+        public void LogLookupPanelInfoTable()
+        {
+            string strMethod = "LogLookupPanelInfoTable()";
+            string strMsg = string.Empty;
+            try
+            {
+                //PinchLogger.WriteSection("LOOKUP PANEL INFORMATION TABLE");
+
+                strMsg = String.Format("      ACTIVITY        SUB-ACTIVITY         PANEL STATUS");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format(" PK  INDEX  NAME     INDEX   NAME          NAME");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                PinchLogger.WriteSeparatorLine('-');
+
+                foreach (PanelTableRow row in LookupPanelInfoTable)
+                {
+                    strMsg = String.Format(" {0:00}   {1}     {2,-9} {3}      {4,-12}  {5,-25} ",
+                                            row.PK, 
+                                            row.ActivityIndex,    row.ActivityName,
+                                            row.SubActivityIndex, row.SubActivityName,
+                                            row.PanelStatusName);
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+        }
+        #endregion  // LogLookupPanelInfoTable()
+
+        #endregion  // LOG METHODS
+
+        #endregion  // PUBLIC METHODS
 
         #region PRIVATE METHODS
 
@@ -737,36 +1045,31 @@ namespace Pinch
 
         #endregion  // TABLE LOOKUP METHODS
 
-        #endregion  // PRIVATE METHODS
-
-        #region PUBLIC METHODS
-
-        #region InitializeMgrObjects()
+        #region ClearView
         /// <summary>
-        /// Initialize the Lists and Table objects 
-        /// Ensure all Panel objects are assigned to the public fields before invoking this method.
-        /// Ensure all assigned Panel objects align with CONST indices
-        /// (i.e., FormMain create Mgr object, assigns Panels and TabContols objects).
-        /// Initial Selected State set.
+        /// Clear View 
+        ///  ... set Visible to false for Main Tab Control and All Panels
+        ///  ... clear status bar Label text
         /// </summary>
-        public void InitializeMgrObjects()
+        private void ClearView()
         {
-            string strMethod = "InitializeMgrObjects()";
+            string strMethod = "ClearView()";
             string strMsg = string.Empty;
-
-            int nInitialActivityIndex = 0;      // Initial Activity Index
-            int nInitialSubActivityIndex = 0;   // Initial SubActivity Index
             try
             {
-                PopulateActivitiesPanelList();      // Populate Activities Panel List
-                PopulateSubActivitiesPanelTable();  // Populate SubActivities Panel List (PK as Index)
-                PopulateLookupPanelInfoTable();     // Populate Lookup Panel Table (PK)
+                MAIN_TAB_CONTROL.Visible = false;
 
-                SetSelectedState(nInitialActivityIndex, nInitialSubActivityIndex);
+                foreach (Panel panelAct in ActivitiesPanelList)
+                {
+                    panelAct.Visible = false;
+                }
 
-                LastInputSubActivityIndex = nInitialSubActivityIndex;
-                LastTargetsSubActivityIndex = nInitialSubActivityIndex;
-                LastHenSubActivityIndex = nInitialSubActivityIndex;
+                foreach (Panel panelSub in SubActivitiesPanelList)
+                {
+                    panelSub.Visible = false;
+                }
+
+                STATUS_BAR_LABEL_SELECTED_STATE.Text = string.Empty;
             }
             catch (Exception ex)
             {
@@ -776,10 +1079,50 @@ namespace Pinch
             }
             finally
             {
-
             }
         }
-        #endregion  // InitializeMgrObjects()
+        #endregion  // ClearView
+
+        #region SetLastSelectedState()
+        /// <summary>
+        /// Assign the Last Selected Settings
+        /// </summary>
+        /// <param name="nActivityIndex">Activity Index</param>
+        /// <param name="nSubActivityIndex">SubActivity Index</param>
+        private void SetLastSelectedState(int nActivityIndex, int nSubActivityIndex)
+        {
+            string strMethod = "SetLastSelectedState()";
+            string strMsg = string.Empty;
+            try
+            {
+                LastActivityIndex = nActivityIndex;
+                switch (nActivityIndex)
+                {
+                    case INDEX_INPUT_PANEL:
+                        LastInputSubActivityIndex = nSubActivityIndex;
+                        break;
+                    case INDEX_TARGETS_PANEL:
+                         LastTargetsSubActivityIndex = nSubActivityIndex;
+                        break;
+                    case INDEX_HEN_PANEL:
+                        LastHenSubActivityIndex = nSubActivityIndex;
+                        break;
+                    default:
+                        throw new Exception("*** INVALID: Activity Index!");
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+
+        #endregion  // SetLastSelectedState()
 
         #region SetSelectedState()
         /// <summary>
@@ -788,7 +1131,7 @@ namespace Pinch
         /// <param name="nActivityIndex">Activity Index</param>
         /// <param name="nSubActivityIndex">SubActivity Index</param>
         /// <returns>Lookup Table Row Matching Indices</returns>
-        public PanelTableRow SetSelectedState(int nActivityIndex, int nSubActivityIndex)
+        private PanelTableRow SetSelectedState(int nActivityIndex, int nSubActivityIndex)
         {
             string strMethod = "SetSelectedState()";
             string strMsg = string.Empty;
@@ -810,7 +1153,7 @@ namespace Pinch
                     SelPanelStatusName = row.PanelStatusName;
 
                     SelActivityPanel = (Panel)ActivitiesPanelList[SelActivity];
-                    SelSubActivityPanel = (Panel)SubActivitiesPanelList[SelSubActivity];
+                    SelSubActivityPanel = (Panel)SubActivitiesPanelList[SelPK];
                 }
                 //---------------------------------
                 //--- Main Activity Tab Control ---
@@ -850,180 +1193,7 @@ namespace Pinch
 
         #endregion  // SetSelectedState()
 
-        #region LOG METHODS
-
-        #region LogCurrentState()
-        /// <summary>
-        /// Log the current index state of the Panel Table Manager.
-        /// </summary>
-        public void LogCurrentState()
-        {
-            string strMethod = "LogCurrentState()";
-            string strMsg = string.Empty;
-            try
-            {
-                PinchLogger.WriteSection("CURRENT TABLE MANAGER STATE");
-
-                strMsg = String.Format(" ==> Current Primary Key (PK) : {0:00}  PANEL NAME: {1}", 
-                                       SelPK, SelPanelStatusName);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = String.Format(" ==> Current Activity    Index: {0:00}  NAME: {1}", 
-                                       SelActivity, SelActivityName);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = String.Format(" ==> Current SubActivity Index: {0:00}  Name: {1}", 
-                                       SelSubActivity, SelSubActivityName);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                if(SelRow != null)  SelRow.LogRow();  // Log Row Data
-                else PinchLogger.LogWarning(NAMESPACE, CLASS, strMethod, "Selected Row is Null! ... NOT Initialized Yet!");
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-                //PinchLogger.WriteSeparatorLine('=');
-            }
-        }
-        #endregion  // LogCurrentState()
-
-        #region LogActivitiesPanelList()
-        /// <summary>
-        /// Log the contents of the Activities Panel List.
-        /// </summary>
-        public void LogActivitiesPanelList()
-        {
-            string strMethod = "LogActivitiesPanelList()";
-            string strMsg = string.Empty;
-            int nIndex = 0;     // ArrayList index
-            try
-            {
-                PinchLogger.WriteSection("ACTIVITIES PANEL LIST");
-
-                strMsg = String.Format("ACTIVITY   PANEL ");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = String.Format(" INDEX     NAME");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                PinchLogger.WriteSeparatorLine('-');
-
-                foreach (Panel panel in ActivitiesPanelList)
-                {
-                    if(panel==null) strMsg = String.Format("   {0:00}      NULL ", nIndex);
-                    else strMsg = String.Format("   {0:00}      {1} ", nIndex, panel.Name);
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                    
-                    nIndex++;   // Increment Index
-                }
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-                //PinchLogger.WriteSeparatorLine('=');
-            }
-        }
-        #endregion  // LogActivitiesPanelList()
-
-        #region LogSubActivitiesPanelList()
-        /// <summary>
-        /// Log the contents of the Aub-ctivities Panel List.
-        /// </summary>
-        public void LogSubActivitiesPanelList()
-        {
-            string strMethod = "LogSubActivitiesPanelList()";
-            string strMsg = string.Empty;
-            int nIndex = 0;     // ArrayList index
-            try
-            {
-                PinchLogger.WriteSection("SUB-ACTIVITIES PANEL LIST");
-
-                strMsg = String.Format("SUB-ACTIVITY   PANEL ");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = String.Format("   INDEX       NAME");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                PinchLogger.WriteSeparatorLine('-');
-
-                foreach (Panel panel in SubActivitiesPanelList)
-                {
-                    if (panel == null) strMsg = String.Format("     {0:00}        NULL ", nIndex);
-                    else strMsg = String.Format("     {0:00}        {1} ", nIndex, panel.Name);
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                    nIndex++;   // Increment Index
-                }
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-                //PinchLogger.WriteSeparatorLine('=');
-            }
-        }
-        #endregion  // LogSubActivitiesPanelList()
-
-        #region LogLookupPanelInfoTable()
-        /// <summary>
-        /// Log the contents of the Looup Panel Information Table.
-        /// </summary>
-        public void LogLookupPanelInfoTable()
-        {
-            string strMethod = "LogLookupPanelInfoTable()";
-            string strMsg = string.Empty;
-            try
-            {
-                //PinchLogger.WriteSection("LOOKUP PANEL INFORMATION TABLE");
-
-                strMsg = String.Format("      ACTIVITY        SUB-ACTIVITY         PANEL STATUS");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = String.Format(" PK  INDEX  NAME     INDEX   NAME          NAME");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                PinchLogger.WriteSeparatorLine('-');
-
-                foreach (PanelTableRow row in LookupPanelInfoTable)
-                {
-                    strMsg = String.Format(" {0:00}   {1}     {2,-9} {3}      {4,-12}  {5,-25} ",
-                                            row.PK, 
-                                            row.ActivityIndex,    row.ActivityName,
-                                            row.SubActivityIndex, row.SubActivityName,
-                                            row.PanelStatusName);
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                }
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-                //PinchLogger.WriteSeparatorLine('=');
-            }
-        }
-        #endregion  // LogLookupPanelInfoTable()
-
-        #endregion  // LOG METHODS
-
-        #endregion  // PUBLIC METHODS
+        #endregion  // PRIVATE METHODS
 
     }
     #endregion  // public class PanelTableMgr

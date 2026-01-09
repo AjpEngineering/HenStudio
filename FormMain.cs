@@ -115,9 +115,10 @@ namespace Pinch
         #endregion  // COLORS
 
         #region SETTINGS
+        private bool _bLicenseVerified;     // Pinch License Verified
+        private bool _bInputVerified;       // Pinch Input Stream Data Verified
         private bool _bPinchEnglishUnits;   // Pinch English Units ... English (true)  Metric (false)
         private bool _bPinchCalcModeFCp;    // Pinch Calculation Mode ... Use CP (false)  Use F Cp (true)
-        private bool _bInputVerified;       // Pinch Input Stream Data Verified
         #endregion  // SETTINGS
 
         #region OBJECTS
@@ -134,18 +135,6 @@ namespace Pinch
         //private EnergyTargetsMgr _pinchEnergyTargets;
         //private PinchReportMgr _pinchReport;
         #endregion  // OBJECTS
-
-        #region PANELS
-        //--------------------------
-        //--- On MAIN TabControl ---
-        //--------------------------
-        private TabControl MAIN_TAB_CONTROL;
-        //private Panel INPUT_PANEL;      // INPUT Panel   - Index: INDEX_INPUT_PANEL
-        //private Panel TARGETS_PANEL;    // TARGETS Panel - Index: INDEX_TARGETS_PANEL
-        //private Panel HEN_PANEL;        // HEN Panel     - Index: INDEX_HEN_PANEL
-
-
-        #endregion  // PANELS
 
         #endregion      // FIELDS
 
@@ -224,41 +213,50 @@ namespace Pinch
         #endregion  // COLORS
 
         #region SETTINGS
-        //----------------
-        //--- SETTINGS ---
-        //----------------
-        #region bPinchEnglishUnitsFlag
-        /// <summary>
-        /// bPinchEnglishUnitsFlag Property
-        /// </summary>
-        public bool bPinchEnglishUnitsFlag
-        {
-            get { return _bPinchEnglishUnits; }
-            set { _bPinchEnglishUnits = value; }
-        }
-        #endregion      // bPinchEnglishUnitsFlag
 
-        #region bPinchCalcModeFCpFlag
+        #region LicenseVerified
         /// <summary>
-        /// bPinchCalcModeFCpFlag Property
+        /// LicenseVerified Property
         /// </summary>
-        public bool bPinchCalcModeFCpFlag
+        public bool LicenseVerified
         {
-            get { return _bPinchCalcModeFCp; }
-            set { _bPinchCalcModeFCp = value; }
+            get { return _bLicenseVerified; }
+            set { _bLicenseVerified = value; }
         }
-        #endregion      // bPinchCalcModeFCpFlag
+        #endregion      // LicenseVerified
 
-        #region bInputVerifiedFlag
+        #region InputVerifiedFlag
         /// <summary>
-        /// bInputVerifiedFlag Property
+        /// InputVerifiedFlag Property
         /// </summary>
-        public bool bInputVerifiedFlag
+        public bool InputVerifiedFlag
         {
             get { return _bInputVerified; }
             set { _bInputVerified = value; }
         }
-        #endregion      // bInputVerifiedFlag
+        #endregion      // InputVerifiedFlag
+
+        #region PinchEnglishUnitsFlag
+        /// <summary>
+        /// PinchEnglishUnitsFlag Property
+        /// </summary>
+        public bool PinchEnglishUnitsFlag
+        {
+            get { return _bPinchEnglishUnits; }
+            set { _bPinchEnglishUnits = value; }
+        }
+        #endregion      // PinchEnglishUnitsFlag
+
+        #region PinchCalcModeFCpFlag
+        /// <summary>
+        /// PinchCalcModeFCpFlag Property
+        /// </summary>
+        public bool PinchCalcModeFCpFlag
+        {
+            get { return _bPinchCalcModeFCp; }
+            set { _bPinchCalcModeFCp = value; }
+        }
+        #endregion      // PinchCalcModeFCpFlag
 
         #endregion  // SETTINGS
 
@@ -393,9 +391,10 @@ namespace Pinch
                 //------------------------
                 //--- Initialize Flags ---
                 //------------------------
-                //bPinchEnglishUnitsFlag = true;
-                //bPinchCalcModeFCpFlag = false;
-                //bInputVerifiedFlag = false;
+                LicenseVerified = false;
+                InputVerifiedFlag = false;
+                //PinchEnglishUnitsFlag = true;
+                //PinchCalcModeFCpFlag = false;
                 //---------------------------
                 //--- Initialize Controls ---
                 //---------------------------
@@ -407,7 +406,6 @@ namespace Pinch
                 //-----------------------------------------------------------------------------------------------------
                 //---------------------------- Assign ANALYSIS TabControl Panel Members -------------------------------
                 //-----------------------------------------------------------------------------------------------------
-                MAIN_TAB_CONTROL = this.tabControlMain;    // ANALYSIS Tab Control <<*** TEMP *************************
                 PanelTableMgrObj.MAIN_TAB_CONTROL = this.tabControlMain;    // ANALYSIS Tab Control
                 PanelTableMgrObj.INPUT_PANEL   = this.panelINPUT;           // SUB-ANALYSIS Tab Control
                 PanelTableMgrObj.TARGETS_PANEL = this.panelTARGETS;         // SUB-ANALYSIS Tab Control
@@ -432,10 +430,14 @@ namespace Pinch
                 PanelTableMgrObj.HEN_TAB_CONTROL         = this.tabControlHEN;            // Tab Control
                 PanelTableMgrObj.HEN_DESIGN_PANEL        = this.panelHEN_DESIGN;          // Panel - PK: 10 ... [2,0]
                 //-----------------------------------------------------------------------------------------------------
+                PanelTableMgrObj.STATUS_BAR_LABEL_SELECTED_STATE =                        // StatusBar Label
+                                                           this.toolStripStatusLabelSELECTED_STATE;
+                //-----------------------------------------------------------------------------------------------------
 
                 PanelTableMgrObj.InitializeMgrObjects();    // Initialize Lists and Table in Mgr
+                PanelTableMgrObj.DisplaySelectedView(0,0);  // Display View
 
-                //SelectAnalysisPanel(0); // Initially Display INPUT Panel
+
             }
             catch (Exception ex)
             {
@@ -515,7 +517,7 @@ namespace Pinch
         #region EXIT MEMU ITEM HANDLER
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ExitPinch();    // Exit Pinch Application
+            HandleExit();    // Exit Pinch Application
         }
         #endregion       // EXIT MEMU ITEM HANDLER
 
@@ -526,27 +528,78 @@ namespace Pinch
         #region SPECIFY INPUT
         private void specifyInputToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //SelectAnalysisPanel(PanelTableMgr.INDEX_INPUT_PANEL);     // Display INPUT Panel
+            string strMethod = "specifyInputToolStripMenuItem_Click";
+            PanelTableRow row = null;
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgrObj.LastInputSubActivityIndex;
+            try
+            {
+                PinchMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
 
-            PinchMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
+                row = PanelTableMgrObj.DisplaySelectedView(nActivity, nSubActivity);
+                if (row == null) throw (new Exception("INVALID INPUT MENU ITEM: Null View")); 
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // SPECIFY INPUT
 
         #region CALCULATE TARGETS
         private void calculateTargetsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //SelectAnalysisPanel(PanelTableMgr.INDEX_TARGETS_PANEL);     // Display TARGETS Panel
+            string strMethod = "calculateTargetsToolStripMenuItem_Click";
+            PanelTableRow row = null;
+            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
+            int nSubActivity = PanelTableMgrObj.LastTargetsSubActivityIndex;
+            try
+            {
+                PinchMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
 
-            PinchMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
+                row = PanelTableMgrObj.DisplaySelectedView(nActivity, nSubActivity);
+                if (row == null) throw (new Exception("INVALID TARGETS MENU ITEM: Null View"));
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // CALCULATE TARGETS
 
         #region DESIGN HEAT EXCHANGER NETWORK
         private void designHeatExchangerNetworkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //SelectAnalysisPanel(PanelTableMgr.INDEX_HEN_PANEL);     // Display HEN Panel
+            string strMethod = "designHeatExchangerNetworkToolStripMenuItem_Click";
+            PanelTableRow row = null;
+            int nActivity = PanelTableMgr.INDEX_HEN_PANEL;
+            int nSubActivity = PanelTableMgrObj.LastHenSubActivityIndex;
+            try
+            {
+                PinchMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
 
-            PinchMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
+                row = PanelTableMgrObj.DisplaySelectedView(nActivity, nSubActivity);
+                if (row == null) throw (new Exception("INVALID HEN MENU ITEM: Null View"));
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // DESIGN HEAT EXCHANGER NETWORK
 
@@ -705,7 +758,7 @@ namespace Pinch
         {
             string strMethod = "tabControlMain_SelectedIndexChanged()";
             string strMsg = string.Empty;
-            int nSelectedIndex = MAIN_TAB_CONTROL.SelectedIndex;
+            int nSelectedIndex = PanelTableMgrObj.MAIN_TAB_CONTROL.SelectedIndex;
            try
             {
                 //---------------------------------------------------------
@@ -817,78 +870,7 @@ namespace Pinch
 
         #region METHODS
 
-        //#region SelectAnalysisPanel METHOD
-        ///// <summary>
-        ///// Select the correct Analysis Panel to Display 
-        ///// based on selected index supplied to method
-        /////     INDEX_INPUT_PANEL ..... [0] ---> INPUT Panel
-        /////     INDEX_TARGETS_PANEL ... [1] ---> TARGETS Panel
-        /////     INDEX_HEN_PANEL ....... [2] ---> HEN Panel
-        ///// </summary>
-        ///// <param name="nSelectedIndex">Selected Panel Index</param>
-        //private void SelectAnalysisPanel(int nSelectedIndex)
-        //{
-        //    string strMethod = "SelectAnalysisPanel";
-        //    string strMsg = string.Empty;
-        //    try
-        //    {
-        //        switch (nSelectedIndex)
-        //        {
-        //            case 0:
-        //                INPUT_PANEL.Visible = true;
-        //                TARGETS_PANEL.Visible = false;
-        //                HEN_PANEL.Visible = false;
-
-        //                INPUT_PANEL.Show();
-        //                INPUT_PANEL.Focus();
-        //                INPUT_PANEL.Select();
-        //                INPUT_PANEL.BringToFront();
-        //                break;
-        //            case 1:
-        //                TARGETS_PANEL.Visible = true;
-        //                INPUT_PANEL.Visible = false;
-        //                HEN_PANEL.Visible = false;
-
-        //                TARGETS_PANEL.Show();
-        //                TARGETS_PANEL.Focus();
-        //                TARGETS_PANEL.Select();
-        //                TARGETS_PANEL.BringToFront();
-        //                break;
-        //            case 2:
-        //                HEN_PANEL.Visible = true;
-        //                TARGETS_PANEL.Visible = false;
-        //                INPUT_PANEL.Visible = false;
-
-        //                HEN_PANEL.Show();
-        //                HEN_PANEL.Focus();
-        //                HEN_PANEL.Select();
-        //                HEN_PANEL.BringToFront();
-        //                break;
-        //        }
-
-        //        //----------------------------------------
-        //        //--- Update Main Analysis Tab Control ---
-        //        //----------------------------------------
-        //        MAIN_TAB_CONTROL.SelectedIndex = nSelectedIndex;
-
-        //        //****************
-        //        //***** TEST *****
-        //        //****************
-        //        //string strTemp = String.Format("SELECTED INDEX = {0}", nSelectedIndex);
-        //        //PinchMsgDlg.DisplayInfoDlg(strTemp);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        PinchLogger.WriteSeparatorLine('*');
-        //        PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-        //        PinchLogger.WriteSeparatorLine('*');
-        //    }
-        //    finally
-        //    {
-        //    }
-        //}
-        //#endregion  // SelectAnalysisPanel METHOD
-
+        #region COMMON COMMAND HANDLERS
 
         #region HandleSave
         /// <summary>
@@ -938,13 +920,13 @@ namespace Pinch
         }
         #endregion  // HandleSaveAs
 
-        #region ExitPinch()
+        #region HandleExit
         /// <summary>
         /// Common Exit Pinch Application ... invoked from Menu Item and Toolbar Click events
         /// </summary>
-        private void ExitPinch()
+        private void HandleExit()
         {
-            string strMethod = "ExitPinch";
+            string strMethod = "HandleExit";
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Exiting Pinch Application");
             try
             {
@@ -960,7 +942,9 @@ namespace Pinch
             {
             }
         }
-        #endregion  // ExitPinch()
+        #endregion  // HandleExit
+
+        #endregion  // COMMON COMMAND HANDLERS
 
         #region LOG METHODS
 
