@@ -529,15 +529,12 @@ namespace Pinch
         private void specifyInputToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string strMethod = "specifyInputToolStripMenuItem_Click";
-            PanelTableRow row = null;
             int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
             int nSubActivity = PanelTableMgrObj.LastInputSubActivityIndex;
             try
             {
-                PinchMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
-
-                row = PanelTableMgrObj.DisplaySelectedView(nActivity, nSubActivity);
-                if (row == null) throw (new Exception("INVALID INPUT MENU ITEM: Null View")); 
+                //PinchMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
@@ -555,15 +552,12 @@ namespace Pinch
         private void calculateTargetsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string strMethod = "calculateTargetsToolStripMenuItem_Click";
-            PanelTableRow row = null;
             int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
             int nSubActivity = PanelTableMgrObj.LastTargetsSubActivityIndex;
             try
             {
-                PinchMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
-
-                row = PanelTableMgrObj.DisplaySelectedView(nActivity, nSubActivity);
-                if (row == null) throw (new Exception("INVALID TARGETS MENU ITEM: Null View"));
+                //PinchMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
@@ -581,15 +575,13 @@ namespace Pinch
         private void designHeatExchangerNetworkToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string strMethod = "designHeatExchangerNetworkToolStripMenuItem_Click";
-            PanelTableRow row = null;
             int nActivity = PanelTableMgr.INDEX_HEN_PANEL;
             int nSubActivity = PanelTableMgrObj.LastHenSubActivityIndex;
             try
             {
-                PinchMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
+                //PinchMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
 
-                row = PanelTableMgrObj.DisplaySelectedView(nActivity, nSubActivity);
-                if (row == null) throw (new Exception("INVALID HEN MENU ITEM: Null View"));
             }
             catch (Exception ex)
             {
@@ -614,45 +606,140 @@ namespace Pinch
         #region INPUT-PROJECT MENU EVENT
         private void inputProjectDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("INPUT-PROJECT Menu Item Selected!");
+            string strMethod = "inputProjectDataToolStripMenuItem_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_PROJECT_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-PROJECT Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // INPUT-PROJECT MENU EVENT
 
         #region INPUT-STREAMS MENU EVENT
         private void inputStreamsDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("INPUT-STREAMS Menu Item Selected!");
+            string strMethod = "inputStreamsDataToolStripMenuItem_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_STREAMS_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-STREAMS Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // INPUT-STREAMS MENU EVENT
 
         #region INPUT-UTILITIES MENU EVENT
         private void utilitiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("INPUT-UTILITIES Menu Item Selected!");
+            string strMethod = "utilitiesToolStripMenuItem_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_UTILITIES_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-UTILITIES Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // INPUT-UTILITIES MENU EVENT
 
         #region INPUT-COST MENU EVENT
         private void costToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("INPUT-COST Menu Item Selected!");
+            string strMethod = "costToolStripMenuItem_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_COST_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-COST Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // INPUT-COST MENU EVENT
 
         #region INPUT-EXCHANGER MENU EVENT
         private void exchangerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("INPUT-EXCHANGER Menu Item Selected!");
+            string strMethod = "exchangerToolStripMenuItem_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_EXCHANGER_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-EXCHANGER Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // INPUT-EXCHANGER MENU EVENT
 
         #region INPUT-VALIDATE MENU EVENT
         private void validateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("INPUT-VALIDATE Menu Item Selected!");
+            string strMethod = "validateToolStripMenuItem_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_VALIDATE_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-VALIDATE Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // INPUT-VALIDATE MENU EVENT
-
 
         //=========================================================================================
         //======================================= TARGETS =========================================
@@ -661,32 +748,94 @@ namespace Pinch
         #region TARGETS-CALCULATE MENU EVENT
         private void calculateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("TARGETS-CALCULATE Menu Item Selected!");
+            string strMethod = "calculateToolStripMenuItem_Click";
+            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_TARGETS_CALCULATE_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("TARGETS-CALCULATE Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
-
         #endregion  // TARGETS-CALCULATE MENU EVENT
 
         #region TARGETS-COMPOSITE MENU EVENT
         private void compositeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("TARGETS-COMPOSITE Menu Item Selected!");
+            string strMethod = "compositeToolStripMenuItem_Click";
+            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_TARGETS_COMPOSITE_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("TARGETS-COMPOSITE Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // TARGETS-COMPOSITE MENU EVENT
 
         #region TARGETS-INTERVAL MENU EVENT
         private void intervalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("TARGETS-INTERVAL Menu Item Selected!");
+            string strMethod = "intervalToolStripMenuItem_Click";
+            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_TARGETS_INTERVAL_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("TARGETS-INTERVAL Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // TARGETS-INTERVAL MENU EVENT
 
         #region TARGETS-OPTIMIZE MENU EVENT
         private void optimizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("TARGETS-OPTIMIZE Menu Item Selected!");
+            string strMethod = "optimizeToolStripMenuItem_Click";
+            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_TARGETS_OPTIMIZE_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("TARGETS-OPTIMIZE Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // TARGETS-OPTIMIZE MENU EVENT
-
 
         //=========================================================================================
         //========================================== HEN ==========================================
@@ -695,7 +844,23 @@ namespace Pinch
         #region HEN-DESIGN MENU EVENT
         private void designToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("HEN-DESIGN Menu Item Selected!");
+            string strMethod = "designToolStripMenuItem_Click";
+            int nActivity = PanelTableMgr.INDEX_HEN_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_HEN_DESIGN_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("HEN-DESIGN Menu Item Selected!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion  // HEN-DESIGN MENU EVENT
 
@@ -757,15 +922,27 @@ namespace Pinch
         private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             string strMethod = "tabControlMain_SelectedIndexChanged()";
-            string strMsg = string.Empty;
-            int nSelectedIndex = PanelTableMgrObj.MAIN_TAB_CONTROL.SelectedIndex;
-           try
+            int nActivity;
+            int nSubActivity;
+            try
             {
-                //---------------------------------------------------------
-                //--- Select the correct MAIN Analysis Panel to Display ---
-                //---------------------------------------------------------
-                PinchMsgDlg.DisplayWarningDlg("MAIN ANALYSIS Tab Control Index Selected Changed!");
-
+                //PinchMsgDlg.DisplayWarningDlg("MAIN ANALYSIS Tab Control Index Selected Changed!");
+                nActivity = PanelTableMgrObj.MAIN_TAB_CONTROL.SelectedIndex;
+                switch (nActivity)
+                {
+                    case PanelTableMgr.INDEX_INPUT_PANEL:
+                        nSubActivity = PanelTableMgrObj.LastInputSubActivityIndex;
+                        break;
+                    case PanelTableMgr.INDEX_TARGETS_PANEL:
+                        nSubActivity = PanelTableMgrObj.LastTargetsSubActivityIndex;
+                        break;
+                    case PanelTableMgr.INDEX_HEN_PANEL:
+                        nSubActivity = PanelTableMgrObj.LastHenSubActivityIndex;
+                        break;
+                    default:
+                        throw new Exception("INVALID Activity Index!");
+                }
+                HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
@@ -785,16 +962,14 @@ namespace Pinch
         private void tabControlINPUT_SelectedIndexChanged(object sender, EventArgs e)
         {
             string strMethod = "tabControlINPUT_SelectedIndexChanged()";
-            string strMsg = string.Empty;
-            int nSelectedIndex = this.tabControlINPUT.SelectedIndex;
+            int nActivity;
+            int nSubActivity;
             try
             {
-                //----------------------------------------------------
-                //--- Select the correct INPUT Panel to Display ---
-                //----------------------------------------------------
-                //SelectAnalysisPanel(nSelectedIndex);
-                PinchMsgDlg.DisplayWarningDlg("INPUT Tab Control Index Selected Changed!");
-
+                //PinchMsgDlg.DisplayWarningDlg("INPUT Tab Control Index Selected Changed!");
+                nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+                nSubActivity = this.tabControlINPUT.SelectedIndex; ;
+                HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
@@ -812,16 +987,14 @@ namespace Pinch
         private void tabControlTARGETS_SelectedIndexChanged(object sender, EventArgs e)
         {
             string strMethod = "tabControlTARGETS_SelectedIndexChanged()";
-            string strMsg = string.Empty;
-            int nSelectedIndex = this.tabControlTARGETS.SelectedIndex;
+            int nActivity;
+            int nSubActivity;
             try
             {
-                //--------------------------------------------------
-                //--- Select the correct TARGETS Panel to Display ---
-                //--------------------------------------------------
-                //SelectAnalysisPanel(nSelectedIndex);
-                PinchMsgDlg.DisplayWarningDlg("TARGETS Tab Control Index Selected Changed!");
-
+                //PinchMsgDlg.DisplayWarningDlg("TARGETS Tab Control Index Selected Changed!");
+                nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
+                nSubActivity = this.tabControlTARGETS.SelectedIndex; ;
+                HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
@@ -840,15 +1013,14 @@ namespace Pinch
         private void tabControlHEN_SelectedIndexChanged(object sender, EventArgs e)
         {
             string strMethod = "tabControlHEN_SelectedIndexChanged()";
-            string strMsg = string.Empty;
-            int nSelectedIndex = this.tabControlTARGETS.SelectedIndex;
+            int nActivity;
+            int nSubActivity;
             try
             {
-                //-----------------------------------------------
-                //--- Select the correct HEN Panel to Display ---
-                //-----------------------------------------------
-                PinchMsgDlg.DisplayWarningDlg("HEN Tab Control Index Selected Changed!");
-
+                //PinchMsgDlg.DisplayWarningDlg("HEN Tab Control Index Selected Changed!");
+                nActivity = PanelTableMgr.INDEX_HEN_PANEL;
+                nSubActivity = this.tabControlHEN.SelectedIndex; ;
+                HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
@@ -864,7 +1036,6 @@ namespace Pinch
         #endregion  // HEN TAB CONTROL
 
         #endregion  // TAB CONTROL EVENTS
-
 
         #endregion      // EVENT HANDLERS
 
@@ -943,6 +1114,29 @@ namespace Pinch
             }
         }
         #endregion  // HandleExit
+
+        #region HandleViewCommand
+        private void HandleViewCommand(int nActivity, int nSubActivity)
+        {
+            string strMethod = "HandleViewCommand";
+            PanelTableRow row;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("Handle View Command!");
+                row = PanelTableMgrObj.DisplaySelectedView(nActivity, nSubActivity);
+                if (row == null) throw (new Exception("Handle View Command: Null View"));
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleViewCommand
 
         #endregion  // COMMON COMMAND HANDLERS
 

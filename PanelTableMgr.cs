@@ -573,15 +573,15 @@ namespace Pinch
                 ClearView();    // Clear View ... set Visible=false on Controls
 
                 SetLastSelectedState(nActivity, nSubActivity);
+
                 row = SetSelectedState(nActivity, nSubActivity);
-
+                if (row == null) throw (new Exception("Set Selected State returns NULL Row!"));
+                
                 MAIN_TAB_CONTROL.Visible = true;
+                MAIN_TAB_CONTROL.SelectedIndex = nActivity;
 
-                //SelActivityPanel.Visible = true;
-                //SelSubActivityPanel.Visible = true;
-
-                ((Panel)ActivitiesPanelList[nActivity]).Visible = true;
-                ((Panel)SubActivitiesPanelList[row.PK]).Visible = true;
+                SelActivityPanel.Visible = true;
+                SelSubActivityPanel.Visible = true;
 
                 strView = row.PanelStatusName;
                 STATUS_BAR_LABEL_SELECTED_STATE.Text = strView;
@@ -1174,7 +1174,7 @@ namespace Pinch
                         SelSubActivityTabControl = HEN_TAB_CONTROL;     // HEN SubActivity TabControl
                         break;
                     default:
-                        throw new Exception("*** INVALID Selected Activity Index for AubActivity Tab Control ***");
+                        throw new Exception("*** INVALID Selected Activity Index for SubActivity Tab Control ***");
                 }
 
             }
