@@ -514,6 +514,14 @@ namespace Pinch
         }
         #endregion  // SAVE AS MENU ITEM HANDLER
 
+        #region EXPORT MENU ITEM HANDLER
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //PinchMsgDlg.DisplayWarningDlg("Export Menu Item Selected!");
+            HandleExport();
+        }
+        #endregion  // EXPORT MENU ITEM HANDLER
+
         #region EXIT MEMU ITEM HANDLER
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -891,6 +899,22 @@ namespace Pinch
 
         #region TOOLBAR EVENTS
 
+        #region TOOLBAR NEW BUTTON EVENT
+        private void toolStripButtonNew_Click(object sender, EventArgs e)
+        {
+            //PinchMsgDlg.DisplayWarningDlg("New Toobar Button Pressed!");
+            HandleNew();
+        }
+        #endregion  // TOOLBAR NEW BUTTON EVENT
+
+        #region TOOLBAR OPEN BUTTON EVENT
+        private void toolStripButtonOpen_Click(object sender, EventArgs e)
+        {
+            //PinchMsgDlg.DisplayWarningDlg("Open Toobar Button Pressed!");
+            HandleOpen();
+        }
+        #endregion  // TOOLBAR OPEN BUTTON EVENT
+
         #region TOOLBAR SAVE BUTTON EVENT
         private void toolStripButtonSave_Click(object sender, EventArgs e)
         {
@@ -906,6 +930,39 @@ namespace Pinch
             HandleSaveAs();
         }
         #endregion      // TOOLBAR SAVE AS BUTTON EVENT
+
+        #region TOOLBAR EXPORT BUTTON EVENT
+        private void toolStripButtonExport_Click(object sender, EventArgs e)
+        {
+            //PinchMsgDlg.DisplayWarningDlg("Export Toobar Button Pressed!");
+            HandleExport();
+        }
+        #endregion  // TOOLBAR EXPORT BUTTON EVENT
+
+        #region TOOLBAR INPUT-PROJECT BUTTON EVENT
+        private void toolStripButtonProject_Click(object sender, EventArgs e)
+        {
+
+            string strMethod = "toolStripButtonProject_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_PROJECT_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-PROJECT Toobar Button Pressed!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+
+        }
+        #endregion  // TOOLBAR INPUT-PROJECT BUTTON EVENT
 
         #endregion  // TOOLBAR EVENTS
 
@@ -1043,6 +1100,54 @@ namespace Pinch
 
         #region COMMON COMMAND HANDLERS
 
+        #region HandleNew
+        /// <summary>
+        /// Common New Command Handler
+        /// </summary>
+        private void HandleNew()
+        {
+            string strMethod = "HandleNew";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "New Project");
+            try
+            {
+                PinchMsgDlg.DisplayWarningDlg("Handle NEW Command!");
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleNew
+
+        #region HandleOpen
+        /// <summary>
+        /// Common Open Command Handler
+        /// </summary>
+        private void HandleOpen()
+        {
+            string strMethod = "HandleOpen";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Open Project");
+            try
+            {
+                PinchMsgDlg.DisplayWarningDlg("Handle OPEN Command!");
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleOpen
+
         #region HandleSave
         /// <summary>
         /// Common Save Command Handler
@@ -1090,6 +1195,30 @@ namespace Pinch
             }
         }
         #endregion  // HandleSaveAs
+
+        #region HandleExport
+        /// <summary>
+        /// Common Export Pinch Results ... invoked from Menu Item and Toolbar Click events
+        /// </summary>
+        private void HandleExport()
+        {
+            string strMethod = "HandleExport";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Export Pinch Results");
+            try
+            {
+                PinchMsgDlg.DisplayWarningDlg("Handle EXPORT Command!");
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleExport
 
         #region HandleExit
         /// <summary>
@@ -1195,6 +1324,7 @@ namespace Pinch
         #endregion      // LOG METHODS
 
         #endregion  // METHODS
+
     }
     #endregion      // class FormPinch
 }
