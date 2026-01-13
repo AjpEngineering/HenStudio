@@ -514,6 +514,15 @@ namespace Pinch
         }
         #endregion  // SAVE AS MENU ITEM HANDLER
 
+        #region IMPORT MENU ITEM HANDLER
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //PinchMsgDlg.DisplayWarningDlg("Import Menu Item Selected!");
+            HandleImport();
+        }
+        #endregion  // IMPORT MENU ITEM HANDLER
+
+
         #region EXPORT MENU ITEM HANDLER
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -931,6 +940,14 @@ namespace Pinch
         }
         #endregion      // TOOLBAR SAVE AS BUTTON EVENT
 
+        #region TOOLBAR IMPORT BUTTON EVENT
+        private void toolStripButtonImport_Click(object sender, EventArgs e)
+        {
+            //PinchMsgDlg.DisplayWarningDlg("Import Toobar Button Pressed!");
+            HandleImport();
+        }
+        #endregion  // TOOLBAR IMPORT BUTTON EVENT
+
         #region TOOLBAR EXPORT BUTTON EVENT
         private void toolStripButtonExport_Click(object sender, EventArgs e)
         {
@@ -1195,6 +1212,30 @@ namespace Pinch
             }
         }
         #endregion  // HandleSaveAs
+
+        #region HandleImport
+        /// <summary>
+        /// Common Import Pinch Results ... invoked from Menu Item and Toolbar Click events
+        /// </summary>
+        private void HandleImport()
+        {
+            string strMethod = "HandleImport";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Import Pinch Results");
+            try
+            {
+                PinchMsgDlg.DisplayWarningDlg("Handle IMPORT Command!");
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleImport
 
         #region HandleExport
         /// <summary>

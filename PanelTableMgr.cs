@@ -860,7 +860,7 @@ namespace Pinch
             {
                 PinchLogger.WriteSection("LOOKUP PANEL INFORMATION TABLE");
                 //---------------------------------------------------------------------------------
-                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_PROJECT_PANEL);
+                strPanelStatusName = FormatPanelStatusName(NAME_INPUT_PANEL, NAME_INPUT_PROJECT_PANEL);
                 row = new PanelTableRow(PK_INPUT_PROJECT_PANEL,      // Primary Key (PK)
                                         INDEX_INPUT_PANEL,           // Activity Index
                                         INDEX_INPUT_PROJECT_PANEL,   // SubActivity Index
@@ -869,7 +869,7 @@ namespace Pinch
                                         strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //---------------------------------------------------------------------------------
-                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_STREAMS_PANEL);
+                strPanelStatusName = FormatPanelStatusName(NAME_INPUT_PANEL, NAME_INPUT_STREAMS_PANEL);
                 row = new PanelTableRow(PK_INPUT_STREAMS_PANEL,      // Primary Key (PK)
                                         INDEX_INPUT_PANEL,           // Activity Index
                                         INDEX_INPUT_STREAMS_PANEL,   // SubActivity Index
@@ -878,7 +878,7 @@ namespace Pinch
                                         strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //---------------------------------------------------------------------------------
-                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_UTILITIES_PANEL);
+                strPanelStatusName = FormatPanelStatusName(NAME_INPUT_PANEL, NAME_INPUT_UTILITIES_PANEL);
                 row = new PanelTableRow(PK_INPUT_UTILITIES_PANEL,    // Primary Key (PK)
                                         INDEX_INPUT_PANEL,           // Activity Index
                                         INDEX_INPUT_UTILITIES_PANEL, // SubActivity Index
@@ -887,7 +887,7 @@ namespace Pinch
                                         strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //---------------------------------------------------------------------------------
-                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_COST_PANEL);
+                strPanelStatusName = FormatPanelStatusName(NAME_INPUT_PANEL, NAME_INPUT_COST_PANEL);
                 row = new PanelTableRow(PK_INPUT_COST_PANEL,         // Primary Key (PK)
                                         INDEX_INPUT_PANEL,           // Activity Index
                                         INDEX_INPUT_COST_PANEL,      // SubActivity Index
@@ -896,7 +896,7 @@ namespace Pinch
                                         strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //---------------------------------------------------------------------------------
-                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_EXCHANGER_PANEL);
+                strPanelStatusName = FormatPanelStatusName(NAME_INPUT_PANEL, NAME_INPUT_EXCHANGER_PANEL);
                 row = new PanelTableRow(PK_INPUT_EXCHANGER_PANEL,    // Primary Key (PK)
                                         INDEX_INPUT_PANEL,           // Activity Index
                                         INDEX_INPUT_EXCHANGER_PANEL, // SubActivity Index
@@ -905,7 +905,7 @@ namespace Pinch
                                         strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //---------------------------------------------------------------------------------
-                strPanelStatusName = (NAME_INPUT_PANEL + ":" + NAME_INPUT_VALIDATE_PANEL);
+                strPanelStatusName = FormatPanelStatusName(NAME_INPUT_PANEL, NAME_INPUT_VALIDATE_PANEL);
                 row = new PanelTableRow(PK_INPUT_VALIDATE_PANEL,     // Primary Key (PK)
                                         INDEX_INPUT_PANEL,           // Activity Index
                                         INDEX_INPUT_VALIDATE_PANEL,  // SubActivity Index
@@ -914,7 +914,7 @@ namespace Pinch
                                         strPanelStatusName);         // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //=================================================================================
-                strPanelStatusName = (NAME_TARGETS_PANEL + ":" + NAME_TARGETS_CALCULATE_PANEL);
+                strPanelStatusName = FormatPanelStatusName(NAME_TARGETS_PANEL, NAME_TARGETS_CALCULATE_PANEL);
                 row = new PanelTableRow(PK_TARGETS_CALCULATE_PANEL,    // Primary Key (PK)
                                         INDEX_TARGETS_PANEL,           // Activity Index
                                         INDEX_TARGETS_CALCULATE_PANEL, // SubActivity Index
@@ -923,7 +923,7 @@ namespace Pinch
                                         strPanelStatusName);           // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //---------------------------------------------------------------------------------
-                strPanelStatusName = (NAME_TARGETS_PANEL + ":" + NAME_TARGETS_COMPOSITE_PANEL);
+                strPanelStatusName = FormatPanelStatusName(NAME_TARGETS_PANEL, NAME_TARGETS_COMPOSITE_PANEL);
                 row = new PanelTableRow(PK_TARGETS_COMPOSITE_PANEL,    // Primary Key (PK)
                                         INDEX_TARGETS_PANEL,           // Activity Index
                                         INDEX_TARGETS_COMPOSITE_PANEL, // SubActivity Index
@@ -932,7 +932,7 @@ namespace Pinch
                                         strPanelStatusName);           // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //---------------------------------------------------------------------------------
-                strPanelStatusName = (NAME_TARGETS_PANEL + ":" + NAME_TARGETS_INTERVAL_PANEL);
+                strPanelStatusName = FormatPanelStatusName(NAME_TARGETS_PANEL, NAME_TARGETS_INTERVAL_PANEL);
                 row = new PanelTableRow(PK_TARGETS_INTERVAL_PANEL,     // Primary Key (PK)
                                         INDEX_TARGETS_PANEL,           // Activity Index
                                         INDEX_TARGETS_INTERVAL_PANEL,  // SubActivity Index
@@ -941,7 +941,7 @@ namespace Pinch
                                         strPanelStatusName);           // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //---------------------------------------------------------------------------------
-                strPanelStatusName = (NAME_TARGETS_PANEL + ":" + NAME_TARGETS_OPTIMIZE_PANEL);
+                strPanelStatusName = FormatPanelStatusName(NAME_TARGETS_PANEL, NAME_TARGETS_OPTIMIZE_PANEL);
                 row = new PanelTableRow(PK_TARGETS_OPTIMIZE_PANEL,     // Primary Key (PK)
                                         INDEX_TARGETS_PANEL,           // Activity Index
                                         INDEX_TARGETS_OPTIMIZE_PANEL,  // SubActivity Index
@@ -950,7 +950,7 @@ namespace Pinch
                                         strPanelStatusName);           // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //=================================================================================
-                strPanelStatusName = (NAME_HEN_PANEL + ":" + NAME_HEN_DESIGN_PANEL);
+                strPanelStatusName = FormatPanelStatusName(NAME_HEN_PANEL, NAME_HEN_DESIGN_PANEL);
                 row = new PanelTableRow(PK_HEN_DESIGN_PANEL,           // Primary Key (PK)
                                         INDEX_HEN_PANEL,               // Activity Index
                                         INDEX_HEN_DESIGN_PANEL,        // SubActivity Index
@@ -974,6 +974,14 @@ namespace Pinch
            }
         }
         #endregion  // PopulateLookupPanelInfoTable()
+
+        #region FormatPanelStatusName()
+        private string FormatPanelStatusName(string strActivity, string strSubActivity)
+        {
+            string strPanelStatusName = String.Format("{0}  :  {1}", strActivity, strSubActivity);
+            return strPanelStatusName;
+        }
+        #endregion  // FormatPanelStatusName()
 
         #endregion  // POPULATE METHODS
 

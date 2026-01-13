@@ -38,6 +38,8 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.specifyInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +60,7 @@
             this.designToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelSELECTED_STATE = new System.Windows.Forms.ToolStripStatusLabel();
@@ -84,6 +87,7 @@
             this.tabPageCost = new System.Windows.Forms.TabPage();
             this.tabPageExchanger = new System.Windows.Forms.TabPage();
             this.tabPageValidate = new System.Windows.Forms.TabPage();
+            this.imageListInput = new System.Windows.Forms.ImageList(this.components);
             this.panelINPUT_PROJECT = new System.Windows.Forms.Panel();
             this.labelTitleInputProjectPanel = new System.Windows.Forms.Label();
             this.panelTARGETS = new System.Windows.Forms.Panel();
@@ -106,20 +110,26 @@
             this.tabControlHEN = new System.Windows.Forms.TabControl();
             this.tabPageDesign = new System.Windows.Forms.TabPage();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSaveAs = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.pictureBoxAJPLogo = new System.Windows.Forms.PictureBox();
             this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonOpen = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonExport = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSaveAs = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonExport = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.imageListInput = new System.Windows.Forms.ImageList(this.components);
             this.toolStripButtonProject = new System.Windows.Forms.ToolStripButton();
+            this.pictureBoxAJPLogo = new System.Windows.Forms.PictureBox();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButtonImport = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonStreams = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonUtilities = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCost = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonExchanger = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonValidate = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.imageListTargets = new System.Windows.Forms.ImageList(this.components);
+            this.imageListHen = new System.Windows.Forms.ImageList(this.components);
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -167,6 +177,7 @@
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
             this.toolStripSeparator2,
+            this.importToolStripMenuItem,
             this.exportToolStripMenuItem,
             this.toolStripSeparator5,
             this.exitToolStripMenuItem});
@@ -220,6 +231,20 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(185, 6);
             // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportToolStripMenuItem.Image")));
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.exportToolStripMenuItem.Text = "Export...";
+            this.exportToolStripMenuItem.ToolTipText = "Export Results File";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(185, 6);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
@@ -261,8 +286,9 @@
             // inputProjectDataToolStripMenuItem
             // 
             this.inputProjectDataToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.inputProjectDataToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("inputProjectDataToolStripMenuItem.Image")));
             this.inputProjectDataToolStripMenuItem.Name = "inputProjectDataToolStripMenuItem";
-            this.inputProjectDataToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inputProjectDataToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.inputProjectDataToolStripMenuItem.Text = "Project";
             this.inputProjectDataToolStripMenuItem.ToolTipText = "Input Project Data";
             this.inputProjectDataToolStripMenuItem.Click += new System.EventHandler(this.inputProjectDataToolStripMenuItem_Click);
@@ -270,8 +296,9 @@
             // inputStreamsDataToolStripMenuItem
             // 
             this.inputStreamsDataToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.inputStreamsDataToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("inputStreamsDataToolStripMenuItem.Image")));
             this.inputStreamsDataToolStripMenuItem.Name = "inputStreamsDataToolStripMenuItem";
-            this.inputStreamsDataToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inputStreamsDataToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.inputStreamsDataToolStripMenuItem.Text = "Streams";
             this.inputStreamsDataToolStripMenuItem.ToolTipText = "Input Streams Data";
             this.inputStreamsDataToolStripMenuItem.Click += new System.EventHandler(this.inputStreamsDataToolStripMenuItem_Click);
@@ -279,8 +306,9 @@
             // utilitiesToolStripMenuItem
             // 
             this.utilitiesToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.utilitiesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("utilitiesToolStripMenuItem.Image")));
             this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
-            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.utilitiesToolStripMenuItem.Text = "Utilities";
             this.utilitiesToolStripMenuItem.ToolTipText = "Input Utilities Data";
             this.utilitiesToolStripMenuItem.Click += new System.EventHandler(this.utilitiesToolStripMenuItem_Click);
@@ -288,8 +316,9 @@
             // costToolStripMenuItem
             // 
             this.costToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.costToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("costToolStripMenuItem.Image")));
             this.costToolStripMenuItem.Name = "costToolStripMenuItem";
-            this.costToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.costToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.costToolStripMenuItem.Text = "Cost";
             this.costToolStripMenuItem.ToolTipText = "Input Cost Data";
             this.costToolStripMenuItem.Click += new System.EventHandler(this.costToolStripMenuItem_Click);
@@ -297,8 +326,9 @@
             // exchangerToolStripMenuItem
             // 
             this.exchangerToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.exchangerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exchangerToolStripMenuItem.Image")));
             this.exchangerToolStripMenuItem.Name = "exchangerToolStripMenuItem";
-            this.exchangerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exchangerToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.exchangerToolStripMenuItem.Text = "Exchanger";
             this.exchangerToolStripMenuItem.ToolTipText = "Input Exchanger Data";
             this.exchangerToolStripMenuItem.Click += new System.EventHandler(this.exchangerToolStripMenuItem_Click);
@@ -306,8 +336,9 @@
             // validateToolStripMenuItem
             // 
             this.validateToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.validateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("validateToolStripMenuItem.Image")));
             this.validateToolStripMenuItem.Name = "validateToolStripMenuItem";
-            this.validateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.validateToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.validateToolStripMenuItem.Text = "Validate";
             this.validateToolStripMenuItem.ToolTipText = "Validate Input Data";
             this.validateToolStripMenuItem.Click += new System.EventHandler(this.validateToolStripMenuItem_Click);
@@ -335,8 +366,9 @@
             // calculateToolStripMenuItem
             // 
             this.calculateToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.calculateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("calculateToolStripMenuItem.Image")));
             this.calculateToolStripMenuItem.Name = "calculateToolStripMenuItem";
-            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.calculateToolStripMenuItem.Text = "Calculate";
             this.calculateToolStripMenuItem.ToolTipText = "Calculate Pinch Targets";
             this.calculateToolStripMenuItem.Click += new System.EventHandler(this.calculateToolStripMenuItem_Click);
@@ -344,8 +376,9 @@
             // compositeToolStripMenuItem
             // 
             this.compositeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.compositeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("compositeToolStripMenuItem.Image")));
             this.compositeToolStripMenuItem.Name = "compositeToolStripMenuItem";
-            this.compositeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.compositeToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.compositeToolStripMenuItem.Text = "Composite";
             this.compositeToolStripMenuItem.ToolTipText = "Display Compoiste Curve Data";
             this.compositeToolStripMenuItem.Click += new System.EventHandler(this.compositeToolStripMenuItem_Click);
@@ -353,8 +386,9 @@
             // intervalToolStripMenuItem
             // 
             this.intervalToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.intervalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("intervalToolStripMenuItem.Image")));
             this.intervalToolStripMenuItem.Name = "intervalToolStripMenuItem";
-            this.intervalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.intervalToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.intervalToolStripMenuItem.Text = "Interval";
             this.intervalToolStripMenuItem.ToolTipText = "Display Interval Data";
             this.intervalToolStripMenuItem.Click += new System.EventHandler(this.intervalToolStripMenuItem_Click);
@@ -362,8 +396,9 @@
             // optimizeToolStripMenuItem
             // 
             this.optimizeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.optimizeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("optimizeToolStripMenuItem.Image")));
             this.optimizeToolStripMenuItem.Name = "optimizeToolStripMenuItem";
-            this.optimizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optimizeToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.optimizeToolStripMenuItem.Text = "Optimize";
             this.optimizeToolStripMenuItem.ToolTipText = "Perform Optimization Analyses";
             this.optimizeToolStripMenuItem.Click += new System.EventHandler(this.optimizeToolStripMenuItem_Click);
@@ -388,8 +423,9 @@
             // designToolStripMenuItem
             // 
             this.designToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.designToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("designToolStripMenuItem.Image")));
             this.designToolStripMenuItem.Name = "designToolStripMenuItem";
-            this.designToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.designToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.designToolStripMenuItem.Text = "Design";
             this.designToolStripMenuItem.ToolTipText = "HEN Design";
             this.designToolStripMenuItem.Click += new System.EventHandler(this.designToolStripMenuItem_Click);
@@ -408,16 +444,21 @@
             // 
             this.licenseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("licenseToolStripMenuItem.Image")));
             this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
-            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(132, 30);
             this.licenseToolStripMenuItem.Text = "License...";
             this.licenseToolStripMenuItem.ToolTipText = "Launch License Viewer";
             this.licenseToolStripMenuItem.Click += new System.EventHandler(this.licenseToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(129, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(132, 30);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.ToolTipText = "Launch About Dialog";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
@@ -427,19 +468,23 @@
             this.statusStripMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelSELECTED_STATE});
-            this.statusStripMain.Location = new System.Drawing.Point(0, 659);
+            this.statusStripMain.Location = new System.Drawing.Point(0, 648);
             this.statusStripMain.Name = "statusStripMain";
-            this.statusStripMain.Size = new System.Drawing.Size(1264, 22);
+            this.statusStripMain.Size = new System.Drawing.Size(1264, 33);
             this.statusStripMain.TabIndex = 1;
             this.statusStripMain.Text = "statusStripPinch";
             // 
             // toolStripStatusLabelSELECTED_STATE
             // 
-            this.toolStripStatusLabelSELECTED_STATE.BackColor = System.Drawing.Color.SteelBlue;
-            this.toolStripStatusLabelSELECTED_STATE.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelSELECTED_STATE.BackColor = System.Drawing.Color.OrangeRed;
+            this.toolStripStatusLabelSELECTED_STATE.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelSELECTED_STATE.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelSELECTED_STATE.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelSELECTED_STATE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelSELECTED_STATE.Image")));
             this.toolStripStatusLabelSELECTED_STATE.Name = "toolStripStatusLabelSELECTED_STATE";
-            this.toolStripStatusLabelSELECTED_STATE.Size = new System.Drawing.Size(139, 17);
+            this.toolStripStatusLabelSELECTED_STATE.Size = new System.Drawing.Size(208, 28);
             this.toolStripStatusLabelSELECTED_STATE.Text = "ACTIVITY:SUBACTIVITY";
             // 
             // tabControlMain
@@ -452,7 +497,7 @@
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabControlMain.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlMain.ImageList = this.imageListAnalysis;
-            this.tabControlMain.Location = new System.Drawing.Point(0, 613);
+            this.tabControlMain.Location = new System.Drawing.Point(0, 602);
             this.tabControlMain.Margin = new System.Windows.Forms.Padding(0);
             this.tabControlMain.Multiline = true;
             this.tabControlMain.Name = "tabControlMain";
@@ -522,7 +567,7 @@
             this.panelINPUT.Controls.Add(this.tabControlINPUT);
             this.panelINPUT.Controls.Add(this.panelINPUT_PROJECT);
             this.panelINPUT.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelINPUT.Location = new System.Drawing.Point(0, 49);
+            this.panelINPUT.Location = new System.Drawing.Point(0, 61);
             this.panelINPUT.Margin = new System.Windows.Forms.Padding(0);
             this.panelINPUT.Name = "panelINPUT";
             this.panelINPUT.Size = new System.Drawing.Size(1264, 227);
@@ -530,7 +575,7 @@
             // 
             // panelINPUT_VALIDATE
             // 
-            this.panelINPUT_VALIDATE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_VALIDATE.BackColor = System.Drawing.SystemColors.Window;
             this.panelINPUT_VALIDATE.Controls.Add(this.labelTitleInputValidatePanel);
             this.panelINPUT_VALIDATE.Location = new System.Drawing.Point(791, 131);
             this.panelINPUT_VALIDATE.Name = "panelINPUT_VALIDATE";
@@ -541,7 +586,7 @@
             // 
             this.labelTitleInputValidatePanel.AutoSize = true;
             this.labelTitleInputValidatePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputValidatePanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputValidatePanel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelTitleInputValidatePanel.Location = new System.Drawing.Point(17, 16);
             this.labelTitleInputValidatePanel.Name = "labelTitleInputValidatePanel";
             this.labelTitleInputValidatePanel.Size = new System.Drawing.Size(287, 36);
@@ -550,7 +595,7 @@
             // 
             // panelINPUT_EXCHANGER
             // 
-            this.panelINPUT_EXCHANGER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_EXCHANGER.BackColor = System.Drawing.SystemColors.Window;
             this.panelINPUT_EXCHANGER.Controls.Add(this.labelTitleInputExchangerPanel);
             this.panelINPUT_EXCHANGER.Location = new System.Drawing.Point(370, 130);
             this.panelINPUT_EXCHANGER.Name = "panelINPUT_EXCHANGER";
@@ -561,7 +606,7 @@
             // 
             this.labelTitleInputExchangerPanel.AutoSize = true;
             this.labelTitleInputExchangerPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputExchangerPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputExchangerPanel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelTitleInputExchangerPanel.Location = new System.Drawing.Point(15, 17);
             this.labelTitleInputExchangerPanel.Name = "labelTitleInputExchangerPanel";
             this.labelTitleInputExchangerPanel.Size = new System.Drawing.Size(328, 36);
@@ -570,7 +615,7 @@
             // 
             // panelINPUT_COST
             // 
-            this.panelINPUT_COST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_COST.BackColor = System.Drawing.SystemColors.Window;
             this.panelINPUT_COST.Controls.Add(this.labelTitleInputCostPanel);
             this.panelINPUT_COST.Location = new System.Drawing.Point(12, 130);
             this.panelINPUT_COST.Name = "panelINPUT_COST";
@@ -581,7 +626,7 @@
             // 
             this.labelTitleInputCostPanel.AutoSize = true;
             this.labelTitleInputCostPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputCostPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputCostPanel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelTitleInputCostPanel.Location = new System.Drawing.Point(3, 17);
             this.labelTitleInputCostPanel.Name = "labelTitleInputCostPanel";
             this.labelTitleInputCostPanel.Size = new System.Drawing.Size(239, 36);
@@ -590,7 +635,7 @@
             // 
             // panelINPUT_UTILITIES
             // 
-            this.panelINPUT_UTILITIES.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_UTILITIES.BackColor = System.Drawing.SystemColors.Window;
             this.panelINPUT_UTILITIES.Controls.Add(this.labelTitleInputUtilitiesPanel);
             this.panelINPUT_UTILITIES.Location = new System.Drawing.Point(791, 58);
             this.panelINPUT_UTILITIES.Name = "panelINPUT_UTILITIES";
@@ -601,7 +646,7 @@
             // 
             this.labelTitleInputUtilitiesPanel.AutoSize = true;
             this.labelTitleInputUtilitiesPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputUtilitiesPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputUtilitiesPanel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelTitleInputUtilitiesPanel.Location = new System.Drawing.Point(14, 12);
             this.labelTitleInputUtilitiesPanel.Name = "labelTitleInputUtilitiesPanel";
             this.labelTitleInputUtilitiesPanel.Size = new System.Drawing.Size(286, 36);
@@ -610,7 +655,7 @@
             // 
             // panelINPUT_STREAMS
             // 
-            this.panelINPUT_STREAMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_STREAMS.BackColor = System.Drawing.SystemColors.Window;
             this.panelINPUT_STREAMS.Controls.Add(this.labelTitleInputStreamsPanel);
             this.panelINPUT_STREAMS.Location = new System.Drawing.Point(370, 57);
             this.panelINPUT_STREAMS.Name = "panelINPUT_STREAMS";
@@ -621,7 +666,7 @@
             // 
             this.labelTitleInputStreamsPanel.AutoSize = true;
             this.labelTitleInputStreamsPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputStreamsPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputStreamsPanel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelTitleInputStreamsPanel.Location = new System.Drawing.Point(12, 11);
             this.labelTitleInputStreamsPanel.Name = "labelTitleInputStreamsPanel";
             this.labelTitleInputStreamsPanel.Size = new System.Drawing.Size(291, 36);
@@ -643,7 +688,6 @@
             this.tabControlINPUT.ImageList = this.imageListInput;
             this.tabControlINPUT.ItemSize = new System.Drawing.Size(84, 38);
             this.tabControlINPUT.Location = new System.Drawing.Point(0, 0);
-            this.tabControlINPUT.Margin = new System.Windows.Forms.Padding(0);
             this.tabControlINPUT.Multiline = true;
             this.tabControlINPUT.Name = "tabControlINPUT";
             this.tabControlINPUT.SelectedIndex = 0;
@@ -671,11 +715,12 @@
             // 
             this.tabPageStreams.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageStreams.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPageStreams.Location = new System.Drawing.Point(4, 28);
+            this.tabPageStreams.ImageIndex = 1;
+            this.tabPageStreams.Location = new System.Drawing.Point(4, 42);
             this.tabPageStreams.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageStreams.Name = "tabPageStreams";
             this.tabPageStreams.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStreams.Size = new System.Drawing.Size(1256, 14);
+            this.tabPageStreams.Size = new System.Drawing.Size(1256, 0);
             this.tabPageStreams.TabIndex = 1;
             this.tabPageStreams.Text = "STREAMS";
             this.tabPageStreams.ToolTipText = "Input Streams Data";
@@ -684,10 +729,11 @@
             // 
             this.tabPageUtilities.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageUtilities.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPageUtilities.Location = new System.Drawing.Point(4, 28);
+            this.tabPageUtilities.ImageIndex = 2;
+            this.tabPageUtilities.Location = new System.Drawing.Point(4, 42);
             this.tabPageUtilities.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageUtilities.Name = "tabPageUtilities";
-            this.tabPageUtilities.Size = new System.Drawing.Size(1256, 14);
+            this.tabPageUtilities.Size = new System.Drawing.Size(1256, 0);
             this.tabPageUtilities.TabIndex = 2;
             this.tabPageUtilities.Text = "UTILITIES";
             this.tabPageUtilities.ToolTipText = "Input Utilities Data";
@@ -696,10 +742,11 @@
             // 
             this.tabPageCost.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPageCost.Location = new System.Drawing.Point(4, 28);
+            this.tabPageCost.ImageIndex = 3;
+            this.tabPageCost.Location = new System.Drawing.Point(4, 42);
             this.tabPageCost.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageCost.Name = "tabPageCost";
-            this.tabPageCost.Size = new System.Drawing.Size(1256, 14);
+            this.tabPageCost.Size = new System.Drawing.Size(1256, 0);
             this.tabPageCost.TabIndex = 3;
             this.tabPageCost.Text = "COST";
             this.tabPageCost.ToolTipText = "Input Cost Data";
@@ -708,10 +755,11 @@
             // 
             this.tabPageExchanger.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageExchanger.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPageExchanger.Location = new System.Drawing.Point(4, 28);
+            this.tabPageExchanger.ImageIndex = 4;
+            this.tabPageExchanger.Location = new System.Drawing.Point(4, 42);
             this.tabPageExchanger.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageExchanger.Name = "tabPageExchanger";
-            this.tabPageExchanger.Size = new System.Drawing.Size(1256, 14);
+            this.tabPageExchanger.Size = new System.Drawing.Size(1256, 0);
             this.tabPageExchanger.TabIndex = 4;
             this.tabPageExchanger.Text = "EXCHANGER";
             this.tabPageExchanger.ToolTipText = "Input Exchanger Data";
@@ -720,17 +768,29 @@
             // 
             this.tabPageValidate.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageValidate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPageValidate.Location = new System.Drawing.Point(4, 28);
+            this.tabPageValidate.ImageIndex = 5;
+            this.tabPageValidate.Location = new System.Drawing.Point(4, 42);
             this.tabPageValidate.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageValidate.Name = "tabPageValidate";
-            this.tabPageValidate.Size = new System.Drawing.Size(1256, 14);
+            this.tabPageValidate.Size = new System.Drawing.Size(1256, 0);
             this.tabPageValidate.TabIndex = 5;
             this.tabPageValidate.Text = "VALIDATE";
             this.tabPageValidate.ToolTipText = "Validate Input";
             // 
+            // imageListInput
+            // 
+            this.imageListInput.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListInput.ImageStream")));
+            this.imageListInput.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListInput.Images.SetKeyName(0, "Project...32x32.png");
+            this.imageListInput.Images.SetKeyName(1, "Streams...32x32.png");
+            this.imageListInput.Images.SetKeyName(2, "Utilities...32x32.png");
+            this.imageListInput.Images.SetKeyName(3, "Cost...32x32.png");
+            this.imageListInput.Images.SetKeyName(4, "Exchanger...32x32.png");
+            this.imageListInput.Images.SetKeyName(5, "Validate...32x32.png");
+            // 
             // panelINPUT_PROJECT
             // 
-            this.panelINPUT_PROJECT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelINPUT_PROJECT.BackColor = System.Drawing.SystemColors.Window;
             this.panelINPUT_PROJECT.Controls.Add(this.labelTitleInputProjectPanel);
             this.panelINPUT_PROJECT.Location = new System.Drawing.Point(12, 58);
             this.panelINPUT_PROJECT.Name = "panelINPUT_PROJECT";
@@ -741,7 +801,7 @@
             // 
             this.labelTitleInputProjectPanel.AutoSize = true;
             this.labelTitleInputProjectPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputProjectPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleInputProjectPanel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelTitleInputProjectPanel.Location = new System.Drawing.Point(3, 11);
             this.labelTitleInputProjectPanel.Name = "labelTitleInputProjectPanel";
             this.labelTitleInputProjectPanel.Size = new System.Drawing.Size(284, 36);
@@ -769,7 +829,7 @@
             // 
             // panelTARGETS_OPTIMIZE
             // 
-            this.panelTARGETS_OPTIMIZE.BackColor = System.Drawing.Color.White;
+            this.panelTARGETS_OPTIMIZE.BackColor = System.Drawing.SystemColors.Window;
             this.panelTARGETS_OPTIMIZE.Controls.Add(this.labelTitleTargetsOptimizePanel);
             this.panelTARGETS_OPTIMIZE.Location = new System.Drawing.Point(12, 182);
             this.panelTARGETS_OPTIMIZE.Name = "panelTARGETS_OPTIMIZE";
@@ -780,7 +840,7 @@
             // 
             this.labelTitleTargetsOptimizePanel.AutoSize = true;
             this.labelTitleTargetsOptimizePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleTargetsOptimizePanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleTargetsOptimizePanel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelTitleTargetsOptimizePanel.Location = new System.Drawing.Point(6, 13);
             this.labelTitleTargetsOptimizePanel.Name = "labelTitleTargetsOptimizePanel";
             this.labelTitleTargetsOptimizePanel.Size = new System.Drawing.Size(253, 36);
@@ -789,7 +849,7 @@
             // 
             // panelTARGETS_INTERVAL
             // 
-            this.panelTARGETS_INTERVAL.BackColor = System.Drawing.Color.White;
+            this.panelTARGETS_INTERVAL.BackColor = System.Drawing.SystemColors.Window;
             this.panelTARGETS_INTERVAL.Controls.Add(this.labelTitleTargetsIntervalPanel);
             this.panelTARGETS_INTERVAL.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTARGETS_INTERVAL.ForeColor = System.Drawing.Color.SaddleBrown;
@@ -801,6 +861,7 @@
             // labelTitleTargetsIntervalPanel
             // 
             this.labelTitleTargetsIntervalPanel.AutoSize = true;
+            this.labelTitleTargetsIntervalPanel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelTitleTargetsIntervalPanel.Location = new System.Drawing.Point(14, 16);
             this.labelTitleTargetsIntervalPanel.Name = "labelTitleTargetsIntervalPanel";
             this.labelTitleTargetsIntervalPanel.Size = new System.Drawing.Size(252, 36);
@@ -809,7 +870,7 @@
             // 
             // panelTARGETS_COMPOSITE
             // 
-            this.panelTARGETS_COMPOSITE.BackColor = System.Drawing.Color.White;
+            this.panelTARGETS_COMPOSITE.BackColor = System.Drawing.SystemColors.Window;
             this.panelTARGETS_COMPOSITE.Controls.Add(this.labelTitleTargetsCompositePanel);
             this.panelTARGETS_COMPOSITE.Location = new System.Drawing.Point(370, 95);
             this.panelTARGETS_COMPOSITE.Name = "panelTARGETS_COMPOSITE";
@@ -820,7 +881,7 @@
             // 
             this.labelTitleTargetsCompositePanel.AutoSize = true;
             this.labelTitleTargetsCompositePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleTargetsCompositePanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleTargetsCompositePanel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelTitleTargetsCompositePanel.Location = new System.Drawing.Point(18, 16);
             this.labelTitleTargetsCompositePanel.Name = "labelTitleTargetsCompositePanel";
             this.labelTitleTargetsCompositePanel.Size = new System.Drawing.Size(284, 36);
@@ -829,7 +890,7 @@
             // 
             // panelTARGETS_CALCULATE
             // 
-            this.panelTARGETS_CALCULATE.BackColor = System.Drawing.Color.White;
+            this.panelTARGETS_CALCULATE.BackColor = System.Drawing.SystemColors.Window;
             this.panelTARGETS_CALCULATE.Controls.Add(this.labelTitleTargetsCalculatePanel);
             this.panelTARGETS_CALCULATE.Location = new System.Drawing.Point(12, 95);
             this.panelTARGETS_CALCULATE.Name = "panelTARGETS_CALCULATE";
@@ -840,7 +901,7 @@
             // 
             this.labelTitleTargetsCalculatePanel.AutoSize = true;
             this.labelTitleTargetsCalculatePanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleTargetsCalculatePanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleTargetsCalculatePanel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelTitleTargetsCalculatePanel.Location = new System.Drawing.Point(6, 16);
             this.labelTitleTargetsCalculatePanel.Name = "labelTitleTargetsCalculatePanel";
             this.labelTitleTargetsCalculatePanel.Size = new System.Drawing.Size(278, 36);
@@ -856,6 +917,7 @@
             this.tabControlTARGETS.Controls.Add(this.tabPageOptimize);
             this.tabControlTARGETS.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControlTARGETS.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlTARGETS.ImageList = this.imageListTargets;
             this.tabControlTARGETS.ItemSize = new System.Drawing.Size(78, 38);
             this.tabControlTARGETS.Location = new System.Drawing.Point(0, 0);
             this.tabControlTARGETS.Margin = new System.Windows.Forms.Padding(0);
@@ -868,6 +930,7 @@
             // 
             // tabPageCalculate
             // 
+            this.tabPageCalculate.ImageIndex = 0;
             this.tabPageCalculate.Location = new System.Drawing.Point(4, 42);
             this.tabPageCalculate.Name = "tabPageCalculate";
             this.tabPageCalculate.Padding = new System.Windows.Forms.Padding(3);
@@ -879,6 +942,7 @@
             // 
             // tabPageComposite
             // 
+            this.tabPageComposite.ImageIndex = 1;
             this.tabPageComposite.Location = new System.Drawing.Point(4, 42);
             this.tabPageComposite.Name = "tabPageComposite";
             this.tabPageComposite.Padding = new System.Windows.Forms.Padding(3);
@@ -890,6 +954,7 @@
             // 
             // tabPageInterval
             // 
+            this.tabPageInterval.ImageIndex = 2;
             this.tabPageInterval.Location = new System.Drawing.Point(4, 42);
             this.tabPageInterval.Name = "tabPageInterval";
             this.tabPageInterval.Size = new System.Drawing.Size(843, 0);
@@ -900,6 +965,7 @@
             // 
             // tabPageOptimize
             // 
+            this.tabPageOptimize.ImageIndex = 3;
             this.tabPageOptimize.Location = new System.Drawing.Point(4, 42);
             this.tabPageOptimize.Name = "tabPageOptimize";
             this.tabPageOptimize.Size = new System.Drawing.Size(843, 0);
@@ -924,7 +990,7 @@
             // 
             // panelHEN_DESIGN
             // 
-            this.panelHEN_DESIGN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelHEN_DESIGN.BackColor = System.Drawing.SystemColors.Window;
             this.panelHEN_DESIGN.Controls.Add(this.labelTitleHenDesignPanel);
             this.panelHEN_DESIGN.Location = new System.Drawing.Point(12, 96);
             this.panelHEN_DESIGN.Name = "panelHEN_DESIGN";
@@ -935,7 +1001,7 @@
             // 
             this.labelTitleHenDesignPanel.AutoSize = true;
             this.labelTitleHenDesignPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleHenDesignPanel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.labelTitleHenDesignPanel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelTitleHenDesignPanel.Location = new System.Drawing.Point(9, 18);
             this.labelTitleHenDesignPanel.Name = "labelTitleHenDesignPanel";
             this.labelTitleHenDesignPanel.Size = new System.Drawing.Size(171, 36);
@@ -948,6 +1014,7 @@
             this.tabControlHEN.Controls.Add(this.tabPageDesign);
             this.tabControlHEN.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControlHEN.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlHEN.ImageList = this.imageListHen;
             this.tabControlHEN.ItemSize = new System.Drawing.Size(55, 38);
             this.tabControlHEN.Location = new System.Drawing.Point(0, 0);
             this.tabControlHEN.Margin = new System.Windows.Forms.Padding(0);
@@ -960,6 +1027,7 @@
             // 
             // tabPageDesign
             // 
+            this.tabPageDesign.ImageIndex = 0;
             this.tabPageDesign.Location = new System.Drawing.Point(4, 42);
             this.tabPageDesign.Name = "tabPageDesign";
             this.tabPageDesign.Padding = new System.Windows.Forms.Padding(3);
@@ -971,6 +1039,9 @@
             // 
             // toolStripMain
             // 
+            this.toolStripMain.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonNew,
             this.toolStripButtonOpen,
@@ -978,14 +1049,53 @@
             this.toolStripButtonSave,
             this.toolStripButtonSaveAs,
             this.toolStripSeparator8,
+            this.toolStripButtonImport,
             this.toolStripButtonExport,
             this.toolStripSeparator9,
-            this.toolStripButtonProject});
+            this.toolStripButtonProject,
+            this.toolStripButtonStreams,
+            this.toolStripButtonUtilities,
+            this.toolStripButtonCost,
+            this.toolStripButtonExchanger,
+            this.toolStripButtonValidate,
+            this.toolStripSeparator10});
             this.toolStripMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripMain.Name = "toolStripMain";
-            this.toolStripMain.Size = new System.Drawing.Size(1264, 25);
+            this.toolStripMain.Padding = new System.Windows.Forms.Padding(3);
+            this.toolStripMain.Size = new System.Drawing.Size(1264, 37);
             this.toolStripMain.TabIndex = 0;
-            this.toolStripMain.Text = "toolStrip1";
+            this.toolStripMain.Text = "Main Toolbar";
+            // 
+            // toolStripButtonNew
+            // 
+            this.toolStripButtonNew.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonNew.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButtonNew.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNew.Image")));
+            this.toolStripButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonNew.Name = "toolStripButtonNew";
+            this.toolStripButtonNew.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonNew.Text = "toolStripButton1";
+            this.toolStripButtonNew.ToolTipText = "Create New Project File";
+            this.toolStripButtonNew.Click += new System.EventHandler(this.toolStripButtonNew_Click);
+            // 
+            // toolStripButtonOpen
+            // 
+            this.toolStripButtonOpen.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonOpen.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButtonOpen.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpen.Image")));
+            this.toolStripButtonOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOpen.Name = "toolStripButtonOpen";
+            this.toolStripButtonOpen.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonOpen.Text = "toolStripButton1";
+            this.toolStripButtonOpen.ToolTipText = "Open Existing Project File";
+            this.toolStripButtonOpen.Click += new System.EventHandler(this.toolStripButtonOpen_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripButtonSave
             // 
@@ -993,7 +1103,7 @@
             this.toolStripButtonSave.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSave.Image")));
             this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSave.Name = "toolStripButtonSave";
-            this.toolStripButtonSave.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSave.Size = new System.Drawing.Size(28, 28);
             this.toolStripButtonSave.Text = "Save";
             this.toolStripButtonSave.ToolTipText = "Save Current Project File";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
@@ -1004,29 +1114,46 @@
             this.toolStripButtonSaveAs.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveAs.Image")));
             this.toolStripButtonSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSaveAs.Name = "toolStripButtonSaveAs";
-            this.toolStripButtonSaveAs.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSaveAs.Size = new System.Drawing.Size(28, 28);
             this.toolStripButtonSaveAs.Text = "Save As";
             this.toolStripButtonSaveAs.ToolTipText = "Save Current Project File As";
             this.toolStripButtonSaveAs.Click += new System.EventHandler(this.toolStripButtonSaveAs_Click);
             // 
-            // toolStripSeparator5
+            // toolStripSeparator8
             // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 31);
             // 
-            // exportToolStripMenuItem
+            // toolStripButtonExport
             // 
-            this.exportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportToolStripMenuItem.Image")));
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
-            this.exportToolStripMenuItem.Text = "Export...";
-            this.exportToolStripMenuItem.ToolTipText = "Export Results File";
-            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            this.toolStripButtonExport.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonExport.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButtonExport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonExport.Image")));
+            this.toolStripButtonExport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonExport.Name = "toolStripButtonExport";
+            this.toolStripButtonExport.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonExport.Text = "toolStripButton1";
+            this.toolStripButtonExport.ToolTipText = "Export Results File";
+            this.toolStripButtonExport.Click += new System.EventHandler(this.toolStripButtonExport_Click);
             // 
-            // toolStripSeparator6
+            // toolStripSeparator9
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 31);
+            // 
+            // toolStripButtonProject
+            // 
+            this.toolStripButtonProject.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonProject.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButtonProject.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonProject.Image")));
+            this.toolStripButtonProject.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonProject.Name = "toolStripButtonProject";
+            this.toolStripButtonProject.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonProject.Text = "toolStripButton1";
+            this.toolStripButtonProject.ToolTipText = "Input Project Data";
+            this.toolStripButtonProject.Click += new System.EventHandler(this.toolStripButtonProject_Click);
             // 
             // pictureBoxAJPLogo
             // 
@@ -1040,78 +1167,101 @@
             this.pictureBoxAJPLogo.TabIndex = 6;
             this.pictureBoxAJPLogo.TabStop = false;
             // 
-            // toolStripButtonNew
+            // importToolStripMenuItem
             // 
-            this.toolStripButtonNew.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStripButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonNew.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButtonNew.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNew.Image")));
-            this.toolStripButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonNew.Name = "toolStripButtonNew";
-            this.toolStripButtonNew.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonNew.Text = "toolStripButton1";
-            this.toolStripButtonNew.ToolTipText = "Create New Project File";
-            this.toolStripButtonNew.Click += new System.EventHandler(this.toolStripButtonNew_Click);
+            this.importToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("importToolStripMenuItem.Image")));
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.importToolStripMenuItem.Text = "Import...";
+            this.importToolStripMenuItem.ToolTipText = "Import Results File";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
-            // toolStripButtonOpen
+            // toolStripButtonImport
             // 
-            this.toolStripButtonOpen.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStripButtonOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonOpen.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButtonOpen.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpen.Image")));
-            this.toolStripButtonOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonOpen.Name = "toolStripButtonOpen";
-            this.toolStripButtonOpen.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonOpen.Text = "toolStripButton1";
-            this.toolStripButtonOpen.ToolTipText = "Open Existing Project File";
-            this.toolStripButtonOpen.Click += new System.EventHandler(this.toolStripButtonOpen_Click);
+            this.toolStripButtonImport.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonImport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonImport.Image")));
+            this.toolStripButtonImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonImport.Name = "toolStripButtonImport";
+            this.toolStripButtonImport.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonImport.Text = "toolStripButton1";
+            this.toolStripButtonImport.ToolTipText = "Import Results File";
+            this.toolStripButtonImport.Click += new System.EventHandler(this.toolStripButtonImport_Click);
             // 
-            // toolStripButtonExport
+            // toolStripButtonStreams
             // 
-            this.toolStripButtonExport.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStripButtonExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonExport.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButtonExport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonExport.Image")));
-            this.toolStripButtonExport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonExport.Name = "toolStripButtonExport";
-            this.toolStripButtonExport.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonExport.Text = "toolStripButton1";
-            this.toolStripButtonExport.ToolTipText = "Export Results File";
-            this.toolStripButtonExport.Click += new System.EventHandler(this.toolStripButtonExport_Click);
+            this.toolStripButtonStreams.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonStreams.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonStreams.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStreams.Image")));
+            this.toolStripButtonStreams.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonStreams.Name = "toolStripButtonStreams";
+            this.toolStripButtonStreams.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonStreams.Text = "toolStripButton1";
+            this.toolStripButtonStreams.ToolTipText = "Input Streams Data";
             // 
-            // toolStripSeparator7
+            // toolStripButtonUtilities
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            this.toolStripButtonUtilities.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonUtilities.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonUtilities.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonUtilities.Image")));
+            this.toolStripButtonUtilities.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonUtilities.Name = "toolStripButtonUtilities";
+            this.toolStripButtonUtilities.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonUtilities.Text = "toolStripButton1";
+            this.toolStripButtonUtilities.ToolTipText = "Input Utilities Data";
             // 
-            // toolStripSeparator8
+            // toolStripButtonCost
             // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            this.toolStripButtonCost.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonCost.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonCost.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCost.Image")));
+            this.toolStripButtonCost.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCost.Name = "toolStripButtonCost";
+            this.toolStripButtonCost.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonCost.Text = "toolStripButton1";
+            this.toolStripButtonCost.ToolTipText = "Input Cost Data";
             // 
-            // toolStripSeparator9
+            // toolStripButtonExchanger
             // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
+            this.toolStripButtonExchanger.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonExchanger.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonExchanger.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonExchanger.Image")));
+            this.toolStripButtonExchanger.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonExchanger.Name = "toolStripButtonExchanger";
+            this.toolStripButtonExchanger.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonExchanger.Text = "toolStripButton1";
+            this.toolStripButtonExchanger.ToolTipText = "Input Exchanger Data";
             // 
-            // imageListInput
+            // toolStripButtonValidate
             // 
-            this.imageListInput.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListInput.ImageStream")));
-            this.imageListInput.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListInput.Images.SetKeyName(0, "Project...32x32.png");
+            this.toolStripButtonValidate.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonValidate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonValidate.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonValidate.Image")));
+            this.toolStripButtonValidate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonValidate.Name = "toolStripButtonValidate";
+            this.toolStripButtonValidate.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonValidate.Text = "toolStripButton1";
+            this.toolStripButtonValidate.ToolTipText = "Validate Input Data";
             // 
-            // toolStripButtonProject
+            // toolStripSeparator10
             // 
-            this.toolStripButtonProject.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStripButtonProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonProject.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButtonProject.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonProject.Image")));
-            this.toolStripButtonProject.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonProject.Name = "toolStripButtonProject";
-            this.toolStripButtonProject.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonProject.Text = "toolStripButton1";
-            this.toolStripButtonProject.ToolTipText = "Input Project Data";
-            this.toolStripButtonProject.Click += new System.EventHandler(this.toolStripButtonProject_Click);
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 31);
+            // 
+            // imageListTargets
+            // 
+            this.imageListTargets.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTargets.ImageStream")));
+            this.imageListTargets.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListTargets.Images.SetKeyName(0, "Calculate...32x32.png");
+            this.imageListTargets.Images.SetKeyName(1, "Composite...32x32.png");
+            this.imageListTargets.Images.SetKeyName(2, "Interval...32x32.png");
+            this.imageListTargets.Images.SetKeyName(3, "Optimize...32x32.png");
+            // 
+            // imageListHen
+            // 
+            this.imageListHen.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListHen.ImageStream")));
+            this.imageListHen.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListHen.Images.SetKeyName(0, "Design...32x32.png");
             // 
             // FormMain
             // 
@@ -1271,6 +1421,16 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ImageList imageListInput;
         private System.Windows.Forms.ToolStripButton toolStripButtonProject;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButtonImport;
+        private System.Windows.Forms.ToolStripButton toolStripButtonStreams;
+        private System.Windows.Forms.ToolStripButton toolStripButtonUtilities;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCost;
+        private System.Windows.Forms.ToolStripButton toolStripButtonExchanger;
+        private System.Windows.Forms.ToolStripButton toolStripButtonValidate;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ImageList imageListTargets;
+        private System.Windows.Forms.ImageList imageListHen;
     }
 }
 
