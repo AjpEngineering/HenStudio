@@ -38,6 +38,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,11 +105,13 @@
             this.tabPageComposite = new System.Windows.Forms.TabPage();
             this.tabPageInterval = new System.Windows.Forms.TabPage();
             this.tabPageOptimize = new System.Windows.Forms.TabPage();
+            this.imageListTargets = new System.Windows.Forms.ImageList(this.components);
             this.panelHEN = new System.Windows.Forms.Panel();
             this.panelHEN_DESIGN = new System.Windows.Forms.Panel();
             this.labelTitleHenDesignPanel = new System.Windows.Forms.Label();
             this.tabControlHEN = new System.Windows.Forms.TabControl();
             this.tabPageDesign = new System.Windows.Forms.TabPage();
+            this.imageListHen = new System.Windows.Forms.ImageList(this.components);
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonOpen = new System.Windows.Forms.ToolStripButton();
@@ -116,20 +119,16 @@
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSaveAs = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonImport = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonExport = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonProject = new System.Windows.Forms.ToolStripButton();
-            this.pictureBoxAJPLogo = new System.Windows.Forms.PictureBox();
-            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButtonImport = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonStreams = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonUtilities = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCost = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonExchanger = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonValidate = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.imageListTargets = new System.Windows.Forms.ImageList(this.components);
-            this.imageListHen = new System.Windows.Forms.ImageList(this.components);
             this.toolStripButtonCalculate = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonComposite = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInterval = new System.Windows.Forms.ToolStripButton();
@@ -139,6 +138,7 @@
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonLicense = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAbout = new System.Windows.Forms.ToolStripButton();
+            this.pictureBoxAJPLogo = new System.Windows.Forms.PictureBox();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -198,7 +198,7 @@
             // 
             this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.newToolStripMenuItem.Text = "New...";
             this.newToolStripMenuItem.ToolTipText = "Create New Project File";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
@@ -207,7 +207,7 @@
             // 
             this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.ToolTipText = "Open Existing Project File";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
@@ -215,13 +215,13 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(130, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.ToolTipText = "Save Current Project File";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
@@ -230,7 +230,7 @@
             // 
             this.saveAsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveAsToolStripMenuItem.Image")));
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.ToolTipText = "Save Current Project File As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
@@ -238,13 +238,22 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(130, 6);
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("importToolStripMenuItem.Image")));
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
+            this.importToolStripMenuItem.Text = "Import...";
+            this.importToolStripMenuItem.ToolTipText = "Import Results File";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportToolStripMenuItem.Image")));
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.exportToolStripMenuItem.Text = "Export...";
             this.exportToolStripMenuItem.ToolTipText = "Export Results File";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
@@ -252,13 +261,13 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(130, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.ToolTipText = "Exit Application";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
@@ -377,7 +386,7 @@
             this.calculateToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.calculateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("calculateToolStripMenuItem.Image")));
             this.calculateToolStripMenuItem.Name = "calculateToolStripMenuItem";
-            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
             this.calculateToolStripMenuItem.Text = "Calculate";
             this.calculateToolStripMenuItem.ToolTipText = "Calculate Pinch Targets";
             this.calculateToolStripMenuItem.Click += new System.EventHandler(this.calculateToolStripMenuItem_Click);
@@ -387,7 +396,7 @@
             this.compositeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.compositeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("compositeToolStripMenuItem.Image")));
             this.compositeToolStripMenuItem.Name = "compositeToolStripMenuItem";
-            this.compositeToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.compositeToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
             this.compositeToolStripMenuItem.Text = "Composite";
             this.compositeToolStripMenuItem.ToolTipText = "Display Compoiste Curve Data";
             this.compositeToolStripMenuItem.Click += new System.EventHandler(this.compositeToolStripMenuItem_Click);
@@ -397,7 +406,7 @@
             this.intervalToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.intervalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("intervalToolStripMenuItem.Image")));
             this.intervalToolStripMenuItem.Name = "intervalToolStripMenuItem";
-            this.intervalToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.intervalToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
             this.intervalToolStripMenuItem.Text = "Interval";
             this.intervalToolStripMenuItem.ToolTipText = "Display Interval Data";
             this.intervalToolStripMenuItem.Click += new System.EventHandler(this.intervalToolStripMenuItem_Click);
@@ -407,7 +416,7 @@
             this.optimizeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.optimizeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("optimizeToolStripMenuItem.Image")));
             this.optimizeToolStripMenuItem.Name = "optimizeToolStripMenuItem";
-            this.optimizeToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.optimizeToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
             this.optimizeToolStripMenuItem.Text = "Optimize";
             this.optimizeToolStripMenuItem.ToolTipText = "Perform Optimization Analyses";
             this.optimizeToolStripMenuItem.Click += new System.EventHandler(this.optimizeToolStripMenuItem_Click);
@@ -434,7 +443,7 @@
             this.designToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.designToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("designToolStripMenuItem.Image")));
             this.designToolStripMenuItem.Name = "designToolStripMenuItem";
-            this.designToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.designToolStripMenuItem.Size = new System.Drawing.Size(120, 30);
             this.designToolStripMenuItem.Text = "Design";
             this.designToolStripMenuItem.ToolTipText = "HEN Design";
             this.designToolStripMenuItem.Click += new System.EventHandler(this.designToolStripMenuItem_Click);
@@ -792,7 +801,7 @@
             this.imageListInput.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListInput.Images.SetKeyName(0, "Project...32x32.png");
             this.imageListInput.Images.SetKeyName(1, "Streams...32x32.png");
-            this.imageListInput.Images.SetKeyName(2, "Utilities...32x32.png");
+            this.imageListInput.Images.SetKeyName(2, "Utilities Image...32x32.png");
             this.imageListInput.Images.SetKeyName(3, "Cost...32x32.png");
             this.imageListInput.Images.SetKeyName(4, "Exchanger...32x32.png");
             this.imageListInput.Images.SetKeyName(5, "Validate...32x32.png");
@@ -983,6 +992,15 @@
             this.tabPageOptimize.ToolTipText = "Perform Optimization Analyses";
             this.tabPageOptimize.UseVisualStyleBackColor = true;
             // 
+            // imageListTargets
+            // 
+            this.imageListTargets.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTargets.ImageStream")));
+            this.imageListTargets.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListTargets.Images.SetKeyName(0, "Calculate...32x32.png");
+            this.imageListTargets.Images.SetKeyName(1, "Composite...32x32.png");
+            this.imageListTargets.Images.SetKeyName(2, "Interval...32x32.png");
+            this.imageListTargets.Images.SetKeyName(3, "Optimize...32x32.png");
+            // 
             // panelHEN
             // 
             this.panelHEN.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1045,6 +1063,12 @@
             this.tabPageDesign.Text = "DESIGN";
             this.tabPageDesign.ToolTipText = "Design Heat Exchanger Network Options";
             this.tabPageDesign.UseVisualStyleBackColor = true;
+            // 
+            // imageListHen
+            // 
+            this.imageListHen.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListHen.ImageStream")));
+            this.imageListHen.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListHen.Images.SetKeyName(0, "Design...32x32.png");
             // 
             // toolStripMain
             // 
@@ -1142,6 +1166,18 @@
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(6, 31);
             // 
+            // toolStripButtonImport
+            // 
+            this.toolStripButtonImport.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripButtonImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonImport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonImport.Image")));
+            this.toolStripButtonImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonImport.Name = "toolStripButtonImport";
+            this.toolStripButtonImport.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonImport.Text = "toolStripButton1";
+            this.toolStripButtonImport.ToolTipText = "Import Results File";
+            this.toolStripButtonImport.Click += new System.EventHandler(this.toolStripButtonImport_Click);
+            // 
             // toolStripButtonExport
             // 
             this.toolStripButtonExport.BackColor = System.Drawing.SystemColors.Control;
@@ -1172,41 +1208,6 @@
             this.toolStripButtonProject.Text = "toolStripButton1";
             this.toolStripButtonProject.ToolTipText = "Input Project Data";
             this.toolStripButtonProject.Click += new System.EventHandler(this.toolStripButtonProject_Click);
-            // 
-            // pictureBoxAJPLogo
-            // 
-            this.pictureBoxAJPLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxAJPLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.pictureBoxAJPLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxAJPLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAJPLogo.Image")));
-            this.pictureBoxAJPLogo.Location = new System.Drawing.Point(1109, 605);
-            this.pictureBoxAJPLogo.Name = "pictureBoxAJPLogo";
-            this.pictureBoxAJPLogo.Size = new System.Drawing.Size(143, 43);
-            this.pictureBoxAJPLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxAJPLogo.TabIndex = 6;
-            this.pictureBoxAJPLogo.TabStop = false;
-            this.pictureBoxAJPLogo.DoubleClick += new System.EventHandler(this.pictureBoxAJPLogo_DoubleClick);
-            // 
-            // importToolStripMenuItem
-            // 
-            this.importToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("importToolStripMenuItem.Image")));
-            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
-            this.importToolStripMenuItem.Text = "Import...";
-            this.importToolStripMenuItem.ToolTipText = "Import Results File";
-            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
-            // 
-            // toolStripButtonImport
-            // 
-            this.toolStripButtonImport.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStripButtonImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonImport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonImport.Image")));
-            this.toolStripButtonImport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonImport.Name = "toolStripButtonImport";
-            this.toolStripButtonImport.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButtonImport.Text = "toolStripButton1";
-            this.toolStripButtonImport.ToolTipText = "Import Results File";
-            this.toolStripButtonImport.Click += new System.EventHandler(this.toolStripButtonImport_Click);
             // 
             // toolStripButtonStreams
             // 
@@ -1272,21 +1273,6 @@
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(6, 31);
-            // 
-            // imageListTargets
-            // 
-            this.imageListTargets.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTargets.ImageStream")));
-            this.imageListTargets.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListTargets.Images.SetKeyName(0, "Calculate...32x32.png");
-            this.imageListTargets.Images.SetKeyName(1, "Composite...32x32.png");
-            this.imageListTargets.Images.SetKeyName(2, "Interval...32x32.png");
-            this.imageListTargets.Images.SetKeyName(3, "Optimize...32x32.png");
-            // 
-            // imageListHen
-            // 
-            this.imageListHen.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListHen.ImageStream")));
-            this.imageListHen.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListHen.Images.SetKeyName(0, "Design...32x32.png");
             // 
             // toolStripButtonCalculate
             // 
@@ -1374,6 +1360,20 @@
             this.toolStripButtonAbout.Text = "toolStripButton1";
             this.toolStripButtonAbout.ToolTipText = "Display About Information";
             this.toolStripButtonAbout.Click += new System.EventHandler(this.toolStripButtonAbout_Click);
+            // 
+            // pictureBoxAJPLogo
+            // 
+            this.pictureBoxAJPLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxAJPLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.pictureBoxAJPLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxAJPLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAJPLogo.Image")));
+            this.pictureBoxAJPLogo.Location = new System.Drawing.Point(1109, 605);
+            this.pictureBoxAJPLogo.Name = "pictureBoxAJPLogo";
+            this.pictureBoxAJPLogo.Size = new System.Drawing.Size(143, 43);
+            this.pictureBoxAJPLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxAJPLogo.TabIndex = 6;
+            this.pictureBoxAJPLogo.TabStop = false;
+            this.pictureBoxAJPLogo.DoubleClick += new System.EventHandler(this.pictureBoxAJPLogo_DoubleClick);
             // 
             // FormMain
             // 
