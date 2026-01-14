@@ -580,6 +580,8 @@ namespace Pinch
                 MAIN_TAB_CONTROL.Visible = true;
                 MAIN_TAB_CONTROL.SelectedIndex = nActivity;
 
+                SelectTabControlButton(nActivity, nSubActivity);
+
                 SelActivityPanel.Visible = true;
                 SelSubActivityPanel.Visible = true;
 
@@ -974,6 +976,43 @@ namespace Pinch
            }
         }
         #endregion  // PopulateLookupPanelInfoTable()
+
+        #region SelectTabControlButton()
+        private void SelectTabControlButton(int nActivity, int nSubActivity)
+        {
+            string strMethod = "SelectTabControlButton()";
+            string strView = string.Empty;
+            try
+            {
+                switch(nActivity)
+                {
+                    case INDEX_INPUT_PANEL:
+                        INPUT_TAB_CONTROL.SelectedIndex = nSubActivity;
+                        break;
+
+                    case INDEX_TARGETS_PANEL:
+                        TARGETS_TAB_CONTROL.SelectedIndex = nSubActivity;
+                        break;
+
+                    case INDEX_HEN_PANEL:
+                        HEN_TAB_CONTROL.SelectedIndex = nSubActivity;
+                        break;
+
+                    default:
+                        throw(new Exception("INVALID Acitiviy Index!"));
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // SelectTabControlButton()
 
         #region FormatPanelStatusName()
         private string FormatPanelStatusName(string strActivity, string strSubActivity)

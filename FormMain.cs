@@ -522,7 +522,6 @@ namespace Pinch
         }
         #endregion  // IMPORT MENU ITEM HANDLER
 
-
         #region EXPORT MENU ITEM HANDLER
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -888,17 +887,15 @@ namespace Pinch
         #region LICENSE
         private void licenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("License Menu Item Selected!");
-            // TODO: Create FormLicense dialog - pass in LicenceData Object
+            //PinchMsgDlg.DisplayWarningDlg("License Menu Item Selected!");
+            DisplayLicenseForm();
         }
         #endregion      // LICENSE
 
         #region ABOUT
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAboutPinch dlg = new FormAboutPinch();
-            dlg.PinchTypesObj = this.PinchTypesObj;     // Assign Global Types and Properties
-            dlg.ShowDialog();
+            DisplayAboutForm();
         }
         #endregion  // ABOUT
 
@@ -956,10 +953,11 @@ namespace Pinch
         }
         #endregion  // TOOLBAR EXPORT BUTTON EVENT
 
+        //---------------------------------------------------------------------
+
         #region TOOLBAR INPUT-PROJECT BUTTON EVENT
         private void toolStripButtonProject_Click(object sender, EventArgs e)
         {
-
             string strMethod = "toolStripButtonProject_Click";
             int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
             int nSubActivity = PanelTableMgr.INDEX_INPUT_PROJECT_PANEL;
@@ -977,9 +975,259 @@ namespace Pinch
             finally
             {
             }
-
         }
         #endregion  // TOOLBAR INPUT-PROJECT BUTTON EVENT
+
+        #region TOOLBAR INPUT-STREAMS BUTTON EVENT
+        private void toolStripButtonStreams_Click(object sender, EventArgs e)
+        {
+            string strMethod = "toolStripButtonStreams_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_STREAMS_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-STREAMS Toobar Button Pressed!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // TOOLBAR INPUT-STREAMS BUTTON EVENT
+
+        #region TOOLBAR INPUT-UTILITIES BUTTON EVENT
+        private void toolStripButtonUtilities_Click(object sender, EventArgs e)
+        {
+            string strMethod = "toolStripButtonUtilities_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_UTILITIES_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-UTILITIES Toobar Button Pressed!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // TOOLBAR INPUT-UTILITIES BUTTON EVENT
+
+        #region TOOLBAR INPUT-COST BUTTON EVENT
+        private void toolStripButtonCost_Click(object sender, EventArgs e)
+        {
+            string strMethod = "toolStripButtonCost_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_COST_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-COST Toobar Button Pressed!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // TOOLBAR INPUT-COST BUTTON EVENT
+
+        #region TOOLBAR INPUT-EXCHANGER BUTTON EVENT
+        private void toolStripButtonExchanger_Click(object sender, EventArgs e)
+        {
+            string strMethod = "toolStripButtonExchanger_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_EXCHANGER_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-EXCHANGER Toobar Button Pressed!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // TOOLBAR INPUT-EXCHANGER BUTTON EVENT
+
+        #region TOOLBAR INPUT-VALIDATE BUTTON EVENT
+        private void toolStripButtonValidate_Click(object sender, EventArgs e)
+        {
+            string strMethod = "toolStripButtonValidate_Click";
+            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_INPUT_VALIDATE_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("INPUT-VALIDATE Toobar Button Pressed!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // TOOLBAR INPUT-VALIDATE BUTTON EVENT
+
+        //---------------------------------------------------------------------
+
+        #region TOOLBAR TARGETS-CALCULATE BUTTON EVENT
+        private void toolStripButtonCalculate_Click(object sender, EventArgs e)
+        {
+            string strMethod = "toolStripButtonCalculate_Click";
+            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_TARGETS_CALCULATE_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("TARGETS-CALCULATE Toobar Button Pressed!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // TOOLBAR TARGETS-CALCULATE BUTTON EVENT
+
+        #region TOOLBAR TARGETS-COMPOSITE BUTTON EVENT
+        private void toolStripButtonComposite_Click(object sender, EventArgs e)
+        {
+            string strMethod = "toolStripButtonComposite_Click";
+            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_TARGETS_COMPOSITE_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("TARGETS-COMPOSITE Toobar Button Pressed!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // TOOLBAR TARGETS-COMPOSITE BUTTON EVENT
+
+        #region TOOLBAR TARGETS-INTERVAL BUTTON EVENT
+        private void toolStripButtonInterval_Click(object sender, EventArgs e)
+        {
+            string strMethod = "toolStripButtonInterval_Click";
+            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_TARGETS_INTERVAL_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("TARGETS-INTERVAL Toobar Button Pressed!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // TOOLBAR TARGETS-INTERVAL BUTTON EVENT
+
+        #region TOOLBAR TARGETS-OPTIMIZE BUTTON EVENT
+        private void toolStripButtonOptimize_Click(object sender, EventArgs e)
+        {
+            string strMethod = "toolStripButtonOptimize_Click";
+            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_TARGETS_OPTIMIZE_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("TARGETS-OPTIMIZE Toobar Button Pressed!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // TOOLBAR TARGETS-OPTIMIZE BUTTON EVENT
+
+        //---------------------------------------------------------------------
+
+        #region TOOLBAR HEN-DESIGN BUTTON EVENT
+        private void toolStripButtonHenDesign_Click(object sender, EventArgs e)
+        {
+            string strMethod = "toolStripButtonHenDesign_Click";
+            int nActivity = PanelTableMgr.INDEX_HEN_PANEL;
+            int nSubActivity = PanelTableMgr.INDEX_HEN_DESIGN_PANEL;
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("HEN-DESIGN Toobar Button Pressed!");
+                HandleViewCommand(nActivity, nSubActivity);
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // TOOLBAR HEN-DESIGN BUTTON EVENT
+
+        //---------------------------------------------------------------------
+
+        #region TOOLBAR LICENSE BUTTON EVENT
+        private void toolStripButtonLicense_Click(object sender, EventArgs e)
+        {
+            //PinchMsgDlg.DisplayWarningDlg("License Toolbar Button Presses!");
+            DisplayLicenseForm();
+        }
+        #endregion  // TOOLBAR LICENSE BUTTON EVENT
+
+        #region TOOLBAR ABOUT BUTTON EVENT
+        private void toolStripButtonAbout_Click(object sender, EventArgs e)
+        {
+            DisplayAboutForm();
+        }
+        #endregion  // TOOLBAR ABOUT BUTTON EVENT
 
         #endregion  // TOOLBAR EVENTS
 
@@ -1111,11 +1359,74 @@ namespace Pinch
 
         #endregion  // TAB CONTROL EVENTS
 
+        #region PICTURE BOX EVENTS
+        private void pictureBoxAJPLogo_DoubleClick(object sender, EventArgs e)
+        {
+            PinchMsgDlg.DisplayWarningDlg("Handle Double Click on AJP Engineering Logo");
+            // DISPLAY AJP PINCH 4 Form ... short version of ABOUT Form
+
+        }
+        #endregion  // PICTURE BOX EVENTS
+
         #endregion      // EVENT HANDLERS
 
         #region METHODS
 
         #region COMMON COMMAND HANDLERS
+
+        #region DisplayLicenseForm()
+        /// <summary>
+        /// Common Display License Form Handler
+        /// </summary>
+        private void DisplayLicenseForm()
+        {
+            string strMethod = "DisplayLicenseForm";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
+            try
+            {
+                PinchMsgDlg.DisplayWarningDlg("Handle Common Display License Form Command!");
+                //FormAboutPinch dlg = new FormAboutPinch();
+                //dlg.PinchTypesObj = this.PinchTypesObj;     // Assign Global Types and Properties
+                //dlg.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // DisplayAboutForm()
+
+        #region DisplayAboutForm()
+        /// <summary>
+        /// Common Display About Form Handler
+        /// </summary>
+        private void DisplayAboutForm()
+        {
+            string strMethod = "DisplayAboutForm";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display About Form");
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("Handle Common Display About Form Command!");
+                FormAboutPinch dlg = new FormAboutPinch();
+                dlg.PinchTypesObj = this.PinchTypesObj;     // Assign Global Types and Properties
+                dlg.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }        
+        #endregion  // DisplayAboutForm()
 
         #region HandleNew
         /// <summary>
