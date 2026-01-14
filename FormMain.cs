@@ -461,10 +461,27 @@ namespace Pinch
         {
             string strMethod = "InitializeControls";
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
+
+            int nPanelLocationX = 0;
+            int nPanelLocationY = 61;
+            int nPanelSizeX = 1264;
+            int nPanelSizeY = 543;
             try
             {
                 this.Text = "AJP Pinch 4";
                 this.BackColor = PinchTypesObj.AJP_ENGINEERING_GREEN; // Form Background Color
+
+                //--- INPUT PANEL ---
+                this.panelINPUT.Location = new System.Drawing.Point(nPanelLocationX, nPanelLocationY);
+                this.panelINPUT.Size = new System.Drawing.Size(nPanelSizeX, nPanelSizeY);
+
+                //--- TARGETS PANEL ---
+                this.panelTARGETS.Location = new System.Drawing.Point(nPanelLocationX, nPanelLocationY);
+                this.panelTARGETS.Size = new System.Drawing.Size(nPanelSizeX, nPanelSizeY);
+
+                //--- HEN PANEL ---
+                this.panelHEN.Location = new System.Drawing.Point(nPanelLocationX, nPanelLocationY);
+                this.panelHEN.Size = new System.Drawing.Size(nPanelSizeX, nPanelSizeY);
             }
             catch (Exception ex)
             {

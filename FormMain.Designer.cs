@@ -590,6 +590,7 @@
             this.panelINPUT.Name = "panelINPUT";
             this.panelINPUT.Size = new System.Drawing.Size(1264, 227);
             this.panelINPUT.TabIndex = 3;
+            this.panelINPUT.Visible = false;
             // 
             // panelINPUT_VALIDATE
             // 
@@ -839,11 +840,12 @@
             this.panelTARGETS.Controls.Add(this.panelTARGETS_CALCULATE);
             this.panelTARGETS.Controls.Add(this.tabControlTARGETS);
             this.panelTARGETS.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTARGETS.Location = new System.Drawing.Point(0, 306);
+            this.panelTARGETS.Location = new System.Drawing.Point(0, 289);
             this.panelTARGETS.Margin = new System.Windows.Forms.Padding(0);
             this.panelTARGETS.Name = "panelTARGETS";
-            this.panelTARGETS.Size = new System.Drawing.Size(851, 296);
+            this.panelTARGETS.Size = new System.Drawing.Size(851, 316);
             this.panelTARGETS.TabIndex = 4;
+            this.panelTARGETS.Visible = false;
             // 
             // panelTARGETS_OPTIMIZE
             // 
@@ -1010,9 +1012,10 @@
             this.panelHEN.Controls.Add(this.panelHEN_DESIGN);
             this.panelHEN.Controls.Add(this.tabControlHEN);
             this.panelHEN.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelHEN.Location = new System.Drawing.Point(857, 306);
+            this.panelHEN.Location = new System.Drawing.Point(869, 288);
+            this.panelHEN.Margin = new System.Windows.Forms.Padding(0);
             this.panelHEN.Name = "panelHEN";
-            this.panelHEN.Size = new System.Drawing.Size(395, 296);
+            this.panelHEN.Size = new System.Drawing.Size(395, 317);
             this.panelHEN.TabIndex = 5;
             // 
             // panelHEN_DESIGN
@@ -1383,13 +1386,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.panelHEN);
             this.Controls.Add(this.pictureBoxAJPLogo);
             this.Controls.Add(this.toolStripMain);
             this.Controls.Add(this.panelTARGETS);
             this.Controls.Add(this.panelINPUT);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.statusStripMain);
-            this.Controls.Add(this.panelHEN);
             this.Controls.Add(this.menuStripMain);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Cascadia Mono SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
