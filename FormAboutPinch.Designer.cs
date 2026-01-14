@@ -44,9 +44,11 @@
             this.labelProductCode = new System.Windows.Forms.Label();
             this.labelProductCodeValue = new System.Windows.Forms.Label();
             this.pictureBoxProductWarning = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAJPEngLogo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanelSupplier.SuspendLayout();
             this.tableLayoutPanelProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductWarning)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAJPEngLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelSupplier
@@ -57,12 +59,12 @@
             this.tableLayoutPanelSupplier.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.02128F));
             this.tableLayoutPanelSupplier.Controls.Add(this.labelSuplierName, 0, 0);
             this.tableLayoutPanelSupplier.Controls.Add(this.labelSupplierNameValue, 1, 0);
-            this.tableLayoutPanelSupplier.Location = new System.Drawing.Point(315, 255);
+            this.tableLayoutPanelSupplier.Location = new System.Drawing.Point(315, 220);
             this.tableLayoutPanelSupplier.Name = "tableLayoutPanelSupplier";
             this.tableLayoutPanelSupplier.RowCount = 1;
             this.tableLayoutPanelSupplier.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.93103F));
             this.tableLayoutPanelSupplier.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.06897F));
-            this.tableLayoutPanelSupplier.Size = new System.Drawing.Size(507, 31);
+            this.tableLayoutPanelSupplier.Size = new System.Drawing.Size(479, 31);
             this.tableLayoutPanelSupplier.TabIndex = 0;
             // 
             // labelSuplierName
@@ -75,7 +77,7 @@
             this.labelSuplierName.Location = new System.Drawing.Point(3, 0);
             this.labelSuplierName.Name = "labelSuplierName";
             this.labelSuplierName.Padding = new System.Windows.Forms.Padding(3);
-            this.labelSuplierName.Size = new System.Drawing.Size(161, 31);
+            this.labelSuplierName.Size = new System.Drawing.Size(151, 31);
             this.labelSuplierName.TabIndex = 0;
             this.labelSuplierName.Text = "Supplier Name";
             this.labelSuplierName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -83,14 +85,14 @@
             // labelSupplierNameValue
             // 
             this.labelSupplierNameValue.AutoSize = true;
-            this.labelSupplierNameValue.BackColor = System.Drawing.Color.LightYellow;
+            this.labelSupplierNameValue.BackColor = System.Drawing.Color.White;
             this.labelSupplierNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelSupplierNameValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelSupplierNameValue.Font = new System.Drawing.Font("Cascadia Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSupplierNameValue.Location = new System.Drawing.Point(167, 0);
+            this.labelSupplierNameValue.Location = new System.Drawing.Point(157, 0);
             this.labelSupplierNameValue.Margin = new System.Windows.Forms.Padding(0);
             this.labelSupplierNameValue.Name = "labelSupplierNameValue";
-            this.labelSupplierNameValue.Size = new System.Drawing.Size(340, 31);
+            this.labelSupplierNameValue.Size = new System.Drawing.Size(322, 31);
             this.labelSupplierNameValue.TabIndex = 1;
             this.labelSupplierNameValue.Text = "  AJP Engineering";
             this.labelSupplierNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -111,7 +113,7 @@
             this.tableLayoutPanelProduct.Controls.Add(this.labelSerialNumberValue, 1, 3);
             this.tableLayoutPanelProduct.Controls.Add(this.labelProductCode, 0, 4);
             this.tableLayoutPanelProduct.Controls.Add(this.labelProductCodeValue, 1, 4);
-            this.tableLayoutPanelProduct.Location = new System.Drawing.Point(315, 296);
+            this.tableLayoutPanelProduct.Location = new System.Drawing.Point(315, 257);
             this.tableLayoutPanelProduct.Name = "tableLayoutPanelProduct";
             this.tableLayoutPanelProduct.RowCount = 5;
             this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -119,7 +121,7 @@
             this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanelProduct.Size = new System.Drawing.Size(507, 140);
+            this.tableLayoutPanelProduct.Size = new System.Drawing.Size(479, 140);
             this.tableLayoutPanelProduct.TabIndex = 1;
             // 
             // labelProductFullName
@@ -130,7 +132,7 @@
             this.labelProductFullName.Font = new System.Drawing.Font("Cascadia Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProductFullName.Location = new System.Drawing.Point(3, 0);
             this.labelProductFullName.Name = "labelProductFullName";
-            this.labelProductFullName.Size = new System.Drawing.Size(162, 28);
+            this.labelProductFullName.Size = new System.Drawing.Size(152, 28);
             this.labelProductFullName.TabIndex = 0;
             this.labelProductFullName.Text = "Product Full Name";
             this.labelProductFullName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -143,7 +145,7 @@
             this.labelProductName.Font = new System.Drawing.Font("Cascadia Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProductName.Location = new System.Drawing.Point(3, 28);
             this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(162, 28);
+            this.labelProductName.Size = new System.Drawing.Size(152, 28);
             this.labelProductName.TabIndex = 2;
             this.labelProductName.Text = "Product Name";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -151,14 +153,14 @@
             // labelProductFullNameValue
             // 
             this.labelProductFullNameValue.AutoSize = true;
-            this.labelProductFullNameValue.BackColor = System.Drawing.Color.LightYellow;
+            this.labelProductFullNameValue.BackColor = System.Drawing.Color.White;
             this.labelProductFullNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelProductFullNameValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelProductFullNameValue.Font = new System.Drawing.Font("Cascadia Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductFullNameValue.Location = new System.Drawing.Point(168, 0);
+            this.labelProductFullNameValue.Location = new System.Drawing.Point(158, 0);
             this.labelProductFullNameValue.Margin = new System.Windows.Forms.Padding(0);
             this.labelProductFullNameValue.Name = "labelProductFullNameValue";
-            this.labelProductFullNameValue.Size = new System.Drawing.Size(339, 28);
+            this.labelProductFullNameValue.Size = new System.Drawing.Size(321, 28);
             this.labelProductFullNameValue.TabIndex = 3;
             this.labelProductFullNameValue.Text = "  AJP Pinch 4.0";
             this.labelProductFullNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -166,14 +168,14 @@
             // labelProductNameValue
             // 
             this.labelProductNameValue.AutoSize = true;
-            this.labelProductNameValue.BackColor = System.Drawing.Color.LightYellow;
+            this.labelProductNameValue.BackColor = System.Drawing.Color.White;
             this.labelProductNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelProductNameValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelProductNameValue.Font = new System.Drawing.Font("Cascadia Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductNameValue.Location = new System.Drawing.Point(168, 28);
+            this.labelProductNameValue.Location = new System.Drawing.Point(158, 28);
             this.labelProductNameValue.Margin = new System.Windows.Forms.Padding(0);
             this.labelProductNameValue.Name = "labelProductNameValue";
-            this.labelProductNameValue.Size = new System.Drawing.Size(339, 28);
+            this.labelProductNameValue.Size = new System.Drawing.Size(321, 28);
             this.labelProductNameValue.TabIndex = 4;
             this.labelProductNameValue.Text = "  AJP Pinch";
             this.labelProductNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,7 +189,7 @@
             this.labelProductVersion.Location = new System.Drawing.Point(0, 56);
             this.labelProductVersion.Margin = new System.Windows.Forms.Padding(0);
             this.labelProductVersion.Name = "labelProductVersion";
-            this.labelProductVersion.Size = new System.Drawing.Size(168, 28);
+            this.labelProductVersion.Size = new System.Drawing.Size(158, 28);
             this.labelProductVersion.TabIndex = 5;
             this.labelProductVersion.Text = "Product Version";
             this.labelProductVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -195,14 +197,14 @@
             // labelProductVersionValue
             // 
             this.labelProductVersionValue.AutoSize = true;
-            this.labelProductVersionValue.BackColor = System.Drawing.Color.LightYellow;
+            this.labelProductVersionValue.BackColor = System.Drawing.Color.White;
             this.labelProductVersionValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelProductVersionValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelProductVersionValue.Font = new System.Drawing.Font("Cascadia Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductVersionValue.Location = new System.Drawing.Point(168, 56);
+            this.labelProductVersionValue.Location = new System.Drawing.Point(158, 56);
             this.labelProductVersionValue.Margin = new System.Windows.Forms.Padding(0);
             this.labelProductVersionValue.Name = "labelProductVersionValue";
-            this.labelProductVersionValue.Size = new System.Drawing.Size(339, 28);
+            this.labelProductVersionValue.Size = new System.Drawing.Size(321, 28);
             this.labelProductVersionValue.TabIndex = 6;
             this.labelProductVersionValue.Text = "  4.0.1";
             this.labelProductVersionValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -216,7 +218,7 @@
             this.labelSerialNumber.Location = new System.Drawing.Point(0, 84);
             this.labelSerialNumber.Margin = new System.Windows.Forms.Padding(0);
             this.labelSerialNumber.Name = "labelSerialNumber";
-            this.labelSerialNumber.Size = new System.Drawing.Size(168, 28);
+            this.labelSerialNumber.Size = new System.Drawing.Size(158, 28);
             this.labelSerialNumber.TabIndex = 7;
             this.labelSerialNumber.Text = "Product Serial Number";
             this.labelSerialNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -224,14 +226,14 @@
             // labelSerialNumberValue
             // 
             this.labelSerialNumberValue.AutoSize = true;
-            this.labelSerialNumberValue.BackColor = System.Drawing.Color.LightYellow;
+            this.labelSerialNumberValue.BackColor = System.Drawing.Color.White;
             this.labelSerialNumberValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelSerialNumberValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelSerialNumberValue.Font = new System.Drawing.Font("Cascadia Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSerialNumberValue.Location = new System.Drawing.Point(168, 84);
+            this.labelSerialNumberValue.Location = new System.Drawing.Point(158, 84);
             this.labelSerialNumberValue.Margin = new System.Windows.Forms.Padding(0);
             this.labelSerialNumberValue.Name = "labelSerialNumberValue";
-            this.labelSerialNumberValue.Size = new System.Drawing.Size(339, 28);
+            this.labelSerialNumberValue.Size = new System.Drawing.Size(321, 28);
             this.labelSerialNumberValue.TabIndex = 8;
             this.labelSerialNumberValue.Text = "  1022-456-1189";
             this.labelSerialNumberValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -245,7 +247,7 @@
             this.labelProductCode.Location = new System.Drawing.Point(0, 112);
             this.labelProductCode.Margin = new System.Windows.Forms.Padding(0);
             this.labelProductCode.Name = "labelProductCode";
-            this.labelProductCode.Size = new System.Drawing.Size(168, 28);
+            this.labelProductCode.Size = new System.Drawing.Size(158, 28);
             this.labelProductCode.TabIndex = 9;
             this.labelProductCode.Text = "Product Code";
             this.labelProductCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -253,14 +255,14 @@
             // labelProductCodeValue
             // 
             this.labelProductCodeValue.AutoSize = true;
-            this.labelProductCodeValue.BackColor = System.Drawing.Color.LightYellow;
+            this.labelProductCodeValue.BackColor = System.Drawing.Color.White;
             this.labelProductCodeValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelProductCodeValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelProductCodeValue.Font = new System.Drawing.Font("Cascadia Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductCodeValue.Location = new System.Drawing.Point(168, 112);
+            this.labelProductCodeValue.Location = new System.Drawing.Point(158, 112);
             this.labelProductCodeValue.Margin = new System.Windows.Forms.Padding(0);
             this.labelProductCodeValue.Name = "labelProductCodeValue";
-            this.labelProductCodeValue.Size = new System.Drawing.Size(339, 28);
+            this.labelProductCodeValue.Size = new System.Drawing.Size(321, 28);
             this.labelProductCodeValue.TabIndex = 10;
             this.labelProductCodeValue.Text = "{6C6D7807-B72E-4460-9D5C-1A911D1299FB}";
             this.labelProductCodeValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -278,6 +280,18 @@
             this.pictureBoxProductWarning.TabIndex = 5;
             this.pictureBoxProductWarning.TabStop = false;
             // 
+            // pictureBoxAJPEngLogo
+            // 
+            this.pictureBoxAJPEngLogo.BackColor = System.Drawing.Color.White;
+            this.pictureBoxAJPEngLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxAJPEngLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAJPEngLogo.Image")));
+            this.pictureBoxAJPEngLogo.Location = new System.Drawing.Point(945, 51);
+            this.pictureBoxAJPEngLogo.Name = "pictureBoxAJPEngLogo";
+            this.pictureBoxAJPEngLogo.Size = new System.Drawing.Size(125, 58);
+            this.pictureBoxAJPEngLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxAJPEngLogo.TabIndex = 6;
+            this.pictureBoxAJPEngLogo.TabStop = false;
+            // 
             // FormAboutPinch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -286,6 +300,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1108, 621);
+            this.Controls.Add(this.pictureBoxAJPEngLogo);
             this.Controls.Add(this.pictureBoxProductWarning);
             this.Controls.Add(this.tableLayoutPanelProduct);
             this.Controls.Add(this.tableLayoutPanelSupplier);
@@ -304,6 +319,7 @@
             this.tableLayoutPanelProduct.ResumeLayout(false);
             this.tableLayoutPanelProduct.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductWarning)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAJPEngLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -325,5 +341,6 @@
         private System.Windows.Forms.Label labelProductCode;
         private System.Windows.Forms.Label labelProductCodeValue;
         private System.Windows.Forms.PictureBox pictureBoxProductWarning;
+        private System.Windows.Forms.PictureBox pictureBoxAJPEngLogo;
     }
 }

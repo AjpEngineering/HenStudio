@@ -1362,9 +1362,8 @@ namespace Pinch
         #region PICTURE BOX EVENTS
         private void pictureBoxAJPLogo_DoubleClick(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("Handle Double Click on AJP Engineering Logo");
-            // DISPLAY AJP PINCH 4 Form ... short version of ABOUT Form
-
+            //PinchMsgDlg.DisplayWarningDlg("Handle Double Click on AJP Engineering Logo");
+            DisplayAboutForm();
         }
         #endregion  // PICTURE BOX EVENTS
 

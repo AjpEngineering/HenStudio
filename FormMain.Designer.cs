@@ -386,7 +386,7 @@
             this.calculateToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.calculateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("calculateToolStripMenuItem.Image")));
             this.calculateToolStripMenuItem.Name = "calculateToolStripMenuItem";
-            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
+            this.calculateToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.calculateToolStripMenuItem.Text = "Calculate";
             this.calculateToolStripMenuItem.ToolTipText = "Calculate Pinch Targets";
             this.calculateToolStripMenuItem.Click += new System.EventHandler(this.calculateToolStripMenuItem_Click);
@@ -396,7 +396,7 @@
             this.compositeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.compositeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("compositeToolStripMenuItem.Image")));
             this.compositeToolStripMenuItem.Name = "compositeToolStripMenuItem";
-            this.compositeToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
+            this.compositeToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.compositeToolStripMenuItem.Text = "Composite";
             this.compositeToolStripMenuItem.ToolTipText = "Display Compoiste Curve Data";
             this.compositeToolStripMenuItem.Click += new System.EventHandler(this.compositeToolStripMenuItem_Click);
@@ -406,7 +406,7 @@
             this.intervalToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.intervalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("intervalToolStripMenuItem.Image")));
             this.intervalToolStripMenuItem.Name = "intervalToolStripMenuItem";
-            this.intervalToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
+            this.intervalToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.intervalToolStripMenuItem.Text = "Interval";
             this.intervalToolStripMenuItem.ToolTipText = "Display Interval Data";
             this.intervalToolStripMenuItem.Click += new System.EventHandler(this.intervalToolStripMenuItem_Click);
@@ -416,7 +416,7 @@
             this.optimizeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.optimizeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("optimizeToolStripMenuItem.Image")));
             this.optimizeToolStripMenuItem.Name = "optimizeToolStripMenuItem";
-            this.optimizeToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
+            this.optimizeToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.optimizeToolStripMenuItem.Text = "Optimize";
             this.optimizeToolStripMenuItem.ToolTipText = "Perform Optimization Analyses";
             this.optimizeToolStripMenuItem.Click += new System.EventHandler(this.optimizeToolStripMenuItem_Click);
@@ -798,12 +798,12 @@
             // imageListInput
             // 
             this.imageListInput.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListInput.ImageStream")));
-            this.imageListInput.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListInput.TransparentColor = System.Drawing.Color.Crimson;
             this.imageListInput.Images.SetKeyName(0, "Project...32x32.png");
             this.imageListInput.Images.SetKeyName(1, "Streams...32x32.png");
             this.imageListInput.Images.SetKeyName(2, "Utilities Image...32x32.png");
             this.imageListInput.Images.SetKeyName(3, "Cost...32x32.png");
-            this.imageListInput.Images.SetKeyName(4, "Exchanger...32x32.png");
+            this.imageListInput.Images.SetKeyName(4, "Exchanger3...32x32.png");
             this.imageListInput.Images.SetKeyName(5, "Validate...32x32.png");
             // 
             // panelINPUT_PROJECT
@@ -995,11 +995,11 @@
             // imageListTargets
             // 
             this.imageListTargets.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTargets.ImageStream")));
-            this.imageListTargets.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListTargets.Images.SetKeyName(0, "Calculate...32x32.png");
+            this.imageListTargets.TransparentColor = System.Drawing.Color.OrangeRed;
+            this.imageListTargets.Images.SetKeyName(0, "Calc Gears...32x32.png");
             this.imageListTargets.Images.SetKeyName(1, "Composite...32x32.png");
             this.imageListTargets.Images.SetKeyName(2, "Interval...32x32.png");
-            this.imageListTargets.Images.SetKeyName(3, "Optimize...32x32.png");
+            this.imageListTargets.Images.SetKeyName(3, "Optimize Target...32x32.png");
             // 
             // panelHEN
             // 
