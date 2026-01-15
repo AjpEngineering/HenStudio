@@ -80,5 +80,11 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\_PinchGlobal\_PinchGlobal.csproj">
+      <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
+      <Name>_PinchGlobal</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

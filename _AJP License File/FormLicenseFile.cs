@@ -43,6 +43,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using PinchGlobal;
 #endregion      // REFERENCES
 
 #region namespace AJP_License_File
@@ -106,6 +108,8 @@ namespace AJP_License_File
         #endregion      // ENUMS
 
         #region FIELDS
+        private PinchTypes _pinchTypesObj;  // PinchTypes Object
+
         private string _strRunningDeviceName;           // Current Running Device Name
 
         private string _strCalcLicenseKey;              // Calculated AJP License Key String
@@ -119,6 +123,17 @@ namespace AJP_License_File
         #endregion      // FIELDS
 
         #region PROPERTIES
+
+        #region PinchTypesObj
+        /// <summary>
+        /// PinchTypesObj Property
+        /// </summary>
+        public PinchTypes PinchTypesObj
+        {
+            get { return _pinchTypesObj; }
+            set { _pinchTypesObj = value; }
+        }
+        #endregion      // PinchTypesObj
 
         #region RunningDeviceName
         /// <summary>
@@ -378,24 +393,6 @@ namespace AJP_License_File
 
         #endregion      // BUTTON HANDLERS
 
-        #region PICTURE BOX LOGO CLICK
-        private void pictureBoxLogo_Click(object sender, EventArgs e)
-        {
-            string strMethod = "pictureBoxLogo_Click";
-            string strMsg = string.Empty;
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
-            }
-        }
-        #endregion      // PICTURE BOX LOGO CLICK
-
         //=============================================================================================================
         //--------------------------------------------- PRIVATE METHODS -----------------------------------------------
         //=============================================================================================================
@@ -409,7 +406,7 @@ namespace AJP_License_File
             string strMethod = "RestoreXmlFile";
             string strMsg = string.Empty;
 
-            string AJP_LICENSE_FOLDER = "AJP LICENSE";
+            string AJP_LICENSE_FOLDER = "LICENSE";
             string AJP_LICENSE_FILE = "AJP License.xml";
 
             string strCheckLicenseFolder = string.Empty;
