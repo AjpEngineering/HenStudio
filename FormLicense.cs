@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//#######################################  F o r m A b o u t P i n c h . c s  #########################################
+//##########################################  F o r m L i c e n s e . c s  ############################################
 //#####################################################################################################################
-//  FILENAME:  FormAboutPinch.cs
+//  FILENAME:  FormLicense.cs
 //  NAMESPACE: Pinch
-//  CLASS(S):  FormAboutPinch
+//  CLASS(S):  FormLicense
 //  COMPONENT: Pinch.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the About Pinch Form class.
+//    This file contains the code for the License Form class.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -49,12 +49,12 @@ using PinchGlobal;
 #region namespace Pinch
 namespace Pinch
 {
-    #region public partial class FormAboutPinch : Form
-    public partial class FormAboutPinch : Form
+    #region public partial class FormLicense
+    public partial class FormLicense : Form
     {
         #region CONSTANTS
         const string NAMESPACE = "Pinch";
-        const string CLASS = "FormAboutPinch";
+        const string CLASS = "FormLicense";
         #endregion      // CONSTANTS
 
         #region FIELDS
@@ -80,7 +80,7 @@ namespace Pinch
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public FormAboutPinch()
+        public FormLicense()
         {
             InitializeComponent();
 
@@ -98,12 +98,7 @@ namespace Pinch
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initialize Contols");
             try
             {
-                this.labelSupplierNameValue.Text = PinchTypes.AJP_SUPPLIER_NAME;
-                this.labelProductFullNameValue.Text = PinchTypes.AJP_PRODUCT_FULLNAME;
-                this.labelProductNameValue.Text = PinchTypes.AJP_PRODUCT_NAME;
-                this.labelProductVersionValue.Text = PinchTypes.AJP_PRODUCT_VERSION;
-                this.labelSerialNumberValue.Text = PinchTypes.AJP_PRODUCT_SERIAL_NUMBER;
-                this.labelProductCodeValue.Text = PinchTypes.AJP_PRODUCT_CODE;
+
             }
             catch (Exception ex)
             {
@@ -152,7 +147,7 @@ namespace Pinch
         #endregion  // DisplayBusinessCardForm()
 
     }
-    #endregion  // public partial class FormAboutPinch : Form
+    #endregion  // public partial class FormLicense
 }
 #endregion  // namespace Pinch
 

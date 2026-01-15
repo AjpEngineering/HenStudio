@@ -1380,7 +1380,7 @@ namespace Pinch
         private void pictureBoxAJPLogo_DoubleClick(object sender, EventArgs e)
         {
             //PinchMsgDlg.DisplayWarningDlg("Handle Double Click on AJP Engineering Logo");
-            DisplayAboutForm();
+            DisplayBusinessCardForm();
         }
         #endregion  // PICTURE BOX EVENTS
 
@@ -1400,10 +1400,10 @@ namespace Pinch
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
             try
             {
-                PinchMsgDlg.DisplayWarningDlg("Handle Common Display License Form Command!");
-                //FormAboutPinch dlg = new FormAboutPinch();
-                //dlg.PinchTypesObj = this.PinchTypesObj;     // Assign Global Types and Properties
-                //dlg.ShowDialog();
+                //PinchMsgDlg.DisplayWarningDlg("Handle Common Display License Form Command!");
+                FormLicense dlg = new FormLicense();
+                dlg.PinchTypesObj = this.PinchTypesObj;     // Assign Global Types and Properties
+                dlg.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -1441,8 +1441,34 @@ namespace Pinch
             finally
             {
             }
-        }        
+        }
         #endregion  // DisplayAboutForm()
+
+        #region DisplayBusinessCardForm()
+        /// <summary>
+        /// Common Display About Form Handler
+        /// </summary>
+        private void DisplayBusinessCardForm()
+        {
+            string strMethod = "DisplayBusinessCardForm";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Business Card Form");
+            try
+            {
+                //PinchMsgDlg.DisplayWarningDlg("Handle Common Display Business Card Form Command!");
+                FormBusinessCard dlg = new FormBusinessCard();
+                dlg.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // DisplayBusinessCardForm()
 
         #region HandleNew
         /// <summary>

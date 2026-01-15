@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//#######################################  F o r m A b o u t P i n c h . c s  #########################################
+//#####################################  F o r m B u s i n e s s C a r d . c s  #######################################
 //#####################################################################################################################
-//  FILENAME:  FormAboutPinch.cs
+//  FILENAME:  FormBusinessCard.cs
 //  NAMESPACE: Pinch
-//  CLASS(S):  FormAboutPinch
+//  CLASS(S):  FormBusinessCard
 //  COMPONENT: Pinch.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the About Pinch Form class.
+//    This file contains the code for the Business Card Form class.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -49,30 +49,19 @@ using PinchGlobal;
 #region namespace Pinch
 namespace Pinch
 {
-    #region public partial class FormAboutPinch : Form
-    public partial class FormAboutPinch : Form
+    #region public partial class FormBusinessCard
+    public partial class FormBusinessCard : Form
     {
         #region CONSTANTS
         const string NAMESPACE = "Pinch";
-        const string CLASS = "FormAboutPinch";
+        const string CLASS = "FormBusinessCard";
         #endregion      // CONSTANTS
 
         #region FIELDS
-        private PinchTypes _pinchTypesObj;  // PinchTypes Object
+
         #endregion      // FIELDS
 
         #region PROPERTIES
-
-        #region PinchTypesObj
-        /// <summary>
-        /// PinchTypesObj Property
-        /// </summary>
-        public PinchTypes PinchTypesObj
-        {
-            get { return _pinchTypesObj; }
-            set { _pinchTypesObj = value; }
-        }
-        #endregion      // PinchTypesObj
 
         #endregion      // PROPERTIES
 
@@ -80,81 +69,15 @@ namespace Pinch
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public FormAboutPinch()
+        public FormBusinessCard()
         {
             InitializeComponent();
-
-            InitializeControls();
         }
         #endregion  // CTOR
-
-        #region InitializeControls() METHOD
-        /// <summary>
-        /// Initialize Contols Method
-        /// </summary>
-        private void InitializeControls()
-        {
-            string strMethod = "InitializeControls";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initialize Contols");
-            try
-            {
-                this.labelSupplierNameValue.Text = PinchTypes.AJP_SUPPLIER_NAME;
-                this.labelProductFullNameValue.Text = PinchTypes.AJP_PRODUCT_FULLNAME;
-                this.labelProductNameValue.Text = PinchTypes.AJP_PRODUCT_NAME;
-                this.labelProductVersionValue.Text = PinchTypes.AJP_PRODUCT_VERSION;
-                this.labelSerialNumberValue.Text = PinchTypes.AJP_PRODUCT_SERIAL_NUMBER;
-                this.labelProductCodeValue.Text = PinchTypes.AJP_PRODUCT_CODE;
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // InitializeControls() METHOD
-
-        #region PICTURE BOX EVENTS
-        private void pictureBoxAJPEngLogo_DoubleClick(object sender, EventArgs e)
-        {
-            //PinchMsgDlg.DisplayWarningDlg("Handle Double Click on AJP Engineering Logo");
-            DisplayBusinessCardForm();
-        }
-        #endregion  // PICTURE BOX EVENTS
-
-        #region DisplayBusinessCardForm()
-        /// <summary>
-        /// Common Display About Form Handler
-        /// </summary>
-        private void DisplayBusinessCardForm()
-        {
-            string strMethod = "DisplayBusinessCardForm";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Business Card Form");
-            try
-            {
-                //PinchMsgDlg.DisplayWarningDlg("Handle Common Display Business Card Form Command!");
-                FormBusinessCard dlg = new FormBusinessCard();
-                dlg.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // DisplayBusinessCardForm()
-
     }
-    #endregion  // public partial class FormAboutPinch : Form
+    #endregion  // public partial class FormBusinessCard
 }
-#endregion  // namespace Pinch
+#endregion namespace Pinch
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

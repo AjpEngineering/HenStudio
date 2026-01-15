@@ -291,6 +291,7 @@
             this.pictureBoxAJPEngLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxAJPEngLogo.TabIndex = 6;
             this.pictureBoxAJPEngLogo.TabStop = false;
+            this.pictureBoxAJPEngLogo.DoubleClick += new System.EventHandler(this.pictureBoxAJPEngLogo_DoubleClick);
             // 
             // FormAboutPinch
             // 
