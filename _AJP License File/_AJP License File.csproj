@@ -31,7 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>AJP LicenseFile.ico</ApplicationIcon>
+    <ApplicationIcon>AJP.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP LicenseFile.ico" />
+    <Content Include="AJP.ico" />
     <None Include="Images\AJP Refinery.png" />
     <None Include="Images\AJP PRODUCT Logo.png" />
     <None Include="Images\AJP License File Logo - Transparent.png" />
