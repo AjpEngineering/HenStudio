@@ -60,21 +60,23 @@ namespace PinchGlobal
         const string NAMESPACE = "PinchGlobal";
         const string CLASS = "PinchFileSystem";
 
-        const string DEFAULT_HEN_FOLDERNAME     = "HEN";
-        const string DEFAULT_INPUT_FOLDERNAME   = "INPUT";
-        const string DEFAULT_LICENSE_FOLDERNAME = "LICENSE";
-        const string DEFAULT_TARGETS_FOLDERNAME = "TARGETS";
-        const string DEFAULT_TOOLS_FOLDERNAME   = "TOOLS";
-        const string DEFAULT_WORD_PAD_FILENAME  = "WordPad.exe";    // aka write.exe
+        public const string DEFAULT_HEN_FOLDERNAME     = "HEN";
+        public const string DEFAULT_INPUT_FOLDERNAME   = "INPUT";
+        public const string DEFAULT_LICENSE_FOLDERNAME = "LICENSE";
+        public const string DEFAULT_TARGETS_FOLDERNAME = "TARGETS";
+        public const string DEFAULT_TOOLS_FOLDERNAME   = "TOOLS";
+        public const string DEFAULT_WORD_PAD_FILENAME  = "WordPad.exe";    // aka write.exe
 
-        const string DEFAULT_HEN_DATA_FOLDERNAME     = "DATA";
-        const string DEFAULT_TARGETS_DATA_FOLDERNAME = "DATA";
+        public const string DEFAULT_HEN_DATA_FOLDERNAME     = "DATA";
+        public const string DEFAULT_TARGETS_DATA_FOLDERNAME = "DATA";
 
-        const string DEFAULT_HEN_FIGURES_FOLDERNAME     = "FIGURES";
-        const string DEFAULT_TARGETS_FIGURES_FOLDERNAME = "FIGURES";
+        public const string DEFAULT_HEN_FIGURES_FOLDERNAME     = "FIGURES";
+        public const string DEFAULT_TARGETS_FIGURES_FOLDERNAME = "FIGURES";
 
-        const string DEFAULT_HEN_REPORTS_FOLDERNAME     = "REPORTS";
-        const string DEFAULT_TARGETS_REPORTS_FOLDERNAME = "REPORTS";
+        public const string DEFAULT_HEN_REPORTS_FOLDERNAME     = "REPORTS";
+        public const string DEFAULT_TARGETS_REPORTS_FOLDERNAME = "REPORTS";
+
+        public const string DEFAULT_LICENSE_FILENAME = "AJP License.xml";
         #endregion      // CONSTANTS
 
         #region FIELDS

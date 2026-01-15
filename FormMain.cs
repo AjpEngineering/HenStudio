@@ -1402,9 +1402,7 @@ namespace Pinch
             try
             {
                 //PinchMsgDlg.DisplayWarningDlg("Handle Common Display License Form Command!");
-                //FormLicense dlg = new FormLicense();
                 FormLicenseFile dlg = new FormLicenseFile();
-                dlg.PinchTypesObj = this.PinchTypesObj;     // Assign Global Types and Properties
                 dlg.ShowDialog();
             }
             catch (Exception ex)

@@ -108,8 +108,6 @@ namespace AJP_License_File
         #endregion      // ENUMS
 
         #region FIELDS
-        private PinchTypes _pinchTypesObj;  // PinchTypes Object
-
         private string _strRunningDeviceName;           // Current Running Device Name
 
         private string _strCalcLicenseKey;              // Calculated AJP License Key String
@@ -123,17 +121,6 @@ namespace AJP_License_File
         #endregion      // FIELDS
 
         #region PROPERTIES
-
-        #region PinchTypesObj
-        /// <summary>
-        /// PinchTypesObj Property
-        /// </summary>
-        public PinchTypes PinchTypesObj
-        {
-            get { return _pinchTypesObj; }
-            set { _pinchTypesObj = value; }
-        }
-        #endregion      // PinchTypesObj
 
         #region RunningDeviceName
         /// <summary>
@@ -217,6 +204,7 @@ namespace AJP_License_File
         #region CTOR
         /// <summary>
         /// Default CTOR
+        /// Pass in Gloabl Pinch File System and Types Objects
         /// </summary>
         public FormLicenseFile()
         {
@@ -355,11 +343,26 @@ namespace AJP_License_File
         {
             string strMethod = "buttonDaysRemaining_Click";
             string strMsg = string.Empty;
+            int nRemainingDays = 0;
             try
             {
-                strMsg = String.Format("{0} days Remaining on the AJP License.",
-                                       LicenseFileDataObj.GetRemainingDays());
-                MessageBox.Show(strMsg, "AJP License", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                nRemainingDays = LicenseFileDataObj.GetRemainingDays() + 1;
+                if (nRemainingDays > 0)
+                {
+                    strMsg = String.Format("{0} days Remaining on the AJP License.", nRemainingDays);
+                    MessageBox.Show(strMsg, "AJP License", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (nRemainingDays == 0)
+                {
+                    strMsg = String.Format("AJP License has EXPIRED!");
+                    MessageBox.Show(strMsg, "AJP License", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    if(nRemainingDays == -1) strMsg = String.Format("AJP License has EXPIRED 1 day ago!");
+                    else strMsg = String.Format("AJP License has EXPIRED {0} days ago!", Math.Abs(nRemainingDays));
+                    MessageBox.Show(strMsg, "AJP License", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -400,14 +403,15 @@ namespace AJP_License_File
         #region RestoreXmlFile
         /// <summary>
         /// Read AJP License XML file and Populate the LicenseFileData Object Property
+        /// License Folder is colocated with Executable (exe) file
         /// </summary>
         private void RestoreXmlFile()
         {
             string strMethod = "RestoreXmlFile";
             string strMsg = string.Empty;
-
-            string AJP_LICENSE_FOLDER = "LICENSE";
-            string AJP_LICENSE_FILE = "AJP License.xml";
+            
+            string AJP_LICENSE_FOLDER = PinchFileSystem.DEFAULT_LICENSE_FOLDERNAME;  // e.g., "LICENSE"
+            string AJP_LICENSE_FILE = PinchFileSystem.DEFAULT_LICENSE_FILENAME;      // e.g., "AJP License.xml"
 
             string strCheckLicenseFolder = string.Empty;
             string strCheckLicenseFile = string.Empty;
