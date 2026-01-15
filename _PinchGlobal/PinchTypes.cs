@@ -143,25 +143,14 @@ namespace PinchGlobal
         };
         #endregion      // enum LogLevel
 
-        #region enum PinchCalcModeCP
-        /// <summary>
-        /// ENUMERATION: Pinch CP Calculation Mode
-        /// </summary>
-        public enum PinchCalcModeCP
-        {
-            CALC_MODE_USE_F_CP,
-            CALC_MODE_USE_CP
-        };
-        #endregion      // enum PinchCalcModeCP
-
         #region enum PinchUnits
         /// <summary>
         /// ENUMERATION: Pinch Units
         /// </summary>
         public enum PinchUnits
         {
-            ENGLISH,
-            METRIC
+            UNITS_ENGLISH,
+            UNITS_METRIC
         };
         #endregion      // enum PinchUnits
 
