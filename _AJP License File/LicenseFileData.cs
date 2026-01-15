@@ -88,8 +88,8 @@ using System.Windows.Forms;
 using System.Xml;
 #endregion      // REFERENCES
 
-#region namespace _AJP_License_File
-namespace _AJP_License_File
+#region namespace AJP_License_File
+namespace AJP_License_File
 {
     #region class LicenseFileData
     /// <summary>
@@ -1234,7 +1234,7 @@ namespace _AJP_License_File
     }
     #endregion      // class LicenseFileData
 }
-#endregion      // namespace _AJP_License_File
+#endregion      // namespace AJP_License_File
 
 //=====================================================================================================================
 //---------------------------------------------- E N D   O F   F I L E  -----------------------------------------------

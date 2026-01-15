@@ -45,8 +45,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 #endregion      // REFERENCES
 
-#region namespace _AJP_License_File
-namespace _AJP_License_File
+#region namespace AJP_License_File
+namespace AJP_License_File
 {
     #region class FormLicenseFile
     /// <summary>
@@ -212,7 +212,7 @@ namespace _AJP_License_File
                 //-----------------------------
                 //--- APPLICATION GENERATED ---
                 //-----------------------------
-                InitializeComponent();
+                this.InitializeComponent();
                 //-----------------------------
                 //--- Initialize Properties ---
                 //-----------------------------
@@ -224,7 +224,7 @@ namespace _AJP_License_File
                 FullPathLicenseFolder = string.Empty;       // Full-Path AJP LICENSE Folder Location
                 FullPathXmlFile = string.Empty;             // Full-Path File Location of AJP License XML File
                 LicenseFileDataObj = new LicenseFileData(); // AJP License File Data Object
-                LicenseFileMgrObj = new LicenseMgr();    // AJP License File Mgr Object
+                LicenseFileMgrObj = new LicenseMgr();       // AJP License File Mgr Object
                 //--------------------------
                 //--- AJP INITIALIZATION ---
                 //--------------------------
@@ -385,8 +385,7 @@ namespace _AJP_License_File
             string strMsg = string.Empty;
             try
             {
-                FormEndUserLicenseAgreement dlg = new FormEndUserLicenseAgreement(FullPathLicenseFolder);
-                dlg.ShowDialog();
+
             }
             catch (Exception ex)
             {
@@ -527,7 +526,7 @@ namespace _AJP_License_File
     }
     #endregion      // class FormLicenseFile
 }
-#endregion      // namespace _AJP_License_File
+#endregion      // namespace AJP_License_File
 
 //=====================================================================================================================
 //---------------------------------------------- E N D   O F   F I L E  -----------------------------------------------

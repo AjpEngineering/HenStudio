@@ -7,7 +7,7 @@
     <ProjectGuid>{146DE66E-F297-4664-8F5F-6EDCBDFACBED}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_AJP_License_File</RootNamespace>
+    <RootNamespace>AJP_License_File</RootNamespace>
     <AssemblyName>_AJP License File</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\AJP Pinch\_REVISION 4.0\DEPLOY\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\..\AJP Pinch\_REVISION 4.0\DEPLOY\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -46,20 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormEndUserLicenseAgreement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEndUserLicenseAgreement.Designer.cs">
-      <DependentUpon>FormEndUserLicenseAgreement.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormLicenseFile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLicenseFile.Designer.cs">
       <DependentUpon>FormLicenseFile.cs</DependentUpon>
     </Compile>
-    <Compile Include="License\LicenseFileData.cs" />
-    <Compile Include="License\LicenseMgr.cs" />
+    <Compile Include="LicenseFileData.cs" />
+    <Compile Include="LicenseMgr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -77,9 +71,6 @@
     <None Include="Images\AJP License File Logo - White.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormEndUserLicenseAgreement.resx">
-      <DependentUpon>FormEndUserLicenseAgreement.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormLicenseFile.resx">
       <DependentUpon>FormLicenseFile.cs</DependentUpon>
     </EmbeddedResource>

@@ -44,8 +44,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 #endregion      // REFERENCES
 
-#region namespace _AJP_License_File
-namespace _AJP_License_File
+#region namespace AJP_License_File
+namespace AJP_License_File
 {
     #region class LicenseMgr
     /// <summary>
@@ -769,7 +769,7 @@ namespace _AJP_License_File
     }
     #endregion      // class LicenseKeyMgr
 }
-#endregion      // namespace _AJP_License_File
+#endregion      // namespace AJP_License_File
 
 //=====================================================================================================================
 //---------------------------------------------- E N D   O F   F I L E  -----------------------------------------------
