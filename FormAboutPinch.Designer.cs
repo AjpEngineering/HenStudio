@@ -282,7 +282,7 @@
             // 
             // pictureBoxAJPEngLogo
             // 
-            this.pictureBoxAJPEngLogo.BackColor = System.Drawing.Color.White;
+            this.pictureBoxAJPEngLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(216)))), ((int)(((byte)(111)))));
             this.pictureBoxAJPEngLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxAJPEngLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAJPEngLogo.Image")));
             this.pictureBoxAJPEngLogo.Location = new System.Drawing.Point(945, 51);
