@@ -78,12 +78,6 @@
     <Compile Include="FormBusinessCard.Designer.cs">
       <DependentUpon>FormBusinessCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLicense.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLicense.Designer.cs">
-      <DependentUpon>FormLicense.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,9 +93,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBusinessCard.resx">
       <DependentUpon>FormBusinessCard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLicense.resx">
-      <DependentUpon>FormLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
