@@ -79,6 +79,8 @@ namespace PinchGlobal
         #endregion      // CONSTANTS
 
         #region FIELDS
+
+        #region PUBLIC
         //---------------------------------------------------------
         //--- Customer Information ... Specifed in License File ---
         //---------------------------------------------------------
@@ -107,9 +109,50 @@ namespace PinchGlobal
         public Font AJP_PINCH_DISPLAY_FONT = new Font("Segoe UI Variable Display", 10.0f); // Display
         public Font AJP_PINCH_MONO_FONT = new Font("Cascadia Mono", 9.0f);              // Monospace for Numbers
 
+        #endregion  // PUBLIC
+
+        #region PRIVATE
+        private bool _bLicenseValidated;                    // License Validate Flag
+        private PinchTypes.LicenseType _licTypeEnum;        // License Type
+        private PinchTypes.LicenseStatus _licStatusEnum;    // license Status
+        #endregion  // PRIVATE
+
         #endregion      // FIELDS
 
         #region PROPERTIES
+
+        #region LicenseValidatedFlag
+        /// <summary>
+        /// LicenseValidatedFlag Property
+        /// </summary>
+        public bool LicenseValidatedFlag
+        {
+            get { return _bLicenseValidated; }
+            set { _bLicenseValidated = value; }
+        }
+        #endregion      // LicenseValidatedFlag
+
+        #region LicenseTypeEnum
+        /// <summary>
+        /// LicenseTypeEnum Property
+        /// </summary>
+        public PinchTypes.LicenseType LicenseTypeEnum
+        {
+            get { return _licTypeEnum; }
+            set { _licTypeEnum = value; }
+        }
+        #endregion      // LicenseTypeEnum
+
+        #region LicenseStatusEnum
+        /// <summary>
+        /// LicenseStatusEnum Property
+        /// </summary>
+        public PinchTypes.LicenseStatus LicenseStatusEnum
+        {
+            get { return _licStatusEnum; }
+            set { _licStatusEnum = value; }
+        }
+        #endregion      // LicenseStatusEnum
 
         #endregion      // PROPERTIES
 

@@ -53,6 +53,7 @@ using PinchGlobal;
 using PinchHen;
 using PinchTargets;
 using System.CodeDom;
+using Pinch.Properties;
 
 #endregion  // REFERENCES
 
@@ -400,11 +401,17 @@ namespace Pinch
                 PinchFileSysObj = new PinchFileSystem();
                 PinchSettingsObj = new PinchSettings();
                 PinchTypesObj = new PinchTypes();
-                //------------------------
-                //--- Initialize Flags ---
-                //------------------------
-                LicenseVerified = false;
-                InputVerifiedFlag = false;
+                //------------------------------------------
+                //--- Initialize License Global Settings ---
+                //------------------------------------------
+                PinchSettingsObj.LicenseValidatedFlag = false;
+                PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.UNKNOWN;
+                PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.UNKNOWN;
+
+                //---------------------------------------
+                //--- Initialize Units Global Setting ---
+                //---------------------------------------
+                //InputVerifiedFlag = false;
                 //PinchEnglishUnitsFlag = true;
                 //PinchCalcModeFCpFlag = false;
                 //---------------------------
@@ -414,7 +421,7 @@ namespace Pinch
                 //-----------------------------------
                 //--- Create PanelTableMgr Object ---
                 //-----------------------------------
-                PanelTableMgrObj = new PanelTableMgr(PinchTypesObj);
+                PanelTableMgrObj = new PanelTableMgr(PinchTypesObj, PinchSettingsObj);
                 //-----------------------------------------------------------------------------------------------------
                 //---------------------------- Assign ANALYSIS TabControl Panel Members -------------------------------
                 //-----------------------------------------------------------------------------------------------------
@@ -442,12 +449,29 @@ namespace Pinch
                 PanelTableMgrObj.HEN_TAB_CONTROL         = this.tabControlHEN;            // Tab Control
                 PanelTableMgrObj.HEN_DESIGN_PANEL        = this.panelHEN_DESIGN;          // Panel - PK: 10 ... [2,0]
                 //-----------------------------------------------------------------------------------------------------
-                PanelTableMgrObj.STATUS_BAR_LABEL_SELECTED_STATE =                        // StatusBar Label
+                PanelTableMgrObj.STATUS_BAR_LABEL_SELECTED_STATE =                        // StatusBar View Label
                                                            this.toolStripStatusLabelSELECTED_STATE;
+                PanelTableMgrObj.STATUS_BAR_LABEL_LICENSE_STATE =                         // StatusBar License Label
+                                                           this.toolStripStatusLabelLicense;
                 //-----------------------------------------------------------------------------------------------------
 
+                //---------------------------------------------------------------------
+                //--- Initialize List and Table Object for Dynamic Panel Management ---
+                //--- Set Initial View                                              ---
+                //---------------------------------------------------------------------
                 PanelTableMgrObj.InitializeMgrObjects();    // Initialize Lists and Table in Mgr
-                PanelTableMgrObj.DisplaySelectedView(0,0);  // Display View
+                PanelTableMgrObj.DisplaySelectedView(0,0);  // Display Initial View
+
+                //---------------------------------
+                //--- Handle License Validation ---
+                //---------------------------------
+                ValidateLicense();       // Validate License ... Update Global Settings in Method
+                if(!PinchSettingsObj.LicenseValidatedFlag)                       // INVALID
+                {
+                    PinchMsgDlg.DisplayWarningDlg("--- INVALID License! --- DISPLAY LICENSE ERROR FORM!!!");
+
+                }
+                PinchMsgDlg.DisplayWarningDlg("UPDATE LICENSE STATUS BAR LABEL HERE!!!");
 
 
             }
@@ -506,6 +530,97 @@ namespace Pinch
             }
         }
         #endregion      // public void Initialize Controls
+
+        #region LICENSE METHODS
+
+        #region ValidateLicense()
+        /// <summary>
+        /// Check if License is Valid. Assign Global Settings Flag
+        /// </summary>
+        /// <returns>true if License is VALID; otherwise false</returns>
+        private bool ValidateLicense()
+        {
+            string strMethod = "ValidateLicense";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Validate Product License!");
+            try
+            {
+                //************************************************************************************
+                //************************************ T E S T  **************************************
+                //************************************************************************************
+                PinchSettingsObj.LicenseValidatedFlag = false;
+                PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.DEVICE;
+                PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.EXPIRED;
+                //************************************************************************************
+                //************************************ T E S T  **************************************
+                //************************************************************************************
+
+                //--- ASSIGN LICENSE GLOBAL SETTING HERE!!! ---
+                PinchMsgDlg.DisplayWarningDlg("ASSIGN LICENSE GLOBAL SETTING HERE!!!");
+                
+                //--- UPDATE LICENSE STATUS BAR LABEL SETTING HERE!!! ---
+                PinchMsgDlg.DisplayWarningDlg("UPDATE LICENSE STATUS BAR LABEL SETTING HERE!!!");
+
+                UpdateLicenseStatusBarLabel();    // Update License Status Bar Lable using Global Settings
+                LogLicenseStatus();               // Log License Status ... use Global Settings
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return PinchSettingsObj.LicenseValidatedFlag;
+        }
+        #endregion  // ValidateLicense()
+
+        #region UpdateLicenseStatusBarLabel()
+        /// <summary>
+        /// Update the Status Bar Label for License using Global Settings
+        /// </summary>
+        private void UpdateLicenseStatusBarLabel()
+        {
+            string strMethod = "UpdateLicenseStatusBarLabel";
+            string strLicenseType = String.Format("{0}", 
+                                    PinchSettingsObj.LicenseTypeEnum.ToString());
+            try
+            {
+                this.toolStripStatusLabelLicense.Text = strLicenseType;
+
+                switch(PinchSettingsObj.LicenseStatusEnum)
+                {
+                    case PinchTypes.LicenseStatus.EXPIRED:
+                    case PinchTypes.LicenseStatus.INVALID:
+                        this.toolStripStatusLabelLicense.BackColor = Color.Red;
+                        this.toolStripStatusLabelLicense.Image = Resources.InValid_32x32;
+                        break;
+                     case PinchTypes.LicenseStatus.UNKNOWN:
+                        this.toolStripStatusLabelLicense.BackColor = Color.Orange;
+                        this.toolStripStatusLabelLicense.Image = Resources.Unknown_32x32;
+                        break;
+                   case PinchTypes.LicenseStatus.VALID:
+                        this.toolStripStatusLabelLicense.BackColor = Color.Green;
+                        this.toolStripStatusLabelLicense.Image = Resources.Valid_32x32;
+                        break;
+                    default:
+                        throw new Exception("INVALID Licesne Status Enum Value!");
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateLicenseStatusBarLabel()
+
+        #endregion  // LICENSE METHODS
 
         #region EVENT HANDLERS
 
@@ -1674,7 +1789,46 @@ namespace Pinch
 
         #endregion  // COMMON COMMAND HANDLERS
 
+        #region STATUS BAR METHODS
+
+        #endregion  // STATUS BAR METHODS
+
         #region LOG METHODS
+
+        /// <summary>
+        /// Log License Status using GLobal Settings
+        /// </summary>
+        private void LogLicenseStatus()
+        {
+            string strMethod = "LogLicenseStatus";
+            string strMsg = String.Empty;
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ---------------------------------------");
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ------- License Type and Status -------");
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ---------------------------------------");
+            try
+            {
+                strMsg = String.Format(" LICENSE VALIDATED FLAG: {0}",
+                                       PinchSettingsObj.LicenseValidatedFlag);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = String.Format("           LICENSE Type: {0}",
+                                       PinchSettingsObj.LicenseTypeEnum.ToString());
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = String.Format("         LICENSE Status: {0}",
+                                       PinchSettingsObj.LicenseStatusEnum.ToString());
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ---------------------------------------");
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
 
         #region private string GetFixedLengthString(string strOriginal, int nLen=15)
         /// <summary>

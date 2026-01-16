@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,138 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="About_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\About...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>About Image ... 32x32</comment>
+  </data>
+  <data name="AJP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>AJP White Background Icon ... 32x32</comment>
+  </data>
+  <data name="AJP_Pinch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP Pinch.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>AJP Pinch White Background Icon ... 32x32</comment>
+  </data>
+  <data name="AJP_Pinch_no_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP Pinch...no background.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>AJP Pinch No Background Icon ... 32x32</comment>
+  </data>
+  <data name="BusinessCard_600x1035" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BusinessCard...600x1035.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Business Card Image ... 600x1035</comment>
+  </data>
+  <data name="Calc_Gears_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Calc Gears...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Calculate Gears Image ... 32x32</comment>
+  </data>
+  <data name="Composite_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Composite...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Composite Image ... 32x32</comment>
+  </data>
+  <data name="Cost_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cost...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Cost Image ... 32x32</comment>
+  </data>
+  <data name="Design_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Design...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Design Image ... 32x32</comment>
+  </data>
+  <data name="Exchanger_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exchanger3...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Exchanger Image ... 32x32</comment>
+  </data>
+  <data name="Exit_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exit...32x32...no background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Exit Image ... 32x32</comment>
+  </data>
+  <data name="Export_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Export...32x32...no background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Export Image ... 32x32</comment>
+  </data>
+  <data name="HEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>HEN Image ... 32x32</comment>
+  </data>
+  <data name="Import" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Import Red..32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Import Image ... 32x32</comment>
+  </data>
+  <data name="Input" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Input.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Input Image ... 32x32</comment>
+  </data>
+  <data name="Interval" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Interval...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Interval image ... 32x32</comment>
+  </data>
+  <data name="InValid_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InValid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Invalid_32x32</comment>
+  </data>
+  <data name="License_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\License...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>License Image ... 32x32</comment>
+  </data>
+  <data name="New_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\New...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>New Image ... 32x32</comment>
+  </data>
+  <data name="Open_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Open...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Open Image ... 32x32</comment>
+  </data>
+  <data name="Optimize_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Optimize Target...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Optimize Image ... 32x32</comment>
+  </data>
+  <data name="Project_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Project...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Project Image ... 32x32</comment>
+  </data>
+  <data name="Refinery_Background_1080x600" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Refinery with PinchLogo...1080x600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Refinery with Pinch Logo Background ... 1080x600</comment>
+  </data>
+  <data name="SaveAs_32x.32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SaveAs...Narrow...32x.32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Save As Image ... 32x32</comment>
+  </data>
+  <data name="Save_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save...Narrow...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Save Image ... 32x32</comment>
+  </data>
+  <data name="StatusView_51x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusView...51x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Status View Image ... 51x32</comment>
+  </data>
+  <data name="Streams_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Streams...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Streams Image ... 32x32</comment>
+  </data>
+  <data name="Target" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Target.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Target Image ... 32x32</comment>
+  </data>
+  <data name="Unknown_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UNKNOWN...White Circle border...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Unknown Image ... 32x32</comment>
+  </data>
+  <data name="Utilities_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Utilities Image...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Utilities Image ... 32x32</comment>
+  </data>
+  <data name="Validate_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Validate...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Validate Image ... 32x32</comment>
+  </data>
+  <data name="Valid_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Valid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Valid Image ... 32x32</comment>
+  </data>
 </root>

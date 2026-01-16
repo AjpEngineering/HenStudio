@@ -71,6 +71,8 @@
             this.tabPageHEN = new System.Windows.Forms.TabPage();
             this.imageListAnalysis = new System.Windows.Forms.ImageList(this.components);
             this.panelINPUT = new System.Windows.Forms.Panel();
+            this.panelINPUT_PROJECT = new System.Windows.Forms.Panel();
+            this.labelTitleInputProjectPanel = new System.Windows.Forms.Label();
             this.panelINPUT_VALIDATE = new System.Windows.Forms.Panel();
             this.labelTitleInputValidatePanel = new System.Windows.Forms.Label();
             this.panelINPUT_EXCHANGER = new System.Windows.Forms.Panel();
@@ -89,8 +91,6 @@
             this.tabPageExchanger = new System.Windows.Forms.TabPage();
             this.tabPageValidate = new System.Windows.Forms.TabPage();
             this.imageListInput = new System.Windows.Forms.ImageList(this.components);
-            this.panelINPUT_PROJECT = new System.Windows.Forms.Panel();
-            this.labelTitleInputProjectPanel = new System.Windows.Forms.Label();
             this.panelTARGETS = new System.Windows.Forms.Panel();
             this.panelTARGETS_OPTIMIZE = new System.Windows.Forms.Panel();
             this.labelTitleTargetsOptimizePanel = new System.Windows.Forms.Label();
@@ -139,17 +139,18 @@
             this.toolStripButtonLicense = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAbout = new System.Windows.Forms.ToolStripButton();
             this.pictureBoxAJPLogo = new System.Windows.Forms.PictureBox();
+            this.toolStripStatusLabelLicense = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.panelINPUT.SuspendLayout();
+            this.panelINPUT_PROJECT.SuspendLayout();
             this.panelINPUT_VALIDATE.SuspendLayout();
             this.panelINPUT_EXCHANGER.SuspendLayout();
             this.panelINPUT_COST.SuspendLayout();
             this.panelINPUT_UTILITIES.SuspendLayout();
             this.panelINPUT_STREAMS.SuspendLayout();
             this.tabControlINPUT.SuspendLayout();
-            this.panelINPUT_PROJECT.SuspendLayout();
             this.panelTARGETS.SuspendLayout();
             this.panelTARGETS_OPTIMIZE.SuspendLayout();
             this.panelTARGETS_INTERVAL.SuspendLayout();
@@ -485,10 +486,11 @@
             // 
             this.statusStripMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelLicense,
             this.toolStripStatusLabelSELECTED_STATE});
-            this.statusStripMain.Location = new System.Drawing.Point(0, 648);
+            this.statusStripMain.Location = new System.Drawing.Point(0, 647);
             this.statusStripMain.Name = "statusStripMain";
-            this.statusStripMain.Size = new System.Drawing.Size(1264, 33);
+            this.statusStripMain.Size = new System.Drawing.Size(1264, 34);
             this.statusStripMain.TabIndex = 1;
             this.statusStripMain.Text = "statusStripPinch";
             // 
@@ -498,12 +500,17 @@
             this.toolStripStatusLabelSELECTED_STATE.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabelSELECTED_STATE.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelSELECTED_STATE.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelSELECTED_STATE.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabelSELECTED_STATE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelSELECTED_STATE.Image")));
+            this.toolStripStatusLabelSELECTED_STATE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripStatusLabelSELECTED_STATE.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelSELECTED_STATE.Name = "toolStripStatusLabelSELECTED_STATE";
-            this.toolStripStatusLabelSELECTED_STATE.Size = new System.Drawing.Size(208, 28);
+            this.toolStripStatusLabelSELECTED_STATE.Size = new System.Drawing.Size(1092, 28);
+            this.toolStripStatusLabelSELECTED_STATE.Spring = true;
             this.toolStripStatusLabelSELECTED_STATE.Text = "ACTIVITY:SUBACTIVITY";
+            this.toolStripStatusLabelSELECTED_STATE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripStatusLabelSELECTED_STATE.ToolTipText = "Displayed View";
             // 
             // tabControlMain
             // 
@@ -515,7 +522,7 @@
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabControlMain.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlMain.ImageList = this.imageListAnalysis;
-            this.tabControlMain.Location = new System.Drawing.Point(0, 604);
+            this.tabControlMain.Location = new System.Drawing.Point(0, 603);
             this.tabControlMain.Multiline = true;
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.Padding = new System.Drawing.Point(6, 4);
@@ -591,6 +598,30 @@
             this.panelINPUT.Size = new System.Drawing.Size(1264, 543);
             this.panelINPUT.TabIndex = 3;
             this.panelINPUT.Visible = false;
+            // 
+            // panelINPUT_PROJECT
+            // 
+            this.panelINPUT_PROJECT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelINPUT_PROJECT.BackColor = System.Drawing.SystemColors.Window;
+            this.panelINPUT_PROJECT.Controls.Add(this.labelTitleInputProjectPanel);
+            this.panelINPUT_PROJECT.Location = new System.Drawing.Point(0, 40);
+            this.panelINPUT_PROJECT.Name = "panelINPUT_PROJECT";
+            this.panelINPUT_PROJECT.Size = new System.Drawing.Size(1264, 503);
+            this.panelINPUT_PROJECT.TabIndex = 1;
+            // 
+            // labelTitleInputProjectPanel
+            // 
+            this.labelTitleInputProjectPanel.AutoSize = true;
+            this.labelTitleInputProjectPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitleInputProjectPanel.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.labelTitleInputProjectPanel.Location = new System.Drawing.Point(414, 192);
+            this.labelTitleInputProjectPanel.Name = "labelTitleInputProjectPanel";
+            this.labelTitleInputProjectPanel.Size = new System.Drawing.Size(284, 36);
+            this.labelTitleInputProjectPanel.TabIndex = 0;
+            this.labelTitleInputProjectPanel.Text = "INPUT PROJECT DATA";
+            this.labelTitleInputProjectPanel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelINPUT_VALIDATE
             // 
@@ -833,30 +864,6 @@
             this.imageListInput.Images.SetKeyName(4, "Exchanger3...32x32.png");
             this.imageListInput.Images.SetKeyName(5, "Validate...32x32.png");
             // 
-            // panelINPUT_PROJECT
-            // 
-            this.panelINPUT_PROJECT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelINPUT_PROJECT.BackColor = System.Drawing.SystemColors.Window;
-            this.panelINPUT_PROJECT.Controls.Add(this.labelTitleInputProjectPanel);
-            this.panelINPUT_PROJECT.Location = new System.Drawing.Point(0, 40);
-            this.panelINPUT_PROJECT.Name = "panelINPUT_PROJECT";
-            this.panelINPUT_PROJECT.Size = new System.Drawing.Size(1264, 503);
-            this.panelINPUT_PROJECT.TabIndex = 1;
-            // 
-            // labelTitleInputProjectPanel
-            // 
-            this.labelTitleInputProjectPanel.AutoSize = true;
-            this.labelTitleInputProjectPanel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleInputProjectPanel.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.labelTitleInputProjectPanel.Location = new System.Drawing.Point(414, 192);
-            this.labelTitleInputProjectPanel.Name = "labelTitleInputProjectPanel";
-            this.labelTitleInputProjectPanel.Size = new System.Drawing.Size(284, 36);
-            this.labelTitleInputProjectPanel.TabIndex = 0;
-            this.labelTitleInputProjectPanel.Text = "INPUT PROJECT DATA";
-            this.labelTitleInputProjectPanel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panelTARGETS
             // 
             this.panelTARGETS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1011,7 +1018,7 @@
             this.tabPageComposite.Location = new System.Drawing.Point(4, 42);
             this.tabPageComposite.Name = "tabPageComposite";
             this.tabPageComposite.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageComposite.Size = new System.Drawing.Size(843, 0);
+            this.tabPageComposite.Size = new System.Drawing.Size(1256, 0);
             this.tabPageComposite.TabIndex = 1;
             this.tabPageComposite.Text = "COMPOSITE";
             this.tabPageComposite.ToolTipText = "Display Composite Curves";
@@ -1022,7 +1029,7 @@
             this.tabPageInterval.ImageIndex = 2;
             this.tabPageInterval.Location = new System.Drawing.Point(4, 42);
             this.tabPageInterval.Name = "tabPageInterval";
-            this.tabPageInterval.Size = new System.Drawing.Size(843, 0);
+            this.tabPageInterval.Size = new System.Drawing.Size(1256, 0);
             this.tabPageInterval.TabIndex = 2;
             this.tabPageInterval.Text = "INTERVAL";
             this.tabPageInterval.ToolTipText = "Display Interval Table";
@@ -1033,7 +1040,7 @@
             this.tabPageOptimize.ImageIndex = 3;
             this.tabPageOptimize.Location = new System.Drawing.Point(4, 42);
             this.tabPageOptimize.Name = "tabPageOptimize";
-            this.tabPageOptimize.Size = new System.Drawing.Size(843, 0);
+            this.tabPageOptimize.Size = new System.Drawing.Size(1256, 0);
             this.tabPageOptimize.TabIndex = 3;
             this.tabPageOptimize.Text = "OPTIMIZE";
             this.tabPageOptimize.ToolTipText = "Perform Optimization Analyses";
@@ -1427,6 +1434,22 @@
             this.pictureBoxAJPLogo.TabStop = false;
             this.pictureBoxAJPLogo.DoubleClick += new System.EventHandler(this.pictureBoxAJPLogo_DoubleClick);
             // 
+            // toolStripStatusLabelLicense
+            // 
+            this.toolStripStatusLabelLicense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(0)))));
+            this.toolStripStatusLabelLicense.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelLicense.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelLicense.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelLicense.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLicense.Image")));
+            this.toolStripStatusLabelLicense.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelLicense.Name = "toolStripStatusLabelLicense";
+            this.toolStripStatusLabelLicense.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.toolStripStatusLabelLicense.Size = new System.Drawing.Size(134, 28);
+            this.toolStripStatusLabelLicense.Text = "UNKNOWN  ";
+            this.toolStripStatusLabelLicense.ToolTipText = "License Status";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -1458,6 +1481,8 @@
             this.statusStripMain.PerformLayout();
             this.tabControlMain.ResumeLayout(false);
             this.panelINPUT.ResumeLayout(false);
+            this.panelINPUT_PROJECT.ResumeLayout(false);
+            this.panelINPUT_PROJECT.PerformLayout();
             this.panelINPUT_VALIDATE.ResumeLayout(false);
             this.panelINPUT_VALIDATE.PerformLayout();
             this.panelINPUT_EXCHANGER.ResumeLayout(false);
@@ -1469,8 +1494,6 @@
             this.panelINPUT_STREAMS.ResumeLayout(false);
             this.panelINPUT_STREAMS.PerformLayout();
             this.tabControlINPUT.ResumeLayout(false);
-            this.panelINPUT_PROJECT.ResumeLayout(false);
-            this.panelINPUT_PROJECT.PerformLayout();
             this.panelTARGETS.ResumeLayout(false);
             this.panelTARGETS_OPTIMIZE.ResumeLayout(false);
             this.panelTARGETS_OPTIMIZE.PerformLayout();
@@ -1604,6 +1627,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripButton toolStripButtonLicense;
         private System.Windows.Forms.ToolStripButton toolStripButtonAbout;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLicense;
     }
 }
 

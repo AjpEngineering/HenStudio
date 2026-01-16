@@ -134,6 +134,7 @@ namespace Pinch
 
         #region FIELDS
         private PinchTypes _pinchTypes;
+        private PinchSettings _pinchSettings;
 
         //-------------------------------------------- ArrayList Objects ----------------------------------------------
         private ArrayList _activitiesPanelList;     // List of Activity Panels (indexed by Main Tab Control Index)
@@ -210,6 +211,7 @@ namespace Pinch
 
         #region PUBLIC STATUS BAR Text ... public ... Assign in FormMain Construction
         public ToolStripStatusLabel STATUS_BAR_LABEL_SELECTED_STATE;    // Status Bar Selected View ... Label
+        public ToolStripStatusLabel STATUS_BAR_LABEL_LICENSE_STATE;    // Status Bar License State ... Label
         #endregion  // PUBLIC STATUS BAR Text ... public ... Assign in FormMain Construction
 
         #endregion  // FORM CONTROLS ... public ... Assign in FormMain Construction
@@ -228,6 +230,17 @@ namespace Pinch
             set { _pinchTypes = value; }
         }
         #endregion      // PinchTypesObj
+
+        #region PinchSettingsObj
+        /// <summary>
+        /// PinchSettingsObj Property
+        /// </summary>
+        public PinchSettings PinchSettingsObj
+        {
+            get { return _pinchSettings; }
+            set { _pinchSettings = value; }
+        }
+        #endregion      // PinchSettingsObj
 
         //-------------------------------------------------------------------------------------------------------------
         //-------------------------------------------- ArrayList Objects ----------------------------------------------
@@ -450,7 +463,9 @@ namespace Pinch
         /// <summary>
         /// Parameterized Constructor
         /// </summary>
-        public PanelTableMgr(PinchTypes pinchTypesObj)
+        /// <param name="pinchTypesObj">PinchTypes Object</param>
+        /// <param name="pinchSettingsObj">PinchSettings Object</param>
+        public PanelTableMgr(PinchTypes pinchTypesObj, PinchSettings pinchSettingsObj)
         {
             string strMethod = "CTOR";
             string strMsg = string.Empty;
@@ -458,7 +473,8 @@ namespace Pinch
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
             try
             {
-                PinchTypesObj = pinchTypesObj;              // Assign PinchTypes Object
+                PinchTypesObj = pinchTypesObj;              // Assign PinchTypes    Object
+                PinchSettingsObj = pinchSettingsObj;        // Assign PinchSettings Object
                 //---------------------------------
                 //--- Create Empty List Objects ---
                 //---------------------------------

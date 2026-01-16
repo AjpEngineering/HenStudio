@@ -63,16 +63,30 @@ namespace PinchGlobal
 
         #region ENUMS
 
+        #region enum LicenseStatus
+        /// <summary>
+        /// ENUMERATION: License Status
+        /// </summary>
+        public enum LicenseStatus
+        {
+            EXPIRED = -2,  // License Status is EXPIRED
+            INVALID = -1,  // License Status is INVALID
+            UNKNOWN = 0,   // License Status is UNKNOWN
+            VALID   = 1    // License status is VALID
+        };
+        #endregion      // enum LicenseType
+
         #region enum LicenseType
         /// <summary>
         /// ENUMERATION: License Type
         /// </summary>
         public enum LicenseType
         {
-            LICENSE_UNKNOWN,   // UNKNOWN
-            LICENSE_SITE,      // SITE LICENSE
-            LICENSE_USER,      // USER LICENSE
-            LICENSE_SEAT       // SEAT LICENSE
+            UNKNOWN = 0,  // License Type is UNKNOWN... ERROR
+            SITE    = 1,  // License Type is SITE...... ALL USERS and ALL  DEVICES     in a SINGLE COMPANY
+            DEVICE  = 2,  // License Type is DEVICE.... ALL USERS on SINGLE DEVICE     in a SINGLE COMPANY
+            USER    = 3,  // License Type is USER...... ALL DEVICES for a SINGLE USER  in a SINGLE COMPANY
+            SEAT    = 4   // License Type is SEAT...... SINGLE USER on a SINGLE DEVICE in a SINGLE COMPANY
         };
         #endregion      // enum LicenseType
 
