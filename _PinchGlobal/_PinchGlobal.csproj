@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PinchFileSystem.cs" />
+    <Compile Include="PinchMethods.cs" />
     <Compile Include="PinchMsgDlg.cs" />
     <Compile Include="PinchLogger.cs" />
+    <Compile Include="PinchSettings.cs" />
     <Compile Include="PinchTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

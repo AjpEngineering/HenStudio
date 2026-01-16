@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//###########################################  P i n c h T y p e s . c s  #############################################
+//#########################################  P i n c h M e t h o d s . c s  ###########################################
 //#####################################################################################################################
-//  FILENAME:  PinchTypes.cs
+//  FILENAME:  PinchMethods.cs
 //  NAMESPACE: PinchGlobal
-//  CLASS(S):  PinchTypes
+//  CLASS(S):  PinchMethods
 //  COMPONENT: _PinchGLobal.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Common Pinch Types (enums).
+//    This file contains the code for the Common Pinch Methods (static).
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -49,144 +49,17 @@ using System.Threading.Tasks;
 #region namespace PinchGlobal
 namespace PinchGlobal
 {
-    #region public class PinchTypes
+    #region public class PinchMethods
     /// <summary>
-    /// Pinch Types Class
+    /// Common Global static Pinch Methods Class
     /// </summary>
-    public class PinchTypes
+    public static class PinchMethods
     {
         #region CONSTANTS
         const string NAMESPACE = "PinchGlobal";
-        const string CLASS = "PinchTypes";
+        const string CLASS = "PinchMethods";
 
         #endregion      // CONSTANTS
-
-        #region ENUMS
-
-        #region enum LicenseType
-        /// <summary>
-        /// ENUMERATION: License Type
-        /// </summary>
-        public enum LicenseType
-        {
-            LICENSE_UNKNOWN,   // UNKNOWN
-            LICENSE_SITE,      // SITE LICENSE
-            LICENSE_USER,      // USER LICENSE
-            LICENSE_SEAT       // SEAT LICENSE
-        };
-        #endregion      // enum LicenseType
-
-        #region enum HeatLoadType
-        /// <summary>
-        /// ENUMERATION: Heat Load Type
-        /// </summary>
-        public enum HeatLoadType
-        {
-            HEAT_LOAD_UNKNOWN,   // UNKNOWN
-            HEAT_LOAD_RELEASE,   // HEAT RELEASED (Surplus)
-            HEAT_LOAD_SENSIBLE   // HEAT REQUIRED (Deficit)
-        };
-        #endregion      // enum HeatLoadType
-
-        #region enum HeatType
-        /// <summary>
-        /// ENUMERATION: Heat Type
-        /// </summary>
-        public enum HeatType
-        {
-            HEAT_UNKNOWN,   // UNKNOWN
-            HEAT_LATENT,    // LATENT   HEAT (Two-Phase)
-            HEAT_SENSIBLE   // SENSIBLE HEAT (Single Phase)
-        };
-        #endregion      // enum HeatType
-
-        #region enum LatentHeatType
-        /// <summary>
-        /// ENUMERATION: Latent Heat Type
-        /// </summary>
-        public enum LatentHeatType
-        {
-            LATENT_UNKNOWN,    // UNKNOWN
-            LATENT_BOILING,    // BOILING    LATENT HEAT (Cold Stream)
-            LATENT_CONDENSING  // CONDENSING LATENT HEAT (Hot  Stream)
-        };
-        #endregion      // enum LatentHeatType
-
-        #region enum LogLevel
-        /// <summary>
-        /// ENUMERATION: Logging Level
-        /// </summary>
-        public enum LogLevel
-        {
-            LOG_NONE,           // TURN LOGGING OFF
-            LOG_ERRORS,         // LOG ONLY ERROR MESSAGES
-            LOG_WARNINGS,       // LOG ERROR & WARNING MESSAGES
-            LOG_IMPORTANT,      // LOG ERROR,  WARNING & IMPORTANT INFO MESSAGES
-            LOG_ALL             // LOG ALL MESSAGES
-        };
-        #endregion      // enum LogLevel
-
-        #region enum PinchUnits
-        /// <summary>
-        /// ENUMERATION: Pinch Units
-        /// </summary>
-        public enum PinchUnits
-        {
-            UNITS_ENGLISH,
-            UNITS_METRIC
-        };
-        #endregion      // enum PinchUnits
-
-        #region enum ProgressStates
-        /// <summary>
-        /// ENUMERATION: Progress States
-        /// </summary>
-        public enum ProgressStates
-        {
-            PROGRESS_TO_BE_DONE,
-            PROGRESS_WORKING,
-            PROGRESS_DONE,
-            PROGRESS_FAIL
-        };
-        #endregion      // enum ProgressStates
-
-        #region enum SensibleHeatType
-        /// <summary>
-        /// ENUMERATION: Sensible Heat Type
-        /// </summary>
-        public enum SensibleHeatType
-        {
-            SENSIBLE_UNKNOWN, // UNKNOWN
-            SENSIBLE_LIQUID,  // LIQUID SENSIBLE HEAT
-            SENSIBLE_VAPOR    // VAPOR  SENSIBLE HEAT
-        };
-        #endregion      // enum SensibleHeatType
-
-        #region enum StreamPhase
-        /// <summary>
-        /// ENUMERATION: Stream Phase Types
-        /// </summary>
-        public enum StreamPhase
-        {
-            PHASE_UNKNOWN,      // UNKNOWN Phase
-            PHASE_LIQUID,       // Single Liquid Phase
-            PHASE_VAPOR,        // Single Vapor Phase
-            PHASE_LIQUID_VAPOR  // Two-Phase Liquid-Vapor
-        };
-        #endregion      // enum StreamPhase
-
-        #region enum StreamTypes
-        /// <summary>
-        /// ENUMERATION: Stream Types [HOT | COLD]
-        /// </summary>
-        public enum StreamTypes
-        {
-            STREAM_HOT,     // Hot  Stream
-            STREAM_COLD     // Cold Stream
-        };
-        #endregion      // enum StreamTypes
-
-        #endregion      // ENUMS
 
         #region FIELDS
 
@@ -198,14 +71,14 @@ namespace PinchGlobal
 
         #region CTOR
         /// <summary>
-        /// Default Constructor
+        /// Default Constructor ... NO CTOR for STATIC CLASS
         /// </summary>
-        public PinchTypes()
-        {
-            string strMethod = "CTOR";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+        //public PinchMethods()
+        //{
+        //    string strMethod = "CTOR";
+        //    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
 
-        }
+        //}
         #endregion      // CTOR
 
         #region STRING VALUE CHECK STATIC METHODS

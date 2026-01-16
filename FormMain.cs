@@ -126,8 +126,9 @@ namespace Pinch
         //---------------
         //--- OBJECTS ---
         //---------------
-        private PinchTypes _pinchTypes;
         private PinchFileSystem _pinchFileSys;
+        private PinchSettings   _pinchSettings;
+        private PinchTypes      _pinchTypes;
 
         private PanelTableMgr _panelTableMgr;
 
@@ -277,20 +278,6 @@ namespace Pinch
         #endregion  // PINCH OBJECTS
 
         #region GLOBL OBJECTS
-        //----------------------
-        //--- GLOBAL OBJECTS ---
-        //----------------------
-        #region PinchTypesObj
-        /// <summary>
-        /// PinchTypesObj Property
-        /// </summary>
-        public PinchTypes PinchTypesObj
-        {
-            get { return _pinchTypes; }
-            set { _pinchTypes = value; }
-        }
-
-        #endregion      // PinchTypesObj
 
         #region PinchFileSysObj
         /// <summary>
@@ -302,6 +289,29 @@ namespace Pinch
             set { _pinchFileSys = value; }
         }
         #endregion      // PinchFileSysObj
+
+        #region PinchSettingsObj
+        /// <summary>
+        /// PinchSettingsObj Property
+        /// </summary>
+        public PinchSettings PinchSettingsObj
+        {
+            get { return _pinchSettings; }
+            set { _pinchSettings = value; }
+        }
+        #endregion      // PinchSettingsObj
+
+        #region PinchTypesObj
+        /// <summary>
+        /// PinchTypesObj Property
+        /// </summary>
+        public PinchTypes PinchTypesObj
+        {
+            get { return _pinchTypes; }
+            set { _pinchTypes = value; }
+        }
+
+        #endregion      // PinchTypesObj
 
         #endregion  // GLOBL OBJECTS
 
@@ -387,8 +397,9 @@ namespace Pinch
                 //----------------------
                 //--- Create Objects ---
                 //----------------------
-                PinchTypesObj = new PinchTypes();
                 PinchFileSysObj = new PinchFileSystem();
+                PinchSettingsObj = new PinchSettings();
+                PinchTypesObj = new PinchTypes();
                 //------------------------
                 //--- Initialize Flags ---
                 //------------------------
@@ -470,7 +481,7 @@ namespace Pinch
             try
             {
                 this.Text = "AJP Pinch 4";
-                this.BackColor = PinchTypesObj.AJP_ENGINEERING_GREEN; // Form Background Color
+                this.BackColor = PinchSettingsObj.AJP_ENGINEERING_GREEN; // Form Background Color
 
                 //--- INPUT PANEL ---
                 this.panelINPUT.Location = new System.Drawing.Point(nPanelLocationX, nPanelLocationY);
