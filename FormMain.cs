@@ -467,6 +467,17 @@ namespace Pinch
                 //---------------------------------
                 //--- Handle License Validation ---
                 //---------------------------------
+                //************************************************************************************ LICENSE ***
+                //************************************************************************************
+                //************************************ T E S T  **************************************
+                //************************************************************************************
+                PinchSettingsObj.LicenseValidatedFlag = true;
+                PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.DEVICE;
+                PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.VALID;
+                //************************************************************************************
+                //************************************ T E S T  **************************************
+                //************************************************************************************
+
                 ValidateLicense();       // Validate License ... Update Global Settings in Method
                 if(!PinchSettingsObj.LicenseValidatedFlag)                       // INVALID
                 {
@@ -475,7 +486,53 @@ namespace Pinch
                 }
                 PinchMsgDlg.DisplayWarningDlg("UPDATE LICENSE STATUS BAR LABEL HERE!!!");
 
+                //-------------------------------------------
+                //--- Update Pinch Units Status Bar Label ---
+                //-------------------------------------------
+                //************************************************************************************ UNITS ***
+                //************************************************************************************
+                //************************************ T E S T  **************************************
+                //************************************************************************************
+                //PinchSettingsObj.PinchUnitsEnum = PinchTypes.PinchUnits.ENGLISH;
+                PinchSettingsObj.PinchUnitsEnum = PinchTypes.PinchUnits.METRIC;
+                PinchMsgDlg.DisplayWarningDlg("UPDATE UNITS STATUS BAR LABEL SETTING HERE!!!");
+                //************************************************************************************
+                //************************************ T E S T  **************************************
+                //************************************************************************************
 
+                UpdateUnitsStatusBarLabel();        // Update Pinch Units Status Bar Label
+
+                //----------------------------------------------------
+                //--- Update Input Validated Flag Status Bar Label ---
+                //----------------------------------------------------
+                //************************************************************************************ INPUT ***
+                //************************************************************************************
+                //************************************ T E S T  **************************************
+                //************************************************************************************
+                PinchSettingsObj.InputValidatedFlag = false;
+                //PinchSettingsObj.InputValidatedFlag = true;
+                PinchMsgDlg.DisplayWarningDlg("UPDATE INPUT VALIDATED STATUS BAR LABEL SETTING HERE!!!");
+                //************************************************************************************
+                //************************************ T E S T  **************************************
+                //************************************************************************************
+               
+                UpdateInputStatusBarLabel();        // Update Input Validated Status Bar Label
+
+                //-------------------------------------------------------
+                //--- Update Targets Calculated Flag Status Bar Label ---
+                //-------------------------------------------------------
+                //************************************************************************************ TARGETS ***
+                //************************************************************************************
+                //************************************ T E S T  **************************************
+                //************************************************************************************
+                PinchSettingsObj.TargetsCalculatedFlag = false;
+                //PinchSettingsObj.TargetsCalculatedFlag = true;
+                PinchMsgDlg.DisplayWarningDlg("UPDATE TARGETS CALCULATED STATUS BAR LABEL SETTING HERE!!!");
+                //************************************************************************************
+                //************************************ T E S T  **************************************
+                //************************************************************************************
+
+                UpdateTargetsStatusBarLabel();        // Update Targets Calculated Status Bar Label
             }
             catch (Exception ex)
             {
@@ -546,16 +603,6 @@ namespace Pinch
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Validate Product License!");
             try
             {
-                //************************************************************************************
-                //************************************ T E S T  **************************************
-                //************************************************************************************
-                PinchSettingsObj.LicenseValidatedFlag = true;
-                PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.DEVICE;
-                PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.VALID;
-                //************************************************************************************
-                //************************************ T E S T  **************************************
-                //************************************************************************************
-
                 //--- ASSIGN LICENSE GLOBAL SETTING HERE!!! ---
                 PinchMsgDlg.DisplayWarningDlg("ASSIGN LICENSE GLOBAL SETTING HERE!!!");
                 
@@ -578,6 +625,10 @@ namespace Pinch
         }
         #endregion  // ValidateLicense()
 
+        #endregion  // LICENSE METHODS
+
+        #region UPDATE STATUS BAR LABELS METHODS
+
         #region UpdateLicenseStatusBarLabel()
         /// <summary>
         /// Update the Status Bar Label for License using Global Settings
@@ -585,7 +636,7 @@ namespace Pinch
         private void UpdateLicenseStatusBarLabel()
         {
             string strMethod = "UpdateLicenseStatusBarLabel";
-            string strLicenseType = String.Format("{0}", 
+            string strLicenseType = String.Format("{0} LICENSE ", 
                                     PinchSettingsObj.LicenseTypeEnum.ToString());
             try
             {
@@ -622,7 +673,137 @@ namespace Pinch
         }
         #endregion  // UpdateLicenseStatusBarLabel()
 
-        #endregion  // LICENSE METHODS
+        #region UpdateUnitsStatusBarLabel()
+        /// <summary>
+        /// Update the Pinch Units Status Bar Label using Global Setting
+        /// </summary>
+        private void UpdateUnitsStatusBarLabel()
+        {
+            string strMethod = "UpdateUnitsStatusBarLabel";
+            string strUnitsType = String.Format("{0} UNITS ",
+                                    PinchSettingsObj.PinchUnitsEnum.ToString());
+            try
+            {
+                this.toolStripStatusLabelUnits.Text = strUnitsType;
+
+                switch (PinchSettingsObj.PinchUnitsEnum)
+                {
+                    case PinchTypes.PinchUnits.UNKNOWN:
+                        this.toolStripStatusLabelUnits.BackColor = Color.Orange;
+                        this.toolStripStatusLabelUnits.ForeColor = Color.White;
+                        this.toolStripStatusLabelUnits.Image = Resources.Unknown_32x32;
+                        break;
+                    case PinchTypes.PinchUnits.ENGLISH:
+                        this.toolStripStatusLabelUnits.BackColor = Color.Blue;
+                        this.toolStripStatusLabelUnits.ForeColor = Color.White;
+                        this.toolStripStatusLabelUnits.Image = Resources.English_Imperial_Units_32x32;
+                        break;
+                    case PinchTypes.PinchUnits.METRIC:
+                        this.toolStripStatusLabelUnits.BackColor = Color.Blue;
+                        this.toolStripStatusLabelUnits.ForeColor = Color.White;
+                        this.toolStripStatusLabelUnits.Image = Resources.Metric_SI_Units_32x32;
+                        break;
+                    default:
+                        throw new Exception("INVALID Pinch Units Enum Value!");
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateUnitsStatusBarLabel()
+
+        #region UpdateInputStatusBarLabel()
+        /// <summary>
+        /// Update the Input Validated Flag Status Bar Label using Global Setting
+        /// </summary>
+        private void UpdateInputStatusBarLabel()
+        {
+            string strMethod = "UpdateInputStatusBarLabel";
+            bool bInputValidated = PinchSettingsObj.InputValidatedFlag;
+            string strInputValidated = String.Empty;
+            try
+            {
+                if(bInputValidated)
+                {
+                    strInputValidated = String.Format("INPUT VALIDATED ");
+                    this.toolStripStatusLabelInput.Text = strInputValidated;
+
+                    this.toolStripStatusLabelInput.BackColor = Color.Green;
+                    this.toolStripStatusLabelInput.ForeColor = Color.White;
+                    this.toolStripStatusLabelInput.Image = Resources.Valid_32x32;
+                }
+                else
+                {
+                    strInputValidated = String.Format("INPUT NOT VALIDATED ");
+                    this.toolStripStatusLabelInput.Text = strInputValidated;
+
+                    this.toolStripStatusLabelInput.BackColor = Color.Red;
+                    this.toolStripStatusLabelInput.ForeColor = Color.White;
+                    this.toolStripStatusLabelInput.Image = Resources.InValid_32x32;
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateInputStatusBarLabel()
+
+        #region UpdateTargetsStatusBarLabel()
+        /// <summary>
+        /// Update the Targets Calculated Flag Status Bar Label using Global Setting
+        /// </summary>
+        private void UpdateTargetsStatusBarLabel()
+        {
+            string strMethod = "UpdateTargetsStatusBarLabel";
+            bool bTargetsCalculated = PinchSettingsObj.TargetsCalculatedFlag;
+            string strTargetsCalculated = String.Empty;
+            try
+            {
+                if (bTargetsCalculated)
+                {
+                    strTargetsCalculated = String.Format("TARGETS CALCULATED ");
+                    this.toolStripStatusLabelTargets.Text = strTargetsCalculated;
+
+                    this.toolStripStatusLabelTargets.BackColor = Color.Green;
+                    this.toolStripStatusLabelTargets.ForeColor = Color.White;
+                    this.toolStripStatusLabelTargets.Image = Resources.Valid_32x32;
+                }
+                else
+                {
+                    strTargetsCalculated = String.Format("TARGETS NOT CALCULATED ");
+                    this.toolStripStatusLabelTargets.Text = strTargetsCalculated;
+
+                    this.toolStripStatusLabelTargets.BackColor = Color.Red;
+                    this.toolStripStatusLabelTargets.ForeColor = Color.White;
+                    this.toolStripStatusLabelTargets.Image = Resources.InValid_32x32;
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateTargetsStatusBarLabel()
+
+        #endregion  // UPDATE STATUS BAR LABELS METHODS
 
         #region EVENT HANDLERS
 
@@ -1797,6 +1978,7 @@ namespace Pinch
 
         #region LOG METHODS
 
+        #region LogLicenseStatus()
         /// <summary>
         /// Log License Status using GLobal Settings
         /// </summary>
@@ -1831,6 +2013,7 @@ namespace Pinch
             {
             }
         }
+        #endregion  // LogLicenseStatus()
 
         #region private string GetFixedLengthString(string strOriginal, int nLen=15)
         /// <summary>

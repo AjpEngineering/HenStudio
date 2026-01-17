@@ -90,6 +90,18 @@ namespace PinchGlobal
         };
         #endregion      // enum LicenseType
 
+        #region enum PinchUnits
+        /// <summary>
+        /// ENUMERATION: Pinch Units
+        /// </summary>
+        public enum PinchUnits
+        {
+            UNKNOWN = -1,       // UNKNOWN Units
+            ENGLISH =  0,       // ENGLISH-IMPERIAL Units
+            METRIC  =  1        // METRIC-SI Units
+        };
+        #endregion      // enum PinchUnits
+
         #region enum HeatLoadType
         /// <summary>
         /// ENUMERATION: Heat Load Type
@@ -152,18 +164,6 @@ namespace PinchGlobal
             LOG_ALL       =  4   // LOG ALL MESSAGES
         };
         #endregion      // enum LogLevel
-
-        #region enum PinchUnits
-        /// <summary>
-        /// ENUMERATION: Pinch Units
-        /// </summary>
-        public enum PinchUnits
-        {
-            UNKNOWN = -1,       // UNKNOWN Units
-            ENGLISH =  0,       // ENGLISH-IMPERIAL Units
-            METRIC  =  1        // METRIC Units
-        };
-        #endregion      // enum PinchUnits
 
         #region enum ProgressStates
         /// <summary>

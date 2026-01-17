@@ -153,6 +153,16 @@ namespace Pinch.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap English_Imperial_Units_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("English_Imperial_Units_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Exchanger_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Exchanger_32x32", resourceCulture);
@@ -236,6 +246,16 @@ namespace Pinch.Properties {
         internal static System.Drawing.Bitmap License_32x32 {
             get {
                 object obj = ResourceManager.GetObject("License_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Metric_SI_Units_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Metric_SI_Units_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -116,6 +116,8 @@ namespace PinchGlobal
         private PinchTypes.LicenseType _licTypeEnum;        // License Type
         private PinchTypes.LicenseStatus _licStatusEnum;    // license Status
 
+        private PinchTypes.PinchUnits _pinchUnitsEnum;      // Pinch Units [ENGLISH | METRIC]
+
         private bool _bInputValidated;      // Input   Validated  Flag - true: Proceed to Targets
         private bool _bTargetsCalculated;   // Targets Calculated Flag - true: Proceed to HEN
 
@@ -124,28 +126,6 @@ namespace PinchGlobal
         #endregion      // FIELDS
 
         #region PROPERTIES
-
-        #region InputValidatedFlag
-        /// <summary>
-        /// InputValidatedFlag Property
-        /// </summary>
-        public bool InputValidatedFlag
-        {
-            get { return _bInputValidated; }
-            set { _bInputValidated = value; }
-        }
-        #endregion      // InputValidatedFlag
-
-        #region TargetsCalculatedFlag
-        /// <summary>
-        /// TargetsCalculatedFlag Property
-        /// </summary>
-        public bool TargetsCalculatedFlag
-        {
-            get { return _bTargetsCalculated; }
-            set { _bTargetsCalculated = value; }
-        }
-        #endregion      // TargetsCalculatedFlag
 
         #region LicenseValidatedFlag
         /// <summary>
@@ -179,6 +159,39 @@ namespace PinchGlobal
             set { _licStatusEnum = value; }
         }
         #endregion      // LicenseStatusEnum
+
+        #region PinchUnitsEnum
+        /// <summary>
+        /// PinchUnitsEnum Property
+        /// </summary>
+        public PinchTypes.PinchUnits PinchUnitsEnum
+        {
+            get { return _pinchUnitsEnum; }
+            set { _pinchUnitsEnum = value; }
+        }
+        #endregion      // PinchUnitsEnum
+
+        #region InputValidatedFlag
+        /// <summary>
+        /// InputValidatedFlag Property
+        /// </summary>
+        public bool InputValidatedFlag
+        {
+            get { return _bInputValidated; }
+            set { _bInputValidated = value; }
+        }
+        #endregion      // InputValidatedFlag
+
+        #region TargetsCalculatedFlag
+        /// <summary>
+        /// TargetsCalculatedFlag Property
+        /// </summary>
+        public bool TargetsCalculatedFlag
+        {
+            get { return _bTargetsCalculated; }
+            set { _bTargetsCalculated = value; }
+        }
+        #endregion      // TargetsCalculatedFlag
 
         #endregion      // PROPERTIES
 
