@@ -549,9 +549,9 @@ namespace Pinch
                 //************************************************************************************
                 //************************************ T E S T  **************************************
                 //************************************************************************************
-                PinchSettingsObj.LicenseValidatedFlag = false;
+                PinchSettingsObj.LicenseValidatedFlag = true;
                 PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.DEVICE;
-                PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.EXPIRED;
+                PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.VALID;
                 //************************************************************************************
                 //************************************ T E S T  **************************************
                 //************************************************************************************
