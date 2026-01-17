@@ -115,11 +115,37 @@ namespace PinchGlobal
         private bool _bLicenseValidated;                    // License Validate Flag
         private PinchTypes.LicenseType _licTypeEnum;        // License Type
         private PinchTypes.LicenseStatus _licStatusEnum;    // license Status
+
+        private bool _bInputValidated;      // Input   Validated  Flag - true: Proceed to Targets
+        private bool _bTargetsCalculated;   // Targets Calculated Flag - true: Proceed to HEN
+
         #endregion  // PRIVATE
 
         #endregion      // FIELDS
 
         #region PROPERTIES
+
+        #region InputValidatedFlag
+        /// <summary>
+        /// InputValidatedFlag Property
+        /// </summary>
+        public bool InputValidatedFlag
+        {
+            get { return _bInputValidated; }
+            set { _bInputValidated = value; }
+        }
+        #endregion      // InputValidatedFlag
+
+        #region TargetsCalculatedFlag
+        /// <summary>
+        /// TargetsCalculatedFlag Property
+        /// </summary>
+        public bool TargetsCalculatedFlag
+        {
+            get { return _bTargetsCalculated; }
+            set { _bTargetsCalculated = value; }
+        }
+        #endregion      // TargetsCalculatedFlag
 
         #region LicenseValidatedFlag
         /// <summary>

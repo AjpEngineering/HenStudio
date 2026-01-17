@@ -408,10 +408,12 @@ namespace Pinch
                 PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.UNKNOWN;
                 PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.UNKNOWN;
 
+                PinchSettingsObj.InputValidatedFlag = false;
+                PinchSettingsObj.TargetsCalculatedFlag = false;
+
                 //---------------------------------------
                 //--- Initialize Units Global Setting ---
                 //---------------------------------------
-                //InputVerifiedFlag = false;
                 //PinchEnglishUnitsFlag = true;
                 //PinchCalcModeFCpFlag = false;
                 //---------------------------

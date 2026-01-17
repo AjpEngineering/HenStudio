@@ -71,10 +71,10 @@ namespace PinchGlobal
         {
             EXPIRED = -2,  // License Status is EXPIRED
             INVALID = -1,  // License Status is INVALID
-            UNKNOWN = 0,   // License Status is UNKNOWN
-            VALID   = 1    // License status is VALID
+            UNKNOWN =  0,  // License Status is UNKNOWN
+            VALID   =  1   // License status is VALID
         };
-        #endregion      // enum LicenseType
+        #endregion      // enum LicenseStatus
 
         #region enum LicenseType
         /// <summary>
@@ -82,11 +82,11 @@ namespace PinchGlobal
         /// </summary>
         public enum LicenseType
         {
-            UNKNOWN = 0,  // License Type is UNKNOWN... ERROR
-            SITE    = 1,  // License Type is SITE...... ALL USERS and ALL  DEVICES     in a SINGLE COMPANY
-            DEVICE  = 2,  // License Type is DEVICE.... ALL USERS on SINGLE DEVICE     in a SINGLE COMPANY
-            USER    = 3,  // License Type is USER...... ALL DEVICES for a SINGLE USER  in a SINGLE COMPANY
-            SEAT    = 4   // License Type is SEAT...... SINGLE USER on a SINGLE DEVICE in a SINGLE COMPANY
+            UNKNOWN = -1,  // License Type is UNKNOWN... ERROR
+            SITE    =  0,  // License Type is SITE...... ALL USERS and ALL  DEVICES     in a SINGLE COMPANY
+            DEVICE  =  1,  // License Type is DEVICE.... ALL USERS on SINGLE DEVICE     in a SINGLE COMPANY
+            USER    =  2,  // License Type is USER...... ALL DEVICES for a SINGLE USER  in a SINGLE COMPANY
+            SEAT    =  3   // License Type is SEAT...... SINGLE USER on a SINGLE DEVICE in a SINGLE COMPANY
         };
         #endregion      // enum LicenseType
 
@@ -96,9 +96,9 @@ namespace PinchGlobal
         /// </summary>
         public enum HeatLoadType
         {
-            HEAT_LOAD_UNKNOWN,   // UNKNOWN
-            HEAT_LOAD_RELEASE,   // HEAT RELEASED (Surplus)
-            HEAT_LOAD_SENSIBLE   // HEAT REQUIRED (Deficit)
+            UNKNOWN  = -1,  // UNKNOWN
+            RELEASED =  0,  // HEAT RELEASED (Surplus)
+            REQUIRED =  1   // HEAT REQUIRED (Deficit)
         };
         #endregion      // enum HeatLoadType
 
@@ -108,10 +108,10 @@ namespace PinchGlobal
         /// </summary>
         public enum HeatType
         {
-            HEAT_UNKNOWN,   // UNKNOWN
-            HEAT_LATENT,    // LATENT   HEAT (Two-Phase)
-            HEAT_SENSIBLE   // SENSIBLE HEAT (Single Phase)
-        };
+            UNKNOWN  = -1,  // UNKNOWN
+            SENSIBLE =  0,  // SENSIBLE HEAT (Single Phase)
+            LATENT   =  1   // LATENT   HEAT (Two-Phase)
+       };
         #endregion      // enum HeatType
 
         #region enum LatentHeatType
@@ -120,11 +120,23 @@ namespace PinchGlobal
         /// </summary>
         public enum LatentHeatType
         {
-            LATENT_UNKNOWN,    // UNKNOWN
-            LATENT_BOILING,    // BOILING    LATENT HEAT (Cold Stream)
-            LATENT_CONDENSING  // CONDENSING LATENT HEAT (Hot  Stream)
+            UNKNOWN    = -1,  // UNKNOWN
+            BOILING    =  0,  // BOILING    LATENT HEAT (Cold Stream)
+            CONDENSING =  1   // CONDENSING LATENT HEAT (Hot  Stream)
         };
         #endregion      // enum LatentHeatType
+
+        #region enum SensibleHeatType
+        /// <summary>
+        /// ENUMERATION: Sensible Heat Type
+        /// </summary>
+        public enum SensibleHeatType
+        {
+            UNKNOWN = -1,  // UNKNOWN
+            LIQUID  =  0,  // LIQUID SENSIBLE HEAT
+            VAPOR   =  1   // VAPOR  SENSIBLE HEAT
+        };
+        #endregion      // enum SensibleHeatType
 
         #region enum LogLevel
         /// <summary>
@@ -132,11 +144,12 @@ namespace PinchGlobal
         /// </summary>
         public enum LogLevel
         {
-            LOG_NONE,           // TURN LOGGING OFF
-            LOG_ERRORS,         // LOG ONLY ERROR MESSAGES
-            LOG_WARNINGS,       // LOG ERROR & WARNING MESSAGES
-            LOG_IMPORTANT,      // LOG ERROR,  WARNING & IMPORTANT INFO MESSAGES
-            LOG_ALL             // LOG ALL MESSAGES
+            UNKNOWN       = -1,  // UNKNOWN Log Level
+            LOG_NONE      =  0,  // TURN LOGGING OFF
+            LOG_ERRORS    =  1,  // LOG ONLY ERROR MESSAGES
+            LOG_WARNINGS  =  2,  // LOG ERROR & WARNING MESSAGES
+            LOG_IMPORTANT =  3,  // LOG ERROR,  WARNING & IMPORTANT INFO MESSAGES
+            LOG_ALL       =  4   // LOG ALL MESSAGES
         };
         #endregion      // enum LogLevel
 
@@ -146,8 +159,9 @@ namespace PinchGlobal
         /// </summary>
         public enum PinchUnits
         {
-            UNITS_ENGLISH,
-            UNITS_METRIC
+            UNKNOWN = -1,       // UNKNOWN Units
+            ENGLISH =  0,       // ENGLISH-IMPERIAL Units
+            METRIC  =  1        // METRIC Units
         };
         #endregion      // enum PinchUnits
 
@@ -157,24 +171,13 @@ namespace PinchGlobal
         /// </summary>
         public enum ProgressStates
         {
-            PROGRESS_TO_BE_DONE,
-            PROGRESS_WORKING,
-            PROGRESS_DONE,
-            PROGRESS_FAIL
+            FAILED  = -1,       // FAILED STATE
+            UNKNOWN =  0,       // UNKNOWN PROGRESS STATE
+            TBD     =  1,       // TO BE DONE STATE
+            WORKING =  2,       // WORKING STATE
+            DONE    =  3        // DONE or COMPLETED STATE
         };
         #endregion      // enum ProgressStates
-
-        #region enum SensibleHeatType
-        /// <summary>
-        /// ENUMERATION: Sensible Heat Type
-        /// </summary>
-        public enum SensibleHeatType
-        {
-            SENSIBLE_UNKNOWN, // UNKNOWN
-            SENSIBLE_LIQUID,  // LIQUID SENSIBLE HEAT
-            SENSIBLE_VAPOR    // VAPOR  SENSIBLE HEAT
-        };
-        #endregion      // enum SensibleHeatType
 
         #region enum StreamPhase
         /// <summary>
@@ -182,33 +185,26 @@ namespace PinchGlobal
         /// </summary>
         public enum StreamPhase
         {
-            PHASE_UNKNOWN,      // UNKNOWN Phase
-            PHASE_LIQUID,       // Single Liquid Phase
-            PHASE_VAPOR,        // Single Vapor Phase
-            PHASE_LIQUID_VAPOR  // Two-Phase Liquid-Vapor
+            UNKNOWN      = -1,  // UNKNOWN Phase
+            LIQUID       =  0,  // Single Liquid Phase
+            VAPOR        =  1,  // Single Vapor Phase
+            LIQUID_VAPOR =  2   // Two-Phase Liquid-Vapor
         };
         #endregion      // enum StreamPhase
 
         #region enum StreamTypes
         /// <summary>
-        /// ENUMERATION: Stream Types [HOT | COLD]
+        /// ENUMERATION: Stream Types [UNKNOWN | COLD | HOT]
         /// </summary>
         public enum StreamTypes
         {
-            STREAM_HOT,     // Hot  Stream
-            STREAM_COLD     // Cold Stream
+            UNKNOWN = -1,  // UNKNOWN Stream Type
+            COLD    =  0,  // COLD Stream
+            HOT     =  1   // HOT  Stream
         };
         #endregion      // enum StreamTypes
 
         #endregion      // ENUMS
-
-        #region FIELDS
-
-        #endregion      // FIELDS
-
-        #region PROPERTIES
-
-        #endregion      // PROPERTIES
 
         #region CTOR
         /// <summary>
