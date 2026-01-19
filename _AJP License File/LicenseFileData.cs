@@ -3,9 +3,9 @@
 //###############################  L i c e n s e F i l e D a t a . c s  ################################
 //######################################################################################################
 //  FILENAME:  LicenseFileData.cs
-//  NAMESPACE: _AJP_License_File
+//  NAMESPACE: AJP_License_File
 //  CLASS(S):  LicenseFileData
-//  COMPONENT: AJP License File.exe
+//  COMPONENT: _AJP License File.dll
 //======================================================================================================
 //  DESCRIPTION: 
 //    This file contains the code for the LicenseFileData class.
