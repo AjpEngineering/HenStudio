@@ -117,7 +117,7 @@ namespace AJP_License_File
         private string _strFullPathXmlFile;             // Full-Path File Location of AJP License XML File
         private LicenseFileData _licenseFileDataObj;    // AJP License File Data Object
 
-        private LicenseMgr _licenseFileMgrObj;       // AJP License File Mgr Object
+        private LicenseMgr _licenseMgrObj;              // AJP License Mgr Object
         #endregion      // FIELDS
 
         #region PROPERTIES
@@ -188,16 +188,16 @@ namespace AJP_License_File
         }
         #endregion      // LicenseFileDataObj
 
-        #region LicenseFileMgrObj
+        #region LicenseMgrObj
         /// <summary>
-        /// LicenseFileMgrObj Property  ... AJP License File Mgr Object
+        /// LicenseMgrObj Property  ... AJP License Mgr Object
         /// </summary>
-        public LicenseMgr LicenseFileMgrObj
+        public LicenseMgr LicenseMgrObj
         {
-            get { return _licenseFileMgrObj; }
-            set { _licenseFileMgrObj = value; }
+            get { return _licenseMgrObj; }
+            set { _licenseMgrObj = value; }
         }
-        #endregion      // LicenseFileMgrObj
+        #endregion      // LicenseMgrObj
 
         #endregion      // PROPERTIES
 
@@ -227,7 +227,7 @@ namespace AJP_License_File
                 FullPathLicenseFolder = string.Empty;       // Full-Path AJP LICENSE Folder Location
                 FullPathXmlFile = string.Empty;             // Full-Path File Location of AJP License XML File
                 LicenseFileDataObj = new LicenseFileData(); // AJP License File Data Object
-                LicenseFileMgrObj = new LicenseMgr();       // AJP License File Mgr Object
+                LicenseMgrObj = new LicenseMgr();           // AJP License Mgr Object
                 //--------------------------
                 //--- AJP INITIALIZATION ---
                 //--------------------------

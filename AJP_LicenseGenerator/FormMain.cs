@@ -11,24 +11,25 @@
 //    This file contains the code for the AJP License Generator main Form.
 //======================================================================================================
 //  AUTHOR:
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//                                                                                                    !!
-//                    GGGGG   IIIIII   OOOOO    RRRRRRR    GGGGG   IIIIII   OOOOO                     !!
-//                   GG   GG    II    OO   OO   RR    RR  GG   GG    II    OO   OO                    !!
-//                   GG         II   OO     OO  RR    RR  GG         II   OO     OO                   !!
-//                   GG  GGGG   II   OO     OO  RRRRRRR   GG  GGGG   II   OO     OO                   !!
-//                   GG   GG    II    OO   OO   RR    RR  GG   GG    II    OO   OO                    !!
-//                    GGGGG   IIIIII   OOOOO    RR    RR   GGGGG   IIIIII   OOOOO                     !!
-//                                                                                                    !!
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//    (c)Copyright 2022 AJP Engineering
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//                                                                                                                   !!
+//                              A        JJJJJJJJ  PPPPPPP         EEEEEEE  NN     NN   GGGGGG                       !!
+//                             AAA          JJ     PP    PP        EE       NNN    NN  GG    GG                      !!
+//                            AA AA         JJ     PP    PP        EE       NNNN   NN  GG                            !!
+//                           AA   AA        JJ     PPPPPP          EEEEEEE  NN NN  NN  GG   GGGG                     !!
+//                          AAAAAAAA   JJ   JJ     PP              EE       NN  NN NN  GG    GG                      !!
+//                         AA      AA  JJ   JJ     PP              EE       NN    NNN  GG    GG                      !!
+//                        AA        AA  JJJJJJ     PP              EEEEEEE  NN     NN   GGGGGG                       !!
+//                                                                                                                   !!
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//    (c)Copyright 2026 AJP Engineering
 //    All rights reserved.
-//======================================================================================================
+//=====================================================================================================================
 //  HISTORY:
-//    11/18/22 .. pg .. Version 1.0
-//######################################################################################################
-//######################################################################################################
-//######################################################################################################
+//    01/01/26 .. pg .. Version 4.0
+//#####################################################################################################################
+//#####################################################################################################################
+//#####################################################################################################################
 #endregion      // HEADER
 
 #region REFERENCES
@@ -137,7 +138,7 @@ namespace AJP_LicenseGenerator
         private string _strFullPathLicenseFolder;  // Full-Path AJP LICENSE Folder Location
         private string _strFullPathXmlFile;        // Full-Path File Location of AJP License XML File
 
-        private LicenseGeneratorMgr _licenseGeneratorMgr;   // AJP License Generator Mgr Object
+        private LicenseKeyMgr _licenseKeyMgr;      // AJP License Key Mgr Object
         #endregion      // FIELDS
 
         #region PROPERTIES
@@ -234,12 +235,12 @@ namespace AJP_LicenseGenerator
         /// <summary>
         /// LicenseGeneratorMgrObj Property  ... AJP License Generator Mgr Object
         /// </summary>
-        public LicenseGeneratorMgr LicenseGeneratorMgrObj
+        public LicenseKeyMgr LicenseKeyMgrObj
         {
-            get { return _licenseGeneratorMgr; }
-            set { _licenseGeneratorMgr = value; }
+            get { return _licenseKeyMgr; }
+            set { _licenseKeyMgr = value; }
         }
-        #endregion      // LicenseGeneratorMgrObj
+        #endregion      // LicenseKeyMgrObj
 
         #endregion      // PROPERTIES
 
@@ -271,7 +272,7 @@ namespace AJP_LicenseGenerator
                 FullPathLicenseFolder = String.Empty;           // Full-Path AJP LICENSE Folder Location
                 FullPathXmlFile = String.Empty;                 // Full-Path File Location of AJP License XML File
 
-                LicenseGeneratorMgrObj = new LicenseGeneratorMgr();
+                LicenseKeyMgrObj = new LicenseKeyMgr();         // Licence Key Manager Object (PERSIST XML)
                 //--------------------------
                 //--- AJP INITIALIZATION ---
                 //--------------------------
@@ -309,7 +310,7 @@ namespace AJP_LicenseGenerator
                 comboBoxProduct.Items.Add(PRODUCT_NAME_AJP_SUDOKU);             // Index 5
                 comboBoxProduct.SelectedIndex = 4;                              // Select AJP Pinch
 
-                pictureBoxProductLogo.Image = Properties.Resources.AJP_Test_Logo;
+                pictureBoxProductLogo.Image = Properties.Resources.AJP_Pinch_4;
                 //------------------------------------------------------------------------------------
                 //--- License Type ComboBox ... Ensure Matches ProductLicenceTypeEnum Index Values ---
                 //------------------------------------------------------------------------------------
@@ -655,29 +656,18 @@ namespace AJP_LicenseGenerator
                     #region TRIAL LICENSE
                     case LicenseTypes.LicenseTypeEnum.TRIAL:
                         //-----------------------------------------------------------------
-                        //--- TRIAL LICENSE:  REQUIRED ... Corporation, Division, Group ---
+                        //--- TRIAL LICENSE:  REQUIRED ... Supplier Name, Customer Name ---
                         //-----------------------------------------------------------------
-                        if (textBoxCorporation.Text.Length < 1)
+                        if (textBoxSupplierName.Text.Length < 1)
                         {
-                            MessageBox.Show(" Corporation Name is NOT specified.  Please provide the Corporation Name.");
-                            textBoxCorporation.Focus();
-                            return bValidData;
-                        }
-                        if (textBoxDivision.Text.Length < 1)
-                        {
-                            MessageBox.Show(" Division Name is NOT specified.  Please provide the Division Name.");
+                            MessageBox.Show(" Supplier Name is NOT specified.  Please provide the Supplier Name.");
                             textBoxDivision.Focus();
                             return bValidData;
                         }
-                        if (textBoxGroup.Text.Length < 1)
+                        if (textBoxCustomerName.Text.Length < 1)
                         {
-                            MessageBox.Show(" Group Name is NOT specified.  Please provide the Group Name.");
-                            textBoxGroup.Focus();
-                            return bValidData;
-                        }
-                        if (textBoxUsername.Text.Length < 1)
-                        {
-                            MessageBox.Show(" User Name is NOT specified.  Please provide the User Name.");
+                            MessageBox.Show(" Customer Name is NOT specified.  Please provide the Customer Name.");
+                            textBoxCorporation.Focus();
                             return bValidData;
                         }
                         break;
@@ -852,24 +842,24 @@ namespace AJP_LicenseGenerator
                 //-------------------------------------------------
                 //--- Get License Key String and Update Textbox ---
                 //-------------------------------------------------
-                LicenseGeneratorMgrObj = new LicenseGeneratorMgr();
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.Author = textBoxAuthor.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.SupplierName = textBoxSupplierName.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.SupplierUrl = textBoxSupplierUrl.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.CustomerName = textBoxCustomerName.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.CustomerEmail = textBoxCustomerEmail.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductName = comboBoxProduct.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductVersion = textBoxVersion.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.SerialNumber = textBoxSerialNumber.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductCode = textBoxProductCode.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.LicenseType = comboBoxLicenseType.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.UserName = textBoxUsername.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.DeviceName = textBoxDeviceName.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.Corporation = textBoxCorporation.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.Division = textBoxDivision.Text;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.Group = textBoxGroup.Text;
+                LicenseKeyMgrObj = new LicenseKeyMgr();
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Author = textBoxAuthor.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.SupplierName = textBoxSupplierName.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.SupplierUrl = textBoxSupplierUrl.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.CustomerName = textBoxCustomerName.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.CustomerEmail = textBoxCustomerEmail.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductName = comboBoxProduct.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductVersion = textBoxVersion.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.SerialNumber = textBoxSerialNumber.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductCode = textBoxProductCode.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.LicenseType = comboBoxLicenseType.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.UserName = textBoxUsername.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.DeviceName = textBoxDeviceName.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Corporation = textBoxCorporation.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Division = textBoxDivision.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Group = textBoxGroup.Text;
 
-                textBoxLicenseKey.Text = LicenseGeneratorMgrObj.LicenseMgrObj.CalculateLicenseKey();
+                textBoxLicenseKey.Text = LicenseKeyMgrObj.LicenseMgrObj.CalculateLicenseKey();
                 textBoxLicenseKey.Focus();
                 #endregion      // GET LICENSE KEY STRING
 
@@ -913,13 +903,13 @@ namespace AJP_LicenseGenerator
                 //--------------------------
                 //--- Assign Date Values ---
                 //--------------------------
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.StartDate = dateTimePickerStart.Value;
-                LicenseGeneratorMgrObj.LicenseMgrObj.LicenseFileDataObj.EndDate = dateTimePickerEnd.Value;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.StartDate = dateTimePickerStart.Value;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.EndDate = dateTimePickerEnd.Value;
 
                 //-------------------------------------------------------
                 //--- Get License File Hash String and Update Textbox ---
                 //-------------------------------------------------------
-                textBoxHash.Text = LicenseGeneratorMgrObj.LicenseMgrObj.CalculateLicenseFileHash(textBoxLicenseKey.Text);
+                textBoxHash.Text = LicenseKeyMgrObj.LicenseMgrObj.CalculateLicenseFileHash(textBoxLicenseKey.Text);
                 textBoxHash.Focus();
             }
             catch (Exception ex)
@@ -943,36 +933,36 @@ namespace AJP_LicenseGenerator
             //LicenseFileData licenseFileDataObj = new LicenseFileData();
             try
             {
-                LicenseGeneratorMgrObj.LicenseFileDataObj = new LicenseFileData();
+                LicenseKeyMgrObj.LicenseFileDataObj = new LicenseFileData();
                 //-----------------------------------------------------------
                 //--- Scrape Screen and Populate a LicenseFileData Object ---
                 //-----------------------------------------------------------
-                LicenseGeneratorMgrObj.LicenseFileDataObj.Author = textBoxAuthor.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.SupplierName = textBoxSupplierName.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.SupplierUrl = textBoxSupplierUrl.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.CustomerName = textBoxCustomerName.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.CustomerEmail = textBoxCustomerEmail.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.ProductName = comboBoxProduct.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.ProductVersion = textBoxVersion.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.SerialNumber = textBoxSerialNumber.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.ProductCode = textBoxProductCode.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.LicenseType = comboBoxLicenseType.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.UserName = textBoxUsername.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.DeviceName = textBoxDeviceName.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.Corporation = textBoxCorporation.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.Division = textBoxDivision.Text;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.Group = textBoxGroup.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.Author = textBoxAuthor.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.SupplierName = textBoxSupplierName.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.SupplierUrl = textBoxSupplierUrl.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.CustomerName = textBoxCustomerName.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.CustomerEmail = textBoxCustomerEmail.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.ProductName = comboBoxProduct.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.ProductVersion = textBoxVersion.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.SerialNumber = textBoxSerialNumber.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.ProductCode = textBoxProductCode.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.LicenseType = comboBoxLicenseType.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.UserName = textBoxUsername.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.DeviceName = textBoxDeviceName.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.Corporation = textBoxCorporation.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.Division = textBoxDivision.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.Group = textBoxGroup.Text;
 
-                LicenseGeneratorMgrObj.LicenseFileDataObj.FileLicenseKey = textBoxLicenseKey.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.FileLicenseKey = textBoxLicenseKey.Text;
 
-                LicenseGeneratorMgrObj.LicenseFileDataObj.StartDate = dateTimePickerStart.Value;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.EndDate = dateTimePickerEnd.Value;
-                LicenseGeneratorMgrObj.LicenseFileDataObj.DurationDays = Convert.ToInt32(numericUpDownDuration.Value);
+                LicenseKeyMgrObj.LicenseFileDataObj.StartDate = dateTimePickerStart.Value;
+                LicenseKeyMgrObj.LicenseFileDataObj.EndDate = dateTimePickerEnd.Value;
+                LicenseKeyMgrObj.LicenseFileDataObj.DurationDays = Convert.ToInt32(numericUpDownDuration.Value);
 
-                LicenseGeneratorMgrObj.LicenseFileDataObj.FileHash = textBoxHash.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.FileHash = textBoxHash.Text;
 
                 //************************* TEST *************************
-                //licenseFileDataObj.LogDataToConsole();
+                LicenseKeyMgrObj.LicenseFileDataObj.LogDataToConsole();
             }
             catch (Exception ex)
             {
@@ -980,7 +970,7 @@ namespace AJP_LicenseGenerator
                 strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
                 MessageBox.Show(strMsg);
             }
-            return LicenseGeneratorMgrObj.LicenseFileDataObj;
+            return LicenseKeyMgrObj.LicenseFileDataObj;
         }
         #endregion      // ScrapeScreenForLicenseFileCreation
 
@@ -1000,7 +990,7 @@ namespace AJP_LicenseGenerator
                 //----------------------------------------------------------------------------------
                 //--- Create AJP License XML File using Properties of the LicenseFileData Object ---
                 //----------------------------------------------------------------------------------               
-                LicenseGeneratorMgrObj.PersistLicenseXmlFile(FullPathXmlFile);
+                LicenseKeyMgrObj.PersistLicenseXmlFile(FullPathXmlFile);
             }
             catch (Exception ex)
             {
@@ -1222,7 +1212,7 @@ namespace AJP_LicenseGenerator
                     textBoxSerialNumber.Text = SERIAL_NUMBER_AJP_PINCH;
                     textBoxProductCode.Text = PRODUCT_CODE_AJP_PINCH;
 
-                    pictureBoxProductLogo.Image = Properties.Resources.AJP_Pinch_Logo;
+                    pictureBoxProductLogo.Image = Properties.Resources.AJP_Pinch_4;
                     #endregion      // AJP PINCH
                 }
                 else if (comboBoxProduct.SelectedIndex == Convert.ToInt32(ProductNameEnum.AJP_Sudoku))

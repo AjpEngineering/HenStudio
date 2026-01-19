@@ -408,7 +408,7 @@
             this.textBoxCustomerEmail.Name = "textBoxCustomerEmail";
             this.textBoxCustomerEmail.Size = new System.Drawing.Size(305, 18);
             this.textBoxCustomerEmail.TabIndex = 2;
-            this.textBoxCustomerEmail.Text = "BillCashman@exxon.com";
+            this.textBoxCustomerEmail.Text = "*** OPTIONAL ***";
             // 
             // labelCustomerEmail
             // 
@@ -430,7 +430,7 @@
             this.textBoxCustomerName.Name = "textBoxCustomerName";
             this.textBoxCustomerName.Size = new System.Drawing.Size(230, 18);
             this.textBoxCustomerName.TabIndex = 1;
-            this.textBoxCustomerName.Text = "Bill Cashman";
+            this.textBoxCustomerName.Text = "*** REQUIRED ***";
             // 
             // label1
             // 
@@ -529,7 +529,7 @@
             this.textBoxVersion.Size = new System.Drawing.Size(40, 18);
             this.textBoxVersion.TabIndex = 35;
             this.textBoxVersion.TabStop = false;
-            this.textBoxVersion.Text = "1.0.1";
+            this.textBoxVersion.Text = "4.0.1";
             this.textBoxVersion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelVersion

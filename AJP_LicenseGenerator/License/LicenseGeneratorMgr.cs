@@ -12,24 +12,25 @@
 //    This class manages the data functionality of AJP License Key Manager.
 //======================================================================================================
 //  AUTHOR:
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//                                                                                                    !!
-//                    GGGGG   IIIIII   OOOOO    RRRRRRR    GGGGG   IIIIII   OOOOO                     !!
-//                   GG   GG    II    OO   OO   RR    RR  GG   GG    II    OO   OO                    !!
-//                   GG         II   OO     OO  RR    RR  GG         II   OO     OO                   !!
-//                   GG  GGGG   II   OO     OO  RRRRRRR   GG  GGGG   II   OO     OO                   !!
-//                   GG   GG    II    OO   OO   RR    RR  GG   GG    II    OO   OO                    !!
-//                    GGGGG   IIIIII   OOOOO    RR    RR   GGGGG   IIIIII   OOOOO                     !!
-//                                                                                                    !!
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//    (c)Copyright 2021 AJP Engineering
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//                                                                                                                   !!
+//                              A        JJJJJJJJ  PPPPPPP         EEEEEEE  NN     NN   GGGGGG                       !!
+//                             AAA          JJ     PP    PP        EE       NNN    NN  GG    GG                      !!
+//                            AA AA         JJ     PP    PP        EE       NNNN   NN  GG                            !!
+//                           AA   AA        JJ     PPPPPP          EEEEEEE  NN NN  NN  GG   GGGG                     !!
+//                          AAAAAAAA   JJ   JJ     PP              EE       NN  NN NN  GG    GG                      !!
+//                         AA      AA  JJ   JJ     PP              EE       NN    NNN  GG    GG                      !!
+//                        AA        AA  JJJJJJ     PP              EEEEEEE  NN     NN   GGGGGG                       !!
+//                                                                                                                   !!
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//    (c)Copyright 2026 AJP Engineering
 //    All rights reserved.
-//======================================================================================================
+//=====================================================================================================================
 //  HISTORY:
-//    11/18/22 .. pg .. Version 1.0
-//######################################################################################################
-//######################################################################################################
-//######################################################################################################
+//    01/01/26 .. pg .. Version 4.0
+//#####################################################################################################################
+//#####################################################################################################################
+//#####################################################################################################################
 #endregion      // HEADER
 
 #region REFERENCES
@@ -49,15 +50,15 @@ using AJP_License_File;
 #region namespace AJP_LicenseGenerator
 namespace AJP_LicenseGenerator
 {
-    #region class LicenseGeneratorMgr
+    #region class LicenseKeyMgr
     /// <summary>
-    /// AJP License Generator Manager Class
+    /// AJP License Key Manager Class
     /// </summary>
-    public class LicenseGeneratorMgr
+    public class LicenseKeyMgr
     {
         #region CONSTANTS
         private const String NAMESPACE = "AJP_LicenseGenerator";
-        private const String CLASS = "LicenseGeneratorMgr";
+        private const String CLASS = "LicenseKeyMgr";
 
         private const int START_INDEX = 30;     // Start Index of Substring ... must be less than 32
         #endregion      // CONSTANTS
@@ -94,17 +95,17 @@ namespace AJP_LicenseGenerator
         #endregion      // PROPERTIES
 
         #region CTOR: LicenseGeneratorMgr
-        public LicenseGeneratorMgr()
+        public LicenseKeyMgr()
         {
-            string strMethod = "CTOR: LicenseGeneratorMgr";
+            string strMethod = "CTOR: LicenseKeyMgr";
             string strMsg = String.Empty;
             try
             {
                 //-----------------------------
                 //--- Initialize Properties ---
                 //-----------------------------
-                LicenseFileDataObj = new LicenseFileData();     // License File Data object
-                LicenseMgrObj = new LicenseMgr();               // License Mgr object
+                LicenseFileDataObj = new LicenseFileData();  // License File Data object [Namespace: AJP_License_File]
+                LicenseMgrObj = new LicenseMgr();            // License Mgr object       [Namespace: AJP_License_File]
             }
             catch (Exception ex)
             {
@@ -323,7 +324,7 @@ namespace AJP_LicenseGenerator
         //=============================================================================================================
 
     }
-    #endregion      // class LicenseGeneratorMgr
+    #endregion      // class LicenseKeyMgr
 
 }
 #endregion      // namespace AJP_LicenseGenerator

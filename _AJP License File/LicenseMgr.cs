@@ -12,24 +12,25 @@
 //    This class manages the data functionality of AJP License Manager.
 //======================================================================================================
 //  AUTHOR:
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//                                                                                                    !!
-//                    GGGGG   IIIIII   OOOOO    RRRRRRR    GGGGG   IIIIII   OOOOO                     !!
-//                   GG   GG    II    OO   OO   RR    RR  GG   GG    II    OO   OO                    !!
-//                   GG         II   OO     OO  RR    RR  GG         II   OO     OO                   !!
-//                   GG  GGGG   II   OO     OO  RRRRRRR   GG  GGGG   II   OO     OO                   !!
-//                   GG   GG    II    OO   OO   RR    RR  GG   GG    II    OO   OO                    !!
-//                    GGGGG   IIIIII   OOOOO    RR    RR   GGGGG   IIIIII   OOOOO                     !!
-//                                                                                                    !!
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//    (c)Copyright 2022 AJP Engineering
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//                                                                                                                   !!
+//                              A        JJJJJJJJ  PPPPPPP         EEEEEEE  NN     NN   GGGGGG                       !!
+//                             AAA          JJ     PP    PP        EE       NNN    NN  GG    GG                      !!
+//                            AA AA         JJ     PP    PP        EE       NNNN   NN  GG                            !!
+//                           AA   AA        JJ     PPPPPP          EEEEEEE  NN NN  NN  GG   GGGG                     !!
+//                          AAAAAAAA   JJ   JJ     PP              EE       NN  NN NN  GG    GG                      !!
+//                         AA      AA  JJ   JJ     PP              EE       NN    NNN  GG    GG                      !!
+//                        AA        AA  JJJJJJ     PP              EEEEEEE  NN     NN   GGGGGG                       !!
+//                                                                                                                   !!
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//    (c)Copyright 2026 AJP Engineering
 //    All rights reserved.
-//======================================================================================================
+//=====================================================================================================================
 //  HISTORY:
-//    11/18/22 .. pg .. Version 1.0
-//######################################################################################################
-//######################################################################################################
-//######################################################################################################
+//    01/01/26 .. pg .. Version 4.0
+//#####################################################################################################################
+//#####################################################################################################################
+//#####################################################################################################################
 #endregion      // HEADER
 
 #region REFERENCES
@@ -43,7 +44,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using PinchGlobal;
+using PinchGlobal;      // Need for PinchFileSystem Object ... XML Full-Path Location
 #endregion      // REFERENCES
 
 #region namespace AJP_License_File
@@ -67,10 +68,35 @@ namespace AJP_License_File
         #endregion      // CONSTANTS
 
         #region FIELDS
+        private PinchFileSystem _pinchFileSystem;            // Pinch File System Object
+
+        private string _strFullPathFilenameXML;         // Full Path File Name to Persist and Restore XML File
         private LicenseFileData _licenseFileDataObj;    // License File Data object
         #endregion      // FIELDS
 
         #region PROPERTIES
+
+        #region PinchFileSystemObj
+        /// <summary>
+        /// Pinch File System Object Property
+        /// </summary>
+        public PinchFileSystem PinchFileSystemObj
+        {
+            get { return _pinchFileSystem; }
+            set { _pinchFileSystem = value; }
+        }
+        #endregion      // PinchFileSystemObj
+
+        #region FullPathFilenameXML
+        /// <summary>
+        /// Full Path Filename for XML File Property
+        /// </summary>
+        public string FullPathFilenameXML
+        {
+            get { return _strFullPathFilenameXML; }
+            set { _strFullPathFilenameXML = value; }
+        }
+        #endregion      // FullPathFilenameXML
 
         #region LicenseFileDataObj
         /// <summary>
@@ -95,6 +121,8 @@ namespace AJP_License_File
                 //-----------------------------
                 //--- Initialize Properties ---
                 //-----------------------------
+                PinchFileSystemObj = new PinchFileSystem();
+                FullPathFilenameXML = PinchFileSystemObj.LicenseFolderPath;
                 LicenseFileDataObj = new LicenseFileData();
             }
             catch (Exception ex)
