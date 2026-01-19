@@ -64,22 +64,10 @@ namespace AJP_LicenseGenerator
         #endregion      // CONSTANTS
 
         #region FIELDS
-        private LicenseFileData _licenseFileDataObj;    // License File Data object
         private LicenseMgr _licenseMgrObj;              // License Mgr object
         #endregion      // FIELDS
 
         #region PROPERTIES
-
-        #region LicenseFileDataObj
-        /// <summary>
-        /// LicenseFileDataObj Property  ...  License File Data object
-        /// </summary>
-        public LicenseFileData LicenseFileDataObj
-        {
-            get { return _licenseFileDataObj; }
-            set { _licenseFileDataObj = value; }
-        }
-        #endregion      // LicenseFileDataObj
 
         #region LicenseMgrObj
         /// <summary>
@@ -94,7 +82,7 @@ namespace AJP_LicenseGenerator
 
         #endregion      // PROPERTIES
 
-        #region CTOR: LicenseGeneratorMgr
+        #region CTOR: LicenseKeyMgr
         public LicenseKeyMgr()
         {
             string strMethod = "CTOR: LicenseKeyMgr";
@@ -104,8 +92,7 @@ namespace AJP_LicenseGenerator
                 //-----------------------------
                 //--- Initialize Properties ---
                 //-----------------------------
-                LicenseFileDataObj = new LicenseFileData();  // License File Data object [Namespace: AJP_License_File]
-                LicenseMgrObj = new LicenseMgr();            // License Mgr object       [Namespace: AJP_License_File]
+                LicenseMgrObj = new LicenseMgr();  // License Mgr object ... [Namespace: AJP_License_File]
             }
             catch (Exception ex)
             {
@@ -114,7 +101,7 @@ namespace AJP_LicenseGenerator
                 Console.WriteLine(strMsg);
             }
         }
-        #endregion      // CTOR: LicenseGeneratorMgr
+        #endregion      // CTOR: LicenseKeyMgr
 
         //=============================================================================================================
         //----------------------------------------------- XML METHODS -------------------------------------------------
@@ -138,6 +125,8 @@ namespace AJP_LicenseGenerator
             string ELEMENT_USER = "User";
             string ELEMENT_SEAT = "Seat";
             string ELEMENT_LICENSE = "License";
+
+            LicenseFileData licenseFileDataObj = LicenseMgrObj.LicenseFileDataObj;
             try
             {
                 #region LOG HEADER
@@ -163,21 +152,21 @@ namespace AJP_LicenseGenerator
 
                     #region SECTION: AJP_License
                     writer.WriteStartElement(LicenseFileData.ELEMENT_AJP_LICENSE);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_HASH, LicenseFileDataObj.FileHash);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_HASH, licenseFileDataObj.FileHash);
 
                     #region SECTION: Supplier
                     writer.WriteStartElement(ELEMENT_SUPPLIER);
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_AUTHOR);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.Author);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.Author);
                     writer.WriteEndElement();   // ELEMENT_AUTHOR
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_SUPPLIER_NAME);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.SupplierName);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.SupplierName);
                     writer.WriteEndElement();   // ELEMENT_SUPPLIER_NAME
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_SUPPLIER_URL);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.SupplierUrl);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.SupplierUrl);
                     writer.WriteEndElement();   // ELEMENT_SUPPLIER_URL
 
                     writer.WriteEndElement();   // ELEMENT_SUPPLIER
@@ -187,11 +176,11 @@ namespace AJP_LicenseGenerator
                     writer.WriteStartElement(ELEMENT_CUSTOMER_CONTACT);
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_CUSTOMER_NAME);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.CustomerName);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.CustomerName);
                     writer.WriteEndElement();   // ELEMENT_CUSTOMER_NAME
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_CUSTOMER_EMAIL);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.CustomerEmail);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.CustomerEmail);
                     writer.WriteEndElement();   // ELEMENT_CUSTOMER_EMAIL
 
                     writer.WriteEndElement();   // ELEMENT_CUSTOMER_CONTACT
@@ -201,19 +190,19 @@ namespace AJP_LicenseGenerator
                     writer.WriteStartElement(ELEMENT_PRODUCT);
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_PRODUCT_NAME);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.ProductName);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.ProductName);
                     writer.WriteEndElement();   // ELEMENT_PRODUCT_NAME
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_PRODUCT_VERSION);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.ProductVersion);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.ProductVersion);
                     writer.WriteEndElement();   // ELEMENT_PRODUCT_VERSION
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_PRODUCT_SERIAL_NUMBER);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.SerialNumber);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.SerialNumber);
                     writer.WriteEndElement();   // ELEMENT_PRODUCT_SERIAL_NUMBER
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_PRODUCT_CODE);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.ProductCode);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.ProductCode);
                     writer.WriteEndElement();   // ELEMENT_PRODUCT_CODE
 
                     writer.WriteEndElement();   // ELEMENT_PRODUCT
@@ -221,21 +210,21 @@ namespace AJP_LicenseGenerator
 
                     #region SECTION: License Type
                     writer.WriteStartElement(LicenseFileData.ELEMENT_LICENSE_TYPE);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.LicenseType);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.LicenseType);
 
                     #region SECTION: Site
                     writer.WriteStartElement(ELEMENT_SITE);
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_CORPORATION);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.Corporation);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.Corporation);
                     writer.WriteEndElement();   // ELEMENT_CORPORATION
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_DIVISION);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.Division);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.Division);
                     writer.WriteEndElement();   // ELEMENT_DIVISION
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_GROUP);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.Group);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.Group);
                     writer.WriteEndElement();   // ELEMENT_GROUP
 
                     writer.WriteEndElement();   // ELEMENT_SITE
@@ -245,7 +234,7 @@ namespace AJP_LicenseGenerator
                     writer.WriteStartElement(ELEMENT_USER);
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_USER_NAME);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.UserName);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.UserName);
                     writer.WriteEndElement();   // ELEMENT_USER_NAME
 
                     writer.WriteEndElement();   // ELEMENT_USER
@@ -255,7 +244,7 @@ namespace AJP_LicenseGenerator
                     writer.WriteStartElement(ELEMENT_SEAT);
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_DEVICE_NAME);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.DeviceName);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.DeviceName);
                     writer.WriteEndElement();   // ELEMENT_DEVICE_NAME
 
                     writer.WriteEndElement();   // ELEMENT_SEAT
@@ -268,19 +257,19 @@ namespace AJP_LicenseGenerator
                     writer.WriteStartElement(ELEMENT_LICENSE);
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_LICENSE_KEY);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.FileLicenseKey);
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.FileLicenseKey);
                     writer.WriteEndElement();   // ELEMENT_LICENSE_KEY
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_LICENSE_DURATION);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.DurationDays.ToString());
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.DurationDays.ToString());
                     writer.WriteEndElement();   // ELEMENT_LICENSE_DURATION
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_LICENSE_START);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.StartDate.ToString("MM/dd/yyyy"));
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.StartDate.ToString("MM/dd/yyyy"));
                     writer.WriteEndElement();   // ELEMENT_LICENSE_START
 
                     writer.WriteStartElement(LicenseFileData.ELEMENT_LICENSE_END);
-                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, LicenseFileDataObj.EndDate.ToString("MM/dd/yyyy"));
+                    writer.WriteAttributeString(LicenseFileData.ATTRIBUTE_VALUE, licenseFileDataObj.EndDate.ToString("MM/dd/yyyy"));
                     writer.WriteEndElement();   // ELEMENT_LICENSE_END
 
                     writer.WriteEndElement();   // ELEMENT_LICENSE

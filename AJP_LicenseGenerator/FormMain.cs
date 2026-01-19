@@ -930,39 +930,38 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "ScrapeScreenForLicenseFileCreation";
             string strMsg = string.Empty;
-            //LicenseFileData licenseFileDataObj = new LicenseFileData();
             try
             {
-                LicenseKeyMgrObj.LicenseFileDataObj = new LicenseFileData();
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj = new LicenseFileData();
                 //-----------------------------------------------------------
                 //--- Scrape Screen and Populate a LicenseFileData Object ---
                 //-----------------------------------------------------------
-                LicenseKeyMgrObj.LicenseFileDataObj.Author = textBoxAuthor.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.SupplierName = textBoxSupplierName.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.SupplierUrl = textBoxSupplierUrl.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.CustomerName = textBoxCustomerName.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.CustomerEmail = textBoxCustomerEmail.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.ProductName = comboBoxProduct.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.ProductVersion = textBoxVersion.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.SerialNumber = textBoxSerialNumber.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.ProductCode = textBoxProductCode.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.LicenseType = comboBoxLicenseType.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.UserName = textBoxUsername.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.DeviceName = textBoxDeviceName.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.Corporation = textBoxCorporation.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.Division = textBoxDivision.Text;
-                LicenseKeyMgrObj.LicenseFileDataObj.Group = textBoxGroup.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Author = textBoxAuthor.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.SupplierName = textBoxSupplierName.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.SupplierUrl = textBoxSupplierUrl.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.CustomerName = textBoxCustomerName.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.CustomerEmail = textBoxCustomerEmail.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductName = comboBoxProduct.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductVersion = textBoxVersion.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.SerialNumber = textBoxSerialNumber.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductCode = textBoxProductCode.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.LicenseType = comboBoxLicenseType.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.UserName = textBoxUsername.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.DeviceName = textBoxDeviceName.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Corporation = textBoxCorporation.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Division = textBoxDivision.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Group = textBoxGroup.Text;
 
-                LicenseKeyMgrObj.LicenseFileDataObj.FileLicenseKey = textBoxLicenseKey.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.FileLicenseKey = textBoxLicenseKey.Text;
 
-                LicenseKeyMgrObj.LicenseFileDataObj.StartDate = dateTimePickerStart.Value;
-                LicenseKeyMgrObj.LicenseFileDataObj.EndDate = dateTimePickerEnd.Value;
-                LicenseKeyMgrObj.LicenseFileDataObj.DurationDays = Convert.ToInt32(numericUpDownDuration.Value);
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.StartDate = dateTimePickerStart.Value;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.EndDate = dateTimePickerEnd.Value;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.DurationDays = Convert.ToInt32(numericUpDownDuration.Value);
 
-                LicenseKeyMgrObj.LicenseFileDataObj.FileHash = textBoxHash.Text;
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.FileHash = textBoxHash.Text;
 
                 //************************* TEST *************************
-                LicenseKeyMgrObj.LicenseFileDataObj.LogDataToConsole();
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.LogDataToConsole();
             }
             catch (Exception ex)
             {
@@ -970,7 +969,7 @@ namespace AJP_LicenseGenerator
                 strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
                 MessageBox.Show(strMsg);
             }
-            return LicenseKeyMgrObj.LicenseFileDataObj;
+            return LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj;
         }
         #endregion      // ScrapeScreenForLicenseFileCreation
 
@@ -989,7 +988,8 @@ namespace AJP_LicenseGenerator
 
                 //----------------------------------------------------------------------------------
                 //--- Create AJP License XML File using Properties of the LicenseFileData Object ---
-                //----------------------------------------------------------------------------------               
+                //----------------------------------------------------------------------------------
+                FullPathXmlFile = LicenseKeyMgrObj.LicenseMgrObj.FullPathFilenameXML;
                 LicenseKeyMgrObj.PersistLicenseXmlFile(FullPathXmlFile);
             }
             catch (Exception ex)
