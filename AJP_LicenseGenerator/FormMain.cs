@@ -66,7 +66,7 @@ namespace AJP_LicenseGenerator
         private const string PRODUCT_NAME_AJP_EXCHANGER     = "AJP Exchanger 4.1";
         private const string PRODUCT_NAME_AJP_LINEUP        = "AJP Lineup 1.0";
         private const string PRODUCT_NAME_AJP_CYBER_SHIELD  = "AJP CyberShield 1.0";
-        private const string PRODUCT_NAME_AJP_PINCH         = "AJP Pinch 3.1";
+        private const string PRODUCT_NAME_AJP_PINCH         = "AJP Pinch 4.0";
         private const string PRODUCT_NAME_AJP_SUDOKU        = "AJP Sudoku 1.0";
         #endregion      // CONSTANTS - PRODUCT NAME
 
@@ -75,7 +75,7 @@ namespace AJP_LicenseGenerator
         private const string PRODUCT_VERSION_AJP_EXCHANGER      = "4.1.1";
         private const string PRODUCT_VERSION_AJP_LINEUP         = "1.0.1";
         private const string PRODUCT_VERSION_AJP_CYBER_SHIELD   = "1.0.1";
-        private const string PRODUCT_VERSION_AJP_PINCH          = "3.1.1";
+        private const string PRODUCT_VERSION_AJP_PINCH          = "4.0.1";
         private const string PRODUCT_VERSION_AJP_SUDOKU         = "1.0.1";
         #endregion      // CONSTANTS - PRODUCT VERSION
 
@@ -108,19 +108,6 @@ namespace AJP_LicenseGenerator
 
         #region ENUMS
 
-        //#region ProductLicenceTypeEnum
-        ///// <summary>
-        ///// Product License Type Enumeration Values
-        ///// </summary>
-        //public enum ProductLicenceTypeEnum
-        //{
-        //    SEAT  = 0,  // AJP SEAT  License
-        //    USER  = 1,  // AJP USER  License
-        //    SITE  = 2,  // AJP SITE  License
-        //    TRIAL = 3   // AJP TRIAL License
-        //}
-        //#endregion      // ProductLicenceTypeEnum
-
         #region ProductNameEnum
         /// <summary>
         /// Product ID (Name) Enumeration Values
@@ -131,7 +118,7 @@ namespace AJP_LicenseGenerator
             AJP_Exchanger   = 1,   // PRODUCT: AJP Exchanger ..... Latest Version 4.1
             AJP_Lineup      = 2,   // PRODUCT: AJP Lineup ........ Latest Version 1.0
             AJP_CyberShield = 3,   // PRODUCT: AJP CyberShield ... Latest Version 1.0
-            AJP_Pinch       = 4,   // PRODUCT: AJP Pinch ......... Latest Version 3.0
+            AJP_Pinch       = 4,   // PRODUCT: AJP Pinch ......... Latest Version 4.0
             AJP_Sudoku      = 5    // PRODUCT: AJP Sudoku ........ Latest Version 1.0
         }
         #endregion      // ProductNameEnum
@@ -139,16 +126,16 @@ namespace AJP_LicenseGenerator
         #endregion      // ENUMS
 
         #region FIELDS
-        private Color _colorFAIL;                           // FAIL Color
-        private Color _colorSUCCESS;                        // SUCCESS Color
-        private Color _colorUNDECIDED;                      // UNDECIDED Color
-        private Color _colorDISABLED;                       // DISABLED Color
+        private Color _colorFAIL;                  // FAIL Color
+        private Color _colorSUCCESS;               // SUCCESS Color
+        private Color _colorUNDECIDED;             // UNDECIDED Color
+        private Color _colorDISABLED;              // DISABLED Color
 
         private LicenseTypes.LicenseTypeEnum _ajpLicenseType;  // AJP License Type Enumeration
         private ProductNameEnum _ajpProductName;               // AJP Product Name Enumeration
 
-        private string _strFullPathLicenseFolder;       // Full-Path AJP LICENSE Folder Location
-        private string _strFullPathXmlFile;             // Full-Path File Location of AJP License XML File
+        private string _strFullPathLicenseFolder;  // Full-Path AJP LICENSE Folder Location
+        private string _strFullPathXmlFile;        // Full-Path File Location of AJP License XML File
 
         private LicenseGeneratorMgr _licenseGeneratorMgr;   // AJP License Generator Mgr Object
         #endregion      // FIELDS
@@ -320,7 +307,7 @@ namespace AJP_LicenseGenerator
                 comboBoxProduct.Items.Add(PRODUCT_NAME_AJP_CYBER_SHIELD);       // Index 3
                 comboBoxProduct.Items.Add(PRODUCT_NAME_AJP_PINCH);              // Index 4
                 comboBoxProduct.Items.Add(PRODUCT_NAME_AJP_SUDOKU);             // Index 5
-                comboBoxProduct.SelectedIndex = 0;                              // Select First Index
+                comboBoxProduct.SelectedIndex = 4;                              // Select AJP Pinch
 
                 pictureBoxProductLogo.Image = Properties.Resources.AJP_Test_Logo;
                 //------------------------------------------------------------------------------------
@@ -332,15 +319,16 @@ namespace AJP_LicenseGenerator
                 comboBoxLicenseType.Items.Add(LicenseTypes.LicenseTypeEnum.DEVICE.ToString()); // Index 2
                 comboBoxLicenseType.Items.Add(LicenseTypes.LicenseTypeEnum.USER.ToString());   // Index 3
                 comboBoxLicenseType.Items.Add(LicenseTypes.LicenseTypeEnum.SEAT.ToString());   // Index 4
-                comboBoxLicenseType.SelectedIndex = 0;                                         // Select First Index
+                comboBoxLicenseType.SelectedIndex = 0;                                         // Select Trial
                 //-----------------------------------
                 //--- Licence Type Group Controls ---
                 //-----------------------------------
-                textBoxDeviceName.Text = String.Empty;
-                textBoxUsername.Text = String.Empty;
-                textBoxCorporation.Text = String.Empty;
-                textBoxDivision.Text = String.Empty;
-                textBoxGroup.Text = String.Empty;
+                //-------------------------------------------------------------- Initial: TRIAL ---
+                textBoxDeviceName.Text = DEFAULT_INGORE_FIELD;
+                textBoxUsername.Text = DEFAULT_INGORE_FIELD;
+                textBoxCorporation.Text = DEFAULT_INGORE_FIELD;
+                textBoxDivision.Text = DEFAULT_INGORE_FIELD;
+                textBoxGroup.Text = DEFAULT_INGORE_FIELD;
                 //------------------------------
                 //--- License Group Controls ---
                 //------------------------------
@@ -1303,14 +1291,30 @@ namespace AJP_LicenseGenerator
                     //------------------------------------
                     //--- LICENSE TYPE: TRIAL Options  ---
                     //------------------------------------
-                    textBoxDeviceName.Enabled = true;   // Device   is Needed for SEAT License
-                    textBoxUsername.Enabled = true;     // Username is Needed for SEAT License
 
-                    textBoxDeviceName.BackColor = Color.White;
-                    textBoxUsername.BackColor = Color.White;
+                    //----------------------------------------------------------------- ENABLED ---
+                    textBoxCorporation.Enabled = false;  // Corporation Name is NOT Needed for TRIAL License
+                    textBoxDivision.Enabled = false;     // Division    Name is NOT Needed for TRIAL License
+                    textBoxGroup.Enabled = false;        // Group       Name is NOT Needed for TRIAL License
 
-                    textBoxDeviceName.Text = String.Empty;
-                    textBoxUsername.Text = String.Empty;
+                    textBoxDeviceName.Enabled = false;   // Device   is NOT Needed for TRIAL License
+                    textBoxUsername.Enabled = false;     // Username is NOT Needed for TRIAL License
+
+                    //-------------------------------------------------------- BACKGROUND COLOR ---
+                    textBoxCorporation.BackColor = ColorDISABLED;
+                    textBoxDivision.BackColor = ColorDISABLED;
+                    textBoxGroup.BackColor = ColorDISABLED;
+
+                    textBoxDeviceName.BackColor = ColorDISABLED;
+                    textBoxUsername.BackColor = ColorDISABLED;
+
+                    //-------------------------------------------------------------------- TEXT ---
+                    textBoxCorporation.Text = DEFAULT_INGORE_FIELD;
+                    textBoxDivision.Text = DEFAULT_INGORE_FIELD;
+                    textBoxGroup.Text = DEFAULT_INGORE_FIELD;
+
+                    textBoxDeviceName.Text = DEFAULT_INGORE_FIELD;
+                    textBoxUsername.Text = DEFAULT_INGORE_FIELD;
                     #endregion      // AJP TRIAL LICENSE ... [0]
                 }
                 else if (comboBoxLicenseType.SelectedIndex == Convert.ToInt32(LicenseTypes.LicenseTypeEnum.SITE))
@@ -1321,11 +1325,26 @@ namespace AJP_LicenseGenerator
                     //------------------------------------
                     AjpLicenseType = LicenseTypes.LicenseTypeEnum.SITE;
 
+                    //----------------------------------------------------------------- ENABLED ---
+                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for SITE License
+                    textBoxDivision.Enabled = true;     // Division    Name is Needed for SITE License
+                    textBoxGroup.Enabled = true;        // Group       Name is Needed for SITE License
+
                     textBoxDeviceName.Enabled = false;    // Device Name  is NOT Needed for SITE License 
                     textBoxUsername.Enabled = false;      // Username     is NOT Needed for SITE License 
 
+                    //-------------------------------------------------------- BACKGROUND COLOR ---
+                    textBoxCorporation.BackColor = Color.White;
+                    textBoxDivision.BackColor = Color.White;
+                    textBoxGroup.BackColor = Color.White;
+
                     textBoxDeviceName.BackColor = ColorDISABLED;
                     textBoxUsername.BackColor   = ColorDISABLED;
+
+                    //-------------------------------------------------------------------- TEXT ---
+                    textBoxCorporation.Text = String.Empty;
+                    textBoxDivision.Text = String.Empty;
+                    textBoxGroup.Text = String.Empty;
 
                     textBoxDeviceName.Text = DEFAULT_INGORE_FIELD;
                     textBoxUsername.Text   = DEFAULT_INGORE_FIELD;
@@ -1341,11 +1360,26 @@ namespace AJP_LicenseGenerator
                     //------------------------------------
                     AjpLicenseType = LicenseTypes.LicenseTypeEnum.DEVICE;
 
+                    //----------------------------------------------------------------- ENABLED ---
+                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for DEVICE License
+                    textBoxDivision.Enabled = true;     // Division    Name is Needed for DEVICE License
+                    textBoxGroup.Enabled = true;        // Group       Name is Needed for DEVICE License
+
                     textBoxUsername.Enabled = false;      // Username is NOT Needed for DEVICE License
                     textBoxDeviceName.Enabled = true;     // Device Name is  Needed for DEVICE License
 
+                    //-------------------------------------------------------- BACKGROUND COLOR ---
+                    textBoxCorporation.BackColor = Color.White;
+                    textBoxDivision.BackColor = Color.White;
+                    textBoxGroup.BackColor = Color.White;
+
                     textBoxUsername.BackColor = ColorDISABLED;
                     textBoxDeviceName.BackColor = Color.White;
+
+                    //-------------------------------------------------------------------- TEXT ---
+                    textBoxCorporation.Text = String.Empty;
+                    textBoxDivision.Text = String.Empty;
+                    textBoxGroup.Text = String.Empty;
 
                     textBoxUsername.Text = DEFAULT_INGORE_FIELD;
                     textBoxDeviceName.Text = String.Empty;
@@ -1361,11 +1395,26 @@ namespace AJP_LicenseGenerator
                     //------------------------------------
                     AjpLicenseType = LicenseTypes.LicenseTypeEnum.USER;
 
+                    //----------------------------------------------------------------- ENABLED ---
+                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for USER License
+                    textBoxDivision.Enabled = true;     // Division    Name is Needed for USER License
+                    textBoxGroup.Enabled = true;        // Group       Name is Needed for USER License
+
                     textBoxDeviceName.Enabled = false;      // Device Name is NOT Needed for USER License
-                    textBoxUsername.Enabled = true;         // Username    is   Needed for USER License
+                    textBoxUsername.Enabled = true;         // Username    is     Needed for USER License
+
+                    //-------------------------------------------------------- BACKGROUND COLOR ---
+                    textBoxCorporation.BackColor = Color.White;
+                    textBoxDivision.BackColor = Color.White;
+                    textBoxGroup.BackColor = Color.White;
 
                     textBoxDeviceName.BackColor = ColorDISABLED;
                     textBoxUsername.BackColor = Color.White;
+
+                    //-------------------------------------------------------------------- TEXT ---
+                    textBoxCorporation.Text = String.Empty;
+                    textBoxDivision.Text = String.Empty;
+                    textBoxGroup.Text = String.Empty;
 
                     textBoxDeviceName.Text = DEFAULT_INGORE_FIELD;
                     textBoxUsername.Text = String.Empty;
@@ -1381,11 +1430,26 @@ namespace AJP_LicenseGenerator
                     //------------------------------------
                     AjpLicenseType = LicenseTypes.LicenseTypeEnum.SEAT;
 
+                    //----------------------------------------------------------------- ENABLED ---
+                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for SEAT License
+                    textBoxDivision.Enabled = true;     // Division    Name is Needed for SEAT License
+                    textBoxGroup.Enabled = true;        // Group       Name is Needed for SEAT License
+
                     textBoxDeviceName.Enabled = true;   // Device   is Needed for SEAT License
                     textBoxUsername.Enabled = true;     // Username is Needed for SEAT License
 
+                    //-------------------------------------------------------- BACKGROUND COLOR ---
+                    textBoxCorporation.BackColor = Color.White;
+                    textBoxDivision.BackColor = Color.White;
+                    textBoxGroup.BackColor = Color.White;
+
                     textBoxDeviceName.BackColor = Color.White;
                     textBoxUsername.BackColor = Color.White;
+
+                    //-------------------------------------------------------------------- TEXT ---
+                    textBoxCorporation.Text = String.Empty;
+                    textBoxDivision.Text = String.Empty;
+                    textBoxGroup.Text = String.Empty;
 
                     textBoxDeviceName.Text = String.Empty;
                     textBoxUsername.Text = String.Empty;
