@@ -138,6 +138,7 @@ namespace AJP_LicenseGenerator
         private string _strFullPathLicenseFolder;  // Full-Path AJP LICENSE Folder Location
         private string _strFullPathXmlFile;        // Full-Path File Location of AJP License XML File
 
+        private LicenseFileData _licenseFileData;  // AJP License File Data Object
         private LicenseKeyMgr _licenseKeyMgr;      // AJP License Key Mgr Object
         #endregion      // FIELDS
 
@@ -231,9 +232,20 @@ namespace AJP_LicenseGenerator
         }
         #endregion      // FullPathXmlFile
 
-        #region LicenseGeneratorMgrObj
+        #region LicenseFileDataObj
         /// <summary>
-        /// LicenseGeneratorMgrObj Property  ... AJP License Generator Mgr Object
+        /// LicenseFileDataObj Property  ... AJP License File Data Object
+        /// </summary>
+        public LicenseFileData LicenseFileDataObj
+        {
+            get { return _licenseFileData; }
+            set { _licenseFileData = value; }
+        }
+        #endregion      // LicenseFileDataObj
+
+        #region LicenseKeyMgrObj
+        /// <summary>
+        /// LicenseKeyMgrObj Property  ... AJP License Key Mgr Object
         /// </summary>
         public LicenseKeyMgr LicenseKeyMgrObj
         {
@@ -266,13 +278,13 @@ namespace AJP_LicenseGenerator
                 ColorUNDECIDED = Color.WhiteSmoke;              // UNDECIDED Color
                 ColorDISABLED = Color.WhiteSmoke;               // DISABLED Color
 
-                AjpLicenseType = LicenseTypes.LicenseTypeEnum.SEAT; // AJP License Type Enumeration
-                AjpProductName = ProductNameEnum.AJP_Test;      // AJP Product Name Enumeration
-
-                FullPathLicenseFolder = String.Empty;           // Full-Path AJP LICENSE Folder Location
-                FullPathXmlFile = String.Empty;                 // Full-Path File Location of AJP License XML File
-
-                LicenseKeyMgrObj = new LicenseKeyMgr();         // Licence Key Manager Object (PERSIST XML)
+                AjpLicenseType = LicenseTypes.LicenseTypeEnum.TRIAL; // AJP License Type Enumeration
+                AjpProductName = ProductNameEnum.AJP_Test;           // AJP Product Name Enumeration
+                //---------------------------------------------------
+                //--- Create Object [namespace: AJP_License_File] ---
+                //---------------------------------------------------
+                LicenseFileDataObj = new LicenseFileData(); // License File Data Object (XML Data - Structure)
+                LicenseKeyMgrObj = new LicenseKeyMgr();     // Licence Key Manager Object (PERSIST XML)
                 //--------------------------
                 //--- AJP INITIALIZATION ---
                 //--------------------------
@@ -842,22 +854,21 @@ namespace AJP_LicenseGenerator
                 //-------------------------------------------------
                 //--- Get License Key String and Update Textbox ---
                 //-------------------------------------------------
-                LicenseKeyMgrObj = new LicenseKeyMgr();
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Author = textBoxAuthor.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.SupplierName = textBoxSupplierName.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.SupplierUrl = textBoxSupplierUrl.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.CustomerName = textBoxCustomerName.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.CustomerEmail = textBoxCustomerEmail.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductName = comboBoxProduct.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductVersion = textBoxVersion.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.SerialNumber = textBoxSerialNumber.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.ProductCode = textBoxProductCode.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.LicenseType = comboBoxLicenseType.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.UserName = textBoxUsername.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.DeviceName = textBoxDeviceName.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Corporation = textBoxCorporation.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Division = textBoxDivision.Text;
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.Group = textBoxGroup.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.Author = textBoxAuthor.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.SupplierName = textBoxSupplierName.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.SupplierUrl = textBoxSupplierUrl.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.CustomerName = textBoxCustomerName.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.CustomerEmail = textBoxCustomerEmail.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.ProductName = comboBoxProduct.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.ProductVersion = textBoxVersion.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.SerialNumber = textBoxSerialNumber.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.ProductCode = textBoxProductCode.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.LicenseType = comboBoxLicenseType.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.UserName = textBoxUsername.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.DeviceName = textBoxDeviceName.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.Corporation = textBoxCorporation.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.Division = textBoxDivision.Text;
+                LicenseKeyMgrObj.LicenseFileDataObj.Group = textBoxGroup.Text;
 
                 textBoxLicenseKey.Text = LicenseKeyMgrObj.LicenseMgrObj.CalculateLicenseKey();
                 textBoxLicenseKey.Focus();
@@ -989,8 +1000,7 @@ namespace AJP_LicenseGenerator
                 //----------------------------------------------------------------------------------
                 //--- Create AJP License XML File using Properties of the LicenseFileData Object ---
                 //----------------------------------------------------------------------------------
-                FullPathXmlFile = LicenseKeyMgrObj.LicenseMgrObj.FullPathFilenameXML;
-                LicenseKeyMgrObj.PersistLicenseXmlFile(FullPathXmlFile);
+                LicenseKeyMgrObj.PersistLicenseXmlFile(licenseFileDataObj);
             }
             catch (Exception ex)
             {

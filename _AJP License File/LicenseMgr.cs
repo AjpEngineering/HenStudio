@@ -112,7 +112,12 @@ namespace AJP_License_File
         #endregion      // PROPERTIES
 
         #region CTOR: LicenseMgr
-        public LicenseMgr()
+        /// <summary>
+        /// Parameterized Constructor
+        /// Pass in Full-Path Licence File Location ... different for Pinch.exe and AJP_LicenseGenerator.exe
+        /// </summary>
+        /// <param name="strFullPathLicenceFileLoc">Full-Path Licence File Location</param>
+        public LicenseMgr(string strFullPathLicenceFileLoc)
         {
             string strMethod = "CTOR: LicenseMgr";
             string strMsg = String.Empty;
@@ -121,9 +126,11 @@ namespace AJP_License_File
                 //-----------------------------
                 //--- Initialize Properties ---
                 //-----------------------------
-                PinchFileSystemObj = new PinchFileSystem();
-                FullPathFilenameXML = PinchFileSystemObj.LicenseFolderPath;
-                LicenseFileDataObj = new LicenseFileData();
+                //PinchFileSystemObj = new PinchFileSystem();
+                //FullPathFilenameXML = PinchFileSystemObj.LicenseFolderPath;
+
+                FullPathFilenameXML = strFullPathLicenceFileLoc;    // Assign Full-Path License File Location
+                LicenseFileDataObj = new LicenseFileData();         // Create License File Data Object
             }
             catch (Exception ex)
             {

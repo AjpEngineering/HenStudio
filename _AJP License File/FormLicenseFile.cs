@@ -226,8 +226,9 @@ namespace AJP_License_File
 
                 FullPathLicenseFolder = string.Empty;       // Full-Path AJP LICENSE Folder Location
                 FullPathXmlFile = string.Empty;             // Full-Path File Location of AJP License XML File
-                LicenseFileDataObj = new LicenseFileData(); // AJP License File Data Object
-                LicenseMgrObj = new LicenseMgr();           // AJP License Mgr Object
+
+                LicenseFileDataObj = new LicenseFileData();         // AJP License File Data Object
+                LicenseMgrObj = new LicenseMgr(FullPathXmlFile);    // AJP License Mgr Object
                 //--------------------------
                 //--- AJP INITIALIZATION ---
                 //--------------------------

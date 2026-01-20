@@ -60,23 +60,38 @@ namespace AJP_LicenseGenerator
         private const String NAMESPACE = "AJP_LicenseGenerator";
         private const String CLASS = "LicenseKeyMgr";
 
-        private const int START_INDEX = 30;     // Start Index of Substring ... must be less than 32
+        private const String DEFAULT_LICENSE_FOLDERNAME = "AJP LICENSE";
+        private const String DEFAULT_LICENSE_FILENAME = "LICENSE.xml";
+
+        //private const int START_INDEX = 30;     // Start Index of Substring ... must be less than 32
         #endregion      // CONSTANTS
 
         #region FIELDS
-        private LicenseMgr _licenseMgrObj;              // License Mgr object
+        private LicenseFileData _licenseFileData;  // License File Data object ... [namespace: AJP_LicenseFile]
+        private LicenseMgr _licenseMgr;            // License Manager   object ... [namespace: AJP_LicenseFile]
         #endregion      // FIELDS
 
         #region PROPERTIES
 
+        #region LicenseFileDataObj
+        /// <summary>
+        /// LicenseFileDataObj Property  ...  License File Data object ... [namespace: AJP_LicenseFile]
+        /// </summary>
+        public LicenseFileData LicenseFileDataObj
+        {
+            get { return _licenseFileData; }
+            set { _licenseFileData = value; }
+        }
+        #endregion      // LicenseFileDataObj
+
         #region LicenseMgrObj
         /// <summary>
-        /// LicenseMgrObj Property  ...  License Mgr object
+        /// LicenseMgrObj Property  ...  License Manager object ... [namespace: AJP_LicenseFile]
         /// </summary>
         public LicenseMgr LicenseMgrObj
         {
-            get { return _licenseMgrObj; }
-            set { _licenseMgrObj = value; }
+            get { return _licenseMgr; }
+            set { _licenseMgr = value; }
         }
         #endregion      // LicenseMgrObj
 
@@ -87,12 +102,15 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "CTOR: LicenseKeyMgr";
             string strMsg = String.Empty;
+            string strFileLoc = String.Empty;
             try
             {
                 //-----------------------------
                 //--- Initialize Properties ---
                 //-----------------------------
-                LicenseMgrObj = new LicenseMgr();  // License Mgr object ... [Namespace: AJP_License_File]
+                LicenseFileDataObj = new LicenseFileData();  // License File Data object ... [Namespace: AJP_License_File]
+                strFileLoc = GetLicenseKeyFileLocation();
+                LicenseMgrObj = new LicenseMgr(strFileLoc);  // License Mgr object ... [Namespace: AJP_License_File]
             }
             catch (Exception ex)
             {
@@ -107,16 +125,47 @@ namespace AJP_LicenseGenerator
         //----------------------------------------------- XML METHODS -------------------------------------------------
         //=============================================================================================================
 
+        #region GetLicenseKeyFileLocation()
+        /// <summary>
+        /// Get the Full-Path License File Location ... Rooted in AJP_LicenseGenerator.exe]
+        /// </summary>
+        /// <returns>Full-Path License File Location string on success; otherwise Empty</returns>
+        private string GetLicenseKeyFileLocation()
+        {
+            string strMethod = "GetLicenseKeyFileLocation()";
+            string strMsg = String.Empty;
+            string strAppExecPath = String.Empty;
+            string strLicenseFolderPath = String.Empty;
+            string strLicenseFilePath = String.Empty;
+            try
+            {
+                strAppExecPath = Path.GetDirectoryName(Application.ExecutablePath);
+                strLicenseFolderPath = String.Format("{0}\\{1}", strAppExecPath, DEFAULT_LICENSE_FOLDERNAME);
+                strLicenseFilePath = String.Format("{0}\\{1}", strLicenseFolderPath, DEFAULT_LICENSE_FILENAME);
+            }
+            catch (Exception ex)
+            {
+                //--- LOG EXCEPTION ---
+                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
+                Console.WriteLine(strMsg);
+            }
+            return strLicenseFilePath;      // Return Full-Path License File Location [Root: AJP_LicenseGenerator exe]
+        }
+        #endregion  // GetLicenseKeyFileLocation()
+
         #region PersistLicenseXmlFile  ... WRITE TO XML FILE
         /// <summary>
         /// Write the LicenseFileDataObj Properties to the AJP License XML File
         /// </summary>
-        /// <param name="strFullPathXmlFile">Full Path AJP License XML File Location</param>
-        public void PersistLicenseXmlFile(string strFullPathXmlFile)
+        /// <param name="licenseFileDataObj">License File Data Object</param>
+        public void PersistLicenseXmlFile(LicenseFileData licenseFileDataObj)
         {
             string strMethod = "PersistLicenseXmlFile";
             string strMsg = String.Empty;
             XmlWriterSettings settings;
+
+            LicenseFileDataObj = licenseFileDataObj;
+            string strFullPathXmlFile = GetLicenseKeyFileLocation();
 
             string ELEMENT_SUPPLIER = "Supplier";
             string ELEMENT_CUSTOMER_CONTACT = "CustomerContact";
@@ -125,8 +174,6 @@ namespace AJP_LicenseGenerator
             string ELEMENT_USER = "User";
             string ELEMENT_SEAT = "Seat";
             string ELEMENT_LICENSE = "License";
-
-            LicenseFileData licenseFileDataObj = LicenseMgrObj.LicenseFileDataObj;
             try
             {
                 #region LOG HEADER
