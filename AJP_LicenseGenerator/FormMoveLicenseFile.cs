@@ -57,9 +57,6 @@ namespace AJP_LicenseGenerator
         #region CONSTANTS
         const string NAMESPACE = "AJP_LicenseGenerator";
         const string CLASS = "FormMoveLicenseFile";
-
-        const string FILE_MOVED_SUCCESS = " File Moved!!! ";
-        const string FILE_MOVED_FAIL = "*** File NOT Moved!!! ***";
         #endregion      // CONSTANTS
 
         #region FIELDS
