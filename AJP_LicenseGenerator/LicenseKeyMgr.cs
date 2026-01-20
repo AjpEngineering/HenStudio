@@ -130,7 +130,7 @@ namespace AJP_LicenseGenerator
         /// Get the Full-Path License File Location ... Rooted in AJP_LicenseGenerator.exe]
         /// </summary>
         /// <returns>Full-Path License File Location string on success; otherwise Empty</returns>
-        private string GetLicenseKeyFileLocation()
+        public string GetLicenseKeyFileLocation()
         {
             string strMethod = "GetLicenseKeyFileLocation()";
             string strMsg = String.Empty;

@@ -68,24 +68,11 @@ namespace AJP_License_File
         #endregion      // CONSTANTS
 
         #region FIELDS
-        private PinchFileSystem _pinchFileSystem;            // Pinch File System Object
-
         private string _strFullPathFilenameXML;         // Full Path File Name to Persist and Restore XML File
         private LicenseFileData _licenseFileDataObj;    // License File Data object
         #endregion      // FIELDS
 
         #region PROPERTIES
-
-        #region PinchFileSystemObj
-        /// <summary>
-        /// Pinch File System Object Property
-        /// </summary>
-        public PinchFileSystem PinchFileSystemObj
-        {
-            get { return _pinchFileSystem; }
-            set { _pinchFileSystem = value; }
-        }
-        #endregion      // PinchFileSystemObj
 
         #region FullPathFilenameXML
         /// <summary>
@@ -126,9 +113,6 @@ namespace AJP_License_File
                 //-----------------------------
                 //--- Initialize Properties ---
                 //-----------------------------
-                //PinchFileSystemObj = new PinchFileSystem();
-                //FullPathFilenameXML = PinchFileSystemObj.LicenseFolderPath;
-
                 FullPathFilenameXML = strFullPathLicenceFileLoc;    // Assign Full-Path License File Location
                 LicenseFileDataObj = new LicenseFileData();         // Create License File Data Object
             }

@@ -1001,6 +1001,12 @@ namespace AJP_LicenseGenerator
                 //--- Create AJP License XML File using Properties of the LicenseFileData Object ---
                 //----------------------------------------------------------------------------------
                 LicenseKeyMgrObj.PersistLicenseXmlFile(licenseFileDataObj);
+
+                //--------------------------------------------
+                //--- Move License File to DEPLOY Location ---
+                //--------------------------------------------
+                MoveLicenseFile();
+
             }
             catch (Exception ex)
             {
@@ -1011,18 +1017,28 @@ namespace AJP_LicenseGenerator
         }
         #endregion      // CreateLicenseFile
 
-        #region ViewLicenseFile
-        private void ViewLicenseFile()
+        #region MoveLicenseFile
+        /// <summary>
+        /// Launch Form to Move License File 
+        /// FROM: AJP_LicenseGenerator.exe factory Location
+        ///   TO: Pinch.exe DEPLOY Location
+        /// </summary>
+        private void MoveLicenseFile()
         {
-            string strMethod = "ViewLicenseFile";
+            string strMethod = "MoveLicenseFile";
             string strMsg = string.Empty;
-            LicenseFileData licenseFileDataObj = new LicenseFileData();
+            string strSourceLoc = String.Empty; // Full-Path Source (Original)    License File Location
+            string strTargetLoc = String.Empty; // Full-Path Target (Destination) License File Location
             try
             {
-                //----------------------------------------------------------------
-                //--- View AJP License XML File using a FormLicenseFile Object ---
-                //----------------------------------------------------------------               
-                MessageBox.Show("TO DO: View AJP License XML File using a FormLicenseFile Object.");
+                //--------------------------------------------------------------------
+                //--- Move AJP License XML File using a FormMoveLicenseFile Object ---
+                //--------------------------------------------------------------------               
+                strSourceLoc = LicenseKeyMgrObj.GetLicenseKeyFileLocation();
+                
+                FormMoveLicenseFile dlg = new FormMoveLicenseFile(strSourceLoc);
+                dlg.ShowDialog();
+
             }
             catch (Exception ex)
             {
@@ -1031,7 +1047,7 @@ namespace AJP_LicenseGenerator
                 MessageBox.Show(strMsg);
             }
         }
-        #endregion      // ViewLicenseFile
+        #endregion      // MoveLicenseFile
 
         //=============================================================================================================
         //--------------------------------------------- PRIVATE METHODS -----------------------------------------------

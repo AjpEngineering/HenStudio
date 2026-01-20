@@ -93,19 +93,6 @@ namespace AJP_License_File
         };
         #endregion      // enum LicenseType
 
-        //#region ProductLicenceTypeEnum
-        ///// <summary>
-        ///// Product License Type Enumeration Values
-        ///// </summary>
-        //public enum ProductLicenceTypeEnum
-        //{
-        //    SEAT = 0,  // AJP SEAT  License
-        //    USER = 1,  // AJP USER  License
-        //    SITE = 2,  // AJP SITE  License
-        //    TRIAL = 3   // AJP TRIAL License
-        //}
-        //#endregion      // ProductLicenceTypeEnum
-
         #region enum LogLevel
         /// <summary>
         /// ENUMERATION: Logging Level
