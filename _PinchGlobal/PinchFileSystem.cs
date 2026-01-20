@@ -76,7 +76,7 @@ namespace PinchGlobal
         public const string DEFAULT_HEN_REPORTS_FOLDERNAME     = "REPORTS";
         public const string DEFAULT_TARGETS_REPORTS_FOLDERNAME = "REPORTS";
 
-        public const string DEFAULT_LICENSE_FILENAME = "AJP License.xml";
+        public const string DEFAULT_LICENSE_FILENAME = "License.xml";
         #endregion      // CONSTANTS
 
         #region FIELDS

@@ -118,7 +118,6 @@ namespace AJP_License_File
         {
             string strMethod = "CTOR";
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
-
         }
         #endregion      // CTOR
 

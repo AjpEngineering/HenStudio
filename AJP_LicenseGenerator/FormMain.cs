@@ -379,8 +379,8 @@ namespace AJP_LicenseGenerator
             string strMethod = "FormMain_Load";
             string strMsg = string.Empty;
 
-            string AJP_LICENSE_FOLDER = "AJP LICENSE";
-            string AJP_LICENSE_FILE = "AJP License.xml";
+            string AJP_LICENSE_FOLDER = "LICENSE";
+            string AJP_LICENSE_FILE = "License.xml";
             try
             {
                 #region ASSIGN LICENSE XML FILE LOCATION PROPERTY

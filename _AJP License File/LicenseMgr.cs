@@ -62,8 +62,8 @@ namespace AJP_License_File
 
         private const int START_INDEX = 30;     // Start Index of Substring ... must be less than 32
 
-        private const string AJP_LICENSE_FOLDER = "AJP LICENSE";        // LICENSE FOLDER NAME
-        private const string AJP_LICENSE_FILE   = "AJP License.xml";    // LICENSE FILE NAME
+        private const string AJP_LICENSE_FOLDER = "LICENSE";        // LICENSE FOLDER NAME
+        private const string AJP_LICENSE_FILE   = "License.xml";    // LICENSE FILE NAME
 
         #endregion      // CONSTANTS
 

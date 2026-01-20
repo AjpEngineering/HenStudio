@@ -60,10 +60,8 @@ namespace AJP_LicenseGenerator
         private const String NAMESPACE = "AJP_LicenseGenerator";
         private const String CLASS = "LicenseKeyMgr";
 
-        private const String DEFAULT_LICENSE_FOLDERNAME = "AJP LICENSE";
-        private const String DEFAULT_LICENSE_FILENAME = "LICENSE.xml";
-
-        //private const int START_INDEX = 30;     // Start Index of Substring ... must be less than 32
+        private const String DEFAULT_LICENSE_FOLDERNAME = "LICENSE";
+        private const String DEFAULT_LICENSE_FILENAME = "License.xml";
         #endregion      // CONSTANTS
 
         #region FIELDS
