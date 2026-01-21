@@ -78,7 +78,7 @@ namespace AJP_License_File
         };
         #endregion      // enum LicenseStatus
 
-        #region enum LicenseType
+        #region enum LicenseTypeEnum
         /// <summary>
         /// ENUMERATION: License Type
         /// </summary>
@@ -91,7 +91,7 @@ namespace AJP_License_File
             USER    =  3,  // License Type is USER...... ANY DEVICES for a SINGLE USER  SINGLE COMPANY
             SEAT    =  4   // License Type is SEAT...... SINGLE USER on a SINGLE DEVICE SINGLE COMPANY
         };
-        #endregion      // enum LicenseType
+        #endregion      // enum LicenseTypeEnum
 
         #region enum LogLevel
         /// <summary>

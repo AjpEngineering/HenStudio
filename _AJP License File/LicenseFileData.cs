@@ -87,6 +87,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+
+using static AJP_License_File.LicenseTypes;
 #endregion      // REFERENCES
 
 #region namespace AJP_License_File
@@ -127,14 +129,12 @@ namespace AJP_License_File
         #endregion      // CONSTANTS - PRODUCT PROPERTIES DEFAULTS ..... [ === MODIFY PER PRODUCT === ]  .... Set by Developer per Product Soluion
 
         #region CONSTANTS - LICENSE TYPE PROPERTIES DEFAULTS ..... [ === MODIFY PER LICENSE === ]
-        private const String LICENSE_TYPE = "SITE";         // License Type ...... ["SITE" | "USER" | "SEAT"]
-        private const String CORPORATION  = "CORPORATION";  // User Corporation
-        private const String DIVISION     = "DIVISION";     // User Division
-        private const String GROUP        = "GROUP";        // User Group
-
-        private const String USERNAME     = "USERNAME";     // User Name
-
-        private const String DEVICE_NAME  = "DEVICE_NAME";  // Device Name
+        private const LicenseTypeEnum LICENSE_TYPE = LicenseTypeEnum.TRIAL;  // License Type ...... ["TRIAL"]
+        private const String CORPORATION  = "CORPORATION";                   // User Corporation
+        private const String DIVISION     = "DIVISION";                      // User Division
+        private const String GROUP        = "GROUP";                         // User Group
+        private const String USERNAME     = "USERNAME";                      // User Name
+        private const String DEVICE_NAME  = "DEVICE_NAME";                   // Device Name
         #endregion      // CONSTANTS - LICENSE TYPE PROPERTIES DEFAULTS ..... [ === MODIFY PER LICENSE === ]
 
         #region CONSTANTS - LICENSE PROPERTIES DEFAULTS .... [ === MODIFY PER LICENSE === ]
@@ -211,14 +211,12 @@ namespace AJP_License_File
         #endregion      // PRODUCT FIELDS ..... [=== MODIFY PER PRODUCT ===]  ... Set by Developer per Product Soluion
 
         #region LICENSE TYPE FIELDS .... [ === MODIFY PER LICENSE === ]
-        private string _strLicenseType;    // License Type ... ["SITE" | "USER" | "SEAT"]
-        private string _strCorporation;    // Corporation .... User Corporation ... "Exxon"
-        private string _strDivision;       // Division ....... User Division ...... "Research and Development"
-        private string _strGroup;          // Group .......... User Group ......... "Heat Exchanger Group"
-
-        private string _strUserName;	   // User Name ...... User Name .......... "Joey Bots"
-        
-        private string _strDeviceName;	   // Device Name .... User Device ........ "GM-DESKTOP"
+        private string _strlicenseType;   // License Type ........................ "TRIAL"
+        private string _strCorporation;   // Corporation .... User Corporation ... "Exxon"
+        private string _strDivision;      // Division ....... User Division ...... "Research and Development"
+        private string _strGroup;         // Group .......... User Group ......... "Heat Exchanger Group"
+        private string _strUserName;	  // User Name ...... User Name .......... "Joey Bots"        
+        private string _strDeviceName;	  // Device Name .... User Device ........ "GM-DESKTOP"
         #endregion      // LICENSE TYPE FIELDS .... [ === MODIFY PER LICENSE === ]
 
         #region LICENSE FIELDS .... [ === MODIFY PER LICENSE === ]
@@ -379,14 +377,15 @@ namespace AJP_License_File
 
         #region LICENSE TYPE FIELDS .... [ === MODIFY PER LICENSE === ]
 
-        #region LicenseType  ... [part of MASH]
+        #region LicenseTypeStr  ... [part of MASH]
         /// <summary>
-        /// LicenseType Property  ...  License Type ...... ["SITE" | "USER" | "SEAT"]
+        /// LicenseType Property  ...  License Type ...... ["TRIAL" | "SITE" | "DEVICE" | "USER" | "SEAT"]
+        /// Enum defined in LicenseTypes Class ... string is ToString() of Enum
         /// </summary>
         public string LicenseType
         {
-            get { return _strLicenseType; }
-            set { _strLicenseType = value; }
+            get { return _strlicenseType; }
+            set { _strlicenseType = value; }
         }
         #endregion      // LicenseType
 
@@ -525,33 +524,33 @@ namespace AJP_License_File
                 //----------------------------------------------------------------------------------------------
                 //--- Initialize Supplier Properties  ... [ *** FIXED *** -> ALL CUSTOMERS -> ALL PRODUCTS ] ---
                 //----------------------------------------------------------------------------------------------
-                Author = AUTHOR;                    // Author ............ Product Developer ....... "AJP Engineering"
-                SupplierName = SUPPLIER_NAME;       // Supplier Name ..... Manufacturer ............ "AJP Engineering"
-                SupplierUrl = SUPPLIER_URL;         // Supplier URL ...... AJP Web Site ............ "http:://www.AJPEngineering.com"
+                Author = AUTHOR;                    // Author ............ Product Developer ... "AJP Engineering"
+                SupplierName = SUPPLIER_NAME;       // Supplier Name ..... Manufacturer ........ "AJP Engineering"
+                SupplierUrl = SUPPLIER_URL;         // Supplier URL ...... AJP Web Site ........ "http:://www.AJPEngineering.com"
                 //-----------------------------------------------------------------------------------
                 //--- Initialize Customer Contact Properties .... [ === MODIFY PER CUSTOMER === ] ---
                 //-----------------------------------------------------------------------------------
-                CustomerName  = CUSTOMER_NAME;       // Customer Name ..... Customer Name ............ "Bill Cashman" ------------ [part of MASH] ---
-                CustomerEmail = CUSTOMER_EMAIL;      // Customer Email .... Customer Email ........... "BillCashman@exxon.com" --- [part of MASH] ---
+                CustomerName  = CUSTOMER_NAME;       // Customer Name ..... Customer Name ...... "Bill Cashman" ------------ [part of MASH] ---
+                CustomerEmail = CUSTOMER_EMAIL;      // Customer Email .... Customer Email ..... "BillCashman@exxon.com" --- [part of MASH] ---
                 //--------------------------------------------------------------------------------------------------------------------
                 //--- Initialize Product Properties ..... [ === MODIFY PER PRODUCT === ]  ... Set by Developer per Product Soluion ---
                 //--------------------------------------------------------------------------------------------------------------------
-                ProductName = PRODUCT_NAME;         // Product Name ...... AJP Product Name ........ "AJP Test 1.0"
-                ProductVersion = PRODUCT_VERSION;   // Product Version ... Full Version ............ "1.0.0"
-                SerialNumber = SERIAL_NUMBER;       // Serial Number ..... AJP Number .............. "1224-617-3554" --- [part of MASH] ---
-                ProductCode = PRODUCT_CODE;         // Product Code ...... Microsoft Format ........ "{3378CA35-F929-4E12-B8C7-0102DCE47C81}"
+                ProductName = PRODUCT_NAME;         // Product Name ...... AJP Product Name .... "AJP Pinch"
+                ProductVersion = PRODUCT_VERSION;   // Product Version ... Full Version ........ "4.0.1"
+                SerialNumber = SERIAL_NUMBER;       // Serial Number ..... AJP Number .......... "1022-456-1189" --- [part of MASH] ---
+                ProductCode = PRODUCT_CODE;         // Product Code ...... AJP GUID ............ "{3D9721BA-003E-4711-B7AF-B579645F0AC9}"
                 //-------------------------------------------------------------------------------
                 //--- Initialize License Type Properties ..... [ === MODIFY PER LICENSE === ] ---
                 //-------------------------------------------------------------------------------
-                LicenseType = LICENSE_TYPE;         // License Type ...... ["SITE" | "USER" | "SEAT"] ------------------------- [part of MASH] ---
+                LicenseType = LICENSE_TYPE.ToString(); // License Type ...... ["TRIAL"] ------------------------------------ [part of MASH] ---
 
-                Corporation = CORPORATION;          // Corporation ....... User Corporation ... "ExxonMobile" ----------------- [part of MASH] ---
-                Division = DIVISION;                // Division .......... User Division ...... "Research and Development" ---- [part of MASH] ---
-                Group = GROUP;                      // Group ............. User Group ......... "Heat Exchanger Group" -------- [part of MASH] ---
+                Corporation = CORPORATION;  // Corporation ....... User Corporation ... "ExxonMobile" ----------------- [part of MASH] ---
+                Division = DIVISION;        // Division .......... User Division ...... "Research and Development" ---- [part of MASH] ---
+                Group = GROUP;              // Group ............. User Group ......... "Heat Exchanger Group" -------- [part of MASH] ---
                 
-                UserName = USERNAME;                // User Name ..... User Name .............. "baseb" --------- [part of USER & SEAT MASHES] ---
+                DeviceName = DEVICE_NAME;	// Device Name ....... User Device ........ "GM-DESKTOP" ---- [part of DEVICE & SEAT MASHES] ---
+                UserName = USERNAME;        // User Name ......... User Name .......... "baseb" --------- [part of USER  & SEAT MASHES] ---
 
-                DeviceName = DEVICE_NAME;	        // Device Name .... User Device ........... "GM-DESKTOP" ------------- [part of SEAT MASH] ---
                 //------------------------------------------------------------------------
                 //--- Initialize License Properties  .... [=== MODIFY PER LICENSE ===] ---
                 //------------------------------------------------------------------------

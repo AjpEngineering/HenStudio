@@ -142,7 +142,7 @@ namespace AJP_LicenseGenerator
         }
         #endregion  // buttonTarget_Click
 
-        #region  // buttonMove_Click
+        #region buttonMove_Click
         /// <summary>
         /// Handle Move Button Click
         /// </summary>

@@ -70,6 +70,7 @@
     <Compile Include="FormMoveLicenseFile.Designer.cs">
       <DependentUpon>FormMoveLicenseFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="LicenseGenLogger.cs" />
     <Compile Include="LicenseKeyMgr.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

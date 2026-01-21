@@ -408,7 +408,7 @@
             this.textBoxCustomerEmail.Name = "textBoxCustomerEmail";
             this.textBoxCustomerEmail.Size = new System.Drawing.Size(305, 18);
             this.textBoxCustomerEmail.TabIndex = 2;
-            this.textBoxCustomerEmail.Text = "*** OPTIONAL ***";
+            this.textBoxCustomerEmail.Text = "ANY";
             // 
             // labelCustomerEmail
             // 
@@ -430,7 +430,7 @@
             this.textBoxCustomerName.Name = "textBoxCustomerName";
             this.textBoxCustomerName.Size = new System.Drawing.Size(230, 18);
             this.textBoxCustomerName.TabIndex = 1;
-            this.textBoxCustomerName.Text = "*** REQUIRED ***";
+            this.textBoxCustomerName.Text = "ANY";
             // 
             // label1
             // 

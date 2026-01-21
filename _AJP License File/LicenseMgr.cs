@@ -510,7 +510,7 @@ namespace AJP_License_File
             }
             return bValidLicense;
         }
-        #endregion      // CheckAJPLicense
+        #endregion      // IsValidLicense
 
         //=============================================================================================================
         //---------------------------------------------- HELPER METHODS -----------------------------------------------

@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//##########################################  P i n c h L o g g e r . c s  ############################################
+//#####################################  L i c e n s e G e n L o g g e r . c s  #######################################
 //#####################################################################################################################
-//  FILENAME:  PinchLogger.cs
-//  NAMESPACE: PinchGlobal
-//  CLASS(S):  PinchLogger
-//  COMPONENT: _PinchGLobal.dll
+//  FILENAME:  LicenseGenLogger.cs
+//  NAMESPACE: AJP_LicenseGenerator
+//  CLASS(S):  LicenseGenLogger
+//  COMPONENT: _AJP_LicenseGenerator.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for managing the Pinch Log.
+//    This file contains the code for managing the AJP License Generator Log.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -41,26 +41,26 @@ using System.Text;
 using System.Threading.Tasks;
 #endregion  // REFERENCES
 
-#region namespace PinchGlobal
-namespace PinchGlobal
+#region namespace AJP_LicenseGenerator
+namespace AJP_LicenseGenerator
 {
     #region  public static class PinchLogger
     /// <summary>
-    /// STATIC Class PinchLogger contains static methods for logging to file
+    /// STATIC Class LicenseGenhLogger contains static methods for logging to file
     /// </summary>
-    public static class PinchLogger
+    public static class LicGenLogger
     {
         #region CONSTS
-        private const string NAMESPACE = "PinchGlobal";
-        private const string CLASS = "PinchLogger";
+        private const string NAMESPACE = "AJP_LicenseGenerator";
+        private const string CLASS = "LicGenLogger";
         //===========================================================================
         //------------------------------- LOG LEVEL ---------------------------------
         //===========================================================================
-        //public const PinchTypes.LogLevel LogLevel = PinchTypes.LogLevel.LOG_NONE;
-        //public const PinchTypes.LogLevel LogLevel = PinchTypes.LogLevel.LOG_ERRORS;
-        //public const PinchTypes.LogLevel LogLevel = PinchTypes.LogLevel.LOG_WARNINGS;
-        //public const PinchTypes.LogLevel LogLevel = PinchTypes.LogLevel.LOG_IMPORTANT;
-        public const PinchTypes.LogLevel LogLevel = PinchTypes.LogLevel.LOG_ALL;
+        //public const LogLevelEnum Level = LogLevelEnum.NONE;
+        //public const LogLevelEnum Level = LogLevelEnum.ERRORS;
+        //public const LogLevelEnum Level = LogLevelEnum.WARNINGS;
+        //public const LogLevelEnum Level = LogLevelEnum.IMPORTANT;
+        public const LogLevelEnum Level = LogLevelEnum.ALL;
         //===========================================================================
         private const bool bDefaultImportant = true;
         private const int nDefaultSepLength = 200;
@@ -73,6 +73,21 @@ namespace PinchGlobal
         private static int nFlushCount = 0;        // Current Flush Count
         private static bool bAutoflush = false;    // Ensure this flag matches what is in App.config.xml file
         #endregion      // CONSTS
+
+        #region enum LogLevelEnum
+        /// <summary>
+        /// ENUMERATION: Logging Level
+        /// </summary>
+        public enum LogLevelEnum
+        {
+            UNKNOWN = -1,  // UNKNOWN Log Level
+            NONE = 0,      // TURN LOGGING OFF
+            ERRORS = 1,    // LOG ONLY ERROR MESSAGES
+            WARNINGS = 2,  // LOG ERROR & WARNING MESSAGES
+            IMPORTANT = 3, // LOG ERROR,  WARNING & IMPORTANT INFO MESSAGES
+            ALL = 4        // LOG ALL MESSAGES
+        };
+        #endregion      // enum LogLevelEnum
 
         #region public static void FlushLog
         /// <summary>
@@ -100,15 +115,15 @@ namespace PinchGlobal
         {
             if (bImportant)
             {
-                if ((PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ALL) ||
-                   (PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_IMPORTANT))
+                if ((Level == LogLevelEnum.ALL) ||
+                    (Level == LogLevelEnum.IMPORTANT))
                 {
                     WriteEntry(strNamespace, strClass, strMethod, "INFO", strMsg);
                     nFlushCount++;
                     if (nFlushCount >= nFlushCountLimit) FlushLog();
                 }
             }
-            else if ((PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ALL))
+            else if ((Level == LogLevelEnum.ALL))
             {
                 WriteEntry(strNamespace, strClass, strMethod, "INFO", strMsg);
                 nFlushCount++;
@@ -128,9 +143,9 @@ namespace PinchGlobal
         public static void LogWarning(string strNamespace, string strClass, string strMethod,
                                     string strMsg)
         {
-            if ((PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ALL) ||
-                (PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_WARNINGS) ||
-                (PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ERRORS))
+            if ((Level == LogLevelEnum.ALL) ||
+                (Level == LogLevelEnum.WARNINGS) ||
+                (Level == LogLevelEnum.ERRORS))
             {
                 WriteEntry(strNamespace, strClass, strMethod, "!!! WARNING !!!", strMsg);
                 nFlushCount++;
@@ -150,8 +165,8 @@ namespace PinchGlobal
         public static void LogError(string strNamespace, string strClass, string strMethod,
                                     string strMsg)
         {
-            if ((PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ALL) ||
-                (PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ERRORS))
+            if ((Level == LogLevelEnum.ALL) ||
+                (Level == LogLevelEnum.ERRORS))
 
             {
                 WriteEntry(strNamespace, strClass, strMethod, "*** ERROR ***", strMsg);
@@ -171,8 +186,8 @@ namespace PinchGlobal
         {
             if (bImportant)
             {
-                if ((PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ALL) ||
-                (PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_IMPORTANT))
+                if ((Level == LogLevelEnum.ALL) ||
+                    (Level == LogLevelEnum.IMPORTANT))
                 {
                     Trace.WriteLine(String.Join("", Enumerable.Repeat(cSepChar, nLength)));
                 }
@@ -280,9 +295,9 @@ namespace PinchGlobal
         }
         #endregion      // private static void WriteEntry
     }
-    #endregion      //  public static class PinchLogger
+    #endregion      //  public static class LicGenLogger
 }
-#endregion      // namespace PinchGlobal
+#endregion      // namespace AJP_LicenseGenerator
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

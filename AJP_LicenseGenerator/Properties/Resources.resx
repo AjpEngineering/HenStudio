@@ -148,4 +148,8 @@
   <data name="AJP Sudoku Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\AJP Sudoku Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AJP_Pinch_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP Pinch 4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>AJP Pinch 4.0 Image</comment>
+  </data>
 </root>

@@ -310,6 +310,11 @@ namespace AJP_LicenseGenerator
             string strMsg = string.Empty;
             try
             {
+                //----------------------------------------------
+                //--- Customer Name and Email Initial Values ---
+                //----------------------------------------------
+                textBoxCustomerName.Text  = DEFAULT_INGORE_FIELD;
+                textBoxCustomerEmail.Text = DEFAULT_INGORE_FIELD;
                 //-----------------------------------------------------------------------------
                 //--- Product Name ComboBox ... Ensure Matches ProductNameEnum Index Values ---
                 //-----------------------------------------------------------------------------
@@ -337,21 +342,20 @@ namespace AJP_LicenseGenerator
                 //--- Licence Type Group Controls ---
                 //-----------------------------------
                 //-------------------------------------------------------------- Initial: TRIAL ---
-                textBoxDeviceName.Text = DEFAULT_INGORE_FIELD;
-                textBoxUsername.Text = DEFAULT_INGORE_FIELD;
-                textBoxCorporation.Text = DEFAULT_INGORE_FIELD;
-                textBoxDivision.Text = DEFAULT_INGORE_FIELD;
-                textBoxGroup.Text = DEFAULT_INGORE_FIELD;
+                textBoxCorporation.Text = DEFAULT_INGORE_FIELD;     // Site Data ..... ANY Corporation
+                textBoxDivision.Text = DEFAULT_INGORE_FIELD;        // Site Data ..... ANY Division
+                textBoxGroup.Text = DEFAULT_INGORE_FIELD;           // Site Data ..... ANY Group
+                textBoxDeviceName.Text = DEFAULT_INGORE_FIELD;      // Device Data ... ANY Device
+                textBoxUsername.Text = DEFAULT_INGORE_FIELD;        // User Data ..... ANY User
                 //------------------------------
                 //--- License Group Controls ---
                 //------------------------------
-                textBoxLicenseKey.Text = String.Empty;
-                textBoxHash.Text = String.Empty;
+                textBoxLicenseKey.Text = String.Empty;              // Calculated Value
+                textBoxHash.Text = String.Empty;                    // Calculated Value
             
-                numericUpDownDuration.Value = Convert.ToDecimal(365);   // 365 Days
-                dateTimePickerStart.Value = DateTime.Now;               // Start Date
-
-                UpdateEndDate();
+                numericUpDownDuration.Value = Convert.ToDecimal(DEFAULT_DAYS_DURATION_TRIAL);   // 30 Days
+                dateTimePickerStart.Value = DateTime.Now;           // Start Date
+                UpdateEndDate();                                    // Calculate End Date
             }
             catch (Exception ex)
             {
@@ -1231,7 +1235,7 @@ namespace AJP_LicenseGenerator
                 {
                     #region AJP PINCH
                     //----------------------------------------
-                    //--- PRODUCT: AJP Pinch 3.0 Selected  ---
+                    //--- PRODUCT: AJP Pinch 4.0 Selected  ---
                     //----------------------------------------
                     AjpProductName = ProductNameEnum.AJP_Pinch;
                     textBoxVersion.Text = PRODUCT_VERSION_AJP_PINCH;
@@ -1309,14 +1313,20 @@ namespace AJP_LicenseGenerator
                     //------------------------------------
 
                     //----------------------------------------------------------------- ENABLED ---
-                    textBoxCorporation.Enabled = false;  // Corporation Name is NOT Needed for TRIAL License
-                    textBoxDivision.Enabled = false;     // Division    Name is NOT Needed for TRIAL License
-                    textBoxGroup.Enabled = false;        // Group       Name is NOT Needed for TRIAL License
+                    textBoxCustomerName.Enabled = false;  // Customer Name  is NOT Needed for [TRIAL]
+                    textBoxCustomerEmail.Enabled = false; // Customer Email is NOT Needed for [TRIAL]
 
-                    textBoxDeviceName.Enabled = false;   // Device   is NOT Needed for TRIAL License
-                    textBoxUsername.Enabled = false;     // Username is NOT Needed for TRIAL License
+                    textBoxCorporation.Enabled = false;  // Corporation Name is NOT Needed for [TRIAL]
+                    textBoxDivision.Enabled = false;     // Division    Name is NOT Needed for [TRIAL]
+                    textBoxGroup.Enabled = false;        // Group       Name is NOT Needed for [TRIAL]
+
+                    textBoxDeviceName.Enabled = false;   // Device   is NOT Needed for [TRIAL]
+                    textBoxUsername.Enabled = false;     // Username is NOT Needed for [TRIAL]
 
                     //-------------------------------------------------------- BACKGROUND COLOR ---
+                    textBoxCustomerName.BackColor = ColorDISABLED;
+                    textBoxCustomerEmail.BackColor = ColorDISABLED;
+
                     textBoxCorporation.BackColor = ColorDISABLED;
                     textBoxDivision.BackColor = ColorDISABLED;
                     textBoxGroup.BackColor = ColorDISABLED;
@@ -1325,6 +1335,9 @@ namespace AJP_LicenseGenerator
                     textBoxUsername.BackColor = ColorDISABLED;
 
                     //-------------------------------------------------------------------- TEXT ---
+                    textBoxCustomerName.Text = DEFAULT_INGORE_FIELD;
+                    textBoxCustomerEmail.Text = DEFAULT_INGORE_FIELD;
+
                     textBoxCorporation.Text = DEFAULT_INGORE_FIELD;
                     textBoxDivision.Text = DEFAULT_INGORE_FIELD;
                     textBoxGroup.Text = DEFAULT_INGORE_FIELD;
@@ -1342,14 +1355,20 @@ namespace AJP_LicenseGenerator
                     AjpLicenseType = LicenseTypes.LicenseTypeEnum.SITE;
 
                     //----------------------------------------------------------------- ENABLED ---
-                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for SITE License
-                    textBoxDivision.Enabled = true;     // Division    Name is Needed for SITE License
-                    textBoxGroup.Enabled = true;        // Group       Name is Needed for SITE License
+                    textBoxCustomerName.Enabled = true;  // Customer Name  is Needed for [SITE|DEVICE|USER|SEAT]
+                    textBoxCustomerEmail.Enabled = true; // Customer Email is Needed for [SITE|DEVICE|USER|SEAT]
+
+                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for [SITE|DEVICE|USER|SEAT]
+                    textBoxDivision.Enabled = true;     // Division    Name is Needed for [SITE|DEVICE|USER|SEAT]
+                    textBoxGroup.Enabled = true;        // Group       Name is Needed for [SITE|DEVICE|USER|SEAT]
 
                     textBoxDeviceName.Enabled = false;    // Device Name  is NOT Needed for SITE License 
                     textBoxUsername.Enabled = false;      // Username     is NOT Needed for SITE License 
 
                     //-------------------------------------------------------- BACKGROUND COLOR ---
+                    textBoxCustomerName.BackColor = Color.White;
+                    textBoxCustomerEmail.BackColor = Color.White;
+
                     textBoxCorporation.BackColor = Color.White;
                     textBoxDivision.BackColor = Color.White;
                     textBoxGroup.BackColor = Color.White;
@@ -1358,6 +1377,9 @@ namespace AJP_LicenseGenerator
                     textBoxUsername.BackColor   = ColorDISABLED;
 
                     //-------------------------------------------------------------------- TEXT ---
+                    textBoxCustomerName.Text = String.Empty;
+                    textBoxCustomerEmail.Text = String.Empty;
+
                     textBoxCorporation.Text = String.Empty;
                     textBoxDivision.Text = String.Empty;
                     textBoxGroup.Text = String.Empty;
@@ -1377,14 +1399,20 @@ namespace AJP_LicenseGenerator
                     AjpLicenseType = LicenseTypes.LicenseTypeEnum.DEVICE;
 
                     //----------------------------------------------------------------- ENABLED ---
-                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for DEVICE License
-                    textBoxDivision.Enabled = true;     // Division    Name is Needed for DEVICE License
-                    textBoxGroup.Enabled = true;        // Group       Name is Needed for DEVICE License
+                    textBoxCustomerName.Enabled = true;  // Customer Name  is Needed for [SITE|DEVICE|USER|SEAT]
+                    textBoxCustomerEmail.Enabled = true; // Customer Email is Needed for [SITE|DEVICE|USER|SEAT]
 
-                    textBoxUsername.Enabled = false;      // Username is NOT Needed for DEVICE License
-                    textBoxDeviceName.Enabled = true;     // Device Name is  Needed for DEVICE License
+                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for [DEVICE]
+                    textBoxDivision.Enabled = true;     // Division    Name is Needed for [DEVICE]
+                    textBoxGroup.Enabled = true;        // Group       Name is Needed for [DEVICE]
+
+                    textBoxUsername.Enabled = false;      // Username is NOT Needed for [DEVICE]
+                    textBoxDeviceName.Enabled = true;     // Device Name is  Needed for [DEVICE]
 
                     //-------------------------------------------------------- BACKGROUND COLOR ---
+                    textBoxCustomerName.BackColor = Color.White;
+                    textBoxCustomerEmail.BackColor = Color.White;
+
                     textBoxCorporation.BackColor = Color.White;
                     textBoxDivision.BackColor = Color.White;
                     textBoxGroup.BackColor = Color.White;
@@ -1393,6 +1421,9 @@ namespace AJP_LicenseGenerator
                     textBoxDeviceName.BackColor = Color.White;
 
                     //-------------------------------------------------------------------- TEXT ---
+                    textBoxCustomerName.Text = String.Empty;
+                    textBoxCustomerEmail.Text = String.Empty;
+
                     textBoxCorporation.Text = String.Empty;
                     textBoxDivision.Text = String.Empty;
                     textBoxGroup.Text = String.Empty;
@@ -1412,14 +1443,20 @@ namespace AJP_LicenseGenerator
                     AjpLicenseType = LicenseTypes.LicenseTypeEnum.USER;
 
                     //----------------------------------------------------------------- ENABLED ---
-                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for USER License
-                    textBoxDivision.Enabled = true;     // Division    Name is Needed for USER License
-                    textBoxGroup.Enabled = true;        // Group       Name is Needed for USER License
+                    textBoxCustomerName.Enabled = true;  // Customer Name  is Needed for [SITE|DEVICE|USER|SEAT]
+                    textBoxCustomerEmail.Enabled = true; // Customer Email is Needed for [SITE|DEVICE|USER|SEAT]
 
-                    textBoxDeviceName.Enabled = false;      // Device Name is NOT Needed for USER License
-                    textBoxUsername.Enabled = true;         // Username    is     Needed for USER License
+                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for [USER]
+                    textBoxDivision.Enabled = true;     // Division    Name is Needed for [USER]
+                    textBoxGroup.Enabled = true;        // Group       Name is Needed for [USER]
+
+                    textBoxDeviceName.Enabled = false;      // Device Name is NOT Needed for [USER]
+                    textBoxUsername.Enabled = true;         // Username    is     Needed for [USER]
 
                     //-------------------------------------------------------- BACKGROUND COLOR ---
+                    textBoxCustomerName.BackColor = Color.White;
+                    textBoxCustomerEmail.BackColor = Color.White;
+
                     textBoxCorporation.BackColor = Color.White;
                     textBoxDivision.BackColor = Color.White;
                     textBoxGroup.BackColor = Color.White;
@@ -1428,6 +1465,9 @@ namespace AJP_LicenseGenerator
                     textBoxUsername.BackColor = Color.White;
 
                     //-------------------------------------------------------------------- TEXT ---
+                    textBoxCustomerName.Text = String.Empty;
+                    textBoxCustomerEmail.Text = String.Empty;
+
                     textBoxCorporation.Text = String.Empty;
                     textBoxDivision.Text = String.Empty;
                     textBoxGroup.Text = String.Empty;
@@ -1447,14 +1487,20 @@ namespace AJP_LicenseGenerator
                     AjpLicenseType = LicenseTypes.LicenseTypeEnum.SEAT;
 
                     //----------------------------------------------------------------- ENABLED ---
-                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for SEAT License
-                    textBoxDivision.Enabled = true;     // Division    Name is Needed for SEAT License
-                    textBoxGroup.Enabled = true;        // Group       Name is Needed for SEAT License
+                    textBoxCustomerName.Enabled = true;  // Customer Name  is Needed for [SITE|DEVICE|USER|SEAT]
+                    textBoxCustomerEmail.Enabled = true; // Customer Email is Needed for [SITE|DEVICE|USER|SEAT]
+
+                    textBoxCorporation.Enabled = true;  // Corporation Name is Needed for [SEAT]
+                    textBoxDivision.Enabled = true;     // Division    Name is Needed for [SEAT]
+                    textBoxGroup.Enabled = true;        // Group       Name is Needed for [SEAT]
 
                     textBoxDeviceName.Enabled = true;   // Device   is Needed for SEAT License
                     textBoxUsername.Enabled = true;     // Username is Needed for SEAT License
 
                     //-------------------------------------------------------- BACKGROUND COLOR ---
+                    textBoxCustomerName.BackColor = Color.White;
+                    textBoxCustomerEmail.BackColor = Color.White;
+
                     textBoxCorporation.BackColor = Color.White;
                     textBoxDivision.BackColor = Color.White;
                     textBoxGroup.BackColor = Color.White;
@@ -1463,6 +1509,9 @@ namespace AJP_LicenseGenerator
                     textBoxUsername.BackColor = Color.White;
 
                     //-------------------------------------------------------------------- TEXT ---
+                    textBoxCustomerName.Text = String.Empty;
+                    textBoxCustomerEmail.Text = String.Empty;
+
                     textBoxCorporation.Text = String.Empty;
                     textBoxDivision.Text = String.Empty;
                     textBoxGroup.Text = String.Empty;

@@ -69,15 +69,6 @@ namespace Pinch
         #region CONSTANTS
         const string NAMESPACE = "Pinch";
         const string CLASS = "FormMain";
-
-        //#region PANEL INDICES
-        ////------------------------
-        ////--- MAIN TAB CONTROL ---
-        ////------------------------
-        //const int INDEX_INPUT_PANEL   = 0;
-        //const int INDEX_TARGETS_PANEL = 1;
-        //const int INDEX_HEN_PANEL     = 2;
-
         //#endregion  // PANEL INDICES
 
         const string PINCH_UNITS_ENGLISH = "English";
@@ -95,9 +86,6 @@ namespace Pinch
         const string STREAM_PHASE_VAPOR = "VAPOR";
         const string STREAM_PHASE_LNA = "NA";
         #endregion      // CONSTANTS
-
-        #region ENUMS
-        #endregion      // ENUMS
 
         #region FIELDS
 
