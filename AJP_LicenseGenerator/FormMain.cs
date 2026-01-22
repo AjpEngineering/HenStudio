@@ -43,6 +43,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 using AJP_License_File;
 
@@ -63,44 +64,44 @@ namespace AJP_LicenseGenerator
         private const string CLASS = "FormMain";
 
         #region CONSTANTS - PRODUCT NAME
-        private const string PRODUCT_NAME_AJP_TEST          = "AJP Test 1.0";
-        private const string PRODUCT_NAME_AJP_EXCHANGER     = "AJP Exchanger 4.1";
-        private const string PRODUCT_NAME_AJP_LINEUP        = "AJP Lineup 1.0";
-        private const string PRODUCT_NAME_AJP_CYBER_SHIELD  = "AJP CyberShield 1.0";
-        private const string PRODUCT_NAME_AJP_PINCH         = "AJP Pinch 4.0";
-        private const string PRODUCT_NAME_AJP_SUDOKU        = "AJP Sudoku 1.0";
+        private const string PRODUCT_NAME_AJP_TEST = "AJP Test 1.0";
+        private const string PRODUCT_NAME_AJP_EXCHANGER = "AJP Exchanger 4.1";
+        private const string PRODUCT_NAME_AJP_LINEUP = "AJP Lineup 1.0";
+        private const string PRODUCT_NAME_AJP_CYBER_SHIELD = "AJP CyberShield 1.0";
+        private const string PRODUCT_NAME_AJP_PINCH = "AJP Pinch 4.0";
+        private const string PRODUCT_NAME_AJP_SUDOKU = "AJP Sudoku 1.0";
         #endregion      // CONSTANTS - PRODUCT NAME
 
         #region CONSTANTS - PRODUCT VERSION
-        private const string PRODUCT_VERSION_AJP_TEST           = "1.0.1";
-        private const string PRODUCT_VERSION_AJP_EXCHANGER      = "4.1.1";
-        private const string PRODUCT_VERSION_AJP_LINEUP         = "1.0.1";
-        private const string PRODUCT_VERSION_AJP_CYBER_SHIELD   = "1.0.1";
-        private const string PRODUCT_VERSION_AJP_PINCH          = "4.0.1";
-        private const string PRODUCT_VERSION_AJP_SUDOKU         = "1.0.1";
+        private const string PRODUCT_VERSION_AJP_TEST = "1.0.1";
+        private const string PRODUCT_VERSION_AJP_EXCHANGER = "4.1.1";
+        private const string PRODUCT_VERSION_AJP_LINEUP = "1.0.1";
+        private const string PRODUCT_VERSION_AJP_CYBER_SHIELD = "1.0.1";
+        private const string PRODUCT_VERSION_AJP_PINCH = "4.0.1";
+        private const string PRODUCT_VERSION_AJP_SUDOKU = "1.0.1";
         #endregion      // CONSTANTS - PRODUCT VERSION
 
         #region CONSTANTS - PRODUCT SERIAL NUMBER
-        private const string SERIAL_NUMBER_AJP_TEST         = "1224-617-3554";
-        private const string SERIAL_NUMBER_AJP_EXCHANGER    = "1119-777-1189";
-        private const string SERIAL_NUMBER_AJP_LINEUP       = "0622-246-1963";
+        private const string SERIAL_NUMBER_AJP_TEST = "1224-617-3554";
+        private const string SERIAL_NUMBER_AJP_EXCHANGER = "1119-777-1189";
+        private const string SERIAL_NUMBER_AJP_LINEUP = "0622-246-1963";
         private const string SERIAL_NUMBER_AJP_CYBER_SHIELD = "0122-357-1959";
-        private const string SERIAL_NUMBER_AJP_PINCH        = "1022-456-1189";
-        private const string SERIAL_NUMBER_AJP_SUDOKU       = "0322-789-1957";
+        private const string SERIAL_NUMBER_AJP_PINCH = "1022-456-1189";
+        private const string SERIAL_NUMBER_AJP_SUDOKU = "0322-789-1957";
         #endregion      // CONSTANTS - PRODUCT SERIAL NUMBER
 
         #region CONSTANTS - PRODUCT CODE
-        private const string PRODUCT_CODE_AJP_TEST          = "{3378CA35-F929-4E12-B8C7-0102DCE47C81}";
-        private const string PRODUCT_CODE_AJP_EXCHANGER     = "{F71FB607-7CC0-4B75-BBB5-372050DF940B}";
-        private const string PRODUCT_CODE_AJP_LINEUP        = "{069DD815-4A07-4157-816B-6F01AE3F2AC8}";
-        private const string PRODUCT_CODE_AJP_CYBER_SHIELD  = "{63C81673-6574-477D-92AB-0F05151F07EF}";
-        private const string PRODUCT_CODE_AJP_PINCH         = "{3D9721BA-003E-4711-B7AF-B579645F0AC9}";
-        private const string PRODUCT_CODE_AJP_SUDOKU        = "{A62351AC-ED9A-435B-A800-3DE580DF8D05}";
+        private const string PRODUCT_CODE_AJP_TEST = "{3378CA35-F929-4E12-B8C7-0102DCE47C81}";
+        private const string PRODUCT_CODE_AJP_EXCHANGER = "{F71FB607-7CC0-4B75-BBB5-372050DF940B}";
+        private const string PRODUCT_CODE_AJP_LINEUP = "{069DD815-4A07-4157-816B-6F01AE3F2AC8}";
+        private const string PRODUCT_CODE_AJP_CYBER_SHIELD = "{63C81673-6574-477D-92AB-0F05151F07EF}";
+        private const string PRODUCT_CODE_AJP_PINCH = "{3D9721BA-003E-4711-B7AF-B579645F0AC9}";
+        private const string PRODUCT_CODE_AJP_SUDOKU = "{A62351AC-ED9A-435B-A800-3DE580DF8D05}";
         #endregion      // CONSTANTS - PRODUCT CODE
 
         #region CONSTANTS - DEFAULT LICENSE DURATIONS
-        private const int DEFAULT_DAYS_DURATION_TRIAL   = 30;   // Default  30 days for TRIAL
-        private const int DEFAULT_DAYS_DURATION         = 365;  // Default 365 days for SITE | USER | SEAT
+        private const int DEFAULT_DAYS_DURATION_TRIAL = 30;   // Default  30 days for TRIAL
+        private const int DEFAULT_DAYS_DURATION = 365;  // Default 365 days for SITE | USER | SEAT
         #endregion      // CONSTANTS - DEFAULT LICENSE DURATIONS
 
         private const string DEFAULT_INGORE_FIELD = "ANY";      // Default Ignore Field ... e.g., "ANY"
@@ -115,12 +116,12 @@ namespace AJP_LicenseGenerator
         /// </summary>
         public enum ProductNameEnum
         {
-            AJP_Test        = 0,   // PRODUCT: AJP Test .......... Latest Version 1.0
-            AJP_Exchanger   = 1,   // PRODUCT: AJP Exchanger ..... Latest Version 4.1
-            AJP_Lineup      = 2,   // PRODUCT: AJP Lineup ........ Latest Version 1.0
+            AJP_Test = 0,   // PRODUCT: AJP Test .......... Latest Version 1.0
+            AJP_Exchanger = 1,   // PRODUCT: AJP Exchanger ..... Latest Version 4.1
+            AJP_Lineup = 2,   // PRODUCT: AJP Lineup ........ Latest Version 1.0
             AJP_CyberShield = 3,   // PRODUCT: AJP CyberShield ... Latest Version 1.0
-            AJP_Pinch       = 4,   // PRODUCT: AJP Pinch ......... Latest Version 4.0
-            AJP_Sudoku      = 5    // PRODUCT: AJP Sudoku ........ Latest Version 1.0
+            AJP_Pinch = 4,   // PRODUCT: AJP Pinch ......... Latest Version 4.0
+            AJP_Sudoku = 5    // PRODUCT: AJP Sudoku ........ Latest Version 1.0
         }
         #endregion      // ProductNameEnum
 
@@ -264,6 +265,7 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "CTOR: FormMain";
             string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
             try
             {
                 //-----------------------------
@@ -279,7 +281,7 @@ namespace AJP_LicenseGenerator
                 ColorDISABLED = Color.WhiteSmoke;               // DISABLED Color
 
                 AjpLicenseType = LicenseTypes.LicenseTypeEnum.TRIAL; // AJP License Type Enumeration
-                AjpProductName = ProductNameEnum.AJP_Test;           // AJP Product Name Enumeration
+                AjpProductName = ProductNameEnum.AJP_Pinch;          // AJP Product Name Enumeration
                 //---------------------------------------------------
                 //--- Create Object [namespace: AJP_License_File] ---
                 //---------------------------------------------------
@@ -292,9 +294,17 @@ namespace AJP_LicenseGenerator
             }
             catch (Exception ex)
             {
-                //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                strMsg = String.Format(" ---> AJP LICENSE TYPE: {0}", AjpLicenseType.ToString());
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format(" ---> AJP PRODUCT NAME: {0}", AjpProductName.ToString());
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
             }
         }
         #endregion      // CTOR
@@ -308,12 +318,13 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "InitControls";
             string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
             try
             {
                 //----------------------------------------------
                 //--- Customer Name and Email Initial Values ---
                 //----------------------------------------------
-                textBoxCustomerName.Text  = DEFAULT_INGORE_FIELD;
+                textBoxCustomerName.Text = DEFAULT_INGORE_FIELD;
                 textBoxCustomerEmail.Text = DEFAULT_INGORE_FIELD;
                 //-----------------------------------------------------------------------------
                 //--- Product Name ComboBox ... Ensure Matches ProductNameEnum Index Values ---
@@ -352,16 +363,19 @@ namespace AJP_LicenseGenerator
                 //------------------------------
                 textBoxLicenseKey.Text = String.Empty;              // Calculated Value
                 textBoxHash.Text = String.Empty;                    // Calculated Value
-            
+
                 numericUpDownDuration.Value = Convert.ToDecimal(DEFAULT_DAYS_DURATION_TRIAL);   // 30 Days
                 dateTimePickerStart.Value = DateTime.Now;           // Start Date
                 UpdateEndDate();                                    // Calculate End Date
             }
             catch (Exception ex)
             {
-                //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
             }
         }
         #endregion      // InitControls
@@ -385,6 +399,7 @@ namespace AJP_LicenseGenerator
 
             string AJP_LICENSE_FOLDER = "LICENSE";
             string AJP_LICENSE_FILE = "License.xml";
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Loading MainForm");
             try
             {
                 #region ASSIGN LICENSE XML FILE LOCATION PROPERTY
@@ -403,13 +418,23 @@ namespace AJP_LicenseGenerator
                 //----------------------------------------
                 FullPathXmlFile = string.Format(@"{0}\{1}", FullPathLicenseFolder, AJP_LICENSE_FILE);
                 #endregion      // ASSIGN LICENSE XML FILE LOCATION PROPERTY
-
             }
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                strMsg = String.Format(" ----> FULL-PATH LICENSE FOLDER: {0}", FullPathLicenseFolder);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format(" ----> FULL-PATH LICENSE FILE  : {0}", FullPathXmlFile);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                LicGenLogger.WriteSection("END CONSTRUCTION SECTION");
             }
         }
         #endregion      // LOAD FORM
@@ -424,16 +449,23 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "FormMain_FormClosing";
             string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ");
+            LicGenLogger.WriteSection("FORM CLOSING SECTION");
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Closing MainForm");
             try
             {
-
-
+                
             }
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // FORM CLOSING
@@ -447,6 +479,7 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "buttonGenerateKey_Click";
             string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " START Generating License KEY");
             try
             {
                 UpdateLicenseKeyValue();
@@ -454,8 +487,14 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " FINISHED Generating License KEY");
+                LicGenLogger.WriteSeparatorLine('-');
             }
         }
         #endregion      // GENERATE KEY BUTTON HANDLER
@@ -465,6 +504,7 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "buttonHash_Click";
             string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " START Generating License HASH");
             try
             {
                 UpdateHashValue();
@@ -472,8 +512,14 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " FINISHED Generating License HASH");
+                LicGenLogger.WriteSeparatorLine('-');
             }
         }
         #endregion      // GENERATE HASH BUTTON HANDLER
@@ -483,6 +529,7 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "buttonLicenseFile_Click";
             string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " START Creating License FILE");
             try
             {
                 CreateLicenseFile();
@@ -490,8 +537,14 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " FINISHED Creating License FILE");
+                LicGenLogger.WriteSeparatorLine('-');
             }
         }
         #endregion      // CREATE LICENSE FILE BUTTON HANDLER
@@ -501,6 +554,7 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "buttonOk_Click";
             string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " OK Button Pressed");
             try
             {
                 Application.Exit();
@@ -508,8 +562,13 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                LicGenLogger.WriteSeparatorLine('-');
             }
         }
 
@@ -539,8 +598,13 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // LICENSE TYPE COMBOBOX
@@ -565,8 +629,13 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // PRODUCT NAME COMBOBOX
@@ -587,8 +656,13 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // INITIATION (START) DATE VALUE CHANGED
@@ -605,8 +679,13 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // END DATE VALUE CHANGED
@@ -625,8 +704,13 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // DURATION NUMBER HANDLER
@@ -644,8 +728,13 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // LOGO PICTURE BOX CLICK
@@ -657,8 +746,10 @@ namespace AJP_LicenseGenerator
         #region ValidLicenseKeyInput
         private bool ValidLicenseKeyInput()
         {
-            string strMethod = "UpdateLicenseKeyValue";
+            string strMethod = "ValidLicenseKeyInput";
             string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " Check for Valid License Key Input");
+
             LicenseTypes.LicenseTypeEnum licenseType = LicenseTypes.LicenseTypeEnum.UNKNOWN;
             bool bValidData = false;
             try
@@ -667,23 +758,24 @@ namespace AJP_LicenseGenerator
                 //--- Check for Valid Input ---
                 //-----------------------------
                 licenseType = GetLicenseTypeEnum();
+
+                strMsg = String.Format("  --> AJP LICENSE TYPE: {0}", licenseType.ToString());
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
                 switch (licenseType)
                 {
                     #region TRIAL LICENSE
                     case LicenseTypes.LicenseTypeEnum.TRIAL:
-                        //-----------------------------------------------------------------
-                        //--- TRIAL LICENSE:  REQUIRED ... Supplier Name, Customer Name ---
-                        //-----------------------------------------------------------------
+                        //--------------------------------------------------
+                        //--- TRIAL LICENSE:  REQUIRED ... Supplier Name ---
+                        //--------------------------------------------------
                         if (textBoxSupplierName.Text.Length < 1)
                         {
-                            MessageBox.Show(" Supplier Name is NOT specified.  Please provide the Supplier Name.");
-                            textBoxDivision.Focus();
-                            return bValidData;
-                        }
-                        if (textBoxCustomerName.Text.Length < 1)
-                        {
-                            MessageBox.Show(" Customer Name is NOT specified.  Please provide the Customer Name.");
-                            textBoxCorporation.Focus();
+                            strMsg = " Supplier Name is NOT specified.  Please provide the Supplier Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
+                            textBoxSupplierName.Focus();
                             return bValidData;
                         }
                         break;
@@ -696,19 +788,28 @@ namespace AJP_LicenseGenerator
                         //----------------------------------------------------------------
                         if (textBoxCorporation.Text.Length < 1)
                         {
-                            MessageBox.Show(" Corporation Name is NOT specified.  Please provide the Corporation Name.");
+                            strMsg = " Corporation Name is NOT specified.  Please provide the Corporation Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxCorporation.Focus();
                             return bValidData;
                         }
                         if (textBoxDivision.Text.Length < 1)
                         {
-                            MessageBox.Show(" Division Name is NOT specified.  Please provide the Division Name.");
+                            strMsg = " Division Name is NOT specified.  Please provide the Division Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxDivision.Focus();
                             return bValidData;
                         }
                         if (textBoxGroup.Text.Length < 1)
                         {
-                            MessageBox.Show(" Group Name is NOT specified.  Please provide the Group Name.");
+                            strMsg = " Group Name is NOT specified.  Please provide the Group Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxGroup.Focus();
                             return bValidData;
                         }
@@ -722,24 +823,37 @@ namespace AJP_LicenseGenerator
                         //------------------------------------------------------------------------------
                         if (textBoxDeviceName.Text.Length < 1)
                         {
-                            MessageBox.Show(" User Name is NOT specified.  Please provide the User Name.");
+                            strMsg = " Device Name is NOT specified.  Please provide the Device Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
+                            textBoxDeviceName.Focus();
                             return bValidData;
                         }
                         if (textBoxCorporation.Text.Length < 1)
                         {
-                            MessageBox.Show(" Corporation Name is NOT specified.  Please provide the Corporation Name.");
+                            strMsg = " Corporation Name is NOT specified.  Please provide the Corporation Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxCorporation.Focus();
                             return bValidData;
                         }
                         if (textBoxDivision.Text.Length < 1)
                         {
-                            MessageBox.Show(" Division Name is NOT specified.  Please provide the Division Name.");
+                            strMsg = " Division Name is NOT specified.  Please provide the Division Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxDivision.Focus();
                             return bValidData;
                         }
                         if (textBoxGroup.Text.Length < 1)
                         {
-                            MessageBox.Show(" Group Name is NOT specified.  Please provide the Group Name.");
+                            strMsg = " Group Name is NOT specified.  Please provide the Group Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxGroup.Focus();
                             return bValidData;
                         }
@@ -753,24 +867,37 @@ namespace AJP_LicenseGenerator
                         //--------------------------------------------------------------------------
                         if (textBoxUsername.Text.Length < 1)
                         {
-                            MessageBox.Show(" User Name is NOT specified.  Please provide the User Name.");
+                            strMsg = " User Name is NOT specified.  Please provide the User Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
+                            textBoxUsername.Focus();
                             return bValidData;
                         }
                         if (textBoxCorporation.Text.Length < 1)
                         {
-                            MessageBox.Show(" Corporation Name is NOT specified.  Please provide the Corporation Name.");
+                            strMsg = " Corporation Name is NOT specified.  Please provide the Corporation Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxCorporation.Focus();
                             return bValidData;
                         }
                         if (textBoxDivision.Text.Length < 1)
                         {
-                            MessageBox.Show(" Division Name is NOT specified.  Please provide the Division Name.");
+                            strMsg = " Division Name is NOT specified.  Please provide the Division Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxDivision.Focus();
                             return bValidData;
                         }
                         if (textBoxGroup.Text.Length < 1)
                         {
-                            MessageBox.Show(" Group Name is NOT specified.  Please provide the Group Name.");
+                            strMsg = " Group Name is NOT specified.  Please provide the Group Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxGroup.Focus();
                             return bValidData;
                         }
@@ -784,31 +911,46 @@ namespace AJP_LicenseGenerator
                         //--------------------------------------------------------------------------------------
                         if (textBoxDeviceName.Text.Length < 1)
                         {
-                            MessageBox.Show(" Device Name is NOT specified.  Please provide the Device Name.");
+                            strMsg = " Device Name is NOT specified.  Please provide the Device Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxDeviceName.Focus();
                             return bValidData;
                         }
                         if (textBoxUsername.Text.Length < 1)
                         {
-                            MessageBox.Show(" User Name is NOT specified.  Please provide the User Name.");
+                            strMsg = " User Name is NOT specified.  Please provide the User Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxUsername.Focus();
                             return bValidData;
                         }
                         if (textBoxCorporation.Text.Length < 1)
                         {
-                            MessageBox.Show(" Corporation Name is NOT specified.  Please provide the Corporation Name.");
+                            strMsg = " Corporation Name is NOT specified.  Please provide the Corporation Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxCorporation.Focus();
                             return bValidData;
                         }
                         if (textBoxDivision.Text.Length < 1)
                         {
-                            MessageBox.Show(" Division Name is NOT specified.  Please provide the Division Name.");
+                            strMsg = " Division Name is NOT specified.  Please provide the Division Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxDivision.Focus();
                             return bValidData;
                         }
                         if (textBoxGroup.Text.Length < 1)
                         {
-                            MessageBox.Show(" Group Name is NOT specified.  Please provide the Group Name.");
+                            strMsg = " Group Name is NOT specified.  Please provide the Group Name.";
+                            MessageBox.Show(strMsg);
+                            LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                             textBoxGroup.Focus();
                             return bValidData;
                         }
@@ -820,7 +962,10 @@ namespace AJP_LicenseGenerator
                         //----------------------------------
                         //--- DEFAULT: UNKNOWN LICENSE:  ---
                         //----------------------------------
-                        MessageBox.Show(" INVALID License Type.  Please select a Valid License Type.");
+                        strMsg = "  INVALID License Type.  Please select a Valid License Type.";
+                        MessageBox.Show(strMsg);
+                        LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+
                         comboBoxLicenseType.Focus();
                         return bValidData;
                         #endregion      // DEFAULT - UNKNOWN LICENSE
@@ -829,12 +974,21 @@ namespace AJP_LicenseGenerator
                 //--- PASSED ALL TESTS ---
                 //------------------------
                 bValidData = true;      // Passed All Tests
+
+                strMsg = String.Format("  --> ALL TESTS PASSED ");
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
             }
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                strMsg = String.Format("  --> Return Valid Data Flag: {0}", bValidData.ToString());
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
             }
             return bValidData;
         }
@@ -845,6 +999,9 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "UpdateLicenseKeyValue";
             string strMsg = string.Empty;
+
+            LicGenLogger.WriteSection("LICENSE KEY");
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Update License KEY");
             try
             {
                 #region CHECK FOR VALID INPUT LICENSE KEY DATA
@@ -882,8 +1039,14 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                LogLicenseKeyData(LicenseKeyMgrObj.LicenseFileDataObj);
+                LicGenLogger.WriteSection("END LICENSE KEY");
             }
         }
         #endregion      // UpdateLicenseKeyValue
@@ -893,6 +1056,9 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "UpdateHashValue";
             string strMsg = string.Empty;
+
+            LicGenLogger.WriteSection("LICENSE HASH");
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Update License HASH");
             try
             {
                 #region CHECK FOR VALID INPUT
@@ -930,8 +1096,22 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                strMsg = String.Format("  --> License START Date : {0}", dateTimePickerStart.Value.ToShortDateString());
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> License END   Date : {0}", dateTimePickerEnd.Value.ToShortDateString());
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> License HASH       : {0}", textBoxHash.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                LicGenLogger.WriteSection("END LICENSE KEY");
             }
         }
         #endregion      // UpdateHashValue
@@ -945,6 +1125,7 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "ScrapeScreenForLicenseFileCreation";
             string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " CScrape Screen for License File Input Data");
             try
             {
                 LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj = new LicenseFileData();
@@ -974,49 +1155,66 @@ namespace AJP_LicenseGenerator
                 LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.DurationDays = Convert.ToInt32(numericUpDownDuration.Value);
 
                 LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.FileHash = textBoxHash.Text;
-
-                //************************* TEST *************************
-                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj.LogDataToConsole();
             }
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                LogScrapedScreenData();
             }
             return LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj;
         }
         #endregion      // ScrapeScreenForLicenseFileCreation
 
         #region CreateLicenseFile
+        /// <summary>
+        /// Create License File using UI control data captured in a LicenseFileData Object 
+        /// </summary>
         private void CreateLicenseFile()
         {
             string strMethod = "CreateLicenseFile";
             string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " Creating License FILE");
+
             LicenseFileData licenseFileDataObj = new LicenseFileData();
             try
             {
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, 
+                    " Scrape Screen and Populate a LicenseFileData Object");
                 //-----------------------------------------------------------
                 //--- Scrape Screen and Populate a LicenseFileData Object ---
                 //-----------------------------------------------------------
                 licenseFileDataObj = ScrapeScreenForLicenseFileCreation();
 
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, 
+                    " Create AJP License XML File using Properties of the LicenseFileData Object");
                 //----------------------------------------------------------------------------------
                 //--- Create AJP License XML File using Properties of the LicenseFileData Object ---
                 //----------------------------------------------------------------------------------
                 LicenseKeyMgrObj.PersistLicenseXmlFile(licenseFileDataObj);
 
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod,
+                   " Move License File to DEPLOY Location");
                 //--------------------------------------------
                 //--- Move License File to DEPLOY Location ---
                 //--------------------------------------------
                 MoveLicenseFile();
-
             }
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // CreateLicenseFile
@@ -1031,6 +1229,8 @@ namespace AJP_LicenseGenerator
         {
             string strMethod = "MoveLicenseFile";
             string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " Move AJP License XML File");
+
             string strSourceLoc = String.Empty; // Full-Path Source (Original)    License File Location
             string strTargetLoc = String.Empty; // Full-Path Target (Destination) License File Location
             try
@@ -1039,7 +1239,11 @@ namespace AJP_LicenseGenerator
                 //--- Move AJP License XML File using a FormMoveLicenseFile Object ---
                 //--------------------------------------------------------------------               
                 strSourceLoc = LicenseKeyMgrObj.GetLicenseKeyFileLocation();
-                
+
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " --> Launch Move License File Form with SOURCE LOCATION");
+                strMsg = String.Format("     >> SOURCE LOCATION: {0}", strSourceLoc);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
                 FormMoveLicenseFile dlg = new FormMoveLicenseFile(strSourceLoc);
                 dlg.ShowDialog();
 
@@ -1047,8 +1251,12 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
             }
         }
         #endregion      // MoveLicenseFile
@@ -1081,7 +1289,7 @@ namespace AJP_LicenseGenerator
                     //---------------------------------------------
                     AjpLicenseType = LicenseTypes.LicenseTypeEnum.TRIAL;
                     #endregion      // AJP TRIAL LICENSE
-                }                
+                }
                 else if (comboBoxLicenseType.SelectedIndex == Convert.ToInt32(LicenseTypes.LicenseTypeEnum.SITE))
                 {
                     #region AJP SITE LICENSE
@@ -1131,8 +1339,13 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
             return AjpLicenseType;
         }
@@ -1146,23 +1359,27 @@ namespace AJP_LicenseGenerator
             string strProductName = "AJP Test 1.0";
             try
             {
-                if (AjpProductName == ProductNameEnum.AJP_Test)           return "AJP Test 1.0";
-                if (AjpProductName == ProductNameEnum.AJP_Exchanger)      return "AJP Exchanger 4.1";
-                if (AjpProductName == ProductNameEnum.AJP_Lineup)         return "AJP Lineup 1.0";
-                if (AjpProductName == ProductNameEnum.AJP_CyberShield)    return "AJP CyberShield 1.0";
-                if (AjpProductName == ProductNameEnum.AJP_Pinch)          return "AJP Pinch 3.0";
-                if (AjpProductName == ProductNameEnum.AJP_Sudoku)         return "AJP Sudoku 1.0";
-                else                                                      return "AJP Test 1.0";
+                if (AjpProductName == ProductNameEnum.AJP_Test) return "AJP Test 1.0";
+                if (AjpProductName == ProductNameEnum.AJP_Exchanger) return "AJP Exchanger 4.1";
+                if (AjpProductName == ProductNameEnum.AJP_Lineup) return "AJP Lineup 1.0";
+                if (AjpProductName == ProductNameEnum.AJP_CyberShield) return "AJP CyberShield 1.0";
+                if (AjpProductName == ProductNameEnum.AJP_Pinch) return "AJP Pinch 3.0";
+                if (AjpProductName == ProductNameEnum.AJP_Sudoku) return "AJP Sudoku 1.0";
+                else return "AJP Test 1.0";
             }
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
             return strProductName;
         }
-
         #endregion      // GetProductNameString
 
         #region UpdateProductControls
@@ -1277,8 +1494,13 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // UpdateProductControls
@@ -1374,7 +1596,7 @@ namespace AJP_LicenseGenerator
                     textBoxGroup.BackColor = Color.White;
 
                     textBoxDeviceName.BackColor = ColorDISABLED;
-                    textBoxUsername.BackColor   = ColorDISABLED;
+                    textBoxUsername.BackColor = ColorDISABLED;
 
                     //-------------------------------------------------------------------- TEXT ---
                     textBoxCustomerName.Text = String.Empty;
@@ -1385,7 +1607,7 @@ namespace AJP_LicenseGenerator
                     textBoxGroup.Text = String.Empty;
 
                     textBoxDeviceName.Text = DEFAULT_INGORE_FIELD;
-                    textBoxUsername.Text   = DEFAULT_INGORE_FIELD;
+                    textBoxUsername.Text = DEFAULT_INGORE_FIELD;
 
                     numericUpDownDuration.Value = Convert.ToDecimal(DEFAULT_DAYS_DURATION);
                     #endregion      // AJP SITE LICENSE ... [1]
@@ -1530,8 +1752,13 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // GetSerialNumber
@@ -1553,8 +1780,13 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // UpdateEndDate
@@ -1576,14 +1808,177 @@ namespace AJP_LicenseGenerator
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                MessageBox.Show(strMsg);
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
             }
         }
         #endregion      // UpdateStartDate
+
+        #region LogLicenseData
+        /// <summary>
+        /// Log License Key Data Values
+        /// </summary>
+        /// <param name="licData"></param>
+        private void LogLicenseKeyData(LicenseFileData licData)
+        {
+            string strMethod = "LogLicenseKeyData";
+            string strMsg = string.Empty;
+            LicGenLogger.WriteSeparatorLine('-');
+            try
+            {
+                strMsg = String.Format("  --> Author               : {0}", licData.Author);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Supplier Name        : {0}", licData.SupplierName);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Supplier URL         : {0}", licData.SupplierUrl);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Customer Name        : {0}", licData.CustomerName);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Customer Email       : {0}", licData.CustomerEmail);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Product Name         : {0}", licData.ProductName);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Product Version      : {0}", licData.ProductVersion);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Product Serial Number: {0}", licData.SerialNumber);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Product Code         : {0}", licData.ProductCode);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> License Type         : {0}", licData.LicenseType);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> User Name            : {0}", licData.UserName);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Device Name          : {0}", licData.DeviceName);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Corporation          : {0}", licData.Corporation);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Division             : {0}", licData.Division);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Group                : {0}", licData.Group);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+            }
+            catch (Exception ex)
+            {
+                //--- LOG EXCEPTION ---
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                strMsg = String.Format("  --> LICENSE KEY         : {0}", textBoxLicenseKey.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+            }
+        }
+        #endregion  // LogLicenseData
+
+        #region LogScrapedScreenData
+        /// <summary>
+        /// Log Scraped Screen License Key Data Values
+        /// </summary>
+        private void LogScrapedScreenData()
+        {
+            string strMethod = "LogScrapedScreenData";
+            string strMsg = string.Empty;
+            LicGenLogger.WriteSeparatorLine('-');
+            try
+            {
+                strMsg = String.Format("  --> Author               : {0}", textBoxAuthor.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Supplier Name        : {0}", textBoxSupplierName.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Supplier URL         : {0}", textBoxSupplierUrl.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Customer Name        : {0}", textBoxCustomerName.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Customer Email       : {0}", textBoxCustomerEmail.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Product Name         : {0}", comboBoxProduct.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Product Version      : {0}", textBoxVersion.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Product Serial Number: {0}", textBoxSerialNumber.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Product Code         : {0}", textBoxProductCode.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> License Type         : {0}", comboBoxLicenseType.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> User Name            : {0}", textBoxUsername.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Device Name          : {0}", textBoxDeviceName.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Corporation          : {0}", textBoxCorporation.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Division             : {0}", textBoxDivision.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Group                : {0}", textBoxGroup.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> License Key          : {0}", textBoxLicenseKey.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> Start Date           : {0}", dateTimePickerStart.Value.ToShortDateString());
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> End Date             : {0}", dateTimePickerEnd.Value.ToShortDateString());
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = String.Format("  --> License Hash        : {0}", textBoxHash.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+            }
+            catch (Exception ex)
+            {
+                //--- LOG EXCEPTION ---
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                strMsg = String.Format("  --> LICENSE KEY         : {0}", textBoxLicenseKey.Text);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                LicGenLogger.WriteSeparatorLine('-');
+            }
+        }
+        #endregion  // LogScrapedScreenData()
+
     }
     #endregion      // class FormMain
-
 }
 #endregion      // namespace AJP_LicenseGenerator
 

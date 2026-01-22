@@ -76,6 +76,11 @@ namespace Pinch
                 File.Delete(strFullPathFilename);
             }
             //--------------------------------------------------------------------------------------
+            //---------------------------------- WRITE LOG HEADER ----------------------------------
+            //--------------------------------------------------------------------------------------
+            PinchLogger.WriteHeader();
+            PinchLogger.WriteSection("START CONSTRUCTION SECTION");
+            //--------------------------------------------------------------------------------------
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());

@@ -35,10 +35,12 @@
 #region REFERENCES
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 #endregion      // REFERENCES
 
 #region namespace AJP_LicenseGenerator
@@ -61,6 +63,28 @@ namespace AJP_LicenseGenerator
             string strMsg = string.Empty;
             try
             {
+                //--------------------------------------------------------------------------------------
+                //---------------------------------- EMPTY LOG FILE ------------------------------------
+                //--------------------------------------------------------------------------------------
+                string nDefaultFilename = "AJP_LicenseGenerator_LOG.log";
+                string strExecPath = Path.GetDirectoryName(Application.ExecutablePath);
+                string strFullPathFilename = String.Format("{0}\\{1}", strExecPath, nDefaultFilename);
+                //Console.WriteLine(String.Format("Executable Path: {0}", strExecPath));                 // ***** TEST *****
+                //Console.WriteLine(String.Format("Full Path Filename: {0}", strFullPathFilename));      // ***** TEST *****
+                //-------------------------------------
+                //--- IF File Exists THEN Delete It ---
+                //-------------------------------------
+                if (File.Exists(strFullPathFilename))
+                {
+                    //Console.WriteLine("FILE EXISTS");      // ***** TEST *****
+                    File.Delete(strFullPathFilename);
+                }
+                //--------------------------------------------------------------------------------------
+                //---------------------------------- WRITE LOG HEADER ----------------------------------
+                //--------------------------------------------------------------------------------------
+                LicGenLogger.WriteHeader();
+                LicGenLogger.WriteSection("START CONSTRUCTION SECTION");
+                //--------------------------------------------------------------------------------------
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
@@ -71,6 +95,14 @@ namespace AJP_LicenseGenerator
                 //--- LOG EXCEPTION ---
                 strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", "PROGRAM", "Main", ex.Message);
                 Console.WriteLine(strMsg);
+            }
+            finally
+            {
+                //--------------------------------------------------------------------------------------
+                //--------------------------- WRITE LOG FOOTER and FLUSH FILE --------------------------
+                //--------------------------------------------------------------------------------------
+                LicGenLogger.WriteFooter();  // Write Footer
+                LicGenLogger.FlushLog();     // Flush Log to Listener
             }
         }
         #endregion      // Main Method ... Entry Point

@@ -376,8 +376,6 @@ namespace Pinch
         {
             string strMethod = "CTOR";
             string strMsg = string.Empty;
-            PinchLogger.WriteHeader();
-            PinchLogger.WriteSection("START CONSTRUCTION SECTION");
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
             try
             {

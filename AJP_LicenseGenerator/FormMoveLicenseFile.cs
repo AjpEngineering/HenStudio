@@ -44,6 +44,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 #endregion  // REFERENCES
@@ -97,20 +98,37 @@ namespace AJP_LicenseGenerator
         /// <param name="strSourceLoc">Full-Path Source License File Location</param>
         public FormMoveLicenseFile(string strSourceLoc)
         {
-            InitializeComponent();
-            //-------------------------
-            //--- Assign Properties ---
-            //-------------------------
-            SourceLoc = strSourceLoc;
-            TargetLoc = String.Empty;
-            //-------------------------------------
-            //--- Assign Initial Control Values ---
-            //-------------------------------------
-            this.textBoxSource.Text = SourceLoc;
-            this.textBoxTarget.Text = TargetLoc;
-            this.labelMoveStatus.Text = String.Empty;
+            string strMethod = "FormMoveLicenseFile";
+            string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " Parameterized CTOR");
+            try
+            {
+                InitializeComponent();
+                //-------------------------
+                //--- Assign Properties ---
+                //-------------------------
+                SourceLoc = strSourceLoc;
+                TargetLoc = String.Empty;
+                //-------------------------------------
+                //--- Assign Initial Control Values ---
+                //-------------------------------------
+                this.textBoxSource.Text = SourceLoc;
+                this.textBoxTarget.Text = TargetLoc;
+                this.labelMoveStatus.Text = String.Empty;
 
-            this.buttonMove.Focus();
+                this.buttonMove.Focus();
+            }
+            catch (Exception ex)
+            {
+                //--- LOG EXCEPTION ---
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " END Parameterized CTOR");
+            }
         }
         #endregion  // CTOR
 
@@ -124,20 +142,39 @@ namespace AJP_LicenseGenerator
         /// <param name="e"></param>
         private void buttonTarget_Click(object sender, EventArgs e)
         {
+            string strMethod = "buttonTarget_Click";
+            string strMsg = string.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " Target Button Pressed");
+
             string folderPath = Path.GetDirectoryName(SourceLoc);
             string fileName   = Path.GetFileName(SourceLoc);
-            using (this.folderBrowserDialogLicense) 
+            try
             {
-                this.folderBrowserDialogLicense.Description = "Select the Target Folder";
-                this.folderBrowserDialogLicense.ShowNewFolderButton = true;
-                this.folderBrowserDialogLicense.SelectedPath = Path.GetDirectoryName(SourceLoc);
-                if (this.folderBrowserDialogLicense.ShowDialog() == DialogResult.OK) 
+                using (this.folderBrowserDialogLicense) 
                 {
-                    TargetLoc = string.Format(@"{0}\{1}",
-                                                this.folderBrowserDialogLicense.SelectedPath,
-                                                fileName);
-                    this.textBoxTarget.Text = TargetLoc; 
-                } 
+                    this.folderBrowserDialogLicense.Description = "Select the Target Folder";
+                    this.folderBrowserDialogLicense.ShowNewFolderButton = true;
+                    this.folderBrowserDialogLicense.SelectedPath = Path.GetDirectoryName(SourceLoc);
+                    if (this.folderBrowserDialogLicense.ShowDialog() == DialogResult.OK) 
+                    {
+                        TargetLoc = string.Format(@"{0}\{1}",
+                                                    this.folderBrowserDialogLicense.SelectedPath,
+                                                    fileName);
+                        this.textBoxTarget.Text = TargetLoc; 
+                    } 
+                }
+            }
+            catch (Exception ex)
+            {
+                //--- LOG EXCEPTION ---
+                LicGenLogger.WriteSeparatorLine('*');
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                LicGenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                strMsg = String.Format("  --> TARGET Location: {0}", TargetLoc);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
             }
         }
         #endregion  // buttonTarget_Click
@@ -150,7 +187,9 @@ namespace AJP_LicenseGenerator
         /// <param name="e"></param>
         private void buttonMove_Click(object sender, EventArgs e)
         {
+            string strMethod = "buttonMove_Click";
             string strMsg = String.Empty;
+            LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " Move Button Pressed");
             try
             { 
                 if(File.Exists(TargetLoc))
@@ -160,7 +199,10 @@ namespace AJP_LicenseGenerator
                     //-----------------------------------------
                     File.Delete(TargetLoc);
                 }
-                File.Move(SourceLoc, TargetLoc); 
+                File.Move(SourceLoc, TargetLoc);
+
+                labelMoveStatus.Text = "File Successfully Moved!";
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ---> File Successfully Moved! <---");
             }
             catch (IOException ex)
             {
@@ -169,8 +211,8 @@ namespace AJP_LicenseGenerator
                 //--------------------------------------------
                 labelMoveStatus.Text = "UNSUCCESSFUL Move - See Console!";
                 strMsg = String.Format("Move failed: {0}", ex.Message);
-                Console.WriteLine(strMsg); 
-            } 
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+            }
             catch (UnauthorizedAccessException ex) 
             {
                 //----------------------
@@ -178,10 +220,16 @@ namespace AJP_LicenseGenerator
                 //----------------------
                 labelMoveStatus.Text = "UNSUCCESSFUL Move - See Console!";
                 strMsg = String.Format("Access denied: {0}", ex.Message);
-                Console.WriteLine(strMsg); 
+                LicGenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
             }
+            finally
+            {
+                strMsg = String.Format("  --> SOURCE Location: {0}", SourceLoc);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-            labelMoveStatus.Text = "File Successfully Moved!";
+                strMsg = String.Format("  --> TARGET Location: {0}", TargetLoc);
+                LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+            }
         }
         #endregion  // buttonMove_Click
 
