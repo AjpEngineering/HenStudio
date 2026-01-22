@@ -1012,6 +1012,12 @@ namespace AJP_LicenseGenerator
                 #endregion      // CHECK FOR VALID INPUT LICENSE KEY DATA
 
                 #region GET LICENSE KEY STRING
+                //------------------------------------------------------------
+                //--- Blank Customer Contact Guard ... Make "ANY" if blank ---
+                //------------------------------------------------------------
+                if (textBoxCustomerName.Text.Length < 1) textBoxCustomerName.Text = DEFAULT_INGORE_FIELD;
+                if (textBoxCustomerEmail.Text.Length < 1) textBoxCustomerEmail.Text = DEFAULT_INGORE_FIELD;
+
                 //-------------------------------------------------
                 //--- Get License Key String and Update Textbox ---
                 //-------------------------------------------------
@@ -1030,6 +1036,8 @@ namespace AJP_LicenseGenerator
                 LicenseKeyMgrObj.LicenseFileDataObj.Corporation = textBoxCorporation.Text;
                 LicenseKeyMgrObj.LicenseFileDataObj.Division = textBoxDivision.Text;
                 LicenseKeyMgrObj.LicenseFileDataObj.Group = textBoxGroup.Text;
+
+                LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj = LicenseKeyMgrObj.LicenseFileDataObj;
 
                 textBoxLicenseKey.Text = LicenseKeyMgrObj.LicenseMgrObj.CalculateLicenseKey();
                 textBoxLicenseKey.Focus();
@@ -1128,6 +1136,12 @@ namespace AJP_LicenseGenerator
             LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " CScrape Screen for License File Input Data");
             try
             {
+                //------------------------------------------------------------
+                //--- Blank Customer Contact Guard ... Make "ANY" if blank ---
+                //------------------------------------------------------------
+                if (textBoxCustomerName.Text.Length < 1) textBoxCustomerName.Text = DEFAULT_INGORE_FIELD;
+                if (textBoxCustomerEmail.Text.Length < 1) textBoxCustomerEmail.Text = DEFAULT_INGORE_FIELD;
+
                 LicenseKeyMgrObj.LicenseMgrObj.LicenseFileDataObj = new LicenseFileData();
                 //-----------------------------------------------------------
                 //--- Scrape Screen and Populate a LicenseFileData Object ---
@@ -1819,7 +1833,7 @@ namespace AJP_LicenseGenerator
         }
         #endregion      // UpdateStartDate
 
-        #region LogLicenseData
+        #region LogLicenseKeyData
         /// <summary>
         /// Log License Key Data Values
         /// </summary>
@@ -1831,49 +1845,49 @@ namespace AJP_LicenseGenerator
             LicGenLogger.WriteSeparatorLine('-');
             try
             {
-                strMsg = String.Format("  --> Author               : {0}", licData.Author);
+                strMsg = String.Format("  --> Author                : {0}", licData.Author);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Supplier Name        : {0}", licData.SupplierName);
+                strMsg = String.Format("  --> Supplier Name         : {0}", licData.SupplierName);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Supplier URL         : {0}", licData.SupplierUrl);
+                strMsg = String.Format("  --> Supplier URL          : {0}", licData.SupplierUrl);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Customer Name        : {0}", licData.CustomerName);
+                strMsg = String.Format("  --> Customer Name         : {0}", licData.CustomerName);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Customer Email       : {0}", licData.CustomerEmail);
+                strMsg = String.Format("  --> Customer Email        : {0}", licData.CustomerEmail);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Product Name         : {0}", licData.ProductName);
+                strMsg = String.Format("  --> Product Name          : {0}", licData.ProductName);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Product Version      : {0}", licData.ProductVersion);
+                strMsg = String.Format("  --> Product Version       : {0}", licData.ProductVersion);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Product Serial Number: {0}", licData.SerialNumber);
+                strMsg = String.Format("  --> Product Serial Number : {0}", licData.SerialNumber);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Product Code         : {0}", licData.ProductCode);
+                strMsg = String.Format("  --> Product Code          : {0}", licData.ProductCode);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> License Type         : {0}", licData.LicenseType);
+                strMsg = String.Format("  --> License Type          : {0}", licData.LicenseType);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> User Name            : {0}", licData.UserName);
+                strMsg = String.Format("  --> User Name             : {0}", licData.UserName);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Device Name          : {0}", licData.DeviceName);
+                strMsg = String.Format("  --> Device Name           : {0}", licData.DeviceName);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Corporation          : {0}", licData.Corporation);
+                strMsg = String.Format("  --> Corporation           : {0}", licData.Corporation);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Division             : {0}", licData.Division);
+                strMsg = String.Format("  --> Division              : {0}", licData.Division);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Group                : {0}", licData.Group);
+                strMsg = String.Format("  --> Group                 : {0}", licData.Group);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
             }
             catch (Exception ex)
@@ -1885,11 +1899,11 @@ namespace AJP_LicenseGenerator
             }
             finally
             {
-                strMsg = String.Format("  --> LICENSE KEY         : {0}", textBoxLicenseKey.Text);
+                strMsg = String.Format("  --> LICENSE KEY           : {0}", textBoxLicenseKey.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
             }
         }
-        #endregion  // LogLicenseData
+        #endregion  // LogLicenseKeyData
 
         #region LogScrapedScreenData
         /// <summary>
@@ -1902,61 +1916,61 @@ namespace AJP_LicenseGenerator
             LicGenLogger.WriteSeparatorLine('-');
             try
             {
-                strMsg = String.Format("  --> Author               : {0}", textBoxAuthor.Text);
+                strMsg = String.Format("  --> Author                : {0}", textBoxAuthor.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Supplier Name        : {0}", textBoxSupplierName.Text);
+                strMsg = String.Format("  --> Supplier Name         : {0}", textBoxSupplierName.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Supplier URL         : {0}", textBoxSupplierUrl.Text);
+                strMsg = String.Format("  --> Supplier URL          : {0}", textBoxSupplierUrl.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Customer Name        : {0}", textBoxCustomerName.Text);
+                strMsg = String.Format("  --> Customer Name         : {0}", textBoxCustomerName.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Customer Email       : {0}", textBoxCustomerEmail.Text);
+                strMsg = String.Format("  --> Customer Email        : {0}", textBoxCustomerEmail.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Product Name         : {0}", comboBoxProduct.Text);
+                strMsg = String.Format("  --> Product Name          : {0}", comboBoxProduct.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Product Version      : {0}", textBoxVersion.Text);
+                strMsg = String.Format("  --> Product Version       : {0}", textBoxVersion.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Product Serial Number: {0}", textBoxSerialNumber.Text);
+                strMsg = String.Format("  --> Product Serial Number : {0}", textBoxSerialNumber.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Product Code         : {0}", textBoxProductCode.Text);
+                strMsg = String.Format("  --> Product Code          : {0}", textBoxProductCode.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> License Type         : {0}", comboBoxLicenseType.Text);
+                strMsg = String.Format("  --> License Type          : {0}", comboBoxLicenseType.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> User Name            : {0}", textBoxUsername.Text);
+                strMsg = String.Format("  --> User Name             : {0}", textBoxUsername.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Device Name          : {0}", textBoxDeviceName.Text);
+                strMsg = String.Format("  --> Device Name           : {0}", textBoxDeviceName.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Corporation          : {0}", textBoxCorporation.Text);
+                strMsg = String.Format("  --> Corporation           : {0}", textBoxCorporation.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Division             : {0}", textBoxDivision.Text);
+                strMsg = String.Format("  --> Division              : {0}", textBoxDivision.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Group                : {0}", textBoxGroup.Text);
+                strMsg = String.Format("  --> Group                 : {0}", textBoxGroup.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> License Key          : {0}", textBoxLicenseKey.Text);
+                strMsg = String.Format("  --> License Key           : {0}", textBoxLicenseKey.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> Start Date           : {0}", dateTimePickerStart.Value.ToShortDateString());
+                strMsg = String.Format("  --> Start Date            : {0}", dateTimePickerStart.Value.ToShortDateString());
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> End Date             : {0}", dateTimePickerEnd.Value.ToShortDateString());
+                strMsg = String.Format("  --> End Date              : {0}", dateTimePickerEnd.Value.ToShortDateString());
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = String.Format("  --> License Hash        : {0}", textBoxHash.Text);
+                strMsg = String.Format("  --> License Hash          : {0}", textBoxHash.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
             }
@@ -1969,7 +1983,7 @@ namespace AJP_LicenseGenerator
             }
             finally
             {
-                strMsg = String.Format("  --> LICENSE KEY         : {0}", textBoxLicenseKey.Text);
+                strMsg = String.Format("  --> LICENSE KEY           : {0}", textBoxLicenseKey.Text);
                 LicGenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 LicGenLogger.WriteSeparatorLine('-');

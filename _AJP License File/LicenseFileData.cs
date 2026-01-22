@@ -1033,71 +1033,98 @@ namespace AJP_License_File
             string strMash = string.Empty;
             try
             {
-                //--------------------------------------
-                //--- Get MASH Based on License Type ---
-                //--------------------------------------
-                if(string.Compare(SITE, LicenseType) ==0)
-                {
-                    #region SITE MASH STRING
-                    strMash = string.Format("AJP-{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}_{9}-ENG",
-                                            LicenseType,
-                                            SupplierName,
-                                            CustomerName,
-                                            ProductName,
-                                            ProductVersion,
-                                            SerialNumber,
-                                            ProductCode,
-                                            Corporation,
-                                            Division,
-                                            Group);
-                    #endregion      // SITE MASH STRING
-                }
-                else if (string.Compare(USER, LicenseType) == 0)
-                {
-                    #region USER MASH STRING
-                    strMash = string.Format("AJP-{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}_{9}_{10}-ENG",
-                                            LicenseType,
-                                            SupplierName,
-                                            CustomerName,
-                                            ProductName,
-                                            ProductVersion,
-                                            SerialNumber,
-                                            ProductCode,
-                                            Corporation,
-                                            Division,
-                                            Group,
-                                            UserName);
-                    #endregion      // USER MASH STRING                
-                }
-                else if (string.Compare(SEAT, LicenseType) == 0)
-                {
-                    #region SEAT MASH STRING
-                    strMash = string.Format("AJP-{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}_{9}_{10}_{11}-ENG",
-                                            LicenseType,
-                                            SupplierName,
-                                            CustomerName,
-                                            ProductName,
-                                            ProductVersion,
-                                            SerialNumber,
-                                            ProductCode,
-                                            Corporation,
-                                            Division,
-                                            Group,
-                                            UserName,
-                                            DeviceName);
-                    #endregion      // SEAT MASH STRING                
-                }
-                else
-                {
-                    #region ERROR CREATING MASH
-                    Console.WriteLine(" ");
-                    Console.WriteLine(" ---------------------------------- ");
-                    Console.WriteLine(" *****  ERROR CREATING MASH!  ***** ");
-                    Console.WriteLine(" ---------------------------------- ");
-                    Console.WriteLine(" ");
-                    strMash = ERROR_CREATING_MASH;
-                    #endregion      // ERROR CREATING MASH
-                }
+                //-----------------------------------------------------------
+                //--- Get Mash String for Key Independent of License Type ---
+                //-----------------------------------------------------------
+                strMash = string.Format("AJP-{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}_{9}_{10}_{11}_{12}-ENG",
+                        LicenseType,
+                        SupplierName,
+                        CustomerName,
+                        ProductName,
+                        ProductVersion,
+                        SerialNumber,
+                        ProductCode,
+                        Corporation,
+                        Division,
+                        Group,
+                        UserName,
+                        DeviceName,
+                        "B052122");
+
+                #region PRE-REVISION 4.0 ... MASH BASED ON LICENSE TYPE
+                //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                ////--------------------------------------
+                ////--- Get MASH Based on License Type ---
+                ////--------------------------------------
+                //if (string.Compare(SITE, LicenseType) ==0)
+                //{
+                //    #region SITE MASH STRING
+                //    strMash = string.Format("AJP-{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}_{9}-ENG",
+                //                            LicenseType,
+                //                            SupplierName,
+                //                            CustomerName,
+                //                            ProductName,
+                //                            ProductVersion,
+                //                            SerialNumber,
+                //                            ProductCode,
+                //                            Corporation,
+                //                            Division,
+                //                            Group);
+                //    #endregion      // SITE MASH STRING
+                //}
+                //else if (string.Compare(USER, LicenseType) == 0)
+                //{
+                //    #region USER MASH STRING
+                //    strMash = string.Format("AJP-{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}_{9}_{10}-ENG",
+                //                            LicenseType,
+                //                            SupplierName,
+                //                            CustomerName,
+                //                            ProductName,
+                //                            ProductVersion,
+                //                            SerialNumber,
+                //                            ProductCode,
+                //                            Corporation,
+                //                            Division,
+                //                            Group,
+                //                            UserName);
+                //    #endregion      // USER MASH STRING                
+                //}
+                //else if (string.Compare(SEAT, LicenseType) == 0)
+                //{
+                //    #region SEAT MASH STRING
+                //    strMash = string.Format("AJP-{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}_{9}_{10}_{11}-ENG",
+                //                            LicenseType,
+                //                            SupplierName,
+                //                            CustomerName,
+                //                            ProductName,
+                //                            ProductVersion,
+                //                            SerialNumber,
+                //                            ProductCode,
+                //                            Corporation,
+                //                            Division,
+                //                            Group,
+                //                            UserName,
+                //                            DeviceName);
+                //    #endregion      // SEAT MASH STRING                
+                //}
+                //else
+                //{
+                //    #region ERROR CREATING MASH
+                //    Console.WriteLine(" ");
+                //    Console.WriteLine(" ---------------------------------- ");
+                //    Console.WriteLine(" *****  ERROR CREATING MASH!  ***** ");
+                //    Console.WriteLine(" ---------------------------------- ");
+                //    Console.WriteLine(" ");
+                //    strMash = ERROR_CREATING_MASH;
+                //    #endregion      // ERROR CREATING MASH
+                //}
+                //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                #endregion  // PRE-REVISION 4.0 ... MASH BASED ON LICENSE TYPE
+
             }
             catch (Exception ex)
             {

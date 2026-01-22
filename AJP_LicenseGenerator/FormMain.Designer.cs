@@ -235,7 +235,7 @@
             "TRIAL"});
             this.comboBoxLicenseType.Location = new System.Drawing.Point(70, 23);
             this.comboBoxLicenseType.Name = "comboBoxLicenseType";
-            this.comboBoxLicenseType.Size = new System.Drawing.Size(64, 25);
+            this.comboBoxLicenseType.Size = new System.Drawing.Size(102, 25);
             this.comboBoxLicenseType.TabIndex = 4;
             this.comboBoxLicenseType.SelectedIndexChanged += new System.EventHandler(this.comboBoxLicenseType_SelectedIndexChanged);
             // 
@@ -810,7 +810,7 @@
             this.textBoxUsername.BackColor = System.Drawing.Color.White;
             this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUsername.Location = new System.Drawing.Point(206, 26);
+            this.textBoxUsername.Location = new System.Drawing.Point(227, 26);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(163, 18);
             this.textBoxUsername.TabIndex = 5;
@@ -831,7 +831,7 @@
             // 
             this.labelUsername.AutoSize = true;
             this.labelUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.Location = new System.Drawing.Point(157, 25);
+            this.labelUsername.Location = new System.Drawing.Point(178, 25);
             this.labelUsername.Name = "labelUsername";
             this.labelUsername.Size = new System.Drawing.Size(45, 20);
             this.labelUsername.TabIndex = 43;
