@@ -105,10 +105,6 @@ namespace AJP_License_File
         private const String CLASS = "LicenseFileData";
 
         #region PROPERTY CONSTANTS
-        public const String ERROR_CREATING_MASH = "AJP-ERROR_CREATING_MASH-ENG";
-        public const String SITE = "SITE";     // SITE License Type Option string
-        public const String USER = "USER";     // USER License Type Option string
-        public const String SEAT = "SEAT";     // SEAT License Type Option string
 
         #region CONSTANTS - SUPPLIER PROPERTIES DEFAULTS  ... [ *** FIXED *** -> ALL CUSTOMERS -> ALL PRODUCTS ]
         private const String AUTHOR = "AJP Engineering";                        // Author .......... Product Developer
@@ -188,9 +184,9 @@ namespace AJP_License_File
         #endregion      // CONSTANTS
 
         #region FIELDS
-        private string _strFileHash;        // File Hash String ......... Hash String Read from XML File ... [PUBLIC]
-        private string _strCurrDeviceName;	// Name of Device Running App ... "GM-DESKTOP"
-        private string _strCurrUserName;	// Name of User Running App ..... [Environment.UserName]
+        private string _strFileHash;            // File Hash String ......... Hash String Read from XML File ... [PUBLIC]
+        private string _strRunTimeDeviceName;	// Name of Device Running App ... "NUC"
+        private string _strRunTimeUserName;	    // Name of User Running App ..... [Environment.UserName] "baseb"
 
         #region SUPPLIER FIELDS  ... [ *** FIXED *** -> ALL CUSTOMERS -> ALL PRODUCTS ]
         private string _strAuthor;          // Author ............ Product Developer ....... "AJP Engineering"
@@ -242,27 +238,27 @@ namespace AJP_License_File
         }
         #endregion      // FileHash
 
-        #region CurrDeviceName  ... [NOT part of MASH]
+        #region RunTimeDeviceName  ... [NOT part of MASH]
         /// <summary>
-        /// CurrDeviceName Property  ...  Name of Device Running App ... "GM-DESKTOP"
+        /// RunTimeDeviceName Property  ...  Name of Device Running App ... "GM-DESKTOP"
         /// </summary>
-        public string CurrDeviceName
+        public string RunTimeDeviceName
         {
-            get { return _strCurrDeviceName; }
-            set { _strCurrDeviceName = value; }
+            get { return _strRunTimeDeviceName; }
+            set { _strRunTimeDeviceName = value; }
         }
-        #endregion      // CurrDeviceName
+        #endregion      // RunTimeDeviceName
 
-        #region CurrUserName  ... [NOT part of MASH]
+        #region RunTimeUserName  ... [NOT part of MASH]
         /// <summary>
-        /// CurrUserName Property  ...  Name of User Running App ..... [Environment.UserName]
+        /// RunTimeUserName Property  ...  Name of User Running App ..... [Environment.UserName]
         /// </summary>
-        public string CurrUserName
+        public string RunTimeUserName
         {
-            get { return _strCurrUserName; }
-            set { _strCurrUserName = value; }
+            get { return _strRunTimeUserName; }
+            set { _strRunTimeUserName = value; }
         }
-        #endregion      // CurrUserName
+        #endregion      // RunTimeUserName
 
         #region SUPPLIER PROPERTIES  ... [ *** FIXED *** -> ALL CUSTOMERS -> ALL PRODUCTS ]
 
@@ -519,8 +515,8 @@ namespace AJP_License_File
             {
                 FileHash = string.Empty;        // File Hash String ......... Hash String Read from XML File ... [PUBLIC]
 
-                CurrDeviceName = Environment.MachineName;   // Name of Device Running App ... "GM-DESKTOP"
-                CurrUserName = Environment.UserName;        // Name of User Running App ..... [Environment.UserName]
+                RunTimeDeviceName = Environment.MachineName;   // Name of Device Running App ... "GM-DESKTOP"
+                RunTimeUserName = Environment.UserName;        // Name of User Running App ..... [Environment.UserName]
                 //----------------------------------------------------------------------------------------------
                 //--- Initialize Supplier Properties  ... [ *** FIXED *** -> ALL CUSTOMERS -> ALL PRODUCTS ] ---
                 //----------------------------------------------------------------------------------------------

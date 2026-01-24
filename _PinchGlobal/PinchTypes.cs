@@ -83,10 +83,11 @@ namespace PinchGlobal
         public enum LicenseType
         {
             UNKNOWN = -1,  // License Type is UNKNOWN... ERROR
-            SITE    =  0,  // License Type is SITE...... ALL USERS and ALL  DEVICES     in a SINGLE COMPANY
-            DEVICE  =  1,  // License Type is DEVICE.... ALL USERS on SINGLE DEVICE     in a SINGLE COMPANY
-            USER    =  2,  // License Type is USER...... ALL DEVICES for a SINGLE USER  in a SINGLE COMPANY
-            SEAT    =  3   // License Type is SEAT...... SINGLE USER on a SINGLE DEVICE in a SINGLE COMPANY
+            TRIAL   =  0,  // License Type is TRIAL..... ALL USERS and ALL  DEVICES     any  COMPANY
+            SITE    =  1,  // License Type is SITE...... ALL USERS and ALL  DEVICES     in a SINGLE COMPANY
+            DEVICE  =  2,  // License Type is DEVICE.... ALL USERS on SINGLE DEVICE     in a SINGLE COMPANY
+            USER    =  3,  // License Type is USER...... ALL DEVICES for a SINGLE USER  in a SINGLE COMPANY
+            SEAT    =  4   // License Type is SEAT...... SINGLE USER on a SINGLE DEVICE in a SINGLE COMPANY
         };
         #endregion      // enum LicenseType
 

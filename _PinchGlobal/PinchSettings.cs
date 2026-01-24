@@ -216,6 +216,7 @@ namespace PinchGlobal
             //------------------------
             AJP_PINCH_COMPONENTS.Clear();
             AJP_PINCH_COMPONENTS.Add("Pinch.exe");
+            AJP_PINCH_COMPONENTS.Add("_AJP License File.ll");
             AJP_PINCH_COMPONENTS.Add("_PinchData.dll");
             AJP_PINCH_COMPONENTS.Add("_PinchFigures.dll");
             AJP_PINCH_COMPONENTS.Add("_PinchGlobal.dll");

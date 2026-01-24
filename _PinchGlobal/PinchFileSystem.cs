@@ -98,6 +98,8 @@ namespace PinchGlobal
         private string _strHenReportsFolderPath = String.Empty;     // HEN\REPORTS Folder Full Path
         private string _strTargetsReportsFolderPath = String.Empty; // TARGETS\REPORTS Folder Full Path
 
+        private string _strLicenseFilePath = String.Empty;  // LICENSE File Full Path
+
         #endregion      // FIELDS
 
         #region PROPERTIES
@@ -251,6 +253,18 @@ namespace PinchGlobal
         }
         #endregion      // TargetsReportsFolderPath
 
+        #region LicenseFilePath
+        /// <summary>
+        /// LicenseFilePath Property ... LICENSE File Full Path
+        /// Located in the LICENSE folder which is colocated with the exe
+        /// </summary>
+        public string LicenseFilePath
+        {
+            get { return _strLicenseFilePath; }
+            set { _strLicenseFilePath = value; }
+        }
+        #endregion      // LicenseFilePath
+
         #endregion      // PROPERTIES
 
         #region CTOR
@@ -287,6 +301,8 @@ namespace PinchGlobal
                 TargetsDataFolderPath    = String.Format("{0}\\{1}", AppExecPath, DEFAULT_TARGETS_DATA_FOLDERNAME);
                 TargetsFiguresFolderPath = String.Format("{0}\\{1}", AppExecPath, DEFAULT_TARGETS_FIGURES_FOLDERNAME);                
                 TargetsReportsFolderPath = String.Format("{0}\\{1}", AppExecPath, DEFAULT_TARGETS_REPORTS_FOLDERNAME);
+
+                LicenseFilePath = String.Format("{0}\\{1}", LicenseFolderPath, DEFAULT_LICENSE_FILENAME);
             }
             catch (Exception ex)
             {
