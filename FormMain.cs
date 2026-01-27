@@ -1872,8 +1872,35 @@ namespace Pinch
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License ScoreCard Form");
             try
             {
-                PinchMsgDlg.DisplayWarningDlg("Handle Common Display License ScoreCard Form Command!");
-                FormScoreCard dlg = new FormScoreCard();
+                //*************************************************************************************
+                //************************************* T E S T ***************************************
+                //*************************************************************************************
+                ScoreCardTableData tableData = new ScoreCardTableData();
+                tableData.ClearTable();
+                tableData.AddRow(new ScoreCardRowData("01", "Author", "AJP Engineering", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("02", "Supplier Name", "AJP Engineering", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("03", "Supplier Url", "http://www.AJPEngineering.com", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("04", "Customer Name", "NA", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("05", "Customer Email", "NA", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("06", "Product Name", "AJP Pinch 4.0", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("07", "Product Version", "4.0.1", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("08", "Product Serial Number", "1022-456-1189", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("09", "Product Code", "{3D9721BA-003E-4711-B7AF-B579645F0AC9}", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("10", "License Type", "SEAT", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("11", "Corporation", "Exxon", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("12", "Division", "Research & Development", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("13", "Group", "Heat Exchanger", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("14", "User Name", "baseb", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("15", "Device Name", "NUC", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("16", "License Duration", "365", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("17", "License Start", "1/22/2026", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("18", "License End", "1/22/2027", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("19", "License Key", "AJP-983C-AE73-87FB-8DF9-1709-ENG", "VALID"));
+                tableData.AddRow(new ScoreCardRowData("20", "License Key", "AJP-4227-4C0C-A1C5-3D01-7F7F-ENG", "INVALID"));
+                //*************************************************************************************
+                //************************************* T E S T ***************************************
+                //*************************************************************************************
+                FormScoreCard dlg = new FormScoreCard(tableData);
                 dlg.ShowDialog();
             }
             catch (Exception ex)

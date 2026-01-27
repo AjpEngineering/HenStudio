@@ -67,6 +67,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ScoreCardRowData.cs" />
+    <Compile Include="ScoreCardTableData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP LicenseFile.ico" />
