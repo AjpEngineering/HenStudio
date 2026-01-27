@@ -52,6 +52,12 @@
     <Compile Include="FormLicenseFile.Designer.cs">
       <DependentUpon>FormLicenseFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormScoreCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormScoreCard.Designer.cs">
+      <DependentUpon>FormScoreCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="LicenseFileData.cs" />
     <Compile Include="LicenseMgr.cs" />
     <Compile Include="LicenseTypes.cs" />
@@ -76,6 +82,9 @@
     <EmbeddedResource Include="FormLicenseFile.resx">
       <DependentUpon>FormLicenseFile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormScoreCard.resx">
+      <DependentUpon>FormScoreCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -86,6 +95,9 @@
       <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
       <Name>_PinchGlobal</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
