@@ -1873,8 +1873,8 @@ namespace Pinch
             try
             {
                 PinchMsgDlg.DisplayWarningDlg("Handle Common Display License ScoreCard Form Command!");
-                //FormLicenseFile dlg = new FormLicenseFile();
-                //dlg.ShowDialog();
+                FormScoreCard dlg = new FormScoreCard();
+                dlg.ShowDialog();
             }
             catch (Exception ex)
             {

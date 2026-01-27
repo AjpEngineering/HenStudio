@@ -84,6 +84,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormScoreCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormScoreCard.Designer.cs">
+      <DependentUpon>FormScoreCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="PanelTableMgr.cs" />
     <Compile Include="PanelTableRow.cs" />
     <Compile Include="Program.cs" />
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormScoreCard.resx">
+      <DependentUpon>FormScoreCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
