@@ -354,9 +354,16 @@ namespace PinchGlobal
         }
         #endregion      // CTOR
 
-        #region CREATE CHART FILENAMES
-
-        #endregion      // CREATE CHART FILENAMES
+        #region LicenseFileExists()
+        /// <summary>
+        /// Check if License File Exists
+        /// </summary>
+        /// <returns>true if file exists; otherwise false</returns>
+        public bool LicenseFileExists()
+        {
+            return File.Exists(LicenseFilePath);
+        }
+        #endregion  // LicenseFileExists()
 
     }
     #endregion      // public class PinchFileSystem

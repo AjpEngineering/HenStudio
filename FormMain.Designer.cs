@@ -66,6 +66,8 @@
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelLicense = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelUnits = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelInput = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelTargets = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelSELECTED_STATE = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageINPUT = new System.Windows.Forms.TabPage();
@@ -141,8 +143,6 @@
             this.toolStripButtonLicense = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAbout = new System.Windows.Forms.ToolStripButton();
             this.pictureBoxAJPLogo = new System.Windows.Forms.PictureBox();
-            this.toolStripStatusLabelInput = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelTargets = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -528,6 +528,30 @@
             this.toolStripStatusLabelUnits.Size = new System.Drawing.Size(182, 28);
             this.toolStripStatusLabelUnits.Text = "UNKNOWN UNITS ";
             // 
+            // toolStripStatusLabelInput
+            // 
+            this.toolStripStatusLabelInput.BackColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelInput.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelInput.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelInput.Image = global::Pinch.Properties.Resources.InValid_32x32;
+            this.toolStripStatusLabelInput.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelInput.Name = "toolStripStatusLabelInput";
+            this.toolStripStatusLabelInput.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.toolStripStatusLabelInput.Size = new System.Drawing.Size(214, 28);
+            this.toolStripStatusLabelInput.Text = "INPUT NOT VALIDATED ";
+            // 
+            // toolStripStatusLabelTargets
+            // 
+            this.toolStripStatusLabelTargets.BackColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelTargets.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelTargets.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelTargets.Image = global::Pinch.Properties.Resources.InValid_32x32;
+            this.toolStripStatusLabelTargets.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelTargets.Name = "toolStripStatusLabelTargets";
+            this.toolStripStatusLabelTargets.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.toolStripStatusLabelTargets.Size = new System.Drawing.Size(244, 28);
+            this.toolStripStatusLabelTargets.Text = "TARGETS NOT CALCULATED";
+            // 
             // toolStripStatusLabelSELECTED_STATE
             // 
             this.toolStripStatusLabelSELECTED_STATE.BackColor = System.Drawing.Color.OrangeRed;
@@ -540,7 +564,7 @@
             this.toolStripStatusLabelSELECTED_STATE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripStatusLabelSELECTED_STATE.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelSELECTED_STATE.Name = "toolStripStatusLabelSELECTED_STATE";
-            this.toolStripStatusLabelSELECTED_STATE.Size = new System.Drawing.Size(343, 28);
+            this.toolStripStatusLabelSELECTED_STATE.Size = new System.Drawing.Size(374, 28);
             this.toolStripStatusLabelSELECTED_STATE.Spring = true;
             this.toolStripStatusLabelSELECTED_STATE.Text = "ACTIVITY:SUBACTIVITY";
             this.toolStripStatusLabelSELECTED_STATE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1468,30 +1492,6 @@
             this.pictureBoxAJPLogo.TabStop = false;
             this.pictureBoxAJPLogo.DoubleClick += new System.EventHandler(this.pictureBoxAJPLogo_DoubleClick);
             // 
-            // toolStripStatusLabelInput
-            // 
-            this.toolStripStatusLabelInput.BackColor = System.Drawing.Color.Red;
-            this.toolStripStatusLabelInput.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelInput.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelInput.Image = global::Pinch.Properties.Resources.InValid_32x32;
-            this.toolStripStatusLabelInput.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelInput.Name = "toolStripStatusLabelInput";
-            this.toolStripStatusLabelInput.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.toolStripStatusLabelInput.Size = new System.Drawing.Size(214, 28);
-            this.toolStripStatusLabelInput.Text = "INPUT NOT VALIDATED ";
-            // 
-            // toolStripStatusLabelTargets
-            // 
-            this.toolStripStatusLabelTargets.BackColor = System.Drawing.Color.Red;
-            this.toolStripStatusLabelTargets.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelTargets.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelTargets.Image = global::Pinch.Properties.Resources.InValid_32x32;
-            this.toolStripStatusLabelTargets.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelTargets.Name = "toolStripStatusLabelTargets";
-            this.toolStripStatusLabelTargets.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.toolStripStatusLabelTargets.Size = new System.Drawing.Size(244, 28);
-            this.toolStripStatusLabelTargets.Text = "TARGETS NOT CALCULATED";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -1517,6 +1517,7 @@
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AJP Pinch 4";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.statusStripMain.ResumeLayout(false);

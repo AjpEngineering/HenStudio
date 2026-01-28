@@ -55,6 +55,7 @@ using PinchHen;
 using PinchTargets;
 using System.CodeDom;
 using Pinch.Properties;
+using System.IO;
 
 #endregion  // REFERENCES
 
@@ -405,6 +406,7 @@ namespace Pinch
             string strMethod = "CTOR";
             string strMsg = string.Empty;
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            bool bValidLicenseFile = false;
             try
             {
                 InitializeComponent();
@@ -488,7 +490,7 @@ namespace Pinch
                 //--------------------------
                 //--- License Validation ---
                 //--------------------------
-                ValidateLicense();       // Validate License ... Update Global Settings in Method
+                bValidLicenseFile = ValidateLicense(); // Update Global Settings in Method - return valid flag
                 #endregion  // License Validation
 
                 #region Update Pinch Units Status Bar Label
@@ -592,21 +594,62 @@ namespace Pinch
             try
             {
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  LICENSE FILE EXISTS GUARD  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                #region LICENSE FILE EXISTS GUARD 
+                //-----------------------------
+                //--- XML File Exists Guard ---
+                //-----------------------------
+                if (!PinchFileSysObj.LicenseFileExists())
+                {
+                    //------------------------
+                    //--- XML FILE MISSING ---
+                    //------------------------
+                    PinchSettingsObj.LicenseValidatedFlag = false;
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, 
+                                         String.Format("XML License File is Missing! [{0}]", 
+                                                       strFullPathXmlFile));                    
+                    return false;
+                }
+                #endregion  // LICENSE FILE EXISTS GUARD 
+
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  READ LICENSE FILE  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                #region READ LICENSE FILE
                 licenseFileXmlObj.RestoreLicenseXmlFile(strFullPathXmlFile);    // Get XML License File Data       
+                #endregion  // READ LICENSE FILE
+
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  VALIDATE LICENSE FILE DATA  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                #region VALIDATE LICENSE FILE DATA
                 //----------------------------------
                 //--- Validate License File Data ---
                 //----------------------------------
                 PinchSettingsObj = CheckLicenseFileData(licenseFileXmlObj);     // Compare XML with RunTime
+                #endregion  // VALIDATE LICENSE FILE DATA
+
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  UPDATE LICENSE STATUS BAR LABEL  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                #region UPDATE LICENSE STATUS BAR LABEL
                 //------------------------------------------------
                 //--- Update License Status Bar Label Settings ---
                 //------------------------------------------------
                 UpdateLicenseStatusBarLabel();    // Update License Status Bar Label using Global Settings
+                #endregion  // UPDATE LICENSE STATUS BAR LABEL
+
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  DISPLAY LICENSE SCORECARD  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                #region DISPLAY LICENSE SCORECARD
                 //------------------------------------------
                 //--- Display The License ScoreCard Form ---
                 //------------------------------------------
                 DisplayLicenseScoreCardForm();      // Display The License ScoreCard Form
+                #endregion  // DISPLAY LICENSE SCORECARD
+
             }
             catch (Exception ex)
             {
@@ -2184,6 +2227,7 @@ namespace Pinch
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
                 strMsg = String.Format(" {0}  {1,-8}  {2,-22}  {3}", "ID", "STATE", "NAME", "VALUE");
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
 
                 foreach (ScoreCardRowData row in tableData.ScoreCardListObj)
                 {
@@ -2195,7 +2239,7 @@ namespace Pinch
                     PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
-                strMsg = String.Format(" Num INVALID:{0}  Num VALID:{1}  TOTAL:{2}  STATUS:{3}", 
+                strMsg = String.Format("     Num INVALID:{0}  Num VALID:{1}  TOTAL:{2}  STATUS:{3}", 
                                        tableData.NumInvalidProps.ToString(),
                                        tableData.NumValidProps.ToString(),
                                        tableData.NumProperties.ToString(),
@@ -2270,6 +2314,22 @@ namespace Pinch
 
         #endregion  // METHODS
 
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            string strMethod = "FormMain_Load";
+            //-----------------------------
+            //--- XML File Exists Guard ---
+            //-----------------------------
+            if (!PinchFileSysObj.LicenseFileExists())
+            {
+                string strMsg = String.Format("XML License File is Missing! [{0}]",
+                                              PinchFileSysObj.LicenseFilePath);
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                PinchMsgDlg.DisplayErrorDlg(strMsg);
+
+                HandleExit();
+            }
+        }
     }
     #endregion      // class FormPinch
 }
