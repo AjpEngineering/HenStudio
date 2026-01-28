@@ -34,6 +34,7 @@
 
 #region REFERENCES
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -121,6 +122,8 @@ namespace Pinch
         //---------------
         //--- OBJECTS ---
         //---------------
+        private LicenseMgr      _licenseMgrObj;
+
         private PinchFileSystem _pinchFileSys;
         private PinchSettings   _pinchSettings;
         private PinchTypes      _pinchTypes;
@@ -256,6 +259,21 @@ namespace Pinch
         #endregion      // PinchCalcModeFCpFlag
 
         #endregion  // SETTINGS
+
+        #region LICENSE MANAGER OBJECTS
+
+        #region LicenseMgrObj
+        /// <summary>
+        /// LicenseMgrObj Property
+        /// </summary>
+        public LicenseMgr LicenseMgrObj
+        {
+            get { return _licenseMgrObj; }
+            set { _licenseMgrObj = value; }
+        }
+        #endregion      // LicenseMgrObj     
+
+        #endregion  // LICENSE MANAGER OBJECTS
 
         #region PINCH OBJECTS
 
@@ -397,6 +415,8 @@ namespace Pinch
                 PinchFileSysObj = new PinchFileSystem();
                 PinchSettingsObj = new PinchSettings();
                 PinchTypesObj = new PinchTypes();
+
+                LicenseMgrObj = new LicenseMgr(PinchFileSysObj.LicenseFilePath);
                 //------------------------------------------
                 //--- Initialize License Global Settings ---
                 //------------------------------------------
@@ -416,6 +436,8 @@ namespace Pinch
                 //--- Initialize Controls ---
                 //---------------------------
                 InitializeControls();       // Set Inital State of the Form Controls
+                
+                #region Create PanelTableMgr Object
                 //-----------------------------------
                 //--- Create PanelTableMgr Object ---
                 //-----------------------------------
@@ -460,58 +482,41 @@ namespace Pinch
                 PanelTableMgrObj.InitializeMgrObjects();    // Initialize Lists and Table in Mgr
                 PanelTableMgrObj.DisplaySelectedView(0,0);  // Display Initial View
 
-                //---------------------------------
-                //--- Handle License Validation ---
-                //---------------------------------
-                ValidateLicense();       // Validate License ... Update Global Settings in Method
+                #endregion  // Create PanelTableMgr Object
 
+                #region License Validation
+                //--------------------------
+                //--- License Validation ---
+                //--------------------------
+                ValidateLicense();       // Validate License ... Update Global Settings in Method
+                #endregion  // License Validation
+
+                #region Update Pinch Units Status Bar Label
                 //-------------------------------------------
                 //--- Update Pinch Units Status Bar Label ---
                 //-------------------------------------------
-                //************************************************************************************ UNITS ***
-                //************************************************************************************
-                //************************************ T E S T  **************************************
-                //************************************************************************************
                 //PinchSettingsObj.PinchUnitsEnum = PinchTypes.PinchUnits.ENGLISH;
                 PinchSettingsObj.PinchUnitsEnum = PinchTypes.PinchUnits.METRIC;
-                PinchMsgDlg.DisplayWarningDlg("UPDATE UNITS STATUS BAR LABEL SETTING HERE!!!");
-                //************************************************************************************
-                //************************************ T E S T  **************************************
-                //************************************************************************************ UNITS ***
-
                 UpdateUnitsStatusBarLabel();        // Update Pinch Units Status Bar Label
+                #endregion      // Update Pinch Units Status Bar Label
 
+                #region Update Input Validated Flag Status Bar Label
                 //----------------------------------------------------
                 //--- Update Input Validated Flag Status Bar Label ---
                 //----------------------------------------------------
-                //************************************************************************************ INPUT ***
-                //************************************************************************************
-                //************************************ T E S T  **************************************
-                //************************************************************************************
-                PinchSettingsObj.InputValidatedFlag = false;
                 //PinchSettingsObj.InputValidatedFlag = true;
-                PinchMsgDlg.DisplayWarningDlg("UPDATE INPUT VALIDATED STATUS BAR LABEL SETTING HERE!!!");
-                //************************************************************************************
-                //************************************ T E S T  **************************************
-                //************************************************************************************ INPUT ***
-
+                PinchSettingsObj.InputValidatedFlag = false;
                 UpdateInputStatusBarLabel();        // Update Input Validated Status Bar Label
+                #endregion  // Update Input Validated Flag Status Bar Label
 
+                #region Update Targets Calculated Flag Status Bar Label
                 //-------------------------------------------------------
                 //--- Update Targets Calculated Flag Status Bar Label ---
                 //-------------------------------------------------------
-                //************************************************************************************ TARGETS ***
-                //************************************************************************************
-                //************************************ T E S T  **************************************
-                //************************************************************************************
-                PinchSettingsObj.TargetsCalculatedFlag = false;
                 //PinchSettingsObj.TargetsCalculatedFlag = true;
-                PinchMsgDlg.DisplayWarningDlg("UPDATE TARGETS CALCULATED STATUS BAR LABEL SETTING HERE!!!");
-                //************************************************************************************
-                //************************************ T E S T  **************************************
-                //************************************************************************************ TARGETS ***
-
+                PinchSettingsObj.TargetsCalculatedFlag = false;
                 UpdateTargetsStatusBarLabel();      // Update Targets Calculated Status Bar Label
+                #endregion  // Update Targets Calculated Flag Status Bar Label
 
             }
             catch (Exception ex)
@@ -586,51 +591,10 @@ namespace Pinch
             LicenseFileData licenseFileXmlObj = new LicenseFileData();
             try
             {
-                //----------------------------------------
-                //--- Check If License XML File Exists ---
-                //----------------------------------------
-                //        #region CHECK IF LICENSE XML FILE EXISTS
-
-                //        #region FOLDER
-                //        //------------------------------------------
-                //        //--- Check if AJP License Folder Exists ---
-                //        //------------------------------------------
-                //        strLicenseFolder = string.Format(@"{0}\{1}", strFullPathAppStartupLoc, AJP_LICENSE_FOLDER);
-                //        if (!Directory.Exists(strLicenseFolder))
-                //        {
-                //            strMsg = string.Format(" *** AJP LICENSE Folder NOT FOUND!  [{0}]", strLicenseFolder);
-                //            throw (new Exception(strMsg));
-                //        }
-                //        Console.WriteLine(" ");
-                //        Console.WriteLine(" ");
-                //        Console.WriteLine(" AJP LICENSE FOLDER FOUND!");
-                //        #endregion      // FOLDER
-
-                //        #region FILE
-                //        //---------------------------------------
-                //        //--- Check if AJP License File Exists ---
-                //        //----------------------------------------
-                //        strLicenseFile = string.Format(@"{0}\{1}", strLicenseFolder, AJP_LICENSE_FILE);
-                //        if (!File.Exists(strLicenseFile))
-                //        {
-                //            strMsg = string.Format(" *** AJP LICENSE File NOT FOUND!  [{0}]", strLicenseFile);
-                //            throw (new Exception(strMsg));
-                //        }
-                //        Console.WriteLine(" AJP LICENSE FILE FOUND!");
-                //        #endregion      // FILE
-
-                //        #region LOG TO CONSOLE: FULL-PATH AJP LICENSE XML FILE LOCATION
-                //        strMsg = string.Format(" ===> AJP LICENSE File:  [{0}]", strLicenseFile);
-                //        Console.WriteLine(strMsg);
-                //        #endregion      // LOG TO CONSOLE: FULL-PATH AJP LICENSE XML FILE LOCATION
-
-                //        #endregion      // CHECK IF LICENSE XML FILE EXISTS
-
-                //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-                //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  READ LICENSE FILE  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-                //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  READ LICENSE FILE  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
                 licenseFileXmlObj.RestoreLicenseXmlFile(strFullPathXmlFile);    // Get XML License File Data       
-
                 //----------------------------------
                 //--- Validate License File Data ---
                 //----------------------------------
@@ -638,7 +602,7 @@ namespace Pinch
                 //------------------------------------------------
                 //--- Update License Status Bar Label Settings ---
                 //------------------------------------------------
-                UpdateLicenseStatusBarLabel();    // Update License Status Bar Lable using Global Settings
+                UpdateLicenseStatusBarLabel();    // Update License Status Bar Label using Global Settings
                 //------------------------------------------
                 //--- Display The License ScoreCard Form ---
                 //------------------------------------------
@@ -1870,38 +1834,17 @@ namespace Pinch
         {
             string strMethod = "DisplayLicenseScoreCardForm";
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License ScoreCard Form");
+            ScoreCardTableData tableData;
             try
             {
-                //*************************************************************************************
-                //************************************* T E S T ***************************************
-                //*************************************************************************************
-                ScoreCardTableData tableData = new ScoreCardTableData();
-                tableData.ClearTable();
-                tableData.AddRow(new ScoreCardRowData("01", "Author", "AJP Engineering", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("02", "Supplier Name", "AJP Engineering", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("03", "Supplier Url", "http://www.AJPEngineering.com", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("04", "Customer Name", "NA", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("05", "Customer Email", "NA", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("06", "Product Name", "AJP Pinch 4.0", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("07", "Product Version", "4.0.1", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("08", "Product Serial Number", "1022-456-1189", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("09", "Product Code", "{3D9721BA-003E-4711-B7AF-B579645F0AC9}", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("10", "License Type", "SEAT", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("11", "Corporation", "Exxon", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("12", "Division", "Research & Development", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("13", "Group", "Heat Exchanger", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("14", "User Name", "baseb", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("15", "Device Name", "NUC", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("16", "License Duration", "365", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("17", "License Start", "1/22/2026", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("18", "License End", "1/22/2027", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("19", "License Key", "AJP-983C-AE73-87FB-8DF9-1709-ENG", "VALID"));
-                tableData.AddRow(new ScoreCardRowData("20", "License Key", "AJP-4227-4C0C-A1C5-3D01-7F7F-ENG", "INVALID"));
-                //*************************************************************************************
-                //************************************* T E S T ***************************************
-                //*************************************************************************************
-                FormScoreCard dlg = new FormScoreCard(tableData);
-                dlg.ShowDialog();
+                tableData = LicenseMgrObj.GetScoreCardTableData(PinchFileSysObj.AppExecPath);
+
+                if(tableData.NumInvalidProps >0)
+                {
+                    FormScoreCard dlg = new FormScoreCard(tableData);
+                    dlg.ShowDialog();
+                }
+                LogScoreCardTable(tableData);    // Log ScoreCard Table Data
             }
             catch (Exception ex)
             {
@@ -2225,6 +2168,53 @@ namespace Pinch
             }
         }
         #endregion  // LogLicenseStatus()
+
+        #region LogScoreCardTable()
+        /// <summary>
+        /// Log ScoreCard Table Data
+        /// </summary>
+        private void LogScoreCardTable(ScoreCardTableData tableData)
+        {
+            string strMethod = "LogScoreCardTable";
+            string strMsg = String.Empty;
+            try
+            {
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " --------------------------- SCORECARD TABLE DATA ---------------------------");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
+                strMsg = String.Format(" {0}  {1,-8}  {2,-22}  {3}", "ID", "STATE", "NAME", "VALUE");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                foreach (ScoreCardRowData row in tableData.ScoreCardListObj)
+                {
+                    strMsg = String.Format(" {0}  {1,-8}  {2,-22}  {3}",
+                                           row.PropertyID,
+                                           row.PropertyState,
+                                           row.PropertyName,
+                                           row.PropertyValue);
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
+                strMsg = String.Format(" Num INVALID:{0}  Num VALID:{1}  TOTAL:{2}  STATUS:{3}", 
+                                       tableData.NumInvalidProps.ToString(),
+                                       tableData.NumValidProps.ToString(),
+                                       tableData.NumProperties.ToString(),
+                                       tableData.ValidationState);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
+
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion      // LogScoreCardTable()
 
         #region private string GetFixedLengthString(string strOriginal, int nLen=15)
         /// <summary>

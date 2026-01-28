@@ -71,6 +71,7 @@ namespace AJP_License_File
         private string _strFullPathFilenameXML;             // Full Path File Name to Persist and Restore XML File
         private LicenseFileData _licenseFileDataObj;        // XML License File Data object
         private LicenseFileData _runTimeLicenseFileDataObj; // License File Data object
+        private ScoreCardTableData _scoreCardTableDataObj;  // ScoreCard Table Data Object
         #endregion      // FIELDS
 
         #region PROPERTIES
@@ -108,6 +109,17 @@ namespace AJP_License_File
         }
         #endregion      // RunTimeLicenseFileDataObj
 
+        #region ScoreCardTableDataObj
+        /// <summary>
+        /// ScoreCardTableDataObj Property  ...  ScoreCatd Table Data object
+        /// </summary>
+        public ScoreCardTableData ScoreCardTableDataObj
+        {
+            get { return _scoreCardTableDataObj; }
+            set { _scoreCardTableDataObj = value; }
+        }
+        #endregion      // ScoreCardTableDataObj
+
         #endregion      // PROPERTIES
 
         #region CTOR: LicenseMgr
@@ -128,6 +140,7 @@ namespace AJP_License_File
                 FullPathFilenameXML = strFullPathLicenceFileLoc;    // Assign Full-Path License File Location
                 LicenseFileDataObj = new LicenseFileData();         // Create XML License File Data Object
                 RunTimeLicenseFileDataObj = new LicenseFileData();  // Create Run-Time License File Data Object
+                ScoreCardTableDataObj = new ScoreCardTableData();   // Create ScoreCard Table Data Object
             }
             catch (Exception ex)
             {
@@ -153,10 +166,13 @@ namespace AJP_License_File
             string strMethod = "GetScoreCardData";
             string strMsg = string.Empty;
 
-            ScoreCardTableData tableData = new ScoreCardTableData();
             string strLicenseFolder = string.Empty;
             string strLicenseFile = string.Empty;
-
+            bool bMatch = false;
+            string strDeviceNameValidFlag = String.Empty;
+            string strUserNameValidFlag = String.Empty;
+            string strLicenseKeyValidFlag = String.Empty;
+            string strLicenseHashValidFlag = String.Empty;
             try
             {
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -202,15 +218,115 @@ namespace AJP_License_File
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  READ LICENSE FILE  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-                #region READ LICENSE FILE                
+                #region READ LICENSE FILE
                 //-----------------------------------------------------------
                 //--- Read the License File from the AJP License XML File ---
                 //-----------------------------------------------------------
                 LicenseFileDataObj.RestoreLicenseXmlFile(strLicenseFile);
                 #endregion      // READ LICENSE FILE
 
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  CREATE RUN-TIME LICENSE DATA  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                #region CREATE RUN-TIME LICENSE DATA                
+                //-----------------------------------------------------------
+                //--- Initialize Run-Time Data Object                     ---
+                //--- Read the License File from the AJP License XML File ---
+                //-----------------------------------------------------------
+                RunTimeLicenseFileDataObj.RestoreLicenseXmlFile(strLicenseFile);
+                //------------------------------------------------
+                //--- Update Run-Time License File Data Object ---
+                //------------------------------------------------
+                switch(RunTimeLicenseFileDataObj.LicenseType)
+                {
+                    case "DEVICE":
+                        RunTimeLicenseFileDataObj.DeviceName = 
+                          Environment.MachineName; // Get Run-Time Device (Machine) Name
+                        break;
+                    case "SEAT":
+                        RunTimeLicenseFileDataObj.DeviceName =
+                          Environment.MachineName; // Get Run-Time Device (Machine) Name
 
+                        RunTimeLicenseFileDataObj.UserName =
+                          Environment.UserName;    // Get Run-Time User Name
+                        break;
+                    default:
+                        //--- Nothing to Change for [TRIAL | SITE | UNKNOWN] License Types
+                        break;
+                }
+                #endregion      // CREATE RUN-TIME LICENSE DATA
 
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=  CREATE AND POPULATE SCORECARD TABLE DATA  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                #region CREATE AND POPULATE SCORECARD TABLE DATA
+                strDeviceNameValidFlag = "VALID";
+                strUserNameValidFlag = "VALID";
+                strLicenseKeyValidFlag = "VALID";
+                strLicenseHashValidFlag = "VALID";
+                //-------------------------------------------------------------------------------- ALL LICENSE TYPE ---
+                bMatch = CheckRunTimeKey();
+                if (bMatch) strLicenseKeyValidFlag = "VALID";
+                else strLicenseKeyValidFlag = "INVALID";
+
+                bMatch = CheckRunTimeHash();
+                if (bMatch) strLicenseHashValidFlag = "VALID";
+                else strLicenseHashValidFlag = "INVALID";
+
+                //----------------------------------------------------------------------------- DEVICE LICENSE TYPE ---
+                if(String.Compare(LicenseFileDataObj.LicenseType, "DEVICE") ==0)
+                {
+                    bMatch = CheckRunTimeDeviceName(LicenseFileDataObj.DeviceName);
+                    if (bMatch) strDeviceNameValidFlag = "VALID";
+                    else strDeviceNameValidFlag = "INVALID";
+                }
+
+                //------------------------------------------------------------------------------- SEAT LICENSE TYPE ---
+                else if (String.Compare(LicenseFileDataObj.LicenseType, "SEAT") == 0)
+                {
+                    bMatch = CheckRunTimeDeviceName(LicenseFileDataObj.DeviceName);
+                    if (bMatch) strDeviceNameValidFlag = "VALID";
+                    else strDeviceNameValidFlag = "INVALID";
+
+                    bMatch = CheckRunTimeUserName(LicenseFileDataObj.UserName);
+                    if (bMatch) strUserNameValidFlag = "VALID";
+                    else strUserNameValidFlag = "INVALID";
+                }
+
+                //---------------------------------------------------------------------------------- POPULATE TABLE ---
+                ScoreCardTableDataObj.ClearTable();
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("01", "Author", LicenseFileDataObj.Author, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("02", "Supplier Name", LicenseFileDataObj.SupplierName, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("03", "Supplier Url", LicenseFileDataObj.SupplierUrl, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("04", "Customer Name", LicenseFileDataObj.CustomerName, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("05", "Customer Email", LicenseFileDataObj.CustomerEmail, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("06", "Product Name", LicenseFileDataObj.ProductName, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("07", "Product Version", LicenseFileDataObj.ProductVersion, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("08", "Product Serial Number", LicenseFileDataObj.SerialNumber, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("09", "Product Code", LicenseFileDataObj.ProductCode, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("10", "License Type", LicenseFileDataObj.LicenseType, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("11", "Corporation", LicenseFileDataObj.Corporation, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("12", "Division", LicenseFileDataObj.Division, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("13", "Group", LicenseFileDataObj.Group, "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("14", "User Name", LicenseFileDataObj.UserName, strUserNameValidFlag));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("15", "Device Name", LicenseFileDataObj.DeviceName, strDeviceNameValidFlag));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("16", "License Duration", LicenseFileDataObj.DurationDays.ToString(), "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("17", "License Start", LicenseFileDataObj.StartDate.ToShortDateString(), "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("18", "License End", LicenseFileDataObj.EndDate.ToShortDateString(), "VALID"));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("19", "License Key", LicenseFileDataObj.FileLicenseKey, strLicenseKeyValidFlag));
+                ScoreCardTableDataObj.AddRow(new ScoreCardRowData("20", "License Hash", LicenseFileDataObj.FileHash, strLicenseHashValidFlag));
+                //-----------------------------------------------------------------------------------------------------
+
+                ScoreCardTableDataObj.GetCounts();      // Calculate Counts
+
+                #endregion  // CREATE AND POPULATE SCORECARD TABLE DATA
+
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  LOG TABLE DATA TO CONSOLE  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                #region LOG TABLE DATA TO CONSOLE
+                ScoreCardTableDataObj.LogTable();
+                #endregion  // LOG TABLE DATA TO CONSOLE
             }
             catch (Exception ex)
             {
@@ -221,7 +337,7 @@ namespace AJP_License_File
             finally
             {
             }
-            return tableData;
+            return ScoreCardTableDataObj;
         }
         #endregion  // GetScoreCardTableData
 
@@ -288,12 +404,10 @@ namespace AJP_License_File
 
         #region CheckRunTimeKey
         /// <summary>
-        /// Check if Run-Time User Name MATCHES XML License File User Name
+        /// Check if Run-Time Key MATCHES XML License File Key
         /// </summary>
-        /// <param name="strLicenseKey">XML License File Key Value</param>
         /// <returns>true if Run-Time Key Matches License File Key; otherwise false</returns>
-        private bool CheckRunTimeKey(LicenseFileData xmlLicenseFileDataObj,
-                                     LicenseFileData runTimeLicenseFileDataObj)
+        private bool CheckRunTimeKey()
         {
             string strMethod = "CheckRunTimeKey";
             string strMsg = string.Empty;
@@ -320,392 +434,42 @@ namespace AJP_License_File
         }
         #endregion      // CheckRunTimeKey
 
-        //=============================================================================================================
-        //------------------------------------------- CHECK LICENSE METHOD --------------------------------------------
-        //=============================================================================================================
+        #region CheckRunTimeHash
+        /// <summary>
+        /// Check if Run-Time Hash MATCHES XML License File Hash
+        /// </summary>
+        /// <returns>true if Run-Time Key Matches License File Hash; otherwise false</returns>
+        private bool CheckRunTimeHash()
+        {
+            string strMethod = "CheckRunTimeHash";
+            string strMsg = string.Empty;
+            string strXmlKey = String.Empty;
+            string strRunTimeKey = String.Empty;
+            string strXmlHash = String.Empty;
+            string strRunTimeHash = String.Empty;
+            bool bMatch = false;
+            try
+            {
+                strXmlKey = CalculateLicenseKey(true);      // Get XML Key
+                strRunTimeKey = CalculateLicenseKey(false); // Get Run-Time Key
 
-        //#region IsValidLicense
-        ///// <summary>
-        ///// Check the User Name (USER & SEAT License Types), Device Name (SEAT License Types) and
-        ///// AJP License Key, and AJP License File Hash values (All License Types)
-        ///// </summary>
-        ///// <param name="strFullPathAppStartupLoc">Full-Path Folder Location of App</param>
-        ///// <returns>true for Valid License; false otherwise</returns>
-        //public bool IsValidLicense(string strFullPathAppStartupLoc)
-        //{
-        //    string strMethod = "IsValidLicense";
-        //    string strMsg = string.Empty;
-        //    string strLicenseFolder = string.Empty;
-        //    string strLicenseFile = string.Empty;
+                strXmlHash = CalculateLicenseFileHash(strXmlKey, true);           // Get XML Hash
+                strRunTimeHash = CalculateLicenseFileHash(strRunTimeKey, false);  // Get Run-Time Hash
 
-        //    string strCalcKeyVal = string.Empty;
-        //    string strCalcHashVal = string.Empty;
-
-        //    bool bUsernameMatch = false;
-        //    bool bDeviceMatch = false;
-        //    bool bValidLicenseKey = false;
-        //    bool bValidLicenseHash = false;
-        //    bool bInValidLicenseDateRange = false;
-        //    DateTime dateTimeNow = DateTime.Now;   // Current Date
-
-        //    bool bValidLicense = true;
-        //    try
-        //    {
-        //        #region CHECK IF LICENSE XML FILE EXISTS
-
-        //        #region FOLDER
-        //        //------------------------------------------
-        //        //--- Check if AJP License Folder Exists ---
-        //        //------------------------------------------
-        //        strLicenseFolder = string.Format(@"{0}\{1}", strFullPathAppStartupLoc, AJP_LICENSE_FOLDER);
-        //        if (!Directory.Exists(strLicenseFolder))
-        //        {
-        //            strMsg = string.Format(" *** AJP LICENSE Folder NOT FOUND!  [{0}]", strLicenseFolder);
-        //            throw (new Exception(strMsg));
-        //        }
-        //        Console.WriteLine(" ");
-        //        Console.WriteLine(" ");
-        //        Console.WriteLine(" AJP LICENSE FOLDER FOUND!");
-        //        #endregion      // FOLDER
-
-        //        #region FILE
-        //        //---------------------------------------
-        //        //--- Check if AJP License File Exists ---
-        //        //----------------------------------------
-        //        strLicenseFile = string.Format(@"{0}\{1}", strLicenseFolder, AJP_LICENSE_FILE);
-        //        if (!File.Exists(strLicenseFile))
-        //        {
-        //            strMsg = string.Format(" *** AJP LICENSE File NOT FOUND!  [{0}]", strLicenseFile);
-        //            throw (new Exception(strMsg));
-        //        }
-        //        Console.WriteLine(" AJP LICENSE FILE FOUND!");
-        //        #endregion      // FILE
-
-        //        #region LOG TO CONSOLE: FULL-PATH AJP LICENSE XML FILE LOCATION
-        //        strMsg = string.Format(" ===> AJP LICENSE File:  [{0}]", strLicenseFile);
-        //        Console.WriteLine(strMsg);
-        //        #endregion      // LOG TO CONSOLE: FULL-PATH AJP LICENSE XML FILE LOCATION
-
-        //        #endregion      // CHECK IF LICENSE XML FILE EXISTS
-
-        //        #region READ LICENSE FILE                
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  READ LICENSE FILE  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-        //        //-----------------------------------------------------------
-        //        //--- Read the License File from the AJP License XML File ---
-        //        //-----------------------------------------------------------
-        //        LicenseFileDataObj.RestoreLicenseXmlFile(strLicenseFile);
-
-        //        #endregion      // READ LICENSE FILE
-
-        //        #region USER NAME
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  USER NAME  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-        //        //-------------------------------------------------------------------------------------------------
-        //        //--- IF USER or SEAT License Type THEN Check File User Name with User Name for Running the App ---
-        //        //-------------------------------------------------------------------------------------------------
-        //        if ((String.Compare(LicenseFileDataObj.LicenseType, LicenseFileData.USER) == 0) ||
-        //            (String.Compare(LicenseFileDataObj.LicenseType, LicenseFileData.SEAT) == 0))
-        //        {
-        //            bUsernameMatch = string.Compare(LicenseFileDataObj.UserName, 
-        //                                            LicenseFileDataObj.CurrUserName, true) == 0;
-        //        }
-        //        else
-        //        {
-        //            bUsernameMatch = true;  // NOT CHECKED ... set to TRUE
-        //        }
-
-        //        #region LOG USER NAME VALIDATION RESULTS TO CONSOLE 
-        //        if (bUsernameMatch)
-        //        {
-        //            strMsg = " === VALID USER NAME ENCOUNTED === ";
-        //            Console.WriteLine(" ");
-        //            Console.WriteLine(" ================================= ");
-        //            Console.WriteLine(" === VALID USER NAME ENCOUNTED === ");
-        //            Console.WriteLine(" ================================= ");
-        //            Console.WriteLine(" ");
-        //        }
-        //        else
-        //        {
-        //            strMsg = " *** INVALID USER NAME ENCOUNTED *** ";
-        //            Console.WriteLine(" ");
-        //            Console.WriteLine(" *********************************** ");
-        //            Console.WriteLine(" *** INVALID USER NAME ENCOUNTED *** ");
-        //            Console.WriteLine(" *********************************** ");
-        //            Console.WriteLine(" ");
-
-        //            MessageBox.Show(strMsg, "LICENSE FILE ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        //            #region ***** TEST ONLY ... LOG TO CONSOLE CURRENT USER NAME   *** REMOVE ON RELEASE *** ****
-        //            //***********************************  T E S T  *************************************
-        //            //strMsg = string.Format("=== CURRENT USER NAME: {0} === ", LicenseFileDataObj.CurrUserName);
-        //            //Console.WriteLine(" ");
-        //            //Console.WriteLine(" ================================================================ ");
-        //            //Console.WriteLine(strMsg);
-        //            //Console.WriteLine(" ================================================================ ");
-        //            //Console.WriteLine(" ");
-        //            //***********************************  T E S T  *************************************
-        //            #endregion      // TEST ONLY ... LOG TO CONSOLE CURRENT USER NAME
-
-        //        }
-        //        #endregion      // LOG USER NAME VALIDATION RESULTS TO CONSOLE 
-
-        //        #endregion      // USER NAME
-
-        //        #region DEVICE NAME
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  DEVICE NAME  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-        //        //---------------------------------------------------------------------------------------------
-        //        //--- IF SEAT License Type THEN Check File Device Name with Device Name for Running the App ---
-        //        //---------------------------------------------------------------------------------------------
-        //        if (String.Compare(LicenseFileDataObj.LicenseType, LicenseFileData.SEAT) == 0)
-        //        {
-        //            bDeviceMatch = string.Compare(LicenseFileDataObj.DeviceName, 
-        //                                          LicenseFileDataObj.CurrDeviceName, true) == 0;
-        //        }
-        //        else
-        //        {
-        //            bDeviceMatch = true;   // NOT CHECKED ... set to TRUE   
-        //        }
-
-        //        #region LOG DEVICE NAME VALIDATION RESULTS TO CONSOLE 
-        //        if (bDeviceMatch)
-        //        {
-        //            strMsg = " === VALID DEVICE NAME ENCOUNTED === ";
-        //            Console.WriteLine(" ");
-        //            Console.WriteLine(" =================================== ");
-        //            Console.WriteLine(" === VALID DEVICE NAME ENCOUNTED === ");
-        //            Console.WriteLine(" =================================== ");
-        //            Console.WriteLine(" ");
-        //        }
-        //        else
-        //        {
-        //            strMsg = " *** INVALID DEVICE NAME ENCOUNTED *** ";
-        //            Console.WriteLine(" ");
-        //            Console.WriteLine(" ************************************* ");
-        //            Console.WriteLine(" *** INVALID DEVICE NAME ENCOUNTED *** ");
-        //            Console.WriteLine(" ************************************* ");
-        //            Console.WriteLine(" ");
-
-        //            MessageBox.Show(strMsg, "LICENSE FILE ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        //            #region ***** TEST ONLY ... LOG TO CONSOLE CURRENT DEVICE NAME   *** REMOVE ON RELEASE *** ****
-        //            //***********************************  T E S T  *************************************
-        //            //strMsg = string.Format("=== CURRENT DEVICE NAME: {0} === ", LicenseFileDataObj.CurrDeviceName);
-        //            //Console.WriteLine(" ");
-        //            //Console.WriteLine(" ================================================================ ");
-        //            //Console.WriteLine(strMsg);
-        //            //Console.WriteLine(" ================================================================ ");
-        //            //Console.WriteLine(" ");
-        //            //***********************************  T E S T  *************************************
-        //            #endregion      // TEST ONLY ... LOG TO CONSOLE CURRENT DEVICE NAME
-        //        }
-        //        #endregion      // LOG DEVICE NAME VALIDATION RESULTS TO CONSOLE 
-
-        //        #endregion      // DEVICE NAME
-
-        //        #region LICENSE KEY
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  LICENSE KEY  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-        //        //---------------------------------
-        //        //--- Calculate the License Key ---
-        //        //---------------------------------
-        //        strCalcKeyVal = CalculateLicenseKey();
-
-        //        #region ***** TEST ONLY ... LOG TO CONSOLE CALCULATED LICENSE KEY   *** REMOVE ON RELEASE *** ****
-        //        //***********************************  T E S T  *************************************
-        //        //strMsg = string.Format("=== CALCULATED LICENSE KEY: {0} === ", strCalcKeyVal);
-        //        //Console.WriteLine(" ");
-        //        //Console.WriteLine(" ================================================================ ");
-        //        //Console.WriteLine(strMsg);
-        //        //Console.WriteLine(" ================================================================ ");
-        //        //Console.WriteLine(" ");
-        //        //***********************************  T E S T  *************************************
-        //        #endregion      // TEST ONLY ... LOG TO CONSOLE CALCULATED LICENSE KEY
-
-        //        //--------------------------------------------------------------------
-        //        //--- Compare the File License Key with the Calculated License Key ---
-        //        //--------------------------------------------------------------------
-        //        bValidLicenseKey = string.Compare(LicenseFileDataObj.FileLicenseKey,
-        //                                          strCalcKeyVal, true) == 0;
-
-        //        #region LOG KEY VALIDATION RESULTS TO CONSOLE 
-        //        if (bValidLicenseKey)
-        //        {
-        //            strMsg = " === VALID AJP LICENSE KEY ENCOUNTED === ";
-        //            Console.WriteLine(" ");
-        //            Console.WriteLine(" ======================================= ");
-        //            Console.WriteLine(" === VALID AJP LICENSE KEY ENCOUNTED === ");
-        //            Console.WriteLine(" ======================================= ");
-        //            Console.WriteLine(" ");
-        //        }
-        //        else
-        //        {
-        //            strMsg = " *** INVALID AJP LICENSE KEY ENCOUNTED *** ";
-        //            Console.WriteLine(" ");
-        //            Console.WriteLine(" ***************************************** ");
-        //            Console.WriteLine(" *** INVALID AJP LICENSE KEY ENCOUNTED *** ");
-        //            Console.WriteLine(" ***************************************** ");
-        //            Console.WriteLine(" ");
-        //        }
-        //        #endregion      // LOG KEY VALIDATION RESULTS TO CONSOLE 
-
-        //        #endregion      // LICENSE KEY
-
-        //        #region LICENSE HASH
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  LICENSE HASH -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-        //        //------------------------------
-        //        //--- Calculate License Hash ---
-        //        //------------------------------
-        //        strCalcHashVal = CalculateLicenseFileHash(strCalcKeyVal);
-
-        //        #region ***** TEST ONLY ... LOG TO CONSOLE CALCULATED LICENSE HASH   *** REMOVE ON RELEASE *** *****
-        //        //***********************************  T E S T  *************************************
-        //        //strMsg = string.Format("=== CALCULATED LICENSE HASH: {0} === ", strCalcHashVal);
-        //        //Console.WriteLine(" ");
-        //        //Console.WriteLine(" ================================================================ ");
-        //        //Console.WriteLine(strMsg);
-        //        //Console.WriteLine(" ================================================================ ");
-        //        //Console.WriteLine(" ");
-        //        //***********************************  T E S T  *************************************
-        //        #endregion      // TEST ONLY ... LOG TO CONSOLE CALCULATED LICENSE HASH
-
-        //        //----------------------------------------------------------------------
-        //        //--- Compare the File License Hash with the Calculated License Hash ---
-        //        //----------------------------------------------------------------------
-        //        bValidLicenseHash = string.Compare(LicenseFileDataObj.FileHash,
-        //                                           strCalcHashVal, true) == 0;
-
-        //        #region LOG HASH VALIDATION RESULTS TO CONSOLE 
-        //        if (bValidLicenseHash)
-        //        {
-        //            strMsg = " === VALID AJP LICENSE HASH ENCOUNTED === ";
-        //            Console.WriteLine(" ");
-        //            Console.WriteLine(" ======================================== ");
-        //            Console.WriteLine(" === VALID AJP LICENSE HASH ENCOUNTED === ");
-        //            Console.WriteLine(" ======================================== ");
-        //            Console.WriteLine(" ");
-        //        }
-        //        else
-        //        {
-        //            strMsg = " *** INVALID AJP LICENSE HASH ENCOUNTED *** ";
-        //            Console.WriteLine(" ");
-        //            Console.WriteLine(" ****************************************** ");
-        //            Console.WriteLine(" *** INVALID AJP LICENSE HASH ENCOUNTED *** ");
-        //            Console.WriteLine(" ****************************************** ");
-        //            Console.WriteLine(" ");
-        //        }
-        //        #endregion      // LOG HASH VALIDATION RESULTS TO CONSOLE 
-
-        //        #endregion      // LICENSE HASH
-
-        //        #region EXPIRATION TEST
-        //        if ((DateTime.Compare(dateTimeNow, LicenseFileDataObj.StartDate) < 0) ||
-        //            (DateTime.Compare(dateTimeNow, LicenseFileDataObj.EndDate) > 0))
-        //        {
-        //            //--------------------------------------------------------------------
-        //            //--- Current Date is Outside the Valid Range [StartDate, EndDate] ---
-        //            //--------------------------------------------------------------------
-        //            bInValidLicenseDateRange = false;
-        //        }
-        //        else
-        //        {
-        //            //-------------------------------------------------------------------
-        //            //--- Current Date is Within the Valid Range [StartDate, EndDate] ---
-        //            //-------------------------------------------------------------------
-        //            bInValidLicenseDateRange = true;
-        //        }
-        //        #endregion      // EXPIRATION TEST
-
-        //        #region OVERALL STATUS
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  OVERALL STATUS -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-        //        bValidLicense = (bUsernameMatch &&
-        //                         bDeviceMatch &&
-        //                         bValidLicenseKey &&
-        //                         bValidLicenseHash &&
-        //                         bInValidLicenseDateRange);
-
-        //        #region LOG LICENSE VALIDATION RESULTS TO CONSOLE 
-        //        if (bValidLicense)
-        //        {
-        //            strMsg = " === VALID AJP LICENSE FILE ENCOUNTED === ";
-        //            Console.WriteLine(" ");
-        //            Console.WriteLine(" ======================================== ");
-        //            Console.WriteLine(" === VALID AJP LICENSE FILE ENCOUNTED === ");
-        //            Console.WriteLine(" ======================================== ");
-        //            Console.WriteLine(" ");
-
-        //            //-------------------------------------------------------------------------------------------------
-        //            int nDaysRemaining = LicenseFileDataObj.GetRemainingDays();
-        //            strMsg = String.Format(" === {0} days remaining on the AJP LICENSE === ",
-        //                                   nDaysRemaining.ToString("000"));
-        //            Console.WriteLine(" ");
-        //            Console.WriteLine(" ============================================= ");
-        //            Console.WriteLine(strMsg);
-        //            Console.WriteLine(" ============================================= ");
-        //            Console.WriteLine(" ");
-
-        //            //--------------------------
-        //            //--- Expiration Warning ---
-        //            //--------------------------
-        //            if(nDaysRemaining < 10)
-        //            {
-        //                MessageBox.Show(strMsg,
-        //                            "WARNING: LICENSE FILE EXPIRATION",
-        //                            MessageBoxButtons.OK,
-        //                            MessageBoxIcon.Warning);
-        //            }
-
-        //        }
-        //        else
-        //        {
-        //            strMsg = " *** INVALID AJP LICENSE FILE ENCOUNTED *** ";
-        //            Console.WriteLine(" ");
-        //            Console.WriteLine(" ****************************************** ");
-        //            Console.WriteLine(" *** INVALID AJP LICENSE FILE ENCOUNTED *** ");
-        //            Console.WriteLine(" ****************************************** ");
-        //            if (!bInValidLicenseDateRange)
-        //            {
-        //                Console.WriteLine(" ");
-        //                Console.WriteLine(" ********* CHECK EXPIRATION DATE ********** ");
-        //            }
-        //            Console.WriteLine(" ");
-
-        //            MessageBox.Show(strMsg,
-        //                            "LICENSE FILE ERROR",
-        //                            MessageBoxButtons.OK,
-        //                            MessageBoxIcon.Error);
-
-        //            FormLicenseFile licenseViewer = new FormLicenseFile();
-        //            licenseViewer.ShowDialog();
-        //        }
-        //        #endregion      // LOG LICENSE VALIDATION RESULTS TO CONSOLE 
-
-        //        #endregion      // OVERALL STATUS
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //--- LOG EXCEPTION ---
-        //        strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-        //        Console.WriteLine(strMsg);
-        //    }
-        //    return bValidLicense;
-        //}
-        //#endregion      // IsValidLicense
+                bMatch = (String.Compare(strXmlHash, strRunTimeHash, true) == 0);
+            }
+            catch (Exception ex)
+            {
+                strMsg = string.Format(" *** EXCEPTION Getting ScoreCard Table Data  [{0} : {1}]",
+                                       strMethod, ex.Message);
+                Console.WriteLine(strMsg);
+            }
+            finally
+            {
+            }
+            return bMatch;
+        }
+        #endregion      // CheckRunTimeHash
 
         //=============================================================================================================
         //---------------------------------------------- HELPER METHODS -----------------------------------------------
@@ -765,7 +529,7 @@ namespace AJP_License_File
         /// </summary>
         /// <param name="strCalcKeyVal">Calcualted License Key value</param>
         /// <returns>License File Hash String</returns>
-        public string CalculateLicenseFileHash(string strCalcKeyVal)
+        public string CalculateLicenseFileHash(string strCalcKeyVal, bool bXmlFile = true)
         {
             string strMethod = "CalculateLicenseFileHash";
             string strMsg = String.Empty;
@@ -778,12 +542,22 @@ namespace AJP_License_File
                 //=====================================================================================================
                 //------------------------------------- MASH Items for the HASH ---------------------------------------
                 //=====================================================================================================
-                strMash = string.Format("AJP-{0}_{1}_{2}_{3}-ENG",
+                if (bXmlFile)
+                {
+                    strMash = string.Format("AJP-{0}_{1}_{2}_{3}-ENG",
                                         strCalcKeyVal,
                                         LicenseFileDataObj.StartDate.ToString("MM/dd/yyyy"),
                                         LicenseFileDataObj.EndDate.ToString("MM/dd/yyyy"),
                                         "B052122");
-
+                }
+                else
+                {
+                    strMash = string.Format("AJP-{0}_{1}_{2}_{3}-ENG",
+                                        strCalcKeyVal,
+                                        RunTimeLicenseFileDataObj.StartDate.ToString("MM/dd/yyyy"),
+                                        RunTimeLicenseFileDataObj.EndDate.ToString("MM/dd/yyyy"),
+                                        "B052122");
+                }
                 //=====================================================================================================
                 //------------------------------------------ HASH the MASH --------------------------------------------
                 //=====================================================================================================

@@ -41,6 +41,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using PinchGlobal;
 #endregion  // REFERENCES
 
 #region namespace AJP_License_File
@@ -55,7 +57,11 @@ namespace AJP_License_File
         #endregion      // CONSTANTS
 
         #region FIELDS
-        private ArrayList _scoreCardList;      // ArrayList of ScoreCardRowData objects
+        private ArrayList _scoreCardList;   // ArrayList of ScoreCardRowData objects
+        private int _nProperties;           // Number of Properties
+        private int _nInvalidProps;         // Number of INVALID Properties
+        private int _nValidProps;           // Number of VALID   Properties
+        private string _strValidation;      // Overall Validation Status ["LICENSE VALIDATED" | "LICENSE NOT VALIDATED"]
         #endregion  // FIELDS
 
         #region PROPERTIES
@@ -71,6 +77,50 @@ namespace AJP_License_File
         }
         #endregion  // ScoreCardListObj
 
+        #region NumProperties
+        /// <summary>
+        /// NumProperties Property
+        /// </summary>
+        public int NumProperties
+        {
+            get { return _nProperties; }
+            set { _nProperties = value; }
+        }
+        #endregion  // NumProperties
+
+        #region NumInvalidProps
+        /// <summary>
+        /// NumInvalidProps Property
+        /// </summary>
+        public int NumInvalidProps
+        {
+            get { return _nInvalidProps; }
+            set { _nInvalidProps = value; }
+        }
+        #endregion  // NumInvalidProps
+
+        #region NumValidProps
+        /// <summary>
+        /// NumValidProps Property
+        /// </summary>
+        public int NumValidProps
+        {
+            get { return _nValidProps; }
+            set { _nValidProps = value; }
+        }
+        #endregion  // NumValidProps
+
+        #region ValidationState
+        /// <summary>
+        /// ValidationState Property
+        /// </summary>
+        public string ValidationState
+        {
+            get { return _strValidation; }
+            set { _strValidation = value; }
+        }
+        #endregion  // ValidationState
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -83,6 +133,11 @@ namespace AJP_License_File
             //--- Initialize Properties ---
             //-----------------------------
             ScoreCardListObj = new ArrayList(); // ArrayList of ScoreCardRowData objects
+
+            NumProperties = 0;
+            NumInvalidProps = 0;
+            NumValidProps = 0;
+            ValidationState = String.Empty;
         }
         #endregion  // CTOR
 
@@ -106,6 +161,72 @@ namespace AJP_License_File
             ScoreCardListObj.Add(rowObj);
         }
         #endregion  // public void AddRow()
+
+        #region public void GetCounts()
+        /// <summary>
+        /// Get the Table Counts and assign to Count Properties
+        /// </summary>
+        public void GetCounts()
+        {
+            NumProperties = ScoreCardListObj.Count;
+            NumInvalidProps = 0;
+            NumValidProps = 0;
+            foreach (ScoreCardRowData row in ScoreCardListObj)
+            {
+                if (String.Compare(row.PropertyState, "VALID") == 0) NumValidProps++;
+                else NumInvalidProps++;
+            }
+            if(NumInvalidProps > 0) ValidationState = "LICENSE NOT VALIDATED";
+            else ValidationState = "LICENSE VALIDATED";
+        }
+        #endregion  // public void GetCounts()
+
+        #region public void LogTable()
+        /// <summary>
+        /// Log the Table Contents
+        /// </summary>
+        public void LogTable()
+        {
+            string strMethod = "LogTable";
+            string strMsg = String.Empty;
+            try
+            {
+                int nRows = ScoreCardListObj.Count;
+                Console.WriteLine("===============================");
+                Console.WriteLine("======= SCORECARD TABLE =======");
+                Console.WriteLine("===============================");
+                Console.WriteLine(" Number Row: " + nRows.ToString());
+                Console.WriteLine("-------------------------------");
+
+                strMsg = String.Format(" {0}  {1,-8}  {2,-22}  {3}",
+                                       "ID", "STATE", "NAME", "VALUE");
+                Console.WriteLine(strMsg);
+
+                foreach (ScoreCardRowData row in ScoreCardListObj)
+                {
+                    strMsg = String.Format(" {0}  {1,-8}  {2,-22}  {3}",
+                                           row.PropertyID,
+                                           row.PropertyState,
+                                           row.PropertyName,
+                                           row.PropertyValue);
+                    Console.WriteLine(strMsg);
+                }
+                Console.WriteLine("===============================");
+                Console.WriteLine("===============================");
+                Console.WriteLine("===============================");
+
+            }
+            catch (Exception ex)
+            {
+                strMsg = string.Format(" *** EXCEPTION Logging ScoreCard Table Data  [{0} : {1}]",
+                                       strMethod, ex.Message);
+                Console.WriteLine(strMsg);
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // public void LogTable()
 
     }
     #endregion  // public class ScoreCardTableData
