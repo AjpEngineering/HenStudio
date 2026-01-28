@@ -535,6 +535,35 @@ namespace Pinch
         }
         #endregion      // CTOR
 
+        #region FormMain_Load
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            string strMethod = "FormMain_Load";
+            //-----------------------------
+            //--- XML File Exists Guard ---
+            //-----------------------------
+            if (!PinchFileSysObj.LicenseFileExists())
+            {
+                string strMsg = String.Format("XML License File is Missing! [{0}]",
+                                              PinchFileSysObj.LicenseFilePath);
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                PinchMsgDlg.DisplayErrorDlg(strMsg);
+
+                HandleExit();
+            }
+            else if (PinchSettingsObj.LicenseStatusEnum != PinchTypes.LicenseStatus.VALID)
+            {
+                string strStatus = PinchSettingsObj.LicenseStatusEnum.ToString();
+                string strMsg = String.Format("{0} License File Encountered!{1} Contact AJP Engineering!",
+                                              strStatus, Environment.NewLine);
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                PinchMsgDlg.DisplayErrorDlg(strMsg);
+
+                HandleExit();
+            }
+        }
+        #endregion  // FormMain_Load
+
         #region public void Initialize Controls
         /// <summary>
         /// Set Initial State of Controls
@@ -542,7 +571,7 @@ namespace Pinch
         public void InitializeControls()
         {
             string strMethod = "InitializeControls";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
 
             int nPanelLocationX = 0;
             int nPanelLocationY = 61;
@@ -606,6 +635,8 @@ namespace Pinch
                     //--- XML FILE MISSING ---
                     //------------------------
                     PinchSettingsObj.LicenseValidatedFlag = false;
+                    PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.INVALID;
+
                     PinchLogger.LogError(NAMESPACE, CLASS, strMethod, 
                                          String.Format("XML License File is Missing! [{0}]", 
                                                        strFullPathXmlFile));                    
@@ -621,24 +652,31 @@ namespace Pinch
                 #endregion  // READ LICENSE FILE
 
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  VALIDATE LICENSE FILE DATA  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=  ASSIGN LICENSE TYPE ENUM VALUE IN SETTINGS OBJECT  -=-=-=-=-=-=-=-=-=-=-=-=-
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-                #region VALIDATE LICENSE FILE DATA
-                //----------------------------------
-                //--- Validate License File Data ---
-                //----------------------------------
-                PinchSettingsObj = CheckLicenseFileData(licenseFileXmlObj);     // Compare XML with RunTime
-                #endregion  // VALIDATE LICENSE FILE DATA
-
-                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  UPDATE LICENSE STATUS BAR LABEL  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-                #region UPDATE LICENSE STATUS BAR LABEL
-                //------------------------------------------------
-                //--- Update License Status Bar Label Settings ---
-                //------------------------------------------------
-                UpdateLicenseStatusBarLabel();    // Update License Status Bar Label using Global Settings
-                #endregion  // UPDATE LICENSE STATUS BAR LABEL
+                #region ASSIGN LICENSE TYPE ENUM VALUE IN SETTINGS OBJECT
+                //---------------------------------------------------------
+                //--- Assign License Type Enum Value in Settings Object ---
+                //---------------------------------------------------------
+                switch (licenseFileXmlObj.LicenseType)
+                {
+                    case "SITE":
+                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.SITE;
+                        break;
+                    case "DEVICE":
+                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.DEVICE;
+                        break;
+                    case "SEAT":
+                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.SEAT;
+                        break;
+                    case "USER":
+                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.USER;
+                        break;
+                    default:
+                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.UNKNOWN;
+                        break;
+                }
+                #endregion  // ASSIGN LICENSE TYPE ENUM VALUE IN SETTINGS OBJECT
 
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  DISPLAY LICENSE SCORECARD  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -649,6 +687,16 @@ namespace Pinch
                 //------------------------------------------
                 DisplayLicenseScoreCardForm();      // Display The License ScoreCard Form
                 #endregion  // DISPLAY LICENSE SCORECARD
+
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  UPDATE LICENSE STATUS BAR LABEL  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                #region UPDATE LICENSE STATUS BAR LABEL
+                //------------------------------------------------
+                //--- Update License Status Bar Label Settings ---
+                //------------------------------------------------
+                UpdateLicenseStatusBarLabel();    // Update License Status Bar Label using Global Settings
+                #endregion  // UPDATE LICENSE STATUS BAR LABEL
 
             }
             catch (Exception ex)
@@ -664,135 +712,6 @@ namespace Pinch
             return PinchSettingsObj.LicenseValidatedFlag;
         }
         #endregion  // ValidateLicense()
-
-        #region CheckLicenseFileData()
-        /// <summary>
-        /// Check the XML Data RunTime Data .... based on LicenseType and Environment
-        /// return through ref pinchSettingObj all updates
-        /// </summary>
-        /// <param name="licenseFileXmlObj">ref LicenseFileData object</param>
-        /// <param name="pinchSettingsObj">ref PinchSettings object</param>
-        private PinchSettings CheckLicenseFileData(LicenseFileData licenseFileXmlObj)
-        {
-            string strMethod = "CheckLicenseFileData";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Check License Data");
-
-            string strFullPathXmlFile = PinchFileSysObj.LicenseFilePath;
-            LicenseFileData licenseFileRunTimeObj = new LicenseFileData();
-
-            licenseFileRunTimeObj.RestoreLicenseXmlFile(strFullPathXmlFile);    // Get XML License File Data  
-            try
-            {
-                licenseFileRunTimeObj.RestoreLicenseXmlFile(strFullPathXmlFile);    // Get XML License File Data       
-
-                //---------------------------------------------
-                //--- Initialize Validation Flag and Status ---
-                //---------------------------------------------
-                PinchSettingsObj.LicenseValidatedFlag = true;
-                PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.VALID;
-
-                #region CHECK NON-KEY-HASH PROPERTIES
-                switch (licenseFileXmlObj.LicenseType)
-                {
-                    case LICENSE_TYPE_TRIAL:
-                        #region TRIAL
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.TRIAL;
-                        break;
-                        #endregion  // TRIAL
-                    
-                    case LICENSE_TYPE_SITE:
-                        #region SITE
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.SITE;
-                        break;
-                        #endregion SITE
-
-                    case LICENSE_TYPE_DEVICE:
-                        #region DEVICE
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.DEVICE;
-
-                        //--- Compare Device Name in XML File with Run-Time Device Name (Machine Name) ---
-                        if(String.Compare(licenseFileXmlObj.DeviceName, 
-                                          licenseFileXmlObj.RunTimeDeviceName,
-                                          true) != 0)
-                        {
-                            //-------------------------------------------------------- No Match ---
-                            PinchSettingsObj.LicenseValidatedFlag = false;
-                            PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.INVALID;
-                        }
-                        break;
-                        #endregion  // DEVICE
-
-                    case LICENSE_TYPE_USER:
-                        #region USER
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.USER;
-
-                        //--- Compare Device Name in XML File with Run-Time User Name ---
-                        if (String.Compare(licenseFileXmlObj.UserName,
-                                          licenseFileXmlObj.RunTimeUserName,
-                                          true) != 0)
-                        {
-                            //-------------------------------------------------------- No Match ---
-                            PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.INVALID;
-                            PinchSettingsObj.LicenseValidatedFlag = false;
-                        }
-                        break;
-                        #endregion  // USER
-
-                    case LICENSE_TYPE_SEAT:
-                        #region SEAT
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.SEAT;
-
-                        //--- Compare Device Name in XML File with Run-Time Device Name (Machine Name) ---
-                        if (String.Compare(licenseFileXmlObj.DeviceName,
-                                          licenseFileXmlObj.RunTimeDeviceName,
-                                          true) != 0)
-                        {
-                            //-------------------------------------------------------- No Match ---
-                            PinchSettingsObj.LicenseValidatedFlag = false;
-                            PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.INVALID;
-                        }
-
-                        //--- Compare Device Name in XML File with Run-Time User Name ---
-                        if (String.Compare(licenseFileXmlObj.UserName,
-                                          licenseFileXmlObj.RunTimeUserName,
-                                          true) != 0)
-                        {
-                            //-------------------------------------------------------- No Match ---
-                            PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.INVALID;
-                            PinchSettingsObj.LicenseValidatedFlag = false;
-                        }
-                        break;
-                        #endregion  // SEAT
-
-                    default:
-                        #region UNKNOWN
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.UNKNOWN;
-
-                        PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.INVALID;
-                        PinchSettingsObj.LicenseValidatedFlag = false;
-                        break;
-                        #endregion  // UNKNOWN
-                }
-                #endregion  // CHECK NON-KEY-HASH PROPERTIES
-
-                #region CHECK KEY-HASH PROPERTIES
-
-
-                #endregion  // CHECK KEY-HASH PROPERTIES
-
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-            return PinchSettingsObj;
-        }
-        #endregion  // CheckLicenseFileData()
 
         #endregion  // LICENSE METHODS
 
@@ -1882,11 +1801,18 @@ namespace Pinch
             {
                 tableData = LicenseMgrObj.GetScoreCardTableData(PinchFileSysObj.AppExecPath);
 
-                if(tableData.NumInvalidProps >0)
+                if(tableData.NumInvalidProps > 0)
                 {
+                    PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.INVALID;
+
                     FormScoreCard dlg = new FormScoreCard(tableData);
                     dlg.ShowDialog();
                 }
+                else
+                {
+                    PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.VALID;
+                }
+
                 LogScoreCardTable(tableData);    // Log ScoreCard Table Data
             }
             catch (Exception ex)
@@ -1934,7 +1860,7 @@ namespace Pinch
         private void DisplayAboutForm()
         {
             string strMethod = "DisplayAboutForm";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display About Form");
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display About Form");
             try
             {
                 //PinchMsgDlg.DisplayWarningDlg("Handle Common Display About Form Command!");
@@ -2313,23 +2239,6 @@ namespace Pinch
         #endregion      // LOG METHODS
 
         #endregion  // METHODS
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            string strMethod = "FormMain_Load";
-            //-----------------------------
-            //--- XML File Exists Guard ---
-            //-----------------------------
-            if (!PinchFileSysObj.LicenseFileExists())
-            {
-                string strMsg = String.Format("XML License File is Missing! [{0}]",
-                                              PinchFileSysObj.LicenseFilePath);
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
-                PinchMsgDlg.DisplayErrorDlg(strMsg);
-
-                HandleExit();
-            }
-        }
     }
     #endregion      // class FormPinch
 }

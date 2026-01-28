@@ -254,6 +254,10 @@ namespace PinchGlobal
         /// </summary>
         public static void WriteFooter()
         {
+            int nIndent = 8;
+            String strIndent = string.Join("", Enumerable.Repeat(' ', nIndent));
+
+            Trace.WriteLine(strIndent + " ");
             WriteSection("* * * * *  E N D   O F   L O G  * * * * * ");
             FlushLog();
         }
