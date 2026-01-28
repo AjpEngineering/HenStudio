@@ -68,8 +68,9 @@ namespace AJP_License_File
         #endregion      // CONSTANTS
 
         #region FIELDS
-        private string _strFullPathFilenameXML;         // Full Path File Name to Persist and Restore XML File
-        private LicenseFileData _licenseFileDataObj;    // License File Data object
+        private string _strFullPathFilenameXML;             // Full Path File Name to Persist and Restore XML File
+        private LicenseFileData _licenseFileDataObj;        // XML License File Data object
+        private LicenseFileData _runTimeLicenseFileDataObj; // License File Data object
         #endregion      // FIELDS
 
         #region PROPERTIES
@@ -96,6 +97,17 @@ namespace AJP_License_File
         }
         #endregion      // LicenseFileDataObj
 
+        #region RunTimeLicenseFileDataObj
+        /// <summary>
+        /// RunTimeLicenseFileDataObj Property  ...  Run-Time License File Data object
+        /// </summary>
+        public LicenseFileData RunTimeLicenseFileDataObj
+        {
+            get { return _runTimeLicenseFileDataObj; }
+            set { _runTimeLicenseFileDataObj = value; }
+        }
+        #endregion      // RunTimeLicenseFileDataObj
+
         #endregion      // PROPERTIES
 
         #region CTOR: LicenseMgr
@@ -114,7 +126,8 @@ namespace AJP_License_File
                 //--- Initialize Properties ---
                 //-----------------------------
                 FullPathFilenameXML = strFullPathLicenceFileLoc;    // Assign Full-Path License File Location
-                LicenseFileDataObj = new LicenseFileData();         // Create License File Data Object
+                LicenseFileDataObj = new LicenseFileData();         // Create XML License File Data Object
+                RunTimeLicenseFileDataObj = new LicenseFileData();  // Create Run-Time License File Data Object
             }
             catch (Exception ex)
             {
@@ -124,6 +137,188 @@ namespace AJP_License_File
             }
         }
         #endregion      // CTOR: LicenseMgr
+
+        //=============================================================================================================
+        //------------------------------------------- SCORECARD DATA METHOD -------------------------------------------
+        //=============================================================================================================
+
+        #region GetScoreCardTableData
+        /// <summary>
+        /// Get the ScoreCard Table Data based on XML License File, License Type, and Run-Time Environment
+        /// </summary>
+        /// <param name="strFullPathAppStartupLoc">Full-Path Folder Location of App</param>
+        /// <returns>Populated ScoreCardTableData Object</returns>
+        public ScoreCardTableData GetScoreCardTableData(string strFullPathAppStartupLoc)
+        {
+            string strMethod = "GetScoreCardData";
+            string strMsg = string.Empty;
+
+            ScoreCardTableData tableData = new ScoreCardTableData();
+            string strLicenseFolder = string.Empty;
+            string strLicenseFile = string.Empty;
+
+            try
+            {
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-= CHECK IF LICENSE XML FILE EXISTS =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                #region CHECK IF LICENSE XML FILE EXISTS
+
+                #region FOLDER
+                //------------------------------------------
+                //--- Check if AJP License Folder Exists ---
+                //------------------------------------------
+                strLicenseFolder = string.Format(@"{0}\{1}", strFullPathAppStartupLoc, AJP_LICENSE_FOLDER);
+                if (!Directory.Exists(strLicenseFolder))
+                {
+                    strMsg = string.Format(" *** AJP LICENSE Folder NOT FOUND!  [{0}]", strLicenseFolder);
+                    throw (new Exception(strMsg));
+                }
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine(" AJP LICENSE FOLDER FOUND!");
+                #endregion      // FOLDER
+
+                #region FILE
+                //---------------------------------------
+                //--- Check if AJP License File Exists ---
+                //----------------------------------------
+                strLicenseFile = string.Format(@"{0}\{1}", strLicenseFolder, AJP_LICENSE_FILE);
+                if (!File.Exists(strLicenseFile))
+                {
+                    strMsg = string.Format(" *** AJP LICENSE File NOT FOUND!  [{0}]", strLicenseFile);
+                    throw (new Exception(strMsg));
+                }
+                Console.WriteLine(" AJP LICENSE FILE FOUND!");
+                #endregion      // FILE
+
+                #region LOG TO CONSOLE: FULL-PATH AJP LICENSE XML FILE LOCATION
+                strMsg = string.Format(" ===> AJP LICENSE File:  [{0}]", strLicenseFile);
+                Console.WriteLine(strMsg);
+                #endregion      // LOG TO CONSOLE: FULL-PATH AJP LICENSE XML FILE LOCATION
+
+                #endregion      // CHECK IF LICENSE XML FILE EXISTS
+                
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  READ LICENSE FILE  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                #region READ LICENSE FILE                
+                //-----------------------------------------------------------
+                //--- Read the License File from the AJP License XML File ---
+                //-----------------------------------------------------------
+                LicenseFileDataObj.RestoreLicenseXmlFile(strLicenseFile);
+                #endregion      // READ LICENSE FILE
+
+
+
+            }
+            catch (Exception ex)
+            {
+                strMsg = string.Format(" *** EXCEPTION Getting ScoreCard Table Data  [{0} : {1}]",
+                                       strMethod, ex.Message);
+                Console.WriteLine(strMsg);
+            }
+            finally
+            {
+            }
+            return tableData;
+        }
+        #endregion  // GetScoreCardTableData
+
+        #region CheckRunTimeDeviceName
+        /// <summary>
+        /// Check if Run-Time Device Name MATCHES XML License File Device Name
+        /// </summary>
+        /// <param name="strLicenseDeviceName">XML License File Device Name</param>
+        /// <returns>true if Run-Time Device Name Matches License File Device Name; otherwise false</returns>
+        private bool CheckRunTimeDeviceName(string strLicenseDeviceName)
+        {
+            string strMethod = "CheckRunTimeDeviceName";
+            string strMsg = string.Empty;
+            string strRunTimeDeviceName = String.Empty;
+            bool bMatch = false;
+            try
+            {
+                strRunTimeDeviceName = Environment.MachineName; // Get Run-Time Device (Machine) Name
+                bMatch = (String.Compare(strLicenseDeviceName, strRunTimeDeviceName, true) == 0);
+            }
+            catch (Exception ex)
+            {
+                strMsg = string.Format(" *** EXCEPTION Getting ScoreCard Table Data  [{0} : {1}]", 
+                                       strMethod, ex.Message);
+                Console.WriteLine(strMsg);
+            }
+            finally
+            {
+            }
+            return bMatch;
+        }
+        #endregion      // CheckRunTimeDeviceName
+
+        #region CheckRunTimeUserName
+        /// <summary>
+        /// Check if Run-Time User Name MATCHES XML License File User Name
+        /// </summary>
+        /// <param name="strLicenseUserName">XML License File User Name</param>
+        /// <returns>true if Run-Time User Name Matches License File User Name; otherwise false</returns>
+        private bool CheckRunTimeUserName(string strLicenseUserName)
+        {
+            string strMethod = "CheckRunTimeUserName";
+            string strMsg = string.Empty;
+            string strRunTimeUserName = String.Empty;
+            bool bMatch = false;
+            try
+            {
+                strRunTimeUserName = Environment.UserName; // Get Run-Time User Name
+
+                bMatch = (String.Compare(strLicenseUserName, strRunTimeUserName, true) == 0);
+            }
+            catch (Exception ex)
+            {
+                strMsg = string.Format(" *** EXCEPTION Getting ScoreCard Table Data  [{0} : {1}]",
+                                       strMethod, ex.Message);
+                Console.WriteLine(strMsg);
+            }
+            finally
+            {
+            }
+            return bMatch;
+        }
+        #endregion      // CheckRunTimeUserName
+
+        #region CheckRunTimeKey
+        /// <summary>
+        /// Check if Run-Time User Name MATCHES XML License File User Name
+        /// </summary>
+        /// <param name="strLicenseKey">XML License File Key Value</param>
+        /// <returns>true if Run-Time Key Matches License File Key; otherwise false</returns>
+        private bool CheckRunTimeKey(LicenseFileData xmlLicenseFileDataObj,
+                                     LicenseFileData runTimeLicenseFileDataObj)
+        {
+            string strMethod = "CheckRunTimeKey";
+            string strMsg = string.Empty;
+            string strXmlKey = String.Empty;
+            string strRunTimeKey = String.Empty;
+            bool bMatch = false;
+            try
+            {
+                strXmlKey = CalculateLicenseKey(true);      // Get XML Key
+                strRunTimeKey = CalculateLicenseKey(false); // Get Run-Time Key
+
+                bMatch = (String.Compare(strXmlKey, strRunTimeKey, true) == 0);
+            }
+            catch (Exception ex)
+            {
+                strMsg = string.Format(" *** EXCEPTION Getting ScoreCard Table Data  [{0} : {1}]",
+                                       strMethod, ex.Message);
+                Console.WriteLine(strMsg);
+            }
+            finally
+            {
+            }
+            return bMatch;
+        }
+        #endregion      // CheckRunTimeKey
 
         //=============================================================================================================
         //------------------------------------------- CHECK LICENSE METHOD --------------------------------------------
@@ -203,7 +398,7 @@ namespace AJP_License_File
         //        //-----------------------------------------------------------
         //        LicenseFileDataObj.RestoreLicenseXmlFile(strLicenseFile);
 
-        //        #endregion      // USER NAME
+        //        #endregion      // READ LICENSE FILE
 
         //        #region USER NAME
         //        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -521,7 +716,7 @@ namespace AJP_License_File
         /// Calculate the license key based on the License Key Data Object Property
         /// </summary>
         /// <returns>License Key String</returns>
-        public string CalculateLicenseKey()
+        public string CalculateLicenseKey(bool bXmlFile=true)
         {
             string strMethod = "CalculateLicenseKey";
             string strMsg = String.Empty;
@@ -534,7 +729,8 @@ namespace AJP_License_File
                 //=====================================================================================================
                 //------------------------------------- MASH Items for the HASH ---------------------------------------
                 //=====================================================================================================
-                strMash = LicenseFileDataObj.GetMashString();
+                if (bXmlFile) strMash = LicenseFileDataObj.GetMashString();
+                else strMash = RunTimeLicenseFileDataObj.GetMashString();
 
                 //=====================================================================================================
                 //------------------------------------------ HASH the MASH --------------------------------------------
