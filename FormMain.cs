@@ -433,7 +433,6 @@ namespace Pinch
                 //--- Initialize Units Global Setting ---
                 //---------------------------------------
                 //PinchEnglishUnitsFlag = true;
-                //PinchCalcModeFCpFlag = false;
                 //---------------------------
                 //--- Initialize Controls ---
                 //---------------------------
@@ -1795,7 +1794,7 @@ namespace Pinch
         private void DisplayLicenseScoreCardForm()
         {
             string strMethod = "DisplayLicenseScoreCardForm";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License ScoreCard Form");
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License ScoreCard Form");
             ScoreCardTableData tableData;
             try
             {
@@ -1834,7 +1833,7 @@ namespace Pinch
         private void DisplayLicenseForm()
         {
             string strMethod = "DisplayLicenseForm";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
             try
             {
                 //PinchMsgDlg.DisplayWarningDlg("Handle Common Display License Form Command!");
@@ -1887,7 +1886,7 @@ namespace Pinch
         private void DisplayBusinessCardForm()
         {
             string strMethod = "DisplayBusinessCardForm";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Business Card Form");
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Business Card Form");
             try
             {
                 //PinchMsgDlg.DisplayWarningDlg("Handle Common Display Business Card Form Command!");
@@ -1913,7 +1912,7 @@ namespace Pinch
         private void HandleNew()
         {
             string strMethod = "HandleNew";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "New Project");
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "New Project");
             try
             {
                 PinchMsgDlg.DisplayWarningDlg("Handle NEW Command!");
@@ -1937,7 +1936,7 @@ namespace Pinch
         private void HandleOpen()
         {
             string strMethod = "HandleOpen";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Open Project");
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Open Project");
             try
             {
                 PinchMsgDlg.DisplayWarningDlg("Handle OPEN Command!");
@@ -1961,7 +1960,7 @@ namespace Pinch
         private void HandleSave()
         {
             string strMethod = "HandleSave";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Save Project");
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Save Project");
             try
             {
                 PinchMsgDlg.DisplayWarningDlg("Handle SAVE Command!");
@@ -1985,7 +1984,7 @@ namespace Pinch
         private void HandleSaveAs()
         {
             string strMethod = "HandleSaveAs";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Save Project");
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Save Project");
             try
             {
                 PinchMsgDlg.DisplayWarningDlg("Handle SAVE AS Command!");
@@ -2009,7 +2008,7 @@ namespace Pinch
         private void HandleImport()
         {
             string strMethod = "HandleImport";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Import Pinch Results");
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Import Pinch Results");
             try
             {
                 PinchMsgDlg.DisplayWarningDlg("Handle IMPORT Command!");
@@ -2033,7 +2032,7 @@ namespace Pinch
         private void HandleExport()
         {
             string strMethod = "HandleExport";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Export Pinch Results");
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Export Pinch Results");
             try
             {
                 PinchMsgDlg.DisplayWarningDlg("Handle EXPORT Command!");
@@ -2165,11 +2164,15 @@ namespace Pinch
                     PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
-                strMsg = String.Format("     Num INVALID:{0}  Num VALID:{1}  TOTAL:{2}  STATUS:{3}", 
+                strMsg = String.Format("     Num INVALID:{0}   Num VALID:{1}   TOTAL:{2}   STATUS:{3}",
                                        tableData.NumInvalidProps.ToString(),
                                        tableData.NumValidProps.ToString(),
                                        tableData.NumProperties.ToString(),
                                        tableData.ValidationState);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = String.Format("     Days Remaining on License:{0} days  ... [ Current Date: {1} ]", 
+                                       tableData.DaysRemaining.ToString(),
+                                       DateTime.Now.ToShortDateString());
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
 

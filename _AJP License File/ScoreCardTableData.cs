@@ -37,12 +37,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using PinchGlobal;
+
+using static System.Windows.Forms.AxHost;
 #endregion  // REFERENCES
 
 #region namespace AJP_License_File
@@ -62,6 +65,7 @@ namespace AJP_License_File
         private int _nInvalidProps;         // Number of INVALID Properties
         private int _nValidProps;           // Number of VALID   Properties
         private string _strValidation;      // Overall Validation Status ["LICENSE VALIDATED" | "LICENSE NOT VALIDATED"]
+        private int _nDaysRemaining;        // Days Remaining on the License ... [End Date - Current Date]
         #endregion  // FIELDS
 
         #region PROPERTIES
@@ -121,6 +125,17 @@ namespace AJP_License_File
         }
         #endregion  // ValidationState
 
+        #region DaysRemaining
+        /// <summary>
+        /// DaysRemaining Property
+        /// </summary>
+        public int DaysRemaining
+        {
+            get { return _nDaysRemaining; }
+            set { _nDaysRemaining = value; }
+        }
+        #endregion  // DaysRemaining
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -138,6 +153,7 @@ namespace AJP_License_File
             NumInvalidProps = 0;
             NumValidProps = 0;
             ValidationState = String.Empty;
+            DaysRemaining = 0;
         }
         #endregion  // CTOR
 
@@ -178,8 +194,57 @@ namespace AJP_License_File
             }
             if(NumInvalidProps > 0) ValidationState = "LICENSE NOT VALIDATED";
             else ValidationState = "LICENSE VALIDATED";
+
+            DaysRemaining = GetDaysRemaining();
         }
         #endregion  // public void GetCounts()
+
+        #region GetDaysRemaining()
+        /// <summary>
+        /// Calculates and returns the Days Remaing on the License
+        /// </summary>
+        /// <returns>On Success: Number of Days remaining on License; otherwise 0</returns>
+        private int GetDaysRemaining()
+        {
+            string strMethod = "GetDaysRemaining";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Get Remaining Days on License");
+            int nDaysRemaining = 0;
+            DateTime currDate = DateTime.Now;
+            DateTime endDate  = DateTime.Now;
+            string strLicenseEndName = "License End";
+            string strValue = String.Empty;
+            try
+            {
+                //-----------------------------
+                //--- Find License End Data ---
+                //-----------------------------
+                foreach(ScoreCardRowData row in ScoreCardListObj)
+                {
+                    if(String.Compare(row.PropertyName, strLicenseEndName, true) == 0) 
+                    {
+                        //-------------------------
+                        //--- LICENSE END FOUND ---
+                        //-------------------------
+                        strValue = row.PropertyValue;
+                        endDate = DateTime.Parse(strValue);
+
+                        nDaysRemaining = (endDate.Date - currDate.Date).Days;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return nDaysRemaining;
+        }
+        #endregion  // GetDaysRemaining()
+
 
         #region public void LogTable()
         /// <summary>
