@@ -103,6 +103,16 @@ namespace AJP_License_File.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AJP_Logo_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("AJP_Logo_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AJP_PRODUCT_Logo {
             get {
                 object obj = ResourceManager.GetObject("AJP PRODUCT Logo", resourceCulture);
@@ -123,6 +133,26 @@ namespace AJP_License_File.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Calendar_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Calendar_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Calendar_White_Background_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Calendar_White_Background_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap InValid {
             get {
                 object obj = ResourceManager.GetObject("InValid", resourceCulture);
@@ -136,6 +166,16 @@ namespace AJP_License_File.Properties {
         internal static System.Drawing.Bitmap InValid_32x32 {
             get {
                 object obj = ResourceManager.GetObject("InValid_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Running_White_Background_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Running_White_Background_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -61,6 +61,12 @@ namespace AJP_License_File
 
         #region FIELDS
         private ScoreCardTableData _tableData;
+
+        private string _strDeviceName = String.Empty;       // Maximum Lenght 15 characters
+        private string _strDomain = String.Empty;
+        private string _strUsername = String.Empty;         // Maximum Length 20 characters
+        private string _strFullname = String.Empty;
+
         #endregion      // FIELDS
 
         #region PROPERTIES
@@ -75,6 +81,50 @@ namespace AJP_License_File
             set { _tableData = value; }
         }
         #endregion  // ScoreCardTableDataObj
+
+        #region RunningDeviceName
+        /// <summary>
+        /// RunningDeviceName Property
+        /// </summary>
+        public string RunningDeviceName
+        {
+            get { return _strDeviceName; }
+            set { _strDeviceName = value; }
+        }
+        #endregion  // RunningDeviceName
+
+        #region RunningFullname
+        /// <summary>
+        /// RunningFullname Property
+        /// </summary>
+        public string RunningFullname
+        {
+            get { return _strFullname; }
+            set { _strFullname = value; }
+        }
+        #endregion  // RunningFullname
+
+        #region RunningDomain
+        /// <summary>
+        /// RunningDomain Property
+        /// </summary>
+        public string RunningDomain
+        {
+            get { return _strDomain; }
+            set { _strDomain = value; }
+        }
+        #endregion  // RunningDomain
+
+        #region RunningUsername
+        /// <summary>
+        /// RunningUsername Property
+        /// </summary>
+        public string RunningUsername
+        {
+            get { return _strUsername; }
+            set { _strUsername = value; }
+        }
+        #endregion  // RunningUsername
 
         #endregion      // PROPERTIES
 
@@ -96,22 +146,58 @@ namespace AJP_License_File
         #region FORM LOAD EVENT HANDLER
         private void FormScoreCard_Load(object sender, EventArgs e)
         {
-            string strUsername = Environment.UserName;
-            string strFullname = WindowsIdentity.GetCurrent().Name;
-            string strDomain = strFullname.Split('\\')[0];
-            string strDeviceName = Environment.MachineName;
+            //------------------------------------------------------
+            //--- Assign Currently Running (Run-Time) Properties ---
+            //------------------------------------------------------
+            RunningDeviceName = Environment.MachineName;        // Maximum Lenght 15 characters
+            RunningFullname = WindowsIdentity.GetCurrent().Name;
+            RunningDomain = RunningFullname.Split('\\')[0];
+            RunningUsername = Environment.UserName;             // Maximum Length 20 characters
 
             UpdateScoreCard();
         }
         #endregion  // FORM LOAD EVENT HANDLER
 
+        #region UpdateScoreCard()
+        /// <summary>
+        /// Update the ScoreCard Contents and UI Styles
+        /// </summary>
         private void UpdateScoreCard()
         {
             string strMethod = "UpdateScoreCard";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Update License ScoreCard Using Table Data");
-
+            string strMsg = String.Empty;
+            string strRunning = String.Empty;
             try
             {
+
+                #region Title TextBox Control
+                //-----------------------------
+                //--- Title TextBox Control ---
+                //-----------------------------
+                textBoxTitle.Text = ScoreCardTableDataObj.ValidationState;
+                if (ScoreCardTableDataObj.LicenseStatusEnum == LicenseTypes.LicenseStatus.EXPIRED)
+                {
+                    textBoxTitle.BackColor = Color.OrangeRed;
+                    textBoxTitle.ForeColor = Color.White;
+                }
+                else if (ScoreCardTableDataObj.LicenseStatusEnum == LicenseTypes.LicenseStatus.INVALID)
+                {
+                    textBoxTitle.BackColor = Color.OrangeRed;
+                    textBoxTitle.ForeColor = Color.White;
+                }
+                else if (ScoreCardTableDataObj.LicenseStatusEnum == LicenseTypes.LicenseStatus.VALID)
+                {
+                    textBoxTitle.BackColor = Color.Green;
+                    textBoxTitle.ForeColor = Color.White;
+                }
+                else
+                {
+                    textBoxTitle.BackColor = Color.Red;
+                    textBoxTitle.ForeColor = Color.White;
+                }
+                #endregion  // Title TextBox Control
+
+                #region DataGridViewScoreCard Controls
                 //--------------------------------------
                 //--- DataGridViewScoreCard Controls ---
                 //--------------------------------------
@@ -124,40 +210,41 @@ namespace AJP_License_File
                                                    rowObj.PropertyName,
                                                    rowObj.PropertyValue);
                 }
+                #endregion  // DataGridViewScoreCard Controls
 
-                //dataGridViewScoreCard.Rows.Add("01", Properties.Resources.Valid_32x32, "Author", "AuthorValue");
-                //dataGridViewScoreCard.Rows.Add("02", Properties.Resources.Valid_32x32, "Supplier Name", "SupplierNameValue");
-                //dataGridViewScoreCard.Rows.Add("03", Properties.Resources.Valid_32x32, "Supplier URL", "SupplierURLValue");
-                //dataGridViewScoreCard.Rows.Add("04", Properties.Resources.Valid_32x32, "Customer Name", "CustomerNameValue");
-                //dataGridViewScoreCard.Rows.Add("05", Properties.Resources.Valid_32x32, "Customer Email", "CustomerEmailValue");
-                //dataGridViewScoreCard.Rows.Add("06", Properties.Resources.Valid_32x32, "Product Name", "ProductNameValue");
-                //dataGridViewScoreCard.Rows.Add("07", Properties.Resources.Valid_32x32, "Product Version", "ProductVersionValue");
-                //dataGridViewScoreCard.Rows.Add("08", Properties.Resources.Valid_32x32, "Product Serial Number", "ProductSerialNumberValue");
-                //dataGridViewScoreCard.Rows.Add("09", Properties.Resources.Valid_32x32, "Product Code", "{3D9721BA-003E-4711-B7AF-B579645F0AC9}");
-                //dataGridViewScoreCard.Rows.Add("10", Properties.Resources.Valid_32x32, "License Type", "LicenseTypeValue");
-                //dataGridViewScoreCard.Rows.Add("11", Properties.Resources.Valid_32x32, "Corporation", "CorporationValue");
-                //dataGridViewScoreCard.Rows.Add("12", Properties.Resources.Valid_32x32, "Division", "DivisionValue");
-                //dataGridViewScoreCard.Rows.Add("13", Properties.Resources.Valid_32x32, "Group", "GroupValue");
-                //dataGridViewScoreCard.Rows.Add("14", Properties.Resources.Valid_32x32, "User Name", "UserNameValue");
-                //dataGridViewScoreCard.Rows.Add("15", Properties.Resources.Valid_32x32, "Device Name", "DeviceNameValue");
-                //dataGridViewScoreCard.Rows.Add("16", Properties.Resources.Valid_32x32, "License Duration", "LicenseDurationValue");
-                //dataGridViewScoreCard.Rows.Add("17", Properties.Resources.Valid_32x32, "License Start Date", "License Start Datevalue");
-                //dataGridViewScoreCard.Rows.Add("18", Properties.Resources.Valid_32x32, "License End Date", "LicenseEndDateValue");
-                //dataGridViewScoreCard.Rows.Add("19", Properties.Resources.Valid_32x32, "License Key", "LicenseKeyValue");
-                //dataGridViewScoreCard.Rows.Add("20", Properties.Resources.InValid_32x32, "License Hash", "LicenseHashValue");
+                #region Status Bar Controls
+                toolStripStatusLabelValidCount.Text = 
+                    String.Format(" {0,-2} ",ScoreCardTableDataObj.NumValidProps.ToString());
 
+                toolStripStatusLabelInvalidCount.Text =
+                    String.Format(" {0,-2} ", ScoreCardTableDataObj.NumInvalidProps.ToString());
+
+                toolStripStatusLabelRemainingDays.Text =
+                    String.Format(" {0,-3} days ", ScoreCardTableDataObj.DaysRemaining.ToString());
+                if(ScoreCardTableDataObj.DaysRemaining <= 0)
+                {
+                    toolStripStatusLabelRemainingDays.ForeColor = Color.Red;
+                    toolStripStatusLabelRemainingDays.BackColor = Color.Yellow;
+                }
+
+                strRunning = String.Format("Device: {0,-15} User: {1,-20} Fullname: {2,-36} ",
+                                           this.RunningDeviceName,
+                                           this.RunningUsername,
+                                           this.RunningFullname);
+                toolStripStatusLabelRunningEnv.Text = strRunning;
+
+                #endregion  // Status Bar Controls
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
+                Console.WriteLine(strMsg);
             }
             finally
             {
             }
         }
-
+        #endregion  // UpdateScoreCard()
     }
     #endregion  // public partial class FormScoreCard
 }

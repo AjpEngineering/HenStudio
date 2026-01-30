@@ -1807,6 +1807,13 @@ namespace Pinch
                     FormScoreCard dlg = new FormScoreCard(tableData);
                     dlg.ShowDialog();
                 }
+                else if (tableData.DaysRemaining <= 0)
+                {
+                    PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.EXPIRED;
+
+                    FormScoreCard dlg = new FormScoreCard(tableData);
+                    dlg.ShowDialog();
+                }
                 else
                 {
                     PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.VALID;

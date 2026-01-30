@@ -64,8 +64,9 @@ namespace AJP_License_File
         private int _nProperties;           // Number of Properties
         private int _nInvalidProps;         // Number of INVALID Properties
         private int _nValidProps;           // Number of VALID   Properties
-        private string _strValidation;      // Overall Validation Status ["LICENSE VALIDATED" | "LICENSE NOT VALIDATED"]
+        private string _strValidation;      // Overall Validation Status ["VALID LICENSE" | "INVALID LICENSE | EXPIRED LICENSE"]
         private int _nDaysRemaining;        // Days Remaining on the License ... [End Date - Current Date]
+        private LicenseTypes.LicenseStatus _licenseStatus;  // License Status ... ["EXPIRED" | INVLAID" |"UNKNOWN" | "VALID"]
         #endregion  // FIELDS
 
         #region PROPERTIES
@@ -136,6 +137,17 @@ namespace AJP_License_File
         }
         #endregion  // DaysRemaining
 
+        #region LicenseStatusEnum
+        /// <summary>
+        /// LicenseStatusEnum Property
+        /// </summary>
+        public LicenseTypes.LicenseStatus LicenseStatusEnum
+        {
+            get { return _licenseStatus; }
+            set { _licenseStatus = value; }
+        }
+        #endregion  // LicenseStatusEnum
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -154,6 +166,7 @@ namespace AJP_License_File
             NumValidProps = 0;
             ValidationState = String.Empty;
             DaysRemaining = 0;
+            LicenseStatusEnum = LicenseTypes.LicenseStatus.UNKNOWN;
         }
         #endregion  // CTOR
 
@@ -192,10 +205,25 @@ namespace AJP_License_File
                 if (String.Compare(row.PropertyState, "VALID") == 0) NumValidProps++;
                 else NumInvalidProps++;
             }
-            if(NumInvalidProps > 0) ValidationState = "LICENSE NOT VALIDATED";
-            else ValidationState = "LICENSE VALIDATED";
 
             DaysRemaining = GetDaysRemaining();
+
+            LicenseStatusEnum = GetLicenseStatus();
+            switch (LicenseStatusEnum)
+            {
+                case LicenseTypes.LicenseStatus.INVALID:
+                    ValidationState = "INVALID LICENSE";
+                    break;
+                case LicenseTypes.LicenseStatus.EXPIRED:
+                    ValidationState = "EXPIRED LICENSE";
+                    break;
+                case LicenseTypes.LicenseStatus.VALID:
+                    ValidationState = "VALID LICENSE";
+                    break;
+                default:
+                    ValidationState = "UNKNOWN LICENSE";
+                    break;
+            }
         }
         #endregion  // public void GetCounts()
 
@@ -207,7 +235,7 @@ namespace AJP_License_File
         private int GetDaysRemaining()
         {
             string strMethod = "GetDaysRemaining";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Get Remaining Days on License");
+            string strMsg = String.Empty;
             int nDaysRemaining = 0;
             DateTime currDate = DateTime.Now;
             DateTime endDate  = DateTime.Now;
@@ -234,9 +262,8 @@ namespace AJP_License_File
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
+                Console.WriteLine(strMsg);
             }
             finally
             {
@@ -245,6 +272,33 @@ namespace AJP_License_File
         }
         #endregion  // GetDaysRemaining()
 
+        #region GetLicenseStatus()
+        /// <summary>
+        /// Get the License Status ... ["EXPIRED" | INVLAID" |"UNKNOWN" | "VALID"] 
+        /// </summary>
+        /// <returns>License Status on Success; otherwise UNKNOWN</returns>
+        private LicenseTypes.LicenseStatus GetLicenseStatus()
+        {
+            string strMethod = "GetLicenseStatus";
+            string strMsg = String.Empty;
+            LicenseTypes.LicenseStatus licStatus = LicenseTypes.LicenseStatus.UNKNOWN;
+            try
+            {
+                if (NumInvalidProps > 0) licStatus = LicenseTypes.LicenseStatus.INVALID;
+                else if (DaysRemaining <= 0) licStatus = LicenseTypes.LicenseStatus.EXPIRED;
+                else licStatus = LicenseTypes.LicenseStatus.VALID;
+            }
+            catch (Exception ex)
+            {
+                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
+                Console.WriteLine(strMsg);
+            }
+            finally
+            {
+            }
+            return licStatus;
+        }
+        #endregion  // GetLicenseStatus()
 
         #region public void LogTable()
         /// <summary>
