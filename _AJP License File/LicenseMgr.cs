@@ -416,7 +416,7 @@ namespace AJP_License_File
             bool bMatch = false;
             try
             {
-                strXmlKey = CalculateLicenseKey(true);      // Get XML Key
+                strXmlKey = this.LicenseFileDataObj.FileLicenseKey;
                 strRunTimeKey = CalculateLicenseKey(false); // Get Run-Time Key
 
                 bMatch = (String.Compare(strXmlKey, strRunTimeKey, true) == 0);
@@ -450,10 +450,10 @@ namespace AJP_License_File
             bool bMatch = false;
             try
             {
-                strXmlKey = CalculateLicenseKey(true);      // Get XML Key
+                strXmlKey = this.LicenseFileDataObj.FileLicenseKey;
                 strRunTimeKey = CalculateLicenseKey(false); // Get Run-Time Key
 
-                strXmlHash = CalculateLicenseFileHash(strXmlKey, true);           // Get XML Hash
+                strXmlHash = this.LicenseFileDataObj.FileHash;
                 strRunTimeHash = CalculateLicenseFileHash(strRunTimeKey, false);  // Get Run-Time Hash
 
                 bMatch = (String.Compare(strXmlHash, strRunTimeHash, true) == 0);

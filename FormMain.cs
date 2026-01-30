@@ -659,6 +659,9 @@ namespace Pinch
                 //---------------------------------------------------------
                 switch (licenseFileXmlObj.LicenseType)
                 {
+                    case "TRIAL":
+                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.TRIAL;
+                        break;
                     case "SITE":
                         PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.SITE;
                         break;
@@ -668,9 +671,9 @@ namespace Pinch
                     case "SEAT":
                         PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.SEAT;
                         break;
-                    case "USER":
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.USER;
-                        break;
+                    case "USER":    // NOT SUPPORTED
+                        //PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.USER;
+                        //break;
                     default:
                         PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.UNKNOWN;
                         break;
