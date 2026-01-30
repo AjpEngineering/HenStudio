@@ -61,6 +61,7 @@
             this.designToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scorecardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
@@ -141,10 +142,9 @@
             this.toolStripButtonHenDesign = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonLicense = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonScoreCard = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAbout = new System.Windows.Forms.ToolStripButton();
             this.pictureBoxAJPLogo = new System.Windows.Forms.PictureBox();
-            this.scorecardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButtonScoreCard = new System.Windows.Forms.ToolStripButton();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -469,21 +469,30 @@
             // 
             this.licenseToolStripMenuItem.Image = global::Pinch.Properties.Resources.License_32x32;
             this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
-            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(147, 30);
             this.licenseToolStripMenuItem.Text = "License...";
             this.licenseToolStripMenuItem.ToolTipText = "Launch License Viewer";
             this.licenseToolStripMenuItem.Click += new System.EventHandler(this.licenseToolStripMenuItem_Click);
             // 
+            // scorecardToolStripMenuItem
+            // 
+            this.scorecardToolStripMenuItem.Image = global::Pinch.Properties.Resources.Scorecard_no_background_32x32;
+            this.scorecardToolStripMenuItem.Name = "scorecardToolStripMenuItem";
+            this.scorecardToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.scorecardToolStripMenuItem.Text = "Scorecard...";
+            this.scorecardToolStripMenuItem.ToolTipText = "Launch License ScoreCard Viewer";
+            this.scorecardToolStripMenuItem.Click += new System.EventHandler(this.scorecardToolStripMenuItem_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(144, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Image = global::Pinch.Properties.Resources.About_32x32;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 30);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.ToolTipText = "Launch About Dialog";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
@@ -1468,8 +1477,18 @@
             this.toolStripButtonLicense.Name = "toolStripButtonLicense";
             this.toolStripButtonLicense.Size = new System.Drawing.Size(28, 28);
             this.toolStripButtonLicense.Text = "toolStripButton1";
-            this.toolStripButtonLicense.ToolTipText = "Displau License Data";
+            this.toolStripButtonLicense.ToolTipText = "Display License Data";
             this.toolStripButtonLicense.Click += new System.EventHandler(this.toolStripButtonLicense_Click);
+            // 
+            // toolStripButtonScoreCard
+            // 
+            this.toolStripButtonScoreCard.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonScoreCard.Image = global::Pinch.Properties.Resources.Scorecard_no_background_32x32;
+            this.toolStripButtonScoreCard.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonScoreCard.Name = "toolStripButtonScoreCard";
+            this.toolStripButtonScoreCard.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonScoreCard.ToolTipText = "Display License ScoreCard";
+            this.toolStripButtonScoreCard.Click += new System.EventHandler(this.toolStripButtonScoreCard_Click);
             // 
             // toolStripButtonAbout
             // 
@@ -1495,24 +1514,6 @@
             this.pictureBoxAJPLogo.TabIndex = 6;
             this.pictureBoxAJPLogo.TabStop = false;
             this.pictureBoxAJPLogo.DoubleClick += new System.EventHandler(this.pictureBoxAJPLogo_DoubleClick);
-            // 
-            // scorecardToolStripMenuItem
-            // 
-            this.scorecardToolStripMenuItem.Image = global::Pinch.Properties.Resources.Scorecard_no_background_32x32;
-            this.scorecardToolStripMenuItem.Name = "scorecardToolStripMenuItem";
-            this.scorecardToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
-            this.scorecardToolStripMenuItem.Text = "Scorecard...";
-            this.scorecardToolStripMenuItem.Click += new System.EventHandler(this.scorecardToolStripMenuItem_Click);
-            // 
-            // toolStripButtonScoreCard
-            // 
-            this.toolStripButtonScoreCard.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonScoreCard.Image = global::Pinch.Properties.Resources.Scorecard_no_background_32x32;
-            this.toolStripButtonScoreCard.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonScoreCard.Name = "toolStripButtonScoreCard";
-            this.toolStripButtonScoreCard.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButtonScoreCard.ToolTipText = "License ScoreCard";
-            this.toolStripButtonScoreCard.Click += new System.EventHandler(this.toolStripButtonScoreCard_Click);
             // 
             // FormMain
             // 

@@ -687,7 +687,7 @@ namespace Pinch
                 //------------------------------------------
                 //--- Display The License ScoreCard Form ---
                 //------------------------------------------
-                DisplayLicenseScoreCardForm();      // Display The License ScoreCard Form
+                DisplayScoreCardForm();         // Display The License ScoreCard Form
                 #endregion  // DISPLAY LICENSE SCORECARD
 
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -1803,52 +1803,6 @@ namespace Pinch
         #region METHODS
 
         #region COMMON COMMAND HANDLERS
-
-        #region DisplayLicenseScoreCardForm()
-        /// <summary>
-        /// Common Display License ScoreCardForm Handler
-        /// </summary>
-        private void DisplayLicenseScoreCardForm()
-        {
-            string strMethod = "DisplayLicenseScoreCardForm";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License ScoreCard Form");
-            ScoreCardTableData tableData;
-            try
-            {
-                tableData = LicenseMgrObj.GetScoreCardTableData(PinchFileSysObj.AppExecPath);
-
-                if(tableData.NumInvalidProps > 0)
-                {
-                    PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.INVALID;
-
-                    FormScoreCard dlg = new FormScoreCard(tableData);
-                    dlg.ShowDialog();
-                }
-                else if (tableData.DaysRemaining <= 0)
-                {
-                    PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.EXPIRED;
-
-                    FormScoreCard dlg = new FormScoreCard(tableData);
-                    dlg.ShowDialog();
-                }
-                else
-                {
-                    PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.VALID;
-                }
-
-                LogScoreCardTable(tableData);    // Log ScoreCard Table Data
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // DisplayLicenseScoreCardForm()
 
         #region DisplayLicenseForm()
         /// <summary>
