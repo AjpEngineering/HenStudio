@@ -1306,6 +1306,13 @@ namespace Pinch
         }
         #endregion      // LICENSE
 
+        #region SCORECARD
+        private void scorecardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayScoreCardForm();
+        }
+        #endregion  // SCORECARD
+
         #region ABOUT
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1636,6 +1643,13 @@ namespace Pinch
         }
         #endregion  // TOOLBAR LICENSE BUTTON EVENT
 
+        #region TOOLBAR SCORECARD BUTTON EVENT
+        private void toolStripButtonScoreCard_Click(object sender, EventArgs e)
+        {
+            DisplayScoreCardForm();
+        }
+        #endregion  // TOOLBAR SCORECARD BUTTON EVENT
+
         #region TOOLBAR ABOUT BUTTON EVENT
         private void toolStripButtonAbout_Click(object sender, EventArgs e)
         {
@@ -1857,7 +1871,62 @@ namespace Pinch
             {
             }
         }
-        #endregion  // DisplayAboutForm()
+        #endregion  // DisplayLicenseForm()
+
+        #region DisplayScoreCardForm()
+        /// <summary>
+        /// Common Display License ScoreCard Form Handler
+        /// </summary>
+        private void DisplayScoreCardForm()
+        {
+            string strMethod = "DisplayScoreCardForm";
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
+            try
+            {
+                ScoreCardTableData tableData;
+                try
+                {
+                    tableData = LicenseMgrObj.GetScoreCardTableData(PinchFileSysObj.AppExecPath);
+
+                    if (tableData.NumInvalidProps > 0)
+                    {
+                        PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.INVALID;
+                    }
+                    else if (tableData.DaysRemaining <= 0)
+                    {
+                        PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.EXPIRED;
+                    }
+                    else
+                    {
+                        PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.VALID;
+                    }
+
+                    FormScoreCard dlg = new FormScoreCard(tableData);
+                    dlg.ShowDialog();
+
+                    LogScoreCardTable(tableData);    // Log ScoreCard Table Data
+                }
+                catch (Exception ex)
+                {
+                    PinchLogger.WriteSeparatorLine('*');
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                    PinchLogger.WriteSeparatorLine('*');
+                }
+                finally
+                {
+                }
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // DisplayScoreCardForm()
 
         #region DisplayAboutForm()
         /// <summary>
