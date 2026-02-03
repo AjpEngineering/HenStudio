@@ -687,7 +687,7 @@ namespace Pinch
                 //------------------------------------------
                 //--- Display The License ScoreCard Form ---
                 //------------------------------------------
-                DisplayScoreCardForm();         // Display The License ScoreCard Form
+                DisplayScoreCardForm(true);         // Display The License ScoreCard Form
                 #endregion  // DISPLAY LICENSE SCORECARD
 
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -1834,7 +1834,8 @@ namespace Pinch
         /// <summary>
         /// Common Display License ScoreCard Form Handler
         /// </summary>
-        private void DisplayScoreCardForm()
+        /// <param name="bOnLaunch">On Launch Flag; true when method called on Constructor sequesce; otherwise false</param>
+        private void DisplayScoreCardForm(bool bOnLaunch=false)
         {
             string strMethod = "DisplayScoreCardForm";
             //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
@@ -1843,6 +1844,7 @@ namespace Pinch
                 ScoreCardTableData tableData;
                 try
                 {
+                    #region GET LICENSE STATUS
                     tableData = LicenseMgrObj.GetScoreCardTableData(PinchFileSysObj.AppExecPath);
 
                     if (tableData.NumInvalidProps > 0)
@@ -1858,13 +1860,31 @@ namespace Pinch
                         PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.VALID;
                     }
 
-                    if(PinchSettingsObj.LicenseStatusEnum != PinchTypes.LicenseStatus.VALID)
+                    #endregion  // GET LICENSE STATUS
+
+                    if ((bOnLaunch) && (PinchSettingsObj.LicenseStatusEnum != PinchTypes.LicenseStatus.VALID))
                     {
+                        //--------------------------------------------
+                        //--- [ON LAUNCH AND NOT A VALID LICENSE:] ---
+                        //--- Show ScardCard and EXIT Application  ---
+                        //--------------------------------------------
                         FormScoreCard dlg = new FormScoreCard(tableData);
                         dlg.ShowDialog();
-
+                        Application.Exit();
+                    }
+                    else if(!bOnLaunch)
+                    {
+                        //----------------------------------------------------
+                        //--- [NOT ON LAUNCH - i.e., from Menu or Toolbar] ---
+                        //--- Show ScoreCard - DO NOT EXIT Application     ---
+                        //----------------------------------------------------
+                        FormScoreCard dlg = new FormScoreCard(tableData);
+                        dlg.ShowDialog();
                     }
 
+                    //----------------------------------------
+                    //--- Log ScoreCard Data and Continue  ---
+                    //----------------------------------------
                     LogScoreCardTable(tableData);    // Log ScoreCard Table Data
                 }
                 catch (Exception ex)
