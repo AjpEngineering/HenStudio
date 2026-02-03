@@ -1858,8 +1858,12 @@ namespace Pinch
                         PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.VALID;
                     }
 
-                    FormScoreCard dlg = new FormScoreCard(tableData);
-                    dlg.ShowDialog();
+                    if(PinchSettingsObj.LicenseStatusEnum != PinchTypes.LicenseStatus.VALID)
+                    {
+                        FormScoreCard dlg = new FormScoreCard(tableData);
+                        dlg.ShowDialog();
+
+                    }
 
                     LogScoreCardTable(tableData);    // Log ScoreCard Table Data
                 }

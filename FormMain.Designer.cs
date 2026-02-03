@@ -469,14 +469,14 @@
             // 
             this.licenseToolStripMenuItem.Image = global::Pinch.Properties.Resources.License_32x32;
             this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
-            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(147, 30);
+            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.licenseToolStripMenuItem.Text = "License...";
             this.licenseToolStripMenuItem.ToolTipText = "Launch License Viewer";
             this.licenseToolStripMenuItem.Click += new System.EventHandler(this.licenseToolStripMenuItem_Click);
             // 
             // scorecardToolStripMenuItem
             // 
-            this.scorecardToolStripMenuItem.Image = global::Pinch.Properties.Resources.Scorecard_no_background_32x32;
+            this.scorecardToolStripMenuItem.Image = global::Pinch.Properties.Resources.Scorecard_Check_32x32;
             this.scorecardToolStripMenuItem.Name = "scorecardToolStripMenuItem";
             this.scorecardToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.scorecardToolStripMenuItem.Text = "Scorecard...";
@@ -486,13 +486,13 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(144, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(185, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Image = global::Pinch.Properties.Resources.About_32x32;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 30);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.ToolTipText = "Launch About Dialog";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
@@ -1483,7 +1483,7 @@
             // toolStripButtonScoreCard
             // 
             this.toolStripButtonScoreCard.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonScoreCard.Image = global::Pinch.Properties.Resources.Scorecard_no_background_32x32;
+            this.toolStripButtonScoreCard.Image = global::Pinch.Properties.Resources.Scorecard_Check_32x32;
             this.toolStripButtonScoreCard.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonScoreCard.Name = "toolStripButtonScoreCard";
             this.toolStripButtonScoreCard.Size = new System.Drawing.Size(28, 28);
