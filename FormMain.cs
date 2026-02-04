@@ -1862,7 +1862,7 @@ namespace Pinch
                 try
                 {
                     #region GET LICENSE STATUS
-                    tableData = LicenseMgrObj.GetScoreCardTableData(PinchFileSysObj.AppExecPath);
+                    tableData = LicenseMgrObj.GetScoreCardTableData(PinchFileSysObj.AppExeFolderPath);
 
                     if (tableData.NumInvalidProps > 0)
                     {
