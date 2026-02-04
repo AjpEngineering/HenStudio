@@ -138,6 +138,10 @@
     <value>..\Resources\BusinessCard...600x1035.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Business Card Image ... 600x1035</comment>
   </data>
+  <data name="Business_Card_Einstein" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BusinessCardwithEinstein......600x1036.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Business Card with Einstein......600x1036</comment>
+  </data>
   <data name="Calc_Gears_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Calc Gears...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Calculate Gears Image ... 32x32</comment>

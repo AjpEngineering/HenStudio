@@ -103,6 +103,16 @@ namespace Pinch.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Business_Card_Einstein {
+            get {
+                object obj = ResourceManager.GetObject("Business_Card_Einstein", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BusinessCard_600x1035 {
             get {
                 object obj = ResourceManager.GetObject("BusinessCard_600x1035", resourceCulture);

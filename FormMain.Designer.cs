@@ -1504,7 +1504,7 @@
             // pictureBoxAJPLogo
             // 
             this.pictureBoxAJPLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxAJPLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(216)))), ((int)(((byte)(111)))));
+            this.pictureBoxAJPLogo.BackColor = System.Drawing.Color.White;
             this.pictureBoxAJPLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxAJPLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAJPLogo.Image")));
             this.pictureBoxAJPLogo.Location = new System.Drawing.Point(1104, 605);
