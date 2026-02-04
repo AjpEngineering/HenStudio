@@ -133,6 +133,16 @@ namespace AJP_License_File.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BusinessCardwithEinstein______600x1036 {
+            get {
+                object obj = ResourceManager.GetObject("BusinessCardwithEinstein......600x1036", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Calendar_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Calendar_32x32", resourceCulture);

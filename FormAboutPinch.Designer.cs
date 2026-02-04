@@ -45,6 +45,8 @@
             this.labelProductCodeValue = new System.Windows.Forms.Label();
             this.pictureBoxProductWarning = new System.Windows.Forms.PictureBox();
             this.pictureBoxAJPEngLogo = new System.Windows.Forms.PictureBox();
+            this.buttonUserLicenseAgreement = new System.Windows.Forms.Button();
+            this.labelUserLicenseAgreement = new System.Windows.Forms.Label();
             this.tableLayoutPanelSupplier.SuspendLayout();
             this.tableLayoutPanelProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductWarning)).BeginInit();
@@ -291,7 +293,41 @@
             this.pictureBoxAJPEngLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxAJPEngLogo.TabIndex = 6;
             this.pictureBoxAJPEngLogo.TabStop = false;
-            this.pictureBoxAJPEngLogo.DoubleClick += new System.EventHandler(this.pictureBoxAJPEngLogo_DoubleClick);
+            this.pictureBoxAJPEngLogo.Click += new System.EventHandler(this.pictureBoxAJPEngLogo_Click);
+            // 
+            // buttonUserLicenseAgreement
+            // 
+            this.buttonUserLicenseAgreement.BackColor = System.Drawing.Color.White;
+            this.buttonUserLicenseAgreement.BackgroundImage = global::Pinch.Properties.Resources.AJP_User_License_Agreement___600x600;
+            this.buttonUserLicenseAgreement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonUserLicenseAgreement.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.buttonUserLicenseAgreement.FlatAppearance.BorderSize = 2;
+            this.buttonUserLicenseAgreement.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonUserLicenseAgreement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonUserLicenseAgreement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUserLicenseAgreement.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUserLicenseAgreement.ImageIndex = 0;
+            this.buttonUserLicenseAgreement.Location = new System.Drawing.Point(573, 51);
+            this.buttonUserLicenseAgreement.Name = "buttonUserLicenseAgreement";
+            this.buttonUserLicenseAgreement.Size = new System.Drawing.Size(179, 124);
+            this.buttonUserLicenseAgreement.TabIndex = 7;
+            this.buttonUserLicenseAgreement.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonUserLicenseAgreement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonUserLicenseAgreement.UseVisualStyleBackColor = false;
+            this.buttonUserLicenseAgreement.Click += new System.EventHandler(this.buttonUserLicenseAgreement_Click);
+            // 
+            // labelUserLicenseAgreement
+            // 
+            this.labelUserLicenseAgreement.AutoSize = true;
+            this.labelUserLicenseAgreement.BackColor = System.Drawing.Color.Honeydew;
+            this.labelUserLicenseAgreement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelUserLicenseAgreement.Font = new System.Drawing.Font("Segoe UI Variable Display", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserLicenseAgreement.Location = new System.Drawing.Point(573, 180);
+            this.labelUserLicenseAgreement.Name = "labelUserLicenseAgreement";
+            this.labelUserLicenseAgreement.Size = new System.Drawing.Size(179, 20);
+            this.labelUserLicenseAgreement.TabIndex = 8;
+            this.labelUserLicenseAgreement.Text = "User License Agreement";
+            this.labelUserLicenseAgreement.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormAboutPinch
             // 
@@ -301,6 +337,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1108, 621);
+            this.Controls.Add(this.labelUserLicenseAgreement);
+            this.Controls.Add(this.buttonUserLicenseAgreement);
             this.Controls.Add(this.pictureBoxAJPEngLogo);
             this.Controls.Add(this.pictureBoxProductWarning);
             this.Controls.Add(this.tableLayoutPanelProduct);
@@ -322,6 +360,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductWarning)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAJPEngLogo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -343,5 +382,7 @@
         private System.Windows.Forms.Label labelProductCodeValue;
         private System.Windows.Forms.PictureBox pictureBoxProductWarning;
         private System.Windows.Forms.PictureBox pictureBoxAJPEngLogo;
+        private System.Windows.Forms.Button buttonUserLicenseAgreement;
+        private System.Windows.Forms.Label labelUserLicenseAgreement;
     }
 }

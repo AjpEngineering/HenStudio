@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormScoreCard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewScoreCard = new System.Windows.Forms.DataGridView();
             this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnState = new System.Windows.Forms.DataGridViewImageColumn();
@@ -47,6 +48,8 @@
             this.toolStripStatusLabelInvalidCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelRemainingDays = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelRunningEnv = new System.Windows.Forms.ToolStripStatusLabel();
+            this.buttonContactInfo = new System.Windows.Forms.Button();
+            this.imageListScoreCard = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScoreCard)).BeginInit();
             this.statusStripStatusBar.SuspendLayout();
             this.SuspendLayout();
@@ -55,10 +58,10 @@
             // 
             this.dataGridViewScoreCard.AllowUserToAddRows = false;
             this.dataGridViewScoreCard.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewScoreCard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewScoreCard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewScoreCard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -85,13 +88,13 @@
             // ColumnID
             // 
             this.ColumnID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            this.ColumnID.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.Black;
+            this.ColumnID.DefaultCellStyle = dataGridViewCellStyle27;
             this.ColumnID.HeaderText = "ID";
             this.ColumnID.Name = "ColumnID";
             this.ColumnID.ReadOnly = true;
@@ -101,14 +104,14 @@
             // ColumnState
             // 
             this.ColumnState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle8.NullValue")));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.ColumnState.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle28.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle28.NullValue")));
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.Black;
+            this.ColumnState.DefaultCellStyle = dataGridViewCellStyle28;
             this.ColumnState.HeaderText = "STATUS";
             this.ColumnState.MinimumWidth = 60;
             this.ColumnState.Name = "ColumnState";
@@ -121,14 +124,14 @@
             // ColumnProperty
             // 
             this.ColumnProperty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            this.ColumnProperty.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle29.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.Black;
+            this.ColumnProperty.DefaultCellStyle = dataGridViewCellStyle29;
             this.ColumnProperty.HeaderText = "PROPERTY";
             this.ColumnProperty.MinimumWidth = 60;
             this.ColumnProperty.Name = "ColumnProperty";
@@ -139,13 +142,13 @@
             // ColumnValue
             // 
             this.ColumnValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            this.ColumnValue.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.Black;
+            this.ColumnValue.DefaultCellStyle = dataGridViewCellStyle30;
             this.ColumnValue.HeaderText = "VALUE";
             this.ColumnValue.MinimumWidth = 60;
             this.ColumnValue.Name = "ColumnValue";
@@ -172,6 +175,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonOK.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.buttonOK.FlatAppearance.BorderSize = 2;
             this.buttonOK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -180,7 +184,7 @@
             this.buttonOK.ForeColor = System.Drawing.Color.SteelBlue;
             this.buttonOK.Location = new System.Drawing.Point(5, 753);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(1122, 36);
+            this.buttonOK.Size = new System.Drawing.Size(775, 38);
             this.buttonOK.TabIndex = 2;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = false;
@@ -210,6 +214,7 @@
             this.toolStripStatusLabelLogo.Name = "toolStripStatusLabelLogo";
             this.toolStripStatusLabelLogo.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.toolStripStatusLabelLogo.Size = new System.Drawing.Size(52, 32);
+            this.toolStripStatusLabelLogo.Click += new System.EventHandler(this.toolStripStatusLabelLogo_Click);
             // 
             // toolStripStatusLabelValidCount
             // 
@@ -256,12 +261,40 @@
             this.toolStripStatusLabelRunningEnv.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
             this.toolStripStatusLabelRunningEnv.Name = "toolStripStatusLabelRunningEnv";
             this.toolStripStatusLabelRunningEnv.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.toolStripStatusLabelRunningEnv.Size = new System.Drawing.Size(770, 32);
+            this.toolStripStatusLabelRunningEnv.Size = new System.Drawing.Size(801, 32);
             this.toolStripStatusLabelRunningEnv.Spring = true;
             this.toolStripStatusLabelRunningEnv.Text = "Device: xxxxxxxxxxxxxxx User: xxxxxxxxxxxxxxxxxxxx Fullname: xxxxxxxxxxxxxxxxxxxx" +
     "xxxxxxxxxxxxxxxx ";
             this.toolStripStatusLabelRunningEnv.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripStatusLabelRunningEnv.ToolTipText = "Running Environment";
+            // 
+            // buttonContactInfo
+            // 
+            this.buttonContactInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonContactInfo.BackColor = System.Drawing.Color.Honeydew;
+            this.buttonContactInfo.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.buttonContactInfo.FlatAppearance.BorderSize = 2;
+            this.buttonContactInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonContactInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonContactInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonContactInfo.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonContactInfo.ForeColor = System.Drawing.Color.SteelBlue;
+            this.buttonContactInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonContactInfo.ImageIndex = 0;
+            this.buttonContactInfo.ImageList = this.imageListScoreCard;
+            this.buttonContactInfo.Location = new System.Drawing.Point(786, 752);
+            this.buttonContactInfo.Name = "buttonContactInfo";
+            this.buttonContactInfo.Size = new System.Drawing.Size(334, 38);
+            this.buttonContactInfo.TabIndex = 4;
+            this.buttonContactInfo.Text = "AJP Engineering Contact Info...";
+            this.buttonContactInfo.UseVisualStyleBackColor = false;
+            this.buttonContactInfo.Click += new System.EventHandler(this.buttonContactInfo_Click);
+            // 
+            // imageListScoreCard
+            // 
+            this.imageListScoreCard.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListScoreCard.ImageStream")));
+            this.imageListScoreCard.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListScoreCard.Images.SetKeyName(0, "AJP.ico");
             // 
             // FormScoreCard
             // 
@@ -269,6 +302,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1134, 841);
+            this.Controls.Add(this.buttonContactInfo);
             this.Controls.Add(this.statusStripStatusBar);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.textBoxTitle);
@@ -306,5 +340,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelRemainingDays;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelRunningEnv;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLogo;
+        private System.Windows.Forms.Button buttonContactInfo;
+        private System.Windows.Forms.ImageList imageListScoreCard;
     }
 }

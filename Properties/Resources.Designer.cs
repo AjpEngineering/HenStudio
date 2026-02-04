@@ -103,6 +103,26 @@ namespace Pinch.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AJP_User_License_Agreement___600x600 {
+            get {
+                object obj = ResourceManager.GetObject("AJP User License Agreement...600x600", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AJP_User_License_Agreement__32x32 {
+            get {
+                object obj = ResourceManager.GetObject("AJP User License Agreement..32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Business_Card_Einstein {
             get {
                 object obj = ResourceManager.GetObject("Business_Card_Einstein", resourceCulture);

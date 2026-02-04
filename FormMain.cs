@@ -1791,14 +1791,31 @@ namespace Pinch
         #endregion  // TAB CONTROL EVENTS
 
         #region PICTURE BOX EVENTS
-        private void pictureBoxAJPLogo_DoubleClick(object sender, EventArgs e)
+        private void pictureBoxAJPLogo_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("Handle Double Click on AJP Engineering Logo");
             DisplayBusinessCardForm();
         }
         #endregion  // PICTURE BOX EVENTS
 
         #endregion      // EVENT HANDLERS
+
+        #region USER LICENSE AGREEMENT EVENTS
+
+        #region MENU BAR EVENT
+        private void userLicenseAgreementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DisplayUserLicenseAgreementForm();
+        }
+        #endregion  // MENU BAR EVENT
+
+        #region TOOLBAR EVENT
+        private void toolStripButtonUserLicenseAgreement_Click(object sender, EventArgs e)
+        {
+            DisplayUserLicenseAgreementForm();
+        }
+        #endregion  // TOOLBAR EVENT
+
+        #endregion  // USER LICENSE AGREEMENT EVENTS
 
         #region METHODS
 
@@ -1908,6 +1925,31 @@ namespace Pinch
             }
         }
         #endregion  // DisplayScoreCardForm()
+
+        #region DisplayUserLicenseAgreementForm()
+        /// <summary>
+        /// Common Display About Form Handler
+        /// </summary>
+        private void DisplayUserLicenseAgreementForm()
+        {
+            string strMethod = "DisplayUserLicenseAgreementForm";
+            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display User License Agreement Form");
+            try
+            {
+                FormUserLicenseAgreement dlg = new FormUserLicenseAgreement();
+                dlg.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // DisplayUserLicenseAgreementForm()
 
         #region DisplayAboutForm()
         /// <summary>
@@ -2299,6 +2341,7 @@ namespace Pinch
         #endregion      // LOG METHODS
 
         #endregion  // METHODS
+
     }
     #endregion      // class FormPinch
 }

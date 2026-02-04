@@ -118,9 +118,8 @@ namespace Pinch
         #endregion  // InitializeControls() METHOD
 
         #region PICTURE BOX EVENTS
-        private void pictureBoxAJPEngLogo_DoubleClick(object sender, EventArgs e)
+        private void pictureBoxAJPEngLogo_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("Handle Double Click on AJP Engineering Logo");
             DisplayBusinessCardForm();
         }
         #endregion  // PICTURE BOX EVENTS
@@ -150,6 +149,14 @@ namespace Pinch
             }
         }
         #endregion  // DisplayBusinessCardForm()
+
+        #region USER LICENSE AGREEMENT BUTTON CLICKED
+        private void buttonUserLicenseAgreement_Click(object sender, EventArgs e)
+        {
+            FormUserLicenseAgreement dlg = new FormUserLicenseAgreement();
+            dlg.ShowDialog();
+        }
+        #endregion  // USER LICENSE AGREEMENT BUTTON CLICKED
 
     }
     #endregion  // public partial class FormAboutPinch : Form

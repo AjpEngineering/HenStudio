@@ -144,7 +144,9 @@
             this.toolStripButtonLicense = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonScoreCard = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAbout = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonUserLicenseAgreement = new System.Windows.Forms.ToolStripButton();
             this.pictureBoxAJPLogo = new System.Windows.Forms.PictureBox();
+            this.userLicenseAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -460,6 +462,7 @@
             this.licenseToolStripMenuItem,
             this.scorecardToolStripMenuItem,
             this.toolStripSeparator6,
+            this.userLicenseAgreementToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
@@ -469,7 +472,7 @@
             // 
             this.licenseToolStripMenuItem.Image = global::Pinch.Properties.Resources.License_32x32;
             this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
-            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
             this.licenseToolStripMenuItem.Text = "License...";
             this.licenseToolStripMenuItem.ToolTipText = "Launch License Viewer";
             this.licenseToolStripMenuItem.Click += new System.EventHandler(this.licenseToolStripMenuItem_Click);
@@ -478,7 +481,7 @@
             // 
             this.scorecardToolStripMenuItem.Image = global::Pinch.Properties.Resources.Scorecard_Check_32x32;
             this.scorecardToolStripMenuItem.Name = "scorecardToolStripMenuItem";
-            this.scorecardToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.scorecardToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
             this.scorecardToolStripMenuItem.Text = "Scorecard...";
             this.scorecardToolStripMenuItem.ToolTipText = "Launch License ScoreCard Viewer";
             this.scorecardToolStripMenuItem.Click += new System.EventHandler(this.scorecardToolStripMenuItem_Click);
@@ -486,13 +489,13 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(216, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Image = global::Pinch.Properties.Resources.About_32x32;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.ToolTipText = "Launch About Dialog";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
@@ -1230,6 +1233,7 @@
             this.toolStripSeparator12,
             this.toolStripButtonLicense,
             this.toolStripButtonScoreCard,
+            this.toolStripButtonUserLicenseAgreement,
             this.toolStripButtonAbout});
             this.toolStripMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripMain.Name = "toolStripMain";
@@ -1501,6 +1505,16 @@
             this.toolStripButtonAbout.ToolTipText = "Display About Information";
             this.toolStripButtonAbout.Click += new System.EventHandler(this.toolStripButtonAbout_Click);
             // 
+            // toolStripButtonUserLicenseAgreement
+            // 
+            this.toolStripButtonUserLicenseAgreement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonUserLicenseAgreement.Image = global::Pinch.Properties.Resources.AJP_User_License_Agreement__32x32;
+            this.toolStripButtonUserLicenseAgreement.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonUserLicenseAgreement.Name = "toolStripButtonUserLicenseAgreement";
+            this.toolStripButtonUserLicenseAgreement.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonUserLicenseAgreement.ToolTipText = "Display User License Agreement";
+            this.toolStripButtonUserLicenseAgreement.Click += new System.EventHandler(this.toolStripButtonUserLicenseAgreement_Click);
+            // 
             // pictureBoxAJPLogo
             // 
             this.pictureBoxAJPLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -1513,7 +1527,16 @@
             this.pictureBoxAJPLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxAJPLogo.TabIndex = 6;
             this.pictureBoxAJPLogo.TabStop = false;
-            this.pictureBoxAJPLogo.DoubleClick += new System.EventHandler(this.pictureBoxAJPLogo_DoubleClick);
+            this.pictureBoxAJPLogo.Click += new System.EventHandler(this.pictureBoxAJPLogo_Click);
+            // 
+            // userLicenseAgreementToolStripMenuItem
+            // 
+            this.userLicenseAgreementToolStripMenuItem.Image = global::Pinch.Properties.Resources.AJP_User_License_Agreement__32x32;
+            this.userLicenseAgreementToolStripMenuItem.Name = "userLicenseAgreementToolStripMenuItem";
+            this.userLicenseAgreementToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
+            this.userLicenseAgreementToolStripMenuItem.Text = "User License Agreement";
+            this.userLicenseAgreementToolStripMenuItem.ToolTipText = "Display User License Agreement";
+            this.userLicenseAgreementToolStripMenuItem.Click += new System.EventHandler(this.userLicenseAgreementToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -1699,6 +1722,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelTargets;
         private System.Windows.Forms.ToolStripMenuItem scorecardToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButtonScoreCard;
+        private System.Windows.Forms.ToolStripButton toolStripButtonUserLicenseAgreement;
+        private System.Windows.Forms.ToolStripMenuItem userLicenseAgreementToolStripMenuItem;
     }
 }
 

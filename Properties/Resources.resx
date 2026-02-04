@@ -118,156 +118,162 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="About_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\About...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>About Image ... 32x32</comment>
-  </data>
-  <data name="AJP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AJP.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment>AJP White Background Icon ... 32x32</comment>
-  </data>
-  <data name="AJP_Pinch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AJP Pinch.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment>AJP Pinch White Background Icon ... 32x32</comment>
-  </data>
-  <data name="AJP_Pinch_no_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AJP Pinch...no background.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment>AJP Pinch No Background Icon ... 32x32</comment>
-  </data>
-  <data name="BusinessCard_600x1035" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BusinessCard...600x1035.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Business Card Image ... 600x1035</comment>
-  </data>
   <data name="Business_Card_Einstein" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BusinessCardwithEinstein......600x1036.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Business Card with Einstein......600x1036</comment>
-  </data>
-  <data name="Calc_Gears_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Calc Gears...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Calculate Gears Image ... 32x32</comment>
-  </data>
-  <data name="Composite_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Composite...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Composite Image ... 32x32</comment>
-  </data>
-  <data name="Cost_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cost...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Cost Image ... 32x32</comment>
-  </data>
-  <data name="Design_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Design...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Design Image ... 32x32</comment>
-  </data>
-  <data name="English_Imperial_Units_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\English Imperial Units...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>English Imperial Units Image ... 32x32</comment>
-  </data>
-  <data name="Exchanger_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Exchanger3...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Exchanger Image ... 32x32</comment>
-  </data>
-  <data name="Exit_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Exit...32x32...no background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Exit Image ... 32x32</comment>
-  </data>
-  <data name="Export_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Export...32x32...no background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Export Image ... 32x32</comment>
-  </data>
-  <data name="HEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>HEN Image ... 32x32</comment>
-  </data>
-  <data name="Import" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Import Red..32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Import Image ... 32x32</comment>
-  </data>
-  <data name="Input" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Input.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Input Image ... 32x32</comment>
-  </data>
-  <data name="Interval" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Interval...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Interval image ... 32x32</comment>
-  </data>
-  <data name="InValid_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\InValid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Invalid_32x32</comment>
-  </data>
-  <data name="License_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\License...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>License Image ... 32x32</comment>
-  </data>
-  <data name="Metric_SI_Units_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Metric SI Units...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Metric SI Units Image ... 32x32</comment>
   </data>
   <data name="New_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\New...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>New Image ... 32x32</comment>
   </data>
-  <data name="Open_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Open...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Open Image ... 32x32</comment>
+  <data name="Target" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Target.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Target Image ... 32x32</comment>
   </data>
-  <data name="Optimize_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Optimize Target...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Optimize Image ... 32x32</comment>
+  <data name="AJP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>AJP White Background Icon ... 32x32</comment>
   </data>
-  <data name="Project_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Project...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Project Image ... 32x32</comment>
+  <data name="HEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>HEN Image ... 32x32</comment>
   </data>
-  <data name="Refinery_Background_1080x600" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Refinery with PinchLogo...1080x600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Refinery with Pinch Logo Background ... 1080x600</comment>
-  </data>
-  <data name="SaveAs_32x.32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SaveAs...Narrow...32x.32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Save As Image ... 32x32</comment>
-  </data>
-  <data name="Save_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Save...Narrow...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Save Image ... 32x32</comment>
-  </data>
-  <data name="Scorecard_Check_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\_AJP License File\Resources\Scorecard with Check...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Scorecard with Check Image...32x32</comment>
-  </data>
-  <data name="Scorecard_no_background_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\_AJP License File\Resources\Scorecard with Keys No Background...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Scorecard with Keys Image no background ... 32x32</comment>
-  </data>
-  <data name="Scorecard_white_background_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\_AJP License File\Resources\Scorecard with Keys...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Scorecard with Keys Image white background ... 32x32</comment>
-  </data>
-  <data name="StatusView_51x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StatusView...51x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Status View Image ... 51x32</comment>
+  <data name="Composite_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Composite...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Composite Image ... 32x32</comment>
   </data>
   <data name="Streams_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Streams...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Streams Image ... 32x32</comment>
   </data>
-  <data name="Target" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Target.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Target Image ... 32x32</comment>
+  <data name="Input" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Input.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Input Image ... 32x32</comment>
   </data>
-  <data name="Unknown_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UNKNOWN...White Circle border...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Unknown Image ... 32x32</comment>
+  <data name="Refinery_Background_1080x600" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Refinery with PinchLogo...1080x600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Refinery with Pinch Logo Background ... 1080x600</comment>
+  </data>
+  <data name="Calc_Gears_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Calc Gears...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Calculate Gears Image ... 32x32</comment>
+  </data>
+  <data name="Scorecard_Check_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_AJP License File\Resources\Scorecard with Check...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Scorecard with Check Image...32x32</comment>
+  </data>
+  <data name="InValid_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InValid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Invalid_32x32</comment>
+  </data>
+  <data name="Metric_SI_Units_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Metric SI Units...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Metric SI Units Image ... 32x32</comment>
+  </data>
+  <data name="Cost_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cost...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Cost Image ... 32x32</comment>
+  </data>
+  <data name="License_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\License...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>License Image ... 32x32</comment>
+  </data>
+  <data name="Exit_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exit...32x32...no background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Exit Image ... 32x32</comment>
+  </data>
+  <data name="Design_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Design...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Design Image ... 32x32</comment>
+  </data>
+  <data name="Interval" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Interval...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Interval image ... 32x32</comment>
+  </data>
+  <data name="Export_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Export...32x32...no background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Export Image ... 32x32</comment>
+  </data>
+  <data name="Scorecard_white_background_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_AJP License File\Resources\Scorecard with Keys...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Scorecard with Keys Image white background ... 32x32</comment>
+  </data>
+  <data name="AJP User License Agreement...600x600" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP User License Agreement...600x600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save...Narrow...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Save Image ... 32x32</comment>
+  </data>
+  <data name="Open_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Open...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Open Image ... 32x32</comment>
+  </data>
+  <data name="Exchanger_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exchanger3...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Exchanger Image ... 32x32</comment>
+  </data>
+  <data name="AJP_Pinch_no_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP Pinch...no background.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>AJP Pinch No Background Icon ... 32x32</comment>
+  </data>
+  <data name="About_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\About...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>About Image ... 32x32</comment>
+  </data>
+  <data name="BusinessCard_600x1035" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BusinessCard...600x1035.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Business Card Image ... 600x1035</comment>
+  </data>
+  <data name="Import" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Import Red..32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Import Image ... 32x32</comment>
+  </data>
+  <data name="AJP_Pinch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP Pinch.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>AJP Pinch White Background Icon ... 32x32</comment>
+  </data>
+  <data name="Project_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Project...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Project Image ... 32x32</comment>
+  </data>
+  <data name="Scorecard_no_background_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_AJP License File\Resources\Scorecard with Keys No Background...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Scorecard with Keys Image no background ... 32x32</comment>
+  </data>
+  <data name="StatusView_51x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusView...51x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Status View Image ... 51x32</comment>
+  </data>
+  <data name="SaveAs_32x.32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SaveAs...Narrow...32x.32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Save As Image ... 32x32</comment>
   </data>
   <data name="Utilities_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Utilities Image...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Utilities Image ... 32x32</comment>
   </data>
+  <data name="Valid_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Valid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Valid Image ... 32x32</comment>
+  </data>
+  <data name="Optimize_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Optimize Target...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Optimize Image ... 32x32</comment>
+  </data>
   <data name="Validate_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Validate...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Validate Image ... 32x32</comment>
   </data>
-  <data name="Valid_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Valid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Valid Image ... 32x32</comment>
+  <data name="English_Imperial_Units_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\English Imperial Units...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>English Imperial Units Image ... 32x32</comment>
+  </data>
+  <data name="Unknown_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UNKNOWN...White Circle border...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Unknown Image ... 32x32</comment>
+  </data>
+  <data name="AJP User License Agreement..32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP User License Agreement..32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

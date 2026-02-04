@@ -244,6 +244,29 @@ namespace AJP_License_File
             }
         }
         #endregion  // UpdateScoreCard()
+
+        #region CONTACT INFO BUTTON CLICK HANDLER
+        private void buttonContactInfo_Click(object sender, EventArgs e)
+        {
+            DisplayContactInfoForm();
+        }
+        #endregion  // CONTACT INFO BUTTON CLICK HANDLER
+
+        #region CONTACT INFO STATUS BAR LABEL CLICK HANDLER
+        private void toolStripStatusLabelLogo_Click(object sender, EventArgs e)
+        {
+            DisplayContactInfoForm();
+        }
+        #endregion  // CONTACT INFO STATUS BAR LABEL CLICK HANDLER
+
+        #region DisplayContactInfoForm()
+        private void DisplayContactInfoForm()
+        {
+            FormContactInfo dlg = new FormContactInfo();
+            dlg.ShowDialog();
+        }
+        #endregion  // DisplayContactInfoForm()
+
     }
     #endregion  // public partial class FormScoreCard
 }

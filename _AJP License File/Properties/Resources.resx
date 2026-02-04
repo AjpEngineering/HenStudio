@@ -118,54 +118,57 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AJP Logo - Transparent Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\AJP Logo - Transparent Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AJP Refinery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\AJP Refinery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Running_White_Background_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Running White Background...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Running Image with White Background ,,, 32x32</comment>
   </data>
   <data name="AJP PRODUCT Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\AJP PRODUCT Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AJP License File Logo - Transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\AJP License File Logo - Transparent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AJP License File Logo - White" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\AJP License File Logo - White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AJP Engineering Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\AJP Engineering Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AJP Refinery" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\AJP Refinery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="InValid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\InValid...600x600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Invalid Image</comment>
   </data>
-  <data name="Valid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Valid...600x600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Valid Image</comment>
+  <data name="AJP License File Logo - Transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\AJP License File Logo - Transparent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="InValid_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\InValid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Invalid Image 32x32</comment>
+  <data name="AJP Engineering Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\AJP Engineering Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Valid_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Valid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Valid Image 32x32</comment>
+  <data name="AJP License File Logo - White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\AJP License File Logo - White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AJP_Logo_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AJP Logo WhiteBackground...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>AJP Logo with White Background ... 32x32</comment>
   </data>
-  <data name="Calendar_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Calendar...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Calendar Image ... 32x32</comment>
+  <data name="InValid_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InValid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Invalid Image 32x32</comment>
   </data>
   <data name="Calendar_White_Background_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Calendar White Background...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Calendar with White Background ... 32x32</comment>
   </data>
-  <data name="Running_White_Background_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Running White Background...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Running Image with White Background ,,, 32x32</comment>
+  <data name="Calendar_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Calendar...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Calendar Image ... 32x32</comment>
+  </data>
+  <data name="Valid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Valid...600x600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Valid Image</comment>
+  </data>
+  <data name="Valid_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Valid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Valid Image 32x32</comment>
+  </data>
+  <data name="AJP Logo - Transparent Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\AJP Logo - Transparent Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BusinessCardwithEinstein......600x1036" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BusinessCardwithEinstein......600x1036.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

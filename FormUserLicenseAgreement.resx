@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="richTextBoxAgreement.Text" xml:space="preserve">
+    <value>AJP Engineering - End User License Agreement
+This AJP Engineering End User License Agreement (“Agreement”) is between AJP Engineering and the customer (individual or entity) that has purchased a license for the AJP Engineering Software (“Customer”). If you are an individual using the AJP Engineering Software on behalf of a corporation, partnership, or other entity, than that entity will be the Customer, and you represent and warrant that you are authorized to enter into this Agreement. Each AJP Engineering and Customer is a “Party” and together they are the “Parties.”
+IMPORTANT: BY INSTALLING OR USING ANY PORTION OF THE SOFTWARE, CUSTOMER IS ACCEPTING ALL OF THE TERMS AND CONDITIONS OF THIS AGREEMENT. IF CUSTOMER DOES NOT AGREE TO THE TERMS AND CONDITIONS, CUSTOMER MAY NOT INSTALL OR USE THE SOFTWARE.
+ 1. Grant of License
+1.1 In consideration of payment of the License Fee, AJP Engineering grants Customer the Software License, subject to all of the terms and conditions of this Agreement. This license continues until terminated in accordance with this Agreement.
+1.2 Customer is entitled to install the Software on 
+(a) [AJP SITE License] one (1) or more computers or servers at a physical location, or 
+(b) [AJP USER License] one (1) or more computers or servers associated with a single user, or 
+(c) [AJP SEAT License] one (1) and only one (1) computer or server, 
+valid for 365 days, for the sole purpose of using the Software. Customer may make one (1) copy only of the Software for back-up purposes. That copy must contain all AJP Engineering proprietary notices. If Customer upgrades the Software, Customer may no longer use the previous version from which the Software was upgraded.
+1.3 In the event that AJP Engineering makes available to Customer a software upgrade or update, add-on component, web service and/or supplement (whether in conjunction with providing Support or otherwise), the terms of this Agreement shall apply.
+ 2. Warranties
+2.1 AJP Engineering Warranties. The Software has not been written to meet Customer’s individual requirements and is supplied on an “as is” basis. A failure of any part or the whole of the Software to be suitable for Customer’s requirements will not give rise to any right or claim against AJP Engineering. AJP Engineering’s sole warranties in connection with the Software are that: (a) it will work substantially in the manner described in the Software Documentation for a period of thirty (30) days from the first day the Software is first installed; and (b) it does not infringe the Intellectual Property (IP) of any person.
+2.2 Remedy for Breach of Warranties. Customer’s sole remedy for any breach of the warranties in clause 2.1 is that AJP Engineering must, at its option, either: (a) modify the Software; or (b) replace the Software with software of substantially similar functionality, so as to correct any defect or to render use of the Software non infringing (as the case may be) PROVIDED THAT the identified defect or infringement has not been caused by: (x) any modification, variation or addition to the Software not performed by AJP Engineering; (y) incorrect use, abuse or corruption of the Software; or (z) the use of the Software with other software or on equipment with which it is incompatible. Customer must provide sufficient information about any defect to enable AJP Engineering to reproduce it on AJP Engineering’s systems.
+2.3 Customer’s Acknowledgement. Customer acknowledges that the Software in general is not free of errors or defects and agree that the existence of any errors or defects will not constitute a breach of this Agreement.
+2.4 Viruses. AJP Engineering does not warrant that the Software is free from all known viruses. Although AJP Engineering has used commercially reasonable efforts to check for the most commonly known viruses, Customer is solely responsible for virus scanning the Software.
+ 3. Confidentiality
+3.1 Definition of Confidential Information. “Confidential Information” means all information disclosed by a party (“Disclosing Party”) to the other party (“Receiving Party”), whether orally or in writing, in connection with Software, that is designated as confidential or that reasonably should be understood by the Receiving Party to be confidential given the nature of the information and the circumstances of disclosure. AJP Engineering Confidential Information includes the Software and Software Documentation. Confidential Information of each Party includes code, business and marketing plans, financial information, technology and technical information, inventions, know-how, product plans and designs, and business processes disclosed by such Party. However, Confidential Information does not include any information that (a) is or becomes generally known to the public without breach of any obligation owed to the Disclosing Party, (b) was known to the Receiving Party prior to its disclosure by the Disclosing Party without breach of any obligation owed to the Disclosing Party, (c) is received from a third party without breach of any obligation owed to the Disclosing Party, or (d) was independently developed by the Receiving Party.
+3.2 Confidentiality Obligations. Customer acknowledges that the ideas and expressions contained in the Software and any modifications or particulars of those ideas and expressions that may be provided to Customer by AJP Engineering are confidential (except to the extent that such information has entered the public domain other than through a breach of this Agreement by Customer). Customer undertakes not to disclose this Confidential Information to any person other than its agents and employees and then only to enable the Software to be used in accordance with and for the purposes of this Agreement. Customer must ensure that these persons maintain this confidentiality.
+3.3 Copyright and Confidentiality Notices. Customer must not remove, delete or obscure any copyright notices or confidentiality notices on or in the Software.
+ 4. Support
+AJP Engineering will provide Customer with Support in accordance with the AJP Engineering Subscription Support Policy, the Support Documentation or a separate agreement between the Parties.
+ 5. Intellectual Property (IP)
+5.1 Rights in IP. Customer acknowledges that Customer obtains no IP in the Software or the Support. As between the Parties, all IP in the Software and the Support vests in AJP Engineering.
+5.2 Impermissible Actions. Customer shall not, except to the extent permitted by any law that cannot be excluded: (a) copy, modify, enhance or reproduce any part of the Software, in whole or in part (other than in accordance with clause 1.2) or create a derivative work of any part of the Software; (b) decompile, disassemble, or otherwise reverse engineer the Software or attempt to reconstruct or discover any source code, underlying ideas, algorithms, file formats or programming interfaces of the Software by any means whatsoever; (c) incorporate, embed, combine, merge or bundle the Software with any other hardware or software (except to the extent strictly necessary to use the Software in accordance with its intended purpose and these terms); (d) publically disseminate performance information or analysis from any source relating to the Software; (e) use the Software to develop a product which is competitive with any AJP Engineering product offerings; or (f) directly or indirectly permit any third party to do any of the above.
+5.3 IP Obligations. If Customer becomes aware of any infringements or suspected infringements by any third party of any IP in the Software or Support, Customer must immediately notify AJP Engineering. Customer must at AJP Engineering’s request and expense take any action as AJP Engineering reasonably deems is appropriate to protect its IP.
+ 6. Termination
+6.1 Termination. AJP Engineering may terminate this Agreement immediately by notice if Customer breaches this Agreement and fails to remedy the breach within fourteen (14) days of becoming aware of the breach.
+6.2 Effect of Termination. On termination of this Agreement, Customer must immediately cease to use the Software and, if possible, return the Software (and all copies) to AJP Engineering. Where the Software cannot be returned, Customer must permanently delete or destroy the Software and provide to AJP Engineering a declaration that Customer has complied with this clause 6.2. This requirement is without prejudice to any other rights and remedies that AJP Engineering may have in respect of the breach. Clauses 3, 5, 7, 8 and 9 survive the expiry or termination of this Agreement. Clause 3.1 expires three (3) years after the date of termination or expiry of this Agreement.
+ 7. Taxes and Export Restrictions
+7.1 Unless expressly stated to the contrary, all fees, costs and charges referred to in this Agreement are exclusive of all taxes, duties and imposts.
+7.2 If AJP Engineering is or will be liable for any taxes, duties or imposts (including goods and services tax or value added tax) on or relating to this Agreement or anything done pursuant to this Agreement (excluding income tax) then Customer must pay AJP Engineering an amount equal to that liability at the time that Customer pays any fees, costs or charges to which the liability relates.
+7.3 Export Compliance. The Software and other technology AJP Engineering makes available, and derivatives thereof may be subject to export laws and regulations of the United States and other jurisdictions. Customer represents that it is not named on any U.S. government denied-party list. Customer shall not, and shall not allow any third party to, export from the United States or allow the re-export or re-transfer of any part of the Software in a U.S.-embargoed country (currently Cuba, Iran, North Korea, Sudan, or Syria) or in violation of any U.S. export law or regulation, or any export or import laws, regulations, or requirements of any United States or foreign agency or authority.
+ 8. LIMITATION OF LIABILITY
+8.1 IN NO EVENT WILL AJP ENGINEERING BE LIABLE TO CUSTOMER OR ANY OTHER PERSON FOR ANY LOST PROFITS, LOST SAVINGS, DELETION OR CORRUPTION OF ELECTRONICALLY STORED INFORMATION, LOST DATA, OR OTHER SPECIAL, DIRECT, INDIRECT, PUNITIVE, CONSEQUENTIAL, OR INCIDENTAL DAMAGES ARISING OUT OF OR RELATING TO THIS AGREEMENT OR ANY SOFTWARE, SUPPORT OR OTHER PRODUCTS OR SERVICES FURNISHED OR TO BE FURNISHED UNDER THIS AGREEMENT OR THE USE THEREOF, EVEN IF AJP ENGINEERING HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSS OR DAMAGE.
+8.2 AJP ENGINEERING’S AGGREGATE LIABILITY UPON ANY CLAIMS HOWSOEVER ARISING OUT OF OR RELATING TO THIS AGREEMENT OR ANY SOFTWARE, SUPPORT OR OTHER PRODUCTS OR SERVICES FURNISHED OR TO BE FURNISHED BY AJP ENGINEERING UNDER THIS AGREEMENT WILL IN ANY EVENT BE ABSOLUTELY LIMITED TO THE AMOUNT PAID BY CUSTOMER TO AJP ENGINEERING UNDER THIS AGREEMENT FOR THE APPLICABLE SOFTWARE, SUPPORT OR OTHER PRODUCTS OR SERVICES.
+8.3 AJP ENGINEERING ACKNOWLEDGES THAT IT HAS SET ITS PRICES AND ENTERED INTO THIS AGREEMENT IN RELIANCE UPON THE WARRANTIES, DISCLAIMERS AND LIMITATION OF LIABILITY SET OUT IN THIS AGREEMENT, AND THAT THESE FORM AN ESSENTIAL BASIS OF THE BARGAIN REACHED BETWEEN THE PARTIES. THE PARTIES AGREE THAT THE LIMITATIONS OF LIABILITY SPECIFIED IN THIS CLAUSE 8 WILL SURVIVE AND APPLY EVEN IF ANY CLAUSE IS FOUND TO HAVE FAILED ITS ESSENTIAL PURPOSE. NOTWITHSTANDING THIS, NOTHING CONTAINED IN THIS AGREEMENT WILL LIMIT AJP ENGINEERING’S LIABILITY FOR ITS OWN WILLFUL OR WANTON CONDUCT.
+8.4 AJP ENGINEERING MAKES NO WARRANTY OR REPRESENTATION TO CUSTOMER AS TO THE PERFORMANCE OR OPERATION OF THE SOFTWARE, SUPPORT OR ANY OTHER PRODUCTS OR SERVICES EXCEPT AS PROVIDED IN CLAUSE 2.1. AJP ENGINEERING MAKES NO OTHER WARRANTY, EXPRESS OR IMPLIED, WITH RESPECT TO AJP ENGINEERING, THE SOFTWARE, SUPPORT OR OTHER PRODUCTS OR SERVICES PROVIDED BY AJP ENGINEERING AND, SUBJECT TO THIS CLAUSE, ANY CONDITION OR WARRANTY WHICH WOULD OTHERWISE BE IMPLIED IN THIS AGREEMENT IS HEREBY EXCLUDED. WHERE LEGISLATION IMPLIES IN THIS AGREEMENT ANY CONDITION OR WARRANTY, AND THAT LEGISLATION AVOIDS OR PROHIBITS PROVISIONS IN A CONTRACT EXCLUDING OR MODIFYING THE APPLICATION OF OR EXERCISE OF OR LIABILITY UNDER SUCH CONDITION OR WARRANTY, THAT CONDITION OR WARRANTY WILL BE DEEMED TO BE INCLUDED IN THIS AGREEMENT. HOWEVER, AJP ENGINEERING’S LIABILITY FOR ANY BREACH OF SUCH CONDITION OR WARRANTY WILL BE LIMITED, AT ITS OPTION, TO ONE OR MORE OF THE FOLLOWING: (A) IF THE BREACH RELATES TO GOODS: (I) THE REPLACEMENT OF THE GOODS OR THE SUPPLY OF EQUIVALENT GOODS; (II) THE REPAIR OF SUCH GOODS; (III)THE PAYMENT OF THE COST OF REPLACING THE GOODS OR OF ACQUIRING EQUIVALENT GOODS; OR (IV) THE PAYMENT OF THE COST OF HAVING THE GOODS REPAIRED; AND (B) IF THE BREACH RELATES TO SERVICES: (I) THE SUPPLYING OF THE SERVICES AGAIN; OR (II) THE PAYMENT OF THE COST OF HAVING THE SERVICES SUPPLIED AGAIN.
+8.5 DESPITE ANY OTHER PROVISION IN THIS AGREEMENT, AJP ENGINEERING DOES NOT EXCLUDE LIABILITY FOR DEATH OR PERSONAL INJURY TO THE EXTENT THAT THE SAME ARISES DIRECTLY FROM ITS NEGLIGENCE OR THE NEGLIGENCE OF ITS EMPLOYEES.
+ 9. Mutual Indemnification
+9.1 AJP Engineering Indemnification. AJP Engineering will defend Customer from and against any claim by a third party alleging that the Software, when used as authorized in this Agreement, infringes a U.S. patent, U.S. copyright, or U.S. trademark and shall indemnify and hold Customer harmless from and against any damages and costs (including reasonable attorneys’ fees) actually awarded against Customer or agreed to by AJP Engineering in settlement resulting from such claim, provided that AJP Engineering shall have received from Customer: (a) prompt written notice of such claim (but in any event notice in sufficient time for AJP Engineering to respond without prejudice); (b) the sole and exclusive right to control and direct the investigation, defense, and settlement (if applicable) of such claim; and (c) all reasonably necessary cooperation, at AJP Engineering’s cost, from Customer. If Customer’s use of the Software is (or in AJP Engineering’s opinion is likely to be) enjoined, if required by settlement or if AJP Engineering determines such actions are reasonably necessary for Customer to avoid material liability, AJP Engineering may, in its sole discretion, substitute for the Software substantially functionally similar programs and documentation or otherwise procure for Customer the right to continue using the Software. The obligations in this section 9.1 shall not apply: (u) if the Software is modified by any party other than AJP Engineering, but solely to the extent the alleged infringement is caused by such modification; (v) if the Software is combined with products or processes not provided or authorized by AJP Engineering, but solely to the extent the alleged infringement is caused by such combination; (w) to any unauthorized use of the Software; (x) to any unsupported release of the Software; (y) to any third party code contained within the Software; or (z) if Customer settles or makes any admissions with respect to a claim without prior written consent from AJP Engineering. THIS SECTION 9.1 SETS FORTH AJP ENGINEERING’S SOLE LIABILITY AND CUSTOMER’S SOLE AND EXCLUSIVE REMEDY WITH RESPECT TO ANY CLAIM OF INTELLECTUAL PROPERTY INFRINGEMENT.
+9.2 Indemnification by Customer. Customer will defend, indemnify, and hold AJP Engineering harmless from any claims made or brought by a third party: (a) based upon breach of this Agreement by Customer, its employees and its users resulting in the disclosure of Confidential Information, as defined in section 3.1; (b) alleging that the Customer Content infringes the rights of, or has caused harm to a third party; or (c) in connection with a claim arising from use of the Software in breach of this Agreement by Customer or its employees; provided, however, that Customer has received from AJP Engineering: (x) prompt written notice of such claim (but in any event notice in sufficient time for Customer to respond without prejudice); (y) the sole and exclusive right to control and direct the investigation, defense, and settlement (if applicable) of such claim (provided that Customer may not settle any claim unless such settlement unconditionally releases AJP Engineering of all liability); and (z) all reasonably necessary cooperation (at Customer’s cost) from AJP Engineering.
+ 10. General
+10.1 Entire Agreement. This Agreement constitutes the entire agreement between the Parties as to its subject matter and supersedes all prior communications in connection with that subject matter. No modification, amendment, or waiver of any provision of this Agreement will be effective unless in writing and signed by both Parties. The Parties acknowledge that, except as expressly stated in this Agreement, they have not relied on any representation, warranty or undertaking of any kind made by or on behalf of the other Party in relation to this Agreement.
+10.2 Authorization. Each Party warrants that it has the authority, power and capability to enter into and to perform its obligations under this Agreement and that its obligations under this Agreement are binding and enforceable.
+10.3 Force Majeure. Neither Party will be liable for any failure to perform its obligations under this Agreement (other than an obligation to pay money) if the Party is prevented from doing so by any cause beyond its reasonable control.
+10.4 Severability. Each term of this Agreement must be interpreted in such manner as to be effective and valid under applicable law. If any term of this Agreement is held to be prohibited by or invalid under applicable law, that term is ineffective only to the extent of such prohibition or invalidity, without invalidating the remainder of this Agreement.
+10.5 Waiver. A term of this Agreement may not be waived except in writing signed by the Party granting the waiver. The waiver by a Party of a breach by another Party of any term of this Agreement does not operate as a waiver of another or continuing breach by that Party of that term or any other term of this Agreement.
+10.6 Assignment. Customer must not assign or novate any of Customer’s rights or obligations under this Agreement without AJP Engineering’s prior written consent (which AJP Engineering may withhold in its absolute discretion). AJP Engineering may assign or novate any of its rights or obligations under this Agreement to any person by notice to Customer.
+10.7 Choice of Law and Jurisdiction. Excluding conflict of laws rules, this Agreement shall be governed by and construed under (a) the laws of the State of Washington, U.S. if Customer is located in North or South America, (b) the laws of the state of Victoria, Australia if Customer is located in Asia or Australia, or (c) the laws of England and Wales if Customer is located outside of North or South America, Asia and Australia. All disputes arising out of or in relation to this Agreement shall be submitted to the exclusive jurisdiction of the courts of (i) Seattle, Washington when the laws of Washington apply, (ii) Melbourne when the laws of Australia apply, or (iii) London when the laws of England and Wales apply. Nothing in this section shall restrict AJP Engineering’s right to bring an action (including for example a motion for injunctive relief) against Customer in the jurisdiction where Customer’s place of business is located. The United Nations Convention on Contracts for the International Sale of Goods and the Uniform Computer Information Transactions Act, as currently enacted by any jurisdiction or as may be codified or amended from time to time by any jurisdiction, do not apply to this Agreement.
+ 11. Definitions
+“Affiliate(s)” mean(s), with respect to either Party, any individuals, companies, corporations, partnerships or other entities, directly or indirectly, controlling, controlled by, or under common control with, such party.
+“Customer Content” means the business information or other data used by Customer in connection with the Software.
+“Intellectual Property” (or IP) means:
+(a) patents, trademarks, services marks, design rights (whether registered or unregistered and including any applications for these rights);
+(b) copyright (including future copyright) throughout the world in all literary works, artistic works, computer software, and any other works or subject matter in which copyright subsists and may in the future subsist;
+(c) trade or business names; and
+(d) know-how, Confidential Information and trade secrets,
+and any other similar rights or obligations whether registrable or not in any country.
+“License Fee” means the relevant license fee for the Software.
+“Material” means material in any form, including documents, reports, products, equipment, information, data, source code, software, software tools, and methodologies.
+“Software” means AJP Engineering’s software product and includes the Software Documentation and all other associated Material provided by AJP Engineering in relation to that software.
+“Software Documentation” means any documentation provided by AJP Engineering which is incorporated in or associated with software.
+“Software License” means a non-exclusive, non-transferable license to use the Software in accordance with this Agreement.
+“Support” means the support, assurance, new releases and related maintenance services for the Software described in the Support Documentation and includes the Support Documentation and all other associated Material provided by AJP Engineering in relation to that support.
+“Support Documentation” means any documentation provided by AJP Engineering which is incorporated in or associated with Support.
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAACUWAAAlFgAAAAAAAAAA
+        AAD/////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////+P0v//i9D/////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////fcv//wCQ//8AkP//ecn/////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////2PD//8Am///AJn//wCY//8AkP//Xr7/////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////9Kjr7/ABIs/wBiov8Aof//AJz//wCY//8Aj///RrP/////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////i9P//M67//wCJ6/8ASnv/AAAA/wA5Xv8An/7/AJr//wCa
+        //8Ak///L6z//9/2////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////z/b//x+s//8Am///AKX//wCu//8AQW3/AAAA/wBk
+        p/8Apf//AJHz/wCQ7/8AjPb/HJz1/8jc6P//////////////////////////////////////////////
+        //+6urr/tLS0/7i4uP+tra3/0NDQ/////////////////7C3vf8PbrH/AGi4/wButv8Aa7L/AKT//wBq
+        sf8AAAD/ADJT/wCr//8AecT/AB8z/wAQGv8ACxr/Bj1p/7Dd9f//////////////////////////////
+        /////////////6CgoP8AAAD/AAAA/zo6Ov/Nzc3///////////+g3P//AGqy/wAPHf8AAAD/AAAA/wBS
+        if8Ap///AG63/wAAAP8AITf/AJ7//wCo//8AYKD/AAAA/wAdMP8Am///AZj//5vX////////////////
+        /////////////////////////////4mJif8AAAD/vb29////////////hc7//wCS//8ArP//AEx+/wAA
+        AP8ANVn/AKv//wCk//8AbLT/AAAA/wAgNP8Anf//AKT//wBzwP8AAAD/ADZa/wCm//8Alv//AJL//4DM
+        /////////////////////////////////////////////wICAv+Sj4z//////2vD//8AkP//AJj//wCk
+        //8AMlP/AAAA/wBstP8ApP//AKP//wBstP8AAAD/ACA1/wCd//8ApP//AHG8/wAAAP8ANVj/AKT//wCZ
+        //8AmP//AJD//2bB////////////////////////////////////////V1JQ/zAsK/9czP//AJv//wCi
+        //8Ap///AJj+/wAJEP8ABwz/AJDy/wCd//8Ao///AGy1/wAAAP8AIDX/AJ3//wCk//8Acb3/AAAA/wA2
+        Wv8AqP//AJ3//wCc//8Amf//AI///0y2//////////////////////////////////+ptbz/AAAA/wAq
+        U/8ALFn/ACxY/wAuWf8AKEf/AAAA/wAtWf8Aof//AJf//wCg//8Aarz/AAAA/wAgN/8Am///AKH//wBv
+        xf8AAAD/AC9S/wCO7f8Ahev/AJH3/wKi//8CpP//AI7//yuo///W7vz//////////////////////7jf
+        lv8DCwD/Nz8A/3yaAP9xjAD/fJkA/zU+AP8AAAD/SXck/3rOQf9yv0H/ecxB/1CHLv8AAAD/GCcO/3XE
+        Qf96zEH/VI0w/wAAAP8JDwf/Gy8R/xYmD/8BExz/ASY8/0aFQf92yjz/br1U/8zq5///////////////
+        /////////////2hsXf8VIQD/quMA/6TbAP+o4QD/Ii4A/wAAAP+MtgD/qdcA/6LPAP+t3QD/c5IA/wAA
+        AP8iKwD/p9QA/67dAP94mQD/AAAA/zVFAP+l1wD/mcgA/4iwAP8uNAD/AwAA/3KGEP///8j/////////
+        ////////////////////////29ng/wAABP97pwD/pN0A/4WyAP8AAAD/ICsA/6DVAP+azQD/mcwA/6Pa
+        AP9skAD/AAAA/yAqAP+d0QD/pNoA/3GXAP8AAAD/NkcA/6bdAP+bzwD/pdwA/47CAP8FCgD/Ew8f////
+        ////////////////////////////////////////MS45/1NiJ/+58g//WXoA/wAAAP9RbAD/pt4A/5nM
+        AP+ZzAD/o9oA/2yQAP8AAAD/ICoA/53RAP+k2gD/cZcA/wAAAP81RgD/pNoA/5jMAP+QyAD/xula/z4/
+        O/8AAAD/vLy8//////////////////////////////////////+Tk5P/IRwt//////81QxT/AAAA/32m
+        AP+h1gD/mcwA/5nMAP+j2gD/bJAA/wAAAP8gKgD/ndEA/6TaAP9xlwD/AAAA/zVGAP+i2QD/kMgA/8Pi
+        av//////RkRK/wAAAP+urq7///////////////////////////////////////////8MDAv/t7S//xwY
+        J/8MFgD/lswA/5vPAP+ZzAD/mcwA/6PaAP9skAD/AAAA/yAqAP+d0QD/pNoA/3OaAP8AAAD/NEcA/6Lc
+        AP/S64j///////////8TExL/AAAA/9PT0////////////////////////////////////////////1pa
+        Wv8cHBz/AAAC/2hrXP/D60j/kMcA/5nMAP+ZzAD/o9oA/2yQAP8AAAD/ICoA/5zQAP+p4QD/YoMA/wAA
+        AP8rPAH/0+iQ///////Ozs//QUFB/wAAAP9dXV3/////////////////////////////////////////
+        ////////v7+//wAAAP8AAAD/wb/I//////+3207/j8cA/5jMAP+j2gD/bJEA/wAAAP8gKwD/pNsA/3uj
+        AP8YJAD/DREB/xwdG/84NUD/MDAx/yEhIf8wMDD/j4+P////////////////////////////////////
+        ////////////////////////R0dH/zw8PP/////////////////B4Gf/kMcA/6XdAP9ukgD/AAAA/x4o
+        AP+k2gD/ib0A/5W/Hf/g6Mb/////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////N5oH/kMYA/zVJ
+        AP8AAAD/AAAA/2mUAP+v2zD/9/7h////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //+Zn4X/Lj0B/yw/AP8oPAD/SFEz/+rr4///////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////q/LT/otkN/8bqWv//////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////9//////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////57Y///Y8P//////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////+O0v//AI3//yKk///h8///////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////ltX//wCN//8AmP//AJH//xqj
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////I6f//GaD//wCS
+        //8AkP//ZcH/////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///X8P//GJ3//2TB////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</value>
+  </data>
+</root>
