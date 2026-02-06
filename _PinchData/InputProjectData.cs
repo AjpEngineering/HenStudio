@@ -49,6 +49,9 @@ using PinchGlobal;
 namespace PinchData
 {
     #region class InputProjectData
+    /// <summary>
+    /// This class contains all the data associated with the INPUT Project Panel
+    /// </summary>
     public class InputProjectData : ABC_XmlFileData
     {
         #region CONSTANTS

@@ -49,6 +49,9 @@ using PinchGlobal;
 namespace PinchData
 {
     #region class InputCostData
+    /// <summary>
+    /// This class contains all the data associated with the INPUT Cost Panel
+    /// </summary>
     public class InputCostData : ABC_XmlFileData
     {
         #region CONSTANTS
