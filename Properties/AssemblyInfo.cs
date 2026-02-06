@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Pinch Executable")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("AJP Engineering")]
-[assembly: AssemblyProduct("Pinch")]
+[assembly: AssemblyProduct("AJP Pinch 4")]
 [assembly: AssemblyCopyright("Copyright © 2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
