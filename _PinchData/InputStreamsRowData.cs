@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//######################################  T a r g e t s D a t a M g r . c s  ##########################################
+//##################################  I n p u t S t r e a m s R o w D a t a . c s  ####################################
 //#####################################################################################################################
-//  FILENAME:  TargetsDataMgr.cs
+//  FILENAME:  InputStreamsRowData.cs
 //  NAMESPACE: PinchData
-//  CLASS(S):  TargetsDataMgr
+//  CLASS(S):  InputStreamsRowData
 //  COMPONENT: _PinchData.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Targets Data Manager class.
+//    This file contains the code for the Input Streams Table Row Data class. 
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -34,9 +34,10 @@
 
 #region REFERENCES
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 using PinchGlobal;
@@ -45,37 +46,35 @@ using PinchGlobal;
 #region namespace PinchData
 namespace PinchData
 {
-    #region public class TargetsDataMgr
+    #region public class InputStreamsRowData
     /// <summary>
-    /// Targets Data Manager Class
+    /// Input Streams Table Row Data Class
     /// </summary>
-    public class TargetsDataMgr
+    public class InputStreamsRowData
     {
         #region CONSTANTS
         const string NAMESPACE = "PinchData";
-        const string CLASS = "TargetsDataMgr";
-        #endregion      // CONSTANTS
-
-        #region FIELDS
-
-        #endregion      // FIELDS
+        const string CLASS = "InputStreamsRowData";
+        #endregion  // CONSTANTS
 
         #region PROPERTIES
+        public string StreamID { get; set; }
 
-        #endregion      // PROPERTIES
+        #endregion  // PROPERTIES
 
         #region CTOR
         /// <summary>
-        /// Default Constructor
+        /// Parameterized Constructor
         /// </summary>
-        public TargetsDataMgr()
+        public InputStreamsRowData()
         {
             string strMethod = "CTOR";
-            PinchLogger.WriteSeparatorLine(' ');
-            PinchLogger.WriteSeparatorLine('>');
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating TargetsDataMgr Object");
+            string strMsg = string.Empty;
             try
             {
+                //------------------------------------
+                //--- Initialize Object Properties ---
+                //------------------------------------
 
             }
             catch (Exception ex)
@@ -86,16 +85,45 @@ namespace PinchData
             }
             finally
             {
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
-                PinchLogger.WriteSeparatorLine('<');
+                LogRow();   // Log Row Data
             }
         }
-        #endregion      // CTOR
+        #endregion  // CTOR
+
+        #region LogRow
+        /// <summary>
+        /// Log Row Data
+        /// </summary>
+        public void LogRow()
+        {
+            string strMethod = "LogRow()";
+            string strMsg = string.Empty;
+            try
+            {
+                //strMsg = String.Format("  ==> Panel Table Row: PK: {0:00}  Activity [{1}] Name: {2,-10} SubActivity[{3}] Name: {4,-12} STATUS Name: {5,-25}",
+                //                        PK, 
+                //                        ActivityIndex, ActivityName, 
+                //                        SubActivityIndex, SubActivityName, 
+                //                        PanelStatusName);
+                //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // LogRow
 
     }
-    #endregion      // public class TargetsDataMgr
+    #endregion  // public class InputStreamsRowData
 }
-#endregion      // namespace PinchData
+#endregion  // namespace PinchData
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

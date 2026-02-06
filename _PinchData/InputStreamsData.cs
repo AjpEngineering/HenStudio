@@ -35,6 +35,7 @@
 
 #region REFERENCES
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -59,6 +60,10 @@ namespace PinchData
         const string CLASS = "InputStreamsData";
         #endregion      // CONSTANTS
 
+        #region PROPERTIES
+        public InputStreamsTableData InputStreamsTableDataObj { get; set; }    // InputStreamsTableData Object
+        #endregion  // PROPERTIES
+
         #region CTOR
         /// <summary>
         /// Default Constructor
@@ -79,7 +84,7 @@ namespace PinchData
                 //-----------------------------------
                 //--- Initialize Class Properties ---
                 //-----------------------------------
-
+                InputStreamsTableDataObj = new InputStreamsTableData();
             }
             catch (Exception ex)
             {

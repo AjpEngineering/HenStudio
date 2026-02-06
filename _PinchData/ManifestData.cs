@@ -79,7 +79,8 @@ namespace PinchData
         public ManifestData() 
         {
             string strMethod = "CTOR";
-            PinchLogger.WriteSeparatorLine('-');
+            PinchLogger.WriteSeparatorLine(' ');
+            PinchLogger.WriteSeparatorLine('>');
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating ManifestData Object");
             try
             {
@@ -115,6 +116,7 @@ namespace PinchData
             finally
             {
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "ManifestData Object CREATED");
+                PinchLogger.WriteSeparatorLine('<');
             }
         }
         #endregion  // CTOR

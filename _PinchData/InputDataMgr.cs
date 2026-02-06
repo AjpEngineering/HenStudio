@@ -77,6 +77,7 @@ namespace PinchData
         public InputDataMgr()
         {
             string strMethod = "CTOR";
+            PinchLogger.WriteSeparatorLine(' ');
             PinchLogger.WriteSeparatorLine('>');
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputDataMgr Object");
             try

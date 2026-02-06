@@ -1,14 +1,15 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//######################################  T a r g e t s D a t a M g r . c s  ##########################################
+//################################  I n p u t S t r e a m s T a b l e D a t a . c s  ##################################
 //#####################################################################################################################
-//  FILENAME:  TargetsDataMgr.cs
+//  FILENAME:  InputStreamsTableData.cs
 //  NAMESPACE: PinchData
-//  CLASS(S):  TargetsDataMgr
+//  CLASS(S):  InputStreamsTableData
 //  COMPONENT: _PinchData.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Targets Data Manager class.
+//    This file contains the code for the Input Streams Table Data class. 
+//    The table is an ArrayList of InputStreamsRowData Objects.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -34,10 +35,12 @@
 
 #region REFERENCES
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 using PinchGlobal;
 #endregion  // REFERENCES
@@ -45,38 +48,37 @@ using PinchGlobal;
 #region namespace PinchData
 namespace PinchData
 {
-    #region public class TargetsDataMgr
+    #region public class InputStreamsTableData
     /// <summary>
-    /// Targets Data Manager Class
+    /// Input Streams Table Data Class
     /// </summary>
-    public class TargetsDataMgr
+    public class InputStreamsTableData
     {
         #region CONSTANTS
-        const string NAMESPACE = "PinchData";
-        const string CLASS = "TargetsDataMgr";
-        #endregion      // CONSTANTS
+        private const string NAMESPACE = "PinchData";
+        private const string CLASS = "InputStreamsTableData";
 
-        #region FIELDS
-
-        #endregion      // FIELDS
+        #endregion      // CONSTANTS        
 
         #region PROPERTIES
-
-        #endregion      // PROPERTIES
+        public ArrayList InputStreamsTable { get; set; }    // ArrayList of InputStreamsRowData Objects
+        #endregion  // PROPERTIES
 
         #region CTOR
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public TargetsDataMgr()
+        public InputStreamsTableData()
         {
             string strMethod = "CTOR";
-            PinchLogger.WriteSeparatorLine(' ');
-            PinchLogger.WriteSeparatorLine('>');
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating TargetsDataMgr Object");
+            string strMsg = string.Empty;
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputStreamsTableData Object");
             try
             {
-
+                //---------------------------------
+                //--- Create Empty List Objects ---
+                //---------------------------------
+                InputStreamsTable = new ArrayList();     // Input Streams Table
             }
             catch (Exception ex)
             {
@@ -86,16 +88,76 @@ namespace PinchData
             }
             finally
             {
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
-                PinchLogger.WriteSeparatorLine('<');
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputStreamsTableData Object CREATED");
             }
         }
-        #endregion      // CTOR
+        #endregion  // CTOR
+
+        #region ClearTable()
+        /// <summary>
+        /// Clears the contents of the table
+        /// </summary>
+        public void ClearTable()
+        {
+            InputStreamsTable.Clear();
+        }
+        #endregion  // ClearTable()
+
+        #region AddRow()
+        /// <summary>
+        /// Add Row to the table
+        /// </summary>
+        public void AddRow(InputStreamsRowData row)
+        {
+            InputStreamsTable.Add(row);
+        }
+        #endregion  // AddRow()
+
+        #region LogInputStreamsTable()
+        /// <summary>
+        /// Log the contents of the Input Streams Table.
+        /// </summary>
+        public void LogInputStreamsTable()
+        {
+            string strMethod = "LogInputStreamsTable()";
+            string strMsg = string.Empty;
+            try
+            {
+                //strMsg = String.Format("      ACTIVITY        SUB-ACTIVITY         PANEL STATUS");
+                //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                //strMsg = String.Format(" PK  INDEX  NAME     INDEX   NAME          NAME");
+                //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                //PinchLogger.WriteSeparatorLine('-');
+
+                //foreach (InputStreamsRowData row in InputStreamsTable)
+                //{
+                //    strMsg = String.Format(" {0:00}   {1}     {2,-9} {3}      {4,-12}  {5,-25} ",
+                //                            row.PK, 
+                //                            row.ActivityIndex,    row.ActivityName,
+                //                            row.SubActivityIndex, row.SubActivityName,
+                //                            row.PanelStatusName);
+                //    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                //}
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+        }
+        #endregion  // LogInputStreamsTable()
 
     }
-    #endregion      // public class TargetsDataMgr
+    #endregion  // public class InputStreamsTableData
 }
-#endregion      // namespace PinchData
+#endregion  // namespace PinchData
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
