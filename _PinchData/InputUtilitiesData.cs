@@ -1,16 +1,15 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//#########################################  M a n i f e s t D a t a . c s  ###########################################
+//###################################  I n p u t U t i l i t i e s D a t a . c s  #####################################
 //#####################################################################################################################
-//  FILENAME:  ManifestData.cs
+//  FILENAME:  InputUtilitiesData.cs
 //  NAMESPACE: PinchData
-//  CLASS(S):  ManifestData
+//  CLASS(S):  InputUtilitiesData
 //  COMPONENT: _PinchData.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Manifest Data class.
-//    Manifest Data includes the indivual Hash values for each of the Panel Data objects (e.g., InputData),
-//    as well as, an OVerall Hash for the Zip File which conains all data objects.
+//    This file contains the code for the Input Utilities Data class.
+//    This class contains all the data associated with the INPUT Utilities Panel
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -49,62 +48,34 @@ using PinchGlobal;
 #region namespace PinchData
 namespace PinchData
 {
-    #region class ManifestData
-    public class ManifestData : ABC_XmlFileData
+    #region class InputUtilitiesData
+    public class InputUtilitiesData : ABC_XmlFileData
     {
         #region CONSTANTS
         const string NAMESPACE = "PinchData";
-        const string CLASS = "ManifestData";
+        const string CLASS = "InputProjectData";
         #endregion      // CONSTANTS
-
-        #region PROPERTIES
-        public string InputProjectHash { get; set; }
-        public string InputStreamsHash { get; set; }
-        public string InputUtilitiesHash { get; set; }
-        public string InputCostHash { get; set; }
-        public string InputExchangerHash { get; set; }
-        public string InputValidationHash { get; set; }
-
-        public string TargetsCalculateHash { get; set; }
-        public string TargetsCompositeHash { get; set; }
-        public string TargetsIntervalHash { get; set; }
-        public string TargetsOptimizeHash { get; set; }
-        public string HenDesignHash { get; set; }
-        #endregion      // PROPERTIES
 
         #region CTOR
         /// <summary>
         /// Default Constructor
-        /// </summary>
-        public ManifestData() 
+        /// </summary>        
+        public InputUtilitiesData()
         {
             string strMethod = "CTOR";
-            PinchLogger.WriteSeparatorLine('-');
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating ManifestData Object");
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputUtilitiesData Object");
             try
             {
                 //----------------------------------------
                 //--- Initialize Base Class Properties ---
                 //----------------------------------------
-                DataHash = string.Empty;                // Overall Hash
+                DataHash = string.Empty;                // Input Project Data Hash
                 FullPathXmlFileLoc = string.Empty;      // XML File Location
                 FullPathZipFileLoc = string.Empty;      // ZIP File Location
-                //-----------------------------------------------
-                //--- Initialize Managed Data Hash Properties ---
-                //-----------------------------------------------
-                InputProjectHash = string.Empty;
-                InputStreamsHash = string.Empty;
-                InputUtilitiesHash = string.Empty;
-                InputCostHash = string.Empty;
-                InputExchangerHash = string.Empty;
-                InputValidationHash = string.Empty;
+                //-----------------------------------
+                //--- Initialize Class Properties ---
+                //-----------------------------------
 
-                TargetsCalculateHash = string.Empty;
-                TargetsCompositeHash = string.Empty;
-                TargetsIntervalHash = string.Empty;
-                TargetsOptimizeHash = string.Empty;
-
-                HenDesignHash = string.Empty;
             }
             catch (Exception ex)
             {
@@ -114,7 +85,7 @@ namespace PinchData
             }
             finally
             {
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "ManifestData Object CREATED");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputUtilitiesData Object CREATED");
             }
         }
         #endregion  // CTOR
@@ -244,7 +215,7 @@ namespace PinchData
         #endregion  // ABSTRACT METHOD IMPLEMENTATIONS
 
     }
-    #endregion  // class ManifestData
+    #endregion  // class InputUtilitiesData
 }
 #endregion  // namespace PinchData
 

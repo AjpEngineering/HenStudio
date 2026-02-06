@@ -63,6 +63,8 @@ namespace PinchData
         #region PROPERTIES
         public InputProjectData InputProjectDataObj { get; set; }
 
+        public InputUtilitiesData InputUtilitiesDataObj { get; set; }
+
         #endregion      // PROPERTIES
 
         #region CTOR
@@ -79,7 +81,8 @@ namespace PinchData
                 //---------------------------------------
                 //--- Create Input Panel Data Objects ---
                 //---------------------------------------
-                InputProjectDataObj = new InputProjectData();
+                InputProjectDataObj = new InputProjectData();       // Project Data
+                InputUtilitiesDataObj = new InputUtilitiesData();   // Utilities Data
 
             }
             catch (Exception ex)
@@ -90,6 +93,7 @@ namespace PinchData
             }
             finally
             {
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputDataMgr Object CREATED");
             }
         }
         #endregion      // CTOR

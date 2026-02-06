@@ -51,6 +51,7 @@ namespace PinchData
     /// </summary>
     public abstract class ABC_XmlFileData
     {
+        public string DataHash { get; set; }
         public string FullPathXmlFileLoc { get; set; }
         public string FullPathZipFileLoc { get; set; }
         public abstract void CreateHash();          // ZIP EXPORT or IMPORT

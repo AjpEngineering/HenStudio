@@ -48,6 +48,7 @@
     <Compile Include="ABC_XmlFileData.cs" />
     <Compile Include="InputDataMgr.cs" />
     <Compile Include="InputProjectData.cs" />
+    <Compile Include="InputUtilitiesData.cs" />
     <Compile Include="ManifestData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TargetsDataMgr.cs" />

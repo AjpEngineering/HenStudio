@@ -56,7 +56,6 @@ namespace PinchData
         const string CLASS = "InputProjectData";
         #endregion      // CONSTANTS
 
-
         #region CTOR
         /// <summary>
         /// Default Constructor
@@ -64,13 +63,13 @@ namespace PinchData
         public InputProjectData()
         {
             string strMethod = "CTOR";
-            //PinchLogger.WriteSeparatorLine('-');
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputProjectData Object");
             try
             {
                 //----------------------------------------
                 //--- Initialize Base Class Properties ---
                 //----------------------------------------
+                DataHash = string.Empty;                // Input Project Data Hash
                 FullPathXmlFileLoc = string.Empty;      // XML File Location
                 FullPathZipFileLoc = string.Empty;      // ZIP File Location
                 //-----------------------------------
@@ -86,6 +85,7 @@ namespace PinchData
             }
             finally
             {
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputProjectData Object CREATED");
             }
         }
         #endregion  // CTOR
