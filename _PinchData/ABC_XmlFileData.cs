@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//#########################################  I n p u t D a t a M g r . c s  ###########################################
+//###############################################  ABC_XmlFileData . c s  ################################################
 //#####################################################################################################################
-//  FILENAME:  InputDataMgr.cs
+//  FILENAME:  ABC_XmlFileData.cs
 //  NAMESPACE: PinchData
-//  CLASS(S):  InputDataMgr
+//  CLASS(S):  ABC_XmlFileData
 //  COMPONENT: _PinchData.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Input Data Manager class.
+//    This file contains the code for the XML File Data Abstract Base Class.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -45,52 +45,21 @@ using PinchGlobal;
 #region namespace PinchData
 namespace PinchData
 {
-    #region public class InputDataMgr
+    #region abstract class ABC_XmlFileData
     /// <summary>
-    /// Input Data Manager Class
+    /// Abstract Base Class for All XML File Data Classes
     /// </summary>
-    public class InputDataMgr
+    public abstract class ABC_XmlFileData
     {
-        #region CONSTANTS
-        const string NAMESPACE = "PinchData";
-        const string CLASS = "InputDataMgr";
-        #endregion      // CONSTANTS
-
-        #region FIELDS
-
-        #endregion      // FIELDS
-
-        #region PROPERTIES
-
-        #endregion      // PROPERTIES
-
-        #region CTOR
-        /// <summary>
-        /// Default Constructor
-        /// </summary>
-        public InputDataMgr()
-        {
-            string strMethod = "CTOR";
-            PinchLogger.WriteSeparatorLine('-');
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputDataMgr Object");
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion      // CTOR
-
+        public string FullPathXmlFileLoc { get; set; }
+        public string FullPathZipFileLoc { get; set; }
+        public abstract void CreateHash();          // ZIP EXPORT or IMPORT
+        public abstract void InitializeData();      // NEW
+        public abstract void LogData();
+        public abstract void PersistData();         // SAVE or SAVE AS
+        public abstract void RestoreData();         // OPEN
     }
-    #endregion      // public class InputDataMgr
+    #endregion  // abstract class ABC_XmlFileData
 }
 #endregion      // namespace PinchData
 

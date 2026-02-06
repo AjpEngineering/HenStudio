@@ -630,6 +630,8 @@ namespace Pinch
             string strMsg = string.Empty;
             try
             {
+                PinchLogger.WriteSeparatorLine('-');
+                PinchLogger.WriteSeparatorLine(' ');
                 PinchLogger.WriteSection("CURRENT TABLE MANAGER STATE");
 
                 strMsg = String.Format(" ==> Current Primary Key (PK) : {0:00}  PANEL NAME: {1}", 

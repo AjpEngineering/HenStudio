@@ -1,6 +1,6 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//#############################################  TargetsDataMgr . c s  ################################################
+//######################################  T a r g e t s D a t a M g r . c s  ##########################################
 //#####################################################################################################################
 //  FILENAME:  TargetsDataMgr.cs
 //  NAMESPACE: PinchData
@@ -71,7 +71,21 @@ namespace PinchData
         public TargetsDataMgr()
         {
             string strMethod = "CTOR";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            PinchLogger.WriteSeparatorLine('-');
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating TargetsDataMgr Object");
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
         }
         #endregion      // CTOR
 

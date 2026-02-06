@@ -131,10 +131,9 @@ namespace Pinch
 
         private PanelTableMgr _panelTableMgr;
 
-        //private PinchProjectData _projectPropertiesDataObj;
-        //private PinchInputMgr _pinchInput;
-        //private EnergyTargetsMgr _pinchEnergyTargets;
-        //private PinchReportMgr _pinchReport;
+        private ManifestData _manifestDataObj;
+        private InputDataMgr _inputDataMgrObj;
+        private TargetsDataMgr _targetsDataMgrObj;
         #endregion  // OBJECTS
 
         #endregion      // FIELDS
@@ -330,30 +329,44 @@ namespace Pinch
         #endregion  // GLOBL OBJECTS
 
         #region DATA OBJECTS
+
         //--------------------
         //--- DATA OBJECTS ---
         //--------------------
-        //#region projectPropertiesDataObj
-        ///// <summary>
-        ///// projectPropertiesDataObj Property
-        ///// </summary>
-        //public PinchProjectData projectPropertiesDataObj
-        //{
-        //    get { return _projectPropertiesDataObj; }
-        //    set { _projectPropertiesDataObj = value; }
-        //}
-        //#endregion      // projectPropertiesDataObj
 
-        //#region PinchInputObj
-        ///// <summary>
-        ///// PinchInput Property
-        ///// </summary>
-        //public PinchInputMgr PinchInputObj
-        //{
-        //    get { return _pinchInput; }
-        //    set { _pinchInput = value; }
-        //}
-        //#endregion      // PinchInputObj
+        #region ManifestDataObj
+        /// <summary>
+        /// ManifestDataObj Property
+        /// </summary>
+        public ManifestData ManifestDataObj
+        {
+            get { return _manifestDataObj; }
+            set { _manifestDataObj = value; }
+        }
+        #endregion      // ManifestDataObj
+
+        #region InputDataMgrObj
+        /// <summary>
+        /// InputDataMgrObj Property
+        /// </summary>
+        public InputDataMgr InputDataMgrObj
+        {
+            get { return _inputDataMgrObj; }
+            set { _inputDataMgrObj = value; }
+        }
+        #endregion      // InputDataMgrObj
+
+        #region TargetsDataMgrObj
+        /// <summary>
+        /// TargetsDataMgrObj Property
+        /// </summary>
+        public TargetsDataMgr TargetsDataMgrObj
+        {
+            get { return _targetsDataMgrObj; }
+            set { _targetsDataMgrObj = value; }
+        }
+        #endregion      // TargetsDataMgrObj
+
 
         #endregion  // DATA OBJECTS
 
@@ -528,8 +541,6 @@ namespace Pinch
             }
             finally
             {
-                PanelTableMgrObj.LogCurrentState(); // Log the current index state of the Panel Table Manager
-                PinchLogger.WriteSection("END CONSTRUCTION SECTION");
             }
         }
         #endregion      // CTOR
@@ -538,27 +549,52 @@ namespace Pinch
         private void FormMain_Load(object sender, EventArgs e)
         {
             string strMethod = "FormMain_Load";
-            //-----------------------------
-            //--- XML File Exists Guard ---
-            //-----------------------------
-            if (!PinchFileSysObj.LicenseFileExists())
+            string strMsg = string.Empty;
+            PinchLogger.WriteSeparatorLine('-');
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Load Main Form - Create Object Tree");
+            try
             {
-                string strMsg = String.Format("XML License File is Missing! [{0}]",
-                                              PinchFileSysObj.LicenseFilePath);
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
-                PinchMsgDlg.DisplayErrorDlg(strMsg);
+                #region VALID XML File Exists Guard - EXIT ON ERROR
+                //-----------------------------
+                //--- XML File Exists Guard ---
+                //-----------------------------
+                if (!PinchFileSysObj.LicenseFileExists())
+                {
+                    strMsg = String.Format("XML License File is Missing! [{0}]",
+                                            PinchFileSysObj.LicenseFilePath);
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    PinchMsgDlg.DisplayErrorDlg(strMsg);
 
-                HandleExit();
+                    HandleExit();
+                }
+                else if (PinchSettingsObj.LicenseStatusEnum != PinchTypes.LicenseStatus.VALID)
+                {
+                    string strStatus = PinchSettingsObj.LicenseStatusEnum.ToString();
+                    strMsg = String.Format("{0} License File Encountered!{1} Contact AJP Engineering!",
+                                            strStatus, Environment.NewLine);
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    PinchMsgDlg.DisplayErrorDlg(strMsg);
+
+                    HandleExit();
+                }
+                #endregion  // VALID XML File Exists Guard - EXIT ON ERROR
+
+                #region CONSTRUCT INITIAL OBJECT TREE
+                ManifestDataObj = new ManifestData();       // Create & Initialize Manifest Data Object
+                InputDataMgrObj = new InputDataMgr();       // Create & Initialize Input   Data Objects
+                TargetsDataMgrObj = new TargetsDataMgr();   // Create & Initialize Targets Data Objects
+                #endregion  // CONSTRUCT INITIAL OBJECT TREE
             }
-            else if (PinchSettingsObj.LicenseStatusEnum != PinchTypes.LicenseStatus.VALID)
+            catch (Exception ex)
             {
-                string strStatus = PinchSettingsObj.LicenseStatusEnum.ToString();
-                string strMsg = String.Format("{0} License File Encountered!{1} Contact AJP Engineering!",
-                                              strStatus, Environment.NewLine);
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
-                PinchMsgDlg.DisplayErrorDlg(strMsg);
-
-                HandleExit();
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                PanelTableMgrObj.LogCurrentState(); // Log the current index state of the Panel Table Manager
+                PinchLogger.WriteSection("END CONSTRUCTION SECTION");
             }
         }
         #endregion  // FormMain_Load

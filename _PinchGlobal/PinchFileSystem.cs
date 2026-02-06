@@ -281,9 +281,7 @@ namespace PinchGlobal
                 //-----------------------------------------------------
                 //--- Log Pinch File System Folder Structure HEADER ---
                 //-----------------------------------------------------
-                PinchLogger.WriteSeparatorLine('=');
                 PinchLogger.WriteSection("PINCH FILE SYSTEM FOLDER STRUCTURE");
-                PinchLogger.WriteSeparatorLine('=');
 
                 //---------------------------------------------------
                 //--- Log Pinch File System Folder Structure BODY ---
