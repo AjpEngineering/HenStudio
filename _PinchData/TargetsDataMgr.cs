@@ -55,10 +55,7 @@ namespace PinchData
         const string NAMESPACE = "PinchData";
         const string CLASS = "TargetsDataMgr";
         #endregion      // CONSTANTS
-
-        #region FIELDS
-
-        #endregion      // FIELDS
+        public TargetsCalculateData TargetsCalculateDataObj { get; set; }
 
         #region PROPERTIES
 
@@ -76,7 +73,10 @@ namespace PinchData
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating TargetsDataMgr Object");
             try
             {
-
+                //---------------------------------------
+                //--- Create Input Panel Data Objects ---
+                //---------------------------------------
+                TargetsCalculateDataObj = new TargetsCalculateData();   // Calculate Data
             }
             catch (Exception ex)
             {

@@ -57,6 +57,7 @@
     <Compile Include="InputValidationData.cs" />
     <Compile Include="ManifestData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TargetsCalculateData.cs" />
     <Compile Include="TargetsDataMgr.cs" />
   </ItemGroup>
   <ItemGroup>
