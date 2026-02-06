@@ -61,6 +61,7 @@ namespace PinchData
         #endregion      // FIELDS
 
         #region PROPERTIES
+        public InputProjectData InputProjectDataObj { get; set; }
 
         #endregion      // PROPERTIES
 
@@ -75,6 +76,10 @@ namespace PinchData
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputDataMgr Object");
             try
             {
+                //---------------------------------------
+                //--- Create Input Panel Data Objects ---
+                //---------------------------------------
+                InputProjectDataObj = new InputProjectData();
 
             }
             catch (Exception ex)

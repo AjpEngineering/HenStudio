@@ -550,7 +550,8 @@ namespace Pinch
         {
             string strMethod = "FormMain_Load";
             string strMsg = string.Empty;
-            PinchLogger.WriteSeparatorLine('-');
+            PinchLogger.WriteSeparatorLine(' ');
+            PinchLogger.WriteSection("START OBJECT TREE CONSTRUCTION");
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Load Main Form - Create Object Tree");
             try
             {
@@ -593,7 +594,11 @@ namespace Pinch
             }
             finally
             {
+                PinchLogger.WriteSection("END OBJECT TREE CONSTRUCTION");
+                PinchLogger.WriteSeparatorLine(' ');
+
                 PanelTableMgrObj.LogCurrentState(); // Log the current index state of the Panel Table Manager
+
                 PinchLogger.WriteSection("END CONSTRUCTION SECTION");
             }
         }

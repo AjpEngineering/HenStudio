@@ -630,9 +630,7 @@ namespace Pinch
             string strMsg = string.Empty;
             try
             {
-                PinchLogger.WriteSeparatorLine('-');
-                PinchLogger.WriteSeparatorLine(' ');
-                PinchLogger.WriteSection("CURRENT TABLE MANAGER STATE");
+                PinchLogger.WriteSection("CURRENT PANEL TABLE MANAGER STATE");
 
                 strMsg = String.Format(" ==> Current Primary Key (PK) : {0:00}  PANEL NAME: {1}", 
                                        SelPK, SelPanelStatusName);
@@ -657,7 +655,6 @@ namespace Pinch
             }
             finally
             {
-                //PinchLogger.WriteSeparatorLine('=');
             }
         }
         #endregion  // LogCurrentState()
