@@ -1,15 +1,15 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//###################################  I n p u t E x c h a n g e r D a t a . c s  #####################################
+//#####################################  I n p u t S t r e a m s D a t a . c s  #######################################
 //#####################################################################################################################
-//  FILENAME:  InputExchangerData.cs
+//  FILENAME:  InputStreamsData.cs
 //  NAMESPACE: PinchData
-//  CLASS(S):  InputExchangerData
+//  CLASS(S):  InputStreamsData
 //  COMPONENT: _PinchData.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Input Exchanger Data class.
-//    This class contains all the data associated with the INPUT Exchanger Panel
+//    This file contains the code for the Input Streams Data class.
+//    This class contains all the data associated with the INPUT Streams Panel
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -48,26 +48,26 @@ using PinchGlobal;
 #region namespace PinchData
 namespace PinchData
 {
-    #region class InputExchangerData
+    #region class InputStreamsData
     /// <summary>
-    /// This class contains all the data associated with the INPUT Exchanger Panel
+    /// This class contains all the data associated with the INPUT Streams Panel
     /// </summary>
-    public class InputExchangerData : ABC_XmlFileData
+    public class InputStreamsData : ABC_XmlFileData
     {
         #region CONSTANTS
         const string NAMESPACE = "PinchData";
-        const string CLASS = "InputExchangerData";
+        const string CLASS = "InputStreamsData";
         #endregion      // CONSTANTS
 
         #region CTOR
         /// <summary>
         /// Default Constructor
         /// </summary>        
-        public InputExchangerData()
+        public InputStreamsData()
         {
             string strMethod = "CTOR";
             PinchLogger.WriteSeparatorLine('>');
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputExchangerData Object");
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputStreamsData Object");
             try
             {
                 //----------------------------------------
@@ -89,7 +89,7 @@ namespace PinchData
             }
             finally
             {
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputExchangerData Object CREATED");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputStreamsData Object CREATED");
                 PinchLogger.WriteSeparatorLine('<');
             }
         }
@@ -220,7 +220,7 @@ namespace PinchData
         #endregion  // ABSTRACT METHOD IMPLEMENTATIONS
 
     }
-    #endregion  // class InputExchangerData
+    #endregion  // class InputStreamsData
 }
 #endregion  // namespace PinchData
 

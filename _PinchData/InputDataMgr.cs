@@ -62,6 +62,7 @@ namespace PinchData
 
         #region PROPERTIES
         public InputProjectData InputProjectDataObj { get; set; }
+        public InputStreamsData InputStreamsDataObj { get; set; }
         public InputUtilitiesData InputUtilitiesDataObj { get; set; }
         public InputCostData InputCostDataObj { get; set; }
         public InputExchangerData InputExchangerDataObj { get; set; }
@@ -76,7 +77,7 @@ namespace PinchData
         public InputDataMgr()
         {
             string strMethod = "CTOR";
-            PinchLogger.WriteSeparatorLine('-');
+            PinchLogger.WriteSeparatorLine('>');
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputDataMgr Object");
             try
             {
@@ -84,6 +85,7 @@ namespace PinchData
                 //--- Create Input Panel Data Objects ---
                 //---------------------------------------
                 InputProjectDataObj = new InputProjectData();         // Project Data
+                InputStreamsDataObj = new InputStreamsData();         // Streams Data
                 InputUtilitiesDataObj = new InputUtilitiesData();     // Utilities Data
                 InputCostDataObj = new InputCostData();               // Cost Data
                 InputExchangerDataObj = new InputExchangerData();     // Exchanger Data
@@ -99,6 +101,7 @@ namespace PinchData
             finally
             {
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputDataMgr Object CREATED");
+                PinchLogger.WriteSeparatorLine('<');
             }
         }
         #endregion      // CTOR

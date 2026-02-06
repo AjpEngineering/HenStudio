@@ -50,6 +50,7 @@
     <Compile Include="InputDataMgr.cs" />
     <Compile Include="InputExchangerData.cs" />
     <Compile Include="InputProjectData.cs" />
+    <Compile Include="InputStreamsData.cs" />
     <Compile Include="InputUtilitiesData.cs" />
     <Compile Include="InputValidationData.cs" />
     <Compile Include="ManifestData.cs" />

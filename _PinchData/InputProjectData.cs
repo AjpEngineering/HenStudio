@@ -66,6 +66,7 @@ namespace PinchData
         public InputProjectData()
         {
             string strMethod = "CTOR";
+            PinchLogger.WriteSeparatorLine('>');
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputProjectData Object");
             try
             {
@@ -89,6 +90,7 @@ namespace PinchData
             finally
             {
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputProjectData Object CREATED");
+                PinchLogger.WriteSeparatorLine('<');
             }
         }
         #endregion  // CTOR

@@ -66,6 +66,7 @@ namespace PinchData
         public InputValidationData()
         {
             string strMethod = "CTOR";
+            PinchLogger.WriteSeparatorLine('>');
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputValidationData Object");
             try
             {
@@ -89,6 +90,7 @@ namespace PinchData
             finally
             {
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputValidationData Object CREATED");
+                PinchLogger.WriteSeparatorLine('<');
             }
         }
         #endregion  // CTOR
