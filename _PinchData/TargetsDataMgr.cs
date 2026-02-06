@@ -58,6 +58,7 @@ namespace PinchData
         public TargetsCalculateData TargetsCalculateDataObj { get; set; }
         public TargetsCompositeData TargetsCompositeDataObj { get; set; }
         public TargetsIntervalData TargetsIntervalDataObj { get; set; }
+        public TargetsOptimizeData TargetsOptimizeDataObj { get; set; }
 
         #region PROPERTIES
 
@@ -81,6 +82,7 @@ namespace PinchData
                 TargetsCalculateDataObj = new TargetsCalculateData();   // Calculate Data
                 TargetsCompositeDataObj = new TargetsCompositeData();   // Composite Data
                 TargetsIntervalDataObj = new TargetsIntervalData();     // Interval Data
+                TargetsOptimizeDataObj = new TargetsOptimizeData();     // Optimize Data
             }
             catch (Exception ex)
             {
