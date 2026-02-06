@@ -45,12 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TargetsInputDataMgr.cs" />
+    <Compile Include="InputDataMgr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TargetsResultsDataMgr.cs" />
+    <Compile Include="TargetsDataMgr.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\_PinchGlobal\_PinchGlobal.csproj">
+      <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
+      <Name>_PinchGlobal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//###########################################  TargetsInputDataMgr . c s  #############################################
+//###############################################  InputDataMgr . c s  ################################################
 //#####################################################################################################################
-//  FILENAME:  TargetsInputDataMgr.cs
+//  FILENAME:  InputDataMgr.cs
 //  NAMESPACE: PinchData
-//  CLASS(S):  TargetsInputDataMgr
+//  CLASS(S):  InputDataMgr
 //  COMPONENT: _PinchData.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Targets Input Data Manager class.
+//    This file contains the code for the Input Data Manager class.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -38,36 +38,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using PinchGlobal;
 #endregion  // REFERENCES
 
 #region namespace PinchData
 namespace PinchData
 {
-    #region public class TargetsInputDataMgr
+    #region public class InputDataMgr
     /// <summary>
-    /// Targets Input Data Manager Class
+    /// Input Data Manager Class
     /// </summary>
-    public class TargetsInputDataMgr
+    public class InputDataMgr
     {
         #region CONSTANTS
         const string NAMESPACE = "PinchData";
-        const string CLASS = "TargetsInputDataMgr";
+        const string CLASS = "InputDataMgr";
         #endregion      // CONSTANTS
-
-        #region ENUMS
-
-        //#region enum PinchUnits
-        ///// <summary>
-        ///// ENUMERATION: Pinch Units
-        ///// </summary>
-        //public enum PinchUnits
-        //{
-        //    ENGLISH,
-        //    METRIC
-        //};
-        //#endregion      // enum PinchUnits
-
-        #endregion      // ENUMS
 
         #region FIELDS
 
@@ -81,15 +68,15 @@ namespace PinchData
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public TargetsInputDataMgr()
+        public InputDataMgr()
         {
-            //string strMethod = "CTOR";
-            //ExchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            string strMethod = "CTOR";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
         }
         #endregion      // CTOR
 
     }
-    #endregion      // public class TargetsInputDataMgr
+    #endregion      // public class InputDataMgr
 }
 #endregion      // namespace PinchData
 

@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//##########################################  TargetsResultsDataMgr . c s  ############################################
+//#############################################  TargetsDataMgr . c s  ################################################
 //#####################################################################################################################
-//  FILENAME:  TargetsResultsDataMgr.cs
+//  FILENAME:  TargetsDataMgr.cs
 //  NAMESPACE: PinchData
-//  CLASS(S):  TargetsResultsDataMgr
+//  CLASS(S):  TargetsDataMgr
 //  COMPONENT: _PinchData.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Targets Results Data Manager class.
+//    This file contains the code for the Targets Data Manager class.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -38,36 +38,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using PinchGlobal;
 #endregion  // REFERENCES
 
 #region namespace PinchData
 namespace PinchData
 {
-    #region public class TargetsResultsDataMgr
+    #region public class TargetsDataMgr
     /// <summary>
-    /// Targets Results Data Manager Class
+    /// Targets Data Manager Class
     /// </summary>
-    public class TargetsResultsDataMgr
+    public class TargetsDataMgr
     {
         #region CONSTANTS
         const string NAMESPACE = "PinchData";
-        const string CLASS = "TargetsResultsDataMgr";
+        const string CLASS = "TargetsDataMgr";
         #endregion      // CONSTANTS
-
-        #region ENUMS
-
-        //#region enum PinchUnits
-        ///// <summary>
-        ///// ENUMERATION: Pinch Units
-        ///// </summary>
-        //public enum PinchUnits
-        //{
-        //    ENGLISH,
-        //    METRIC
-        //};
-        //#endregion      // enum PinchUnits
-
-        #endregion      // ENUMS
 
         #region FIELDS
 
@@ -81,15 +68,15 @@ namespace PinchData
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public TargetsResultsDataMgr()
+        public TargetsDataMgr()
         {
-            //string strMethod = "CTOR";
-            //ExchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            string strMethod = "CTOR";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
         }
         #endregion      // CTOR
 
     }
-    #endregion      // public class TargetsResultsDataMgr
+    #endregion      // public class TargetsDataMgr
 }
 #endregion      // namespace PinchData
 
