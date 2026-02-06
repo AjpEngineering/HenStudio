@@ -1,15 +1,15 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//###################################  I n p u t U t i l i t i e s D a t a . c s  #####################################
+//########################################  I n p u t C o s t D a t a . c s  ##########################################
 //#####################################################################################################################
-//  FILENAME:  InputUtilitiesData.cs
+//  FILENAME:  InputCostData.cs
 //  NAMESPACE: PinchData
-//  CLASS(S):  InputUtilitiesData
+//  CLASS(S):  InputCostData
 //  COMPONENT: _PinchData.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Input Utilities Data class.
-//    This class contains all the data associated with the INPUT Utilities Panel
+//    This file contains the code for the Input Cost Data class.
+//    This class contains all the data associated with the INPUT Cost Panel
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -48,22 +48,22 @@ using PinchGlobal;
 #region namespace PinchData
 namespace PinchData
 {
-    #region class InputUtilitiesData
-    public class InputUtilitiesData : ABC_XmlFileData
+    #region class InputCostData
+    public class InputCostData : ABC_XmlFileData
     {
         #region CONSTANTS
         const string NAMESPACE = "PinchData";
-        const string CLASS = "InputUtilitiesData";
+        const string CLASS = "InputCostData";
         #endregion      // CONSTANTS
 
         #region CTOR
         /// <summary>
         /// Default Constructor
         /// </summary>        
-        public InputUtilitiesData()
+        public InputCostData()
         {
             string strMethod = "CTOR";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputUtilitiesData Object");
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputCostData Object");
             try
             {
                 //----------------------------------------
@@ -85,7 +85,7 @@ namespace PinchData
             }
             finally
             {
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputUtilitiesData Object CREATED");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputCostData Object CREATED");
             }
         }
         #endregion  // CTOR
@@ -215,7 +215,7 @@ namespace PinchData
         #endregion  // ABSTRACT METHOD IMPLEMENTATIONS
 
     }
-    #endregion  // class InputUtilitiesData
+    #endregion  // class InputCostData
 }
 #endregion  // namespace PinchData
 

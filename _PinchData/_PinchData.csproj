@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABC_XmlFileData.cs" />
+    <Compile Include="InputCostData.cs" />
     <Compile Include="InputDataMgr.cs" />
     <Compile Include="InputProjectData.cs" />
     <Compile Include="InputUtilitiesData.cs" />
