@@ -60,6 +60,7 @@
     <Compile Include="TargetsCalculateData.cs" />
     <Compile Include="TargetsCompositeData.cs" />
     <Compile Include="TargetsDataMgr.cs" />
+    <Compile Include="TargetsIntervalData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />

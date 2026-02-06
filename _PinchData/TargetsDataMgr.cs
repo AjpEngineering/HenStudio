@@ -57,6 +57,7 @@ namespace PinchData
         #endregion      // CONSTANTS
         public TargetsCalculateData TargetsCalculateDataObj { get; set; }
         public TargetsCompositeData TargetsCompositeDataObj { get; set; }
+        public TargetsIntervalData TargetsIntervalDataObj { get; set; }
 
         #region PROPERTIES
 
@@ -79,6 +80,7 @@ namespace PinchData
                 //-----------------------------------------
                 TargetsCalculateDataObj = new TargetsCalculateData();   // Calculate Data
                 TargetsCompositeDataObj = new TargetsCompositeData();   // Composite Data
+                TargetsIntervalDataObj = new TargetsIntervalData();     // Interval Data
             }
             catch (Exception ex)
             {
