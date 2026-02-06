@@ -65,6 +65,7 @@ namespace PinchData
         public InputUtilitiesData InputUtilitiesDataObj { get; set; }
         public InputCostData InputCostDataObj { get; set; }
         public InputExchangerData InputExchangerDataObj { get; set; }
+        public InputValidationData InputValidationDataObj { get; set; }
 
         #endregion      // PROPERTIES
 
@@ -82,10 +83,11 @@ namespace PinchData
                 //---------------------------------------
                 //--- Create Input Panel Data Objects ---
                 //---------------------------------------
-                InputProjectDataObj = new InputProjectData();       // Project Data
-                InputUtilitiesDataObj = new InputUtilitiesData();   // Utilities Data
-                InputCostDataObj = new InputCostData();             // Cost Data
-                InputExchangerDataObj = new InputExchangerData();   // Exchanger Data
+                InputProjectDataObj = new InputProjectData();         // Project Data
+                InputUtilitiesDataObj = new InputUtilitiesData();     // Utilities Data
+                InputCostDataObj = new InputCostData();               // Cost Data
+                InputExchangerDataObj = new InputExchangerData();     // Exchanger Data
+                InputValidationDataObj = new InputValidationData();   // Validation Data
 
             }
             catch (Exception ex)
