@@ -67,59 +67,11 @@ namespace AJP_License_File
 
         #endregion      // CONSTANTS
 
-        #region FIELDS
-        private string _strFullPathFilenameXML;             // Full Path File Name to Persist and Restore XML File
-        private LicenseFileData _licenseFileDataObj;        // XML License File Data object
-        private LicenseFileData _runTimeLicenseFileDataObj; // License File Data object
-        private ScoreCardTableData _scoreCardTableDataObj;  // ScoreCard Table Data Object
-        #endregion      // FIELDS
-
         #region PROPERTIES
-
-        #region FullPathFilenameXML
-        /// <summary>
-        /// Full Path Filename for XML File Property
-        /// </summary>
-        public string FullPathFilenameXML
-        {
-            get { return _strFullPathFilenameXML; }
-            set { _strFullPathFilenameXML = value; }
-        }
-        #endregion      // FullPathFilenameXML
-
-        #region LicenseFileDataObj
-        /// <summary>
-        /// LicenseFileDataObj Property  ...  License File Data object
-        /// </summary>
-        public LicenseFileData LicenseFileDataObj
-        {
-            get { return _licenseFileDataObj; }
-            set { _licenseFileDataObj = value; }
-        }
-        #endregion      // LicenseFileDataObj
-
-        #region RunTimeLicenseFileDataObj
-        /// <summary>
-        /// RunTimeLicenseFileDataObj Property  ...  Run-Time License File Data object
-        /// </summary>
-        public LicenseFileData RunTimeLicenseFileDataObj
-        {
-            get { return _runTimeLicenseFileDataObj; }
-            set { _runTimeLicenseFileDataObj = value; }
-        }
-        #endregion      // RunTimeLicenseFileDataObj
-
-        #region ScoreCardTableDataObj
-        /// <summary>
-        /// ScoreCardTableDataObj Property  ...  ScoreCatd Table Data object
-        /// </summary>
-        public ScoreCardTableData ScoreCardTableDataObj
-        {
-            get { return _scoreCardTableDataObj; }
-            set { _scoreCardTableDataObj = value; }
-        }
-        #endregion      // ScoreCardTableDataObj
-
+        public string FullPathFilenameXML { get; set; }   // Full Path File Name to Persist and Restore XML File
+        public LicenseFileData LicenseFileDataObj { get; set; }        // XML License File Data object
+        public LicenseFileData RunTimeLicenseFileDataObj { get; set; } // License File Data object
+        public ScoreCardTableData ScoreCardTableDataObj { get; set; }  // ScoreCard Table Data Object
         #endregion      // PROPERTIES
 
         #region CTOR: LicenseMgr

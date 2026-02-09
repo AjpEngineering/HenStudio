@@ -83,6 +83,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -183,321 +184,47 @@ namespace AJP_License_File
 
         #endregion      // CONSTANTS
 
-        #region FIELDS
-        private string _strFileHash;            // File Hash String ......... Hash String Read from XML File ... [PUBLIC]
-        private string _strRunTimeDeviceName;	// Name of Device Running App ... "NUC"
-        private string _strRunTimeUserName;	    // Name of User Running App ..... [Environment.UserName] "baseb"
-
-        #region SUPPLIER FIELDS  ... [ *** FIXED *** -> ALL CUSTOMERS -> ALL PRODUCTS ]
-        private string _strAuthor;          // Author ............ Product Developer ....... "AJP Engineering"
-        private string _strSupplierName;    // Supplier Name ..... Manufacturer ............ "AJP Engineering"
-        private string _strSupplierUrl;     // Supplier URL ...... AJP Web Site ............ "http:://www.AJPEngineering.com"
-        #endregion      // SUPPLIER FIELDS  ... [ *** FIXED *** -> ALL CUSTOMERS -> ALL PRODUCTS ]
-
-        #region CUSTOMER CONTACT FIELDS .... [ === MODIFY PER CUSTOMER === ]
-        private string _strCustomerName;    // Customer Name .... Customer Name .... "Bill Cashman"
-        private string _strCustomerEmail;   // Customer Email ... Customer Email ... "BillCashman@exxon.com"
-        #endregion      // CUSTOMER CONTACT FIELDS .... [ === MODIFY PER CUSTOMER === ]
-
-        #region PRODUCT FIELDS ..... [ === MODIFY PER PRODUCT === ]  ... Set by Developer per Product Soluion
-        private string _strProductName;     // Product Name ...... AJP Product Name ........ "AJP Test 1.0"
-        private string _strProductVersion;  // Product Version ... Full Version ............ "1.0.0"
-        private string _strSerialNumber;    // Serial Number ..... AJP Number .............. "1224-617-3554"
-        private string _strProductCode;     // Product Code ...... Microsoft Format ........ "{3378CA35-F929-4E12-B8C7-0102DCE47C81}"
-        #endregion      // PRODUCT FIELDS ..... [=== MODIFY PER PRODUCT ===]  ... Set by Developer per Product Soluion
-
-        #region LICENSE TYPE FIELDS .... [ === MODIFY PER LICENSE === ]
-        private string _strlicenseType;   // License Type ........................ "TRIAL"
-        private string _strCorporation;   // Corporation .... User Corporation ... "Exxon"
-        private string _strDivision;      // Division ....... User Division ...... "Research and Development"
-        private string _strGroup;         // Group .......... User Group ......... "Heat Exchanger Group"
-        private string _strUserName;	  // User Name ...... User Name .......... "Joey Bots"        
-        private string _strDeviceName;	  // Device Name .... User Device ........ "GM-DESKTOP"
-        #endregion      // LICENSE TYPE FIELDS .... [ === MODIFY PER LICENSE === ]
-
-        #region LICENSE FIELDS .... [ === MODIFY PER LICENSE === ]
-        private string _strFileLicenseKey;  // File License Key ........... ["AJP-2D69-9CF3-192C-81AA-EBDD-ENG"]  -- [PUBLIC]
-        private int _nDurationDays;	        // License Duration in Days ... 365
-        private int _nRemainingDays;        // Number of day remaining on AJP License
-        private DateTime _dtStartDate;	    // Start Date ................. "7/4/2022"
-        private DateTime _dtEndDate;	    // End Date ................... "7/4/2023"
-        #endregion      // LICENSE FIELDS .... [ === MODIFY PER LICENSE === ]
-
-        #endregion      // FIELDS
-
         #region PROPERTIES
 
-        #region FileHash  ... [NOT part of MASH]
-        /// <summary>
-        /// FileHash Property  ...  File Hash String ......... Hash String Read from XML File ... [PUBLIC]
-        /// </summary>
-        public string FileHash
-        {
-            get { return _strFileHash; }
-            set { _strFileHash = value; }
-        }
-        #endregion      // FileHash
+        #region XML FILE HASH & RUN-TIME ENVIRONMENT
+        public string FileHash { get; set; }   // File Hash String ... Hash String Read from XML File ... [PUBLIC]
+        public string RunTimeDeviceName { get; set; } // Device Running App ... "NUC"
+        public string RunTimeUserName { get; set; }   // User Running App ..... [Environment.UserName] "baseb"
+        #endregion      // XML FILE HASH & RUN-TIME ENVIRONMENT
 
-        #region RunTimeDeviceName  ... [NOT part of MASH]
-        /// <summary>
-        /// RunTimeDeviceName Property  ...  Name of Device Running App ... "GM-DESKTOP"
-        /// </summary>
-        public string RunTimeDeviceName
-        {
-            get { return _strRunTimeDeviceName; }
-            set { _strRunTimeDeviceName = value; }
-        }
-        #endregion      // RunTimeDeviceName
-
-        #region RunTimeUserName  ... [NOT part of MASH]
-        /// <summary>
-        /// RunTimeUserName Property  ...  Name of User Running App ..... [Environment.UserName]
-        /// </summary>
-        public string RunTimeUserName
-        {
-            get { return _strRunTimeUserName; }
-            set { _strRunTimeUserName = value; }
-        }
-        #endregion      // RunTimeUserName
-
-        #region SUPPLIER PROPERTIES  ... [ *** FIXED *** -> ALL CUSTOMERS -> ALL PRODUCTS ]
-
-        #region Author  ... [NOT part of MASH]
-        /// <summary>
-        /// Author Property  ...  Author ............ Product Developer ....... "AJP Engineering"
-        /// </summary>
-        public string Author
-        {
-            get { return _strAuthor; }
-            set { _strAuthor = value; }
-        }
-        #endregion      // Author
-
-        #region SupplierName  ... [part of MASH]
-        /// <summary>
-        /// SupplierName Property  ...  Supplier Name ..... Manufacturer ............ "AJP Engineering"
-        /// </summary>
-        public string SupplierName
-        {
-            get { return _strSupplierName; }
-            set { _strSupplierName = value; }
-        }
-        #endregion      // SupplierName
-
-        #region SupplierUrl  ... [NOT part of MASH]
-        /// <summary>
-        /// SupplierUrl Property  ...  Supplier URL ...... AJP Web Site ............ "http:://www.AJPEngineering.com"
-        /// </summary>
-        public string SupplierUrl
-        {
-            get { return _strSupplierUrl; }
-            set { _strSupplierUrl = value; }
-        }
-        #endregion      // SupplierUrl
-
-        #endregion      // SUPPLIER PROPERTIES  ... [ *** FIXED *** -> ALL CUSTOMERS -> ALL PRODUCTS ]
+        #region SUPPLIER PROPERTIES [ *** FIXED *** -> ALL CUSTOMERS -> ALL PRODUCTS ]
+        public string Author { get; set; }        // Author .......... Product Developer ... "AJP Engineering"
+        public string SupplierName { get; set; }  // Supplier Name ... Manufacturer ........ "AJP Engineering"
+        public string SupplierUrl { get; set; }   // Supplier URL .... AJP Web Site ........ "http:://www.AJPEngineering.com"
+        #endregion  // SUPPLIER PROPERTIES [ *** FIXED *** -> ALL CUSTOMERS -> ALL PRODUCTS ]
 
         #region CUSTOMER CONTACT PROPERTIES .... [=== MODIFY PER CUSTOMER ===]
+        public string CustomerName { get; set; }   // Customer Name .... Customer Name .... "Bill Cashman"
+        public string CustomerEmail { get; set; }  // Customer Email ... Customer Email ... "BillCashman@exxon.com"
+        #endregion  // CUSTOMER CONTACT PROPERTIES .... [=== MODIFY PER CUSTOMER ===]
 
-        #region CustomerName  ... [part of MASH]
-        /// <summary>
-        /// CustomerName Property  ...  Customer Name .... Customer Name .... "Bill Cashman"
-        /// </summary>
-        public string CustomerName
-        {
-            get { return _strCustomerName; }
-            set { _strCustomerName = value; }
-        }
-        #endregion      // CustomerName
-
-        #region CustomerEmail  ... [NOT part of MASH]
-        /// <summary>
-        /// CustomerName Property  ...  Customer Email ... Customer Email ... "BillCashman@exxon.com"
-        /// </summary>
-        public string CustomerEmail
-        {
-            get { return _strCustomerEmail; }
-            set { _strCustomerEmail = value; }
-        }
-        #endregion      // CustomerEmail
-
-        #endregion      // CUSTOMER CONTACT PROPERTIES .... [=== MODIFY PER CUSTOMER ===]
-
-        #region PRODUCT PROPERTIES ..... [ === MODIFY PER PRODUCT === ]  .... Set by Developer per Product Soluion
-
-        #region ProductName  ... [part of MASH]
-        /// <summary>
-        /// ProductName Property  ...  Product Name ...... AJP Product Name ........ "AJP Test 1.0"
-        /// </summary>
-        public string ProductName
-        {
-            get { return _strProductName; }
-            set { _strProductName = value; }
-        }
-        #endregion      // ProductName
-
-        #region ProductVersion  ... [part of MASH]
-        /// <summary>
-        /// ProductVersion Property  ...  Product Version ... Full Version ............ "1.0.0"
-        /// </summary>
-        public string ProductVersion
-        {
-            get { return _strProductVersion; }
-            set { _strProductVersion = value; }
-        }
-        #endregion      // ProductVersion
-
-        #region SerialNumber  ... [part of MASH]
-        /// <summary>
-        /// SerialNumber Property  ...  Serial Number ..... AJP Number .............. "1022-456-1189"
-        /// </summary>
-        public string SerialNumber
-        {
-            get { return _strSerialNumber; }
-            set { _strSerialNumber = value; }
-        }
-        #endregion      // SerialNumber
-
-        #region ProductCode  ... [part of MASH]
-        /// <summary>
-        /// ProductCode Property  ...  Product Code ...... Microsoft Format ........ "{3378CA35-F929-4E12-B8C7-0102DCE47C81}"
-        /// </summary>
-        public string ProductCode
-        {
-            get { return _strProductCode; }
-            set { _strProductCode = value; }
-        }
-        #endregion      // ProductCode
-
-        #endregion      // PRODUCT PROPERTIES ..... [ === MODIFY PER PRODUCT === ]  .... Set by Developer per Product Soluion
+        #region PRODUCT PROPERTIES..... [ === MODIFY PER PRODUCT === ]  .... Set by Developer per Product Soluion
+        public string ProductName { get; set; }    // Product Name ...... AJP Product Name ........ "AJP Test 1.0"
+        public string ProductVersion { get; set; } // Product Version ... Full Version ............ "4.0.1"
+        public string SerialNumber { get; set; }   // Serial Number ..... AJP Number .............. "1224-617-3554"
+        public string ProductCode { get; set; }    // Product Code ...... Microsoft Format ........ "{3378CA35-F929-4E12-B8C7-0102DCE47C81}"
+        #endregion  // PRODUCT PROPERTIES..... [ === MODIFY PER PRODUCT === ]  .... Set by Developer per Product Soluion
 
         #region LICENSE TYPE FIELDS .... [ === MODIFY PER LICENSE === ]
-
-        #region LicenseTypeStr  ... [part of MASH]
-        /// <summary>
-        /// LicenseType Property  ...  License Type ...... ["TRIAL" | "SITE" | "DEVICE" | "USER" | "SEAT"]
-        /// Enum defined in LicenseTypes Class ... string is ToString() of Enum
-        /// </summary>
-        public string LicenseType
-        {
-            get { return _strlicenseType; }
-            set { _strlicenseType = value; }
-        }
-        #endregion      // LicenseType
-
-        #region Corporation  ... [part of MASH]
-        /// <summary>
-        /// Corporation Property  ...  Corporation ...... User Corporation ... "Exxon"
-        /// </summary>
-        public string Corporation
-        {
-            get { return _strCorporation; }
-            set { _strCorporation = value; }
-        }
-        #endregion      // Corporation
-
-        #region Division  ... [part of MASH]
-        /// <summary>
-        /// Division Property  ...  Division ...... User Division ...... "Research and Development"
-        /// </summary>
-        public string Division
-        {
-            get { return _strDivision; }
-            set { _strDivision = value; }
-        }
-        #endregion      // Division
-
-        #region Group  ... [part of MASH]
-        /// <summary>
-        /// Group Property  ...  Group ......... User Group ......... "Heat Exchanger Group"
-        /// </summary>
-        public string Group
-        {
-            get { return _strGroup; }
-            set { _strGroup = value; }
-        }
-        #endregion      // Group
-
-        #region UserName   ... [part of USER & SEAT MASHES]
-        /// <summary>
-        /// UserName Property  ...  User Name ...... User Name .......... "Joey Bots"
-        /// </summary>
-        public string UserName
-        {
-            get { return _strUserName; }
-            set { _strUserName = value; }
-        }
-        #endregion      // UserName
-
-        #region DeviceName ... [part of SEAT MASH]
-        /// <summary>
-        /// DeviceName Property  ...  Device Name .... User Device ........ "GM-DESKTOP"
-        /// </summary>
-        public string DeviceName
-        {
-            get { return _strDeviceName; }
-            set { _strDeviceName = value; }
-        }
-        #endregion      // DeviceName
-
+        public string LicenseType { get; set; }    // License Type ........................ "TRIAL"
+        public string Corporation { get; set; }    // Corporation .... User Corporation ... "Exxon"
+        public string Division { get; set; }       // Division ....... User Division ...... "Research and Development"
+        public string Group { get; set; }          // Group .......... User Group ......... "Heat Exchanger Group"
+        public string UserName { get; set; }       // User Name ...... User Name .......... "baseb"
+        public string DeviceName { get; set; }     // Device Name .... User Device ........ "NUC"
         #endregion      // LICENSE TYPE FIELDS .... [ === MODIFY PER LICENSE === ]
 
         #region LICENSE PROPERTIES .... [ === MODIFY PER LICENSE === ] 
-
-        #region FileLicenseKey  ... FILE LICENSE KEY   -- [PUBLIC]  ... [NOT part of HASH-MASH]
-        /// <summary>
-        /// FileLicenseKey Property  ...  File License Key String ... ["AJP-2D69-9CF3-192C-81AA-EBDD-ENG"] [PUBLIC]  ... [NOT part of HASH-MASH]
-        /// </summary>
-        public string FileLicenseKey
-        {
-            get { return _strFileLicenseKey; }
-            set { _strFileLicenseKey = value; }
-        }
-        #endregion      // FileLicenseKey  ... CALCULATED LICENSE KEY
-
-        #region DurationDays  ... [part of HASH-MASH]
-        /// <summary>
-        /// DurationDays Property  ...  License Duration in Days ... 365
-        /// </summary>
-        public int DurationDays
-        {
-            get { return _nDurationDays; }
-            set { _nDurationDays = value; }
-        }
-        #endregion      // DurationDays
-
-        #region RemainingDays  ... [NOT part of HASH-MASH]
-        /// <summary>
-        /// RemainingDays Property  ...  Number of day remaining on AJP License
-        /// </summary>
-        public int RemainingDays
-        {
-            get { return _nRemainingDays; }
-            set { _nRemainingDays = value; }
-        }
-        #endregion      // RemainingDays
-
-        #region StartDate  ... [part of HASH-MASH]
-        /// <summary>
-        /// StartDate Property  ...  Start Date ................. "7/4/2022"
-        /// </summary>
-        public DateTime StartDate
-        {
-            get { return _dtStartDate; }
-            set { _dtStartDate = value; }
-        }
-        #endregion      // StartDate
-
-        #region EndDate  ... [part of HASH-MASH]
-        /// <summary>
-        /// EndDate Property  ...  End Date ................... "7/4/2023"
-        /// </summary>
-        public DateTime EndDate
-        {
-            get { return _dtEndDate; }
-            set { _dtEndDate = value; }
-        }
-        #endregion      // EndDate
+        public string FileLicenseKey { get; set; }  // File License Key ... ["AJP-2D69-9CF3-192C-81AA-EBDD-ENG"]  -- [PUBLIC]
+        public int DurationDays { get; set; }       // License Duration in Days ... 365 days
+        public int RemainingDays { get; set; }      // Number of day remaining on AJP License
+        public DateTime StartDate { get; set; }     // Start Date ................. "7/4/2022"
+        public DateTime EndDate { get; set; }       // End Date ................... "7/4/2023"
 
         #endregion      // LICENSE PROPERTIES .... [ === MODIFY PER LICENSE === ]
 

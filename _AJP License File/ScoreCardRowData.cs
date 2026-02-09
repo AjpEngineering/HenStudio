@@ -52,71 +52,12 @@ namespace AJP_License_File
         const string CLASS = "ScoreCardRowData";
         #endregion      // CONSTANTS
 
-        #region FIELDS
-        private string _strID;       // License File Property ID ...... e.g., "01"
-        private string _strProperty; // License File Property Name .... e.g., "Author"
-        private string _strValue;    // License File Property Value ... e.g., "AJP Engineering"
-        private string _strState;    // License File Property State ... e.g., "VALID"
-        private Bitmap _imgState;    // License File Property State Bitmap Image
-        #endregion      // FIELDS
-
         #region PROPERTIES
-
-        #region PropertyID
-        /// <summary>
-        /// PropertyID Property
-        /// </summary>
-        public string PropertyID
-        {
-            get { return _strID; }
-            set { _strID = value; }
-        }
-        #endregion  // PropertyID
-
-        #region PropertyName
-        /// <summary>
-        /// PropertyName Property
-        /// </summary>
-        public string PropertyName
-        {
-            get { return _strProperty; }
-            set { _strProperty = value; }
-        }
-        #endregion  // PropertyName
-
-        #region PropertyValue
-        /// <summary>
-        /// PropertyValue Property
-        /// </summary>
-        public string PropertyValue
-        {
-            get { return _strValue; }
-            set { _strValue = value; }
-        }
-        #endregion  // PropertyValue
-
-        #region PropertyState
-        /// <summary>
-        /// PropertyState Property
-        /// </summary>
-        public string PropertyState
-        {
-            get { return _strState; }
-            set { _strState = value; }
-        }
-        #endregion  // PropertyState
-
-        #region PropertyStateImage
-        /// <summary>
-        /// PropertyStateImage Property
-        /// </summary>
-        public Bitmap PropertyStateImage
-        {
-            get { return _imgState; }
-            set { _imgState = value; }
-        }
-        #endregion  // PropertyStateImage
-
+        public string PropertyID { get; set; }          // License File Property ID ...... e.g., "01"
+        public string PropertyName { get; set; }        // License File Property Name .... e.g., "Author"
+        public string PropertyValue { get; set; }       // License File Property Value ... e.g., "AJP Engineering"
+        public string PropertyState { get; set; }       // License File Property State ... e.g., "VALID"
+        public Bitmap PropertyStateImage { get; set; }  // License File Property State Bitmap Image
         #endregion      // PROPERTIES
 
         #region Default CTOR
