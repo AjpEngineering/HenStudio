@@ -59,7 +59,7 @@ namespace PinchGlobal
         private const string NAMESPACE = "PinchGlobal";
         private const string CLASS = "PinchMsgDlg";
 
-        private const string strDefaultCaption = "AJP Pinch";
+        private const string strDefaultCaption = "AJP Pinch 4";
         #endregion      /// CONSTS
 
         #region public static void DisplayInfoDlg

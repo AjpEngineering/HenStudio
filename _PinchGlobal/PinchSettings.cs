@@ -111,88 +111,15 @@ namespace PinchGlobal
 
         #endregion  // PUBLIC
 
-        #region PRIVATE
-        private bool _bLicenseValidated;                    // License Validate Flag
-        private PinchTypes.LicenseType _licTypeEnum;        // License Type
-        private PinchTypes.LicenseStatus _licStatusEnum;    // license Status
-
-        private PinchTypes.PinchUnits _pinchUnitsEnum;      // Pinch Units [ENGLISH | METRIC]
-
-        private bool _bInputValidated;      // Input   Validated  Flag - true: Proceed to Targets
-        private bool _bTargetsCalculated;   // Targets Calculated Flag - true: Proceed to HEN
-
-        #endregion  // PRIVATE
-
         #endregion      // FIELDS
 
         #region PROPERTIES
-
-        #region LicenseValidatedFlag
-        /// <summary>
-        /// LicenseValidatedFlag Property
-        /// </summary>
-        public bool LicenseValidatedFlag
-        {
-            get { return _bLicenseValidated; }
-            set { _bLicenseValidated = value; }
-        }
-        #endregion      // LicenseValidatedFlag
-
-        #region LicenseTypeEnum
-        /// <summary>
-        /// LicenseTypeEnum Property
-        /// </summary>
-        public PinchTypes.LicenseType LicenseTypeEnum
-        {
-            get { return _licTypeEnum; }
-            set { _licTypeEnum = value; }
-        }
-        #endregion      // LicenseTypeEnum
-
-        #region LicenseStatusEnum
-        /// <summary>
-        /// LicenseStatusEnum Property
-        /// </summary>
-        public PinchTypes.LicenseStatus LicenseStatusEnum
-        {
-            get { return _licStatusEnum; }
-            set { _licStatusEnum = value; }
-        }
-        #endregion      // LicenseStatusEnum
-
-        #region PinchUnitsEnum
-        /// <summary>
-        /// PinchUnitsEnum Property
-        /// </summary>
-        public PinchTypes.PinchUnits PinchUnitsEnum
-        {
-            get { return _pinchUnitsEnum; }
-            set { _pinchUnitsEnum = value; }
-        }
-        #endregion      // PinchUnitsEnum
-
-        #region InputValidatedFlag
-        /// <summary>
-        /// InputValidatedFlag Property
-        /// </summary>
-        public bool InputValidatedFlag
-        {
-            get { return _bInputValidated; }
-            set { _bInputValidated = value; }
-        }
-        #endregion      // InputValidatedFlag
-
-        #region TargetsCalculatedFlag
-        /// <summary>
-        /// TargetsCalculatedFlag Property
-        /// </summary>
-        public bool TargetsCalculatedFlag
-        {
-            get { return _bTargetsCalculated; }
-            set { _bTargetsCalculated = value; }
-        }
-        #endregion      // TargetsCalculatedFlag
-
+        public bool LicenseValidatedFlag { get; set; }                   // License Validate Flag
+        public PinchTypes.LicenseType LicenseTypeEnum { get; set; }      // License Type
+        public PinchTypes.LicenseStatus LicenseStatusEnum { get; set; }  // License Status
+        public PinchTypes.PinchUnits PinchUnitsEnum { get; set; }        // Pinch Units [ENGLISH | METRIC]
+        public bool InputValidatedFlag { get; set; }        // Input   Validated  Flag - true: Proceed to Targets
+        public bool TargetsCalculatedFlag { get; set; }     // Targets Calculated Flag - true: Proceed to HEN
         #endregion      // PROPERTIES
 
         #region CTOR
@@ -202,31 +129,39 @@ namespace PinchGlobal
         public PinchSettings()
         {
             string strMethod = "CTOR";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            PinchLogger.WriteSeparatorLine(' ');
+            PinchLogger.WriteSeparatorLine('>');
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating PinchSettings Object");
+            try
+            {
+                //------------------------
+                //--- PINCH COMPONENTS ---
+                //------------------------
+                AJP_PINCH_COMPONENTS.Clear();
+                AJP_PINCH_COMPONENTS.Add("Pinch.exe");
+                AJP_PINCH_COMPONENTS.Add("_AJP License File.ll");
+                AJP_PINCH_COMPONENTS.Add("_PinchData.dll");
+                AJP_PINCH_COMPONENTS.Add("_PinchFigures.dll");
+                AJP_PINCH_COMPONENTS.Add("_PinchGlobal.dll");
+                AJP_PINCH_COMPONENTS.Add("_PinchHen.dll");
+                AJP_PINCH_COMPONENTS.Add("_PinchReports.dll");
+                AJP_PINCH_COMPONENTS.Add("_PinchTargets.dll");
 
-            //------------------------
-            //--- GET LICENSE DATA ---
-            //------------------------
-            // TBD: Read License File (XML to Data Object)
-            // TBD: Compare License Data to Specified Supplier, Customer, Product, License Type, License Key
-            //-----------------------------------------------------------------------------------------------
-
-            //------------------------
-            //--- PINCH COMPONENTS ---
-            //------------------------
-            AJP_PINCH_COMPONENTS.Clear();
-            AJP_PINCH_COMPONENTS.Add("Pinch.exe");
-            AJP_PINCH_COMPONENTS.Add("_AJP License File.ll");
-            AJP_PINCH_COMPONENTS.Add("_PinchData.dll");
-            AJP_PINCH_COMPONENTS.Add("_PinchFigures.dll");
-            AJP_PINCH_COMPONENTS.Add("_PinchGlobal.dll");
-            AJP_PINCH_COMPONENTS.Add("_PinchHen.dll");
-            AJP_PINCH_COMPONENTS.Add("_PinchReports.dll");
-            AJP_PINCH_COMPONENTS.Add("_PinchTargets.dll");
-
-            WriteSupplierDataToLog();   // Write Supplier Data to Log
-            WriteCustomerDataToLog();   // Write Customer Data to Log
-            WriteProductDataToLog();    // Write Product  Data to Log
+                WriteSupplierDataToLog();   // Write Supplier Data to Log
+                WriteCustomerDataToLog();   // Write Customer Data to Log
+                WriteProductDataToLog();    // Write Product  Data to Log
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
+                PinchLogger.WriteSeparatorLine('<');
+            }
         }
         #endregion      // CTOR
 

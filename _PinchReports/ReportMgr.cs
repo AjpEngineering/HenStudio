@@ -38,6 +38,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using PinchGlobal;
 #endregion  // REFERENCES
 
 #region namespace PinchReports
@@ -54,25 +56,6 @@ namespace PinchReports
         const string CLASS = "ReportMgr";
         #endregion      // CONSTANTS
 
-        #region ENUMS
-
-        //#region enum PinchUnits
-        ///// <summary>
-        ///// ENUMERATION: Pinch Units
-        ///// </summary>
-        //public enum PinchUnits
-        //{
-        //    ENGLISH,
-        //    METRIC
-        //};
-        //#endregion      // enum PinchUnits
-
-        #endregion      // ENUMS
-
-        #region FIELDS
-
-        #endregion      // FIELDS
-
         #region PROPERTIES
 
         #endregion      // PROPERTIES
@@ -83,8 +66,25 @@ namespace PinchReports
         /// </summary>
         public ReportMgr()
         {
-            //string strMethod = "CTOR";
-            //ExchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            string strMethod = "CTOR";
+            PinchLogger.WriteSeparatorLine(' ');
+            PinchLogger.WriteSeparatorLine('>');
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenEngine Object");
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
+                PinchLogger.WriteSeparatorLine('<');
+            }
         }
         #endregion      // CTOR
     }

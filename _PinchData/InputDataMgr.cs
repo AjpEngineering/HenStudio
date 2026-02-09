@@ -56,10 +56,6 @@ namespace PinchData
         const string CLASS = "InputDataMgr";
         #endregion      // CONSTANTS
 
-        #region FIELDS
-
-        #endregion      // FIELDS
-
         #region PROPERTIES
         public InputProjectData InputProjectDataObj { get; set; }
         public InputStreamsData InputStreamsDataObj { get; set; }

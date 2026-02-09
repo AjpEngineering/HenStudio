@@ -51,14 +51,20 @@ namespace PinchData
     /// </summary>
     public abstract class ABC_XmlFileData
     {
+        #region PROPERTIES
         public string DataHash { get; set; }
         public string FullPathXmlFileLoc { get; set; }
         public string FullPathZipFileLoc { get; set; }
+        #endregion  // PROPERTIES
+
+        #region public abstract METHODS
         public abstract void CreateHash();          // ZIP EXPORT or IMPORT
         public abstract void InitializeData();      // NEW
         public abstract void LogData();
         public abstract void PersistData();         // SAVE or SAVE AS
         public abstract void RestoreData();         // OPEN
+        #endregion  // public abstract METHODS
+
     }
     #endregion  // abstract class ABC_XmlFileData
 }

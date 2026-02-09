@@ -53,6 +53,9 @@ namespace PinchGlobal
     #region public class PinchFileSystem
     /// <summary>
     /// AJP Pinch Application - File System Structure Class
+    /// Installed exe and dll components (Assemblies) located in the ProgamFiles folder
+    /// Application data (i.e., License.xml, pinch.exe.config, etc.) located in LocalApplicationsData
+    /// Pinch Analyis Project data (*.xml, *.zip) located at User Specified location (initially at UserAppDocuments)
     /// </summary>
     public class PinchFileSystem
     {
@@ -68,126 +71,20 @@ namespace PinchGlobal
         public const string DEFAULT_LICENSE_FILENAME = "License.xml";
         #endregion      // CONSTANTS
 
-        #region FIELDS
-        //--- PROGRAM FILES LOCATION ---
-        private string _strProgramFilesFolderPath = String.Empty;   // Full Path ProgramFiles Folder Location
-        private string _strAppExeFolderPath = String.Empty;         // Full Path App Exe Launch Folder Location
-        private string _strAppExeFilePath = String.Empty;           // Full Path App Exe File Location
-
-        //--- USER APP DATA LOCAL LOCATION
-        private string _strUserAppLocalFolderPath = String.Empty;   // Full Path Local User App Data Folder Location
-        private string _strPinchDataFolderPath = String.Empty;      // Full Path Pinch Local User Data Folder Location
-        private string _strAppExecConfigFilePath = String.Empty;    // Full Path App Exe Config File Location
-
-        private string _strLicenseFolderPath = String.Empty;        // Full Path LICENSE Folder Location
-        private string _strLicenseFilePath = String.Empty;          // Full Path LICENSE File Location
-        #endregion      // FIELDS
-
         #region PROPERTIES
 
         #region PROGRAM FILES LOCATION
-
-        #region ProgramFilesFolderPath
-        /// <summary>
-        /// ProgramFilesFolderPath Property ... ProgramFiles Folder Location
-        /// Full Path ... C:\Program Files\
-        /// </summary>
-        public string ProgramFilesFolderPath
-        {
-            get { return _strProgramFilesFolderPath; }
-            set { _strProgramFilesFolderPath = value; }
-        }
-        #endregion      // ProgramFilesFolderPath
-
-        #region AppExeFolderPath
-        /// <summary>
-        /// AppExeFolderPath Property ... App Executable Launch Folder Location
-        /// Full Path ... C:\Program Files\AJP Pinch 4\
-        /// Location contains all Pinch components including EXE and DLLS
-        /// </summary>
-        public string AppExeFolderPath
-        {
-            get { return _strAppExeFolderPath; }
-            set { _strAppExeFolderPath = value; }
-        }
-        #endregion      // AppExeFolderPath
-
-        #region AppExeFilePath
-        /// <summary>
-        /// AppExeFilePath Property ... Pinch.exe File Location 
-        /// Full Path ... C:\Program Files\AJP Pinch 4\Pinch.exe 
-        /// </summary>
-        public string AppExeFilePath
-        {
-            get { return _strAppExeFilePath; }
-            set { _strAppExeFilePath = value; }
-        }
-        #endregion      // AppExeFilePath
-
+        public string ProgramFilesFolderPath { get; set; }  // Full Path ProgramFiles Folder Location
+        public string AppExeFolderPath { get; set; }        // Full Path App Exe Launch Folder Location
+        public string AppExeFilePath { get; set; }          // Full Path App Exe File Location
         #endregion  // PROGRAM FILES LOCATION
 
         #region USER APP DATA LOCAL LOCATION
-
-        #region UserAppLocalFolderPath
-        /// <summary>
-        /// UserAppLocalFolderPath Property ... User App Data Local Folder Location
-        /// Full Path ... C:\Users\<User>\AppData\Local\
-        /// </summary>
-        public string UserAppLocalFolderPath
-        {
-            get { return _strUserAppLocalFolderPath; }
-            set { _strUserAppLocalFolderPath = value; }
-        }
-        #endregion      // UserAppLocalFolderPath
-
-        #region PinchDataFolderPath
-        /// <summary>
-        /// PinchDataFolderPath Property ... Pinch Local User Data Folder Location
-        /// Full Path ... C:\Users\<User>\AppData\Local\AJP Pinch 4\
-        /// </summary>
-        public string PinchDataFolderPath
-        {
-            get { return _strPinchDataFolderPath; }
-            set { _strPinchDataFolderPath = value; }
-        }
-        #endregion      // PinchDataFolderPath
-
-        #region AppExecConfigFilePath
-        /// <summary>
-        /// AppExecConfigFilePath Property ... Pinch.exe.config File Location
-        /// Full Path ... C:\Users\<User>\AppData\Local\AJP Pinch 4\Pinch.exe.config
-        /// </summary>
-        public string AppExecConfigFilePath
-        {
-            get { return _strAppExecConfigFilePath; }
-            set { _strAppExecConfigFilePath = value; }
-        }
-        #endregion      // AppExecConfigFilePath
-
-        #region LicenseFolderPath
-        /// <summary>
-        /// LicenseFolderPath Property ... LICENSE Folder Location
-        /// Full Path ... C:\Users\<User>\AppData\Local\AJP Pinch 4\LICENSE\
-        /// </summary>
-        public string LicenseFolderPath
-        {
-            get { return _strLicenseFolderPath; }
-            set { _strLicenseFolderPath = value; }
-        }
-        #endregion      // LicenseFolderPath
-
-        #region LicenseFilePath
-        /// <summary>
-        /// LicenseFilePath Property ... LICENSE File Location
-        /// Full Path ... C:\Users\<User>\AppData\Local\AJP Pinch 4\LICENSE\License.xml
-        /// </summary>
-        public string LicenseFilePath
-        {
-            get { return _strLicenseFilePath; }
-            set { _strLicenseFilePath = value; }
-        }
-        #endregion      // LicenseFilePath
-
+        public string UserAppLocalFolderPath { get; set; }  // Full Path Local User App Data Folder Location
+        public string PinchDataFolderPath { get; set; }     // Full Path Pinch Local User Data Folder Location
+        public string AppExecConfigFilePath { get; set; }   // Full Path App Exe Config File Location
+        public string LicenseFolderPath { get; set; }       // Full Path LICENSE Folder Location
+        public string LicenseFilePath { get; set; }         // Full Path LICENSE File Location
         #endregion  // USER APP DATA LOCAL LOCATION
 
         #endregion      // PROPERTIES

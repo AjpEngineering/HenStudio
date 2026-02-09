@@ -97,7 +97,7 @@ namespace Pinch
 
         #region FIELDS
 
-        #region COLORS
+        #region PRIVATE COLORS
         //--------------------------------
         //--- Stream Background Colors ---
         //--------------------------------
@@ -110,300 +110,33 @@ namespace Pinch
         private Color _colorTextHotStream  = Color.Black;
         private Color _colorTextColdStream = Color.Black;
         private Color _colorTextNA_Stream  = Color.Black;
-        #endregion  // COLORS
-
-        #region SETTINGS
-        private bool _bLicenseVerified;     // Pinch License Verified
-        private bool _bInputVerified;       // Pinch Input Stream Data Verified
-        private bool _bPinchEnglishUnits;   // Pinch English Units ... English (true)  Metric (false)
-        private bool _bPinchCalcModeFCp;    // Pinch Calculation Mode ... Use CP (false)  Use F Cp (true)
-        #endregion  // SETTINGS
-
-        #region OBJECTS
-        //---------------
-        //--- OBJECTS ---
-        //---------------
-        private LicenseMgr      _licenseMgrObj;
-
-        private PinchFileSystem _pinchFileSys;
-        private PinchSettings   _pinchSettings;
-        private PinchTypes      _pinchTypes;
-
-        private PanelTableMgr _panelTableMgr;
-
-        private ManifestData _manifestDataObj;
-        private InputDataMgr _inputDataMgrObj;
-        private TargetsDataMgr _targetsDataMgrObj;
-        #endregion  // OBJECTS
+        #endregion  // PRIVATE COLORS
 
         #endregion      // FIELDS
 
         #region PROPERTIES
-
-        #region COLORS
-        //--------------
-        //--- COLORS ---
-        //--------------
-        #region ColorBackgroundHotStream
-        /// <summary>
-        /// ColorBackgroundHotStream Property
-        /// </summary>
-        public Color ColorBackgroundHotStream
-        {
-            get { return _colorBackgroundHotStream; }
-            set { _colorBackgroundHotStream = value; }
-        }
-        #endregion      // ColorBackgroundHotStream
-
-        #region ColorBackgroundColdStream
-        /// <summary>
-        /// ColorBackgroundColdStream Property
-        /// </summary>
-        public Color ColorBackgroundColdStream
-        {
-            get { return _colorBackgroundColdStream; }
-            set { _colorBackgroundColdStream = value; }
-        }
-        #endregion      // ColorBackgroundColdStream
-
-        #region ColorBackgroundNA_Stream
-        /// <summary>
-        /// ColorBackgroundNA_Stream Property
-        /// </summary>
-        public Color ColorBackgroundNA_Stream
-        {
-            get { return _colorBackgroundNA_Stream; }
-            set { _colorBackgroundNA_Stream = value; }
-        }
-        #endregion      // ColorBackgroundNA_Stream
-
-        #region ColorTextHotStream
-        /// <summary>
-        /// ColorTextHotStream Property
-        /// </summary>
-        public Color ColorTextHotStream
-        {
-            get { return _colorTextHotStream; }
-            set { _colorTextHotStream = value; }
-        }
-        #endregion      // ColorTextHotStream
-
-        #region ColorTextColdStream
-        /// <summary>
-        /// ColorTextColdStream Property
-        /// </summary>
-        public Color ColorTextColdStream
-        {
-            get { return _colorTextColdStream; }
-            set { _colorTextColdStream = value; }
-        }
-        #endregion      // ColorTextColdStream
-
-        #region ColorTextNA_Stream
-        /// <summary>
-        /// ColorTextNA_Stream Property
-        /// </summary>
-        public Color ColorTextNA_Stream
-        {
-            get { return _colorTextNA_Stream; }
-            set { _colorTextNA_Stream = value; }
-        }
-        #endregion      // ColorTextNA_Stream
-
-        #endregion  // COLORS
-
-        #region SETTINGS
-
-        #region LicenseVerified
-        /// <summary>
-        /// LicenseVerified Property
-        /// </summary>
-        public bool LicenseVerified
-        {
-            get { return _bLicenseVerified; }
-            set { _bLicenseVerified = value; }
-        }
-        #endregion      // LicenseVerified
-
-        #region InputVerifiedFlag
-        /// <summary>
-        /// InputVerifiedFlag Property
-        /// </summary>
-        public bool InputVerifiedFlag
-        {
-            get { return _bInputVerified; }
-            set { _bInputVerified = value; }
-        }
-        #endregion      // InputVerifiedFlag
-
-        #region PinchEnglishUnitsFlag
-        /// <summary>
-        /// PinchEnglishUnitsFlag Property
-        /// </summary>
-        public bool PinchEnglishUnitsFlag
-        {
-            get { return _bPinchEnglishUnits; }
-            set { _bPinchEnglishUnits = value; }
-        }
-        #endregion      // PinchEnglishUnitsFlag
-
-        #region PinchCalcModeFCpFlag
-        /// <summary>
-        /// PinchCalcModeFCpFlag Property
-        /// </summary>
-        public bool PinchCalcModeFCpFlag
-        {
-            get { return _bPinchCalcModeFCp; }
-            set { _bPinchCalcModeFCp = value; }
-        }
-        #endregion      // PinchCalcModeFCpFlag
-
-        #endregion  // SETTINGS
-
-        #region LICENSE MANAGER OBJECTS
-
-        #region LicenseMgrObj
-        /// <summary>
-        /// LicenseMgrObj Property
-        /// </summary>
-        public LicenseMgr LicenseMgrObj
-        {
-            get { return _licenseMgrObj; }
-            set { _licenseMgrObj = value; }
-        }
-        #endregion      // LicenseMgrObj     
-
-        #endregion  // LICENSE MANAGER OBJECTS
-
-        #region PINCH OBJECTS
-
-        #region PanelTableMgrObj
-        /// <summary>
-        /// PanelTableMgrObj Property
-        /// </summary>
-        public PanelTableMgr PanelTableMgrObj
-        {
-            get { return _panelTableMgr; }
-            set { _panelTableMgr = value; }
-        }
-        #endregion      // PanelTableMgrObj
-
-        #endregion  // PINCH OBJECTS
-
-        #region GLOBL OBJECTS
-
-        #region PinchFileSysObj
-        /// <summary>
-        /// PinchFileSystem Property
-        /// </summary>
-        public PinchFileSystem PinchFileSysObj
-        {
-            get { return _pinchFileSys; }
-            set { _pinchFileSys = value; }
-        }
-        #endregion      // PinchFileSysObj
-
-        #region PinchSettingsObj
-        /// <summary>
-        /// PinchSettingsObj Property
-        /// </summary>
-        public PinchSettings PinchSettingsObj
-        {
-            get { return _pinchSettings; }
-            set { _pinchSettings = value; }
-        }
-        #endregion      // PinchSettingsObj
-
-        #region PinchTypesObj
-        /// <summary>
-        /// PinchTypesObj Property
-        /// </summary>
-        public PinchTypes PinchTypesObj
-        {
-            get { return _pinchTypes; }
-            set { _pinchTypes = value; }
-        }
-
-        #endregion      // PinchTypesObj
-
-        #endregion  // GLOBL OBJECTS
-
-        #region DATA OBJECTS
-
-        //--------------------
-        //--- DATA OBJECTS ---
-        //--------------------
-
-        #region ManifestDataObj
-        /// <summary>
-        /// ManifestDataObj Property
-        /// </summary>
-        public ManifestData ManifestDataObj
-        {
-            get { return _manifestDataObj; }
-            set { _manifestDataObj = value; }
-        }
-        #endregion      // ManifestDataObj
-
-        #region InputDataMgrObj
-        /// <summary>
-        /// InputDataMgrObj Property
-        /// </summary>
-        public InputDataMgr InputDataMgrObj
-        {
-            get { return _inputDataMgrObj; }
-            set { _inputDataMgrObj = value; }
-        }
-        #endregion      // InputDataMgrObj
-
-        #region TargetsDataMgrObj
-        /// <summary>
-        /// TargetsDataMgrObj Property
-        /// </summary>
-        public TargetsDataMgr TargetsDataMgrObj
-        {
-            get { return _targetsDataMgrObj; }
-            set { _targetsDataMgrObj = value; }
-        }
-        #endregion      // TargetsDataMgrObj
-
-
-        #endregion  // DATA OBJECTS
-
-        #region TARGETS OBJECTS
-        //#region PinchEnergyTargetsObj
-        ///// <summary>
-        ///// PinchEnergyTargetsObj Property
-        ///// </summary>
-        //public EnergyTargetsMgr PinchEnergyTargetsObj
-        //{
-        //    get { return _pinchEnergyTargets; }
-        //    set { _pinchEnergyTargets = value; }
-        //}
-        //#endregion      // PinchEnergyTargetsObj
-
-        #endregion  // TARGETS OBJECTS
-
-        #region REPORTS OBJECTS
-        //#region PinchReportObj
-        ///// <summary>
-        ///// PinchReport Property
-        ///// </summary>
-        //public PinchReportMgr PinchReportObj
-        //{
-        //    get { return _pinchReport; }
-        //    set { _pinchReport = value; }
-        //}
-        //#endregion      // PinchReportObj
-
-        #endregion  // REPORTS OBJECTS
-
-        #region FIGURES OBJECTS
-        #endregion  // FIGURES OBJECTS
-
-        #region HEN OBJECTS
-        #endregion  // HEN OBJECTS
-
+        //-------------------------------------------------------------------------------------------------- COLORS ---
+        public Color ColorBackgroundHotStream { get; set; }        // Hot  Stream Background Color
+        public Color ColorBackgroundColdStream { get; set; }       // Cold Stream Background Color
+        public Color ColorBackgroundNA_Stream { get; set; }        // NA   Stream Background Color
+        public Color ColorTextHotStream { get; set; }              // Hot  Stream Text Color
+        public Color ColorTextColdStream { get; set; }             // Cold Stream Text Color
+        public Color ColorTextNA_Stream { get; set; }              // NA   Stream Text Color
+        //------------------------------------------------------------------------------------------------ SETTINGS ---
+        public bool LicenseVerified { get; set; }                  // License Verified FLAG
+        public bool InputVerifiedFlag { get; set; }                // INPUT Verified FLAG
+        public bool PinchEnglishUnitsFlag { get; set; }            // UNITS FLAG
+        //----------------------------------------------------------------------------------------- LICENSE OBJECTS ---
+        public LicenseMgr LicenseMgrObj { get; set; }              // License Manager Object
+        //------------------------------------------------------------------------------------------ GLOBAL OBJECTS ---
+        public PinchFileSystem PinchFileSysObj { get; set; }       // Pinch File System Object
+        public PinchSettings PinchSettingsObj { get; set; }        // Pinch Settings Object
+        public PinchTypes PinchTypesObj { get; set; }              // Pinch Types Object
+        public PanelTableMgr PanelTableMgrObj { get; set; }        // Panel Table Manager Object
+        //-------------------------------------------------------------------------------------------- DATA OBJECTS ---
+        public ManifestData ManifestDataObj { get; set; }          // Manifest Data Object
+        public InputDataMgr InputDataMgrObj { get; set; }          // INPUT   Data Manager Object
+        public TargetsDataMgr TargetsDataMgrObj { get; set; }      // TARGETS Data Manager Object
         #endregion      // PROPERTIES
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -423,7 +156,17 @@ namespace Pinch
             try
             {
                 InitializeComponent();
-                this.Text = "AJP Pinch 4";
+
+                #region INITIALIZE PROPERTIES
+                this.Text = "AJP Pinch 4";      // Form Title
+                //-------------------------------------------- STREAM BACKGROUND COLORS ---
+                ColorBackgroundHotStream = Color.LightCoral;
+                ColorBackgroundColdStream = Color.LightBlue;
+                ColorBackgroundNA_Stream = Color.WhiteSmoke;
+                //-------------------------------------------------- STREAM TEXT COLORS ---
+                ColorTextHotStream = Color.Black;
+                ColorTextColdStream = Color.Black;
+                ColorTextNA_Stream = Color.Black;
                 //----------------------
                 //--- Create Objects ---
                 //----------------------
@@ -441,11 +184,12 @@ namespace Pinch
 
                 PinchSettingsObj.InputValidatedFlag = false;
                 PinchSettingsObj.TargetsCalculatedFlag = false;
-
                 //---------------------------------------
                 //--- Initialize Units Global Setting ---
                 //---------------------------------------
-                //PinchEnglishUnitsFlag = true;
+                PinchEnglishUnitsFlag = true;
+                #endregion  // INITIALIZE PROPERTIES
+
                 //---------------------------
                 //--- Initialize Controls ---
                 //---------------------------
@@ -2367,16 +2111,6 @@ namespace Pinch
             //----------------------------------
             return strFixedLengthString;
         }
-
-
-
-
-
-
-
-
-
-
         #endregion      // private string GetFixedLengthString(string strOriginal, int nLen=15)
 
         #endregion      // LOG METHODS

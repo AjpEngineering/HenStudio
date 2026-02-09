@@ -214,8 +214,24 @@ namespace PinchGlobal
         public PinchTypes()
         {
             string strMethod = "CTOR";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            PinchLogger.WriteSeparatorLine(' ');
+            PinchLogger.WriteSeparatorLine('>');
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating PinchTypes Object");
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
+                PinchLogger.WriteSeparatorLine('<');
+            }
         }
         #endregion      // CTOR
 

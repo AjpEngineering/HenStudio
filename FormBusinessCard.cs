@@ -57,10 +57,6 @@ namespace Pinch
         const string CLASS = "FormBusinessCard";
         #endregion      // CONSTANTS
 
-        #region FIELDS
-
-        #endregion      // FIELDS
-
         #region PROPERTIES
 
         #endregion      // PROPERTIES

@@ -57,22 +57,8 @@ namespace Pinch
         const string CLASS = "FormAboutPinch";
         #endregion      // CONSTANTS
 
-        #region FIELDS
-        private PinchTypes _pinchTypesObj;  // PinchTypes Object
-        #endregion      // FIELDS
-
         #region PROPERTIES
-
-        #region PinchTypesObj
-        /// <summary>
-        /// PinchTypesObj Property
-        /// </summary>
-        public PinchTypes PinchTypesObj
-        {
-            get { return _pinchTypesObj; }
-            set { _pinchTypesObj = value; }
-        }
-        #endregion      // PinchTypesObj
+        public PinchTypes PinchTypesObj { get; set; }         // Pinch Types
 
         #endregion      // PROPERTIES
 

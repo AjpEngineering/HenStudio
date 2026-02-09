@@ -58,18 +58,27 @@ namespace PinchData
         #endregion      // CONSTANTS
 
         #region PROPERTIES
+        
+        #region INPUT PANEL DATA
         public string InputProjectHash { get; set; }
         public string InputStreamsHash { get; set; }
         public string InputUtilitiesHash { get; set; }
         public string InputCostHash { get; set; }
         public string InputExchangerHash { get; set; }
         public string InputValidationHash { get; set; }
+        #endregion  // INPUT PANEL DATA
 
+        #region TARGETS PANEL DATA
         public string TargetsCalculateHash { get; set; }
         public string TargetsCompositeHash { get; set; }
         public string TargetsIntervalHash { get; set; }
         public string TargetsOptimizeHash { get; set; }
+        #endregion  // TARGETS PANEL DATA
+
+        #region HEN PANEL DATA
         public string HenDesignHash { get; set; }
+        #endregion  // HEN PANEL DATA
+
         #endregion      // PROPERTIES
 
         #region CTOR

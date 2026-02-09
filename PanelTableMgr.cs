@@ -133,40 +133,7 @@ namespace Pinch
         #endregion      // CONSTANTS        
 
         #region FIELDS
-        private PinchTypes _pinchTypes;
-        private PinchSettings _pinchSettings;
-
-        //-------------------------------------------- ArrayList Objects ----------------------------------------------
-        private ArrayList _activitiesPanelList;     // List of Activity Panels (indexed by Main Tab Control Index)
-        private ArrayList _subActivitiesPanelList;  // List of Sub-Activity Panels (indexed by PK)
-        private ArrayList _lookupPanelInfoTable;    // List of Panel Table Row objects (indexed by PK)
-
-        //--------------------------------------- Last Activity Index State -------------------------------------------
-        private int _nLastActivityIndex = 0;            // Last Activity Index
-
-        //------------------------------------- Last SubActivity Index State ------------------------------------------
-        private int _nLastInputSubActivityIndex = 0;    // Last INPUT SubActivity Index
-        private int _nLastTargetsSubActivityIndex = 0;  // Last TARGETS SubActivity Index
-        private int _nLastHenSubActivityIndex = 0;      // Last HEN SubActivity Index
-
-        //-------------------------------------------- Selected State -------------------------------------------------
-        private int _nSelActivity = 0;              // Selected Activity     (Activity     Tab Control) Index - Bottom
-        private int _nSelSubActivity = 0;           // Selected Sub-Activity (Sub-Activity Tab Control) Index - Top
-        private int _nSelPK = 0;                    // Selected Panel Primary Key (Lookup Table & SubActivity List)
-
-        private PanelTableRow _selRow;              // Selected Lookup Table Row
-
-        private string _strSelActivityName = String.Empty;     // Selected Activity     Name
-        private string _strSelSubActivityName = String.Empty;  // Selected SubActivity  Name
-        private string _strSelPanelStatusName = String.Empty;  // Selected Panel Status Name
-
-        private TabControl _selActivityTabControl = null;       // Selected Activity TabControl
-        private TabControl _selSubActivityTabControl = null;    // Selected Sub-Activity TabControl
-
-        private Panel _selActivityPanel = null;     // Selected Activity Panel
-        private Panel _selSubActivityPanel = null;  // Selected Sub-Activity Panel
-        //-------------------------------------------------------------------------------------------------------------
-
+ 
         #region FORM CONTROLS ... public ... Assign in FormMain Construction
 
         #region TAB CONTROLS ... public ... Assign in FormMain Construction
@@ -219,244 +186,39 @@ namespace Pinch
         #endregion  // FIELDS
 
         #region PROPERTIES
-
-        #region PinchTypesObj
-        /// <summary>
-        /// PinchTypesObj Property
-        /// </summary>
-        public PinchTypes PinchTypesObj
-        {
-            get { return _pinchTypes; }
-            set { _pinchTypes = value; }
-        }
-        #endregion      // PinchTypesObj
-
-        #region PinchSettingsObj
-        /// <summary>
-        /// PinchSettingsObj Property
-        /// </summary>
-        public PinchSettings PinchSettingsObj
-        {
-            get { return _pinchSettings; }
-            set { _pinchSettings = value; }
-        }
-        #endregion      // PinchSettingsObj
-
+        public PinchTypes PinchTypesObj { get; set; }         // Pinch Types
+        public PinchSettings PinchSettingsObj { get; set; }   // Pinch Settings
         //-------------------------------------------------------------------------------------------------------------
         //-------------------------------------------- ArrayList Objects ----------------------------------------------
         //-------------------------------------------------------------------------------------------------------------
-
-        #region ActivitiesPanelList
-        /// <summary>
-        /// ActivitiesPanelList ArrayList Property (indexed by Main Tab Control Index)
-        /// </summary>
-        public ArrayList ActivitiesPanelList
-        {
-            get { return _activitiesPanelList; }
-            set { _activitiesPanelList = value; }
-        }
-        #endregion      // ActivitiesPanelList
-
-        #region SubActivitiesPanelList
-        /// <summary>
-        /// SubActivitiesPanelList ArrayList Property (indexed by PK)
-        /// </summary>
-        public ArrayList SubActivitiesPanelList
-        {
-            get { return _subActivitiesPanelList; }
-            set { _subActivitiesPanelList = value; }
-        }
-        #endregion      // SubActivitiesPanelList
-
-        #region LookupPanelInfoTable
-        /// <summary>
-        /// LookupPanelInfoTable Property (indexed by PK)
-        /// ArrayList of PanelTableRow Objects 
-        /// </summary>
-        public ArrayList LookupPanelInfoTable
-        {
-            get { return _lookupPanelInfoTable; }
-            set { _lookupPanelInfoTable = value; }
-        }
-        #endregion      // LookupPanelInfoTable
-
+        public ArrayList ActivitiesPanelList { get; set; }      // List of Activity Panels (indexed by Main Tab Control Index)
+        public ArrayList SubActivitiesPanelList { get; set; }   // List of Sub-Activity Panels (indexed by PK)
+        public ArrayList LookupPanelInfoTable { get; set; }     // List of Panel Table Row objects (indexed by PK)
         //-------------------------------------------------------------------------------------------------------------
         //--------------------------------------- Last Activity Index State -------------------------------------------
         //-------------------------------------------------------------------------------------------------------------
-
-        #region LastActivityIndex
-        /// <summary>
-        /// LastActivityIndex Property
-        /// </summary>
-        public int LastActivityIndex
-        {
-            get { return _nLastActivityIndex; }
-            set { _nLastActivityIndex = value; }
-        }
-        #endregion      // LastActivityIndex
-
+        public int LastActivityIndex { get; set; }     // Last Activity Index
         //-------------------------------------------------------------------------------------------------------------
         //------------------------------------- Last SubActivity Index State ------------------------------------------
         //-------------------------------------------------------------------------------------------------------------
+        public int LastInputSubActivityIndex { get; set; }    // Last INPUT SubActivity Index
+        public int LastTargetsSubActivityIndex { get; set; }  // Last TARGETS SubActivity Index
 
-        #region LastInputSubActivityIndex
-        /// <summary>
-        /// LastInputSubActivityIndex Property
-        /// </summary>
-        public int LastInputSubActivityIndex
-        {
-            get { return _nLastInputSubActivityIndex; }
-            set { _nLastInputSubActivityIndex = value; }
-        }
-        #endregion      // LastInputSubActivityIndex
-
-        #region LastTargetsSubActivityIndex
-        /// <summary>
-        /// LastTargetsSubActivityIndex Property
-        /// </summary>
-        public int LastTargetsSubActivityIndex
-        {
-            get { return _nLastTargetsSubActivityIndex; }
-            set { _nLastTargetsSubActivityIndex = value; }
-        }
-        #endregion      // LastTargetsSubActivityIndex
-
-        #region LastHenSubActivityIndex
-        /// <summary>
-        /// LastHenSubActivityIndex Property
-        /// </summary>
-        public int LastHenSubActivityIndex
-        {
-            get { return _nLastHenSubActivityIndex; }
-            set { _nLastHenSubActivityIndex = value; }
-        }
-        #endregion      // LastHenSubActivityIndex
-
+        public int LastHenSubActivityIndex { get; set; }      // Last HEN SubActivity Index
         //-------------------------------------------------------------------------------------------------------------
         //-------------------------------------------- Selected State -------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------
-
-        #region SelActivity
-        /// <summary>
-        /// SelActivity Property
-        /// </summary>
-        public int SelActivity
-        {
-            get { return _nSelActivity; }
-            set { _nSelActivity = value; }
-        }
-        #endregion      // SelActivity
-
-        #region SelSubActivity
-        /// <summary>
-        /// SelSubActivity Property
-        /// </summary>
-        public int SelSubActivity
-        {
-            get { return _nSelSubActivity; }
-            set { _nSelSubActivity = value; }
-        }
-        #endregion      // SelSubActivity
-
-        #region SelPK
-        /// <summary>
-        /// SelPK Property
-        /// </summary>
-        public int SelPK
-        {
-            get { return _nSelPK; }
-            set { _nSelPK = value; }
-        }
-        #endregion      // SelPK
-
-        #region SelRow
-        /// <summary>
-        /// SelRow Property
-        /// </summary>
-        public PanelTableRow SelRow
-        {
-            get { return _selRow; }
-            set { _selRow = value; }
-        }
-        #endregion      // SelRow
-
-        #region SelActivityName
-        /// <summary>
-        /// ActivityName Property
-        /// </summary>
-        public string SelActivityName
-        {
-            get { return _strSelActivityName; }
-            set { _strSelActivityName = value; }
-        }
-        #endregion      // SelActivityName
-
-        #region SelSubActivityName
-        /// <summary>
-        /// SelSubActivityName Property
-        /// </summary>
-        public string SelSubActivityName
-        {
-            get { return _strSelSubActivityName; }
-            set { _strSelSubActivityName = value; }
-        }
-        #endregion      // SelSubActivityName
-
-        #region SelPanelStatusName
-        /// <summary>
-        /// SelPanelStatusName Property
-        /// </summary>
-        public string SelPanelStatusName
-        {
-            get { return _strSelPanelStatusName; }
-            set { _strSelPanelStatusName = value; }
-        }
-        #endregion      // SelPanelStatusName
-
-        #region SelActivityTabControl
-        /// <summary>
-        /// SelActivityTabControl Property
-        /// </summary>
-        public TabControl SelActivityTabControl
-        {
-            get { return _selActivityTabControl; }
-            set { _selActivityTabControl = value; }
-        }
-        #endregion      // SelActivityTabControl
-
-        #region SelSubActivityTabControl
-        /// <summary>
-        /// SelSubActivityTabControl Property
-        /// </summary>
-        public TabControl SelSubActivityTabControl
-        {
-            get { return _selSubActivityTabControl; }
-            set { _selSubActivityTabControl = value; }
-        }
-        #endregion      // SelSubActivityTabControl
-
-        #region SelActivityPanel
-        /// <summary>
-        /// SelActivityPanel Property
-        /// </summary>
-        public Panel SelActivityPanel
-        {
-            get { return _selActivityPanel; }
-            set { _selActivityPanel = value; }
-        }
-        #endregion      // SelActivityPanel
-
-        #region SelSubActivityPanel
-        /// <summary>
-        /// SelSubActivityPanel Property
-        /// </summary>
-        public Panel SelSubActivityPanel
-        {
-            get { return _selSubActivityPanel; }
-            set { _selSubActivityPanel = value; }
-        }
-        #endregion      // SelSubActivityPanel
-
+        public int SelActivity { get; set; }        // Selected Activity     (Activity     Tab Control) Index - Bottom
+        public int SelSubActivity { get; set; }     // Selected Sub-Activity (Sub-Activity Tab Control) Index - Top
+        public int SelPK { get; set; }              // Selected Panel Primary Key (Lookup Table & SubActivity List)
+        public PanelTableRow SelRow { get; set; }      // Selected Lookup Table Row
+        public string SelActivityName { get; set; }    // Selected Activity     Name
+        public string SelSubActivityName { get; set; } // Selected SubActivity  Name
+        public string SelPanelStatusName { get; set; } // Selected Panel Status Name
+        public TabControl SelActivityTabControl { get; set; }    // Selected Activity TabControl
+        public TabControl SelSubActivityTabControl { get; set; } // Selected Sub-Activity TabControl
+        public Panel SelActivityPanel { get; set; }    // Selected Activity Panel
+        public Panel SelSubActivityPanel { get; set; } // Selected Sub-Activity Panel
         #endregion  // PROPERTIES
 
         #region CTOR

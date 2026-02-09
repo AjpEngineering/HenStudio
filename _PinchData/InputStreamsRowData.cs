@@ -75,7 +75,7 @@ namespace PinchData
                 //------------------------------------
                 //--- Initialize Object Properties ---
                 //------------------------------------
-
+                StreamID = string.Empty;
             }
             catch (Exception ex)
             {

@@ -55,13 +55,12 @@ namespace PinchData
         const string NAMESPACE = "PinchData";
         const string CLASS = "TargetsDataMgr";
         #endregion      // CONSTANTS
+
+        #region PROPERTIES        
         public TargetsCalculateData TargetsCalculateDataObj { get; set; }
         public TargetsCompositeData TargetsCompositeDataObj { get; set; }
         public TargetsIntervalData TargetsIntervalDataObj { get; set; }
         public TargetsOptimizeData TargetsOptimizeDataObj { get; set; }
-
-        #region PROPERTIES
-
         #endregion      // PROPERTIES
 
         #region CTOR

@@ -58,83 +58,13 @@ namespace Pinch
         const string CLASS = "PanelTableRow";
         #endregion  // CONSTANTS
 
-        #region FIELDS
-        private int _nPK;                   // Primary Key Index
-        private int _nActivityIndex;        // Activity Index (Main Tab Control Index)
-        private int _nSubActivityIndex;     // Sub-Activity Index (Sub-Activity Tab Control Index)
-        private string _strActivityName;    // Activity Name
-        private string _strSubActivityName; // Sub-Activity Name
-        private string _strPanelStatusName; // Panel Status Name
-        #endregion  // FIELDS
-
         #region PROPERTIES
-
-        #region PK
-        /// <summary>
-        /// PK Property
-        /// </summary>
-        public int PK
-        {
-            get { return _nPK; }
-            set { _nPK = value; }
-        }
-        #endregion      // PK
-
-        #region ActivityIndex
-        /// <summary>
-        /// ActivityIndex Property
-        /// </summary>
-        public int ActivityIndex
-        {
-            get { return _nActivityIndex; }
-            set { _nActivityIndex = value; }
-        }
-        #endregion      // ActivityIndex
-
-        #region SubActivityIndex
-        /// <summary>
-        /// SubActivityIndex Property
-        /// </summary>
-        public int SubActivityIndex
-        {
-            get { return _nSubActivityIndex; }
-            set { _nSubActivityIndex = value; }
-        }
-        #endregion      // SubActivityIndex
-
-        #region ActivityName
-        /// <summary>
-        /// ActivityName Property
-        /// </summary>
-        public string ActivityName
-        {
-            get { return _strActivityName; }
-            set { _strActivityName = value; }
-        }
-        #endregion      // ActivityName
-
-        #region SubActivityName
-        /// <summary>
-        /// SubActivityName Property
-        /// </summary>
-        public string SubActivityName
-        {
-            get { return _strSubActivityName; }
-            set { _strSubActivityName = value; }
-        }
-        #endregion      // SubActivityName
-
-        #region PanelStatusName
-        /// <summary>
-        /// PanelStatusName Property
-        /// </summary>
-        public string PanelStatusName
-        {
-            get { return _strPanelStatusName; }
-            set { _strPanelStatusName = value; }
-        }
-        #endregion      // PanelStatusName
-
+        public int PK { get; set; }                 // Primary Key Index
+        public int ActivityIndex { get; set; }      // Activity Index (Main Tab Control Index)
+        public int SubActivityIndex { get; set; }   // Sub-Activity Index (Sub-Activity Tab Control Index)
+        public string ActivityName { get; set; }    // Activity Name
+        public string SubActivityName { get; set; } // Sub-Activity Name
+        public string PanelStatusName { get; set; } // Panel Status Name
         #endregion  // PROPERTIES
 
         #region CTOR

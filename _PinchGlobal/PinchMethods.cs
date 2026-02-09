@@ -52,6 +52,7 @@ namespace PinchGlobal
     #region public class PinchMethods
     /// <summary>
     /// Common Global static Pinch Methods Class
+    /// Contains units conversion methods
     /// </summary>
     public static class PinchMethods
     {
@@ -60,10 +61,6 @@ namespace PinchGlobal
         const string CLASS = "PinchMethods";
 
         #endregion      // CONSTANTS
-
-        #region FIELDS
-
-        #endregion      // FIELDS
 
         #region PROPERTIES
 
