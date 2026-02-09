@@ -137,6 +137,7 @@ namespace Pinch
         public ManifestData ManifestDataObj { get; set; }          // Manifest Data Object
         public InputDataMgr InputDataMgrObj { get; set; }          // INPUT   Data Manager Object
         public TargetsDataMgr TargetsDataMgrObj { get; set; }      // TARGETS Data Manager Object
+        public HenDataMgr HenDataMgrObj { get; set; }              // HEN Data Manager Object
         #endregion      // PROPERTIES
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -325,9 +326,13 @@ namespace Pinch
                 #endregion  // VALID XML File Exists Guard - EXIT ON ERROR
 
                 #region CONSTRUCT INITIAL OBJECT TREE
-                ManifestDataObj = new ManifestData();       // Create & Initialize Manifest Data Object
                 InputDataMgrObj = new InputDataMgr();       // Create & Initialize Input   Data Objects
                 TargetsDataMgrObj = new TargetsDataMgr();   // Create & Initialize Targets Data Objects
+                HenDataMgrObj = new HenDataMgr();           // Create & Initialize Hen     Data Objects
+
+                ManifestDataObj = new ManifestData(InputDataMgrObj,     // Create & Initialize Manifest Data Object
+                                                   TargetsDataMgrObj,
+                                                   HenDataMgrObj);
                 #endregion  // CONSTRUCT INITIAL OBJECT TREE
             }
             catch (Exception ex)

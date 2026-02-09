@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABC_XmlFileData.cs" />
+    <Compile Include="HenDataMgr.cs" />
+    <Compile Include="HenDesignData.cs" />
     <Compile Include="InputCostData.cs" />
     <Compile Include="InputDataMgr.cs" />
     <Compile Include="InputExchangerData.cs" />

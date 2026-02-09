@@ -58,7 +58,13 @@ namespace PinchData
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        
+
+        #region DATA MANAGERS
+        public InputDataMgr InputDataMgrObj { get; set; }
+        public TargetsDataMgr TargetsDataMgrObj { get; set; }
+        public HenDataMgr HenDataMgrObj { get; set; }
+        #endregion  // DATA MANAGERS
+
         #region INPUT PANEL DATA
         public string InputProjectHash { get; set; }
         public string InputStreamsHash { get; set; }
@@ -83,9 +89,16 @@ namespace PinchData
 
         #region CTOR
         /// <summary>
-        /// Default Constructor
+        /// Parameterize Constructor
+        /// Parameters include the InputDataMgr, TargetsDataMgr and HenDataMgr objects.
+        /// These manager objects contain ALL the Panel Data objects.
         /// </summary>
-        public ManifestData() 
+        /// <param name="inputDataMgrObj">Input Data Manager Object</param>
+        /// <param name="targetsDataMgrObj">Targets Data Manager Object</param>
+        /// <param name="henDataMgrObj">Hen Data Manager Object</param>
+        public ManifestData(InputDataMgr inputDataMgrObj,
+                            TargetsDataMgr targetsDataMgrObj,
+                            HenDataMgr henDataMgrObj) 
         {
             string strMethod = "CTOR";
             PinchLogger.WriteSeparatorLine(' ');
@@ -99,6 +112,12 @@ namespace PinchData
                 DataHash = string.Empty;                // Overall Hash
                 FullPathXmlFileLoc = string.Empty;      // XML File Location
                 FullPathZipFileLoc = string.Empty;      // ZIP File Location
+                //--------------------------------------
+                //--- Assign Data Manager Properties ---
+                //--------------------------------------
+                InputDataMgrObj = inputDataMgrObj;
+                TargetsDataMgrObj = targetsDataMgrObj;
+                HenDataMgrObj = henDataMgrObj;
                 //-----------------------------------------------
                 //--- Initialize Managed Data Hash Properties ---
                 //-----------------------------------------------
@@ -142,6 +161,45 @@ namespace PinchData
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Hash");
             try
             {
+                #region GET PANEL DATA HASH VALUES
+                //-------------------------------------- INPUT PROJECT DATA ---
+                InputDataMgrObj.InputProjectDataObj.CreateHash();
+                InputProjectHash = InputDataMgrObj.InputProjectDataObj.DataHash;
+                //-------------------------------------- INPUT STREAMS DATA ---
+                InputDataMgrObj.InputStreamsDataObj.CreateHash();
+                InputStreamsHash = InputDataMgrObj.InputStreamsDataObj.DataHash;
+                //------------------------------------ INPUT UTILITIES DATA ---
+                InputDataMgrObj.InputUtilitiesDataObj.CreateHash();
+                InputUtilitiesHash = InputDataMgrObj.InputUtilitiesDataObj.DataHash;
+                //----------------------------------------- INPUT COST DATA ---
+                InputDataMgrObj.InputCostDataObj.CreateHash();
+                InputCostHash = InputDataMgrObj.InputCostDataObj.DataHash;
+                //------------------------------------ INPUT EXCHANGER DATA ---
+                InputDataMgrObj.InputExchangerDataObj.CreateHash();
+                InputExchangerHash = InputDataMgrObj.InputExchangerDataObj.DataHash;
+                //----------------------------------- INPUT VALIDATION DATA ---
+                InputDataMgrObj.InputValidationDataObj.CreateHash();
+                InputValidationHash = InputDataMgrObj.InputValidationDataObj.DataHash;
+                //---------------------------------- TARGETS CALCULATE DATA ---
+                TargetsDataMgrObj.TargetsCalculateDataObj.CreateHash();
+                TargetsCalculateHash = TargetsDataMgrObj.TargetsCalculateDataObj.DataHash;
+                //---------------------------------- TARGETS COMPOSITE DATA ---
+                TargetsDataMgrObj.TargetsCompositeDataObj.CreateHash();
+                TargetsCompositeHash = TargetsDataMgrObj.TargetsCompositeDataObj.DataHash;
+                //----------------------------------- TARGETS INTERVAL DATA ---
+                TargetsDataMgrObj.TargetsIntervalDataObj.CreateHash();
+                TargetsIntervalHash = TargetsDataMgrObj.TargetsIntervalDataObj.DataHash;
+                //----------------------------------- TARGETS OPTIMIZE DATA ---
+                TargetsDataMgrObj.TargetsOptimizeDataObj.CreateHash();
+                TargetsOptimizeHash = TargetsDataMgrObj.TargetsOptimizeDataObj.DataHash;
+                //----------------------------------------- HEN DESIGN DATA ---
+                //HenDataMgrObj.HenDesignDataObj.CreateHash();
+                //HenDesignHash = HenDataMgrObj.HenDesignDataObj.DataHash;
+                #endregion  // GET PANEL DATA HASH VALUES
+
+                #region GET OVERALL ZIP HASH
+                //DataHash = "TBD";
+                #endregion  // GET OVERALL ZIP HASH
 
             }
             catch (Exception ex)
@@ -152,6 +210,8 @@ namespace PinchData
             }
             finally
             {
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Hash Values CREATED");
+                LogData();  // Log All Hash Values
             }
         }
         #endregion  // override void CreateHash()
@@ -187,9 +247,61 @@ namespace PinchData
         public override void LogData()
         {
             string strMethod = "LogData";
+            string strMsg = string.Empty;
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Log Data");
             try
             {
+                strMsg = new string('=', 80);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("{0} H A S H   V A L U E S {1}", 
+                                       new string('-', 34),
+                                       new string('-', 34) );
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = new string('=', 80);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format(" INPUT PROJECT HASH     : {0}", InputProjectHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format(" INPUT STREAMS HASH     : {0}", InputStreamsHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format(" INPUT UTILITIES HASH   : {0}", InputUtilitiesHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format(" INPUT COST HASH        : {0}", InputCostHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format(" INPUT EXCHANGER HASH   : {0}", InputExchangerHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format(" INPUT VALIDATION HASH  : {0}", InputValidationHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format(" TARGETS CALCULATE HASH : {0}", TargetsCalculateHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format(" TARGETS COMPOSITE HASH : {0}", TargetsCompositeHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format(" TARGETS INTERVAL HASH  : {0}", TargetsIntervalHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format(" TARGETS OPTIMIZE HASH  : {0}", TargetsOptimizeHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format(" HEN DESIGN HASH        : {0}", HenDesignHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                PinchLogger.WriteSeparatorLine('=');
+
+                strMsg = string.Format(" OVERALL ZIP HASH        : {0}", DataHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = new string('=', 80);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
             }
             catch (Exception ex)
@@ -254,6 +366,29 @@ namespace PinchData
 
         #endregion  // ABSTRACT METHOD IMPLEMENTATIONS
 
+        public void Zip(string strRootFolderLoc, string strZipTargetLoc)
+        {
+            string strMethod = "Zip";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Zip Root Folder");
+            try
+            {
+                //---------------------
+                //--- Get Hash Data ---
+                //---------------------
+                CreateHash();   // Get all Panel Data Hash values and Overall Hash
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Root Folder ZIPPED");
+                PinchLogger.WriteSeparatorLine('<');
+            }
+        }
     }
     #endregion  // class ManifestData
 }
