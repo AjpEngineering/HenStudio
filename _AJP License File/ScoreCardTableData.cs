@@ -59,95 +59,14 @@ namespace AJP_License_File
         const string CLASS = "ScoreCardTableData";
         #endregion      // CONSTANTS
 
-        #region FIELDS
-        private ArrayList _scoreCardList;   // ArrayList of ScoreCardRowData objects
-        private int _nProperties;           // Number of Properties
-        private int _nInvalidProps;         // Number of INVALID Properties
-        private int _nValidProps;           // Number of VALID   Properties
-        private string _strValidation;      // Overall Validation Status ["VALID LICENSE" | "INVALID LICENSE | EXPIRED LICENSE"]
-        private int _nDaysRemaining;        // Days Remaining on the License ... [End Date - Current Date]
-        private LicenseTypes.LicenseStatus _licenseStatus;  // License Status ... ["EXPIRED" | INVLAID" |"UNKNOWN" | "VALID"]
-        #endregion  // FIELDS
-
         #region PROPERTIES
-
-        #region ScoreCardListObj
-        /// <summary>
-        /// ScoreCardListObj Property
-        /// </summary>
-        public ArrayList ScoreCardListObj
-        {
-            get { return _scoreCardList; }
-            set { _scoreCardList = value; }
-        }
-        #endregion  // ScoreCardListObj
-
-        #region NumProperties
-        /// <summary>
-        /// NumProperties Property
-        /// </summary>
-        public int NumProperties
-        {
-            get { return _nProperties; }
-            set { _nProperties = value; }
-        }
-        #endregion  // NumProperties
-
-        #region NumInvalidProps
-        /// <summary>
-        /// NumInvalidProps Property
-        /// </summary>
-        public int NumInvalidProps
-        {
-            get { return _nInvalidProps; }
-            set { _nInvalidProps = value; }
-        }
-        #endregion  // NumInvalidProps
-
-        #region NumValidProps
-        /// <summary>
-        /// NumValidProps Property
-        /// </summary>
-        public int NumValidProps
-        {
-            get { return _nValidProps; }
-            set { _nValidProps = value; }
-        }
-        #endregion  // NumValidProps
-
-        #region ValidationState
-        /// <summary>
-        /// ValidationState Property
-        /// </summary>
-        public string ValidationState
-        {
-            get { return _strValidation; }
-            set { _strValidation = value; }
-        }
-        #endregion  // ValidationState
-
-        #region DaysRemaining
-        /// <summary>
-        /// DaysRemaining Property
-        /// </summary>
-        public int DaysRemaining
-        {
-            get { return _nDaysRemaining; }
-            set { _nDaysRemaining = value; }
-        }
-        #endregion  // DaysRemaining
-
-        #region LicenseStatusEnum
-        /// <summary>
-        /// LicenseStatusEnum Property
-        /// </summary>
-        public LicenseTypes.LicenseStatus LicenseStatusEnum
-        {
-            get { return _licenseStatus; }
-            set { _licenseStatus = value; }
-        }
-        #endregion  // LicenseStatusEnum
-
+        public ArrayList ScoreCardListObj { get; set; }  // ArrayList of ScoreCardRowData objects
+        public int NumProperties { get; set; }       // Number of Properties
+        public int NumInvalidProps { get; set; }     // Number of INVALID Properties
+        public int NumValidProps { get; set; }       // Number of VALID Properties
+        public string ValidationState { get; set; }  // Overall Validation Status ["VALID LICENSE" | "INVALID LICENSE | EXPIRED LICENSE"]
+        public int DaysRemaining { get; set; }       // Days Remaining on the License ... [End Date - Current Date]
+        public LicenseTypes.LicenseStatus LicenseStatusEnum { get; set; }     // License Status ... ["EXPIRED" | INVLAID" |"UNKNOWN" | "VALID"]
         #endregion  // PROPERTIES
 
         #region CTOR
