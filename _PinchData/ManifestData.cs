@@ -134,6 +134,7 @@ namespace PinchData
                 TargetsOptimizeHash = string.Empty;
 
                 HenDesignHash = string.Empty;
+
             }
             catch (Exception ex)
             {
@@ -255,49 +256,49 @@ namespace PinchData
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = string.Format("{0} H A S H   V A L U E S {1}", 
-                                       new string('-', 34),
-                                       new string('-', 34) );
+                                       new string('-', 29),
+                                       new string('-', 28) );
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = new string('=', 80);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format(" INPUT PROJECT HASH     : {0}", InputProjectHash);
+                strMsg = string.Format("   INPUT PROJECT HASH     : {0}", InputProjectHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format(" INPUT STREAMS HASH     : {0}", InputStreamsHash);
+                strMsg = string.Format("   INPUT STREAMS HASH     : {0}", InputStreamsHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format(" INPUT UTILITIES HASH   : {0}", InputUtilitiesHash);
+                strMsg = string.Format("   INPUT UTILITIES HASH   : {0}", InputUtilitiesHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format(" INPUT COST HASH        : {0}", InputCostHash);
+                strMsg = string.Format("   INPUT COST HASH        : {0}", InputCostHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format(" INPUT EXCHANGER HASH   : {0}", InputExchangerHash);
+                strMsg = string.Format("   INPUT EXCHANGER HASH   : {0}", InputExchangerHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format(" INPUT VALIDATION HASH  : {0}", InputValidationHash);
+                strMsg = string.Format("   INPUT VALIDATION HASH  : {0}", InputValidationHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format(" TARGETS CALCULATE HASH : {0}", TargetsCalculateHash);
+                strMsg = string.Format("   TARGETS CALCULATE HASH : {0}", TargetsCalculateHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format(" TARGETS COMPOSITE HASH : {0}", TargetsCompositeHash);
+                strMsg = string.Format("   TARGETS COMPOSITE HASH : {0}", TargetsCompositeHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format(" TARGETS INTERVAL HASH  : {0}", TargetsIntervalHash);
+                strMsg = string.Format("   TARGETS INTERVAL HASH  : {0}", TargetsIntervalHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format(" TARGETS OPTIMIZE HASH  : {0}", TargetsOptimizeHash);
+                strMsg = string.Format("   TARGETS OPTIMIZE HASH  : {0}", TargetsOptimizeHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format(" HEN DESIGN HASH        : {0}", HenDesignHash);
+                strMsg = string.Format("   HEN DESIGN HASH        : {0}", HenDesignHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 PinchLogger.WriteSeparatorLine('=');
 
-                strMsg = string.Format(" OVERALL ZIP HASH        : {0}", DataHash);
+                strMsg = string.Format("   OVERALL ZIP HASH       : {0}", DataHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = new string('=', 80);
@@ -366,6 +367,12 @@ namespace PinchData
 
         #endregion  // ABSTRACT METHOD IMPLEMENTATIONS
 
+        #region Zip()
+        /// <summary>
+        /// Zip all xml files, under root Project Folder, into a single Zip file
+        /// </summary>
+        /// <param name="strRootFolderLoc"></param>
+        /// <param name="strZipTargetLoc"></param>
         public void Zip(string strRootFolderLoc, string strZipTargetLoc)
         {
             string strMethod = "Zip";
@@ -389,6 +396,40 @@ namespace PinchData
                 PinchLogger.WriteSeparatorLine('<');
             }
         }
+        #endregion  // Zip()
+
+        #region Extract()
+        /// <summary>
+        /// Extract Zip file to root Project Folder,  
+        /// all Sub-Folder Structure including XML files under root
+        /// </summary>
+        /// <param name="strRootFolderLoc"></param>
+        /// <param name="strZipTargetLoc"></param>
+        public void Extract(string strRootFolderLoc, string strZipTargetLoc)
+        {
+            string strMethod = "Extract";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Extract to Root Folder");
+            try
+            {
+                //---------------
+                //--- EXTRACT ---
+                //---------------
+                //TBD
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Zip File EXTRACTED");
+                PinchLogger.WriteSeparatorLine('<');
+            }
+        }
+        #endregion  // Zip()
+
     }
     #endregion  // class ManifestData
 }

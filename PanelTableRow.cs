@@ -115,7 +115,7 @@ namespace Pinch
             string strMsg = string.Empty;
             try
             {
-                strMsg = String.Format("  ==> Panel Table Row: PK: {0:00}  Activity [{1}] Name: {2,-10} SubActivity[{3}] Name: {4,-12} STATUS Name: {5,-25}",
+                strMsg = String.Format("   ==> Panel Table Row: PK: {0:00}  Activity [{1}] Name: {2,-10} SubActivity[{3}] Name: {4,-12} STATUS Name: {5,-25}",
                                         PK, 
                                         ActivityIndex, ActivityName, 
                                         SubActivityIndex, SubActivityName, 

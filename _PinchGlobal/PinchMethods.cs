@@ -42,6 +42,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 #endregion  // REFERENCES
@@ -49,10 +50,10 @@ using System.Threading.Tasks;
 #region namespace PinchGlobal
 namespace PinchGlobal
 {
-    #region public class PinchMethods
+    #region public static class PinchMethods
     /// <summary>
     /// Common Global static Pinch Methods Class
-    /// Contains units conversion methods
+    /// Contains String Checks, Hash, and Units Conversion methods
     /// </summary>
     public static class PinchMethods
     {
@@ -78,7 +79,7 @@ namespace PinchGlobal
         //}
         #endregion      // CTOR
 
-        #region STRING VALUE CHECK STATIC METHODS
+        #region STATIC STRING VALUE CHECK STATIC METHODS
 
         #region StringCheckIsNull ... CHECK ID: CHECK_NULL
         /// <summary>
@@ -196,10 +197,192 @@ namespace PinchGlobal
         }
         #endregion      // StringCheckIsDoubleNonPositive ... CHECK ID: CHECK_DOUBLE_NON_POSITIVE
 
-        #endregion      // STRING VALUE CHECK STATIC METHODS
+        #endregion      // STATIC STRING VALUE CHECK STATIC METHODS
+
+        #region STATIC HASH METHODS
+        //=============================================================================================================
+        //----------------------------------------------- HASH METHODS ------------------------------------------------
+        //=============================================================================================================
+
+        #region static ComputeSha256Hash
+        /// <summary>
+        /// Perform SHA-256 HASH on User Provided rawData string
+        /// Returns 64 Character Hash String
+        /// </summary>
+        /// <param name="rawData">Raw Input Data String</param>
+        /// <returns>64-char Hash String on success; Empty string otherwise</returns>
+        public static string ComputeSha256Hash(string rawData)
+        {
+            string strMethod = "ComputeSha256Hash";
+            string strMsg = String.Empty;
+            string strHash = String.Empty;
+            try
+            {
+                rawData += "_fugacity_";    // Salt String
+                //------------------------------
+                //--- Create a SHA256 Object ---
+                //------------------------------
+                using (SHA256 sha256Hash = SHA256.Create())
+                {
+                    //------------------------------------------
+                    //--- ComputeHash - Returns a byte Array ---
+                    //------------------------------------------
+                    byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+                    //--------------------------------------
+                    //--- Convert byte Array to a string ---
+                    //--------------------------------------
+                    StringBuilder builder = new StringBuilder();
+                    for (int i = 0; i < bytes.Length; i++)
+                    {
+                        builder.Append(bytes[i].ToString("x2"));
+                    }
+                    strHash = builder.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                //--- LOG EXCEPTION ---
+                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
+                Console.WriteLine(strMsg);
+            }
+            //---------------------------------
+            //--- Return Hash String Result ---
+            //---------------------------------
+            return strHash;
+        }
+        #endregion      // static ComputeSha256Hash
+
+        #region static Extract32CharHash
+        /// <summary>
+        /// Extract 32 Characters from the User Provided HASH
+        /// Returns 32 Character Hash String
+        /// </summary>
+        /// <param name="str64Hash">Full 64-Char Hash String</param>
+        /// <param name="nIndex">Start Index of Substring ... must be less than 32</param>
+        /// <returns>32-char Hash String on success; Empty string otherwise</returns>
+        public static string Extract32CharHash(string str64Hash, int nIndex)
+        {
+            string strMethod = "Extract32CharHash";
+            string strMsg = String.Empty;
+            string str32Hash = String.Empty;
+            int nStartIndex = 0;    // Start Index of Substring
+            int nLength = 32;       // Length of Substring
+            try
+            {
+                //-----------------------------
+                //--- Determine Start Index ---
+                //-----------------------------
+                nStartIndex = nIndex;
+                str32Hash = str64Hash.Substring(nStartIndex, nLength);
+            }
+            catch (Exception ex)
+            {
+                //--- LOG EXCEPTION ---
+                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
+                Console.WriteLine(strMsg);
+            }
+            //--------------------------------------------
+            //--- Return 32-Char Substring Hash Result ---
+            //--------------------------------------------
+            return str32Hash;
+        }
+        #endregion      // static Extract32CharHash
+
+        #region staticFormatExtractedString
+        /// <summary>
+        /// Format Inputted Extracted 32 Character String
+        /// Returns Formatted 32-Char License Key String
+        /// </summary>
+        /// <param name="str32Extracted">Extracted 32-Char String</param>
+        /// <returns>Formatted 32-Char License Key String on success; Empty string otherwise</returns>
+        public static string FormatExtractedString(string str32Extracted)
+        {
+            string strMethod = "FormatExtractedString";
+            string strMsg = String.Empty;
+            string strTemp = String.Empty;
+            try
+            {
+                strTemp = str32Extracted;
+
+                int pos = 0;
+                char replacement = 'A';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                pos = 1;
+                replacement = 'J';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                pos = 2;
+                replacement = 'P';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                pos = 3;
+                replacement = '-';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                pos = 8;
+                replacement = '-';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                pos = 13;
+                replacement = '-';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                pos = 18;
+                replacement = '-';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                pos = 23;
+                replacement = '-';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                pos = 28;
+                replacement = '-';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                pos = 29;
+                replacement = 'E';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                pos = 30;
+                replacement = 'N';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                pos = 31;
+                replacement = 'G';
+                strTemp = strTemp.Substring(0, pos) + replacement + strTemp.Substring(pos + 1);
+
+                //------------------------------------------
+                //--- Ensure All Letters are Uppder Case ---
+                //------------------------------------------
+                strTemp = strTemp.ToUpper();
+                //--------------------------------------------------------
+                //--- Remove Extraneous Leading or Trailing Whitespace ---
+                //--------------------------------------------------------
+                strTemp = strTemp.Trim();
+            }
+            catch (Exception ex)
+            {
+                //--- LOG EXCEPTION ---
+                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
+                Console.WriteLine(strMsg);
+            }
+            //---------------------------------------------------
+            //--- Return Formatted 32-Char License Key Result ---
+            //---------------------------------------------------
+            return strTemp;
+        }
+        #endregion      // static FormatExtractedString
+
+        #endregion  // STATIC HASH METHODS
+
+        #region STATIC UNIT CONVERSION METHODS
+
+
+        #endregion  // STATIC UNIT CONVERSION METHODS
 
     }
-    #endregion      // public class PinchTypes
+    #endregion      // public static class PinchTypes
 }
 #endregion      // namespace PinchGlobal
 
