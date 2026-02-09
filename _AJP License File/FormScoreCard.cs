@@ -40,6 +40,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Principal;    // WindowsIdentity
 using System.Text;
 using System.Threading.Tasks;
@@ -58,73 +59,12 @@ namespace AJP_License_File
         const string CLASS = "FormScoreCard";
         #endregion      // CONSTANTS
 
-        #region FIELDS
-        private ScoreCardTableData _tableData;
-
-        private string _strDeviceName = String.Empty;       // Maximum Lenght 15 characters
-        private string _strDomain = String.Empty;
-        private string _strUsername = String.Empty;         // Maximum Length 20 characters
-        private string _strFullname = String.Empty;
-
-        #endregion      // FIELDS
-
         #region PROPERTIES
-
-        #region ScoreCardTableDataObj
-        /// <summary>
-        /// ScoreCardTableDataObj Property
-        /// </summary>
-        public ScoreCardTableData ScoreCardTableDataObj
-        {
-            get { return _tableData; }
-            set { _tableData = value; }
-        }
-        #endregion  // ScoreCardTableDataObj
-
-        #region RunningDeviceName
-        /// <summary>
-        /// RunningDeviceName Property
-        /// </summary>
-        public string RunningDeviceName
-        {
-            get { return _strDeviceName; }
-            set { _strDeviceName = value; }
-        }
-        #endregion  // RunningDeviceName
-
-        #region RunningFullname
-        /// <summary>
-        /// RunningFullname Property
-        /// </summary>
-        public string RunningFullname
-        {
-            get { return _strFullname; }
-            set { _strFullname = value; }
-        }
-        #endregion  // RunningFullname
-
-        #region RunningDomain
-        /// <summary>
-        /// RunningDomain Property
-        /// </summary>
-        public string RunningDomain
-        {
-            get { return _strDomain; }
-            set { _strDomain = value; }
-        }
-        #endregion  // RunningDomain
-
-        #region RunningUsername
-        /// <summary>
-        /// RunningUsername Property
-        /// </summary>
-        public string RunningUsername
-        {
-            get { return _strUsername; }
-            set { _strUsername = value; }
-        }
-        #endregion  // RunningUsername
-
+        public ScoreCardTableData ScoreCardTableDataObj { get; set; }   // ScoreCard Table Object
+        public string RunningDeviceName { get; set; }   // Device Name...Maximum Lenght 15 characters
+        public string RunningFullname { get; set; }     // Run-Time Full Name
+        public string RunningDomain { get; set; }       // Run-Time Domain
+        public string RunningUsername { get; set; }     // Run-Time User...Maximum Length 20 characters
         #endregion      // PROPERTIES
 
         #region Parameterized CTOR

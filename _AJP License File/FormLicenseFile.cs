@@ -107,98 +107,14 @@ namespace AJP_License_File
 
         #endregion      // ENUMS
 
-        #region FIELDS
-        private string _strRunningDeviceName;           // Current Running Device Name
-
-        private string _strCalcLicenseKey;              // Calculated AJP License Key String
-        private string _strCalcLicenseFileHash;         // Calculated AJP License File Hash String
-
-        private string _strFullPathLicenseFolder;       // Full-Path AJP LICENSE Folder Location
-        private string _strFullPathXmlFile;             // Full-Path File Location of AJP License XML File
-        private LicenseFileData _licenseFileDataObj;    // AJP License File Data Object
-
-        private LicenseMgr _licenseMgrObj;              // AJP License Mgr Object
-        #endregion      // FIELDS
-
         #region PROPERTIES
-
-        #region RunningDeviceName
-        /// <summary>
-        /// RunningDeviceName Property  ... Current Running Device Name
-        /// </summary>
-        public string RunningDeviceName
-        {
-            get { return _strRunningDeviceName; }
-            set { _strRunningDeviceName = value; }
-        }
-        #endregion      // RunningDeviceName
-
-        #region CalcLicenseKey
-        /// <summary>
-        /// CalcLicenseKey Property  ... Calculated AJP License Key String
-        /// </summary>
-        public string CalcLicenseKey
-        {
-            get { return _strCalcLicenseKey; }
-            set { _strCalcLicenseKey = value; }
-        }
-        #endregion      // CalcLicenseKey
-
-        #region CalcLicenseFileHash
-        /// <summary>
-        /// CalcLicenseFileHash Property  ... Calculated AJP License File Hash String
-        /// </summary>
-        public string CalcLicenseFileHash
-        {
-            get { return _strCalcLicenseFileHash; }
-            set { _strCalcLicenseFileHash = value; }
-        }
-        #endregion      // CalcLicenseFileHash
-
-        #region FullPathLicenseFolder
-        /// <summary>
-        /// FullPathLicenseFolder Property  ... Full-Path AJP LICENSE Folder Location
-        /// </summary>
-        public string FullPathLicenseFolder
-        {
-            get { return _strFullPathLicenseFolder; }
-            set { _strFullPathLicenseFolder = value; }
-        }
-        #endregion      // FullPathLicenseFolder
-
-        #region FullPathXmlFile
-        /// <summary>
-        /// FullPathXmlFile Property  ... Full-Path File Location of AJP License XML File
-        /// </summary>
-        public string FullPathXmlFile
-        {
-            get { return _strFullPathXmlFile; }
-            set { _strFullPathXmlFile = value; }
-        }
-        #endregion      // FullPathXmlFile
-
-        #region LicenseFileDataObj
-        /// <summary>
-        /// LicenseFileDataObj Property  ... AJP Licesne File Data Object
-        /// </summary>
-        public LicenseFileData LicenseFileDataObj
-        {
-            get { return _licenseFileDataObj; }
-            set { _licenseFileDataObj = value; }
-        }
-        #endregion      // LicenseFileDataObj
-
-        #region LicenseMgrObj
-        /// <summary>
-        /// LicenseMgrObj Property  ... AJP License Mgr Object
-        /// </summary>
-        public LicenseMgr LicenseMgrObj
-        {
-            get { return _licenseMgrObj; }
-            set { _licenseMgrObj = value; }
-        }
-        #endregion      // LicenseMgrObj
-
+        public string RunningDeviceName { get; set; }     // Current Running Device Name
+        public string CalcLicenseKey { get; set; }        // Calculated AJP License Key String
+        public string CalcLicenseFileHash { get; set; }   // Calculated AJP License File Hash String
+        public string FullPathLicenseFolder { get; set; } // Full-Path AJP LICENSE Folder Location
+        public string FullPathXmlFile { get; set; }       // Full-Path File Location of AJP License XML File
+        public LicenseFileData LicenseFileDataObj { get; set; }  // AJP License File Data Object
+        public LicenseMgr LicenseMgrObj { get; set; }     // AJP License Mgr Object
         #endregion      // PROPERTIES
 
         #region CTOR
