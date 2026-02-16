@@ -58,7 +58,9 @@ namespace PinchGlobal
         #region CONSTANTS
         const string NAMESPACE = "PinchGlobal";
         const string CLASS = "PinchSettings";
+        #endregion      // CONSTANTS
 
+        #region SUPPLIER & PRODUCT INFORMATION ... LICENSE FILE STRINGS
         //-------------------------------------------------------------------------------
         //--- Supplier Information ... Check Against What is Supplied in License File ---
         //-------------------------------------------------------------------------------
@@ -72,30 +74,117 @@ namespace PinchGlobal
         public const string AJP_PRODUCT_VERSION = "4.0.1";
         public const string AJP_PRODUCT_SERIAL_NUMBER = "{6C6D7807-B72E-4460-9D5C-1A911D1299FB}";
         public const string AJP_PRODUCT_CODE = "1022-456-1189";
-        //--------------------
-        //--- REPORT SPECS ---
-        //--------------------
-        public const int LINE_LEN = 80;  // Report Line Length in Number of Characters (Courier New, 11 pt, Regular)
-        #endregion      // CONSTANTS
+        #endregion  // SUPPLIER & PRODUCT INFORMATION ... LICENSE FILE STRINGS
+
+        #region UNITS STRINGS
+
+        #region UNITS SYSTEM
+        //----------------------------------------------------- PINCH UNITS ---
+        public const string ENGLISH_UNITS = "ENGLISH";
+        public const string METRIC_UNITS = "METRIC";     // <<<--- INTERNAL ---<<<
+        #endregion  // UNITS SYSTEM
+
+        #region MAG - MAGNITUDE UNITS
+        //------------------------------------------- MAG - MAGNITUDE UNITS ---
+        public const string MAG_BASE = "BASE";    // BASE * 10^0
+        public const string MAG_KILO = "KILO";    // BASE * 10^3   // <<<--- INTERNAL ---<<<
+        public const string MAG_MEGA = "MEGA";    // BASE * 10^6
+        #endregion  // MAG - MAGNITUDE UNITS
+
+        #region H - HEAT FLOW UNITS
+        //------------------------------------------- ENGLISH BTU HEAT FLOW ---
+        public const string BTU_HEAT_FLOW = "Btu/hr";
+        public const string KBTU_HEAT_FLOW = "kBtu/hr";
+        public const string MMBTU_HEAT_FLOW = "MMBtu/hr";
+        //---------------------------------------------- METRIC W HEAT FLOW ---
+        public const string W_HEAT_FLOW = "W";
+        public const string KW_HEAT_FLOW = "kW";    // <<<-------- INTERNAL ---<<<
+        public const string MMW_HEAT_FLOW = "MW";
+        #endregion  // H - HEAT FLOW UNITS
+
+        #region T - TEMPERATURE UNITS
+        //---------------------------------------------- ENGLISH TEMPEATURE ---
+        public const string DEG_F = "°F";   // $"\u00B0F";
+        public const string DEG_R = "°R";   // $"\u00B0R";
+        //----------------------------------------------- METRIC TEMPEATURE ---
+        public const string DEG_C = "°C";   // $"\u00B0C";
+        public const string KELVIN = "K";   // <<<---------------- INTERNAL ---<<<
+        #endregion  // T - TEMPERATURE UNITS
+
+        #region CP - HEAT CAPACITY FLOW RATE UNITS
+        //-------------------------------------------------- ENGLISH BTU CP ---
+        public const string BTU_F_CP = "Btu/(hr °F)";        // °F
+        public const string KBTU_F_CP = "kBtu/(hr °F)";      // °F
+        public const string MMBTU_F_CP = "MMBtu/(hr °F)";    // °F
+        //---------------------------------------------------------------------
+        public const string BTU_R_CP = "Btu/(hr °R)";        // °R
+        public const string KBTU_R_CP = "kBtu/(hr °R)";      // °R
+        public const string MMBTU_R_CP = "MMBtu/(hr °R)";    // °R
+
+        //----------------------------------------------------- METRIC W CP ---
+        public const string W_C_CP = "W/°C";    // °C
+        public const string KW_C_CP = "kW/°C";  // °C
+        public const string MMW_C_CP = "MW/°C"; // °C
+        //---------------------------------------------------------------------
+        public const string W_K_CP = "W/K";     // K
+        public const string KW_K_CP = "kW/K";   // <<<------------ INTERNAL ---<<<
+        public const string MMW_K_CP = "MW/K";  // K
+        #endregion  // CP - HEAT CAPACITY FLOW RATE UNITS
+
+        #region U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
+        //--------------------------------------------------- ENGLISH BTU U ---
+        public const string BTU_F_U = "Btu/(hr ft² °F)";        // °F
+        public const string KBTU_F_U = "kBtu/(hr ft² °F)";      // °F
+        public const string MMBTU_F_U = "MMBtu/(hr ft² °F)";    // °F
+        //---------------------------------------------------------------------
+        public const string BTU_R_U = "Btu/(hr ft² °R)";        // °R
+        public const string KBTU_R_U = "kBtu/(hr ft² °R)";      // °R
+        public const string MMBTU_R_U = "MMBtu/(hr ft² °R)";    // °R
+
+        //------------------------------------------------------ METRIC W U ---
+        public const string W_U = "W/(m² °C)";                  // °C
+        public const string KW_U = "kW/(m² °C)";                // °C
+        public const string MMW_U = "MMW/(m² °C)";              // °C
+        //---------------------------------------------------------------------
+        public const string W_K_U = "W/(m² K)";                 // K
+        public const string KW_K_U = "kW/(m² K)";    // <<<------- INTERNAL ---<<<
+        public const string MMW_K_U = "MMW/(m² K)";             // K
+        #endregion  // U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
+
+        #region A - AREA UNITS
+        //---------------------------------------------------- ENGLISH AREA ---
+        public const string SqFt = "ft²";   // "ft\u00B2"
+
+        //----------------------------------------------------- METRIC AREA ---
+        public const string SqM = "m²";     // "m\u00B2" <<<------ INTERNAL ---<<<
+        #endregion  // A - AREA UNITS
+
+        #endregion  // UNITS STRINGS
 
         #region FIELDS
 
-        #region PUBLIC
+        #region CUSTOMER INFORMATION ... SPECIFIED IN LICENSE FILE
         //---------------------------------------------------------
         //--- Customer Information ... Specifed in License File ---
         //---------------------------------------------------------
         public string CUSTOMER_NAME  = "TBD - REQUIRED!";
         public string CUSTOMER_EMAIL = "TBD";
+        #endregion  // CUSTOMER INFORMATION ... SPECIFIED IN LICENSE FILE
 
+        #region PINCH COMPONENTS ... ArrayList
         //--------------------------------
         //--- Pinch Product Components ---
         //--------------------------------
         public ArrayList AJP_PINCH_COMPONENTS = new ArrayList();
+        #endregion  // PINCH COMPONENTS ... ArrayList
 
-        //---------------------------------------------------------
+        #region LICENSE INFORMATION - SEE LICENSE FILE CLASS
+        //-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //--- License Information ... Specified in License File ---
-        //---------------------------------------------------------
+        //-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        #endregion  // LICENSE INFORMATION - SEE LICENSE FILE CLASS
 
+        #region COLORS & FONTS
         //--------------
         //--- Colors ---
         //--------------
@@ -108,18 +197,177 @@ namespace PinchGlobal
         //-------------
         public Font AJP_PINCH_DISPLAY_FONT = new Font("Segoe UI Variable Display", 10.0f); // Display
         public Font AJP_PINCH_MONO_FONT = new Font("Cascadia Mono", 9.0f);              // Monospace for Numbers
-
-        #endregion  // PUBLIC
+        #endregion  // COLORS & FONTS
 
         #endregion      // FIELDS
 
         #region PROPERTIES
+
+        #region LICENSE
+        #region LicenseValidatedFlag
+        /// <summary>
+        /// License Validation Flag
+        /// true if License is Valid and NOT Expired; otherwise false
+        /// </summary>
         public bool LicenseValidatedFlag { get; set; }                   // License Validate Flag
+        #endregion  // LicenseValidatedFlag
+
+        #region LicenseTypeEnum
+        /// <summary>
+        /// License Type ... [ UNKNOWN = -1 | TRIAL = 0 | SITE = 1 | DEVICE = 2 | USER = 3 | SEAT = 4 ]
+        /// Note: USER type not Supported for Pinch
+        /// </summary>
         public PinchTypes.LicenseType LicenseTypeEnum { get; set; }      // License Type
+        #endregion  // LicenseTypeEnum
+
+        #region LicenseStatusEnum
+        /// <summary>
+        /// License Status ... [EXPIRED = -2 | INVALID = -1 | UNKNOWN = 0 | VALID = 1]
+        /// </summary>
         public PinchTypes.LicenseStatus LicenseStatusEnum { get; set; }  // License Status
+        #endregion  // LicenseStatusEnum
+        #endregion  // LICENSE
+
+        #region STATUS BAR
+        #region PinchUnitsEnum
+        /// <summary>
+        /// Pinch Units System ... [UNKNOWN = -1 | ENGLISH = 0 | METRIC = 1]
+        /// ENGLISH-IMPERIAL Units or METRIC-SI Units
+        /// </summary>
         public PinchTypes.PinchUnits PinchUnitsEnum { get; set; }        // Pinch Units [ENGLISH | METRIC]
-        public bool InputValidatedFlag { get; set; }        // Input   Validated  Flag - true: Proceed to Targets
-        public bool TargetsCalculatedFlag { get; set; }     // Targets Calculated Flag - true: Proceed to HEN
+        #endregion  // PinchUnitsEnum
+
+        #region InputValidatedFlag
+        /// <summary>
+        /// Input Validated Flag
+        /// true if Input has been validated - OK to Proceed to Calculate Targets; otherwise false
+        /// </summary>
+        public bool InputValidatedFlag { get; set; }      // Input   Validated  Flag - true: Proceed to Targets
+        #endregion  // InputValidatedFlag
+
+        #region TargetsCalculatedFlag
+        /// <summary>
+        /// Targets Calculated Flag
+        /// true of Targets has been calculated - OK to Proceed to Heat Exchanger Network (HEN) Design; otherwise false
+        /// </summary>
+        public bool TargetsCalculatedFlag { get; set; }   // Targets Calculated Flag - true: Proceed to HEN
+        #endregion  // TargetsCalculatedFlag
+        #endregion  // STATUS BAR
+
+        #region INTERNAL UNITS
+
+        #region InternalUnitsSystem
+        /// <summary>
+        /// Internal Units System ... Set to "METRIC"
+        /// </summary>
+        public string InternalUnitsSystem { get; set; }      // INTERNAL Units System
+        #endregion  // InternalUnitsSystem
+
+        #region InternalMagUnits
+        /// <summary>
+        /// Internal Magnitude Units ... Set to "KILO" ... (BASE * 10^3)
+        /// </summary>
+        public string InternalMagUnits { get; set; }      // INTERNAL Magnitude Units
+        #endregion  // InternalMagUnits
+
+        #region InternalHeatFlowUnits
+        /// <summary>
+        /// Internal Heat Flow Units ... Set to "W"
+        /// </summary>
+        public string InternalHeatFlowUnits { get; set; }      // INTERNAL Heat Flow Units
+        #endregion  // InternalHeatFlowUnits
+
+        #region InternalTemperatureUnits
+        /// <summary>
+        /// Internal Temperature Units ... Set to "K"  -  Kelvin
+        /// </summary>
+        public string InternalTemperatureUnits { get; set; }      // INTERNAL Temperature Units
+        #endregion  // InternalTemperatureUnits
+
+        #region InternalCP_Units
+        /// <summary>
+        /// Internal CP - Heat Capacity Flow Rate (m*Cp) Units ... Set to "kW/K"
+        /// </summary>
+        public string InternalCP_Units { get; set; }   // INTERNAL CP - Heat Capacity Flow Rate (m*Cp) Units
+        #endregion  // InternalCP_Units
+
+        #region InternalU_Units
+        /// <summary>
+        /// Internal U - Overall Heat Transfer Coefficient Units ... Set to "kW/(m² K)"
+        /// </summary>
+        public string InternalU_Units { get; set; }   // INTERNAL U - Overall Heat Transfer Coefficient Units
+        #endregion  // InternalU_Units
+
+        #region InternalArea_Units
+        /// <summary>
+        /// Internal A - Area Units ... Set to "m²"
+        /// </summary>
+        public string InternalArea_Units { get; set; }   // INTERNAL A - Area Units
+        #endregion  // InternalArea_Units
+
+        #endregion  // INTERNAL UNITS
+
+        #region EXTERNAL UNITS
+
+        #region ExternalUnitsSystem
+        /// <summary>
+        /// External Units System ... Set by User Selection (e.g., "ENGLISH")
+        /// </summary>
+        public string ExternalUnitsSystem { get; set; }      // EXTERNAL Units System
+        #endregion  // ExternalUnitsSystem
+
+        #region ExternalMagUnits
+        /// <summary>
+        /// External Magnitude Units ... Set by User Selection (e.g., "MEGA" - MM ... [BASE * 10^6])
+        /// </summary>
+        public string ExternalMagUnits { get; set; }      // EXTERNAL Magnitude Units
+        #endregion  // ExternalMagUnits
+
+        #region ExternalHeatFlowUnits
+        /// <summary>
+        /// External Heat Flow Units ... Set by User Selections
+        /// User selects System (e.g., ENGLISH), Magnitude (e.g., MEGA-MM) 
+        /// Heat Flow External Units constructed based on User Selections (e.g., "MMBtu/hr")
+        /// </summary>
+        public string ExternalHeatFlowUnits { get; set; }      // EXTERNAL Heat Flow Units
+        #endregion  // ExternalHeatFlowUnits
+
+        #region ExternalTemperatureUnits
+        /// <summary>
+        /// External Temperature Units ... Set to "°F"  -  Fahrenheit
+        /// </summary>
+        public string ExternalTemperatureUnits { get; set; }      // EXTERNAL Temperature Units
+        #endregion  // ExternalTemperatureUnits
+
+        #region ExternalCP_Units
+        /// <summary>
+        /// Internal CP - Heat Capacity Flow Rate (m*Cp) Units ... Set by User Selections
+        /// User selects System (e.g., ENGLISH), Magnitude (e.g., MEGA-MM), and Temperature (e.g., °F)
+        /// CP External Units constructed based on User Selections (e.g., "MMBtu/(hr °F)" )
+        /// </summary>
+        public string ExternalCP_Units { get; set; }   // EXTERNAL CP - Heat Capacity Flow Rate (m*Cp) Units
+        #endregion  // ExternalCP_Units
+
+        #region ExternalU_Units
+        /// <summary>
+        /// Internal U - Overall Heat Transfer Coefficient Units ... Set by User Selections
+        /// User selects System (e.g., ENGLISH), Magnitude (e.g., MEGA-MM), and Temperature (e.g., °F)
+        /// U External Units constructed based on User Selections (e.g., "MMBtu/(hr ft² °F)"
+        /// </summary>
+        public string ExternalU_Units { get; set; }   // EXTERNAL U - Overall Heat Transfer Coefficient Units
+        #endregion  // ExternalU_Units
+
+        #region ExternalArea_Units
+        /// <summary>
+        /// External A - Area Units ... Set by User Selections
+        /// User selects System (e.g., ENGLISH)
+        /// Area (A) External Units constructed based on User Selections (e.g., "ft²")
+        /// </summary>
+        public string ExternalArea_Units { get; set; }   // EXTERNAL A - Area Units
+        #endregion  // ExternalArea_Units
+
+        #endregion  // INTERNAL UNITS
+
         #endregion      // PROPERTIES
 
         #region CTOR
@@ -134,9 +382,7 @@ namespace PinchGlobal
             PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating PinchSettings Object");
             try
             {
-                //------------------------
-                //--- PINCH COMPONENTS ---
-                //------------------------
+                #region PINCH COMPONENTS
                 AJP_PINCH_COMPONENTS.Clear();
                 AJP_PINCH_COMPONENTS.Add("Pinch.exe");
                 AJP_PINCH_COMPONENTS.Add("_AJP License File.ll");
@@ -146,10 +392,38 @@ namespace PinchGlobal
                 AJP_PINCH_COMPONENTS.Add("_PinchHen.dll");
                 AJP_PINCH_COMPONENTS.Add("_PinchReports.dll");
                 AJP_PINCH_COMPONENTS.Add("_PinchTargets.dll");
+                #endregion  // PINCH COMPONENTS
 
+                #region LOG LICENSE DATA
                 WriteSupplierDataToLog();   // Write Supplier Data to Log
                 WriteCustomerDataToLog();   // Write Customer Data to Log
                 WriteProductDataToLog();    // Write Product  Data to Log
+                #endregion  // LOG LICENSE DATA
+
+                #region INTERNAL UNITS
+                InternalUnitsSystem = METRIC_UNITS;     // INTERNAL System:      "METRIC"
+                InternalMagUnits = MAG_KILO;            // INTERNAL Magnitude:   "KILO"
+                InternalHeatFlowUnits = W_HEAT_FLOW;    // INTERNAL Heat Flow:   "W"
+                InternalTemperatureUnits = KELVIN;      // INTERNAL Temperature: "K"
+                InternalCP_Units = KW_K_CP;             // INTERNAL CP:          "kW/K"
+                InternalU_Units = KW_K_U;               // INTERNAL U:           "kW/(m² K)"
+                InternalArea_Units = SqM;               // INTERNAL Area:        "m²"
+
+                WriteInternalUnitsDataToLog();          // Write INTERNAL Units Data to Log
+                #endregion  // INTERNAL UNITS
+
+                #region EXTERNAL UNITS
+                ExternalUnitsSystem = ENGLISH_UNITS;    // EXTERNAL System:      "ENGLISH"
+                ExternalMagUnits = MAG_MEGA;            // EXTERNAL Magnitude:   "MEGA"
+                ExternalHeatFlowUnits = BTU_HEAT_FLOW;  // EXTERNAL Heat Flow:   "Btu/hr"
+                ExternalTemperatureUnits = DEG_F;       // EXTERNAL Temperature: "°F"
+                ExternalCP_Units = MMBTU_F_CP;          // EXTERNAL CP:          "MMBtu/(hr °F)"
+                ExternalU_Units = MMBTU_F_U;            // EXTERNAL U:           "MMBtu/(hr ft² °F)"
+                ExternalArea_Units = SqFt;              // EXTERNAL Area:        "ft²"
+
+                WriteExternalUnitsDataToLog();          // Write EXTERNAL Units Data to Log
+                #endregion  // EXTERNAL UNITS
+
             }
             catch (Exception ex)
             {
@@ -159,13 +433,117 @@ namespace PinchGlobal
             }
             finally
             {
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
+                PinchLogger.WriteSeparatorLine('=');
+
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "PinchSettings Object CREATED");
                 PinchLogger.WriteSeparatorLine('<');
             }
         }
         #endregion      // CTOR
 
         #region WRITE LOG METHODS
+
+        #region WriteInternalUnitsDataToLog()
+        /// <summary>
+        /// Write AJP Pinch Internal Units to Log
+        /// </summary>
+        private void WriteInternalUnitsDataToLog()
+        {
+            string strMethod = "WriteInternalUnitsDataToLog()";
+            try
+            {
+                PinchLogger.WriteSection("INTERNAL UNITS DATA");
+
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL System      : " + InternalUnitsSystem);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Magnitude   : " + InternalMagUnits);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Heat Flow   : " + InternalHeatFlowUnits);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Temperature : " + InternalTemperatureUnits);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL CP          : " + InternalCP_Units);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL U           : " + InternalU_Units);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Area        : " + InternalArea_Units);
+
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // WriteInternalUnitsDataToLog()
+
+        #region WriteExternalUnitsDataToLog()
+        /// <summary>
+        /// Write AJP Pinch Internal Units to Log
+        /// </summary>
+        private void WriteExternalUnitsDataToLog()
+        {
+            string strMethod = "WriteExternalUnitsDataToLog()";
+            try
+            {
+                PinchLogger.WriteSection("EXTERNAL UNITS DATA");
+
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL System      : " + ExternalUnitsSystem);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Magnitude   : " + ExternalMagUnits);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Heat Flow   : " + ExternalHeatFlowUnits);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Temperature : " + ExternalTemperatureUnits);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL CP          : " + ExternalCP_Units);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL U           : " + ExternalU_Units);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Area        : " + ExternalArea_Units);
+
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // WriteExternalUnitsDataToLog()
+
+        #region WriteProductDataToLog()
+        /// <summary>
+        /// Write AJP Pinch Product Metadata to Log
+        /// </summary>
+        private void WriteProductDataToLog()
+        {
+            string strMethod = "WriteProductDataToLog()";
+            try
+            {
+                PinchLogger.WriteSection("PINCH PRODUCT INFORMATION");
+
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT FULLNAME      : " + AJP_PRODUCT_FULLNAME);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT NAME          : " + AJP_PRODUCT_NAME);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT VERSION       : " + AJP_PRODUCT_VERSION);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT SERIAL_NUMBER : " + AJP_PRODUCT_SERIAL_NUMBER);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT CODE          : " + AJP_PRODUCT_CODE);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "----------- COMPONENTS ----------- ");
+                foreach(string str in AJP_PINCH_COMPONENTS)
+                {
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  > " + str);
+                }
+                //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "----------- COMPONENTS ----------- ");
+                //PinchLogger.WriteSeparatorLine('=');
+            }
+            catch (Exception ex)
+            {
+                PinchLogger.WriteSeparatorLine('*');
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // WriteProductDataToLog()
 
         #region WriteSupplierDataToLog()
         /// <summary>
@@ -222,42 +600,6 @@ namespace PinchGlobal
             }
         }
         #endregion  // WriteCustomerDataToLog()
-
-        #region WriteProductDataToLog()
-        /// <summary>
-        /// Write AJP Pinch Product Metadata to Log
-        /// </summary>
-        private void WriteProductDataToLog()
-        {
-            string strMethod = "WriteProductDataToLog()";
-            try
-            {
-                PinchLogger.WriteSection("PINCH PRODUCT INFORMATION");
-
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT FULLNAME      : " + AJP_PRODUCT_FULLNAME);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT NAME          : " + AJP_PRODUCT_NAME);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT VERSION       : " + AJP_PRODUCT_VERSION);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT SERIAL_NUMBER : " + AJP_PRODUCT_SERIAL_NUMBER);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT CODE          : " + AJP_PRODUCT_CODE);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "----------- COMPONENTS ----------- ");
-                foreach(string str in AJP_PINCH_COMPONENTS)
-                {
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  > " + str);
-                }
-                //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "----------- COMPONENTS ----------- ");
-                PinchLogger.WriteSeparatorLine('=');
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // WriteProductDataToLog()
 
         #endregion  // WRITE LOG METHODS
 

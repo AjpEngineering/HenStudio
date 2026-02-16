@@ -50,12 +50,12 @@ using System.Threading.Tasks;
 #region namespace PinchGlobal
 namespace PinchGlobal
 {
-    #region public static class PinchMethods
+    #region public class PinchMethods
     /// <summary>
-    /// Common Global static Pinch Methods Class
+    /// Common Global Pinch Methods Class
     /// Contains String Checks, Hash, and Units Conversion methods
     /// </summary>
-    public static class PinchMethods
+    public class PinchMethods
     {
         #region CONSTANTS
         const string NAMESPACE = "PinchGlobal";
@@ -65,18 +65,28 @@ namespace PinchGlobal
 
         #region PROPERTIES
 
+        #region PinchSettingsObj
+        /// <summary>
+        /// PinchSettings Object
+        /// </summary>
+        public PinchSettings PinchSettingsObj { get; set; }   // PinchSettings Object
+        #endregion  // PinchSettingsObj   
+        
         #endregion      // PROPERTIES
 
         #region CTOR
         /// <summary>
-        /// Default Constructor ... NO CTOR for STATIC CLASS
+        /// Default Constructor...NO CTOR for STATIC CLASS
         /// </summary>
-        //public PinchMethods()
-        //{
-        //    string strMethod = "CTOR";
-        //    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
-
-        //}
+        public PinchMethods(PinchSettings pinchSettingsObj)
+        {
+            string strMethod = "CTOR";
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            //-------------------------
+            //--- Assign Properties ---
+            //-------------------------
+            PinchSettingsObj = pinchSettingsObj;
+        }
         #endregion      // CTOR
 
         #region STATIC STRING VALUE CHECK STATIC METHODS
@@ -376,13 +386,333 @@ namespace PinchGlobal
 
         #endregion  // STATIC HASH METHODS
 
-        #region STATIC UNIT CONVERSION METHODS
+        #region CONVERSION METHODS
+
+        #region ConvertToInternal()
+        /// <summary>
+        /// Convert External data value in External Units to data value in Internal Units
+        /// Internal units are used by the Targets and Hen Engines.
+        /// External units are customer facing, i.e., UI units (controls)
+        /// External Units are set by the user in the INPUT-Project Panel controls
+        /// Internal units are set on initial construction and do not change
+        /// Both Internal and External units string Properties are contained in PinchSettings
+        /// </summary>
+        /// <param name="enumConType">Conversion Units Enumeration Type [PinchTypes]</param>
+        /// <param name="dExternalValue">External Value to be converted</param>
+        /// <returns>Converted internal value now in internal units</returns>
+        public double ConvertAreaToInternal(PinchTypes.ConversionUnitsTypes enumConType,
+                                            double dExternalValue)
+        {
+            string strMethod = "ConvertAreaToInternal";
+            string strMsg = String.Empty;
+            double dInternalValue = 0.0;
+            string strInternalUnits = String.Empty;
+            try
+            {
+                switch (enumConType)
+                {
+                    #region A - AREA
+                    case PinchTypes.ConversionUnitsTypes.A:
+                        if (string.Compare(PinchSettingsObj.InternalArea_Units,
+                                           PinchSettingsObj.ExternalArea_Units, true) == 0)
+                        {
+                            //--- No Need for Conversion ! ---
+                            dInternalValue = dExternalValue;
+                        }
+                        else
+                        {
+                            //--- Convert SqFt to SqM ---
+                            dInternalValue = dExternalValue * 0.09290313;
+                        }                    
+                        break;
+                    #endregion  // A- AREA
+
+                    #region T - TEMPERATURE
+                    case PinchTypes.ConversionUnitsTypes.TEMP:
+                        if (string.Compare(PinchSettingsObj.InternalTemperatureUnits,
+                                           PinchSettingsObj.ExternalTemperatureUnits, true) == 0)
+                        {
+                            //--- No Need for Conversion - Already (K)! ---
+                            dInternalValue = dExternalValue;
+                        }
+                        else
+                        {
+                            //--- Convert External Temperature Units to Internal Temperature Units ---
+                            switch(PinchSettingsObj.ExternalTemperatureUnits)
+                            {
+                                case PinchSettings.DEG_F:
+                                    //--- Convert [ (°F) to (K)] ] ---
+                                    dInternalValue = ((dExternalValue - 32.0) / 1.8) + 273.15;
+                                    break;
+                                case PinchSettings.DEG_R:
+                                    //--- Convert [ (°R) to (K)] ] ---
+                                    dInternalValue = ((dExternalValue - 491.67) / 1.8) + 273.15;
+                                    break;
+                                case PinchSettings.DEG_C:
+                                    //--- Convert [ (°C) to (K)] ] ---
+                                    dInternalValue = (dExternalValue + 273.15);
+                                    break;
+                                default:
+                                    strMsg = string.Format("Unknown External Temperature Units ENCOUNTERED!  {0}",
+                                                            PinchSettingsObj.ExternalTemperatureUnits);
+                                    throw new Exception(strMsg);
+                            }
+                        }
+                        break;
+                    #endregion  // T - TEMPERATURE
+
+                    #region H - HEAT FLOW 
+                    //-----------------------------------------------------------------------------
+                    //--- Heat Flow is (Btu/hr) for ENGLISH and (W) for METRIC
+                    //--- User selects [ENGLISH | METRIC] - Heat Flow is set to [Btu/hr | W]
+                    //--- User then selects Magnitude [BASE | KILO | MEGA]
+                    //--- Use Heat Flow Units to determine [ METRIC | ENGLISH ]
+                    //--- Then Determine Magnitude for Conversions
+                    //--- NOTE: Conversion factors are the same as Heat Flow
+                    //-----------------------------------------------------------------------------
+                    case PinchTypes.ConversionUnitsTypes.HEAT_FLOW:
+                        if (string.Compare(PinchSettingsObj.InternalHeatFlowUnits,
+                                           PinchSettingsObj.ExternalHeatFlowUnits, true) == 0)
+                        {
+                            #region METRIC
+                            //----------------------------------------------------------
+                            //--- Convert External Heat Flow Units (W) | (kW) | (MW) ---
+                            //--- to Internal Heat Flow Units (kW)                   ---
+                            //----------------------------------------------------------
+                            switch (PinchSettingsObj.ExternalMagUnits)
+                            {
+                                case PinchSettings.MAG_BASE:
+                                    //--- Convert W to kW ---
+                                    dInternalValue = dExternalValue * 0.001;
+                                    break;
+                                case PinchSettings.MAG_KILO:
+                                    //--- No Conversion Needed - Already (kW) ! ---
+                                    dInternalValue = dExternalValue;
+                                    break;
+                                case PinchSettings.MAG_MEGA:
+                                    //--- Convert MW to kW ---
+                                    dInternalValue = dExternalValue * 1000.0;
+                                    break;
+                                default:
+                                    strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
+                                                            PinchSettingsObj.ExternalMagUnits);
+                                    throw new Exception(strMsg);
+                            }
+                            #endregion  // METRIC
+                        }
+                        else
+                        {
+                            #region ENGLISH
+                            //--------------------------------------------------------------------------
+                            //--- Convert External Heat Flow Units (Btu/hr) | (kBtu/hr) | (MMBtu/hr) ---
+                            //--- to Internal Heat Flow Units (kW)                                   ---
+                            //--------------------------------------------------------------------------
+                            switch (PinchSettingsObj.ExternalMagUnits)
+                            {
+                                case PinchSettings.MAG_BASE:
+                                    //--- Convert (Btu/hr) to (kW) ---
+                                    dInternalValue = dExternalValue * 0.000293071;
+                                    break;
+                                case PinchSettings.MAG_KILO:
+                                    //--- Convert kBtu/hr) to (kW) ---
+                                    dInternalValue = dExternalValue * 0.293071071;
+                                    break;
+                                case PinchSettings.MAG_MEGA:
+                                    //--- Convert (MMBtu/hr) to (kW) ---
+                                    dInternalValue = dExternalValue * 293.071071;
+                                    break;
+                                default:
+                                    strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
+                                                            PinchSettingsObj.ExternalMagUnits);
+                                    throw new Exception(strMsg);
+                            }
+                            #endregion  // ENGLISH
+                        }
+                        break;
+                    #endregion  // H - HEAT FLOW
+
+                    #region CP - HEAT CAPACITY FLOW RATE
+                    //-----------------------------------------------------------------------------
+                    //--- CP consists of Heat Flow divided by Temp
+                    //-----------------------------------------------------------------------------
+                    //--- Heat Flow is (Btu/hr) for ENGLISH and (W) for METRIC
+                    //--- User selects [ENGLISH | METRIC] - Heat Flow is set to [Btu/hr | W]
+                    //--- User then selects Magnitude [BASE | KILO | MEGA]
+                    //--- For CP Conversion use Heat Flow Units to determine [ METRIC | ENGLISH ]
+                    //--- Then Determine Magnitude for Conversions
+                    //--- NOTE: Conversion factors are the same as Heat Flow
+                    //-----------------------------------------------------------------------------
+                    case PinchTypes.ConversionUnitsTypes.CP:
+                        if (string.Compare(PinchSettingsObj.InternalHeatFlowUnits,
+                                           PinchSettingsObj.ExternalHeatFlowUnits, true) == 0)
+                        {
+                            #region METRIC
+                            //--------------------------------------------------------------
+                            //--- Convert External CP Units (W/K)  | (kW/K)  | (MW/K)  | ---
+                            //---                           (W/°C) | (kW/°C) | (MW/°C) | ---
+                            //--- to Internal CP Units (kW/K)                            ---
+                            //--------------------------------------------------------------
+                            switch (PinchSettingsObj.ExternalMagUnits)
+                            {
+                                case PinchSettings.MAG_BASE:
+                                    //--- Convert [ (W/°C) to (kW/K)] | [(W/K) to (kW/K) ] ---
+                                    //--- °C or K both use the same conversion factor - dealing with delta temperatures
+                                    dInternalValue = dExternalValue * 0.001;
+                                    break;
+                                case PinchSettings.MAG_KILO:
+                                    //--- No Conversion Needed - Already (kW/K) ! ---
+                                    dInternalValue = dExternalValue;
+                                    break;
+                                case PinchSettings.MAG_MEGA:
+                                    //--- Convert [ (MW/°C) to (kW/K)] | [(MW/K) to (kW/K) ] ---
+                                    //--- °C or K both use the same conversion factor - dealing with delta temperatures
+                                    dInternalValue = dExternalValue * 1000.0;
+                                    break;
+                                default:
+                                    strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
+                                                            PinchSettingsObj.ExternalMagUnits);
+                                    throw new Exception(strMsg);
+                            }
+                            #endregion  // METRIC
+                        }
+                        else
+                        {
+                            #region ENGLISH
+                            //----------------------------------------------------------------------------------
+                            //--- Convert External CP Units (Btu/(hr °F) | (kBtu/(hr °F)  | (MMBtu/(hr °F) | ---
+                            //---                           (Btu/(hr °R) | (kBtu/(hr °R)  | (MMBtu/(hr °R)   ---
+                            //--- to Internal CP Units (kW/K)                                                ---
+                            //----------------------------------------------------------------------------------
+                            switch (PinchSettingsObj.ExternalMagUnits)
+                            {
+                                case PinchSettings.MAG_BASE:
+                                    //--- Convert [ (Btu/(hr °F) to (kW/K)] | (Btu/(hr °R) to (kW/K) ] ---
+                                    //--- °F or °R both use the same conversion factor - dealing with delta temperatures
+                                    dInternalValue = dExternalValue * 0.000293071;
+                                    break;
+                                case PinchSettings.MAG_KILO:
+                                    //--- Convert [ (kBtu/(hr °F) to (kW/K)] | (kBtu/(hr °R) to (kW/K) ] ---
+                                    //--- °F or °R both use the same conversion factor - dealing with delta temperatures
+                                    dInternalValue = dExternalValue * 0.293071071;
+                                    break;
+                                case PinchSettings.MAG_MEGA:
+                                    //--- Convert [ (MMBtu/(hr °F) to (kW/K)] | (MMBtu/(hr °R) to (kW/K) ] ---
+                                    //--- °F or °R both use the same conversion factor - dealing with delta temperatures
+                                    dInternalValue = dExternalValue * 293.071071;
+                                    break;
+                                default:
+                                    strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
+                                                            PinchSettingsObj.ExternalMagUnits);
+                                    throw new Exception(strMsg);
+                            }
+                            #endregion  // ENGLISH
+                        }
+                        break;
+                    #endregion  // CP - HEAT CAPACITY FLOW RATE
+
+                    #region U - OVERALL HEAT TRANSFER COEFFICIENT
+                    //-----------------------------------------------------------------------------
+                    //--- U consists of CP divided by Temp
+                    //-----------------------------------------------------------------------------
+                    //--- Heat Flow is (Btu/hr) for ENGLISH and (W) for METRIC
+                    //--- User selects [ENGLISH | METRIC] - Heat Flow is set to [Btu/hr | W]
+                    //--- User then selects Magnitude [BASE | KILO | MEGA]
+                    //--- User selects Heat Flow as [Btu/hr | W] and then selects Magnitude
+                    //--- For U Conversion use Heat Flow Units to determine [ METRIC | ENGLISH ]
+                    //--- Then Determine Magnitude for Conversions
+                    //-----------------------------------------------------------------------------
+                    case PinchTypes.ConversionUnitsTypes.U:
+                        if (string.Compare(PinchSettingsObj.InternalHeatFlowUnits,
+                                           PinchSettingsObj.ExternalHeatFlowUnits, true) == 0)
+                        {
+                            #region METRIC
+                            //----------------------------------------------------------------------
+                            //--- Convert External U Units (W/(m²K)  | (kW/(m²K)  | (MW/(m²K)  | ---
+                            //---                          (W/(m²°C) | (kW/(m²°C) | (MW/(m²°C) | ---
+                            //--- to Internal U Units (kW/(m²K)                                  ---
+                            //----------------------------------------------------------------------
+                            switch (PinchSettingsObj.ExternalMagUnits)
+                            {
+                                case PinchSettings.MAG_BASE:
+                                    //--- Convert [ (W/(m²°C) to (kW/(m²K) | (W/(m²K) to (kW/(m²K) ] ---
+                                    //--- °C or K both use the same conversion factor - dealing with delta temperatures
+                                    dInternalValue = dExternalValue * 0.001;
+                                    break;
+                                case PinchSettings.MAG_KILO:
+                                    //--- No Conversion Needed - Already (kW/(m²K)! ---
+                                    dInternalValue = dExternalValue;
+                                    break;
+                                case PinchSettings.MAG_MEGA:
+                                    //--- Convert [ (MW/(m²°C) to (kW/(m²K) | (MW/(m²K) to (kW/(m²K) ] ---
+                                    //--- °C or K both use the same conversion factor - dealing with delta temperatures
+                                    dInternalValue = dExternalValue * 1000.0;
+                                    break;
+                                default:
+                                    strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
+                                                            PinchSettingsObj.ExternalMagUnits);
+                                    throw new Exception(strMsg);
+                            }
+                            #endregion  // METRIC
+                        }
+                        else
+                        {
+                            #region ENGLISH
+                            //---------------------------------------------------------------------------------------------
+                            //--- Convert External U Units (Btu/(hr ft² °F) | (kBtu/(hr ft² °F)  | (MMBtu/(hr ft² °F) | ---
+                            //---                          (Btu/(hr ft² °R) | (kBtu/(hr ft² °R)  | (MMBtu/(hr ft² °R)   ---
+                            //--- to Internal U Units (kW/K)                                                            ---
+                            //---------------------------------------------------------------------------------------------
+                            switch (PinchSettingsObj.ExternalMagUnits)
+                            {
+                                case PinchSettings.MAG_BASE:
+                                    //--- Convert [ (Btu/(hr ft² °F) to (kW/(m²K) | (Btu/(hr ft² °R) to (kW/(m²K) ] ---
+                                    //--- °F or °R both use the same conversion factor - dealing with delta temperatures
+                                    dInternalValue = dExternalValue * 0.005678263;
+                                    break;
+                                case PinchSettings.MAG_KILO:
+                                    //--- Convert [ (kBtu/(hr ft² °F) to (kW/(m²K) | (kBtu/(hr ft² °R) to (kW/(m²K) ] ---
+                                    //--- °F or °R both use the same conversion factor - dealing with delta temperatures
+                                    dInternalValue = dExternalValue * 5.678263;
+                                    break;
+                                case PinchSettings.MAG_MEGA:
+                                    //--- Convert [ (MMBtu/(hr ft² °F) to (kW/(m²K) | (MMBtu/(hr ft² °R) to (kW/(m²K) ] ---
+                                    //--- °F or °R both use the same conversion factor - dealing with delta temperatures
+                                    dInternalValue = dExternalValue * 5678.263;
+                                    break;
+                                default:
+                                    strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
+                                                            PinchSettingsObj.ExternalMagUnits);
+                                    throw new Exception(strMsg);
+                            }
+                            #endregion  // ENGLISH
+                        }
+                        break;
+                    #endregion  // U - OVERALL HEAT TRANSFER COEFFICIENT
+
+                    #region UNKNOWN
+                    default:
+
+                        break;
+                    #endregion  // UNKNOWN
+                }
+            }
+            catch (Exception ex)
+            {
+                //--- LOG EXCEPTION ---
+                PinchLogger.WriteSeparatorLine('*');
+                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            return dInternalValue;
+        }
+        #endregion  // ConvertAreaToInternal()
 
 
-        #endregion  // STATIC UNIT CONVERSION METHODS
+        #endregion  // CONVERSION METHODS
 
     }
-    #endregion      // public static class PinchTypes
+    #endregion      // public class PinchTypes
 }
 #endregion      // namespace PinchGlobal
 

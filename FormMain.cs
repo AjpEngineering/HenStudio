@@ -132,6 +132,7 @@ namespace Pinch
         public PinchFileSystem PinchFileSysObj { get; set; }       // Pinch File System Object
         public PinchSettings PinchSettingsObj { get; set; }        // Pinch Settings Object
         public PinchTypes PinchTypesObj { get; set; }              // Pinch Types Object
+        public PinchMethods PinchMethodsObj { get; set; }          // Pinch Methods Object
         public PanelTableMgr PanelTableMgrObj { get; set; }        // Panel Table Manager Object
         //-------------------------------------------------------------------------------------------- DATA OBJECTS ---
         public ManifestData ManifestDataObj { get; set; }          // Manifest Data Object
@@ -174,6 +175,7 @@ namespace Pinch
                 PinchFileSysObj = new PinchFileSystem();
                 PinchSettingsObj = new PinchSettings();
                 PinchTypesObj = new PinchTypes();
+                PinchMethodsObj = new PinchMethods(PinchSettingsObj);
 
                 LicenseMgrObj = new LicenseMgr(PinchFileSysObj.LicenseFilePath);
                 //------------------------------------------
@@ -334,6 +336,7 @@ namespace Pinch
                                                    TargetsDataMgrObj,
                                                    HenDataMgrObj);
                 #endregion  // CONSTRUCT INITIAL OBJECT TREE
+
             }
             catch (Exception ex)
             {

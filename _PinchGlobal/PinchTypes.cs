@@ -63,6 +63,8 @@ namespace PinchGlobal
 
         #region ENUMS
 
+        #region LICENSE
+
         #region enum LicenseStatus
         /// <summary>
         /// ENUMERATION: License Status
@@ -91,9 +93,13 @@ namespace PinchGlobal
         };
         #endregion      // enum LicenseType
 
+        #endregion  // LICENSE
+
+        #region UNITS
+
         #region enum PinchUnits
         /// <summary>
-        /// ENUMERATION: Pinch Units
+        /// ENUMERATION: Pinch Units [ENGLISH | METIRC | UNKNOWN]
         /// </summary>
         public enum PinchUnits
         {
@@ -102,6 +108,25 @@ namespace PinchGlobal
             METRIC  =  1        // METRIC-SI Units
         };
         #endregion      // enum PinchUnits
+
+        #region enum ConversionUnitsTypes
+        /// <summary>
+        /// ENUMERATION: Conversion Units Types [ UNKNOWN | HEAT_FLOW | TEMP | CP | U | A ]
+        /// </summary>
+        public enum ConversionUnitsTypes
+        {
+            UNKNOWN = -1,   // UNKNOWN
+            HEAT_FLOW = 0,  // Heat Flow (e.g., Btu/hr | W)
+            TEMP = 1,       // Temperature (e.g., °F | °R | °C | K ) 
+            CP = 2,         // CP - Heat Capacity Flow Rate (e.g., Btu/(hr °F) | W/K ) 
+            U = 3,          // U - Overall Heat Transfer Coefficient (e.g., Btu/(hr ft² °F) | W/(m² K) 
+            A = 4           // A - Area (e.g., ft² | m²)
+        };
+        #endregion      // enum ConversionUnitsTypes
+
+        #endregion  // UNITS
+
+        #region HEAT
 
         #region enum HeatLoadType
         /// <summary>
@@ -151,34 +176,9 @@ namespace PinchGlobal
         };
         #endregion      // enum SensibleHeatType
 
-        #region enum LogLevel
-        /// <summary>
-        /// ENUMERATION: Logging Level
-        /// </summary>
-        public enum LogLevel
-        {
-            UNKNOWN       = -1,  // UNKNOWN Log Level
-            LOG_NONE      =  0,  // TURN LOGGING OFF
-            LOG_ERRORS    =  1,  // LOG ONLY ERROR MESSAGES
-            LOG_WARNINGS  =  2,  // LOG ERROR & WARNING MESSAGES
-            LOG_IMPORTANT =  3,  // LOG ERROR,  WARNING & IMPORTANT INFO MESSAGES
-            LOG_ALL       =  4   // LOG ALL MESSAGES
-        };
-        #endregion      // enum LogLevel
+        #endregion  // HEAT
 
-        #region enum ProgressStates
-        /// <summary>
-        /// ENUMERATION: Progress States
-        /// </summary>
-        public enum ProgressStates
-        {
-            FAILED  = -1,       // FAILED STATE
-            UNKNOWN =  0,       // UNKNOWN PROGRESS STATE
-            TBD     =  1,       // TO BE DONE STATE
-            WORKING =  2,       // WORKING STATE
-            DONE    =  3        // DONE or COMPLETED STATE
-        };
-        #endregion      // enum ProgressStates
+        #region STREAM
 
         #region enum StreamPhase
         /// <summary>
@@ -204,6 +204,45 @@ namespace PinchGlobal
             HOT     =  1   // HOT  Stream
         };
         #endregion      // enum StreamTypes
+
+        #endregion      // STREAM
+
+        #region PROGRESS
+
+        #region enum ProgressStates
+        /// <summary>
+        /// ENUMERATION: Progress States
+        /// </summary>
+        public enum ProgressStates
+        {
+            FAILED  = -1,       // FAILED STATE
+            UNKNOWN =  0,       // UNKNOWN PROGRESS STATE
+            TBD     =  1,       // TO BE DONE STATE
+            WORKING =  2,       // WORKING STATE
+            DONE    =  3        // DONE or COMPLETED STATE
+        };
+        #endregion      // enum ProgressStates
+
+        #endregion  // PROGRESS
+
+        #region LOG
+
+        #region enum LogLevel
+        /// <summary>
+        /// ENUMERATION: Logging Level
+        /// </summary>
+        public enum LogLevel
+        {
+            UNKNOWN       = -1,  // UNKNOWN Log Level
+            LOG_NONE      =  0,  // TURN LOGGING OFF
+            LOG_ERRORS    =  1,  // LOG ONLY ERROR MESSAGES
+            LOG_WARNINGS  =  2,  // LOG ERROR & WARNING MESSAGES
+            LOG_IMPORTANT =  3,  // LOG ERROR,  WARNING & IMPORTANT INFO MESSAGES
+            LOG_ALL       =  4   // LOG ALL MESSAGES
+        };
+        #endregion      // enum LogLevel
+
+        #endregion  // LOG
 
         #endregion      // ENUMS
 
