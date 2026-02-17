@@ -406,7 +406,6 @@ namespace PinchGlobal
             string strMethod = "ConvertAreaToInternal";
             string strMsg = String.Empty;
             double dInternalValue = 0.0;
-            string strInternalUnits = String.Empty;
             try
             {
                 switch (enumConType)
@@ -706,12 +705,45 @@ namespace PinchGlobal
             }
             return dInternalValue;
         }
-        #endregion  // ConvertAreaToInternal()
+        #endregion  // ConvertToInternal()
 
+        #region ConvertFromInternal()
+        /// <summary>
+        /// Convert Internal data value in Internal Units to data value in External Units
+        /// Internal units are used by the Targets and Hen Engines.
+        /// External units are customer facing, i.e., UI units (controls)
+        /// External Units are set by the user in the INPUT-Project Panel controls
+        /// Internal units are set on initial construction and do not change
+        /// Both Internal and External units string Properties are contained in PinchSettings
+        /// </summary>
+        /// <param name="enumConType">Conversion Units Enumeration Type [PinchTypes]</param>
+        /// <param name="dInternalValued">Internal Value to be converted</param>
+        /// <returns>Converted external value now in external units</returns>
+        public double ConvertFromInternal(PinchTypes.ConversionUnitsTypes enumConType,
+                                          double dInternalValue)
+        {
+            string strMethod = "ConvertFromInternal";
+            string strMsg = String.Empty;
+            double dExternalValue = 0.0;
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                //--- LOG EXCEPTION ---
+                PinchLogger.WriteSeparatorLine('*');
+                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
+                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                PinchLogger.WriteSeparatorLine('*');
+            }
+            return dExternalValue;
+        }
+        #endregion  // ConvertFromInternal()
 
         #endregion  // CONVERSION METHODS
 
-    }
+        }
     #endregion      // public class PinchTypes
 }
 #endregion      // namespace PinchGlobal
