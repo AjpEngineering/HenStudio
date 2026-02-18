@@ -255,59 +255,65 @@ namespace PinchGlobal
         #endregion  // STATUS BAR
 
         #region INTERNAL UNITS
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        //-=-=-=-=-=- INTERNAL UNITS PROPERTIES ARE GETTER ONLY -=-=-=-=-=-
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
         #region InternalUnitsSystem
         /// <summary>
         /// Internal Units System ... Set to "METRIC"
         /// </summary>
-        public string InternalUnitsSystem { get; set; }      // INTERNAL Units System
+        public string InternalUnitsSystem { get; }      // INTERNAL Units System ... Getter ONLY
         #endregion  // InternalUnitsSystem
 
         #region InternalMagUnits
         /// <summary>
         /// Internal Magnitude Units ... Set to "KILO" ... (BASE * 10^3)
         /// </summary>
-        public string InternalMagUnits { get; set; }      // INTERNAL Magnitude Units
+        public string InternalMagUnits { get; }      // INTERNAL Magnitude Units ... Getter ONLY
         #endregion  // InternalMagUnits
 
         #region InternalHeatFlowUnits
         /// <summary>
         /// Internal Heat Flow Units ... Set to "W"
         /// </summary>
-        public string InternalHeatFlowUnits { get; set; }      // INTERNAL Heat Flow Units
+        public string InternalHeatFlowUnits { get; }  // INTERNAL Heat Flow Units ... Getter ONLY
         #endregion  // InternalHeatFlowUnits
 
         #region InternalTemperatureUnits
         /// <summary>
         /// Internal Temperature Units ... Set to "K"  -  Kelvin
         /// </summary>
-        public string InternalTemperatureUnits { get; set; }      // INTERNAL Temperature Units
+        public string InternalTemperatureUnits { get; }      // INTERNAL Temperature Units ... Getter ONLY
         #endregion  // InternalTemperatureUnits
 
         #region InternalCP_Units
         /// <summary>
         /// Internal CP - Heat Capacity Flow Rate (m*Cp) Units ... Set to "kW/K"
         /// </summary>
-        public string InternalCP_Units { get; set; }   // INTERNAL CP - Heat Capacity Flow Rate (m*Cp) Units
+        public string InternalCP_Units { get; }   // INTERNAL CP - Heat Capacity Flow Rate (m*Cp) Units ... Getter ONLY
         #endregion  // InternalCP_Units
 
         #region InternalU_Units
         /// <summary>
         /// Internal U - Overall Heat Transfer Coefficient Units ... Set to "kW/(m² K)"
         /// </summary>
-        public string InternalU_Units { get; set; }   // INTERNAL U - Overall Heat Transfer Coefficient Units
+        public string InternalU_Units { get; }   // INTERNAL U - Overall Heat Transfer Coefficient Units ... Getter ONLY
         #endregion  // InternalU_Units
 
         #region InternalArea_Units
         /// <summary>
         /// Internal A - Area Units ... Set to "m²"
         /// </summary>
-        public string InternalArea_Units { get; set; }   // INTERNAL A - Area Units
+        public string InternalArea_Units { get; }   // INTERNAL A - Area Units ... Getter ONLY
         #endregion  // InternalArea_Units
 
         #endregion  // INTERNAL UNITS
 
         #region EXTERNAL UNITS
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        //-=-=-=-=-=- EXTERNAL UNITS PROPERTIES ARE BOTH GETTER AND SETTER =-=-=-=-=-=
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
         #region ExternalUnitsSystem
         /// <summary>
@@ -403,25 +409,23 @@ namespace PinchGlobal
                 #region INTERNAL UNITS
                 InternalUnitsSystem = METRIC_UNITS;     // INTERNAL System:      "METRIC"
                 InternalMagUnits = MAG_KILO;            // INTERNAL Magnitude:   "KILO"
-                InternalHeatFlowUnits = W_HEAT_FLOW;    // INTERNAL Heat Flow:   "W"
+                InternalHeatFlowUnits = KW_HEAT_FLOW;   // INTERNAL Heat Flow:   "kW"
                 InternalTemperatureUnits = KELVIN;      // INTERNAL Temperature: "K"
                 InternalCP_Units = KW_K_CP;             // INTERNAL CP:          "kW/K"
                 InternalU_Units = KW_K_U;               // INTERNAL U:           "kW/(m² K)"
                 InternalArea_Units = SqM;               // INTERNAL Area:        "m²"
-
                 WriteInternalUnitsDataToLog();          // Write INTERNAL Units Data to Log
                 #endregion  // INTERNAL UNITS
 
                 #region EXTERNAL UNITS
-                ExternalUnitsSystem = ENGLISH_UNITS;    // EXTERNAL System:      "ENGLISH"
-                ExternalMagUnits = MAG_MEGA;            // EXTERNAL Magnitude:   "MEGA"
-                ExternalHeatFlowUnits = BTU_HEAT_FLOW;  // EXTERNAL Heat Flow:   "Btu/hr"
-                ExternalTemperatureUnits = DEG_F;       // EXTERNAL Temperature: "°F"
-                ExternalCP_Units = MMBTU_F_CP;          // EXTERNAL CP:          "MMBtu/(hr °F)"
-                ExternalU_Units = MMBTU_F_U;            // EXTERNAL U:           "MMBtu/(hr ft² °F)"
-                ExternalArea_Units = SqFt;              // EXTERNAL Area:        "ft²"
-
-                WriteExternalUnitsDataToLog();          // Write EXTERNAL Units Data to Log
+                ExternalUnitsSystem = ENGLISH_UNITS;      // EXTERNAL System:      "ENGLISH"
+                ExternalMagUnits = MAG_MEGA;              // EXTERNAL Magnitude:   "MEGA"
+                ExternalHeatFlowUnits = MMBTU_HEAT_FLOW;  // EXTERNAL Heat Flow:   "MMBtu/hr"
+                ExternalTemperatureUnits = DEG_F;         // EXTERNAL Temperature: "°F"
+                ExternalCP_Units = MMBTU_F_CP;            // EXTERNAL CP:          "MMBtu/(hr °F)"
+                ExternalU_Units = MMBTU_F_U;              // EXTERNAL U:           "MMBtu/(hr ft² °F)"
+                ExternalArea_Units = SqFt;                // EXTERNAL Area:        "ft²"
+                WriteExternalUnitsDataToLog();            // Write EXTERNAL Units Data to Log
                 #endregion  // EXTERNAL UNITS
 
             }

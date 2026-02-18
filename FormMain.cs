@@ -337,6 +337,9 @@ namespace Pinch
                                                    HenDataMgrObj);
                 #endregion  // CONSTRUCT INITIAL OBJECT TREE
 
+                //--- TEST ---
+                PinchMethodsObj.TestUnitConversions();
+
             }
             catch (Exception ex)
             {
