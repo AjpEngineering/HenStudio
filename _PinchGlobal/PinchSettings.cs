@@ -91,6 +91,23 @@ namespace PinchGlobal
         public const string MAG_MEGA = "MEGA";    // BASE * 10^6
         #endregion  // MAG - MAGNITUDE UNITS
 
+        #region T - TEMPERATURE UNITS
+        //---------------------------------------------- ENGLISH TEMPEATURE ---
+        public const string DEG_F = "°F";   // $"\u00B0F";
+        public const string DEG_R = "°R";   // $"\u00B0R";
+        //----------------------------------------------- METRIC TEMPEATURE ---
+        public const string DEG_C = "°C";   // $"\u00B0C";
+        public const string KELVIN = "K";   // <<<---------------- INTERNAL ---<<<
+        #endregion  // T - TEMPERATURE UNITS
+
+        #region A - AREA UNITS
+        //---------------------------------------------------- ENGLISH AREA ---
+        public const string SqFt = "ft²";   // "ft\u00B2"
+
+        //----------------------------------------------------- METRIC AREA ---
+        public const string SqM = "m²";     // "m\u00B2" <<<------ INTERNAL ---<<<
+        #endregion  // A - AREA UNITS
+
         #region H - HEAT FLOW UNITS
         //------------------------------------------- ENGLISH BTU HEAT FLOW ---
         public const string BTU_HEAT_FLOW = "Btu/hr";
@@ -101,15 +118,6 @@ namespace PinchGlobal
         public const string KW_HEAT_FLOW = "kW";    // <<<-------- INTERNAL ---<<<
         public const string MW_HEAT_FLOW = "MW";
         #endregion  // H - HEAT FLOW UNITS
-
-        #region T - TEMPERATURE UNITS
-        //---------------------------------------------- ENGLISH TEMPEATURE ---
-        public const string DEG_F = "°F";   // $"\u00B0F";
-        public const string DEG_R = "°R";   // $"\u00B0R";
-        //----------------------------------------------- METRIC TEMPEATURE ---
-        public const string DEG_C = "°C";   // $"\u00B0C";
-        public const string KELVIN = "K";   // <<<---------------- INTERNAL ---<<<
-        #endregion  // T - TEMPERATURE UNITS
 
         #region CP - HEAT CAPACITY FLOW RATE UNITS
         //-------------------------------------------------- ENGLISH BTU CP ---
@@ -150,14 +158,6 @@ namespace PinchGlobal
         public const string KW_K_U = "kW/(m² K)";    // <<<------- INTERNAL ---<<<
         public const string MW_K_U = "MMW/(m² K)";              // K
         #endregion  // U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
-
-        #region A - AREA UNITS
-        //---------------------------------------------------- ENGLISH AREA ---
-        public const string SqFt = "ft²";   // "ft\u00B2"
-
-        //----------------------------------------------------- METRIC AREA ---
-        public const string SqM = "m²";     // "m\u00B2" <<<------ INTERNAL ---<<<
-        #endregion  // A - AREA UNITS
 
         #endregion  // UNITS STRINGS
 
