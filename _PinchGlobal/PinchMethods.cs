@@ -411,7 +411,7 @@ namespace PinchGlobal
 
         #endregion  // STATIC HASH METHODS
 
-        #region UNITS METHODS
+        #region UNITS CONVERSION METHODS
 
         #region ConvertToInternal()
         /// <summary>
@@ -2835,7 +2835,7 @@ namespace PinchGlobal
         }
         #endregion  // TestUnitConversions()
 
-        #endregion  // UNITS METHODS
+        #endregion  // UNITS CONVERSION METHODS
 
     }
     #endregion      // public class PinchTypes
