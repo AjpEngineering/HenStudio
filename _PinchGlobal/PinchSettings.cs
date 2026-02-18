@@ -99,7 +99,7 @@ namespace PinchGlobal
         //---------------------------------------------- METRIC W HEAT FLOW ---
         public const string W_HEAT_FLOW = "W";
         public const string KW_HEAT_FLOW = "kW";    // <<<-------- INTERNAL ---<<<
-        public const string MMW_HEAT_FLOW = "MW";
+        public const string MW_HEAT_FLOW = "MW";
         #endregion  // H - HEAT FLOW UNITS
 
         #region T - TEMPERATURE UNITS
@@ -124,11 +124,11 @@ namespace PinchGlobal
         //----------------------------------------------------- METRIC W CP ---
         public const string W_C_CP = "W/°C";    // °C
         public const string KW_C_CP = "kW/°C";  // °C
-        public const string MMW_C_CP = "MW/°C"; // °C
+        public const string MW_C_CP = "MW/°C"; // °C
         //---------------------------------------------------------------------
         public const string W_K_CP = "W/K";     // K
         public const string KW_K_CP = "kW/K";   // <<<------------ INTERNAL ---<<<
-        public const string MMW_K_CP = "MW/K";  // K
+        public const string MW_K_CP = "MW/K";  // K
         #endregion  // CP - HEAT CAPACITY FLOW RATE UNITS
 
         #region U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
@@ -142,13 +142,13 @@ namespace PinchGlobal
         public const string MMBTU_R_U = "MMBtu/(hr ft² °R)";    // °R
 
         //------------------------------------------------------ METRIC W U ---
-        public const string W_U = "W/(m² °C)";                  // °C
-        public const string KW_U = "kW/(m² °C)";                // °C
-        public const string MMW_U = "MMW/(m² °C)";              // °C
+        public const string W_C_U = "W/(m² °C)";                // °C
+        public const string KW_C_U = "kW/(m² °C)";              // °C
+        public const string MW_C_U = "MMW/(m² °C)";             // °C
         //---------------------------------------------------------------------
         public const string W_K_U = "W/(m² K)";                 // K
         public const string KW_K_U = "kW/(m² K)";    // <<<------- INTERNAL ---<<<
-        public const string MMW_K_U = "MMW/(m² K)";             // K
+        public const string MW_K_U = "MMW/(m² K)";              // K
         #endregion  // U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
 
         #region A - AREA UNITS
