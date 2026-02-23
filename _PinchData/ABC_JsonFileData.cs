@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//###############################################  ABC_XmlFileData . c s  ################################################
+//######################################  A B C _ J s o n F i l e D a t a . c s  ######################################
 //#####################################################################################################################
-//  FILENAME:  ABC_XmlFileData.cs
+//  FILENAME:  ABC_JsonFileData.cs
 //  NAMESPACE: PinchData
-//  CLASS(S):  ABC_XmlFileData
+//  CLASS(S):  ABC_JsonFileData
 //  COMPONENT: _PinchData.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the XML File Data Abstract Base Class.
+//    This file contains the code for the JSON File Data Abstract Base Class.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -37,6 +37,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 using PinchGlobal;
@@ -45,15 +46,15 @@ using PinchGlobal;
 #region namespace PinchData
 namespace PinchData
 {
-    #region abstract class ABC_XmlFileData
+    #region abstract class ABC_JsonFileData
     /// <summary>
-    /// Abstract Base Class for All XML File Data Classes
+    /// Abstract Base Class for All JSON File Data Classes
     /// </summary>
-    public abstract class ABC_XmlFileData
+    public abstract class ABC_JsonFileData
     {
         #region PROPERTIES
         public string DataHash { get; set; }
-        public string FullPathXmlFileLoc { get; set; }
+        public string FullPathJsonFileLoc { get; set; }
         public string FullPathZipFileLoc { get; set; }
         #endregion  // PROPERTIES
 
@@ -66,7 +67,7 @@ namespace PinchData
         #endregion  // public abstract METHODS
 
     }
-    #endregion  // abstract class ABC_XmlFileData
+    #endregion  // abstract class ABC_JsonFileData
 }
 #endregion      // namespace PinchData
 

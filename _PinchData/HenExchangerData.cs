@@ -1,15 +1,15 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//###################################  I n p u t E x c h a n g e r D a t a . c s  #####################################
+//#####################################  H e n E x c h a n g e r D a t a . c s  #######################################
 //#####################################################################################################################
-//  FILENAME:  InputExchangerData.cs
+//  FILENAME:  HenExchangerData.cs
 //  NAMESPACE: PinchData
-//  CLASS(S):  InputExchangerData
+//  CLASS(S):  HenExchangerData
 //  COMPONENT: _PinchData.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Input Exchanger Data class.
-//    This class contains all the data associated with the INPUT Exchanger Panel
+//    This file contains the code for the HEN Exchanger Data class.
+//    This class contains all the data associated with the HEN Exchanger Panel
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -48,33 +48,33 @@ using PinchGlobal;
 #region namespace PinchData
 namespace PinchData
 {
-    #region class InputExchangerData
+    #region class HenExchangerData
     /// <summary>
-    /// This class contains all the data associated with the INPUT Exchanger Panel
+    /// This class contains all the data associated with the HEN Exchanger Panel
     /// </summary>
-    public class InputExchangerData : ABC_XmlFileData
+    public class HenExchangerData : ABC_JsonFileData
     {
         #region CONSTANTS
         const string NAMESPACE = "PinchData";
-        const string CLASS = "InputExchangerData";
+        const string CLASS = "HenExchangerData";
         #endregion      // CONSTANTS
 
         #region CTOR
         /// <summary>
         /// Default Constructor
         /// </summary>        
-        public InputExchangerData()
+        public HenExchangerData()
         {
             string strMethod = "CTOR";
             PinchLogger.WriteSeparatorLine('>');
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating InputExchangerData Object");
+            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenExchangerData Object");
             try
             {
                 //----------------------------------------
                 //--- Initialize Base Class Properties ---
                 //----------------------------------------
                 DataHash = string.Empty;                // Input Project Data Hash
-                FullPathXmlFileLoc = string.Empty;      // XML File Location
+                FullPathJsonFileLoc = string.Empty;     // JSON File Location
                 FullPathZipFileLoc = string.Empty;      // ZIP File Location
                 //-----------------------------------
                 //--- Initialize Class Properties ---
@@ -89,7 +89,7 @@ namespace PinchData
             }
             finally
             {
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "InputExchangerData Object CREATED");
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "HenExchangerData Object CREATED");
                 PinchLogger.WriteSeparatorLine('<');
             }
         }
@@ -220,7 +220,7 @@ namespace PinchData
         #endregion  // ABSTRACT METHOD IMPLEMENTATIONS
 
     }
-    #endregion  // class InputExchangerData
+    #endregion  // class HenExchangerData
 }
 #endregion  // namespace PinchData
 

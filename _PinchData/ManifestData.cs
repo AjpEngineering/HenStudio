@@ -50,7 +50,7 @@ using PinchGlobal;
 namespace PinchData
 {
     #region class ManifestData
-    public class ManifestData : ABC_XmlFileData
+    public class ManifestData : ABC_JsonFileData
     {
         #region CONSTANTS
         const string NAMESPACE = "PinchData";
@@ -68,9 +68,7 @@ namespace PinchData
         #region INPUT PANEL DATA
         public string InputProjectHash { get; set; }
         public string InputStreamsHash { get; set; }
-        public string InputUtilitiesHash { get; set; }
         public string InputCostHash { get; set; }
-        public string InputExchangerHash { get; set; }
         public string InputValidationHash { get; set; }
         #endregion  // INPUT PANEL DATA
 
@@ -83,6 +81,7 @@ namespace PinchData
 
         #region HEN PANEL DATA
         public string HenDesignHash { get; set; }
+        public string HenExchangerHash { get; set; }
         #endregion  // HEN PANEL DATA
 
         #endregion      // PROPERTIES
@@ -110,7 +109,7 @@ namespace PinchData
                 //--- Initialize Base Class Properties ---
                 //----------------------------------------
                 DataHash = string.Empty;                // Overall Hash
-                FullPathXmlFileLoc = string.Empty;      // XML File Location
+                FullPathJsonFileLoc = string.Empty;     // JSON File Location
                 FullPathZipFileLoc = string.Empty;      // ZIP File Location
                 //--------------------------------------
                 //--- Assign Data Manager Properties ---
@@ -123,9 +122,7 @@ namespace PinchData
                 //-----------------------------------------------
                 InputProjectHash = string.Empty;
                 InputStreamsHash = string.Empty;
-                InputUtilitiesHash = string.Empty;
                 InputCostHash = string.Empty;
-                InputExchangerHash = string.Empty;
                 InputValidationHash = string.Empty;
 
                 TargetsCalculateHash = string.Empty;
@@ -134,6 +131,7 @@ namespace PinchData
                 TargetsOptimizeHash = string.Empty;
 
                 HenDesignHash = string.Empty;
+                HenExchangerHash = string.Empty;
 
             }
             catch (Exception ex)
@@ -169,15 +167,9 @@ namespace PinchData
                 //-------------------------------------- INPUT STREAMS DATA ---
                 InputDataMgrObj.InputStreamsDataObj.CreateHash();
                 InputStreamsHash = InputDataMgrObj.InputStreamsDataObj.DataHash;
-                //------------------------------------ INPUT UTILITIES DATA ---
-                InputDataMgrObj.InputUtilitiesDataObj.CreateHash();
-                InputUtilitiesHash = InputDataMgrObj.InputUtilitiesDataObj.DataHash;
                 //----------------------------------------- INPUT COST DATA ---
                 InputDataMgrObj.InputCostDataObj.CreateHash();
                 InputCostHash = InputDataMgrObj.InputCostDataObj.DataHash;
-                //------------------------------------ INPUT EXCHANGER DATA ---
-                InputDataMgrObj.InputExchangerDataObj.CreateHash();
-                InputExchangerHash = InputDataMgrObj.InputExchangerDataObj.DataHash;
                 //----------------------------------- INPUT VALIDATION DATA ---
                 InputDataMgrObj.InputValidationDataObj.CreateHash();
                 InputValidationHash = InputDataMgrObj.InputValidationDataObj.DataHash;
@@ -194,8 +186,11 @@ namespace PinchData
                 TargetsDataMgrObj.TargetsOptimizeDataObj.CreateHash();
                 TargetsOptimizeHash = TargetsDataMgrObj.TargetsOptimizeDataObj.DataHash;
                 //----------------------------------------- HEN DESIGN DATA ---
-                //HenDataMgrObj.HenDesignDataObj.CreateHash();
-                //HenDesignHash = HenDataMgrObj.HenDesignDataObj.DataHash;
+                HenDataMgrObj.HenDesignDataObj.CreateHash();
+                HenDesignHash = HenDataMgrObj.HenDesignDataObj.DataHash;
+                //-------------------------------------- HEN EXCHANGER DATA ---
+                HenDataMgrObj.HenExchangerDataObj.CreateHash();
+                HenExchangerHash = HenDataMgrObj.HenExchangerDataObj.DataHash;
                 #endregion  // GET PANEL DATA HASH VALUES
 
                 #region GET OVERALL ZIP HASH
@@ -269,13 +264,7 @@ namespace PinchData
                 strMsg = string.Format("   INPUT STREAMS HASH     : {0}", InputStreamsHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format("   INPUT UTILITIES HASH   : {0}", InputUtilitiesHash);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
                 strMsg = string.Format("   INPUT COST HASH        : {0}", InputCostHash);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("   INPUT EXCHANGER HASH   : {0}", InputExchangerHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = string.Format("   INPUT VALIDATION HASH  : {0}", InputValidationHash);
@@ -294,6 +283,9 @@ namespace PinchData
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = string.Format("   HEN DESIGN HASH        : {0}", HenDesignHash);
+                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("   HEN EXCHANGER HASH     : {0}", HenExchangerHash);
                 PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 PinchLogger.WriteSeparatorLine('=');

@@ -59,9 +59,7 @@ namespace PinchData
         #region PROPERTIES
         public InputProjectData InputProjectDataObj { get; set; }
         public InputStreamsData InputStreamsDataObj { get; set; }
-        public InputUtilitiesData InputUtilitiesDataObj { get; set; }
         public InputCostData InputCostDataObj { get; set; }
-        public InputExchangerData InputExchangerDataObj { get; set; }
         public InputValidationData InputValidationDataObj { get; set; }
 
         #endregion      // PROPERTIES
@@ -83,9 +81,7 @@ namespace PinchData
                 //---------------------------------------
                 InputProjectDataObj = new InputProjectData();         // Project Data
                 InputStreamsDataObj = new InputStreamsData();         // Streams Data
-                InputUtilitiesDataObj = new InputUtilitiesData();     // Utilities Data
                 InputCostDataObj = new InputCostData();               // Cost Data
-                InputExchangerDataObj = new InputExchangerData();     // Exchanger Data
                 InputValidationDataObj = new InputValidationData();   // Validation Data
 
             }

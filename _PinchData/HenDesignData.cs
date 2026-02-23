@@ -52,7 +52,7 @@ namespace PinchData
     /// <summary>
     /// This class contains all the data associated with the HEN Design Panel
     /// </summary>
-    public class HenDesignData : ABC_XmlFileData
+    public class HenDesignData : ABC_JsonFileData
     {
         #region CONSTANTS
         const string NAMESPACE = "PinchData";
@@ -74,7 +74,7 @@ namespace PinchData
                 //--- Initialize Base Class Properties ---
                 //----------------------------------------
                 DataHash = string.Empty;                // Input Project Data Hash
-                FullPathXmlFileLoc = string.Empty;      // XML File Location
+                FullPathJsonFileLoc = string.Empty;     // JSON File Location
                 FullPathZipFileLoc = string.Empty;      // ZIP File Location
                 //-----------------------------------
                 //--- Initialize Class Properties ---

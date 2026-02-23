@@ -58,6 +58,7 @@ namespace PinchData
 
         #region PROPERTIES
         public HenDesignData HenDesignDataObj { get; set; }
+        public HenExchangerData HenExchangerDataObj { get; set; }
 
 
         #endregion      // PROPERTIES
@@ -78,6 +79,7 @@ namespace PinchData
                 //--- Create Hen Panel Data Objects ---
                 //-------------------------------------
                 HenDesignDataObj = new HenDesignData();         // Design Data
+                HenExchangerDataObj = new HenExchangerData();   // Exchanger Data
 
 
             }
