@@ -53,17 +53,9 @@
       <Project>{41b4ad50-a07f-4c7d-89bd-b9979fc76833}</Project>
       <Name>_PinchData</Name>
     </ProjectReference>
-    <ProjectReference Include="..\_PinchFigures\_PinchFigures.csproj">
-      <Project>{9b65f7c0-05f4-4363-9a10-7c5ce28aba4c}</Project>
-      <Name>_PinchFigures</Name>
-    </ProjectReference>
     <ProjectReference Include="..\_PinchGlobal\_PinchGlobal.csproj">
       <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
       <Name>_PinchGlobal</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\_PinchReports\_PinchReports.csproj">
-      <Project>{8d49dc4c-e374-4d1b-9e5e-1f189e68277b}</Project>
-      <Name>_PinchReports</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
