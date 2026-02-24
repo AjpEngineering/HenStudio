@@ -500,6 +500,81 @@ namespace PinchGlobal
                         break;
                     #endregion  // T - TEMPERATURE
 
+                    #region P - PRESSURE
+                    //-----------------------------------------------------------------------------
+                    //--- Pressure - P is [ psia | psia | psf  | atm | inHg | inH2O) ] for ENGLISH
+                    //---             and [ bar  | kBar | MBar | Pa  | kPa  | MPa    ] for METRIC
+                    //-----------------------------------------------------------------------------
+                    //--- User selects [ENGLISH | METRIC]
+                    //--- User selects Pressure [ psia | psia | psf  | atm | inHg | inH2O) ] for ENGLISH
+                    //---                   and [ bar  | kBar | MBar | Pa  | kPa  | MPa    ] for METRIC
+                    //-----------------------------------------------------------------------------
+                    case PinchTypes.ConversionUnitsTypes.PRESS:
+                        if (string.Compare(PinchSettingsObj.InternalPressureUnits,
+                                           PinchSettingsObj.ExternalPressureUnits, true) == 0)
+                        {
+                            //--- No Need for Conversion - Already (kPa)! ---
+                            dInternalValue = dExternalValue;
+                        }
+                        else
+                        {
+                            //--- Convert External Pressure Units to Internal Pressure Units (KPa) ---
+                            switch (PinchSettingsObj.ExternalPressureUnits)
+                            {
+                                case PinchSettings.Psia:
+                                    //--- Convert [ (psia) to (KPa)] ] ---
+                                    dInternalValue = dExternalValue * 6.894765;
+                                    break;
+                                case PinchSettings.Psig:
+                                    //--- Convert [ (psig) to (KPa)] ] ---
+                                    dInternalValue = (dExternalValue + 14.6959) * 6.894765;
+                                    break;
+                                case PinchSettings.Psfa:
+                                    //--- Convert [ (psfa) to (KPa)] ] ---
+                                    dInternalValue = dExternalValue * 0.0478803;
+                                    break;
+                                case PinchSettings.Atm:
+                                    //--- Convert [ (atm) to (KPa)] ] ---
+                                    dInternalValue = dExternalValue * 101.325;
+                                    break;
+                                case PinchSettings.InHg:
+                                    //--- Convert [ (inHg) to (KPa)] ] ---
+                                    dInternalValue = dExternalValue * 3.38639;
+                                    break;
+                                case PinchSettings.InH2O:
+                                    //--- Convert [ (inH2O) to (KPa)] ] ---
+                                    dInternalValue = dExternalValue * 0.24908213;
+                                    break;
+                                //-----------------------------------------------------------------
+                                case PinchSettings.Bar:
+                                    //--- Convert [ (bar) to (KPa)] ] ---
+                                    dInternalValue = dExternalValue * 100.0;
+                                    break;
+                                case PinchSettings.KBar:
+                                    //--- Convert [ (kBar) to (KPa)] ] ---
+                                    dInternalValue = dExternalValue * 100000.0;
+                                    break;
+                                case PinchSettings.MBar:
+                                    //--- Convert [ (MBar) to (KPa)] ] ---
+                                    dInternalValue = dExternalValue * 100000000.0;
+                                    break;
+                                case PinchSettings.Pa:
+                                    //--- Convert [ (Pa) to (KPa)] ] ---
+                                    dInternalValue = dExternalValue * 0.001;
+                                    break;
+                                case PinchSettings.MPa:
+                                    //--- Convert [ (MPa) to (KPa)] ] ---
+                                    dInternalValue = dExternalValue * 1000.0;
+                                    break;
+                                default:
+                                    strMsg = string.Format("Unknown External Pressure Units ENCOUNTERED!  {0}",
+                                                            PinchSettingsObj.ExternalPressureUnits);
+                                    throw new Exception(strMsg);
+                            }
+                        }
+                        break;
+                    #endregion  // P - PRESSURE
+
                     #region H - HEAT FLOW 
                     //-----------------------------------------------------------------------------
                     //--- Heat Flow is [(Btu/hr) | (kBtu/hr) | (MMBtu/hr)] for ENGLISH
@@ -858,6 +933,81 @@ namespace PinchGlobal
                         break;
                     #endregion  // T - TEMPERATURE
 
+                    #region P - PRESSURE
+                    //-----------------------------------------------------------------------------
+                    //--- Pressure - P is [ psia | psia | psf  | atm | inHg | inH2O) ] for ENGLISH
+                    //---             and [ bar  | kBar | MBar | Pa  | kPa  | MPa    ] for METRIC
+                    //-----------------------------------------------------------------------------
+                    //--- User selects [ENGLISH | METRIC]
+                    //--- User selects Pressure [ psia | psia | psf  | atm | inHg | inH2O) ] for ENGLISH
+                    //---                   and [ bar  | kBar | MBar | Pa  | kPa  | MPa    ] for METRIC
+                    //-----------------------------------------------------------------------------
+                    case PinchTypes.ConversionUnitsTypes.PRESS:
+                        if (string.Compare(PinchSettingsObj.InternalPressureUnits,
+                                           PinchSettingsObj.ExternalPressureUnits, true) == 0)
+                        {
+                            //--- No Need for Conversion - Already (K)! ---
+                            dExternalValue = dInternalValue;
+                        }
+                        else
+                        {
+                            //--- Convert Internal Pressure Units (K) to External Pressure Units ---
+                            switch (PinchSettingsObj.ExternalPressureUnits)
+                            {
+                                case PinchSettings.Psia:
+                                    //--- Convert [ (KPa) to (psia) ] ---
+                                    dExternalValue = dInternalValue * 0.14503768;
+                                    break;
+                                case PinchSettings.Psig:
+                                    //--- Convert [ (KPa) to (psig) ] ---
+                                    dExternalValue = (dInternalValue * 0.14503768) - 14.6959;
+                                    break;
+                                case PinchSettings.Psfa:
+                                    //--- Convert [ (KPa) to (psfa) ] ---
+                                    dExternalValue = dInternalValue * 20.885416;
+                                    break;
+                                case PinchSettings.Atm:
+                                    //--- Convert [ (KPa) to (atm) ] ---
+                                    dExternalValue = dInternalValue * 0.00986923;
+                                    break;
+                                case PinchSettings.InHg:
+                                    //--- Convert [ (KPa) to (inHg) ] ---
+                                    dExternalValue = dInternalValue * 0.2952997;
+                                    break;
+                                case PinchSettings.InH2O:
+                                    //--- Convert [ (KPa) to (inH2O) ] ---
+                                    dExternalValue = dInternalValue * 4.01474;
+                                    break;
+                                //--------------------------------------------------------
+                                case PinchSettings.Bar:
+                                    //--- Convert [ (KPa) to (bar) ] ---
+                                    dExternalValue = dInternalValue * 0.010;
+                                    break;
+                                case PinchSettings.KBar:
+                                    //--- Convert [ (KPa) to (kBar) ] ---
+                                    dExternalValue = dInternalValue * 0.00001;
+                                    break;
+                                case PinchSettings.MBar:
+                                    //--- Convert [ (KPa) to (MBar) ] ---
+                                    dExternalValue = dInternalValue * 0.00000001;
+                                    break;
+                                case PinchSettings.Pa:
+                                    //--- Convert [ (KPa) to (Pa) ] ---
+                                    dExternalValue = dInternalValue * 1000.0;
+                                    break;
+                                case PinchSettings.MPa:
+                                    //--- Convert [ (KPa) to (MPa) ] ---
+                                    dExternalValue = dInternalValue * 0.001;
+                                    break;
+                                default:
+                                    strMsg = string.Format("Unknown External Pressure Units ENCOUNTERED!  {0}",
+                                                            PinchSettingsObj.ExternalPressureUnits);
+                                    throw new Exception(strMsg);
+                            }
+                        }
+                        break;
+                    #endregion  // P - PRESSURE
+
                     #region H - HEAT FLOW 
                     //-----------------------------------------------------------------------------
                     //--- Heat Flow is [(Btu/hr) | (kBtu/hr) | (MMBtu/hr)] for ENGLISH
@@ -1149,6 +1299,7 @@ namespace PinchGlobal
                 PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;              // Magnitude:   "MEGA"
                 PinchSettingsObj.ExternalHeatFlowUnits = PinchSettings.MMBTU_HEAT_FLOW;  // Heat Flow:   "MMBtu/hr"
                 PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_F;         // Temperature: "°F"
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Psia;             // Pressure:    "psia"
                 PinchSettingsObj.ExternalCP_Units = PinchSettings.MMBTU_F_CP;            // CP:          "MMBtu/(hr °F)"
                 PinchSettingsObj.ExternalU_Units = PinchSettings.MMBTU_F_U;              // U:           "MMBtu/(hr ft² °F)"
                 PinchSettingsObj.ExternalArea_Units = PinchSettings.SqFt;                // Area:        "ft²"
@@ -1363,6 +1514,564 @@ namespace PinchGlobal
                 #endregion  // RANKINE
 
                 #endregion  // T - TEMPERATURE
+
+                #region P - PRESSURE
+
+                #region TARGET VALUES
+                double dPressKPa = 400.00;      // << INTERNAL VALUE >>
+                double dPressPsia = 58.015072;  // EXTERNAL VALUE
+                double dPressPsig = 43.319172;  // EXTERNAL VALUE
+                double dPressPsfa = 8354.1664;  // EXTERNAL VALUE
+                double dPressAtm = 3.947692;    // EXTERNAL VALUE
+                double dPressInHg = 118.11988;  // EXTERNAL VALUE
+                double dPressInH2O = 1605.896;   // EXTERNAL VALUE
+                double dPressBar = 4.000;       // EXTERNAL VALUE
+                double dPressKBar = 0.004;      // EXTERNAL VALUE
+                double dPressMBar = 0.000004;   // EXTERNAL VALUE
+                double dPressPa = 400000.0;     // EXTERNAL VALUE
+                double dPressMPa = 0.400;       // EXTERNAL VALUE
+                #endregion  // TARGET VALUES
+
+                #region PSIA
+
+                #region TO EXTERNAL
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Psia;  // lbs/in² absolute : "psia"
+
+                dPressKPa = 400.0;     // Set INTERNAL VALUE
+                dPressPsia = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                if (CheckForEquality(dPressPsia, 58.015072))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} psia .... PASS",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressPsia, 6));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 58.015072 psia .... FAIL -- {1:0.000000} psia",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressPsia, 6));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO EXTERNAL
+
+                #region TO INTERNAL
+                dPressPsia = 58.015072;  // Set EXTERNAL VALUE
+                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressPsia);
+                if (CheckForEquality(dPressKPa, 400.00))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psia to {1:0.0000} KPa .... PASS",
+                                           Math.Round(dPressPsia, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psia to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
+                                           Math.Round(dPressPsia, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO INTERNAL
+
+                PinchLogger.WriteSeparatorLine('-');
+                #endregion  // PSIA
+
+                #region PSIG
+
+                #region TO EXTERNAL
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Psig;  // lbs/in² Gauge : "psig"
+
+                dPressKPa = 400.0;     // Set INTERNAL VALUE
+                dPressPsig = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                if (CheckForEquality(dPressPsig, 43.319172))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} psig .... PASS",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressPsig, 6));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 43.319172 psig .... FAIL -- {1:0.000000} psig",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressPsig, 6));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO EXTERNAL
+
+                #region TO INTERNAL
+                dPressPsig = 43.319172;  // Set EXTERNAL VALUE
+                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressPsig);
+                if (CheckForEquality(dPressKPa, 400.00))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psig to {1:0.0000} KPa .... PASS",
+                                           Math.Round(dPressPsig, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psig to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
+                                           Math.Round(dPressPsig, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO INTERNAL
+
+                PinchLogger.WriteSeparatorLine('-');
+                #endregion  // PSIG
+
+                #region PSFA
+
+                #region TO EXTERNAL
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Psfa;  // lbs/ft² Absolute : "psfa"
+
+                dPressKPa = 400.0;     // Set INTERNAL VALUE
+                dPressPsfa = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                if (CheckForEquality(dPressPsfa, 8354.1664))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} psfa .... PASS",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressPsfa, 6));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 8354.1664 psfa .... FAIL -- {1:0.000000} psfa",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressPsfa, 6));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO EXTERNAL
+
+                #region TO INTERNAL
+                dPressPsfa = 8354.1664;  // Set EXTERNAL VALUE
+                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressPsfa);
+                if (CheckForEquality(dPressKPa, 400.00))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psfa to {1:0.0000} KPa .... PASS",
+                                           Math.Round(dPressPsfa, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psfa to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
+                                           Math.Round(dPressPsfa, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO INTERNAL
+
+                PinchLogger.WriteSeparatorLine('-');
+                #endregion  // PSFA
+
+                #region ATM
+
+                #region TO EXTERNAL
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Atm;  // atmospheres : "atm"
+
+                dPressKPa = 400.0;     // Set INTERNAL VALUE
+                dPressAtm = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                if (CheckForEquality(dPressAtm, 3.947692))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} atm .... PASS",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressAtm, 6));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 3.947692 atm .... FAIL -- {1:0.000000} atm",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressAtm, 6));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO EXTERNAL
+
+                #region TO INTERNAL
+                dPressAtm = 3.947692;  // Set EXTERNAL VALUE
+                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressAtm);
+                if (CheckForEquality(dPressKPa, 400.00))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} atm to {1:0.0000} KPa .... PASS",
+                                           Math.Round(dPressAtm, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} atm to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
+                                           Math.Round(dPressAtm, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO INTERNAL
+
+                PinchLogger.WriteSeparatorLine('-');
+                #endregion  // ATM
+
+                #region inHg
+
+                #region TO EXTERNAL
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.InHg;  // inches Mercury : "inHg"
+
+                dPressKPa = 400.0;     // Set INTERNAL VALUE
+                dPressInHg = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                if (CheckForEquality(dPressInHg, 118.11988))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} inHg .... PASS",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressInHg, 6));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 118.11988 inHg .... FAIL -- {1:0.000000} inHg",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressInHg, 6));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO EXTERNAL
+
+                #region TO INTERNAL
+                dPressInHg = 118.11988;  // Set EXTERNAL VALUE
+                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressInHg);
+                if (CheckForEquality(dPressKPa, 400.00))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} inHg to {1:0.0000} KPa .... PASS",
+                                           Math.Round(dPressInHg, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} inHg to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
+                                           Math.Round(dPressInHg, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO INTERNAL
+
+                PinchLogger.WriteSeparatorLine('-');
+                #endregion  // inHg
+
+                #region inH2O
+
+                #region TO EXTERNAL
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.InH2O;  // inches Water : "inH2O"
+
+                dPressKPa = 400.0;     // Set INTERNAL VALUE
+                dPressInH2O = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                if (CheckForEquality(dPressInH2O, 1605.896))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} inH2O .... PASS",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressInH2O, 6));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 1605.896 inH2O .... FAIL -- {1:0.000000} inH2O",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressInH2O, 6));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO EXTERNAL
+
+                #region TO INTERNAL
+                dPressInH2O = 1605.896;  // Set EXTERNAL VALUE
+                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressInH2O);
+                if (CheckForEquality(dPressKPa, 400.00))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} inH2O to {1:0.0000} KPa .... PASS",
+                                           Math.Round(dPressInH2O, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} inH2O to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
+                                           Math.Round(dPressInH2O, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO INTERNAL
+
+                PinchLogger.WriteSeparatorLine('-');
+                #endregion  // inH2O
+
+                #region BAR
+
+                #region TO EXTERNAL
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Bar;  // bar : "bar"
+
+                dPressKPa = 400.0;     // Set INTERNAL VALUE
+                dPressBar = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                if (CheckForEquality(dPressBar, 4.000))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} bar .... PASS",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressBar, 6));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 4.000 bar .... FAIL -- {1:0.000000} bar",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressBar, 6));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO EXTERNAL
+
+                #region TO INTERNAL
+                dPressBar = 4.000;  // Set EXTERNAL VALUE
+                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressBar);
+                if (CheckForEquality(dPressKPa, 400.00))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} bar to {1:0.0000} KPa .... PASS",
+                                           Math.Round(dPressBar, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} bar to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
+                                           Math.Round(dPressBar, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO INTERNAL
+
+                PinchLogger.WriteSeparatorLine('-');
+                #endregion  // BAR
+
+                #region KBAR
+
+                #region TO EXTERNAL
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.KBar;  // kilo Bar : "kBar"
+
+                dPressKPa = 400.0;     // Set INTERNAL VALUE
+                dPressKBar = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                if (CheckForEquality(dPressKBar, 0.004))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} kBar .... PASS",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressKBar, 6));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 0.004 kBar .... FAIL -- {1:0.000000} kBar",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressKBar, 6));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO EXTERNAL
+
+                #region TO INTERNAL
+                dPressKBar = 0.004;  // Set EXTERNAL VALUE
+                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKBar);
+                if (CheckForEquality(dPressKPa, 400.00))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} kBar to {1:0.0000} KPa .... PASS",
+                                           Math.Round(dPressKBar, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} kBar to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
+                                           Math.Round(dPressKBar, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO INTERNAL
+
+                PinchLogger.WriteSeparatorLine('-');
+                #endregion  // KBAR
+
+                #region MBAR
+
+                #region TO EXTERNAL
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.MBar;  // mega Bar : "MBar"
+
+                dPressKPa = 400.0;     // Set INTERNAL VALUE
+                dPressMBar = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                if (CheckForEquality(dPressMBar, 0.000004))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} MBar .... PASS",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressMBar, 6));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 0.000004 MBar .... FAIL -- {1:0.000000} MBar",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressMBar, 6));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO EXTERNAL
+
+                #region TO INTERNAL
+                dPressMBar = 0.000004;  // Set EXTERNAL VALUE
+                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressMBar);
+                if (CheckForEquality(dPressKPa, 400.00))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} MBar to {1:0.0000} KPa .... PASS",
+                                           Math.Round(dPressMBar, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} MBar to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
+                                           Math.Round(dPressMBar, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO INTERNAL
+
+                PinchLogger.WriteSeparatorLine('-');
+                #endregion  // MBAR
+
+                #region PA
+
+                #region TO EXTERNAL
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Pa;  // Pascal : "Pa"
+
+                dPressKPa = 400.0;     // Set INTERNAL VALUE
+                dPressPa = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                if (CheckForEquality(dPressPa, 400000.0))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} Pa .... PASS",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressPa, 6));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 400000.0 Pa .... FAIL -- {1:0.000000} Pa",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressPa, 6));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO EXTERNAL
+
+                #region TO INTERNAL
+                dPressPa = 400000.0;  // Set EXTERNAL VALUE
+                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressPa);
+                if (CheckForEquality(dPressKPa, 400.00))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} Pa to {1:0.0000} KPa .... PASS",
+                                           Math.Round(dPressPa, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} Pa to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
+                                           Math.Round(dPressPa, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO INTERNAL
+
+                PinchLogger.WriteSeparatorLine('-');
+                #endregion  // PA
+
+                #region MPA
+
+                #region TO EXTERNAL
+                PinchSettingsObj.ExternalPressureUnits = PinchSettings.MPa;  // Mega Pascal : "MPa"
+
+                dPressKPa = 400.0;     // Set INTERNAL VALUE
+                dPressMPa = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                if (CheckForEquality(dPressMPa, 0.400))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} MPa .... PASS",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressMPa, 6));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 0.400 MPa .... FAIL -- {1:0.000000} MPa",
+                                            Math.Round(dPressKPa, 4),
+                                            Math.Round(dPressMPa, 6));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO EXTERNAL
+
+                #region TO INTERNAL
+                dPressMPa = 0.400;  // Set EXTERNAL VALUE
+                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressMPa);
+                if (CheckForEquality(dPressKPa, 400.00))
+                {
+                    nPass++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} MPa to {1:0.0000} KPa .... PASS",
+                                           Math.Round(dPressMPa, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                else
+                {
+                    nFail++;
+                    strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} MPa to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
+                                           Math.Round(dPressMPa, 6),
+                                           Math.Round(dPressKPa, 4));
+                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // TO INTERNAL
+
+                PinchLogger.WriteSeparatorLine('-');
+                #endregion  // MPA
+
+                #endregion  // P - PRESSURE
 
                 #region H - HEAT FLOW
 

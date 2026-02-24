@@ -100,10 +100,26 @@ namespace PinchGlobal
         public const string KELVIN = "K";   // <<<---------------- INTERNAL ---<<<
         #endregion  // T - TEMPERATURE UNITS
 
+        #region P - PRESSURE UNITS
+        //------------------------------------------------ ENGLISH PRESSURE ---
+        public const string Psia = "psia";   // "psia  - lbs/in² absolute"
+        public const string Psig = "psig";   // "psia  - lbs/in² guage"
+        public const string Psfa = "psfa";   // "psia  - lbs/ft² absolute"
+        public const string Atm = "atm";     // "atm   - atmosphere"
+        public const string InHg = "inHg";   // "inHg  - inches of Mercury"
+        public const string InH2O = "inH2O"; // "inH2O - inches of Water"
+        //------------------------------------------------- METRIC PRESSURE ---
+        public const string Bar = "bar";     // "bar
+        public const string KBar = "kBbar";  // "kilo bar"
+        public const string MBar = "MBar";   // "Mega bar"
+        public const string Pa = "Pa";       // "Pa  - Pascals" 
+        public const string kPa = "kPa";     // "kPa - Kilo Pascals" <<<------ INTERNAL ---<<<
+        public const string MPa = "MPa";     // "MPa - Mega Pascals"
+        #endregion  // P - PRESSURE UNITS
+
         #region A - AREA UNITS
         //---------------------------------------------------- ENGLISH AREA ---
         public const string SqFt = "ft²";   // "ft\u00B2"
-
         //----------------------------------------------------- METRIC AREA ---
         public const string SqM = "m²";     // "m\u00B2" <<<------ INTERNAL ---<<<
         #endregion  // A - AREA UNITS
@@ -287,6 +303,13 @@ namespace PinchGlobal
         public string InternalTemperatureUnits { get; }      // INTERNAL Temperature Units ... Getter ONLY
         #endregion  // InternalTemperatureUnits
 
+        #region InternalPressureUnits
+        /// <summary>
+        /// Internal Pressure Units ... Set to "kPa"  -  Kilo Pascals
+        /// </summary>
+        public string InternalPressureUnits { get; }      // INTERNAL Pressure Units ... Getter ONLY
+        #endregion  // InternalPressureUnits
+
         #region InternalCP_Units
         /// <summary>
         /// Internal CP - Heat Capacity Flow Rate (m*Cp) Units ... Set to "kW/K"
@@ -344,6 +367,13 @@ namespace PinchGlobal
         /// </summary>
         public string ExternalTemperatureUnits { get; set; }      // EXTERNAL Temperature Units
         #endregion  // ExternalTemperatureUnits
+
+        #region ExternalPressureUnits
+        /// <summary>
+        /// External Pressure Units ... Set to "psia" ... lbs/in² absolute
+        /// </summary>
+        public string ExternalPressureUnits { get; set; }      // EXTERNAL Temperature Units
+        #endregion  // ExternalPressureUnits
 
         #region ExternalCP_Units
         /// <summary>
@@ -411,6 +441,7 @@ namespace PinchGlobal
                 InternalMagUnits = MAG_KILO;            // INTERNAL Magnitude:   "KILO"
                 InternalHeatFlowUnits = KW_HEAT_FLOW;   // INTERNAL Heat Flow:   "kW"
                 InternalTemperatureUnits = KELVIN;      // INTERNAL Temperature: "K"
+                InternalPressureUnits = KELVIN;         // INTERNAL Pressure:    "kPa"
                 InternalCP_Units = KW_K_CP;             // INTERNAL CP:          "kW/K"
                 InternalU_Units = KW_K_U;               // INTERNAL U:           "kW/(m² K)"
                 InternalArea_Units = SqM;               // INTERNAL Area:        "m²"
@@ -422,6 +453,7 @@ namespace PinchGlobal
                 ExternalMagUnits = MAG_MEGA;              // EXTERNAL Magnitude:   "MEGA"
                 ExternalHeatFlowUnits = MMBTU_HEAT_FLOW;  // EXTERNAL Heat Flow:   "MMBtu/hr"
                 ExternalTemperatureUnits = DEG_F;         // EXTERNAL Temperature: "°F"
+                ExternalPressureUnits = Psia;             // EXTERNAL Pressure:    "psia"
                 ExternalCP_Units = MMBTU_F_CP;            // EXTERNAL CP:          "MMBtu/(hr °F)"
                 ExternalU_Units = MMBTU_F_U;              // EXTERNAL U:           "MMBtu/(hr ft² °F)"
                 ExternalArea_Units = SqFt;                // EXTERNAL Area:        "ft²"

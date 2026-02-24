@@ -118,9 +118,10 @@ namespace PinchGlobal
             UNKNOWN = -1,   // UNKNOWN
             HEAT_FLOW = 0,  // Heat Flow (e.g., Btu/hr | W)
             TEMP = 1,       // Temperature (e.g., °F | °R | °C | K ) 
-            CP = 2,         // CP - Heat Capacity Flow Rate (e.g., Btu/(hr °F) | W/K ) 
-            U = 3,          // U - Overall Heat Transfer Coefficient (e.g., Btu/(hr ft² °F) | W/(m² K) 
-            A = 4           // A - Area (e.g., ft² | m²)
+            PRESS = 2,      // Pressure (e.g., psia | kPa)
+            CP = 3,         // CP - Heat Capacity Flow Rate (e.g., Btu/(hr °F) | W/K ) 
+            U = 4,          // U - Overall Heat Transfer Coefficient (e.g., Btu/(hr ft² °F) | W/(m² K) 
+            A = 5           // A - Area (e.g., ft² | m²)
         };
         #endregion      // enum ConversionUnitsTypes
 
