@@ -63,6 +63,7 @@
             this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scorecardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.userLicenseAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelLicense = new System.Windows.Forms.ToolStripStatusLabel();
@@ -143,10 +144,9 @@
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonLicense = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonScoreCard = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonAbout = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonUserLicenseAgreement = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonAbout = new System.Windows.Forms.ToolStripButton();
             this.pictureBoxAJPLogo = new System.Windows.Forms.PictureBox();
-            this.userLicenseAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -490,6 +490,15 @@
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(216, 6);
+            // 
+            // userLicenseAgreementToolStripMenuItem
+            // 
+            this.userLicenseAgreementToolStripMenuItem.Image = global::HenStudio.Properties.Resources.AJP_User_License_Agreement__32x32;
+            this.userLicenseAgreementToolStripMenuItem.Name = "userLicenseAgreementToolStripMenuItem";
+            this.userLicenseAgreementToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
+            this.userLicenseAgreementToolStripMenuItem.Text = "User License Agreement";
+            this.userLicenseAgreementToolStripMenuItem.ToolTipText = "Display User License Agreement";
+            this.userLicenseAgreementToolStripMenuItem.Click += new System.EventHandler(this.userLicenseAgreementToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -1494,6 +1503,16 @@
             this.toolStripButtonScoreCard.ToolTipText = "Display License ScoreCard";
             this.toolStripButtonScoreCard.Click += new System.EventHandler(this.toolStripButtonScoreCard_Click);
             // 
+            // toolStripButtonUserLicenseAgreement
+            // 
+            this.toolStripButtonUserLicenseAgreement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonUserLicenseAgreement.Image = global::HenStudio.Properties.Resources.AJP_User_License_Agreement__32x32;
+            this.toolStripButtonUserLicenseAgreement.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonUserLicenseAgreement.Name = "toolStripButtonUserLicenseAgreement";
+            this.toolStripButtonUserLicenseAgreement.Size = new System.Drawing.Size(28, 28);
+            this.toolStripButtonUserLicenseAgreement.ToolTipText = "Display User License Agreement";
+            this.toolStripButtonUserLicenseAgreement.Click += new System.EventHandler(this.toolStripButtonUserLicenseAgreement_Click);
+            // 
             // toolStripButtonAbout
             // 
             this.toolStripButtonAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -1504,16 +1523,6 @@
             this.toolStripButtonAbout.Text = "toolStripButton1";
             this.toolStripButtonAbout.ToolTipText = "Display About Information";
             this.toolStripButtonAbout.Click += new System.EventHandler(this.toolStripButtonAbout_Click);
-            // 
-            // toolStripButtonUserLicenseAgreement
-            // 
-            this.toolStripButtonUserLicenseAgreement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUserLicenseAgreement.Image = global::HenStudio.Properties.Resources.AJP_User_License_Agreement__32x32;
-            this.toolStripButtonUserLicenseAgreement.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonUserLicenseAgreement.Name = "toolStripButtonUserLicenseAgreement";
-            this.toolStripButtonUserLicenseAgreement.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButtonUserLicenseAgreement.ToolTipText = "Display User License Agreement";
-            this.toolStripButtonUserLicenseAgreement.Click += new System.EventHandler(this.toolStripButtonUserLicenseAgreement_Click);
             // 
             // pictureBoxAJPLogo
             // 
@@ -1528,15 +1537,6 @@
             this.pictureBoxAJPLogo.TabIndex = 6;
             this.pictureBoxAJPLogo.TabStop = false;
             this.pictureBoxAJPLogo.Click += new System.EventHandler(this.pictureBoxAJPLogo_Click);
-            // 
-            // userLicenseAgreementToolStripMenuItem
-            // 
-            this.userLicenseAgreementToolStripMenuItem.Image = global::HenStudio.Properties.Resources.AJP_User_License_Agreement__32x32;
-            this.userLicenseAgreementToolStripMenuItem.Name = "userLicenseAgreementToolStripMenuItem";
-            this.userLicenseAgreementToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
-            this.userLicenseAgreementToolStripMenuItem.Text = "User License Agreement";
-            this.userLicenseAgreementToolStripMenuItem.ToolTipText = "Display User License Agreement";
-            this.userLicenseAgreementToolStripMenuItem.Click += new System.EventHandler(this.userLicenseAgreementToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -1562,7 +1562,7 @@
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AJP Pinch 4";
+            this.Text = "AJP HEN Studio";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("HenStudio")]
-[assembly: AssemblyDescription("HEN Studio Executable")]
+[assembly: AssemblyDescription("Heat Exchanger Network (HEN) Studio Executable")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("AJP Engineering")]
 [assembly: AssemblyProduct("AJP HEN Studio")]

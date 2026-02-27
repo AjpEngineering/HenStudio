@@ -7,8 +7,8 @@
     <ProjectGuid>{41B4AD50-A07F-4C7D-89BD-B9979FC76833}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PinchData</RootNamespace>
-    <AssemblyName>_PinchData</AssemblyName>
+    <RootNamespace>HenDatabase</RootNamespace>
+    <AssemblyName>_HenDatabase</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

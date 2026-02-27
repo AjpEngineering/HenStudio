@@ -51,7 +51,7 @@ namespace HenGlobal
 {
     #region public class HenSettings
     /// <summary>
-    /// Global Pinch Settings Class
+    /// Global HEN Studio Settings Class
     /// </summary>
     public class HenSettings
     {
@@ -199,21 +199,6 @@ namespace HenGlobal
         //--- License Information ... Specified in License File ---
         //-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         #endregion  // LICENSE INFORMATION - SEE LICENSE FILE CLASS
-
-        #region COLORS & FONTS
-        //--------------
-        //--- Colors ---
-        //--------------
-        public Color AJP_ENGINEERING_GREEN = Color.FromArgb(255, 0, 204, 153);   // Caribbean Green
-        public Color AJP_ENGINEERING_ORANGE = Color.FromArgb(255, 255, 153, 0);  // Vivid Gamboge
-        public Color AJP_PINCH_RED_ORANGE = Color.FromArgb(255, 255, 83, 73);    // Red-Orange
-        public Color AJP_PINCH_SKY_BLUE = Color.FromArgb(255, 0, 191, 255);      // Deep Sky Blue
-        //-------------
-        //--- Fonts ---
-        //-------------
-        public Font AJP_PINCH_DISPLAY_FONT = new Font("Segoe UI Variable Display", 10.0f); // Display
-        public Font AJP_PINCH_MONO_FONT = new Font("Cascadia Mono", 9.0f);              // Monospace for Numbers
-        #endregion  // COLORS & FONTS
 
         #endregion      // FIELDS
 
@@ -420,14 +405,12 @@ namespace HenGlobal
             {
                 #region HEN COMPONENTS
                 AJP_HEN_COMPONENTS.Clear();
-                AJP_HEN_COMPONENTS.Add("Pinch.exe");
-                AJP_HEN_COMPONENTS.Add("_AJP License File.ll");
-                AJP_HEN_COMPONENTS.Add("_PinchData.dll");
-                AJP_HEN_COMPONENTS.Add("_PinchFigures.dll");
-                AJP_HEN_COMPONENTS.Add("_PinchGlobal.dll");
-                AJP_HEN_COMPONENTS.Add("_PinchHen.dll");
-                AJP_HEN_COMPONENTS.Add("_PinchReports.dll");
-                AJP_HEN_COMPONENTS.Add("_PinchTargets.dll");
+                AJP_HEN_COMPONENTS.Add("HenStudio.exe");
+                AJP_HEN_COMPONENTS.Add("_AJP License File.dll");
+                AJP_HEN_COMPONENTS.Add("_HenDatabase.dll");
+                AJP_HEN_COMPONENTS.Add("_HenDomain.dll");
+                AJP_HEN_COMPONENTS.Add("_HenGlobal.dll");
+                AJP_HEN_COMPONENTS.Add("_HenReport.dll");
                 #endregion  // HEN COMPONENTS
 
                 #region LOG LICENSE DATA
@@ -481,7 +464,7 @@ namespace HenGlobal
 
         #region WriteInternalUnitsDataToLog()
         /// <summary>
-        /// Write AJP Pinch Internal Units to Log
+        /// Write AJP HEN Studio Internal Units to Log
         /// </summary>
         private void WriteInternalUnitsDataToLog()
         {
@@ -514,7 +497,7 @@ namespace HenGlobal
 
         #region WriteExternalUnitsDataToLog()
         /// <summary>
-        /// Write AJP Pinch Internal Units to Log
+        /// Write AJP HEN Studio Internal Units to Log
         /// </summary>
         private void WriteExternalUnitsDataToLog()
         {
@@ -547,14 +530,14 @@ namespace HenGlobal
 
         #region WriteProductDataToLog()
         /// <summary>
-        /// Write AJP Pinch Product Metadata to Log
+        /// Write AJP HEN Studio Product Metadata to Log
         /// </summary>
         private void WriteProductDataToLog()
         {
             string strMethod = "WriteProductDataToLog()";
             try
             {
-                HenLogger.WriteSection("PINCH PRODUCT INFORMATION");
+                HenLogger.WriteSection("HEN STUDIO PRODUCT INFORMATION");
 
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT FULLNAME      : " + AJP_PRODUCT_FULLNAME);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT NAME          : " + AJP_PRODUCT_NAME);
@@ -583,14 +566,14 @@ namespace HenGlobal
 
         #region WriteSupplierDataToLog()
         /// <summary>
-        /// Write AJP Pinch Supplier Metadata to Log
+        /// Write AJP HEN Studio Supplier Metadata to Log
         /// </summary>
         private void WriteSupplierDataToLog()
         {
             string strMethod = "WriteSupplierDataToLog()";
             try
             {
-                HenLogger.WriteSection("PINCH SUPPLIER INFORMATION");
+                HenLogger.WriteSection("HEN STUDIO SUPPLIER INFORMATION");
 
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] AJP SUPPLIER NAME    : " + AJP_SUPPLIER_NAME);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "           AJP SUPPLIER URL     : " + AJP_SUPPLIER_URL);

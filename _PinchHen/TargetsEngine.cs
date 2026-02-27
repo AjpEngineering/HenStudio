@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//############################################  H e n E n g i n e . c s  ##############################################
+//########################################  T a r g e t s E n g i n e . c s  ##########################################
 //#####################################################################################################################
-//  FILENAME:  HenEngine.cs
-//  NAMESPACE: PinchHen
-//  CLASS(S):  HenEngine
-//  COMPONENT: _PinchHen.dll
+//  FILENAME:  TargetsEngine.cs
+//  NAMESPACE: PinchTargets
+//  CLASS(S):  TargetsEngine
+//  COMPONENT: _PinchTargets.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the HEN Engine class.
+//    This file contains the code for the Targets Engine class.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -41,15 +41,15 @@ using System;
 #region namespace HenDomain
 namespace HenDomain
 {
-    #region public class HenEngine
+    #region class TargetsEngine
     /// <summary>
-    /// HEN Engine Class
+    /// Targets Engine Class
     /// </summary>
-    public class HenEngine
+    public class TargetsEngine
     {
         #region CONSTANTS
-        const string NAMESPACE = "HenDomain";
-        const string CLASS = "HenEngine";
+        const string NAMESPACE = "PinchTargets";
+        const string CLASS = "TargetsEngine";
         #endregion      // CONSTANTS
 
         #region PROPERTIES
@@ -58,14 +58,14 @@ namespace HenDomain
 
         #region CTOR
         /// <summary>
-        /// Default Constructor
+        /// Parameterized Constructor
         /// </summary>
-        public HenEngine()
+        public TargetsEngine() 
         {
             string strMethod = "CTOR";
             HenLogger.WriteSeparatorLine(' ');
             HenLogger.WriteSeparatorLine('>');
-            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenEngine Object");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating TargetsEngine Object");
             try
             {
 
@@ -82,9 +82,9 @@ namespace HenDomain
                 HenLogger.WriteSeparatorLine('<');
             }
         }
-        #endregion      // CTOR
+        #endregion  // class CTOR
     }
-    #endregion      // public class HenEngine
+    #endregion  // class TargetsEngine
 }
 #endregion      // namespace HenDomain
 

@@ -3,12 +3,12 @@
 //#############################################  F o r m M a i n . c s  ###############################################
 //#####################################################################################################################
 //  FILENAME:  FormMain.cs
-//  NAMESPACE: Pinch
+//  NAMESPACE: HenStudio
 //  CLASS(S):  FormMain
-//  COMPONENT: Pinch.exe
+//  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Main Pinch Form.
+//    This file contains the code for the Main HEN Studio Form.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -50,7 +50,7 @@ namespace HenStudio
 {
     #region public partial class FormMain
     /// <summary>
-    /// Pinch Main Form Class
+    /// HEN Studio Main Form Class
     /// </summary>
     public partial class FormMain : Form
     {
@@ -68,9 +68,6 @@ namespace HenStudio
         const string PINCH_UNITS_ENGLISH = "English";
         const string PINCH_UNITS_METRIC = "Metric";
 
-        const string PINCH_CALC_MODE_ENTER_CP = "Enter CP - Heat Capacity Flow Rate";
-        const string PINCH_CALC_MODE_ENTER_F_Cp = "Enter Flow Rate and Specific Heat Capacity (Cp)";
-
         const string STREAM_TYPE_HOT = "HOT";
         const string STREAM_TYPE_COLD = "COLD";
         const string STREAM_TYPE_NA = "NA";
@@ -82,6 +79,17 @@ namespace HenStudio
         #endregion      // CONSTANTS
 
         #region FIELDS
+
+        #region PUBLIC COLORS AND FONTS
+        //---------------------------------------------------------------------------------------------- AJP COLORS ---
+        public Color AJP_ENGINEERING_GREEN = Color.FromArgb(255, 0, 204, 153);   // Caribbean Green
+        public Color AJP_ENGINEERING_ORANGE = Color.FromArgb(255, 255, 153, 0);  // Vivid Gamboge
+        public Color AJP_PINCH_RED_ORANGE = Color.FromArgb(255, 255, 83, 73);    // Red-Orange
+        public Color AJP_PINCH_SKY_BLUE = Color.FromArgb(255, 0, 191, 255);      // Deep Sky Blue
+        //----------------------------------------------------------------------------------------------- AJP FONTS ---
+        public Font AJP_PINCH_DISPLAY_FONT = new Font("Segoe UI Variable Display", 10.0f); // Display
+        public Font AJP_PINCH_MONO_FONT = new Font("Cascadia Mono", 9.0f);              // Monospace for Numbers
+        #endregion  // PUBLIC COLORS AND FONTS
 
         #region PRIVATE COLORS
         //--------------------------------
@@ -101,7 +109,7 @@ namespace HenStudio
         #endregion      // FIELDS
 
         #region PROPERTIES
-        //-------------------------------------------------------------------------------------------------- COLORS ---
+        //------------------------------------------------------------------------------------------- STREAM COLORS ---
         public Color ColorBackgroundHotStream { get; set; }        // Hot  Stream Background Color
         public Color ColorBackgroundColdStream { get; set; }       // Cold Stream Background Color
         public Color ColorBackgroundNA_Stream { get; set; }        // NA   Stream Background Color
@@ -351,7 +359,7 @@ namespace HenStudio
             try
             {
                 this.Text = "AJP Pinch 4";
-                this.BackColor = HenSettingsObj.AJP_ENGINEERING_GREEN; // Form Background Color
+                this.BackColor = AJP_ENGINEERING_GREEN; // Form Background Color
 
                 //--- INPUT PANEL ---
                 this.panelINPUT.Location = new System.Drawing.Point(nPanelLocationX, nPanelLocationY);

@@ -38,18 +38,18 @@ using HenGlobal;
 using System;
 #endregion  // REFERENCES
 
-#region namespace PinchTargets
-namespace PinchTargets
+#region namespace HenReport
+namespace HenReport
 {
-    #region class TargetsEngine
+    #region class HenReportMgr
     /// <summary>
     /// Targets Engine Class
     /// </summary>
-    public class TargetsEngine
+    public class HenReportMgr
     {
         #region CONSTANTS
-        const string NAMESPACE = "PinchTargets";
-        const string CLASS = "TargetsEngine";
+        const string NAMESPACE = "HenDomain";
+        const string CLASS = "HenReportMgr";
         #endregion      // CONSTANTS
 
         #region PROPERTIES
@@ -60,12 +60,12 @@ namespace PinchTargets
         /// <summary>
         /// Parameterized Constructor
         /// </summary>
-        public TargetsEngine() 
+        public HenReportMgr() 
         {
             string strMethod = "CTOR";
             HenLogger.WriteSeparatorLine(' ');
             HenLogger.WriteSeparatorLine('>');
-            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating TargetsEngine Object");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenReportMgr Object");
             try
             {
 
@@ -78,15 +78,15 @@ namespace PinchTargets
             }
             finally
             {
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "HenReportMgr Object CREATED");
                 HenLogger.WriteSeparatorLine('<');
             }
         }
         #endregion  // class CTOR
     }
-    #endregion  // class TargetsEngine
+    #endregion  // class HenReportMgr
 }
-#endregion      // namespace PinchTargets
+#endregion      // namespace HenReport
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

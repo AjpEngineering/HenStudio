@@ -147,21 +147,21 @@
       <Project>{146de66e-f297-4664-8f5f-6edcbdfacbed}</Project>
       <Name>_AJP License File</Name>
     </ProjectReference>
-    <ProjectReference Include="_PinchData\_PinchData.csproj">
+    <ProjectReference Include="_PinchData\_HenDatabase.csproj">
       <Project>{41b4ad50-a07f-4c7d-89bd-b9979fc76833}</Project>
-      <Name>_PinchData</Name>
+      <Name>_HenDatabase</Name>
     </ProjectReference>
     <ProjectReference Include="_PinchGlobal\_HenGlobal.csproj">
       <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
       <Name>_HenGlobal</Name>
     </ProjectReference>
-    <ProjectReference Include="_PinchHen\_PinchHen.csproj">
+    <ProjectReference Include="_PinchHen\_HenDomain.csproj">
       <Project>{57cf15c7-2050-4948-b9ef-de7161c6bf69}</Project>
-      <Name>_PinchHen</Name>
+      <Name>_HenDomain</Name>
     </ProjectReference>
-    <ProjectReference Include="_PinchTargets\_PinchTargets.csproj">
+    <ProjectReference Include="_PinchTargets\_HenReport.csproj">
       <Project>{d0cd902a-466a-40c4-937a-6b3d7b8f86e5}</Project>
-      <Name>_PinchTargets</Name>
+      <Name>_HenReport</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

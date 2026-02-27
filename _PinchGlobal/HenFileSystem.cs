@@ -34,16 +34,7 @@
 
 #region REFERENCES
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 #endregion  // REFERENCES
 
@@ -80,11 +71,11 @@ namespace HenGlobal
         #endregion  // PROGRAM FILES LOCATION
 
         #region USER APP DATA LOCAL LOCATION
-        public string UserAppLocalFolderPath { get; set; }  // Full Path Local User App Data Folder Location
-        public string PinchDataFolderPath { get; set; }     // Full Path Pinch Local User Data Folder Location
-        public string AppExecConfigFilePath { get; set; }   // Full Path App Exe Config File Location
-        public string LicenseFolderPath { get; set; }       // Full Path LICENSE Folder Location
-        public string LicenseFilePath { get; set; }         // Full Path LICENSE File Location
+        public string UserAppLocalFolderPath { get; set; }   // Full Path Local User App Data Folder Location
+        public string HenStudioDataFolderPath { get; set; }  // Full Path Hen Studio Local User Data Folder Location
+        public string AppExecConfigFilePath { get; set; }    // Full Path App Exe Config File Location
+        public string LicenseFolderPath { get; set; }        // Full Path LICENSE Folder Location
+        public string LicenseFilePath { get; set; }          // Full Path LICENSE File Location
         #endregion  // USER APP DATA LOCAL LOCATION
 
         #endregion      // PROPERTIES
@@ -123,7 +114,7 @@ namespace HenGlobal
                 //UserAppLocalFolderPath = Path.GetDirectoryName(Application.UserAppDataPath); // has roaming Folder 
                 //---------------------------------------------------------------------------------------------------
                 UserAppLocalFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-                PinchDataFolderPath = String.Format("{0}\\{1}", UserAppLocalFolderPath, DEFAULT_APP_FOLDERNAME);
+                HenStudioDataFolderPath = String.Format("{0}\\{1}", UserAppLocalFolderPath, DEFAULT_APP_FOLDERNAME);
 
                 //AppExecConfigFilePath = String.Format("{0}\\{1}", PinchDataFolderPath, DEFAULT_APP_CONFIG_FILENAME);
                 //LicenseFolderPath = String.Format("{0}\\{1}", PinchDataFolderPath, DEFAULT_LICENSE_FOLDERNAME);
@@ -172,13 +163,13 @@ namespace HenGlobal
         {
             string strMethod = "LogFileSystemStructure";
             string strMsg = string.Empty;
-            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Log Pinch File System Folder Structure VALUES");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Log HEN Studio File System Folder Structure VALUES");
             try
             {
-                //-----------------------------------------------------
-                //--- Log Pinch File System Folder Structure HEADER ---
-                //-----------------------------------------------------
-                HenLogger.WriteSection("PINCH FILE SYSTEM FOLDER STRUCTURE");
+                //----------------------------------------------------------
+                //--- Log HEN Studio File System Folder Structure HEADER ---
+                //----------------------------------------------------------
+                HenLogger.WriteSection("HEN STUDIO FILE SYSTEM FOLDER STRUCTURE");
 
                 //---------------------------------------------------
                 //--- Log Pinch File System Folder Structure BODY ---
@@ -205,7 +196,7 @@ namespace HenGlobal
 
                 strMsg = string.Format("USER APP LOCAL FOLDER LOCATION : {0}", UserAppLocalFolderPath);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("    PINCH DATA FOLDER LOCATION : {0}", PinchDataFolderPath);
+                strMsg = string.Format("    PINCH DATA FOLDER LOCATION : {0}", HenStudioDataFolderPath);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("  APP EXE CONFIG FILE LOCATION : {0}", AppExecConfigFilePath);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
