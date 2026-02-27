@@ -9,6 +9,13 @@
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the code for the Main HEN Studio Form.
+//---------------------------------------------------------------------------------------------------------------------
+//                      PRESENTATION LAYER ->       BUSINESS LAYER            ->       DATA LAYER
+//                       UI -> ViewModels  -> Domain -> Repository Interfaces -> Persistence -> Database
+//---------------------------------------------------------------------------------------------------------------------
+//    The HenStudio Component (Assembly) is part of the Presentation Layer of the Software Architecture.
+//    This Layer includes the WinForms UI (Forms, Controls, Grids, etc.) AND
+//    the ViewModel layer (BindingLists, commands [e.g., Unit Conversion - To/From External-Internal Units], etc.).
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
