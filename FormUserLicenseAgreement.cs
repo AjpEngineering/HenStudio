@@ -33,25 +33,17 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 #endregion  // REFERENCES
 
-#region namespace Pinch
-namespace Pinch
+#region namespace HenStudio
+namespace HenStudio
 {
     #region class FormUserLicenseAgreement
     public partial class FormUserLicenseAgreement : Form
     {
         #region CONSTANTS
-        const string NAMESPACE = "Pinch";
+        const string NAMESPACE = "HenStudio";
         const string CLASS = "FormUserLicenseAgreement";
         #endregion  // CONSTANTS
 
@@ -68,5 +60,5 @@ namespace Pinch
     }
     #endregion  // class FormUserLicenseAgreement
 }
-#endregion  // namespace Pinch
+#endregion  // namespace HenStudio
 

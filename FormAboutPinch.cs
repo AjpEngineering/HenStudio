@@ -33,32 +33,25 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using HenGlobal;
 
-using PinchGlobal;
+using System;
+using System.Windows.Forms;
 #endregion  // REFERENCES
 
-#region namespace Pinch
-namespace Pinch
+#region namespace HenStudio
+namespace HenStudio
 {
     #region public partial class FormAboutPinch : Form
     public partial class FormAboutPinch : Form
     {
         #region CONSTANTS
-        const string NAMESPACE = "Pinch";
+        const string NAMESPACE = "HenStudio";
         const string CLASS = "FormAboutPinch";
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public PinchTypes PinchTypesObj { get; set; }         // Pinch Types
+        public HenTypes HenTypesObj { get; set; }         // Pinch Types
 
         #endregion      // PROPERTIES
 
@@ -81,21 +74,21 @@ namespace Pinch
         private void InitializeControls()
         {
             string strMethod = "InitializeControls";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initialize Contols");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initialize Contols");
             try
             {
-                this.labelSupplierNameValue.Text = PinchSettings.AJP_SUPPLIER_NAME;
-                this.labelProductFullNameValue.Text = PinchSettings.AJP_PRODUCT_FULLNAME;
-                this.labelProductNameValue.Text = PinchSettings.AJP_PRODUCT_NAME;
-                this.labelProductVersionValue.Text = PinchSettings.AJP_PRODUCT_VERSION;
-                this.labelSerialNumberValue.Text = PinchSettings.AJP_PRODUCT_SERIAL_NUMBER;
-                this.labelProductCodeValue.Text = PinchSettings.AJP_PRODUCT_CODE;
+                this.labelSupplierNameValue.Text = HenSettings.AJP_SUPPLIER_NAME;
+                this.labelProductFullNameValue.Text = HenSettings.AJP_PRODUCT_FULLNAME;
+                this.labelProductNameValue.Text = HenSettings.AJP_PRODUCT_NAME;
+                this.labelProductVersionValue.Text = HenSettings.AJP_PRODUCT_VERSION;
+                this.labelSerialNumberValue.Text = HenSettings.AJP_PRODUCT_SERIAL_NUMBER;
+                this.labelProductCodeValue.Text = HenSettings.AJP_PRODUCT_CODE;
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -117,18 +110,18 @@ namespace Pinch
         private void DisplayBusinessCardForm()
         {
             string strMethod = "DisplayBusinessCardForm";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Business Card Form");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Business Card Form");
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("Handle Common Display Business Card Form Command!");
+                //HenMsgDlg.DisplayWarningDlg("Handle Common Display Business Card Form Command!");
                 FormBusinessCard dlg = new FormBusinessCard();
                 dlg.ShowDialog();
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -147,7 +140,7 @@ namespace Pinch
     }
     #endregion  // public partial class FormAboutPinch : Form
 }
-#endregion  // namespace Pinch
+#endregion  // namespace HenStudio
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

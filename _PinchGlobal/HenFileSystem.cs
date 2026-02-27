@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//######################################  P i n c h F i l e S y s t e m . c s  ########################################
+//########################################  H e n F i l e S y s t e m . c s  ##########################################
 //#####################################################################################################################
-//  FILENAME:  PinchFileSystem.cs
-//  NAMESPACE: PinchGlobal
-//  CLASS(S):  PinchFileSystem
-//  COMPONENT: _PinchGLobal.dll
+//  FILENAME:  HenFileSystem.cs
+//  NAMESPACE: HenGlobal
+//  CLASS(S):  HenFileSystem
+//  COMPONENT: _HenGLobal.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for managing Pinch File and Folder locations.
+//    This file contains the code for managing AJP HEN Studio File and Folder locations.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -47,25 +47,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 #endregion  // REFERENCES
 
-#region namespace PinchGlobal
-namespace PinchGlobal
+#region namespace HenGlobal
+namespace HenGlobal
 {
-    #region public class PinchFileSystem
+    #region public class HenFileSystem
     /// <summary>
-    /// AJP Pinch Application - File System Structure Class
+    /// AJP HEN Studio Application - File System Structure Class
     /// Installed exe and dll components (Assemblies) located in the ProgamFiles folder
     /// Application data (i.e., License.xml, pinch.exe.config, etc.) located in LocalApplicationsData
-    /// Pinch Analyis Project data (*.xml, *.zip) located at User Specified location (initially at UserAppDocuments)
+    /// HEN Studio Database (*.mdb) located at User Specified location (initially at UserAppDocuments)
     /// </summary>
-    public class PinchFileSystem
+    public class HenFileSystem
     {
         #region CONSTANTS
-        const string NAMESPACE = "PinchGlobal";
-        const string CLASS = "PinchFileSystem";
+        const string NAMESPACE = "HenGlobal";
+        const string CLASS = "HenFileSystem";
 
-        public const string DEFAULT_APP_FOLDERNAME = "AJP Pinch 4";
-        public const string DEFAULT_APP_FILENAME = "Pinch.exe";
-        public const string DEFAULT_APP_CONFIG_FILENAME = "Pinch.exe.config";
+        public const string DEFAULT_APP_FOLDERNAME = "AJP HEN Studio";
+        public const string DEFAULT_APP_FILENAME = "HenStudio.exe";
+        public const string DEFAULT_APP_CONFIG_FILENAME = "HenStudio.exe.config";
 
         public const string DEFAULT_LICENSE_FOLDERNAME = "LICENSE";
         public const string DEFAULT_LICENSE_FILENAME = "License.xml";
@@ -93,11 +93,11 @@ namespace PinchGlobal
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public PinchFileSystem()
+        public HenFileSystem()
         {
             string strMethod = "CTOR";
             string strMsg = string.Empty;
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
             try
             {
                 //----------------------------------------------------------------------------------------
@@ -145,9 +145,9 @@ namespace PinchGlobal
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -172,58 +172,58 @@ namespace PinchGlobal
         {
             string strMethod = "LogFileSystemStructure";
             string strMsg = string.Empty;
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Log Pinch File System Folder Structure VALUES");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Log Pinch File System Folder Structure VALUES");
             try
             {
                 //-----------------------------------------------------
                 //--- Log Pinch File System Folder Structure HEADER ---
                 //-----------------------------------------------------
-                PinchLogger.WriteSection("PINCH FILE SYSTEM FOLDER STRUCTURE");
+                HenLogger.WriteSection("PINCH FILE SYSTEM FOLDER STRUCTURE");
 
                 //---------------------------------------------------
                 //--- Log Pinch File System Folder Structure BODY ---
                 //---------------------------------------------------
                 strMsg = string.Format("               APP FOLDER NAME : {0}", DEFAULT_APP_FOLDERNAME);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("                 APP FILE NAME : {0}", DEFAULT_APP_FILENAME);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("          APP CONFIG FILE NAME : {0}", DEFAULT_APP_CONFIG_FILENAME);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("           LICENSE FOLDER NAME : {0}", DEFAULT_LICENSE_FOLDERNAME);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("             LICENSE FILE NAME : {0}", DEFAULT_LICENSE_FILENAME);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
 
                 strMsg = string.Format(" PROGRAM FILES FOLDER LOCATION : {0}", ProgramFilesFolderPath);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("           APP FOLDER LOCATION : {0}", AppExeFolderPath);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("         APP EXE FILE LOCATION : {0}", AppExeFilePath);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = string.Format("USER APP LOCAL FOLDER LOCATION : {0}", UserAppLocalFolderPath);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("    PINCH DATA FOLDER LOCATION : {0}", PinchDataFolderPath);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("  APP EXE CONFIG FILE LOCATION : {0}", AppExecConfigFilePath);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("       LICENSE FOLDER LOCATION : {0}", LicenseFolderPath);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("         LICENSE FILE LOCATION : {0}", LicenseFilePath);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 //-----------------------------------------------------
                 //--- Log Pinch File System Folder Structure FOOTER ---
                 //-----------------------------------------------------
-                PinchLogger.WriteSeparatorLine('=');
+                HenLogger.WriteSeparatorLine('=');
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -232,9 +232,9 @@ namespace PinchGlobal
         #endregion  // LogFileSystemStructure()
 
     }
-    #endregion      // public class PinchFileSystem
+    #endregion      // public class HenFileSystem
 }
-#endregion      // namespace PinchGlobal
+#endregion      // namespace HenGlobal
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

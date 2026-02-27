@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{759CBD9C-52B2-44F0-B3AE-695AD1FC508A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Pinch</RootNamespace>
-    <AssemblyName>Pinch</AssemblyName>
+    <RootNamespace>HenStudio</RootNamespace>
+    <AssemblyName>HenStudio</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\AJP Pinch\_REVISION 4.0\DEPLOY\</OutputPath>
+    <OutputPath>..\..\AJP HEN Studio\_REVISION 1.0\DEPLOY\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -43,7 +43,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\AJP Pinch\_REVISION 4.0\DEPLOY\</OutputPath>
+    <OutputPath>..\..\AJP HEN Studio\_REVISION 1.0\DEPLOY\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -151,9 +151,9 @@
       <Project>{41b4ad50-a07f-4c7d-89bd-b9979fc76833}</Project>
       <Name>_PinchData</Name>
     </ProjectReference>
-    <ProjectReference Include="_PinchGlobal\_PinchGlobal.csproj">
+    <ProjectReference Include="_PinchGlobal\_HenGlobal.csproj">
       <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
-      <Name>_PinchGlobal</Name>
+      <Name>_HenGlobal</Name>
     </ProjectReference>
     <ProjectReference Include="_PinchHen\_PinchHen.csproj">
       <Project>{57cf15c7-2050-4948-b9ef-de7161c6bf69}</Project>

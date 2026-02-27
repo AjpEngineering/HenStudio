@@ -3,9 +3,9 @@
 //########################################  P a n e l T a b l e R o w . c s  ##########################################
 //#####################################################################################################################
 //  FILENAME:  PanelTableRow.cs
-//  NAMESPACE: Pinch
+//  NAMESPACE: HenStudio
 //  CLASS(S):  PanelTableRow
-//  COMPONENT: Pinch.exe
+//  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the code for the Panel Table Row Data class. 
@@ -33,19 +33,13 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using HenGlobal;
 
-using PinchGlobal;
+using System;
 #endregion  // REFERENCES
 
-#region namespace Pinch
-namespace Pinch
+#region namespace HenStudio
+namespace HenStudio
 {
     #region public class PanelTableRow
     /// <summary>
@@ -54,7 +48,7 @@ namespace Pinch
     public class PanelTableRow
     {
         #region CONSTANTS
-        const string NAMESPACE = "Pinch";
+        const string NAMESPACE = "HenStudio";
         const string CLASS = "PanelTableRow";
         #endregion  // CONSTANTS
 
@@ -94,9 +88,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -120,14 +114,14 @@ namespace Pinch
                                         ActivityIndex, ActivityName, 
                                         SubActivityIndex, SubActivityName, 
                                         PanelStatusName);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -138,7 +132,7 @@ namespace Pinch
     }
     #endregion  // public class PanelTableRow
 }
-#endregion  // namespace Pinch
+#endregion  // namespace HenStudio
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

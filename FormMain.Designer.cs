@@ -1,4 +1,4 @@
-﻿namespace Pinch
+﻿namespace HenStudio
 {
     partial class FormMain
     {
@@ -204,7 +204,7 @@
             // 
             // newToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Image = global::Pinch.Properties.Resources.New_32x32;
+            this.newToolStripMenuItem.Image = global::HenStudio.Properties.Resources.New_32x32;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.newToolStripMenuItem.Text = "New...";
@@ -213,7 +213,7 @@
             // 
             // openToolStripMenuItem
             // 
-            this.openToolStripMenuItem.Image = global::Pinch.Properties.Resources.Open_32x32;
+            this.openToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Open_32x32;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.openToolStripMenuItem.Text = "Open...";
@@ -227,7 +227,7 @@
             // 
             // saveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Image = global::Pinch.Properties.Resources.Save_32x32;
+            this.saveToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Save_32x32;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.saveToolStripMenuItem.Text = "Save";
@@ -236,7 +236,7 @@
             // 
             // saveAsToolStripMenuItem
             // 
-            this.saveAsToolStripMenuItem.Image = global::Pinch.Properties.Resources.SaveAs_32x_32;
+            this.saveAsToolStripMenuItem.Image = global::HenStudio.Properties.Resources.SaveAs_32x_32;
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.saveAsToolStripMenuItem.Text = "Save As...";
@@ -250,7 +250,7 @@
             // 
             // importToolStripMenuItem
             // 
-            this.importToolStripMenuItem.Image = global::Pinch.Properties.Resources.Import;
+            this.importToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Import;
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
             this.importToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.importToolStripMenuItem.Text = "Import...";
@@ -259,7 +259,7 @@
             // 
             // exportToolStripMenuItem
             // 
-            this.exportToolStripMenuItem.Image = global::Pinch.Properties.Resources.Export_32x32;
+            this.exportToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Export_32x32;
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             this.exportToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.exportToolStripMenuItem.Text = "Export...";
@@ -273,7 +273,7 @@
             // 
             // exitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Image = global::Pinch.Properties.Resources.Exit_32x32;
+            this.exitToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Exit_32x32;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.exitToolStripMenuItem.Text = "Exit";
@@ -302,7 +302,7 @@
             this.costToolStripMenuItem,
             this.exchangerToolStripMenuItem,
             this.validateToolStripMenuItem});
-            this.specifyInputToolStripMenuItem.Image = global::Pinch.Properties.Resources.Input;
+            this.specifyInputToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Input;
             this.specifyInputToolStripMenuItem.Name = "specifyInputToolStripMenuItem";
             this.specifyInputToolStripMenuItem.Size = new System.Drawing.Size(271, 30);
             this.specifyInputToolStripMenuItem.Text = "Specify Input...";
@@ -312,7 +312,7 @@
             // inputProjectDataToolStripMenuItem
             // 
             this.inputProjectDataToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.inputProjectDataToolStripMenuItem.Image = global::Pinch.Properties.Resources.Project_32x32;
+            this.inputProjectDataToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Project_32x32;
             this.inputProjectDataToolStripMenuItem.Name = "inputProjectDataToolStripMenuItem";
             this.inputProjectDataToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
             this.inputProjectDataToolStripMenuItem.Text = "Project";
@@ -322,7 +322,7 @@
             // inputStreamsDataToolStripMenuItem
             // 
             this.inputStreamsDataToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
-            this.inputStreamsDataToolStripMenuItem.Image = global::Pinch.Properties.Resources.Streams_32x32;
+            this.inputStreamsDataToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Streams_32x32;
             this.inputStreamsDataToolStripMenuItem.Name = "inputStreamsDataToolStripMenuItem";
             this.inputStreamsDataToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
             this.inputStreamsDataToolStripMenuItem.Text = "Streams";
@@ -332,7 +332,7 @@
             // utilitiesToolStripMenuItem
             // 
             this.utilitiesToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.utilitiesToolStripMenuItem.Image = global::Pinch.Properties.Resources.Utilities_32x32;
+            this.utilitiesToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Utilities_32x32;
             this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
             this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
             this.utilitiesToolStripMenuItem.Text = "Utilities";
@@ -342,7 +342,7 @@
             // costToolStripMenuItem
             // 
             this.costToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
-            this.costToolStripMenuItem.Image = global::Pinch.Properties.Resources.Cost_32x32;
+            this.costToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Cost_32x32;
             this.costToolStripMenuItem.Name = "costToolStripMenuItem";
             this.costToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
             this.costToolStripMenuItem.Text = "Cost";
@@ -352,7 +352,7 @@
             // exchangerToolStripMenuItem
             // 
             this.exchangerToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.exchangerToolStripMenuItem.Image = global::Pinch.Properties.Resources.Exchanger_32x32;
+            this.exchangerToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Exchanger_32x32;
             this.exchangerToolStripMenuItem.Name = "exchangerToolStripMenuItem";
             this.exchangerToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
             this.exchangerToolStripMenuItem.Text = "Exchanger";
@@ -362,7 +362,7 @@
             // validateToolStripMenuItem
             // 
             this.validateToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
-            this.validateToolStripMenuItem.Image = global::Pinch.Properties.Resources.Validate_32x32;
+            this.validateToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Validate_32x32;
             this.validateToolStripMenuItem.Name = "validateToolStripMenuItem";
             this.validateToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
             this.validateToolStripMenuItem.Text = "Validate";
@@ -382,7 +382,7 @@
             this.compositeToolStripMenuItem,
             this.intervalToolStripMenuItem,
             this.optimizeToolStripMenuItem});
-            this.calculateTargetsToolStripMenuItem.Image = global::Pinch.Properties.Resources.Target;
+            this.calculateTargetsToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Target;
             this.calculateTargetsToolStripMenuItem.Name = "calculateTargetsToolStripMenuItem";
             this.calculateTargetsToolStripMenuItem.Size = new System.Drawing.Size(271, 30);
             this.calculateTargetsToolStripMenuItem.Text = "Calculate Targets...";
@@ -392,7 +392,7 @@
             // calculateToolStripMenuItem
             // 
             this.calculateToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
-            this.calculateToolStripMenuItem.Image = global::Pinch.Properties.Resources.Calc_Gears_32x32;
+            this.calculateToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Calc_Gears_32x32;
             this.calculateToolStripMenuItem.Name = "calculateToolStripMenuItem";
             this.calculateToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
             this.calculateToolStripMenuItem.Text = "Calculate";
@@ -402,7 +402,7 @@
             // compositeToolStripMenuItem
             // 
             this.compositeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.compositeToolStripMenuItem.Image = global::Pinch.Properties.Resources.Composite_32x32;
+            this.compositeToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Composite_32x32;
             this.compositeToolStripMenuItem.Name = "compositeToolStripMenuItem";
             this.compositeToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
             this.compositeToolStripMenuItem.Text = "Composite";
@@ -412,7 +412,7 @@
             // intervalToolStripMenuItem
             // 
             this.intervalToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
-            this.intervalToolStripMenuItem.Image = global::Pinch.Properties.Resources.Interval;
+            this.intervalToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Interval;
             this.intervalToolStripMenuItem.Name = "intervalToolStripMenuItem";
             this.intervalToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
             this.intervalToolStripMenuItem.Text = "Interval";
@@ -422,7 +422,7 @@
             // optimizeToolStripMenuItem
             // 
             this.optimizeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.optimizeToolStripMenuItem.Image = global::Pinch.Properties.Resources.Optimize_32x32;
+            this.optimizeToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Optimize_32x32;
             this.optimizeToolStripMenuItem.Name = "optimizeToolStripMenuItem";
             this.optimizeToolStripMenuItem.Size = new System.Drawing.Size(142, 30);
             this.optimizeToolStripMenuItem.Text = "Optimize";
@@ -439,7 +439,7 @@
             this.designHeatExchangerNetworkToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.designHeatExchangerNetworkToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.designToolStripMenuItem});
-            this.designHeatExchangerNetworkToolStripMenuItem.Image = global::Pinch.Properties.Resources.HEN;
+            this.designHeatExchangerNetworkToolStripMenuItem.Image = global::HenStudio.Properties.Resources.HEN;
             this.designHeatExchangerNetworkToolStripMenuItem.Name = "designHeatExchangerNetworkToolStripMenuItem";
             this.designHeatExchangerNetworkToolStripMenuItem.Size = new System.Drawing.Size(271, 30);
             this.designHeatExchangerNetworkToolStripMenuItem.Text = "Design Heat Exchanger Network...";
@@ -449,7 +449,7 @@
             // designToolStripMenuItem
             // 
             this.designToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
-            this.designToolStripMenuItem.Image = global::Pinch.Properties.Resources.Design_32x32;
+            this.designToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Design_32x32;
             this.designToolStripMenuItem.Name = "designToolStripMenuItem";
             this.designToolStripMenuItem.Size = new System.Drawing.Size(120, 30);
             this.designToolStripMenuItem.Text = "Design";
@@ -470,7 +470,7 @@
             // 
             // licenseToolStripMenuItem
             // 
-            this.licenseToolStripMenuItem.Image = global::Pinch.Properties.Resources.License_32x32;
+            this.licenseToolStripMenuItem.Image = global::HenStudio.Properties.Resources.License_32x32;
             this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
             this.licenseToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
             this.licenseToolStripMenuItem.Text = "License...";
@@ -479,7 +479,7 @@
             // 
             // scorecardToolStripMenuItem
             // 
-            this.scorecardToolStripMenuItem.Image = global::Pinch.Properties.Resources.Scorecard_Check_32x32;
+            this.scorecardToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Scorecard_Check_32x32;
             this.scorecardToolStripMenuItem.Name = "scorecardToolStripMenuItem";
             this.scorecardToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
             this.scorecardToolStripMenuItem.Text = "Scorecard...";
@@ -493,7 +493,7 @@
             // 
             // aboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.Image = global::Pinch.Properties.Resources.About_32x32;
+            this.aboutToolStripMenuItem.Image = global::HenStudio.Properties.Resources.About_32x32;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
             this.aboutToolStripMenuItem.Text = "About...";
@@ -536,7 +536,7 @@
             this.toolStripStatusLabelUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(0)))));
             this.toolStripStatusLabelUnits.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelUnits.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelUnits.Image = global::Pinch.Properties.Resources.Unknown_32x32;
+            this.toolStripStatusLabelUnits.Image = global::HenStudio.Properties.Resources.Unknown_32x32;
             this.toolStripStatusLabelUnits.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelUnits.Name = "toolStripStatusLabelUnits";
             this.toolStripStatusLabelUnits.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -548,7 +548,7 @@
             this.toolStripStatusLabelInput.BackColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelInput.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelInput.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelInput.Image = global::Pinch.Properties.Resources.InValid_32x32;
+            this.toolStripStatusLabelInput.Image = global::HenStudio.Properties.Resources.InValid_32x32;
             this.toolStripStatusLabelInput.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelInput.Name = "toolStripStatusLabelInput";
             this.toolStripStatusLabelInput.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -560,7 +560,7 @@
             this.toolStripStatusLabelTargets.BackColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelTargets.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelTargets.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelTargets.Image = global::Pinch.Properties.Resources.InValid_32x32;
+            this.toolStripStatusLabelTargets.Image = global::HenStudio.Properties.Resources.InValid_32x32;
             this.toolStripStatusLabelTargets.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelTargets.Name = "toolStripStatusLabelTargets";
             this.toolStripStatusLabelTargets.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -1247,7 +1247,7 @@
             this.toolStripButtonNew.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonNew.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButtonNew.Image = global::Pinch.Properties.Resources.New_32x32;
+            this.toolStripButtonNew.Image = global::HenStudio.Properties.Resources.New_32x32;
             this.toolStripButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonNew.Name = "toolStripButtonNew";
             this.toolStripButtonNew.Size = new System.Drawing.Size(28, 28);
@@ -1260,7 +1260,7 @@
             this.toolStripButtonOpen.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripButtonOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonOpen.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButtonOpen.Image = global::Pinch.Properties.Resources.Open_32x32;
+            this.toolStripButtonOpen.Image = global::HenStudio.Properties.Resources.Open_32x32;
             this.toolStripButtonOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOpen.Name = "toolStripButtonOpen";
             this.toolStripButtonOpen.Size = new System.Drawing.Size(28, 28);
@@ -1276,7 +1276,7 @@
             // toolStripButtonSave
             // 
             this.toolStripButtonSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSave.Image = global::Pinch.Properties.Resources.Save_32x32;
+            this.toolStripButtonSave.Image = global::HenStudio.Properties.Resources.Save_32x32;
             this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSave.Name = "toolStripButtonSave";
             this.toolStripButtonSave.Size = new System.Drawing.Size(28, 28);
@@ -1287,7 +1287,7 @@
             // toolStripButtonSaveAs
             // 
             this.toolStripButtonSaveAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSaveAs.Image = global::Pinch.Properties.Resources.SaveAs_32x_32;
+            this.toolStripButtonSaveAs.Image = global::HenStudio.Properties.Resources.SaveAs_32x_32;
             this.toolStripButtonSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSaveAs.Name = "toolStripButtonSaveAs";
             this.toolStripButtonSaveAs.Size = new System.Drawing.Size(28, 28);
@@ -1304,7 +1304,7 @@
             // 
             this.toolStripButtonImport.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripButtonImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonImport.Image = global::Pinch.Properties.Resources.Import;
+            this.toolStripButtonImport.Image = global::HenStudio.Properties.Resources.Import;
             this.toolStripButtonImport.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonImport.Name = "toolStripButtonImport";
             this.toolStripButtonImport.Size = new System.Drawing.Size(28, 28);
@@ -1317,7 +1317,7 @@
             this.toolStripButtonExport.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripButtonExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonExport.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButtonExport.Image = global::Pinch.Properties.Resources.Export_32x32;
+            this.toolStripButtonExport.Image = global::HenStudio.Properties.Resources.Export_32x32;
             this.toolStripButtonExport.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonExport.Name = "toolStripButtonExport";
             this.toolStripButtonExport.Size = new System.Drawing.Size(28, 28);
@@ -1335,7 +1335,7 @@
             this.toolStripButtonProject.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripButtonProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonProject.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButtonProject.Image = global::Pinch.Properties.Resources.Project_32x32;
+            this.toolStripButtonProject.Image = global::HenStudio.Properties.Resources.Project_32x32;
             this.toolStripButtonProject.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonProject.Name = "toolStripButtonProject";
             this.toolStripButtonProject.Size = new System.Drawing.Size(28, 28);
@@ -1347,7 +1347,7 @@
             // 
             this.toolStripButtonStreams.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripButtonStreams.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonStreams.Image = global::Pinch.Properties.Resources.Streams_32x32;
+            this.toolStripButtonStreams.Image = global::HenStudio.Properties.Resources.Streams_32x32;
             this.toolStripButtonStreams.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonStreams.Name = "toolStripButtonStreams";
             this.toolStripButtonStreams.Size = new System.Drawing.Size(28, 28);
@@ -1359,7 +1359,7 @@
             // 
             this.toolStripButtonUtilities.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripButtonUtilities.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUtilities.Image = global::Pinch.Properties.Resources.Utilities_32x32;
+            this.toolStripButtonUtilities.Image = global::HenStudio.Properties.Resources.Utilities_32x32;
             this.toolStripButtonUtilities.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUtilities.Name = "toolStripButtonUtilities";
             this.toolStripButtonUtilities.Size = new System.Drawing.Size(28, 28);
@@ -1371,7 +1371,7 @@
             // 
             this.toolStripButtonCost.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripButtonCost.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCost.Image = global::Pinch.Properties.Resources.Cost_32x32;
+            this.toolStripButtonCost.Image = global::HenStudio.Properties.Resources.Cost_32x32;
             this.toolStripButtonCost.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCost.Name = "toolStripButtonCost";
             this.toolStripButtonCost.Size = new System.Drawing.Size(28, 28);
@@ -1383,7 +1383,7 @@
             // 
             this.toolStripButtonExchanger.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripButtonExchanger.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonExchanger.Image = global::Pinch.Properties.Resources.Exchanger_32x32;
+            this.toolStripButtonExchanger.Image = global::HenStudio.Properties.Resources.Exchanger_32x32;
             this.toolStripButtonExchanger.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonExchanger.Name = "toolStripButtonExchanger";
             this.toolStripButtonExchanger.Size = new System.Drawing.Size(28, 28);
@@ -1395,7 +1395,7 @@
             // 
             this.toolStripButtonValidate.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripButtonValidate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonValidate.Image = global::Pinch.Properties.Resources.Validate_32x32;
+            this.toolStripButtonValidate.Image = global::HenStudio.Properties.Resources.Validate_32x32;
             this.toolStripButtonValidate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonValidate.Name = "toolStripButtonValidate";
             this.toolStripButtonValidate.Size = new System.Drawing.Size(28, 28);
@@ -1411,7 +1411,7 @@
             // toolStripButtonCalculate
             // 
             this.toolStripButtonCalculate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCalculate.Image = global::Pinch.Properties.Resources.Calc_Gears_32x32;
+            this.toolStripButtonCalculate.Image = global::HenStudio.Properties.Resources.Calc_Gears_32x32;
             this.toolStripButtonCalculate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCalculate.Name = "toolStripButtonCalculate";
             this.toolStripButtonCalculate.Size = new System.Drawing.Size(28, 28);
@@ -1422,7 +1422,7 @@
             // toolStripButtonComposite
             // 
             this.toolStripButtonComposite.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonComposite.Image = global::Pinch.Properties.Resources.Composite_32x32;
+            this.toolStripButtonComposite.Image = global::HenStudio.Properties.Resources.Composite_32x32;
             this.toolStripButtonComposite.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonComposite.Name = "toolStripButtonComposite";
             this.toolStripButtonComposite.Size = new System.Drawing.Size(28, 28);
@@ -1433,7 +1433,7 @@
             // toolStripButtonInterval
             // 
             this.toolStripButtonInterval.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonInterval.Image = global::Pinch.Properties.Resources.Interval;
+            this.toolStripButtonInterval.Image = global::HenStudio.Properties.Resources.Interval;
             this.toolStripButtonInterval.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonInterval.Name = "toolStripButtonInterval";
             this.toolStripButtonInterval.Size = new System.Drawing.Size(28, 28);
@@ -1444,7 +1444,7 @@
             // toolStripButtonOptimize
             // 
             this.toolStripButtonOptimize.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonOptimize.Image = global::Pinch.Properties.Resources.Optimize_32x32;
+            this.toolStripButtonOptimize.Image = global::HenStudio.Properties.Resources.Optimize_32x32;
             this.toolStripButtonOptimize.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOptimize.Name = "toolStripButtonOptimize";
             this.toolStripButtonOptimize.Size = new System.Drawing.Size(28, 28);
@@ -1460,7 +1460,7 @@
             // toolStripButtonHenDesign
             // 
             this.toolStripButtonHenDesign.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonHenDesign.Image = global::Pinch.Properties.Resources.Design_32x32;
+            this.toolStripButtonHenDesign.Image = global::HenStudio.Properties.Resources.Design_32x32;
             this.toolStripButtonHenDesign.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonHenDesign.Name = "toolStripButtonHenDesign";
             this.toolStripButtonHenDesign.Size = new System.Drawing.Size(28, 28);
@@ -1476,7 +1476,7 @@
             // toolStripButtonLicense
             // 
             this.toolStripButtonLicense.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonLicense.Image = global::Pinch.Properties.Resources.License_32x32;
+            this.toolStripButtonLicense.Image = global::HenStudio.Properties.Resources.License_32x32;
             this.toolStripButtonLicense.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonLicense.Name = "toolStripButtonLicense";
             this.toolStripButtonLicense.Size = new System.Drawing.Size(28, 28);
@@ -1487,7 +1487,7 @@
             // toolStripButtonScoreCard
             // 
             this.toolStripButtonScoreCard.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonScoreCard.Image = global::Pinch.Properties.Resources.Scorecard_Check_32x32;
+            this.toolStripButtonScoreCard.Image = global::HenStudio.Properties.Resources.Scorecard_Check_32x32;
             this.toolStripButtonScoreCard.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonScoreCard.Name = "toolStripButtonScoreCard";
             this.toolStripButtonScoreCard.Size = new System.Drawing.Size(28, 28);
@@ -1497,7 +1497,7 @@
             // toolStripButtonAbout
             // 
             this.toolStripButtonAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAbout.Image = global::Pinch.Properties.Resources.About_32x32;
+            this.toolStripButtonAbout.Image = global::HenStudio.Properties.Resources.About_32x32;
             this.toolStripButtonAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAbout.Name = "toolStripButtonAbout";
             this.toolStripButtonAbout.Size = new System.Drawing.Size(28, 28);
@@ -1508,7 +1508,7 @@
             // toolStripButtonUserLicenseAgreement
             // 
             this.toolStripButtonUserLicenseAgreement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUserLicenseAgreement.Image = global::Pinch.Properties.Resources.AJP_User_License_Agreement__32x32;
+            this.toolStripButtonUserLicenseAgreement.Image = global::HenStudio.Properties.Resources.AJP_User_License_Agreement__32x32;
             this.toolStripButtonUserLicenseAgreement.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUserLicenseAgreement.Name = "toolStripButtonUserLicenseAgreement";
             this.toolStripButtonUserLicenseAgreement.Size = new System.Drawing.Size(28, 28);
@@ -1531,7 +1531,7 @@
             // 
             // userLicenseAgreementToolStripMenuItem
             // 
-            this.userLicenseAgreementToolStripMenuItem.Image = global::Pinch.Properties.Resources.AJP_User_License_Agreement__32x32;
+            this.userLicenseAgreementToolStripMenuItem.Image = global::HenStudio.Properties.Resources.AJP_User_License_Agreement__32x32;
             this.userLicenseAgreementToolStripMenuItem.Name = "userLicenseAgreementToolStripMenuItem";
             this.userLicenseAgreementToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
             this.userLicenseAgreementToolStripMenuItem.Text = "User License Agreement";

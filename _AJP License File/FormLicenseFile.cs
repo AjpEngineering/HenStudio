@@ -44,7 +44,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using PinchGlobal;
+using HenGlobal;
 #endregion      // REFERENCES
 
 #region namespace AJP_License_File
@@ -327,8 +327,8 @@ namespace AJP_License_File
             string strMethod = "RestoreXmlFile";
             string strMsg = string.Empty;
             
-            string AJP_LICENSE_FOLDER = PinchFileSystem.DEFAULT_LICENSE_FOLDERNAME;  // e.g., "LICENSE"
-            string AJP_LICENSE_FILE = PinchFileSystem.DEFAULT_LICENSE_FILENAME;      // e.g., "AJP License.xml"
+            string AJP_LICENSE_FOLDER = HenFileSystem.DEFAULT_LICENSE_FOLDERNAME;  // e.g., "LICENSE"
+            string AJP_LICENSE_FILE = HenFileSystem.DEFAULT_LICENSE_FILENAME;      // e.g., "AJP License.xml"
 
             string strCheckLicenseFolder = string.Empty;
             string strCheckLicenseFile = string.Empty;

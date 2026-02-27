@@ -1,4 +1,4 @@
-﻿namespace Pinch
+﻿namespace HenStudio
 {
     partial class FormBusinessCard
     {
@@ -35,7 +35,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Pinch.Properties.Resources.Business_Card_Einstein;
+            this.BackgroundImage = global::HenStudio.Properties.Resources.Business_Card_Einstein;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(284, 481);
             this.DoubleBuffered = true;

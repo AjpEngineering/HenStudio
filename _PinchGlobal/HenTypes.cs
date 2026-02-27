@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//###########################################  P i n c h T y p e s . c s  #############################################
+//#############################################  H e n T y p e s . c s  ###############################################
 //#####################################################################################################################
-//  FILENAME:  PinchTypes.cs
-//  NAMESPACE: PinchGlobal
-//  CLASS(S):  PinchTypes
-//  COMPONENT: _PinchGLobal.dll
+//  FILENAME:  HenTypes.cs
+//  NAMESPACE: HenGlobal
+//  CLASS(S):  HenTypes
+//  COMPONENT: _HenGLobal.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Common Pinch Types (enums).
+//    This file contains the code for the Common HEN Studio Types (enums).
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -46,18 +46,18 @@ using System.Text;
 using System.Threading.Tasks;
 #endregion  // REFERENCES
 
-#region namespace PinchGlobal
-namespace PinchGlobal
+#region namespace HenGlobal
+namespace HenGlobal
 {
-    #region public class PinchTypes
+    #region public class HenTypes
     /// <summary>
     /// Pinch Types Class
     /// </summary>
-    public class PinchTypes
+    public class HenTypes
     {
         #region CONSTANTS
-        const string NAMESPACE = "PinchGlobal";
-        const string CLASS = "PinchTypes";
+        const string NAMESPACE = "HenGlobal";
+        const string CLASS = "HenTypes";
 
         #endregion      // CONSTANTS
 
@@ -251,34 +251,34 @@ namespace PinchGlobal
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public PinchTypes()
+        public HenTypes()
         {
             string strMethod = "CTOR";
-            PinchLogger.WriteSeparatorLine(' ');
-            PinchLogger.WriteSeparatorLine('>');
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating PinchTypes Object");
+            HenLogger.WriteSeparatorLine(' ');
+            HenLogger.WriteSeparatorLine('>');
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenTypes Object");
             try
             {
 
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
-                PinchLogger.WriteSeparatorLine('<');
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "HenTypes Object CREATED");
+                HenLogger.WriteSeparatorLine('<');
             }
         }
         #endregion      // CTOR
 
     }
-    #endregion      // public class PinchTypes
+    #endregion      // public class HenTypes
 }
-#endregion      // namespace PinchGlobal
+#endregion      // namespace HenGlobal
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

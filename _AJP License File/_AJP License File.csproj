@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\AJP Pinch\_REVISION 4.0\DEPLOY\</OutputPath>
+    <OutputPath>..\..\..\AJP HEN Studio\_REVISION 1.0\DEPLOY\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\AJP Pinch\_REVISION 4.0\DEPLOY\</OutputPath>
+    <OutputPath>..\..\..\AJP HEN Studio\_REVISION 1.0\DEPLOY\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -103,11 +103,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\_PinchGlobal\_PinchGlobal.csproj">
+    <ProjectReference Include="..\_PinchGlobal\_HenGlobal.csproj">
       <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
-      <Name>_PinchGlobal</Name>
+      <Name>_HenGlobal</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

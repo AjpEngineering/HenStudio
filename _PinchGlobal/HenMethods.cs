@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//#########################################  P i n c h M e t h o d s . c s  ###########################################
+//###########################################  H e n M e t h o d s . c s  #############################################
 //#####################################################################################################################
-//  FILENAME:  PinchMethods.cs
-//  NAMESPACE: PinchGlobal
-//  CLASS(S):  PinchMethods
-//  COMPONENT: _PinchGLobal.dll
+//  FILENAME:  HenMethods.cs
+//  NAMESPACE: HenGlobal
+//  CLASS(S):  HenMethods
+//  COMPONENT: _HenGLobal.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Common Pinch Methods (static).
+//    This file contains the code for the Common HEN Studio Methods (static).
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -48,30 +48,30 @@ using System.Text;
 using System.Threading.Tasks;
 #endregion  // REFERENCES
 
-#region namespace PinchGlobal
-namespace PinchGlobal
+#region namespace HenGlobal
+namespace HenGlobal
 {
-    #region public class PinchMethods
+    #region public class HenMethods
     /// <summary>
-    /// Common Global Pinch Methods Class
+    /// Common Global HEN Studio Methods Class
     /// Contains String Checks, Hash, and Units Conversion methods
     /// </summary>
-    public class PinchMethods
+    public class HenMethods
     {
         #region CONSTANTS
-        const string NAMESPACE = "PinchGlobal";
-        const string CLASS = "PinchMethods";
+        const string NAMESPACE = "HenGlobal";
+        const string CLASS = "HenMethods";
 
         #endregion      // CONSTANTS
 
         #region PROPERTIES
 
-        #region PinchSettingsObj
+        #region HenSettingsObj
         /// <summary>
-        /// PinchSettings Object
+        /// HenSettings Object
         /// </summary>
-        public PinchSettings PinchSettingsObj { get; set; }   // PinchSettings Object
-        #endregion  // PinchSettingsObj   
+        public HenSettings HenSettingsObj { get; set; }   // HenSettings Object
+        #endregion  // HenSettingsObj   
         
         #endregion      // PROPERTIES
 
@@ -79,14 +79,14 @@ namespace PinchGlobal
         /// <summary>
         /// Default Constructor...NO CTOR for STATIC CLASS
         /// </summary>
-        public PinchMethods(PinchSettings pinchSettingsObj)
+        public HenMethods(HenSettings pinchSettingsObj)
         {
             string strMethod = "CTOR";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
             //-------------------------
             //--- Assign Properties ---
             //-------------------------
-            PinchSettingsObj = pinchSettingsObj;
+            HenSettingsObj = pinchSettingsObj;
         }
         #endregion      // CTOR
 
@@ -420,12 +420,12 @@ namespace PinchGlobal
         /// External units are customer facing, i.e., UI units (controls)
         /// External Units are set by the user in the INPUT-Project Panel controls
         /// Internal units are set on initial construction and do not change
-        /// Both Internal and External units string Properties are contained in PinchSettings
+        /// Both Internal and External units string Properties are contained in HenSettings
         /// </summary>
-        /// <param name="enumConType">Conversion Units Enumeration Type [PinchTypes]</param>
+        /// <param name="enumConType">Conversion Units Enumeration Type [HenTypes]</param>
         /// <param name="dExternalValue">External Value to be converted</param>
         /// <returns>Converted internal value now in internal units</returns>
-        public double ConvertToInternal(PinchTypes.ConversionUnitsTypes enumConType,
+        public double ConvertToInternal(HenTypes.ConversionUnitsTypes enumConType,
                                         double dExternalValue)
         {
             string strMethod = "ConvertToInternal";
@@ -444,9 +444,9 @@ namespace PinchGlobal
                     //-----------------------------------------------------------------------------
                     //--- For Conversion: Use Area Units to determine [ METRIC | ENGLISH ]
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.A:
-                        if (string.Compare(PinchSettingsObj.InternalArea_Units,
-                                           PinchSettingsObj.ExternalArea_Units, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.A:
+                        if (string.Compare(HenSettingsObj.InternalArea_Units,
+                                           HenSettingsObj.ExternalArea_Units, true) == 0)
                         {
                             //--- No Need for Conversion Already set to (m²)! ---
                             dInternalValue = dExternalValue;
@@ -467,9 +467,9 @@ namespace PinchGlobal
                     //--- User selects Temperature [(°F) | (°R)] for ENGLISH
                     //---                      and [(°C) | (K)]  for METRIC
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.TEMP:
-                        if (string.Compare(PinchSettingsObj.InternalTemperatureUnits,
-                                           PinchSettingsObj.ExternalTemperatureUnits, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.TEMP:
+                        if (string.Compare(HenSettingsObj.InternalTemperatureUnits,
+                                           HenSettingsObj.ExternalTemperatureUnits, true) == 0)
                         {
                             //--- No Need for Conversion - Already (K)! ---
                             dInternalValue = dExternalValue;
@@ -477,23 +477,23 @@ namespace PinchGlobal
                         else
                         {
                             //--- Convert External Temperature Units to Internal Temperature Units (K) ---
-                            switch(PinchSettingsObj.ExternalTemperatureUnits)
+                            switch(HenSettingsObj.ExternalTemperatureUnits)
                             {
-                                case PinchSettings.DEG_F:
+                                case HenSettings.DEG_F:
                                     //--- Convert [ (°F) to (K)] ] ---
                                     dInternalValue = ((dExternalValue - 32.0) / 1.8) + 273.15;
                                     break;
-                                case PinchSettings.DEG_R:
+                                case HenSettings.DEG_R:
                                     //--- Convert [ (°R) to (K)] ] ---
                                     dInternalValue = ((dExternalValue - 491.67) / 1.8) + 273.15;
                                     break;
-                                case PinchSettings.DEG_C:
+                                case HenSettings.DEG_C:
                                     //--- Convert [ (°C) to (K)] ] ---
                                     dInternalValue = (dExternalValue + 273.15);
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Temperature Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalTemperatureUnits);
+                                                            HenSettingsObj.ExternalTemperatureUnits);
                                     throw new Exception(strMsg);
                             }
                         }
@@ -509,9 +509,9 @@ namespace PinchGlobal
                     //--- User selects Pressure [ psia | psia | psf  | atm | inHg | inH2O) ] for ENGLISH
                     //---                   and [ bar  | kBar | MBar | Pa  | kPa  | MPa    ] for METRIC
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.PRESS:
-                        if (string.Compare(PinchSettingsObj.InternalPressureUnits,
-                                           PinchSettingsObj.ExternalPressureUnits, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.PRESS:
+                        if (string.Compare(HenSettingsObj.InternalPressureUnits,
+                                           HenSettingsObj.ExternalPressureUnits, true) == 0)
                         {
                             //--- No Need for Conversion - Already (kPa)! ---
                             dInternalValue = dExternalValue;
@@ -519,56 +519,56 @@ namespace PinchGlobal
                         else
                         {
                             //--- Convert External Pressure Units to Internal Pressure Units (KPa) ---
-                            switch (PinchSettingsObj.ExternalPressureUnits)
+                            switch (HenSettingsObj.ExternalPressureUnits)
                             {
-                                case PinchSettings.Psia:
+                                case HenSettings.Psia:
                                     //--- Convert [ (psia) to (KPa)] ] ---
                                     dInternalValue = dExternalValue * 6.894765;
                                     break;
-                                case PinchSettings.Psig:
+                                case HenSettings.Psig:
                                     //--- Convert [ (psig) to (KPa)] ] ---
                                     dInternalValue = (dExternalValue + 14.6959) * 6.894765;
                                     break;
-                                case PinchSettings.Psfa:
+                                case HenSettings.Psfa:
                                     //--- Convert [ (psfa) to (KPa)] ] ---
                                     dInternalValue = dExternalValue * 0.0478803;
                                     break;
-                                case PinchSettings.Atm:
+                                case HenSettings.Atm:
                                     //--- Convert [ (atm) to (KPa)] ] ---
                                     dInternalValue = dExternalValue * 101.325;
                                     break;
-                                case PinchSettings.InHg:
+                                case HenSettings.InHg:
                                     //--- Convert [ (inHg) to (KPa)] ] ---
                                     dInternalValue = dExternalValue * 3.38639;
                                     break;
-                                case PinchSettings.InH2O:
+                                case HenSettings.InH2O:
                                     //--- Convert [ (inH2O) to (KPa)] ] ---
                                     dInternalValue = dExternalValue * 0.24908213;
                                     break;
                                 //-----------------------------------------------------------------
-                                case PinchSettings.Bar:
+                                case HenSettings.Bar:
                                     //--- Convert [ (bar) to (KPa)] ] ---
                                     dInternalValue = dExternalValue * 100.0;
                                     break;
-                                case PinchSettings.KBar:
+                                case HenSettings.KBar:
                                     //--- Convert [ (kBar) to (KPa)] ] ---
                                     dInternalValue = dExternalValue * 100000.0;
                                     break;
-                                case PinchSettings.MBar:
+                                case HenSettings.MBar:
                                     //--- Convert [ (MBar) to (KPa)] ] ---
                                     dInternalValue = dExternalValue * 100000000.0;
                                     break;
-                                case PinchSettings.Pa:
+                                case HenSettings.Pa:
                                     //--- Convert [ (Pa) to (KPa)] ] ---
                                     dInternalValue = dExternalValue * 0.001;
                                     break;
-                                case PinchSettings.MPa:
+                                case HenSettings.MPa:
                                     //--- Convert [ (MPa) to (KPa)] ] ---
                                     dInternalValue = dExternalValue * 1000.0;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Pressure Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalPressureUnits);
+                                                            HenSettingsObj.ExternalPressureUnits);
                                     throw new Exception(strMsg);
                             }
                         }
@@ -588,32 +588,32 @@ namespace PinchGlobal
                     //--- For Conversion: Use System Units to determine [ METRIC | ENGLISH ]
                     //--- Then Determine Magnitude for Conversions
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.HEAT_FLOW:
-                        if (string.Compare(PinchSettingsObj.InternalUnitsSystem,
-                                           PinchSettingsObj.ExternalUnitsSystem, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.HEAT_FLOW:
+                        if (string.Compare(HenSettingsObj.InternalUnitsSystem,
+                                           HenSettingsObj.ExternalUnitsSystem, true) == 0)
                         {
                             #region METRIC
                             //----------------------------------------------------------
                             //--- Convert External Heat Flow Units (W) | (kW) | (MW) ---
                             //--- to Internal Heat Flow Units (kW)                   ---
                             //----------------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert W to kW ---
                                     dInternalValue = dExternalValue * 0.001;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- No Conversion Needed - Already (kW) ! ---
                                     dInternalValue = dExternalValue;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert MW to kW ---
                                     dInternalValue = dExternalValue * 1000.0;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // METRIC
@@ -625,23 +625,23 @@ namespace PinchGlobal
                             //--- Convert External Heat Flow Units (Btu/hr) | (kBtu/hr) | (MMBtu/hr) ---
                             //--- to Internal Heat Flow Units (kW)                                   ---
                             //--------------------------------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert (Btu/hr) to (kW) ---
                                     dInternalValue = dExternalValue * 0.000293071;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- Convert kBtu/hr) to (kW) ---
                                     dInternalValue = dExternalValue * 0.293071071;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert (MMBtu/hr) to (kW) ---
                                     dInternalValue = dExternalValue * 293.071071;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // ENGLISH
@@ -669,9 +669,9 @@ namespace PinchGlobal
                     //--- Then Determine Magnitude and Temperature for Conversions
                     //--- NOTE: Conversion are the same for [(°F) | (°R)] and [(°C) | (K)]
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.CP:
-                        if (string.Compare(PinchSettingsObj.InternalUnitsSystem,
-                                           PinchSettingsObj.ExternalUnitsSystem, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.CP:
+                        if (string.Compare(HenSettingsObj.InternalUnitsSystem,
+                                           HenSettingsObj.ExternalUnitsSystem, true) == 0)
                         {
                             #region METRIC
                             //--------------------------------------------------------------
@@ -679,25 +679,25 @@ namespace PinchGlobal
                             //---                           (W/°C) | (kW/°C) | (MW/°C) | ---
                             //--- to Internal CP Units (kW/K)                            ---
                             //--------------------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert [ (W/°C) to (kW/K)] | [(W/K) to (kW/K) ] ---
                                     //--- °C or K both use the same conversion factor - dealing with delta temperatures
                                     dInternalValue = dExternalValue * 0.001;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- No Conversion Needed - Already (kW/K) ! ---
                                     dInternalValue = dExternalValue;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert [ (MW/°C) to (kW/K)] | [(MW/K) to (kW/K) ] ---
                                     //--- °C or K both use the same conversion factor - dealing with delta temperatures
                                     dInternalValue = dExternalValue * 1000.0;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // METRIC
@@ -710,26 +710,26 @@ namespace PinchGlobal
                             //---                           (Btu/(hr °R) | (kBtu/(hr °R)  | (MMBtu/(hr °R)   ---
                             //--- to Internal CP Units (kW/K)                                                ---
                             //----------------------------------------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert [ (Btu/(hr °F) to (kW/K)] | (Btu/(hr °R) to (kW/K) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dInternalValue = dExternalValue * 0.000527529;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- Convert [ (kBtu/(hr °F) to (kW/K)] | (kBtu/(hr °R) to (kW/K) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dInternalValue = dExternalValue * 0.527529;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert [ (MMBtu/(hr °F) to (kW/K)] | (MMBtu/(hr °R) to (kW/K) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dInternalValue = dExternalValue * 527.5291;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // ENGLISH
@@ -758,9 +758,9 @@ namespace PinchGlobal
                     //--- Then Determine Magnitude for Conversions
                     //--- NOTE: Conversion are the same for [(°F) | (°R)] and [(°C) | (K)]
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.U:
-                        if (string.Compare(PinchSettingsObj.InternalUnitsSystem,
-                                           PinchSettingsObj.ExternalUnitsSystem, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.U:
+                        if (string.Compare(HenSettingsObj.InternalUnitsSystem,
+                                           HenSettingsObj.ExternalUnitsSystem, true) == 0)
                         {
                             #region METRIC
                             //----------------------------------------------------------------------
@@ -768,25 +768,25 @@ namespace PinchGlobal
                             //---                          (W/(m²°C) | (kW/(m²°C) | (MW/(m²°C) | ---
                             //--- to Internal U Units (kW/(m²K)                                  ---
                             //----------------------------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert [ (W/(m²°C) to (kW/(m²K) | (W/(m²K) to (kW/(m²K) ] ---
                                     //--- °C or K both use the same conversion factor - dealing with delta temperatures
                                     dInternalValue = dExternalValue * 0.001;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- No Conversion Needed - Already (kW/(m²K)! ---
                                     dInternalValue = dExternalValue;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert [ (MW/(m²°C) to (kW/(m²K) | (MW/(m²K) to (kW/(m²K) ] ---
                                     //--- °C or K both use the same conversion factor - dealing with delta temperatures
                                     dInternalValue = dExternalValue * 1000.0;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // METRIC
@@ -799,26 +799,26 @@ namespace PinchGlobal
                             //---                          (Btu/(hr ft² °R) | (kBtu/(hr ft² °R)  | (MMBtu/(hr ft² °R)   ---
                             //--- to Internal U Units (kW/K)                                                            ---
                             //---------------------------------------------------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert [ (Btu/(hr ft² °F) to (kW/(m²K) | (Btu/(hr ft² °R) to (kW/(m²K) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dInternalValue = dExternalValue * 0.005678263;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- Convert [ (kBtu/(hr ft² °F) to (kW/(m²K) | (kBtu/(hr ft² °R) to (kW/(m²K) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dInternalValue = dExternalValue * 5.678263;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert [ (MMBtu/(hr ft² °F) to (kW/(m²K) | (MMBtu/(hr ft² °R) to (kW/(m²K) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dInternalValue = dExternalValue * 5678.263;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // ENGLISH
@@ -837,10 +837,10 @@ namespace PinchGlobal
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
                 strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.WriteSeparatorLine('*');
             }
             return dInternalValue;
         }
@@ -853,12 +853,12 @@ namespace PinchGlobal
         /// External units are customer facing, i.e., UI units (controls)
         /// External Units are set by the user in the INPUT-Project Panel controls
         /// Internal units are set on initial construction and do not change
-        /// Both Internal and External units string Properties are contained in PinchSettings
+        /// Both Internal and External units string Properties are contained in HenSettings
         /// </summary>
-        /// <param name="enumConType">Conversion Units Enumeration Type [PinchTypes]</param>
+        /// <param name="enumConType">Conversion Units Enumeration Type [HenTypes]</param>
         /// <param name="dInternalValued">Internal Value to be converted</param>
         /// <returns>Converted external value now in external units</returns>
-        public double ConvertFromInternal(PinchTypes.ConversionUnitsTypes enumConType,
+        public double ConvertFromInternal(HenTypes.ConversionUnitsTypes enumConType,
                                           double dInternalValue)
         {
             string strMethod = "ConvertFromInternal";
@@ -877,9 +877,9 @@ namespace PinchGlobal
                     //-----------------------------------------------------------------------------
                     //--- For Conversion: Use Area Units to determine [ METRIC | ENGLISH ]
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.A:
-                        if (string.Compare(PinchSettingsObj.InternalArea_Units,
-                                           PinchSettingsObj.ExternalArea_Units, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.A:
+                        if (string.Compare(HenSettingsObj.InternalArea_Units,
+                                           HenSettingsObj.ExternalArea_Units, true) == 0)
                         {
                             //--- No Need for Conversion ALreay (m²)! ---
                              dExternalValue = dInternalValue;
@@ -900,9 +900,9 @@ namespace PinchGlobal
                     //--- User selects Temperature [(°F) | (°R)] for ENGLISH
                     //---                      and [(°C) | (K)]  for METRIC
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.TEMP:
-                        if (string.Compare(PinchSettingsObj.InternalTemperatureUnits,
-                                           PinchSettingsObj.ExternalTemperatureUnits, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.TEMP:
+                        if (string.Compare(HenSettingsObj.InternalTemperatureUnits,
+                                           HenSettingsObj.ExternalTemperatureUnits, true) == 0)
                         {
                             //--- No Need for Conversion - Already (K)! ---
                             dExternalValue = dInternalValue;
@@ -910,23 +910,23 @@ namespace PinchGlobal
                         else
                         {
                             //--- Convert Internal Temperature Units (K) to External Temperature Units ---
-                            switch (PinchSettingsObj.ExternalTemperatureUnits)
+                            switch (HenSettingsObj.ExternalTemperatureUnits)
                             {
-                                case PinchSettings.DEG_F:
+                                case HenSettings.DEG_F:
                                     //--- Convert [ (K) to (°F) ] ---
                                     dExternalValue = ((dInternalValue - 273.15) * 1.8) + 32.0;
                                     break;
-                                case PinchSettings.DEG_R:
+                                case HenSettings.DEG_R:
                                     //--- Convert [ (K) to (°R) ] ---
                                     dExternalValue = (dInternalValue * 1.8);
                                     break;
-                                case PinchSettings.DEG_C:
+                                case HenSettings.DEG_C:
                                     //--- Convert [ (K) to (°C) ] ---
                                     dExternalValue = (dInternalValue - 273.15);
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Temperature Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalTemperatureUnits);
+                                                            HenSettingsObj.ExternalTemperatureUnits);
                                     throw new Exception(strMsg);
                             }
                         }
@@ -942,9 +942,9 @@ namespace PinchGlobal
                     //--- User selects Pressure [ psia | psia | psf  | atm | inHg | inH2O) ] for ENGLISH
                     //---                   and [ bar  | kBar | MBar | Pa  | kPa  | MPa    ] for METRIC
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.PRESS:
-                        if (string.Compare(PinchSettingsObj.InternalPressureUnits,
-                                           PinchSettingsObj.ExternalPressureUnits, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.PRESS:
+                        if (string.Compare(HenSettingsObj.InternalPressureUnits,
+                                           HenSettingsObj.ExternalPressureUnits, true) == 0)
                         {
                             //--- No Need for Conversion - Already (K)! ---
                             dExternalValue = dInternalValue;
@@ -952,56 +952,56 @@ namespace PinchGlobal
                         else
                         {
                             //--- Convert Internal Pressure Units (K) to External Pressure Units ---
-                            switch (PinchSettingsObj.ExternalPressureUnits)
+                            switch (HenSettingsObj.ExternalPressureUnits)
                             {
-                                case PinchSettings.Psia:
+                                case HenSettings.Psia:
                                     //--- Convert [ (KPa) to (psia) ] ---
                                     dExternalValue = dInternalValue * 0.14503768;
                                     break;
-                                case PinchSettings.Psig:
+                                case HenSettings.Psig:
                                     //--- Convert [ (KPa) to (psig) ] ---
                                     dExternalValue = (dInternalValue * 0.14503768) - 14.6959;
                                     break;
-                                case PinchSettings.Psfa:
+                                case HenSettings.Psfa:
                                     //--- Convert [ (KPa) to (psfa) ] ---
                                     dExternalValue = dInternalValue * 20.885416;
                                     break;
-                                case PinchSettings.Atm:
+                                case HenSettings.Atm:
                                     //--- Convert [ (KPa) to (atm) ] ---
                                     dExternalValue = dInternalValue * 0.00986923;
                                     break;
-                                case PinchSettings.InHg:
+                                case HenSettings.InHg:
                                     //--- Convert [ (KPa) to (inHg) ] ---
                                     dExternalValue = dInternalValue * 0.2952997;
                                     break;
-                                case PinchSettings.InH2O:
+                                case HenSettings.InH2O:
                                     //--- Convert [ (KPa) to (inH2O) ] ---
                                     dExternalValue = dInternalValue * 4.01474;
                                     break;
                                 //--------------------------------------------------------
-                                case PinchSettings.Bar:
+                                case HenSettings.Bar:
                                     //--- Convert [ (KPa) to (bar) ] ---
                                     dExternalValue = dInternalValue * 0.010;
                                     break;
-                                case PinchSettings.KBar:
+                                case HenSettings.KBar:
                                     //--- Convert [ (KPa) to (kBar) ] ---
                                     dExternalValue = dInternalValue * 0.00001;
                                     break;
-                                case PinchSettings.MBar:
+                                case HenSettings.MBar:
                                     //--- Convert [ (KPa) to (MBar) ] ---
                                     dExternalValue = dInternalValue * 0.00000001;
                                     break;
-                                case PinchSettings.Pa:
+                                case HenSettings.Pa:
                                     //--- Convert [ (KPa) to (Pa) ] ---
                                     dExternalValue = dInternalValue * 1000.0;
                                     break;
-                                case PinchSettings.MPa:
+                                case HenSettings.MPa:
                                     //--- Convert [ (KPa) to (MPa) ] ---
                                     dExternalValue = dInternalValue * 0.001;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Pressure Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalPressureUnits);
+                                                            HenSettingsObj.ExternalPressureUnits);
                                     throw new Exception(strMsg);
                             }
                         }
@@ -1021,32 +1021,32 @@ namespace PinchGlobal
                     //--- For Conversion: Use System Units to determine [ METRIC | ENGLISH ]
                     //--- Then Determine Magnitude for Conversions
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.HEAT_FLOW:
-                        if (string.Compare(PinchSettingsObj.InternalUnitsSystem,
-                                           PinchSettingsObj.ExternalUnitsSystem, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.HEAT_FLOW:
+                        if (string.Compare(HenSettingsObj.InternalUnitsSystem,
+                                           HenSettingsObj.ExternalUnitsSystem, true) == 0)
                         {
                             #region METRIC
                             //-----------------------------------------------------
                             //--- Convert Internal Heat Flow Units (kW)         ---
                             //--- to External Heat Flow Units (W) | (kW) | (MW) ---
                             //-----------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert kW to W ---
                                     dExternalValue = dInternalValue * 1000.0;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- No Conversion Needed - Already (kW) ! ---
                                     dExternalValue = dInternalValue;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert kW to MW ---
                                     dExternalValue = dInternalValue * 0.001;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // METRIC
@@ -1058,23 +1058,23 @@ namespace PinchGlobal
                             //--- Convert Internal Heat Flow Units (kW)                         ---
                             //--- to External Heat Flow Units (Btu/hr) | (kBtu/hr) | (MMBtu/hr) ---
                             //---------------------------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert (kW) to (Btu/hr) ---
                                     dExternalValue = dInternalValue * 3412.142;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- Convert (kW) to (kBtu/hr) ---
                                     dExternalValue = dInternalValue * 3.412142;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert (kW) to (MMBtu/hr) ---
                                     dExternalValue = dInternalValue * 0.003412142;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // ENGLISH
@@ -1102,9 +1102,9 @@ namespace PinchGlobal
                     //--- Then Determine Magnitude and Temperature for Conversions
                     //--- NOTE: Conversion are the same for [(°F) | (°R)] and [(°C) | (K)]
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.CP:
-                        if (string.Compare(PinchSettingsObj.InternalUnitsSystem,
-                                           PinchSettingsObj.ExternalUnitsSystem, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.CP:
+                        if (string.Compare(HenSettingsObj.InternalUnitsSystem,
+                                           HenSettingsObj.ExternalUnitsSystem, true) == 0)
                         {
                             #region METRIC
                             //--------------------------------------------------------------
@@ -1112,25 +1112,25 @@ namespace PinchGlobal
                             //---                           (W/°C) | (kW/°C) | (MW/°C) | ---
                             //--- to Internal CP Units (kW/K)                            ---
                             //--------------------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert [ (kW/K) to (W/°C) ] | [ (kW/K) to (W/K) ] ---
                                     //--- °C or K both use the same conversion factor - dealing with delta temperatures
                                     dExternalValue = dInternalValue * 1000.0;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- No Conversion Needed - Already (kW/K) ! ---
                                     dExternalValue = dInternalValue;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert [ (kW/K) to (MW/°C) ] | [ (kW/K) to (MW/K) ] ---
                                     //--- °C or K both use the same conversion factor - dealing with delta temperatures
                                     dExternalValue = dInternalValue * 0.001;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // METRIC
@@ -1143,26 +1143,26 @@ namespace PinchGlobal
                             //--- to External CP Units (Btu/(hr °F) | (kBtu/(hr °F)  | (MMBtu/(hr °F) | ---
                             //---                      (Btu/(hr °R) | (kBtu/(hr °R)  | (MMBtu/(hr °R)   ---
                             //-----------------------------------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert [ (Btu/(hr °F) to (kW/K) ] | [ (Btu/(hr °R) to (kW/K) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dExternalValue = dInternalValue * 1895.630;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- Convert [ (kBtu/(hr °F) to (kW/K) ] | [ (kBtu/(hr °R) to (kW/K) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dExternalValue = dInternalValue * 1.895630;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert [ (MMBtu/(hr °F) to (kW/K) ] | [ (MMBtu/(hr °R) to (kW/K) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dExternalValue = dInternalValue * 0.00189563;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // ENGLISH
@@ -1191,9 +1191,9 @@ namespace PinchGlobal
                     //--- Then Determine Magnitude for Conversions
                     //--- NOTE: Conversion are the same for [(°F) | (°R)] and [(°C) | (K)]
                     //-----------------------------------------------------------------------------
-                    case PinchTypes.ConversionUnitsTypes.U:
-                        if (string.Compare(PinchSettingsObj.InternalUnitsSystem,
-                                           PinchSettingsObj.ExternalUnitsSystem, true) == 0)
+                    case HenTypes.ConversionUnitsTypes.U:
+                        if (string.Compare(HenSettingsObj.InternalUnitsSystem,
+                                           HenSettingsObj.ExternalUnitsSystem, true) == 0)
                         {
                             #region METRIC
                             //----------------------------------------------------------------------
@@ -1201,25 +1201,25 @@ namespace PinchGlobal
                             //---                          (W/(m²°C) | (kW/(m²°C) | (MW/(m²°C) | ---
                             //--- to Internal U Units (kW/(m²K)                                  ---
                             //----------------------------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert [ (kW/(m²K)) to (W/(m²°C)) | (kW/(m²K)) to (W/(m²K)) ] ---
                                     //--- °C or K both use the same conversion factor - dealing with delta temperatures
                                     dExternalValue = dInternalValue * 1000.0;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- No Conversion Needed - Already (kW/(m²K)! ---
                                     dExternalValue = dInternalValue;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert [ (kW/(m²K)) to (MW/(m²°C)) | (kW/(m²K)) to (MW/(m²K)) ] ---
                                     //--- °C or K both use the same conversion factor - dealing with delta temperatures
                                     dExternalValue = dInternalValue * 0.001;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // METRIC
@@ -1232,26 +1232,26 @@ namespace PinchGlobal
                             //---                          (Btu/(hr ft² °R)) | (kBtu/(hr ft² °R)) | (MMBtu/(hr ft² °R))   ---                                                            ---
                             //--- to Internal U Units (kW/(m² K))                                                          --
                             //-----------------------------------------------------------------------------------------------
-                            switch (PinchSettingsObj.ExternalMagUnits)
+                            switch (HenSettingsObj.ExternalMagUnits)
                             {
-                                case PinchSettings.MAG_BASE:
+                                case HenSettings.MAG_BASE:
                                     //--- Convert [ (kW/(m²K) to (Btu/(hr ft² °F) | (kW/(m²K) to (Btu/(hr ft² °R) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dExternalValue = dInternalValue * 176.11;
                                     break;
-                                case PinchSettings.MAG_KILO:
+                                case HenSettings.MAG_KILO:
                                     //--- Convert [ (kW/(m²K) to (kBtu/(hr ft² °F) | (kW/(m²K) to (kBtu/(hr ft² °R) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dExternalValue = dInternalValue * 0.17611;
                                     break;
-                                case PinchSettings.MAG_MEGA:
+                                case HenSettings.MAG_MEGA:
                                     //--- Convert [ (kW/(m²K) to (MMBtu/(hr ft² °F) | (kW/(m²K) to (MMBtu/(hr ft² °R) ] ---
                                     //--- °F or °R both use the same conversion factor - dealing with delta temperatures
                                     dExternalValue = dInternalValue * 0.00017611;
                                     break;
                                 default:
                                     strMsg = string.Format("Unknown External Magnitude Units ENCOUNTERED!  {0}",
-                                                            PinchSettingsObj.ExternalMagUnits);
+                                                            HenSettingsObj.ExternalMagUnits);
                                     throw new Exception(strMsg);
                             }
                             #endregion  // ENGLISH
@@ -1270,10 +1270,10 @@ namespace PinchGlobal
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
                 strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.WriteSeparatorLine('*');
             }
             return dExternalValue;
         }
@@ -1291,18 +1291,18 @@ namespace PinchGlobal
             int nFail = 0;
             try
             {
-                PinchLogger.WriteSeparatorLine(' ');
-                PinchLogger.WriteSection("START UNIT CONVERSION TEST");
+                HenLogger.WriteSeparatorLine(' ');
+                HenLogger.WriteSection("START UNIT CONVERSION TEST");
 
                 #region USER SETS EXTERNAL UNITS
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;      // System:      "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;              // Magnitude:   "MEGA"
-                PinchSettingsObj.ExternalHeatFlowUnits = PinchSettings.MMBTU_HEAT_FLOW;  // Heat Flow:   "MMBtu/hr"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_F;         // Temperature: "°F"
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Psia;             // Pressure:    "psia"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.MMBTU_F_CP;            // CP:          "MMBtu/(hr °F)"
-                PinchSettingsObj.ExternalU_Units = PinchSettings.MMBTU_F_U;              // U:           "MMBtu/(hr ft² °F)"
-                PinchSettingsObj.ExternalArea_Units = PinchSettings.SqFt;                // Area:        "ft²"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;      // System:      "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_MEGA;              // Magnitude:   "MEGA"
+                HenSettingsObj.ExternalHeatFlowUnits = HenSettings.MMBTU_HEAT_FLOW;  // Heat Flow:   "MMBtu/hr"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_F;         // Temperature: "°F"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.Psia;             // Pressure:    "psia"
+                HenSettingsObj.ExternalCP_Units = HenSettings.MMBTU_F_CP;            // CP:          "MMBtu/(hr °F)"
+                HenSettingsObj.ExternalU_Units = HenSettings.MMBTU_F_U;              // U:           "MMBtu/(hr ft² °F)"
+                HenSettingsObj.ExternalArea_Units = HenSettings.SqFt;                // Area:        "ft²"
                 #endregion  // USER SETS EXTERNAL UNITS
 
                 #region A - AREA
@@ -1314,14 +1314,14 @@ namespace PinchGlobal
 
                 #region TO EXTERNAL
                 dAreaSqM = 400.0;     // Set INTERNAL VALUE
-                dAreaSqFt = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.A, dAreaSqM);
+                dAreaSqFt = ConvertFromInternal(HenTypes.ConversionUnitsTypes.A, dAreaSqM);
                 if (CheckForEquality(dAreaSqFt, 4305.56417))
                 {
                     nPass++;
                     strMsg = string.Format("AREA CONVERSION TEST -> {0:0.000} m² to {1:0.000} ft² .... PASS",
                                             Math.Round(dAreaSqM,3), 
                                             Math.Round(dAreaSqFt,3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1329,20 +1329,20 @@ namespace PinchGlobal
                     strMsg = string.Format("AREA CONVERSION TEST -> {0:0.000} m² to 4305.564 ft² .... FAIL -- {1:0.000} ft²",
                                             Math.Round(dAreaSqM, 3),
                                             Math.Round(dAreaSqFt, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dAreaSqFt = 4305.564167;  // Set EXTERNAL VALUE
-                dAreaSqM = ConvertToInternal(PinchTypes.ConversionUnitsTypes.A, dAreaSqFt);
+                dAreaSqM = ConvertToInternal(HenTypes.ConversionUnitsTypes.A, dAreaSqFt);
                 if (CheckForEquality(dAreaSqM, 400.0))
                 {
                     nPass++;
                     strMsg = string.Format("AREA CONVERSION TEST -> {0:0.000} ft² to {1:0.000} m² .... PASS",
                                            Math.Round(dAreaSqFt, 3),
                                            Math.Round(dAreaSqM, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1350,11 +1350,11 @@ namespace PinchGlobal
                     strMsg = string.Format("AREA CONVERSION TEST -> {0:0.000} ft² to 400.000 m² .... FAIL -- {1:0.000} m²",
                                            Math.Round(dAreaSqFt, 3), 
                                            Math.Round(dAreaSqM, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // A - AREA
 
                 #region T - TEMPERATURE
@@ -1369,17 +1369,17 @@ namespace PinchGlobal
                 #region CELSIUS
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_C;  // Celsius: "°C"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_C;  // Celsius: "°C"
 
                 dTempK = 400.0;     // Set INTERNAL VALUE
-                dTempC = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.TEMP, dTempK);
+                dTempC = ConvertFromInternal(HenTypes.ConversionUnitsTypes.TEMP, dTempK);
                 if (CheckForEquality(dTempC, 126.85))
                 {
                     nPass++;
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} K to {1:0.00} °C .... PASS",
                                             Math.Round(dTempK, 2),
                                             Math.Round(dTempC, 2));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1387,20 +1387,20 @@ namespace PinchGlobal
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} K to 126.85 °C .... FAIL -- {1:0.00} °C",
                                             Math.Round(dTempK, 2), 
                                             Math.Round(dTempC, 2));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dTempC = 126.85;  // Set EXTERNAL VALUE
-                dTempK = ConvertToInternal(PinchTypes.ConversionUnitsTypes.TEMP, dTempC);
+                dTempK = ConvertToInternal(HenTypes.ConversionUnitsTypes.TEMP, dTempC);
                 if (CheckForEquality(dTempK, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} °C to {1:0.00} K .... PASS",
                                            Math.Round(dTempC, 2),
                                            Math.Round(dTempK, 2));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1408,27 +1408,27 @@ namespace PinchGlobal
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} °C to 400.00 K .... FAIL -- {1:0.00} K",
                                            Math.Round(dTempC, 2),
                                            Math.Round(dTempK, 2));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // CELSIUS
 
                 #region FAHRENHEIT
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_F;  // Fahrenheit "°F"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_F;  // Fahrenheit "°F"
 
                 dTempK = 400.0;     // Set INTERNAL VALUE
-                dTempF = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.TEMP, dTempK);
+                dTempF = ConvertFromInternal(HenTypes.ConversionUnitsTypes.TEMP, dTempK);
                 if (CheckForEquality(dTempF, 260.33))
                 {
                     nPass++;
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} K to {1:0.00} °F .... PASS",
                                             Math.Round(dTempK,2),
                                             Math.Round(dTempF, 2));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1436,20 +1436,20 @@ namespace PinchGlobal
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} K to 260.33 °F .... FAIL -- {1:0.00} °F",
                                             Math.Round(dTempK, 2),
                                             Math.Round(dTempF, 2));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dTempF = 260.33;  // Set EXTERNAL VALUE
-                dTempK = ConvertToInternal(PinchTypes.ConversionUnitsTypes.TEMP, dTempF);
+                dTempK = ConvertToInternal(HenTypes.ConversionUnitsTypes.TEMP, dTempF);
                 if (CheckForEquality(dTempK, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} °F to {1:0.00} K .... PASS",
                                            Math.Round(dTempF, 2),
                                            Math.Round(dTempK, 2));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1457,27 +1457,27 @@ namespace PinchGlobal
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} °F to 400.00 K .... FAIL -- {1:0.00} K",
                                            Math.Round(dTempF, 2),
                                            Math.Round(dTempK, 2));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // FAHRENHEIT
 
                 #region RANKINE
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_R;  // Rankine "°R"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_R;  // Rankine "°R"
 
                 dTempK = 400.0;     // Set INTERNAL VALUE
-                dTempR = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.TEMP, dTempK);
+                dTempR = ConvertFromInternal(HenTypes.ConversionUnitsTypes.TEMP, dTempK);
                 if (CheckForEquality(dTempR, 720.00))
                 {
                     nPass++;
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} K to {1:0.00} °R .... PASS",
                                             Math.Round(dTempK,2),
                                             Math.Round(dTempR, 2));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1485,20 +1485,20 @@ namespace PinchGlobal
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} K to 720.00 °R .... FAIL -- {1:0.00} °R",
                                             Math.Round(dTempK, 2),
                                             Math.Round(dTempR, 2));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dTempR = 720.00;  // Set EXTERNAL VALUE
-                dTempK = ConvertToInternal(PinchTypes.ConversionUnitsTypes.TEMP, dTempR);
+                dTempK = ConvertToInternal(HenTypes.ConversionUnitsTypes.TEMP, dTempR);
                 if (CheckForEquality(dTempK, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} °R to {1:0.00} K .... PASS",
                                            Math.Round(dTempR, 2),
                                            Math.Round(dTempK, 2));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1506,11 +1506,11 @@ namespace PinchGlobal
                     strMsg = string.Format("TEMPERATURE CONVERSION TEST -> {0:0.00} °R to 400.00 K .... FAIL -- {1:0.00} K",
                                            Math.Round(dTempR, 2),
                                            Math.Round(dTempK, 2));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // RANKINE
 
                 #endregion  // T - TEMPERATURE
@@ -1535,17 +1535,17 @@ namespace PinchGlobal
                 #region PSIA
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Psia;  // lbs/in² absolute : "psia"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.Psia;  // lbs/in² absolute : "psia"
 
                 dPressKPa = 400.0;     // Set INTERNAL VALUE
-                dPressPsia = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                dPressPsia = ConvertFromInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKPa);
                 if (CheckForEquality(dPressPsia, 58.015072))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} psia .... PASS",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressPsia, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1553,20 +1553,20 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 58.015072 psia .... FAIL -- {1:0.000000} psia",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressPsia, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dPressPsia = 58.015072;  // Set EXTERNAL VALUE
-                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressPsia);
+                dPressKPa = ConvertToInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressPsia);
                 if (CheckForEquality(dPressKPa, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psia to {1:0.0000} KPa .... PASS",
                                            Math.Round(dPressPsia, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1574,27 +1574,27 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psia to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
                                            Math.Round(dPressPsia, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // PSIA
 
                 #region PSIG
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Psig;  // lbs/in² Gauge : "psig"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.Psig;  // lbs/in² Gauge : "psig"
 
                 dPressKPa = 400.0;     // Set INTERNAL VALUE
-                dPressPsig = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                dPressPsig = ConvertFromInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKPa);
                 if (CheckForEquality(dPressPsig, 43.319172))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} psig .... PASS",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressPsig, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1602,20 +1602,20 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 43.319172 psig .... FAIL -- {1:0.000000} psig",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressPsig, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dPressPsig = 43.319172;  // Set EXTERNAL VALUE
-                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressPsig);
+                dPressKPa = ConvertToInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressPsig);
                 if (CheckForEquality(dPressKPa, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psig to {1:0.0000} KPa .... PASS",
                                            Math.Round(dPressPsig, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1623,27 +1623,27 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psig to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
                                            Math.Round(dPressPsig, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // PSIG
 
                 #region PSFA
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Psfa;  // lbs/ft² Absolute : "psfa"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.Psfa;  // lbs/ft² Absolute : "psfa"
 
                 dPressKPa = 400.0;     // Set INTERNAL VALUE
-                dPressPsfa = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                dPressPsfa = ConvertFromInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKPa);
                 if (CheckForEquality(dPressPsfa, 8354.1664))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} psfa .... PASS",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressPsfa, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1651,20 +1651,20 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 8354.1664 psfa .... FAIL -- {1:0.000000} psfa",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressPsfa, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dPressPsfa = 8354.1664;  // Set EXTERNAL VALUE
-                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressPsfa);
+                dPressKPa = ConvertToInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressPsfa);
                 if (CheckForEquality(dPressKPa, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psfa to {1:0.0000} KPa .... PASS",
                                            Math.Round(dPressPsfa, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1672,27 +1672,27 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} psfa to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
                                            Math.Round(dPressPsfa, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // PSFA
 
                 #region ATM
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Atm;  // atmospheres : "atm"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.Atm;  // atmospheres : "atm"
 
                 dPressKPa = 400.0;     // Set INTERNAL VALUE
-                dPressAtm = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                dPressAtm = ConvertFromInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKPa);
                 if (CheckForEquality(dPressAtm, 3.947692))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} atm .... PASS",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressAtm, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1700,20 +1700,20 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 3.947692 atm .... FAIL -- {1:0.000000} atm",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressAtm, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dPressAtm = 3.947692;  // Set EXTERNAL VALUE
-                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressAtm);
+                dPressKPa = ConvertToInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressAtm);
                 if (CheckForEquality(dPressKPa, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} atm to {1:0.0000} KPa .... PASS",
                                            Math.Round(dPressAtm, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1721,27 +1721,27 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} atm to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
                                            Math.Round(dPressAtm, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // ATM
 
                 #region inHg
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.InHg;  // inches Mercury : "inHg"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.InHg;  // inches Mercury : "inHg"
 
                 dPressKPa = 400.0;     // Set INTERNAL VALUE
-                dPressInHg = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                dPressInHg = ConvertFromInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKPa);
                 if (CheckForEquality(dPressInHg, 118.11988))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} inHg .... PASS",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressInHg, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1749,20 +1749,20 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 118.11988 inHg .... FAIL -- {1:0.000000} inHg",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressInHg, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dPressInHg = 118.11988;  // Set EXTERNAL VALUE
-                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressInHg);
+                dPressKPa = ConvertToInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressInHg);
                 if (CheckForEquality(dPressKPa, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} inHg to {1:0.0000} KPa .... PASS",
                                            Math.Round(dPressInHg, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1770,27 +1770,27 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} inHg to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
                                            Math.Round(dPressInHg, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // inHg
 
                 #region inH2O
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.InH2O;  // inches Water : "inH2O"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.InH2O;  // inches Water : "inH2O"
 
                 dPressKPa = 400.0;     // Set INTERNAL VALUE
-                dPressInH2O = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                dPressInH2O = ConvertFromInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKPa);
                 if (CheckForEquality(dPressInH2O, 1605.896))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} inH2O .... PASS",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressInH2O, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1798,20 +1798,20 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 1605.896 inH2O .... FAIL -- {1:0.000000} inH2O",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressInH2O, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dPressInH2O = 1605.896;  // Set EXTERNAL VALUE
-                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressInH2O);
+                dPressKPa = ConvertToInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressInH2O);
                 if (CheckForEquality(dPressKPa, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} inH2O to {1:0.0000} KPa .... PASS",
                                            Math.Round(dPressInH2O, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1819,27 +1819,27 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} inH2O to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
                                            Math.Round(dPressInH2O, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // inH2O
 
                 #region BAR
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Bar;  // bar : "bar"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.Bar;  // bar : "bar"
 
                 dPressKPa = 400.0;     // Set INTERNAL VALUE
-                dPressBar = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                dPressBar = ConvertFromInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKPa);
                 if (CheckForEquality(dPressBar, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} bar .... PASS",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressBar, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1847,20 +1847,20 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 4.000 bar .... FAIL -- {1:0.000000} bar",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressBar, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dPressBar = 4.000;  // Set EXTERNAL VALUE
-                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressBar);
+                dPressKPa = ConvertToInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressBar);
                 if (CheckForEquality(dPressKPa, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} bar to {1:0.0000} KPa .... PASS",
                                            Math.Round(dPressBar, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1868,27 +1868,27 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} bar to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
                                            Math.Round(dPressBar, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // BAR
 
                 #region KBAR
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.KBar;  // kilo Bar : "kBar"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.KBar;  // kilo Bar : "kBar"
 
                 dPressKPa = 400.0;     // Set INTERNAL VALUE
-                dPressKBar = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                dPressKBar = ConvertFromInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKPa);
                 if (CheckForEquality(dPressKBar, 0.004))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} kBar .... PASS",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressKBar, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1896,20 +1896,20 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 0.004 kBar .... FAIL -- {1:0.000000} kBar",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressKBar, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dPressKBar = 0.004;  // Set EXTERNAL VALUE
-                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKBar);
+                dPressKPa = ConvertToInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKBar);
                 if (CheckForEquality(dPressKPa, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} kBar to {1:0.0000} KPa .... PASS",
                                            Math.Round(dPressKBar, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1917,27 +1917,27 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} kBar to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
                                            Math.Round(dPressKBar, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // KBAR
 
                 #region MBAR
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.MBar;  // mega Bar : "MBar"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.MBar;  // mega Bar : "MBar"
 
                 dPressKPa = 400.0;     // Set INTERNAL VALUE
-                dPressMBar = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                dPressMBar = ConvertFromInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKPa);
                 if (CheckForEquality(dPressMBar, 0.000004))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} MBar .... PASS",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressMBar, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1945,20 +1945,20 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 0.000004 MBar .... FAIL -- {1:0.000000} MBar",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressMBar, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dPressMBar = 0.000004;  // Set EXTERNAL VALUE
-                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressMBar);
+                dPressKPa = ConvertToInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressMBar);
                 if (CheckForEquality(dPressKPa, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} MBar to {1:0.0000} KPa .... PASS",
                                            Math.Round(dPressMBar, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1966,27 +1966,27 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} MBar to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
                                            Math.Round(dPressMBar, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // MBAR
 
                 #region PA
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.Pa;  // Pascal : "Pa"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.Pa;  // Pascal : "Pa"
 
                 dPressKPa = 400.0;     // Set INTERNAL VALUE
-                dPressPa = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                dPressPa = ConvertFromInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKPa);
                 if (CheckForEquality(dPressPa, 400000.0))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} Pa .... PASS",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressPa, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -1994,20 +1994,20 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 400000.0 Pa .... FAIL -- {1:0.000000} Pa",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressPa, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dPressPa = 400000.0;  // Set EXTERNAL VALUE
-                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressPa);
+                dPressKPa = ConvertToInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressPa);
                 if (CheckForEquality(dPressKPa, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} Pa to {1:0.0000} KPa .... PASS",
                                            Math.Round(dPressPa, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2015,27 +2015,27 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} Pa to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
                                            Math.Round(dPressPa, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // PA
 
                 #region MPA
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalPressureUnits = PinchSettings.MPa;  // Mega Pascal : "MPa"
+                HenSettingsObj.ExternalPressureUnits = HenSettings.MPa;  // Mega Pascal : "MPa"
 
                 dPressKPa = 400.0;     // Set INTERNAL VALUE
-                dPressMPa = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressKPa);
+                dPressMPa = ConvertFromInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressKPa);
                 if (CheckForEquality(dPressMPa, 0.400))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to {1:0.000000} MPa .... PASS",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressMPa, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2043,20 +2043,20 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.0000} KPa to 0.400 MPa .... FAIL -- {1:0.000000} MPa",
                                             Math.Round(dPressKPa, 4),
                                             Math.Round(dPressMPa, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dPressMPa = 0.400;  // Set EXTERNAL VALUE
-                dPressKPa = ConvertToInternal(PinchTypes.ConversionUnitsTypes.PRESS, dPressMPa);
+                dPressKPa = ConvertToInternal(HenTypes.ConversionUnitsTypes.PRESS, dPressMPa);
                 if (CheckForEquality(dPressKPa, 400.00))
                 {
                     nPass++;
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} MPa to {1:0.0000} KPa .... PASS",
                                            Math.Round(dPressMPa, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2064,11 +2064,11 @@ namespace PinchGlobal
                     strMsg = string.Format("PRESSURE CONVERSION TEST -> {0:0.000000} MPa to 400.0000 KPa .... FAIL -- {1:0.0000} KPa",
                                            Math.Round(dPressMPa, 6),
                                            Math.Round(dPressKPa, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // MPA
 
                 #endregion  // P - PRESSURE
@@ -2087,19 +2087,19 @@ namespace PinchGlobal
                 #region W
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;   // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_BASE;          // Magnitude: "BASE"
-                PinchSettingsObj.ExternalHeatFlowUnits = PinchSettings.W_HEAT_FLOW;  // Heat Flow: "W"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;   // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_BASE;          // Magnitude: "BASE"
+                HenSettingsObj.ExternalHeatFlowUnits = HenSettings.W_HEAT_FLOW;  // Heat Flow: "W"
 
                 dHeatFlowkW = 4.000;     // Set INTERNAL VALUE
-                dHeatFlowW = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkW);
+                dHeatFlowW = ConvertFromInternal(HenTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkW);
                 if (CheckForEquality(dHeatFlowW, 4000.000))
                 {
                     nPass++;
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} kW to {1:0.000} W .... PASS",
                                             Math.Round(dHeatFlowkW, 3),
                                             Math.Round(dHeatFlowW, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2107,20 +2107,20 @@ namespace PinchGlobal
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} kW to 4000.000 W .... FAIL -- {1:0.000} W",
                                             Math.Round(dHeatFlowkW, 3),
                                             Math.Round(dHeatFlowW, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dHeatFlowW = 4000.000;  // Set EXTERNAL VALUE
-                dHeatFlowkW = ConvertToInternal(PinchTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowW);
+                dHeatFlowkW = ConvertToInternal(HenTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowW);
                 if (CheckForEquality(dHeatFlowkW, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} W to {1:0.000} kW .... PASS",
                                            Math.Round(dHeatFlowW, 3),
                                            Math.Round(dHeatFlowkW, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2128,29 +2128,29 @@ namespace PinchGlobal
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} W to 400.000 kW .... FAIL -- {1:0.000} kW",
                                            Math.Round(dHeatFlowW, 3),
                                            Math.Round(dHeatFlowkW, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // W
 
                 #region MW
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;    // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;           // Magnitude: "MEGA"
-                PinchSettingsObj.ExternalHeatFlowUnits = PinchSettings.MW_HEAT_FLOW;  // Heat Flow: "MW"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;    // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_MEGA;           // Magnitude: "MEGA"
+                HenSettingsObj.ExternalHeatFlowUnits = HenSettings.MW_HEAT_FLOW;  // Heat Flow: "MW"
 
                 dHeatFlowkW = 4.000;     // Set INTERNAL VALUE
-                dHeatFlowMW = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkW);
+                dHeatFlowMW = ConvertFromInternal(HenTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkW);
                 if (CheckForEquality(dHeatFlowMW, 0.0040))
                 {
                     nPass++;
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} kW to {1:0.0000} MW .... PASS",
                                             Math.Round(dHeatFlowkW, 3),
                                             Math.Round(dHeatFlowMW, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2158,20 +2158,20 @@ namespace PinchGlobal
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} kW to 0.0040 W .... FAIL -- {1:0.0000} W",
                                             Math.Round(dHeatFlowkW, 3),
                                             Math.Round(dHeatFlowMW, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dHeatFlowMW = 0.0040;  // Set EXTERNAL VALUE
-                dHeatFlowkW = ConvertToInternal(PinchTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowMW);
+                dHeatFlowkW = ConvertToInternal(HenTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowMW);
                 if (CheckForEquality(dHeatFlowkW, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.0000} MW to {1:0.000} kW .... PASS",
                                            Math.Round(dHeatFlowMW, 4),
                                            Math.Round(dHeatFlowkW, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2179,30 +2179,30 @@ namespace PinchGlobal
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.0000} MW to 4.000 kW .... FAIL -- {1:0.000} kW",
                                            Math.Round(dHeatFlowMW, 4),
                                            Math.Round(dHeatFlowkW, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
 
                 #endregion  // MW
 
                 #region BTU/HR
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;    // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_BASE;            // Magnitude: "BASE"
-                PinchSettingsObj.ExternalHeatFlowUnits = PinchSettings.BTU_HEAT_FLOW;  // Heat Flow: "Btu/hr"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;    // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_BASE;            // Magnitude: "BASE"
+                HenSettingsObj.ExternalHeatFlowUnits = HenSettings.BTU_HEAT_FLOW;  // Heat Flow: "Btu/hr"
 
                 dHeatFlowkW = 4.000;     // Set INTERNAL VALUE
-                dHeatFlowBtu = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkW);
+                dHeatFlowBtu = ConvertFromInternal(HenTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkW);
                 if (CheckForEquality(dHeatFlowBtu, 13648.568))
                 {
                     nPass++;
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} kW to {1:0.000} Btu/hr .... PASS",
                                             Math.Round(dHeatFlowkW, 3),
                                             Math.Round(dHeatFlowBtu, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2210,20 +2210,20 @@ namespace PinchGlobal
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} kW to 13648.568 Btu/hr .... FAIL -- {1:0.000} Btu/hr",
                                             Math.Round(dHeatFlowkW, 3),
                                             Math.Round(dHeatFlowBtu, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dHeatFlowBtu = 13648.568;  // Set EXTERNAL VALUE
-                dHeatFlowkW = ConvertToInternal(PinchTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowBtu);
+                dHeatFlowkW = ConvertToInternal(HenTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowBtu);
                 if (CheckForEquality(dHeatFlowkW, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} Btu/hr to {1:0.000} kW .... PASS",
                                            Math.Round(dHeatFlowBtu, 3),
                                            Math.Round(dHeatFlowkW, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2231,29 +2231,29 @@ namespace PinchGlobal
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} Btu/hr to 4.000 kW .... FAIL -- {1:0.000} Btu/hr",
                                            Math.Round(dHeatFlowBtu, 3),
                                            Math.Round(dHeatFlowkW, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // #region BTU/HR
 
                 #region kBTU/HR
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;    // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_KILO;            // Magnitude: "KILO"
-                PinchSettingsObj.ExternalHeatFlowUnits = PinchSettings.KBTU_HEAT_FLOW;  // Heat Flow: "kBtu/hr"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;    // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_KILO;            // Magnitude: "KILO"
+                HenSettingsObj.ExternalHeatFlowUnits = HenSettings.KBTU_HEAT_FLOW;  // Heat Flow: "kBtu/hr"
 
                 dHeatFlowkW = 4.000;     // Set INTERNAL VALUE
-                dHeatFlowkBtu = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkW);
+                dHeatFlowkBtu = ConvertFromInternal(HenTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkW);
                 if (CheckForEquality(dHeatFlowkBtu, 13.6486))
                 {
                     nPass++;
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} kW to {1:0.0000} kBtu/hr .... PASS",
                                             Math.Round(dHeatFlowkW, 3),
                                             Math.Round(dHeatFlowkBtu, 4));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2261,20 +2261,20 @@ namespace PinchGlobal
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} kW to 13.6486 kBtu/hr .... FAIL -- {1:0.0000} kBtu/hr",
                                             Math.Round(dHeatFlowkW, 3),
                                             Math.Round(dHeatFlowkBtu, 4));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dHeatFlowkBtu = 13.6486;  // Set EXTERNAL VALUE
-                dHeatFlowkW = ConvertToInternal(PinchTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkBtu);
+                dHeatFlowkW = ConvertToInternal(HenTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkBtu);
                 if (CheckForEquality(dHeatFlowkW, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.0000} kBtu/hr to {1:0.000} kW .... PASS",
                                            Math.Round(dHeatFlowkBtu, 4),
                                            Math.Round(dHeatFlowkW, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2282,29 +2282,29 @@ namespace PinchGlobal
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.0000} kBtu/hr to 4.000 kW .... FAIL -- {1:0.0000} kBtu/hr",
                                            Math.Round(dHeatFlowkBtu, 4),
                                            Math.Round(dHeatFlowkW, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // #region kBTU/HR
 
                 #region MMBTU/HR
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;      // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;              // Magnitude: "MEGA"
-                PinchSettingsObj.ExternalHeatFlowUnits = PinchSettings.MMBTU_HEAT_FLOW;  // Heat Flow: "MMBtu/hr"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;      // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_MEGA;              // Magnitude: "MEGA"
+                HenSettingsObj.ExternalHeatFlowUnits = HenSettings.MMBTU_HEAT_FLOW;  // Heat Flow: "MMBtu/hr"
 
                 dHeatFlowkW = 4.000;     // Set INTERNAL VALUE
-                dHeatFlowMMBtu = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkW);
+                dHeatFlowMMBtu = ConvertFromInternal(HenTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowkW);
                 if (CheckForEquality(dHeatFlowMMBtu, 0.0136486))
                 {
                     nPass++;
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} kW to {1:0.000000} MMBtu/hr .... PASS",
                                             Math.Round(dHeatFlowkW, 3),
                                             Math.Round(dHeatFlowMMBtu, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2312,20 +2312,20 @@ namespace PinchGlobal
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000} kW to 0.0136486 MMBtu/hr .... FAIL -- {1:0.000000} MMBtu/hr",
                                             Math.Round(dHeatFlowkW, 3),
                                             Math.Round(dHeatFlowMMBtu, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dHeatFlowMMBtu = 0.0136486;  // Set EXTERNAL VALUE
-                dHeatFlowkW = ConvertToInternal(PinchTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowMMBtu);
+                dHeatFlowkW = ConvertToInternal(HenTypes.ConversionUnitsTypes.HEAT_FLOW, dHeatFlowMMBtu);
                 if (CheckForEquality(dHeatFlowkW, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000000} MMBtu/hr to {1:0.000} kW .... PASS",
                                            Math.Round(dHeatFlowMMBtu, 6),
                                            Math.Round(dHeatFlowkW, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2333,11 +2333,11 @@ namespace PinchGlobal
                     strMsg = string.Format("HEAT FLOW CONVERSION TEST -> {0:0.000000} MMBtu/hr to 4.000 kW .... FAIL -- {1:0.000} MMBtu/hr",
                                            Math.Round(dHeatFlowMMBtu, 6),
                                            Math.Round(dHeatFlowkW, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // #region MMBTU/HR
 
                 #endregion  // H - HEAT FLOW
@@ -2362,20 +2362,20 @@ namespace PinchGlobal
                 #region W-C
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;   // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_BASE;          // Magnitude: "BASE"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_C;     // Temperature: "°C"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.W_C_CP;            // CP: "W/°C"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;   // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_BASE;          // Magnitude: "BASE"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_C;     // Temperature: "°C"
+                HenSettingsObj.ExternalCP_Units = HenSettings.W_C_CP;            // CP: "W/°C"
 
                 dCP_kW_K = 4.000;     // Set INTERNAL VALUE
-                dCP_W_C = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_K);
+                dCP_W_C = ConvertFromInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_K);
                 if (CheckForEquality(dCP_W_C, 4000.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to {1:0.000} W/°C .... PASS",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_W_C, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2383,20 +2383,20 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to 4000.000 W/°C .... FAIL -- {1:0.000} W/°C",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_W_C, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dCP_W_C = 4000.000;  // Set EXTERNAL VALUE
-                dCP_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_W_C);
+                dCP_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.CP, dCP_W_C);
                 if (CheckForEquality(dCP_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} W/°C to {1:0.000} kW/K .... PASS",
                                            Math.Round(dCP_W_C, 3),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2404,30 +2404,30 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} W/°C to 4.000 kW/K .... FAIL -- {1:0.000} kW/K",
                                            Math.Round(dCP_W_C, 3),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // W-C
 
                 #region W-K
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;   // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_BASE;          // Magnitude: "BASE"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.KELVIN;    // Temperature: "K"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.W_K_CP;            // CP: "W/K"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;   // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_BASE;          // Magnitude: "BASE"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.KELVIN;    // Temperature: "K"
+                HenSettingsObj.ExternalCP_Units = HenSettings.W_K_CP;            // CP: "W/K"
 
                 dCP_kW_K = 4.000;     // Set INTERNAL VALUE
-                dCP_W_K = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_K);
+                dCP_W_K = ConvertFromInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_K);
                 if (CheckForEquality(dCP_W_K, 4000.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to {1:0.000} W/K .... PASS",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_W_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2435,20 +2435,20 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to 4000.000 W/K .... FAIL -- {1:0.000} W/°C",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_W_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dCP_W_K = 4000.000;  // Set EXTERNAL VALUE
-                dCP_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_W_K);
+                dCP_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.CP, dCP_W_K);
                 if (CheckForEquality(dCP_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} W/K to {1:0.000} kW/K .... PASS",
                                            Math.Round(dCP_W_K, 3),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2456,30 +2456,30 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} W/K to 4.000 kW/K .... FAIL -- {1:0.000} kW/K",
                                            Math.Round(dCP_W_K, 3),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // W-K
 
                 #region KW-C
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;   // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_KILO;          // Magnitude: "KILO"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_C;     // Temperature: "°C"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.KW_C_CP;           // CP: "kW/°C"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;   // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_KILO;          // Magnitude: "KILO"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_C;     // Temperature: "°C"
+                HenSettingsObj.ExternalCP_Units = HenSettings.KW_C_CP;           // CP: "kW/°C"
 
                 dCP_kW_K = 4.000;     // Set INTERNAL VALUE
-                dCP_kW_C = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_K);
+                dCP_kW_C = ConvertFromInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_K);
                 if (CheckForEquality(dCP_kW_C, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to {1:0.000} kW/°C .... PASS",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_kW_C, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2487,20 +2487,20 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to 4.000 kW/°C .... FAIL -- {1:0.000} kW/°C",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_kW_C, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dCP_kW_C = 4.000;  // Set EXTERNAL VALUE
-                dCP_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_C);
+                dCP_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_C);
                 if (CheckForEquality(dCP_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/°C to {1:0.000} kW/K .... PASS",
                                            Math.Round(dCP_kW_C, 3),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2508,30 +2508,30 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/°C to 4.000 kW/K .... FAIL -- {1:0.000} kW/K",
                                            Math.Round(dCP_kW_C, 3),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // KW-C
 
                 #region MW-C
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;   // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;          // Magnitude: "MEGA"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_C;     // Temperature: "°C"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.MW_C_CP;           // CP: "MW/°C"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;   // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_MEGA;          // Magnitude: "MEGA"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_C;     // Temperature: "°C"
+                HenSettingsObj.ExternalCP_Units = HenSettings.MW_C_CP;           // CP: "MW/°C"
 
                 dCP_kW_K = 4.000;     // Set INTERNAL VALUE
-                dCP_MW_C = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_K);
+                dCP_MW_C = ConvertFromInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_K);
                 if (CheckForEquality(dCP_MW_C, 0.004000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to {1:0.0000000} MW/°C .... PASS",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_MW_C, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2539,20 +2539,20 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to 0.004000 MW/°C .... FAIL -- {1:0.000} MW/°C",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_MW_C, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dCP_MW_C = 0.004000;  // Set EXTERNAL VALUE
-                dCP_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_MW_C);
+                dCP_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.CP, dCP_MW_C);
                 if (CheckForEquality(dCP_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} MW/°C to {1:0.000} kW/K .... PASS",
                                            Math.Round(dCP_MW_C, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2560,30 +2560,30 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} MW/°C to 4.000 kW/K .... FAIL -- {1:0.000} kW/K",
                                            Math.Round(dCP_MW_C, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // MW-C
 
                 #region MW-K
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;   // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;          // Magnitude: "MEGA"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.KELVIN;    // Temperature: "K"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.MW_K_CP;           // CP: "MW/K"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;   // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_MEGA;          // Magnitude: "MEGA"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.KELVIN;    // Temperature: "K"
+                HenSettingsObj.ExternalCP_Units = HenSettings.MW_K_CP;           // CP: "MW/K"
 
                 dCP_kW_K = 4.000;     // Set INTERNAL VALUE
-                dCP_MW_K = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_K);
+                dCP_MW_K = ConvertFromInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_K);
                 if (CheckForEquality(dCP_MW_K, 0.004000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to {1:0.0000000} MW/K .... PASS",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_MW_K, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2591,20 +2591,20 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to 0.004000 MW/K .... FAIL -- {1:0.000} MW/K",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_MW_K, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dCP_MW_K = 0.004000;  // Set EXTERNAL VALUE
-                dCP_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_MW_K);
+                dCP_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.CP, dCP_MW_K);
                 if (CheckForEquality(dCP_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} MW/K to {1:0.000} kW/K .... PASS",
                                            Math.Round(dCP_MW_K, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2612,30 +2612,30 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} MW/K to 4.000 kW/K .... FAIL -- {1:0.000} kW/K",
                                            Math.Round(dCP_MW_C, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // MW-K
 
                 #region BTU-F
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_BASE;          // Magnitude: "BASE"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_F;     // Temperature: "°F"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.BTU_F_CP;          // CP: "Btu/(hr °F)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_BASE;          // Magnitude: "BASE"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_F;     // Temperature: "°F"
+                HenSettingsObj.ExternalCP_Units = HenSettings.BTU_F_CP;          // CP: "Btu/(hr °F)"
 
                 dCP_kW_K = 4.000;     // Set INTERNAL VALUE
-                dCP_Btu_F = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_K);
+                dCP_Btu_F = ConvertFromInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_K);
                 if (CheckForEquality(dCP_Btu_F, 7582.520))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to {1:0.000} Btu/(hr °F) .... PASS",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_Btu_F, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2643,20 +2643,20 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to 7582.520 Btu/(hr °F) .... FAIL -- {1:0.000} Btu/(hr °F)",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_Btu_F, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dCP_Btu_F = 7582.520;  // Set EXTERNAL VALUE
-                dCP_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_Btu_F);
+                dCP_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.CP, dCP_Btu_F);
                 if (CheckForEquality(dCP_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} Btu/(hr °F) to {1:0.000} kW/K .... PASS",
                                            Math.Round(dCP_Btu_F, 3),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2664,30 +2664,30 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} Btu/(hr °F) to 4.000 kW/K .... FAIL -- {1:0.000} kW/K",
                                            Math.Round(dCP_Btu_F, 3),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // BTU-F
 
                 #region BTU-R
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_BASE;          // Magnitude: "BASE"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_R;     // Temperature: "°R"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.BTU_R_CP;          // CP: "Btu/(hr °R)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_BASE;          // Magnitude: "BASE"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_R;     // Temperature: "°R"
+                HenSettingsObj.ExternalCP_Units = HenSettings.BTU_R_CP;          // CP: "Btu/(hr °R)"
 
                 dCP_kW_K = 4.000;     // Set INTERNAL VALUE
-                dCP_Btu_R = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_K);
+                dCP_Btu_R = ConvertFromInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_K);
                 if (CheckForEquality(dCP_Btu_R, 7582.520))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to {1:0.000} Btu/(hr °R) .... PASS",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_Btu_R, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2695,20 +2695,20 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to 7582.520 Btu/(hr °R) .... FAIL -- {1:0.000} Btu/(hr °R)",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_Btu_R, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dCP_Btu_R = 7582.520;  // Set EXTERNAL VALUE
-                dCP_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_Btu_R);
+                dCP_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.CP, dCP_Btu_R);
                 if (CheckForEquality(dCP_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} Btu/(hr °R) to {1:0.000} kW/K .... PASS",
                                            Math.Round(dCP_Btu_R, 3),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2716,30 +2716,30 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} Btu/(hr °R) to 4.000 kW/K .... FAIL -- {1:0.000} kW/K",
                                            Math.Round(dCP_Btu_R, 3),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // BTU-R
 
                 #region KBTU-F
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_KILO;          // Magnitude: "KILO"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_F;     // Temperature: "°F"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.KBTU_F_CP;         // CP: "kBtu/(hr °F)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_KILO;          // Magnitude: "KILO"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_F;     // Temperature: "°F"
+                HenSettingsObj.ExternalCP_Units = HenSettings.KBTU_F_CP;         // CP: "kBtu/(hr °F)"
 
                 dCP_kW_K = 4.000;     // Set INTERNAL VALUE
-                dCP_kBtu_F = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_K);
+                dCP_kBtu_F = ConvertFromInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_K);
                 if (CheckForEquality(dCP_kBtu_F, 7.582520))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to {1:0.000000} kBtu/(hr °F) .... PASS",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_kBtu_F, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2747,20 +2747,20 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to 7.582520 kBtu/(hr °F) .... FAIL -- {1:0.000000} kBtu/(hr °F)",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_kBtu_F, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dCP_kBtu_F = 7.582520;  // Set EXTERNAL VALUE
-                dCP_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kBtu_F);
+                dCP_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kBtu_F);
                 if (CheckForEquality(dCP_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} kBtu/(hr °F) to {1:0.000} kW/K .... PASS",
                                            Math.Round(dCP_kBtu_F, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2768,30 +2768,30 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} kBtu/(hr °F) to 4.000 kW/K .... FAIL -- {1:0.000} kW/K",
                                            Math.Round(dCP_kBtu_F, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // KBTU-F
 
                 #region KBTU-R
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_KILO;          // Magnitude: "KILO"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_R;     // Temperature: "°R"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.KBTU_R_CP;         // CP: "kBtu/(hr °R)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_KILO;          // Magnitude: "KILO"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_R;     // Temperature: "°R"
+                HenSettingsObj.ExternalCP_Units = HenSettings.KBTU_R_CP;         // CP: "kBtu/(hr °R)"
 
                 dCP_kW_K = 4.000;     // Set INTERNAL VALUE
-                dCP_kBtu_R = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_K);
+                dCP_kBtu_R = ConvertFromInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_K);
                 if (CheckForEquality(dCP_kBtu_R, 7.582520))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to {1:0.000000} kBtu/(hr °R) .... PASS",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_kBtu_R, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2799,20 +2799,20 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to 7.582520 kBtu/(hr °R) .... FAIL -- {1:0.000000} kBtu/(hr °R)",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_kBtu_R, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dCP_kBtu_R = 7.582520;  // Set EXTERNAL VALUE
-                dCP_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kBtu_R);
+                dCP_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kBtu_R);
                 if (CheckForEquality(dCP_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} kBtu/(hr °R) to {1:0.000} kW/K .... PASS",
                                            Math.Round(dCP_kBtu_R, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2820,30 +2820,30 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} kBtu/(hr °R) to 4.000 kW/K .... FAIL -- {1:0.000} kW/K",
                                            Math.Round(dCP_kBtu_R, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // KBTU-R
 
                 #region MMBTU-F
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;          // Magnitude: "MEGA"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_F;     // Temperature: "°F"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.MMBTU_F_CP;        // CP: "MMBtu/(hr °F)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_MEGA;          // Magnitude: "MEGA"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_F;     // Temperature: "°F"
+                HenSettingsObj.ExternalCP_Units = HenSettings.MMBTU_F_CP;        // CP: "MMBtu/(hr °F)"
 
                 dCP_kW_K = 4.000;     // Set INTERNAL VALUE
-                dCP_MMBtu_F = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_K);
+                dCP_MMBtu_F = ConvertFromInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_K);
                 if (CheckForEquality(dCP_MMBtu_F, 0.007582520))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to {1:0.000000} MMBtu/(hr °F) .... PASS",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_MMBtu_F, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2851,20 +2851,20 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to 0.007582520 MMBtu/(hr °F) .... FAIL -- {1:0.000000} MMBtu/(hr °F)",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_MMBtu_F, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dCP_MMBtu_F = 0.007582520;  // Set EXTERNAL VALUE
-                dCP_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_MMBtu_F);
+                dCP_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.CP, dCP_MMBtu_F);
                 if (CheckForEquality(dCP_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} MMBtu/(hr °F) to {1:0.000} kW/K .... PASS",
                                            Math.Round(dCP_MMBtu_F, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2872,30 +2872,30 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} MMBtu/(hr °F) to 4.000 kW/K .... FAIL -- {1:0.000} kW/K",
                                            Math.Round(dCP_MMBtu_F, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // MMBTU-F
 
                 #region MMBTU-R
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;          // Magnitude: "MEGA"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_R;     // Temperature: "°R"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.MMBTU_R_CP;        // CP: "MMBtu/(hr °R)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_MEGA;          // Magnitude: "MEGA"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_R;     // Temperature: "°R"
+                HenSettingsObj.ExternalCP_Units = HenSettings.MMBTU_R_CP;        // CP: "MMBtu/(hr °R)"
 
                 dCP_kW_K = 4.000;     // Set INTERNAL VALUE
-                dCP_MMBtu_R = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_kW_K);
+                dCP_MMBtu_R = ConvertFromInternal(HenTypes.ConversionUnitsTypes.CP, dCP_kW_K);
                 if (CheckForEquality(dCP_MMBtu_R, 0.007582520))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to {1:0.000000} MMBtu/(hr °R) .... PASS",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_MMBtu_R, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2903,20 +2903,20 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000} kW/K to 0.007582520 MMBtu/(hr °R) .... FAIL -- {1:0.000000} MMBtu/(hr °R)",
                                             Math.Round(dCP_kW_K, 3),
                                             Math.Round(dCP_MMBtu_R, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dCP_MMBtu_R = 0.007582520;  // Set EXTERNAL VALUE
-                dCP_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.CP, dCP_MMBtu_R);
+                dCP_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.CP, dCP_MMBtu_R);
                 if (CheckForEquality(dCP_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} MMBtu/(hr °R) to {1:0.000} kW/K .... PASS",
                                            Math.Round(dCP_MMBtu_R, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2924,11 +2924,11 @@ namespace PinchGlobal
                     strMsg = string.Format("CP - HEAT CAPACITY FLOW RATE CONVERSION TEST -> {0:0.000000} MMBtu/(hr °R) to 4.000 kW/K .... FAIL -- {1:0.000} kW/K",
                                            Math.Round(dCP_MMBtu_R, 6),
                                            Math.Round(dCP_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // MMBTU-R
 
                 #endregion  // CP - HEAT CAPACITY FLOW RATE
@@ -2953,20 +2953,20 @@ namespace PinchGlobal
                 #region W-C
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;   // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_BASE;          // Magnitude: "BASE"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_C;     // Temperature: "°C"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.W_C_U;             // U: "W/(m² °C)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;   // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_BASE;          // Magnitude: "BASE"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_C;     // Temperature: "°C"
+                HenSettingsObj.ExternalCP_Units = HenSettings.W_C_U;             // U: "W/(m² °C)"
 
                 dU_kW_K = 4.000;     // Set INTERNAL VALUE
-                dU_W_C = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_K);
+                dU_W_C = ConvertFromInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_K);
                 if (CheckForEquality(dU_W_C, 4000.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to {1:0.000} W/(m² °C) .... PASS",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_W_C, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2974,20 +2974,20 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to 4000.000 W/(m² °C) .... FAIL -- {1:0.000} W/(m² °C)",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_W_C, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dU_W_C = 4000.000;  // Set EXTERNAL VALUE
-                dU_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.U, dU_W_C);
+                dU_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.U, dU_W_C);
                 if (CheckForEquality(dU_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} W/(m² °C) to {1:0.000} kW/(m² K) .... PASS",
                                            Math.Round(dU_W_C, 3),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -2995,30 +2995,30 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} W/(m² °C) to 4.000 kW/K .... FAIL -- {1:0.000} kW/(m² K)",
                                            Math.Round(dU_W_C, 3),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // W-C
 
                 #region W-K
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;   // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_BASE;          // Magnitude: "BASE"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.KELVIN;    // Temperature: "K"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.W_K_U;             // U: "W/(m² K)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;   // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_BASE;          // Magnitude: "BASE"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.KELVIN;    // Temperature: "K"
+                HenSettingsObj.ExternalCP_Units = HenSettings.W_K_U;             // U: "W/(m² K)"
 
                 dU_kW_K = 4.000;     // Set INTERNAL VALUE
-                dU_W_K = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_K);
+                dU_W_K = ConvertFromInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_K);
                 if (CheckForEquality(dU_W_K, 4000.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to {1:0.000} W/(m² K) .... PASS",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_W_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3026,20 +3026,20 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to 4000.000 W/(m² K) .... FAIL -- {1:0.000} W/(m² K)",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_W_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dU_W_K = 4000.000;  // Set EXTERNAL VALUE
-                dU_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.U, dU_W_K);
+                dU_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.U, dU_W_K);
                 if (CheckForEquality(dU_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} W/(m² K) to {1:0.000} kW/(m² K) .... PASS",
                                            Math.Round(dU_W_K, 3),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3047,30 +3047,30 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} W/(m² K) to 4.000 kW/K .... FAIL -- {1:0.000} kW/(m² K)",
                                            Math.Round(dU_W_K, 3),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // W-K
 
                 #region KW-C
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;   // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_KILO;          // Magnitude: "KILO"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_C;     // Temperature: "°C"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.KW_C_U;            // U: "kW/(m² °C)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;   // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_KILO;          // Magnitude: "KILO"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_C;     // Temperature: "°C"
+                HenSettingsObj.ExternalCP_Units = HenSettings.KW_C_U;            // U: "kW/(m² °C)"
 
                 dU_kW_K = 4.000;     // Set INTERNAL VALUE
-                dU_kW_C = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_K);
+                dU_kW_C = ConvertFromInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_K);
                 if (CheckForEquality(dU_kW_C, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to {1:0.000} kW/(m² °C) .... PASS",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_kW_C, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3078,20 +3078,20 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to 4.000 kW/(m² °C) .... FAIL -- {1:0.000} kW/(m² °C)",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_kW_C, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dU_kW_C = 4.000;  // Set EXTERNAL VALUE
-                dU_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_C);
+                dU_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_C);
                 if (CheckForEquality(dU_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² °C) to {1:0.000} kW/(m² K) .... PASS",
                                            Math.Round(dU_kW_C, 3),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3099,30 +3099,30 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² °C) to 4.000 kW/K .... FAIL -- {1:0.000} kW/(m² K)",
                                            Math.Round(dU_kW_C, 3),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // KW-C
 
                 #region MW-C
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;   // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;          // Magnitude: "MEGA"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_C;     // Temperature: "°C"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.MW_C_U;            // U: "MW/(m² °C)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;   // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_MEGA;          // Magnitude: "MEGA"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_C;     // Temperature: "°C"
+                HenSettingsObj.ExternalCP_Units = HenSettings.MW_C_U;            // U: "MW/(m² °C)"
 
                 dU_kW_K = 4.000;     // Set INTERNAL VALUE
-                dU_MW_C = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_K);
+                dU_MW_C = ConvertFromInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_K);
                 if (CheckForEquality(dU_MW_C, 0.004000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to {1:0.000000} MW/(m² °C) .... PASS",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_MW_C, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3130,20 +3130,20 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to 0.004000 MW/(m² °C) .... FAIL -- {1:0.000000} MW/(m² °C)",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_MW_C, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dU_MW_C = 0.004000;  // Set EXTERNAL VALUE
-                dU_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.U, dU_MW_C);
+                dU_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.U, dU_MW_C);
                 if (CheckForEquality(dU_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000} MW/(m² °C) to {1:0.000} kW/(m² K) .... PASS",
                                            Math.Round(dU_MW_C, 6),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3151,30 +3151,30 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000} MW/(m² °C) to 4.000 kW/K .... FAIL -- {1:0.000} kW/(m² K)",
                                            Math.Round(dU_MW_C, 6),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // MW-C
 
                 #region MW-K
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.METRIC_UNITS;   // System: "METRIC"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;          // Magnitude: "MEGA"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.KELVIN;    // Temperature: "K"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.MW_K_U;            // U: "MW/(m² K)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.METRIC_UNITS;   // System: "METRIC"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_MEGA;          // Magnitude: "MEGA"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.KELVIN;    // Temperature: "K"
+                HenSettingsObj.ExternalCP_Units = HenSettings.MW_K_U;            // U: "MW/(m² K)"
 
                 dU_kW_K = 4.000;     // Set INTERNAL VALUE
-                dU_MW_K = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_K);
+                dU_MW_K = ConvertFromInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_K);
                 if (CheckForEquality(dU_MW_K, 0.004000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to {1:0.000000} MW/(m² K) .... PASS",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_MW_K, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3182,20 +3182,20 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to 0.004000 MW/(m² K) .... FAIL -- {1:0.000000} MW/(m² K)",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_MW_K, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dU_MW_K = 0.004000;  // Set EXTERNAL VALUE
-                dU_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.U, dU_MW_K);
+                dU_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.U, dU_MW_K);
                 if (CheckForEquality(dU_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000} MW/(m² K) to {1:0.000} kW/(m² K) .... PASS",
                                            Math.Round(dU_MW_K, 6),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3203,30 +3203,30 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000} MW/(m² K) to 4.000 kW/K .... FAIL -- {1:0.000} kW/(m² K)",
                                            Math.Round(dU_MW_C, 6),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // MW-K
 
                 #region BTU-F
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_BASE;          // Magnitude: "BASE"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_F;     // Temperature: "°F"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.BTU_F_U;           // U: "Btu/(hr ft² °F)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_BASE;          // Magnitude: "BASE"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_F;     // Temperature: "°F"
+                HenSettingsObj.ExternalCP_Units = HenSettings.BTU_F_U;           // U: "Btu/(hr ft² °F)"
 
                 dU_kW_K = 4.000;     // Set INTERNAL VALUE
-                dU_Btu_F = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_K);
+                dU_Btu_F = ConvertFromInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_K);
                 if (CheckForEquality(dU_Btu_F, 704.440))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to {1:0.000} Btu/(hr ft² °F) .... PASS",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_Btu_F, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3234,20 +3234,20 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to 704.440 Btu/(hr ft² °F) .... FAIL -- {1:0.000} Btu/(hr ft² °F)",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_Btu_F, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dU_Btu_F = 704.440;  // Set EXTERNAL VALUE
-                dU_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.U, dU_Btu_F);
+                dU_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.U, dU_Btu_F);
                 if (CheckForEquality(dU_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} Btu/(hr ft² °F) to {1:0.000} kW/(m² K) .... PASS",
                                            Math.Round(dU_Btu_F, 3),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3255,30 +3255,30 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} Btu/(hr ft² °F) to 4.000 kW/K .... FAIL -- {1:0.000} kW/(m² K)",
                                            Math.Round(dU_Btu_F, 3),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // BTU-F
 
                 #region BTU-R
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_BASE;          // Magnitude: "BASE"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_R;     // Temperature: "°R"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.BTU_R_U;           // U: "Btu/(hr ft² °R)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_BASE;          // Magnitude: "BASE"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_R;     // Temperature: "°R"
+                HenSettingsObj.ExternalCP_Units = HenSettings.BTU_R_U;           // U: "Btu/(hr ft² °R)"
 
                 dU_kW_K = 4.000;     // Set INTERNAL VALUE
-                dU_Btu_R = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_K);
+                dU_Btu_R = ConvertFromInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_K);
                 if (CheckForEquality(dU_Btu_R, 704.440))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to {1:0.000} Btu/(hr ft² °R) .... PASS",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_Btu_R, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3286,20 +3286,20 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to 704.440 Btu/(hr ft² °R) .... FAIL -- {1:0.000} Btu/(hr ft² °R)",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_Btu_R, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dU_Btu_R = 704.440;  // Set EXTERNAL VALUE
-                dU_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.U, dU_Btu_R);
+                dU_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.U, dU_Btu_R);
                 if (CheckForEquality(dU_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} Btu/(hr ft² °R) to {1:0.000} kW/(m² K) .... PASS",
                                            Math.Round(dU_Btu_R, 3),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3307,30 +3307,30 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} Btu/(hr ft² °R) to 4.000 kW/K .... FAIL -- {1:0.000} kW/(m² K)",
                                            Math.Round(dU_Btu_R, 3),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // BTU-R
 
                 #region KBTU-F
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_KILO;          // Magnitude: "KILO"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_F;     // Temperature: "°F"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.KBTU_F_U;          // U: "kBtu/(hr ft² °F)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_KILO;          // Magnitude: "KILO"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_F;     // Temperature: "°F"
+                HenSettingsObj.ExternalCP_Units = HenSettings.KBTU_F_U;          // U: "kBtu/(hr ft² °F)"
 
                 dU_kW_K = 4.000;     // Set INTERNAL VALUE
-                dU_kBtu_F = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_K);
+                dU_kBtu_F = ConvertFromInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_K);
                 if (CheckForEquality(dU_kBtu_F, 0.70444))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to {1:0.000000} kBtu/(hr ft² °F) .... PASS",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_kBtu_F, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3338,20 +3338,20 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to 0.70444 kBtu/(hr ft² °F) .... FAIL -- {1:0.000000} kBtu/(hr ft² °F)",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_kBtu_F, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dU_kBtu_F = 0.70444;  // Set EXTERNAL VALUE
-                dU_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.U, dU_kBtu_F);
+                dU_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.U, dU_kBtu_F);
                 if (CheckForEquality(dU_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000} kBtu/(hr ft² °F) to {1:0.000} kW/(m² K) .... PASS",
                                            Math.Round(dU_kBtu_F, 6),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3359,30 +3359,30 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000} kBtu/(hr ft² °F) to 4.000 kW/K .... FAIL -- {1:0.000} kW/(m² K)",
                                            Math.Round(dU_kBtu_F,6),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // KBTU-F
 
                 #region KBTU-R
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_KILO;          // Magnitude: "KILO"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_R;     // Temperature: "°R"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.KBTU_R_U;          // U: "kBtu/(hr ft² °R)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_KILO;          // Magnitude: "KILO"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_R;     // Temperature: "°R"
+                HenSettingsObj.ExternalCP_Units = HenSettings.KBTU_R_U;          // U: "kBtu/(hr ft² °R)"
 
                 dU_kW_K = 4.000;     // Set INTERNAL VALUE
-                dU_kBtu_R = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_K);
+                dU_kBtu_R = ConvertFromInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_K);
                 if (CheckForEquality(dU_kBtu_R, 0.70444))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to {1:0.000000} kBtu/(hr ft² °R) .... PASS",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_kBtu_R, 6));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3390,20 +3390,20 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to 0.70444 kBtu/(hr ft² °R) .... FAIL -- {1:0.000000} kBtu/(hr ft² °R)",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_kBtu_R, 6));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dU_kBtu_R = 0.70444;  // Set EXTERNAL VALUE
-                dU_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.U, dU_kBtu_R);
+                dU_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.U, dU_kBtu_R);
                 if (CheckForEquality(dU_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000} kBtu/(hr ft² °R) to {1:0.000} kW/(m² K) .... PASS",
                                            Math.Round(dU_kBtu_R, 6),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3411,30 +3411,30 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000} kBtu/(hr ft² °R) to 4.000 kW/K .... FAIL -- {1:0.000} kW/(m² K)",
                                            Math.Round(dU_kBtu_R, 6),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // KBTU-F
 
                 #region MMBTU-F
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;          // Magnitude: "MEGA"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_F;     // Temperature: "°F"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.MMBTU_F_U;         // U: "MMBtu/(hr ft² °F)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_MEGA;          // Magnitude: "MEGA"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_F;     // Temperature: "°F"
+                HenSettingsObj.ExternalCP_Units = HenSettings.MMBTU_F_U;         // U: "MMBtu/(hr ft² °F)"
 
                 dU_kW_K = 4.000;     // Set INTERNAL VALUE
-                dU_MMBtu_F = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_K);
+                dU_MMBtu_F = ConvertFromInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_K);
                 if (CheckForEquality(dU_MMBtu_F, 0.00070444))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to {1:0.000000000} MMBtu/(hr ft² °F) .... PASS",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_MMBtu_F, 9));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3442,20 +3442,20 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to 0.00070444 MMBtu/(hr ft² °F) .... FAIL -- {1:0.000000000} MMBtu/(hr ft² °F)",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_MMBtu_F, 9));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dU_MMBtu_F = 0.00070444;  // Set EXTERNAL VALUE
-                dU_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.U, dU_MMBtu_F);
+                dU_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.U, dU_MMBtu_F);
                 if (CheckForEquality(dU_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000000} MMBtu/(hr ft² °F) to {1:0.000} kW/(m² K) .... PASS",
                                            Math.Round(dU_MMBtu_F, 9),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3463,30 +3463,30 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000000} MMBtu/(hr ft² °F) to 4.000 kW/K .... FAIL -- {1:0.000} kW/(m² K)",
                                            Math.Round(dU_MMBtu_F, 9),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // KBTU-F
 
                 #region MMBTU-R
 
                 #region TO EXTERNAL
-                PinchSettingsObj.ExternalUnitsSystem = PinchSettings.ENGLISH_UNITS;  // System: "ENGLISH"
-                PinchSettingsObj.ExternalMagUnits = PinchSettings.MAG_MEGA;          // Magnitude: "MEGA"
-                PinchSettingsObj.ExternalTemperatureUnits = PinchSettings.DEG_R;     // Temperature: "°R"
-                PinchSettingsObj.ExternalCP_Units = PinchSettings.MMBTU_R_U;         // U: "MMBtu/(hr ft² °R)"
+                HenSettingsObj.ExternalUnitsSystem = HenSettings.ENGLISH_UNITS;  // System: "ENGLISH"
+                HenSettingsObj.ExternalMagUnits = HenSettings.MAG_MEGA;          // Magnitude: "MEGA"
+                HenSettingsObj.ExternalTemperatureUnits = HenSettings.DEG_R;     // Temperature: "°R"
+                HenSettingsObj.ExternalCP_Units = HenSettings.MMBTU_R_U;         // U: "MMBtu/(hr ft² °R)"
 
                 dU_kW_K = 4.000;     // Set INTERNAL VALUE
-                dU_MMBtu_R = ConvertFromInternal(PinchTypes.ConversionUnitsTypes.U, dU_kW_K);
+                dU_MMBtu_R = ConvertFromInternal(HenTypes.ConversionUnitsTypes.U, dU_kW_K);
                 if (CheckForEquality(dU_MMBtu_R, 0.00070444))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to {1:0.000000000} MMBtu/(hr ft² °R) .... PASS",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_MMBtu_R, 9));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3494,20 +3494,20 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000} kW/(m² K) to 0.00070444 MMBtu/(hr ft² °R) .... FAIL -- {1:0.000000000} MMBtu/(hr ft² °R)",
                                             Math.Round(dU_kW_K, 3),
                                             Math.Round(dU_MMBtu_R, 9));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO EXTERNAL
 
                 #region TO INTERNAL
                 dU_MMBtu_R = 0.00070444;  // Set EXTERNAL VALUE
-                dU_kW_K = ConvertToInternal(PinchTypes.ConversionUnitsTypes.U, dU_MMBtu_R);
+                dU_kW_K = ConvertToInternal(HenTypes.ConversionUnitsTypes.U, dU_MMBtu_R);
                 if (CheckForEquality(dU_kW_K, 4.000))
                 {
                     nPass++;
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000000} MMBtu/(hr ft² °R) to {1:0.000} kW/(m² K) .... PASS",
                                            Math.Round(dU_MMBtu_R, 9),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 else
                 {
@@ -3515,11 +3515,11 @@ namespace PinchGlobal
                     strMsg = string.Format("U - OVERALL HEAT TRANSFER COEFFICIENT CONVERSION TEST -> {0:0.000000000} MMBtu/(hr ft² °R) to 4.000 kW/K .... FAIL -- {1:0.000} kW/(m² K)",
                                            Math.Round(dU_MMBtu_R, 9),
                                            Math.Round(dU_kW_K, 3));
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
                 }
                 #endregion  // TO INTERNAL
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
                 #endregion  // KBTU-R
 
                 #endregion  // U - OVERALL HEAT TRANSFER COEFFICIENT
@@ -3528,17 +3528,17 @@ namespace PinchGlobal
             catch (Exception ex)
             {
                 //--- LOG EXCEPTION ---
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
                 strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
                 strMsg = string.Format("    ===> T E S T   T O T A L S :   PASS: {0}   FAIL: {1}", nPass, nFail);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                PinchLogger.WriteSection("END UNIT CONVERSION TEST");
-                PinchLogger.WriteSeparatorLine(' ');
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.WriteSection("END UNIT CONVERSION TEST");
+                HenLogger.WriteSeparatorLine(' ');
 
             }
         }
@@ -3547,9 +3547,9 @@ namespace PinchGlobal
         #endregion  // UNITS CONVERSION METHODS
 
     }
-    #endregion      // public class PinchTypes
+    #endregion      // public class HenTypes
 }
-#endregion      // namespace PinchGlobal
+#endregion      // namespace HenGlobal
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//########################################  P i n c h S e t t i n g s . c s  ##########################################
+//##########################################  H e n S e t t i n g s . c s  ############################################
 //#####################################################################################################################
-//  FILENAME:  PinchSettings.cs
-//  NAMESPACE: PinchGlobal
-//  CLASS(S):  PinchSettings
-//  COMPONENT: _PinchGLobal.dll
+//  FILENAME:  HenSettings.cs
+//  NAMESPACE: HenGlobal
+//  CLASS(S):  HenSettings
+//  COMPONENT: _HenGLobal.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Global Pinch Settings.
+//    This file contains the code for the Global HEN Studio Settings.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -46,18 +46,18 @@ using System.Text;
 using System.Threading.Tasks;
 #endregion  // REFERENCES
 
-#region namespace PinchGlobal
-namespace PinchGlobal
+#region namespace HenGlobal
+namespace HenGlobal
 {
-    #region public class PinchSettings
+    #region public class HenSettings
     /// <summary>
     /// Global Pinch Settings Class
     /// </summary>
-    public class PinchSettings
+    public class HenSettings
     {
         #region CONSTANTS
-        const string NAMESPACE = "PinchGlobal";
-        const string CLASS = "PinchSettings";
+        const string NAMESPACE = "HenGlobal";
+        const string CLASS = "HenSettings";
         #endregion      // CONSTANTS
 
         #region SUPPLIER & PRODUCT INFORMATION ... LICENSE FILE STRINGS
@@ -69,9 +69,9 @@ namespace PinchGlobal
         //------------------------------------------------------------------------------
         //--- Product Information ... Check Against What is Supplied in License File ---
         //------------------------------------------------------------------------------
-        public const string AJP_PRODUCT_FULLNAME = "AJP Pinch 4.0";
-        public const string AJP_PRODUCT_NAME = "AJP Pinch";
-        public const string AJP_PRODUCT_VERSION = "4.0.1";
+        public const string AJP_PRODUCT_FULLNAME = "AJP HEN Studio 1.0";
+        public const string AJP_PRODUCT_NAME = "AJP HEN Studio";
+        public const string AJP_PRODUCT_VERSION = "1.0.1";
         public const string AJP_PRODUCT_SERIAL_NUMBER = "{6C6D7807-B72E-4460-9D5C-1A911D1299FB}";
         public const string AJP_PRODUCT_CODE = "1022-456-1189";
         #endregion  // SUPPLIER & PRODUCT INFORMATION ... LICENSE FILE STRINGS
@@ -187,12 +187,12 @@ namespace PinchGlobal
         public string CUSTOMER_EMAIL = "TBD";
         #endregion  // CUSTOMER INFORMATION ... SPECIFIED IN LICENSE FILE
 
-        #region PINCH COMPONENTS ... ArrayList
-        //--------------------------------
-        //--- Pinch Product Components ---
-        //--------------------------------
-        public ArrayList AJP_PINCH_COMPONENTS = new ArrayList();
-        #endregion  // PINCH COMPONENTS ... ArrayList
+        #region HEN COMPONENTS ... ArrayList
+        //------------------------------
+        //--- HEN Product Components ---
+        //------------------------------
+        public ArrayList AJP_HEN_COMPONENTS = new ArrayList();
+        #endregion  // HEN  COMPONENTS ... ArrayList
 
         #region LICENSE INFORMATION - SEE LICENSE FILE CLASS
         //-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -233,14 +233,14 @@ namespace PinchGlobal
         /// License Type ... [ UNKNOWN = -1 | TRIAL = 0 | SITE = 1 | DEVICE = 2 | USER = 3 | SEAT = 4 ]
         /// Note: USER type not Supported for Pinch
         /// </summary>
-        public PinchTypes.LicenseType LicenseTypeEnum { get; set; }      // License Type
+        public HenTypes.LicenseType LicenseTypeEnum { get; set; }      // License Type
         #endregion  // LicenseTypeEnum
 
         #region LicenseStatusEnum
         /// <summary>
         /// License Status ... [EXPIRED = -2 | INVALID = -1 | UNKNOWN = 0 | VALID = 1]
         /// </summary>
-        public PinchTypes.LicenseStatus LicenseStatusEnum { get; set; }  // License Status
+        public HenTypes.LicenseStatus LicenseStatusEnum { get; set; }  // License Status
         #endregion  // LicenseStatusEnum
         #endregion  // LICENSE
 
@@ -250,7 +250,7 @@ namespace PinchGlobal
         /// Pinch Units System ... [UNKNOWN = -1 | ENGLISH = 0 | METRIC = 1]
         /// ENGLISH-IMPERIAL Units or METRIC-SI Units
         /// </summary>
-        public PinchTypes.PinchUnits PinchUnitsEnum { get; set; }        // Pinch Units [ENGLISH | METRIC]
+        public HenTypes.PinchUnits PinchUnitsEnum { get; set; }        // Pinch Units [ENGLISH | METRIC]
         #endregion  // PinchUnitsEnum
 
         #region InputValidatedFlag
@@ -410,25 +410,25 @@ namespace PinchGlobal
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public PinchSettings()
+        public HenSettings()
         {
             string strMethod = "CTOR";
-            PinchLogger.WriteSeparatorLine(' ');
-            PinchLogger.WriteSeparatorLine('>');
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating PinchSettings Object");
+            HenLogger.WriteSeparatorLine(' ');
+            HenLogger.WriteSeparatorLine('>');
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenSettings Object");
             try
             {
-                #region PINCH COMPONENTS
-                AJP_PINCH_COMPONENTS.Clear();
-                AJP_PINCH_COMPONENTS.Add("Pinch.exe");
-                AJP_PINCH_COMPONENTS.Add("_AJP License File.ll");
-                AJP_PINCH_COMPONENTS.Add("_PinchData.dll");
-                AJP_PINCH_COMPONENTS.Add("_PinchFigures.dll");
-                AJP_PINCH_COMPONENTS.Add("_PinchGlobal.dll");
-                AJP_PINCH_COMPONENTS.Add("_PinchHen.dll");
-                AJP_PINCH_COMPONENTS.Add("_PinchReports.dll");
-                AJP_PINCH_COMPONENTS.Add("_PinchTargets.dll");
-                #endregion  // PINCH COMPONENTS
+                #region HEN COMPONENTS
+                AJP_HEN_COMPONENTS.Clear();
+                AJP_HEN_COMPONENTS.Add("Pinch.exe");
+                AJP_HEN_COMPONENTS.Add("_AJP License File.ll");
+                AJP_HEN_COMPONENTS.Add("_PinchData.dll");
+                AJP_HEN_COMPONENTS.Add("_PinchFigures.dll");
+                AJP_HEN_COMPONENTS.Add("_PinchGlobal.dll");
+                AJP_HEN_COMPONENTS.Add("_PinchHen.dll");
+                AJP_HEN_COMPONENTS.Add("_PinchReports.dll");
+                AJP_HEN_COMPONENTS.Add("_PinchTargets.dll");
+                #endregion  // HEN COMPONENTS
 
                 #region LOG LICENSE DATA
                 WriteSupplierDataToLog();   // Write Supplier Data to Log
@@ -463,16 +463,16 @@ namespace PinchGlobal
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
-                PinchLogger.WriteSeparatorLine('=');
+                HenLogger.WriteSeparatorLine('=');
 
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "PinchSettings Object CREATED");
-                PinchLogger.WriteSeparatorLine('<');
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "HenSettings Object CREATED");
+                HenLogger.WriteSeparatorLine('<');
             }
         }
         #endregion      // CTOR
@@ -488,23 +488,23 @@ namespace PinchGlobal
             string strMethod = "WriteInternalUnitsDataToLog()";
             try
             {
-                PinchLogger.WriteSection("INTERNAL UNITS DATA");
+                HenLogger.WriteSection("INTERNAL UNITS DATA");
 
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL System      : " + InternalUnitsSystem);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Magnitude   : " + InternalMagUnits);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Heat Flow   : " + InternalHeatFlowUnits);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Temperature : " + InternalTemperatureUnits);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL CP          : " + InternalCP_Units);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL U           : " + InternalU_Units);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Area        : " + InternalArea_Units);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL System      : " + InternalUnitsSystem);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Magnitude   : " + InternalMagUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Heat Flow   : " + InternalHeatFlowUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Temperature : " + InternalTemperatureUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL CP          : " + InternalCP_Units);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL U           : " + InternalU_Units);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Area        : " + InternalArea_Units);
 
-                //PinchLogger.WriteSeparatorLine('=');
+                //HenLogger.WriteSeparatorLine('=');
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -521,23 +521,23 @@ namespace PinchGlobal
             string strMethod = "WriteExternalUnitsDataToLog()";
             try
             {
-                PinchLogger.WriteSection("EXTERNAL UNITS DATA");
+                HenLogger.WriteSection("EXTERNAL UNITS DATA");
 
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL System      : " + ExternalUnitsSystem);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Magnitude   : " + ExternalMagUnits);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Heat Flow   : " + ExternalHeatFlowUnits);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Temperature : " + ExternalTemperatureUnits);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL CP          : " + ExternalCP_Units);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL U           : " + ExternalU_Units);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Area        : " + ExternalArea_Units);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL System      : " + ExternalUnitsSystem);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Magnitude   : " + ExternalMagUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Heat Flow   : " + ExternalHeatFlowUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Temperature : " + ExternalTemperatureUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL CP          : " + ExternalCP_Units);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL U           : " + ExternalU_Units);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Area        : " + ExternalArea_Units);
 
-                //PinchLogger.WriteSeparatorLine('=');
+                //HenLogger.WriteSeparatorLine('=');
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -554,26 +554,26 @@ namespace PinchGlobal
             string strMethod = "WriteProductDataToLog()";
             try
             {
-                PinchLogger.WriteSection("PINCH PRODUCT INFORMATION");
+                HenLogger.WriteSection("PINCH PRODUCT INFORMATION");
 
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT FULLNAME      : " + AJP_PRODUCT_FULLNAME);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT NAME          : " + AJP_PRODUCT_NAME);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT VERSION       : " + AJP_PRODUCT_VERSION);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT SERIAL_NUMBER : " + AJP_PRODUCT_SERIAL_NUMBER);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT CODE          : " + AJP_PRODUCT_CODE);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "----------- COMPONENTS ----------- ");
-                foreach(string str in AJP_PINCH_COMPONENTS)
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT FULLNAME      : " + AJP_PRODUCT_FULLNAME);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT NAME          : " + AJP_PRODUCT_NAME);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT VERSION       : " + AJP_PRODUCT_VERSION);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT SERIAL_NUMBER : " + AJP_PRODUCT_SERIAL_NUMBER);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] PRODUCT CODE          : " + AJP_PRODUCT_CODE);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "----------- COMPONENTS ----------- ");
+                foreach(string str in AJP_HEN_COMPONENTS)
                 {
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  > " + str);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  > " + str);
                 }
-                //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "----------- COMPONENTS ----------- ");
-                //PinchLogger.WriteSeparatorLine('=');
+                //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "----------- COMPONENTS ----------- ");
+                //HenLogger.WriteSeparatorLine('=');
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -590,18 +590,18 @@ namespace PinchGlobal
             string strMethod = "WriteSupplierDataToLog()";
             try
             {
-                PinchLogger.WriteSection("PINCH SUPPLIER INFORMATION");
+                HenLogger.WriteSection("PINCH SUPPLIER INFORMATION");
 
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] AJP SUPPLIER NAME    : " + AJP_SUPPLIER_NAME);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "           AJP SUPPLIER URL     : " + AJP_SUPPLIER_URL);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] AJP SUPPLIER NAME    : " + AJP_SUPPLIER_NAME);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "           AJP SUPPLIER URL     : " + AJP_SUPPLIER_URL);
 
-                //PinchLogger.WriteSeparatorLine('=');
+                //HenLogger.WriteSeparatorLine('=');
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -618,18 +618,18 @@ namespace PinchGlobal
             string strMethod = "WriteCustomerDataToLog()";
             try
             {
-                PinchLogger.WriteSection("CUSTOMER INFORMATION");
+                HenLogger.WriteSection("CUSTOMER INFORMATION");
 
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] CUSTOMER NAME        : " + CUSTOMER_NAME);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "           CUSTOMER EMAIL       : " + CUSTOMER_EMAIL);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "[REQUIRED] CUSTOMER NAME        : " + CUSTOMER_NAME);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "           CUSTOMER EMAIL       : " + CUSTOMER_EMAIL);
 
-                //PinchLogger.WriteSeparatorLine('=');
+                //HenLogger.WriteSeparatorLine('=');
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -640,9 +640,9 @@ namespace PinchGlobal
         #endregion  // WRITE LOG METHODS
 
     }
-    #endregion      // public class PinchSettings
+    #endregion      // public class HenSettings
 }
-#endregion      // namespace PinchGlobal
+#endregion      // namespace HenGlobal
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

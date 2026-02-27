@@ -33,13 +33,9 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HenGlobal;
 
-using PinchGlobal;
+using System;
 #endregion  // REFERENCES
 
 #region namespace PinchHen
@@ -67,23 +63,23 @@ namespace PinchHen
         public HenEngine()
         {
             string strMethod = "CTOR";
-            PinchLogger.WriteSeparatorLine(' ');
-            PinchLogger.WriteSeparatorLine('>');
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenEngine Object");
+            HenLogger.WriteSeparatorLine(' ');
+            HenLogger.WriteSeparatorLine('>');
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenEngine Object");
             try
             {
 
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
-                PinchLogger.WriteSeparatorLine('<');
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
+                HenLogger.WriteSeparatorLine('<');
             }
         }
         #endregion      // CTOR

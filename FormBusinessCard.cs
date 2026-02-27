@@ -33,27 +33,17 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using PinchGlobal;
 #endregion  // REFERENCES
 
-#region namespace Pinch
-namespace Pinch
+#region namespace HenStudio
+namespace HenStudio
 {
     #region public partial class FormBusinessCard
     public partial class FormBusinessCard : Form
     {
         #region CONSTANTS
-        const string NAMESPACE = "Pinch";
+        const string NAMESPACE = "HenStudio";
         const string CLASS = "FormBusinessCard";
         #endregion      // CONSTANTS
 
@@ -73,7 +63,7 @@ namespace Pinch
     }
     #endregion  // public partial class FormBusinessCard
 }
-#endregion namespace Pinch
+#endregion namespace HenStudio
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

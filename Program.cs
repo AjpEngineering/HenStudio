@@ -33,19 +33,15 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using HenGlobal;
 
-using AJP_License_File;
-using PinchGlobal;
+using System;
+using System.IO;
+using System.Windows.Forms;
 #endregion  // REFERENCES
 
-#region namespace Pinch
-namespace Pinch
+#region namespace HenStudio
+namespace HenStudio
 {
     #region internal static class Program
     /// <summary>
@@ -62,7 +58,7 @@ namespace Pinch
             //--------------------------------------------------------------------------------------
             //---------------------------------- EMPTY LOG FILE ------------------------------------
             //--------------------------------------------------------------------------------------
-            string nDefaultFilename = "AJP_Pinch_LOG.log";
+            string nDefaultFilename = "AJP_HEN_LOG.log";
             string strExecPath = Path.GetDirectoryName(Application.ExecutablePath);
             string strFullPathFilename = String.Format("{0}\\{1}", strExecPath, nDefaultFilename);
             //Console.WriteLine(String.Format("Executable Path: {0}", strExecPath));                 // ***** TEST *****
@@ -78,8 +74,8 @@ namespace Pinch
             //--------------------------------------------------------------------------------------
             //---------------------------------- WRITE LOG HEADER ----------------------------------
             //--------------------------------------------------------------------------------------
-            PinchLogger.WriteHeader();
-            PinchLogger.WriteSection("START CONSTRUCTION SECTION");
+            HenLogger.WriteHeader();
+            HenLogger.WriteSection("START CONSTRUCTION SECTION");
             //--------------------------------------------------------------------------------------
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -87,13 +83,13 @@ namespace Pinch
             //--------------------------------------------------------------------------------------
             //--------------------------- WRITE LOG FOOTER and FLUSH FILE --------------------------
             //--------------------------------------------------------------------------------------
-            PinchLogger.WriteFooter();  // Write Footer
-            PinchLogger.FlushLog();     // Flush Log to Listener
+            HenLogger.WriteFooter();  // Write Footer
+            HenLogger.FlushLog();     // Flush Log to Listener
         }
     }
     #endregion      // internal static class Program
 }
-#endregion      // namespace Pinch
+#endregion      // namespace HenStudio
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -33,34 +33,20 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;   // Chart Component
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Xml.Linq;
-
 using AJP_License_File;
-using PinchData;
-using PinchGlobal;
-using PinchHen;
-using PinchTargets;
-using System.CodeDom;
-using Pinch.Properties;
-using System.IO;
+
+using HenGlobal;
+
+using HenStudio.Properties;
+
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 #endregion  // REFERENCES
 
-#region namespace Pinch
-namespace Pinch
+#region namespace HenStudio
+namespace HenStudio
 {
     #region public partial class FormMain
     /// <summary>
@@ -69,7 +55,7 @@ namespace Pinch
     public partial class FormMain : Form
     {
         #region CONSTANTS
-        const string NAMESPACE = "Pinch";
+        const string NAMESPACE = "HenStudio";
         const string CLASS = "FormMain";
 
         const string LICENSE_TYPE_UNKNOWN = "UNKNOWN";
@@ -129,16 +115,12 @@ namespace Pinch
         //----------------------------------------------------------------------------------------- LICENSE OBJECTS ---
         public LicenseMgr LicenseMgrObj { get; set; }              // License Manager Object
         //------------------------------------------------------------------------------------------ GLOBAL OBJECTS ---
-        public PinchFileSystem PinchFileSysObj { get; set; }       // Pinch File System Object
-        public PinchSettings PinchSettingsObj { get; set; }        // Pinch Settings Object
-        public PinchTypes PinchTypesObj { get; set; }              // Pinch Types Object
-        public PinchMethods PinchMethodsObj { get; set; }          // Pinch Methods Object
+        public HenFileSystem HenFileSysObj { get; set; }           // HEN Studio File System Object
+        public HenSettings HenSettingsObj { get; set; }            // HEN Studio Settings Object
+        public HenTypes HenTypesObj { get; set; }                  // HEN Studio Types Object
+        public HenMethods HenMethodsObj { get; set; }              // HEN Studio Methods Object
         public PanelTableMgr PanelTableMgrObj { get; set; }        // Panel Table Manager Object
         //-------------------------------------------------------------------------------------------- DATA OBJECTS ---
-        public ManifestData ManifestDataObj { get; set; }          // Manifest Data Object
-        public InputDataMgr InputDataMgrObj { get; set; }          // INPUT   Data Manager Object
-        public TargetsDataMgr TargetsDataMgrObj { get; set; }      // TARGETS Data Manager Object
-        public HenDataMgr HenDataMgrObj { get; set; }              // HEN Data Manager Object
         #endregion      // PROPERTIES
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -153,14 +135,14 @@ namespace Pinch
         {
             string strMethod = "CTOR";
             string strMsg = string.Empty;
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
             bool bValidLicenseFile = false;
             try
             {
                 InitializeComponent();
 
                 #region INITIALIZE PROPERTIES
-                this.Text = "AJP Pinch 4";      // Form Title
+                this.Text = "AJP HEN Studio";      // Form Title
                 //-------------------------------------------- STREAM BACKGROUND COLORS ---
                 ColorBackgroundHotStream = Color.LightCoral;
                 ColorBackgroundColdStream = Color.LightBlue;
@@ -172,21 +154,21 @@ namespace Pinch
                 //----------------------
                 //--- Create Objects ---
                 //----------------------
-                PinchFileSysObj = new PinchFileSystem();
-                PinchSettingsObj = new PinchSettings();
-                PinchTypesObj = new PinchTypes();
-                PinchMethodsObj = new PinchMethods(PinchSettingsObj);
+                HenFileSysObj = new HenFileSystem();
+                HenSettingsObj = new HenSettings();
+                HenTypesObj = new HenTypes();
+                HenMethodsObj = new HenMethods(HenSettingsObj);
 
-                LicenseMgrObj = new LicenseMgr(PinchFileSysObj.LicenseFilePath);
+                LicenseMgrObj = new LicenseMgr(HenFileSysObj.LicenseFilePath);
                 //------------------------------------------
                 //--- Initialize License Global Settings ---
                 //------------------------------------------
-                PinchSettingsObj.LicenseValidatedFlag = false;
-                PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.UNKNOWN;
-                PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.UNKNOWN;
+                HenSettingsObj.LicenseValidatedFlag = false;
+                HenSettingsObj.LicenseTypeEnum = HenTypes.LicenseType.UNKNOWN;
+                HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.UNKNOWN;
 
-                PinchSettingsObj.InputValidatedFlag = false;
-                PinchSettingsObj.TargetsCalculatedFlag = false;
+                HenSettingsObj.InputValidatedFlag = false;
+                HenSettingsObj.TargetsCalculatedFlag = false;
                 //---------------------------------------
                 //--- Initialize Units Global Setting ---
                 //---------------------------------------
@@ -202,7 +184,7 @@ namespace Pinch
                 //-----------------------------------
                 //--- Create PanelTableMgr Object ---
                 //-----------------------------------
-                PanelTableMgrObj = new PanelTableMgr(PinchTypesObj, PinchSettingsObj);
+                PanelTableMgrObj = new PanelTableMgr(HenTypesObj, HenSettingsObj);
                 //-----------------------------------------------------------------------------------------------------
                 //---------------------------- Assign ANALYSIS TabControl Panel Members -------------------------------
                 //-----------------------------------------------------------------------------------------------------
@@ -256,8 +238,8 @@ namespace Pinch
                 //-------------------------------------------
                 //--- Update Pinch Units Status Bar Label ---
                 //-------------------------------------------
-                //PinchSettingsObj.PinchUnitsEnum = PinchTypes.PinchUnits.ENGLISH;
-                PinchSettingsObj.PinchUnitsEnum = PinchTypes.PinchUnits.METRIC;
+                //HenSettingsObj.PinchUnitsEnum = HenTypes.PinchUnits.ENGLISH;
+                HenSettingsObj.PinchUnitsEnum = HenTypes.PinchUnits.METRIC;
                 UpdateUnitsStatusBarLabel();        // Update Pinch Units Status Bar Label
                 #endregion      // Update Pinch Units Status Bar Label
 
@@ -265,8 +247,8 @@ namespace Pinch
                 //----------------------------------------------------
                 //--- Update Input Validated Flag Status Bar Label ---
                 //----------------------------------------------------
-                //PinchSettingsObj.InputValidatedFlag = true;
-                PinchSettingsObj.InputValidatedFlag = false;
+                //HenSettingsObj.InputValidatedFlag = true;
+                HenSettingsObj.InputValidatedFlag = false;
                 UpdateInputStatusBarLabel();        // Update Input Validated Status Bar Label
                 #endregion  // Update Input Validated Flag Status Bar Label
 
@@ -274,17 +256,17 @@ namespace Pinch
                 //-------------------------------------------------------
                 //--- Update Targets Calculated Flag Status Bar Label ---
                 //-------------------------------------------------------
-                //PinchSettingsObj.TargetsCalculatedFlag = true;
-                PinchSettingsObj.TargetsCalculatedFlag = false;
+                //HenSettingsObj.TargetsCalculatedFlag = true;
+                HenSettingsObj.TargetsCalculatedFlag = false;
                 UpdateTargetsStatusBarLabel();      // Update Targets Calculated Status Bar Label
                 #endregion  // Update Targets Calculated Flag Status Bar Label
 
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -297,64 +279,58 @@ namespace Pinch
         {
             string strMethod = "FormMain_Load";
             string strMsg = string.Empty;
-            PinchLogger.WriteSeparatorLine(' ');
-            PinchLogger.WriteSection("START OBJECT TREE CONSTRUCTION");
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Load Main Form - Create Object Tree");
+            HenLogger.WriteSeparatorLine(' ');
+            HenLogger.WriteSection("START OBJECT TREE CONSTRUCTION");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Load Main Form - Create Object Tree");
             try
             {
                 #region VALID XML File Exists Guard - EXIT ON ERROR
                 //-----------------------------
                 //--- XML File Exists Guard ---
                 //-----------------------------
-                if (!PinchFileSysObj.LicenseFileExists())
+                if (!HenFileSysObj.LicenseFileExists())
                 {
                     strMsg = String.Format("XML License File is Missing! [{0}]",
-                                            PinchFileSysObj.LicenseFilePath);
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
-                    PinchMsgDlg.DisplayErrorDlg(strMsg);
+                                            HenFileSysObj.LicenseFilePath);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenMsgDlg.DisplayErrorDlg(strMsg);
 
                     HandleExit();
                 }
-                else if (PinchSettingsObj.LicenseStatusEnum != PinchTypes.LicenseStatus.VALID)
+                else if (HenSettingsObj.LicenseStatusEnum != HenTypes.LicenseStatus.VALID)
                 {
-                    string strStatus = PinchSettingsObj.LicenseStatusEnum.ToString();
+                    string strStatus = HenSettingsObj.LicenseStatusEnum.ToString();
                     strMsg = String.Format("{0} License File Encountered!{1} Contact AJP Engineering!",
                                             strStatus, Environment.NewLine);
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
-                    PinchMsgDlg.DisplayErrorDlg(strMsg);
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenMsgDlg.DisplayErrorDlg(strMsg);
 
                     HandleExit();
                 }
                 #endregion  // VALID XML File Exists Guard - EXIT ON ERROR
 
                 #region CONSTRUCT INITIAL OBJECT TREE
-                InputDataMgrObj = new InputDataMgr();       // Create & Initialize Input   Data Objects
-                TargetsDataMgrObj = new TargetsDataMgr();   // Create & Initialize Targets Data Objects
-                HenDataMgrObj = new HenDataMgr();           // Create & Initialize Hen     Data Objects
-
-                ManifestDataObj = new ManifestData(InputDataMgrObj,     // Create & Initialize Manifest Data Object
-                                                   TargetsDataMgrObj,
-                                                   HenDataMgrObj);
+                //***** TBD
                 #endregion  // CONSTRUCT INITIAL OBJECT TREE
 
                 //--- TEST ---
-                PinchMethodsObj.TestUnitConversions();
+                HenMethodsObj.TestUnitConversions();
 
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
-                PinchLogger.WriteSection("END OBJECT TREE CONSTRUCTION");
-                PinchLogger.WriteSeparatorLine(' ');
+                HenLogger.WriteSection("END OBJECT TREE CONSTRUCTION");
+                HenLogger.WriteSeparatorLine(' ');
 
                 PanelTableMgrObj.LogCurrentState(); // Log the current index state of the Panel Table Manager
 
-                PinchLogger.WriteSection("END CONSTRUCTION SECTION");
+                HenLogger.WriteSection("END CONSTRUCTION SECTION");
             }
         }
         #endregion  // FormMain_Load
@@ -366,7 +342,7 @@ namespace Pinch
         public void InitializeControls()
         {
             string strMethod = "InitializeControls";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
 
             int nPanelLocationX = 0;
             int nPanelLocationY = 61;
@@ -375,7 +351,7 @@ namespace Pinch
             try
             {
                 this.Text = "AJP Pinch 4";
-                this.BackColor = PinchSettingsObj.AJP_ENGINEERING_GREEN; // Form Background Color
+                this.BackColor = HenSettingsObj.AJP_ENGINEERING_GREEN; // Form Background Color
 
                 //--- INPUT PANEL ---
                 this.panelINPUT.Location = new System.Drawing.Point(nPanelLocationX, nPanelLocationY);
@@ -391,9 +367,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -411,9 +387,9 @@ namespace Pinch
         private bool ValidateLicense()
         {
             string strMethod = "ValidateLicense";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Validate Product License!");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Validate Product License!");
 
-            string strFullPathXmlFile = PinchFileSysObj.LicenseFilePath;
+            string strFullPathXmlFile = HenFileSysObj.LicenseFilePath;
             LicenseFileData licenseFileXmlObj = new LicenseFileData();
             try
             {
@@ -424,15 +400,15 @@ namespace Pinch
                 //-----------------------------
                 //--- XML File Exists Guard ---
                 //-----------------------------
-                if (!PinchFileSysObj.LicenseFileExists())
+                if (!HenFileSysObj.LicenseFileExists())
                 {
                     //------------------------
                     //--- XML FILE MISSING ---
                     //------------------------
-                    PinchSettingsObj.LicenseValidatedFlag = false;
-                    PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.INVALID;
+                    HenSettingsObj.LicenseValidatedFlag = false;
+                    HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.INVALID;
 
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, 
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, 
                                          String.Format("XML License File is Missing! [{0}]", 
                                                        strFullPathXmlFile));                    
                     return false;
@@ -456,22 +432,22 @@ namespace Pinch
                 switch (licenseFileXmlObj.LicenseType)
                 {
                     case "TRIAL":
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.TRIAL;
+                        HenSettingsObj.LicenseTypeEnum = HenTypes.LicenseType.TRIAL;
                         break;
                     case "SITE":
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.SITE;
+                        HenSettingsObj.LicenseTypeEnum = HenTypes.LicenseType.SITE;
                         break;
                     case "DEVICE":
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.DEVICE;
+                        HenSettingsObj.LicenseTypeEnum = HenTypes.LicenseType.DEVICE;
                         break;
                     case "SEAT":
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.SEAT;
+                        HenSettingsObj.LicenseTypeEnum = HenTypes.LicenseType.SEAT;
                         break;
                     case "USER":    // NOT SUPPORTED
-                        //PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.USER;
+                        //HenSettingsObj.LicenseTypeEnum = HenTypes.LicenseType.USER;
                         //break;
                     default:
-                        PinchSettingsObj.LicenseTypeEnum = PinchTypes.LicenseType.UNKNOWN;
+                        HenSettingsObj.LicenseTypeEnum = HenTypes.LicenseType.UNKNOWN;
                         break;
                 }
                 #endregion  // ASSIGN LICENSE TYPE ENUM VALUE IN SETTINGS OBJECT
@@ -499,15 +475,15 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
                 LogLicenseStatus();               // Log License Status ... use Global Settings
             }
-            return PinchSettingsObj.LicenseValidatedFlag;
+            return HenSettingsObj.LicenseValidatedFlag;
         }
         #endregion  // ValidateLicense()
 
@@ -523,23 +499,23 @@ namespace Pinch
         {
             string strMethod = "UpdateLicenseStatusBarLabel";
             string strLicenseType = String.Format("{0} LICENSE ", 
-                                    PinchSettingsObj.LicenseTypeEnum.ToString());
+                                    HenSettingsObj.LicenseTypeEnum.ToString());
             try
             {
                 this.toolStripStatusLabelLicense.Text = strLicenseType;
 
-                switch(PinchSettingsObj.LicenseStatusEnum)
+                switch(HenSettingsObj.LicenseStatusEnum)
                 {
-                    case PinchTypes.LicenseStatus.EXPIRED:
-                    case PinchTypes.LicenseStatus.INVALID:
+                    case HenTypes.LicenseStatus.EXPIRED:
+                    case HenTypes.LicenseStatus.INVALID:
                         this.toolStripStatusLabelLicense.BackColor = Color.Red;
                         this.toolStripStatusLabelLicense.Image = Resources.InValid_32x32;
                         break;
-                     case PinchTypes.LicenseStatus.UNKNOWN:
+                     case HenTypes.LicenseStatus.UNKNOWN:
                         this.toolStripStatusLabelLicense.BackColor = Color.Orange;
                         this.toolStripStatusLabelLicense.Image = Resources.Unknown_32x32;
                         break;
-                   case PinchTypes.LicenseStatus.VALID:
+                   case HenTypes.LicenseStatus.VALID:
                         this.toolStripStatusLabelLicense.BackColor = Color.Green;
                         this.toolStripStatusLabelLicense.Image = Resources.Valid_32x32;
                         break;
@@ -549,9 +525,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -567,24 +543,24 @@ namespace Pinch
         {
             string strMethod = "UpdateUnitsStatusBarLabel";
             string strUnitsType = String.Format("{0} UNITS ",
-                                    PinchSettingsObj.PinchUnitsEnum.ToString());
+                                    HenSettingsObj.PinchUnitsEnum.ToString());
             try
             {
                 this.toolStripStatusLabelUnits.Text = strUnitsType;
 
-                switch (PinchSettingsObj.PinchUnitsEnum)
+                switch (HenSettingsObj.PinchUnitsEnum)
                 {
-                    case PinchTypes.PinchUnits.UNKNOWN:
+                    case HenTypes.PinchUnits.UNKNOWN:
                         this.toolStripStatusLabelUnits.BackColor = Color.Orange;
                         this.toolStripStatusLabelUnits.ForeColor = Color.White;
                         this.toolStripStatusLabelUnits.Image = Resources.Unknown_32x32;
                         break;
-                    case PinchTypes.PinchUnits.ENGLISH:
+                    case HenTypes.PinchUnits.ENGLISH:
                         this.toolStripStatusLabelUnits.BackColor = Color.Blue;
                         this.toolStripStatusLabelUnits.ForeColor = Color.White;
                         this.toolStripStatusLabelUnits.Image = Resources.English_Imperial_Units_32x32;
                         break;
-                    case PinchTypes.PinchUnits.METRIC:
+                    case HenTypes.PinchUnits.METRIC:
                         this.toolStripStatusLabelUnits.BackColor = Color.Blue;
                         this.toolStripStatusLabelUnits.ForeColor = Color.White;
                         this.toolStripStatusLabelUnits.Image = Resources.Metric_SI_Units_32x32;
@@ -595,9 +571,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -612,7 +588,7 @@ namespace Pinch
         private void UpdateInputStatusBarLabel()
         {
             string strMethod = "UpdateInputStatusBarLabel";
-            bool bInputValidated = PinchSettingsObj.InputValidatedFlag;
+            bool bInputValidated = HenSettingsObj.InputValidatedFlag;
             string strInputValidated = String.Empty;
             try
             {
@@ -637,9 +613,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -654,7 +630,7 @@ namespace Pinch
         private void UpdateTargetsStatusBarLabel()
         {
             string strMethod = "UpdateTargetsStatusBarLabel";
-            bool bTargetsCalculated = PinchSettingsObj.TargetsCalculatedFlag;
+            bool bTargetsCalculated = HenSettingsObj.TargetsCalculatedFlag;
             string strTargetsCalculated = String.Empty;
             try
             {
@@ -679,9 +655,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -700,21 +676,21 @@ namespace Pinch
         #region NEW MENU ITEM HANDLER
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("New Menu Item Selected!");
+            HenMsgDlg.DisplayWarningDlg("New Menu Item Selected!");
         }
         #endregion  // NEW MENU ITEM HANDLER
 
         #region OPEN MENU ITEM HANDLER
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PinchMsgDlg.DisplayWarningDlg("Open Menu Item Selected!");
+            HenMsgDlg.DisplayWarningDlg("Open Menu Item Selected!");
         }
         #endregion  // OPEN MENU ITEM HANDLER
 
         #region SAVE MENU ITEM HANDLER
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("Save Menu Item Selected!");
+            //HenMsgDlg.DisplayWarningDlg("Save Menu Item Selected!");
             HandleSave();
         }
         #endregion  // SAVE MENU ITEM HANDLER
@@ -722,7 +698,7 @@ namespace Pinch
         #region SAVE AS MENU ITEM HANDLER
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("Save As Menu Item Selected!");
+            //HenMsgDlg.DisplayWarningDlg("Save As Menu Item Selected!");
             HandleSaveAs();
         }
         #endregion  // SAVE AS MENU ITEM HANDLER
@@ -730,7 +706,7 @@ namespace Pinch
         #region IMPORT MENU ITEM HANDLER
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("Import Menu Item Selected!");
+            //HenMsgDlg.DisplayWarningDlg("Import Menu Item Selected!");
             HandleImport();
         }
         #endregion  // IMPORT MENU ITEM HANDLER
@@ -738,7 +714,7 @@ namespace Pinch
         #region EXPORT MENU ITEM HANDLER
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("Export Menu Item Selected!");
+            //HenMsgDlg.DisplayWarningDlg("Export Menu Item Selected!");
             HandleExport();
         }
         #endregion  // EXPORT MENU ITEM HANDLER
@@ -762,14 +738,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgrObj.LastInputSubActivityIndex;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -785,14 +761,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgrObj.LastTargetsSubActivityIndex;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -808,15 +784,15 @@ namespace Pinch
             int nSubActivity = PanelTableMgrObj.LastHenSubActivityIndex;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
 
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -840,14 +816,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_PROJECT_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-PROJECT Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-PROJECT Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -863,14 +839,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_STREAMS_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-STREAMS Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-STREAMS Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -886,14 +862,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_UTILITIES_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-UTILITIES Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-UTILITIES Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -909,14 +885,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_COST_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-COST Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-COST Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -932,14 +908,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_EXCHANGER_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-EXCHANGER Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-EXCHANGER Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -955,14 +931,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_VALIDATE_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-VALIDATE Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-VALIDATE Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -982,14 +958,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_TARGETS_CALCULATE_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("TARGETS-CALCULATE Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("TARGETS-CALCULATE Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1005,14 +981,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_TARGETS_COMPOSITE_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("TARGETS-COMPOSITE Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("TARGETS-COMPOSITE Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1028,14 +1004,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_TARGETS_INTERVAL_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("TARGETS-INTERVAL Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("TARGETS-INTERVAL Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1051,14 +1027,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_TARGETS_OPTIMIZE_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("TARGETS-OPTIMIZE Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("TARGETS-OPTIMIZE Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1078,14 +1054,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_HEN_DESIGN_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("HEN-DESIGN Menu Item Selected!");
+                //HenMsgDlg.DisplayWarningDlg("HEN-DESIGN Menu Item Selected!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1100,7 +1076,7 @@ namespace Pinch
         #region LICENSE
         private void licenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("License Menu Item Selected!");
+            //HenMsgDlg.DisplayWarningDlg("License Menu Item Selected!");
             DisplayLicenseForm();
         }
         #endregion      // LICENSE
@@ -1128,7 +1104,7 @@ namespace Pinch
         #region TOOLBAR NEW BUTTON EVENT
         private void toolStripButtonNew_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("New Toobar Button Pressed!");
+            //HenMsgDlg.DisplayWarningDlg("New Toobar Button Pressed!");
             HandleNew();
         }
         #endregion  // TOOLBAR NEW BUTTON EVENT
@@ -1136,7 +1112,7 @@ namespace Pinch
         #region TOOLBAR OPEN BUTTON EVENT
         private void toolStripButtonOpen_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("Open Toobar Button Pressed!");
+            //HenMsgDlg.DisplayWarningDlg("Open Toobar Button Pressed!");
             HandleOpen();
         }
         #endregion  // TOOLBAR OPEN BUTTON EVENT
@@ -1144,7 +1120,7 @@ namespace Pinch
         #region TOOLBAR SAVE BUTTON EVENT
         private void toolStripButtonSave_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("Save Toobar Button Pressed!");
+            //HenMsgDlg.DisplayWarningDlg("Save Toobar Button Pressed!");
             HandleSave();
         }
         #endregion  // TOOLBAR SAVE BUTTON EVENT
@@ -1152,7 +1128,7 @@ namespace Pinch
         #region TOOLBAR SAVE AS BUTTON EVENT
         private void toolStripButtonSaveAs_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("Save As Toobar Button Pressed!");
+            //HenMsgDlg.DisplayWarningDlg("Save As Toobar Button Pressed!");
             HandleSaveAs();
         }
         #endregion      // TOOLBAR SAVE AS BUTTON EVENT
@@ -1160,7 +1136,7 @@ namespace Pinch
         #region TOOLBAR IMPORT BUTTON EVENT
         private void toolStripButtonImport_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("Import Toobar Button Pressed!");
+            //HenMsgDlg.DisplayWarningDlg("Import Toobar Button Pressed!");
             HandleImport();
         }
         #endregion  // TOOLBAR IMPORT BUTTON EVENT
@@ -1168,7 +1144,7 @@ namespace Pinch
         #region TOOLBAR EXPORT BUTTON EVENT
         private void toolStripButtonExport_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("Export Toobar Button Pressed!");
+            //HenMsgDlg.DisplayWarningDlg("Export Toobar Button Pressed!");
             HandleExport();
         }
         #endregion  // TOOLBAR EXPORT BUTTON EVENT
@@ -1183,14 +1159,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_PROJECT_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-PROJECT Toobar Button Pressed!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-PROJECT Toobar Button Pressed!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1206,14 +1182,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_STREAMS_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-STREAMS Toobar Button Pressed!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-STREAMS Toobar Button Pressed!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1229,14 +1205,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_UTILITIES_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-UTILITIES Toobar Button Pressed!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-UTILITIES Toobar Button Pressed!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1252,14 +1228,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_COST_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-COST Toobar Button Pressed!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-COST Toobar Button Pressed!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1275,14 +1251,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_EXCHANGER_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-EXCHANGER Toobar Button Pressed!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-EXCHANGER Toobar Button Pressed!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1298,14 +1274,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_INPUT_VALIDATE_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT-VALIDATE Toobar Button Pressed!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT-VALIDATE Toobar Button Pressed!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1323,14 +1299,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_TARGETS_CALCULATE_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("TARGETS-CALCULATE Toobar Button Pressed!");
+                //HenMsgDlg.DisplayWarningDlg("TARGETS-CALCULATE Toobar Button Pressed!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1346,14 +1322,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_TARGETS_COMPOSITE_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("TARGETS-COMPOSITE Toobar Button Pressed!");
+                //HenMsgDlg.DisplayWarningDlg("TARGETS-COMPOSITE Toobar Button Pressed!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1369,14 +1345,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_TARGETS_INTERVAL_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("TARGETS-INTERVAL Toobar Button Pressed!");
+                //HenMsgDlg.DisplayWarningDlg("TARGETS-INTERVAL Toobar Button Pressed!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1392,14 +1368,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_TARGETS_OPTIMIZE_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("TARGETS-OPTIMIZE Toobar Button Pressed!");
+                //HenMsgDlg.DisplayWarningDlg("TARGETS-OPTIMIZE Toobar Button Pressed!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1417,14 +1393,14 @@ namespace Pinch
             int nSubActivity = PanelTableMgr.INDEX_HEN_DESIGN_PANEL;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("HEN-DESIGN Toobar Button Pressed!");
+                //HenMsgDlg.DisplayWarningDlg("HEN-DESIGN Toobar Button Pressed!");
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1437,7 +1413,7 @@ namespace Pinch
         #region TOOLBAR LICENSE BUTTON EVENT
         private void toolStripButtonLicense_Click(object sender, EventArgs e)
         {
-            //PinchMsgDlg.DisplayWarningDlg("License Toolbar Button Presses!");
+            //HenMsgDlg.DisplayWarningDlg("License Toolbar Button Presses!");
             DisplayLicenseForm();
         }
         #endregion  // TOOLBAR LICENSE BUTTON EVENT
@@ -1475,7 +1451,7 @@ namespace Pinch
             int nSubActivity;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("MAIN ANALYSIS Tab Control Index Selected Changed!");
+                //HenMsgDlg.DisplayWarningDlg("MAIN ANALYSIS Tab Control Index Selected Changed!");
                 nActivity = PanelTableMgrObj.MAIN_TAB_CONTROL.SelectedIndex;
                 switch (nActivity)
                 {
@@ -1495,9 +1471,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally 
             {
@@ -1515,16 +1491,16 @@ namespace Pinch
             int nSubActivity;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("INPUT Tab Control Index Selected Changed!");
+                //HenMsgDlg.DisplayWarningDlg("INPUT Tab Control Index Selected Changed!");
                 nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
                 nSubActivity = this.tabControlINPUT.SelectedIndex; ;
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1540,16 +1516,16 @@ namespace Pinch
             int nSubActivity;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("TARGETS Tab Control Index Selected Changed!");
+                //HenMsgDlg.DisplayWarningDlg("TARGETS Tab Control Index Selected Changed!");
                 nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
                 nSubActivity = this.tabControlTARGETS.SelectedIndex; ;
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1566,16 +1542,16 @@ namespace Pinch
             int nSubActivity;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("HEN Tab Control Index Selected Changed!");
+                //HenMsgDlg.DisplayWarningDlg("HEN Tab Control Index Selected Changed!");
                 nActivity = PanelTableMgr.INDEX_HEN_PANEL;
                 nSubActivity = this.tabControlHEN.SelectedIndex; ;
                 HandleViewCommand(nActivity, nSubActivity);
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1624,18 +1600,18 @@ namespace Pinch
         private void DisplayLicenseForm()
         {
             string strMethod = "DisplayLicenseForm";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("Handle Common Display License Form Command!");
+                //HenMsgDlg.DisplayWarningDlg("Handle Common Display License Form Command!");
                 FormLicenseFile dlg = new FormLicenseFile();
                 dlg.ShowDialog();
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1651,31 +1627,31 @@ namespace Pinch
         private void DisplayScoreCardForm(bool bOnLaunch=false)
         {
             string strMethod = "DisplayScoreCardForm";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
             try
             {
                 ScoreCardTableData tableData;
                 try
                 {
                     #region GET LICENSE STATUS
-                    tableData = LicenseMgrObj.GetScoreCardTableData(PinchFileSysObj.AppExeFolderPath);
+                    tableData = LicenseMgrObj.GetScoreCardTableData(HenFileSysObj.AppExeFolderPath);
 
                     if (tableData.NumInvalidProps > 0)
                     {
-                        PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.INVALID;
+                        HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.INVALID;
                     }
                     else if (tableData.DaysRemaining <= 0)
                     {
-                        PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.EXPIRED;
+                        HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.EXPIRED;
                     }
                     else
                     {
-                        PinchSettingsObj.LicenseStatusEnum = PinchTypes.LicenseStatus.VALID;
+                        HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.VALID;
                     }
 
                     #endregion  // GET LICENSE STATUS
 
-                    if ((bOnLaunch) && (PinchSettingsObj.LicenseStatusEnum != PinchTypes.LicenseStatus.VALID))
+                    if ((bOnLaunch) && (HenSettingsObj.LicenseStatusEnum != HenTypes.LicenseStatus.VALID))
                     {
                         //--------------------------------------------
                         //--- [ON LAUNCH AND NOT A VALID LICENSE:] ---
@@ -1702,9 +1678,9 @@ namespace Pinch
                 }
                 catch (Exception ex)
                 {
-                    PinchLogger.WriteSeparatorLine('*');
-                    PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                    PinchLogger.WriteSeparatorLine('*');
+                    HenLogger.WriteSeparatorLine('*');
+                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                    HenLogger.WriteSeparatorLine('*');
                 }
                 finally
                 {
@@ -1712,9 +1688,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1729,7 +1705,7 @@ namespace Pinch
         private void DisplayUserLicenseAgreementForm()
         {
             string strMethod = "DisplayUserLicenseAgreementForm";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display User License Agreement Form");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display User License Agreement Form");
             try
             {
                 FormUserLicenseAgreement dlg = new FormUserLicenseAgreement();
@@ -1737,9 +1713,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1754,19 +1730,19 @@ namespace Pinch
         private void DisplayAboutForm()
         {
             string strMethod = "DisplayAboutForm";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display About Form");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display About Form");
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("Handle Common Display About Form Command!");
+                //HenMsgDlg.DisplayWarningDlg("Handle Common Display About Form Command!");
                 FormAboutPinch dlg = new FormAboutPinch();
-                dlg.PinchTypesObj = this.PinchTypesObj;     // Assign Global Types and Properties
+                dlg.HenTypesObj = this.HenTypesObj;     // Assign Global Types and Properties
                 dlg.ShowDialog();
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1781,18 +1757,18 @@ namespace Pinch
         private void DisplayBusinessCardForm()
         {
             string strMethod = "DisplayBusinessCardForm";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Business Card Form");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Business Card Form");
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("Handle Common Display Business Card Form Command!");
+                //HenMsgDlg.DisplayWarningDlg("Handle Common Display Business Card Form Command!");
                 FormBusinessCard dlg = new FormBusinessCard();
                 dlg.ShowDialog();
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1807,16 +1783,16 @@ namespace Pinch
         private void HandleNew()
         {
             string strMethod = "HandleNew";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "New Project");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "New Project");
             try
             {
-                PinchMsgDlg.DisplayWarningDlg("Handle NEW Command!");
+                HenMsgDlg.DisplayWarningDlg("Handle NEW Command!");
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1831,16 +1807,16 @@ namespace Pinch
         private void HandleOpen()
         {
             string strMethod = "HandleOpen";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Open Project");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Open Project");
             try
             {
-                PinchMsgDlg.DisplayWarningDlg("Handle OPEN Command!");
+                HenMsgDlg.DisplayWarningDlg("Handle OPEN Command!");
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1855,16 +1831,16 @@ namespace Pinch
         private void HandleSave()
         {
             string strMethod = "HandleSave";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Save Project");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Save Project");
             try
             {
-                PinchMsgDlg.DisplayWarningDlg("Handle SAVE Command!");
+                HenMsgDlg.DisplayWarningDlg("Handle SAVE Command!");
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1879,16 +1855,16 @@ namespace Pinch
         private void HandleSaveAs()
         {
             string strMethod = "HandleSaveAs";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Save Project");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Save Project");
             try
             {
-                PinchMsgDlg.DisplayWarningDlg("Handle SAVE AS Command!");
+                HenMsgDlg.DisplayWarningDlg("Handle SAVE AS Command!");
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1903,16 +1879,16 @@ namespace Pinch
         private void HandleImport()
         {
             string strMethod = "HandleImport";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Import Pinch Results");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Import Pinch Results");
             try
             {
-                PinchMsgDlg.DisplayWarningDlg("Handle IMPORT Command!");
+                HenMsgDlg.DisplayWarningDlg("Handle IMPORT Command!");
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1927,16 +1903,16 @@ namespace Pinch
         private void HandleExport()
         {
             string strMethod = "HandleExport";
-            //PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Export Pinch Results");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Export Pinch Results");
             try
             {
-                PinchMsgDlg.DisplayWarningDlg("Handle EXPORT Command!");
+                HenMsgDlg.DisplayWarningDlg("Handle EXPORT Command!");
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1951,16 +1927,16 @@ namespace Pinch
         private void HandleExit()
         {
             string strMethod = "HandleExit";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Exiting Pinch Application");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Exiting Pinch Application");
             try
             {
                 this.Close();
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1975,15 +1951,15 @@ namespace Pinch
             PanelTableRow row;
             try
             {
-                //PinchMsgDlg.DisplayWarningDlg("Handle View Command!");
+                //HenMsgDlg.DisplayWarningDlg("Handle View Command!");
                 row = PanelTableMgrObj.DisplaySelectedView(nActivity, nSubActivity);
                 if (row == null) throw (new Exception("Handle View Command: Null View"));
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -2003,28 +1979,28 @@ namespace Pinch
         {
             string strMethod = "LogLicenseStatus";
             string strMsg = String.Empty;
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ---------------------------------------");
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ------- License Type and Status -------");
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ---------------------------------------");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ---------------------------------------");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ------- License Type and Status -------");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ---------------------------------------");
             try
             {
                 strMsg = String.Format(" LICENSE VALIDATED FLAG: {0}",
-                                       PinchSettingsObj.LicenseValidatedFlag);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                                       HenSettingsObj.LicenseValidatedFlag);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = String.Format("           LICENSE Type: {0}",
-                                       PinchSettingsObj.LicenseTypeEnum.ToString());
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                                       HenSettingsObj.LicenseTypeEnum.ToString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = String.Format("         LICENSE Status: {0}",
-                                       PinchSettingsObj.LicenseStatusEnum.ToString());
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                                       HenSettingsObj.LicenseStatusEnum.ToString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ---------------------------------------");
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ---------------------------------------");
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -2042,12 +2018,12 @@ namespace Pinch
             string strMsg = String.Empty;
             try
             {
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " --------------------------- SCORECARD TABLE DATA ---------------------------");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " --------------------------- SCORECARD TABLE DATA ---------------------------");
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
                 strMsg = String.Format(" {0}  {1,-8}  {2,-22}  {3}", "ID", "STATE", "NAME", "VALUE");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
 
                 foreach (ScoreCardRowData row in tableData.ScoreCardListObj)
                 {
@@ -2056,27 +2032,27 @@ namespace Pinch
                                            row.PropertyState,
                                            row.PropertyName,
                                            row.PropertyValue);
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
                 strMsg = String.Format("     Num INVALID:{0}   Num VALID:{1}   TOTAL:{2}   STATUS:{3}",
                                        tableData.NumInvalidProps.ToString(),
                                        tableData.NumValidProps.ToString(),
                                        tableData.NumProperties.ToString(),
                                        tableData.ValidationState);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = String.Format("     Days Remaining on License:{0} days  ... [ Current Date: {1} ]", 
                                        tableData.DaysRemaining.ToString(),
                                        DateTime.Now.ToShortDateString());
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ----------------------------------------------------------------------------");
 
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -2131,7 +2107,7 @@ namespace Pinch
     }
     #endregion      // class FormPinch
 }
-#endregion      // namespace Pinch
+#endregion      // namespace HenStudio
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
 //=====================================================================================================================

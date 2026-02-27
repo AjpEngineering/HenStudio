@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//##########################################  P i n c h L o g g e r . c s  ############################################
+//############################################  H e n L o g g e r . c s  ##############################################
 //#####################################################################################################################
-//  FILENAME:  PinchLogger.cs
-//  NAMESPACE: PinchGlobal
-//  CLASS(S):  PinchLogger
-//  COMPONENT: _PinchGLobal.dll
+//  FILENAME:  HenLogger.cs
+//  NAMESPACE: HenGlobal
+//  CLASS(S):  HenLogger
+//  COMPONENT: _HenGLobal.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for managing the Pinch Log.
+//    This file contains the code for managing the HEN Studio Log.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -41,26 +41,26 @@ using System.Text;
 using System.Threading.Tasks;
 #endregion  // REFERENCES
 
-#region namespace PinchGlobal
-namespace PinchGlobal
+#region namespace HenGlobal
+namespace HenGlobal
 {
-    #region  public static class PinchLogger
+    #region  public static class HenLogger
     /// <summary>
-    /// STATIC Class PinchLogger contains static methods for logging to file
+    /// STATIC Class HenLogger contains static methods for logging to file
     /// </summary>
-    public static class PinchLogger
+    public static class HenLogger
     {
         #region CONSTS
-        private const string NAMESPACE = "PinchGlobal";
-        private const string CLASS = "PinchLogger";
+        private const string NAMESPACE = "HenGlobal";
+        private const string CLASS = "HenLogger";
         //===========================================================================
         //------------------------------- LOG LEVEL ---------------------------------
         //===========================================================================
-        //public const PinchTypes.LogLevel LogLevel = PinchTypes.LogLevel.LOG_NONE;
-        //public const PinchTypes.LogLevel LogLevel = PinchTypes.LogLevel.LOG_ERRORS;
-        //public const PinchTypes.LogLevel LogLevel = PinchTypes.LogLevel.LOG_WARNINGS;
-        //public const PinchTypes.LogLevel LogLevel = PinchTypes.LogLevel.LOG_IMPORTANT;
-        public const PinchTypes.LogLevel LogLevel = PinchTypes.LogLevel.LOG_ALL;
+        //public const HenTypes.LogLevel LogLevel = HenTypes.LogLevel.LOG_NONE;
+        //public const HenTypes.LogLevel LogLevel = HenTypes.LogLevel.LOG_ERRORS;
+        //public const HenTypes.LogLevel LogLevel = HenTypes.LogLevel.LOG_WARNINGS;
+        //public const HenTypes.LogLevel LogLevel = HenTypes.LogLevel.LOG_IMPORTANT;
+        public const HenTypes.LogLevel LogLevel = HenTypes.LogLevel.LOG_ALL;
         //===========================================================================
         private const bool bDefaultImportant = true;
         private const int nDefaultSepLength = 200;
@@ -100,15 +100,15 @@ namespace PinchGlobal
         {
             if (bImportant)
             {
-                if ((PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ALL) ||
-                   (PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_IMPORTANT))
+                if ((HenLogger.LogLevel == HenTypes.LogLevel.LOG_ALL) ||
+                   (HenLogger.LogLevel == HenTypes.LogLevel.LOG_IMPORTANT))
                 {
                     WriteEntry(strNamespace, strClass, strMethod, "INFO", strMsg);
                     nFlushCount++;
                     if (nFlushCount >= nFlushCountLimit) FlushLog();
                 }
             }
-            else if ((PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ALL))
+            else if ((HenLogger.LogLevel == HenTypes.LogLevel.LOG_ALL))
             {
                 WriteEntry(strNamespace, strClass, strMethod, "INFO", strMsg);
                 nFlushCount++;
@@ -128,9 +128,9 @@ namespace PinchGlobal
         public static void LogWarning(string strNamespace, string strClass, string strMethod,
                                     string strMsg)
         {
-            if ((PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ALL) ||
-                (PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_WARNINGS) ||
-                (PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ERRORS))
+            if ((HenLogger.LogLevel == HenTypes.LogLevel.LOG_ALL) ||
+                (HenLogger.LogLevel == HenTypes.LogLevel.LOG_WARNINGS) ||
+                (HenLogger.LogLevel == HenTypes.LogLevel.LOG_ERRORS))
             {
                 WriteEntry(strNamespace, strClass, strMethod, "!!! WARNING !!!", strMsg);
                 nFlushCount++;
@@ -150,8 +150,8 @@ namespace PinchGlobal
         public static void LogError(string strNamespace, string strClass, string strMethod,
                                     string strMsg)
         {
-            if ((PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ALL) ||
-                (PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ERRORS))
+            if ((HenLogger.LogLevel == HenTypes.LogLevel.LOG_ALL) ||
+                (HenLogger.LogLevel == HenTypes.LogLevel.LOG_ERRORS))
 
             {
                 WriteEntry(strNamespace, strClass, strMethod, "*** ERROR ***", strMsg);
@@ -171,8 +171,8 @@ namespace PinchGlobal
         {
             if (bImportant)
             {
-                if ((PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_ALL) ||
-                (PinchLogger.LogLevel == PinchTypes.LogLevel.LOG_IMPORTANT))
+                if ((HenLogger.LogLevel == HenTypes.LogLevel.LOG_ALL) ||
+                (HenLogger.LogLevel == HenTypes.LogLevel.LOG_IMPORTANT))
                 {
                     Trace.WriteLine(String.Join("", Enumerable.Repeat(cSepChar, nLength)));
                 }
@@ -284,9 +284,9 @@ namespace PinchGlobal
         }
         #endregion      // private static void WriteEntry
     }
-    #endregion      //  public static class PinchLogger
+    #endregion      //  public static class HenLogger
 }
-#endregion      // namespace PinchGlobal
+#endregion      // namespace HenGlobal
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

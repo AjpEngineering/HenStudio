@@ -1,4 +1,4 @@
-﻿namespace Pinch
+﻿namespace HenStudio
 {
     partial class FormAboutPinch
     {
@@ -298,7 +298,7 @@
             // buttonUserLicenseAgreement
             // 
             this.buttonUserLicenseAgreement.BackColor = System.Drawing.Color.White;
-            this.buttonUserLicenseAgreement.BackgroundImage = global::Pinch.Properties.Resources.AJP_User_License_Agreement___600x600;
+            this.buttonUserLicenseAgreement.BackgroundImage = global::HenStudio.Properties.Resources.AJP_User_License_Agreement___600x600;
             this.buttonUserLicenseAgreement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonUserLicenseAgreement.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.buttonUserLicenseAgreement.FlatAppearance.BorderSize = 2;

@@ -33,19 +33,6 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using PinchGlobal;      // for Logger
 #endregion  // REFERENCES
 
 #region namespace AJP_License_File
@@ -116,8 +103,7 @@ namespace AJP_License_File
         /// </summary>
         public LicenseTypes()
         {
-            string strMethod = "CTOR";
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+
         }
         #endregion      // CTOR
 

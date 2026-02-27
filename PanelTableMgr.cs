@@ -3,9 +3,9 @@
 //########################################  P a n e l T a b l e M g r . c s  ##########################################
 //#####################################################################################################################
 //  FILENAME:  PanelTableMgr.cs
-//  NAMESPACE: Pinch
+//  NAMESPACE: HenStudio
 //  CLASS(S):  PanelTableMgr
-//  COMPONENT: Pinch.exe
+//  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the code for the Panel Table Manager class. 
@@ -42,13 +42,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Schema;
 
-using PinchGlobal;
+using HenGlobal;
 
 using static System.Windows.Forms.AxHost;
 #endregion  // REFERENCES
 
-#region namespace Pinch
-namespace Pinch
+#region namespace HenStudio
+namespace HenStudio
 {
     #region public class PanelTableMgr
     /// <summary>
@@ -57,7 +57,7 @@ namespace Pinch
     public class PanelTableMgr
     {
         #region CONSTANTS
-        private const string NAMESPACE = "Pinch";
+        private const string NAMESPACE = "HenStudio";
         private const string CLASS = "PanelTableMgr";
 
         #region TAB CONTROL AND PANEL INDICES
@@ -186,8 +186,8 @@ namespace Pinch
         #endregion  // FIELDS
 
         #region PROPERTIES
-        public PinchTypes PinchTypesObj { get; set; }         // Pinch Types
-        public PinchSettings PinchSettingsObj { get; set; }   // Pinch Settings
+        public HenTypes HenTypesObj { get; set; }         // Pinch Types
+        public HenSettings HenSettingsObj { get; set; }   // Pinch Settings
         //-------------------------------------------------------------------------------------------------------------
         //-------------------------------------------- ArrayList Objects ----------------------------------------------
         //-------------------------------------------------------------------------------------------------------------
@@ -225,18 +225,18 @@ namespace Pinch
         /// <summary>
         /// Parameterized Constructor
         /// </summary>
-        /// <param name="pinchTypesObj">PinchTypes Object</param>
-        /// <param name="pinchSettingsObj">PinchSettings Object</param>
-        public PanelTableMgr(PinchTypes pinchTypesObj, PinchSettings pinchSettingsObj)
+        /// <param name="henTypesObj">HenTypes Object</param>
+        /// <param name="henSettingsObj">HenSettings Object</param>
+        public PanelTableMgr(HenTypes henTypesObj, HenSettings henSettingsObj)
         {
             string strMethod = "CTOR";
             string strMsg = string.Empty;
-            PinchLogger.WriteSection("START PANEL TABLE CONSTRUCTION SECTION");
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+            HenLogger.WriteSection("START PANEL TABLE CONSTRUCTION SECTION");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
             try
             {
-                PinchTypesObj = pinchTypesObj;              // Assign PinchTypes    Object
-                PinchSettingsObj = pinchSettingsObj;        // Assign PinchSettings Object
+                HenTypesObj = henTypesObj;              // Assign HenTypes    Object
+                HenSettingsObj = henSettingsObj;        // Assign HenSettings Object
                 //---------------------------------
                 //--- Create Empty List Objects ---
                 //---------------------------------
@@ -254,14 +254,14 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
                 LogCurrentState(); // Log the current index state of the Panel Table Manager
-                PinchLogger.WriteSection("END PANEL TABLE CONSTRUCTION SECTION");
+                HenLogger.WriteSection("END PANEL TABLE CONSTRUCTION SECTION");
             }
         }
         #endregion  // CTOR
@@ -305,9 +305,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -369,9 +369,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -392,28 +392,28 @@ namespace Pinch
             string strMsg = string.Empty;
             try
             {
-                PinchLogger.WriteSection("CURRENT PANEL TABLE MANAGER STATE");
+                HenLogger.WriteSection("CURRENT PANEL TABLE MANAGER STATE");
 
                 strMsg = String.Format(" ==> Current Primary Key (PK) : {0:00}  PANEL NAME: {1}", 
                                        SelPK, SelPanelStatusName);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = String.Format(" ==> Current Activity    Index: {0:00}  NAME: {1}", 
                                        SelActivity, SelActivityName);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = String.Format(" ==> Current SubActivity Index: {0:00}  Name: {1}", 
                                        SelSubActivity, SelSubActivityName);
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 if(SelRow != null)  SelRow.LogRow();  // Log Row Data
-                else PinchLogger.LogWarning(NAMESPACE, CLASS, strMethod, "Selected Row is Null! ... NOT Initialized Yet!");
+                else HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, "Selected Row is Null! ... NOT Initialized Yet!");
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -432,34 +432,34 @@ namespace Pinch
             int nIndex = 0;     // ArrayList index
             try
             {
-                PinchLogger.WriteSection("ACTIVITIES PANEL LIST");
+                HenLogger.WriteSection("ACTIVITIES PANEL LIST");
 
                 strMsg = String.Format("ACTIVITY   PANEL ");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = String.Format(" INDEX     NAME");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
 
                 foreach (Panel panel in ActivitiesPanelList)
                 {
                     if(panel==null) strMsg = String.Format("   {0:00}      NULL ", nIndex);
                     else strMsg = String.Format("   {0:00}      {1} ", nIndex, panel.Name);
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                     
                     nIndex++;   // Increment Index
                 }
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
-                //PinchLogger.WriteSeparatorLine('=');
+                //HenLogger.WriteSeparatorLine('=');
             }
         }
         #endregion  // LogActivitiesPanelList()
@@ -475,34 +475,34 @@ namespace Pinch
             int nIndex = 0;     // ArrayList index
             try
             {
-                PinchLogger.WriteSection("SUB-ACTIVITIES PANEL LIST");
+                HenLogger.WriteSection("SUB-ACTIVITIES PANEL LIST");
 
                 strMsg = String.Format("SUB-ACTIVITY   PANEL ");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = String.Format("   INDEX       NAME");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
 
                 foreach (Panel panel in SubActivitiesPanelList)
                 {
                     if (panel == null) strMsg = String.Format("     {0:00}        NULL ", nIndex);
                     else strMsg = String.Format("     {0:00}        {1} ", nIndex, panel.Name);
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                     nIndex++;   // Increment Index
                 }
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
-                //PinchLogger.WriteSeparatorLine('=');
+                //HenLogger.WriteSeparatorLine('=');
             }
         }
         #endregion  // LogSubActivitiesPanelList()
@@ -517,15 +517,15 @@ namespace Pinch
             string strMsg = string.Empty;
             try
             {
-                //PinchLogger.WriteSection("LOOKUP PANEL INFORMATION TABLE");
+                //HenLogger.WriteSection("LOOKUP PANEL INFORMATION TABLE");
 
                 strMsg = String.Format("      ACTIVITY        SUB-ACTIVITY         PANEL STATUS");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 strMsg = String.Format(" PK  INDEX  NAME     INDEX   NAME          NAME");
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
 
                 foreach (PanelTableRow row in LookupPanelInfoTable)
                 {
@@ -534,18 +534,18 @@ namespace Pinch
                                             row.ActivityIndex,    row.ActivityName,
                                             row.SubActivityIndex, row.SubActivityName,
                                             row.PanelStatusName);
-                    PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
-                //PinchLogger.WriteSeparatorLine('=');
+                //HenLogger.WriteSeparatorLine('=');
             }
         }
         #endregion  // LogLookupPanelInfoTable()
@@ -575,9 +575,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -615,9 +615,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -638,7 +638,7 @@ namespace Pinch
             PanelTableRow row;
             try
             {
-                PinchLogger.WriteSection("LOOKUP PANEL INFORMATION TABLE");
+                HenLogger.WriteSection("LOOKUP PANEL INFORMATION TABLE");
                 //---------------------------------------------------------------------------------
                 strPanelStatusName = FormatPanelStatusName(NAME_INPUT_PANEL, NAME_INPUT_PROJECT_PANEL);
                 row = new PanelTableRow(PK_INPUT_PROJECT_PANEL,      // Primary Key (PK)
@@ -739,14 +739,14 @@ namespace Pinch
                                         strPanelStatusName);           // Panel Status Name
                 LookupPanelInfoTable.Add(row);
                 //=================================================================================
-                PinchLogger.WriteSeparatorLine('-');
+                HenLogger.WriteSeparatorLine('-');
 
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -782,9 +782,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -824,9 +824,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -857,9 +857,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -898,9 +898,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -938,9 +938,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1005,9 +1005,9 @@ namespace Pinch
             }
             catch (Exception ex)
             {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
             }
             finally
             {
@@ -1023,7 +1023,7 @@ namespace Pinch
     }
     #endregion  // public class PanelTableMgr
 }
-#endregion  // namespace Pinch
+#endregion  // namespace HenStudio
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

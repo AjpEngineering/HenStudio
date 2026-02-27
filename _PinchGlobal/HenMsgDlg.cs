@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//##########################################  P i n c h M s g D l g . c s  ############################################
+//############################################  H e n M s g D l g . c s  ##############################################
 //#####################################################################################################################
-//  FILENAME:  PinchMsgDlg.cs
-//  NAMESPACE: PinchGlobal
-//  CLASS(S):  PinchMsgDlg
-//  COMPONENT: _PinchGLobal.dll
+//  FILENAME:  HenMsgDlg.cs
+//  NAMESPACE: HenGlobal
+//  CLASS(S):  HenMsgDlg
+//  COMPONENT: _HenGLobal.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for managing the Pinch Message Dialogs.
+//    This file contains the code for managing the HEN Studio Message Dialogs.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -46,20 +46,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 #endregion  // REFERENCES
 
-#region namespace PinchGlobal
-namespace PinchGlobal
+#region namespace HenGlobal
+namespace HenGlobal
 {
-    #region public static class PinchMsgDlg
+    #region public static class HenMsgDlg
     /// <summary>
-    /// STATIC Class PinchMsgDlg contains static methods for displaying message dialogs
+    /// STATIC Class HenMsgDlg contains static methods for displaying message dialogs
     /// </summary>
-    public static class PinchMsgDlg
+    public static class HenMsgDlg
     {
         #region CONSTS
-        private const string NAMESPACE = "PinchGlobal";
-        private const string CLASS = "PinchMsgDlg";
+        private const string NAMESPACE = "HenGlobal";
+        private const string CLASS = "HenMsgDlg";
 
-        private const string strDefaultCaption = "AJP Pinch 4";
+        private const string strDefaultCaption = "AJP HEN Studio";
         #endregion      /// CONSTS
 
         #region public static void DisplayInfoDlg
@@ -123,9 +123,9 @@ namespace PinchGlobal
         }
         #endregion      //  private static void DisplayMsgDlg
     }
-    #endregion      // public static class PinchMsgDlg
+    #endregion      // public static class HenMsgDlg
 }
-#endregion      // namespace PinchGlobal
+#endregion      // namespace HenGlobal
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

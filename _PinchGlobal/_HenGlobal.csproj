@@ -7,8 +7,8 @@
     <ProjectGuid>{E5E6ED77-199E-4CD7-B2EC-3DE3C3AE83B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PinchGlobal</RootNamespace>
-    <AssemblyName>_PinchGlobal</AssemblyName>
+    <RootNamespace>HenGlobal</RootNamespace>
+    <AssemblyName>_HenGlobal</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\AJP Pinch\_REVISION 4.0\DEPLOY\</OutputPath>
+    <OutputPath>..\..\..\AJP HEN Studio\_REVISION 1.0\DEPLOY\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,7 +26,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\AJP Pinch\_REVISION 4.0\DEPLOY\</OutputPath>
+    <OutputPath>..\..\..\AJP HEN Studio\_REVISION 1.0\DEPLOY\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -47,12 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PinchFileSystem.cs" />
-    <Compile Include="PinchMethods.cs" />
-    <Compile Include="PinchMsgDlg.cs" />
-    <Compile Include="PinchLogger.cs" />
-    <Compile Include="PinchSettings.cs" />
-    <Compile Include="PinchTypes.cs" />
+    <Compile Include="HenFileSystem.cs" />
+    <Compile Include="HenMethods.cs" />
+    <Compile Include="HenMsgDlg.cs" />
+    <Compile Include="HenLogger.cs" />
+    <Compile Include="HenSettings.cs" />
+    <Compile Include="HenTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace Pinch
+﻿namespace HenStudio
 {
     partial class FormUserLicenseAgreement
     {
