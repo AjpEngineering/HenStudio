@@ -34,20 +34,11 @@
 
 #region REFERENCES
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 using AJP_License_File;
-
-using static AJP_License_File.FormLicenseFile;
 #endregion      // REFERENCES
 
 #region namespace AJP_LicenseGenerator
@@ -68,7 +59,8 @@ namespace AJP_LicenseGenerator
         private const string PRODUCT_NAME_AJP_EXCHANGER = "AJP Exchanger 4.1";
         private const string PRODUCT_NAME_AJP_LINEUP = "AJP Lineup 1.0";
         private const string PRODUCT_NAME_AJP_CYBER_SHIELD = "AJP CyberShield 1.0";
-        private const string PRODUCT_NAME_AJP_PINCH = "AJP Pinch 4.0";
+        private const string PRODUCT_NAME_AJP_PINCH = "AJP Pinch 3.0";
+        private const string PRODUCT_NAME_AJP_HEN_STUDIO = "AJP HEN Studio 1.0";
         private const string PRODUCT_NAME_AJP_SUDOKU = "AJP Sudoku 1.0";
         #endregion      // CONSTANTS - PRODUCT NAME
 
@@ -77,7 +69,8 @@ namespace AJP_LicenseGenerator
         private const string PRODUCT_VERSION_AJP_EXCHANGER = "4.1.1";
         private const string PRODUCT_VERSION_AJP_LINEUP = "1.0.1";
         private const string PRODUCT_VERSION_AJP_CYBER_SHIELD = "1.0.1";
-        private const string PRODUCT_VERSION_AJP_PINCH = "4.0.1";
+        private const string PRODUCT_VERSION_AJP_PINCH = "3.0.1";
+        private const string PRODUCT_VERSION_AJP_HEN_STUDIO = "1.0.1";
         private const string PRODUCT_VERSION_AJP_SUDOKU = "1.0.1";
         #endregion      // CONSTANTS - PRODUCT VERSION
 
@@ -87,6 +80,7 @@ namespace AJP_LicenseGenerator
         private const string SERIAL_NUMBER_AJP_LINEUP = "0622-246-1963";
         private const string SERIAL_NUMBER_AJP_CYBER_SHIELD = "0122-357-1959";
         private const string SERIAL_NUMBER_AJP_PINCH = "1022-456-1189";
+        private const string SERIAL_NUMBER_AJP_HEN_STUDIO = "1022-789-1189";
         private const string SERIAL_NUMBER_AJP_SUDOKU = "0322-789-1957";
         #endregion      // CONSTANTS - PRODUCT SERIAL NUMBER
 
@@ -95,7 +89,8 @@ namespace AJP_LicenseGenerator
         private const string PRODUCT_CODE_AJP_EXCHANGER = "{F71FB607-7CC0-4B75-BBB5-372050DF940B}";
         private const string PRODUCT_CODE_AJP_LINEUP = "{069DD815-4A07-4157-816B-6F01AE3F2AC8}";
         private const string PRODUCT_CODE_AJP_CYBER_SHIELD = "{63C81673-6574-477D-92AB-0F05151F07EF}";
-        private const string PRODUCT_CODE_AJP_PINCH = "{3D9721BA-003E-4711-B7AF-B579645F0AC9}";
+        private const string PRODUCT_CODE_AJP_PINCH = "{6C6D7807-B72E-4460-9D5C-1A911D1299FB}";
+        private const string PRODUCT_CODE_AJP_HEN_STUDIO = "{3D9721BA-003E-4711-B7AF-B579645F0AC9}";
         private const string PRODUCT_CODE_AJP_SUDOKU = "{A62351AC-ED9A-435B-A800-3DE580DF8D05}";
         #endregion      // CONSTANTS - PRODUCT CODE
 
@@ -116,12 +111,13 @@ namespace AJP_LicenseGenerator
         /// </summary>
         public enum ProductNameEnum
         {
-            AJP_Test = 0,   // PRODUCT: AJP Test .......... Latest Version 1.0
-            AJP_Exchanger = 1,   // PRODUCT: AJP Exchanger ..... Latest Version 4.1
-            AJP_Lineup = 2,   // PRODUCT: AJP Lineup ........ Latest Version 1.0
-            AJP_CyberShield = 3,   // PRODUCT: AJP CyberShield ... Latest Version 1.0
-            AJP_Pinch = 4,   // PRODUCT: AJP Pinch ......... Latest Version 4.0
-            AJP_Sudoku = 5    // PRODUCT: AJP Sudoku ........ Latest Version 1.0
+            AJP_Test = 0,           // PRODUCT: AJP Test .......... Latest Version 1.0
+            AJP_Exchanger = 1,      // PRODUCT: AJP Exchanger ..... Latest Version 4.1
+            AJP_Lineup = 2,         // PRODUCT: AJP Lineup ........ Latest Version 1.0
+            AJP_CyberShield = 3,    // PRODUCT: AJP CyberShield ... Latest Version 1.0
+            AJP_Pinch = 4,          // PRODUCT: AJP Pinch ......... Latest Version 3.0
+            AJP_HEN_Studio = 5,     // PRODUCT: AJP HEN Studio .... Latest Version 1.0
+            AJP_Sudoku = 6          // PRODUCT: AJP Sudoku ........ Latest Version 1.0
         }
         #endregion      // ProductNameEnum
 
@@ -281,7 +277,7 @@ namespace AJP_LicenseGenerator
                 ColorDISABLED = Color.WhiteSmoke;               // DISABLED Color
 
                 AjpLicenseType = LicenseTypes.LicenseTypeEnum.TRIAL; // AJP License Type Enumeration
-                AjpProductName = ProductNameEnum.AJP_Pinch;          // AJP Product Name Enumeration
+                AjpProductName = ProductNameEnum.AJP_HEN_Studio;     // AJP Product Name Enumeration
                 //---------------------------------------------------
                 //--- Create Object [namespace: AJP_License_File] ---
                 //---------------------------------------------------
@@ -335,10 +331,11 @@ namespace AJP_LicenseGenerator
                 comboBoxProduct.Items.Add(PRODUCT_NAME_AJP_LINEUP);             // Index 2
                 comboBoxProduct.Items.Add(PRODUCT_NAME_AJP_CYBER_SHIELD);       // Index 3
                 comboBoxProduct.Items.Add(PRODUCT_NAME_AJP_PINCH);              // Index 4
-                comboBoxProduct.Items.Add(PRODUCT_NAME_AJP_SUDOKU);             // Index 5
-                comboBoxProduct.SelectedIndex = 4;                              // Select AJP Pinch
+                comboBoxProduct.Items.Add(PRODUCT_NAME_AJP_HEN_STUDIO);         // Index 5
+                comboBoxProduct.Items.Add(PRODUCT_NAME_AJP_SUDOKU);             // Index 6
+                comboBoxProduct.SelectedIndex = 5;                              // Select AJP HEN Studio
 
-                pictureBoxProductLogo.Image = Properties.Resources.AJP_Pinch_4;
+                pictureBoxProductLogo.Image = Properties.Resources.AJP_HEN_Studio;
                 //------------------------------------------------------------------------------------
                 //--- License Type ComboBox ... Ensure Matches ProductLicenceTypeEnum Index Values ---
                 //------------------------------------------------------------------------------------
@@ -1475,6 +1472,20 @@ namespace AJP_LicenseGenerator
 
                     pictureBoxProductLogo.Image = Properties.Resources.AJP_Pinch_4;
                     #endregion      // AJP PINCH
+                }
+                else if (comboBoxProduct.SelectedIndex == Convert.ToInt32(ProductNameEnum.AJP_HEN_Studio))
+                {
+                    #region AJP HEN STUDIO
+                    //---------------------------------------------
+                    //--- PRODUCT: AJP HEN Studio 1.0 Selected  ---
+                    //---------------------------------------------
+                    AjpProductName = ProductNameEnum.AJP_HEN_Studio;
+                    textBoxVersion.Text = PRODUCT_VERSION_AJP_HEN_STUDIO;
+                    textBoxSerialNumber.Text = SERIAL_NUMBER_AJP_HEN_STUDIO;
+                    textBoxProductCode.Text = PRODUCT_CODE_AJP_HEN_STUDIO;
+
+                    pictureBoxProductLogo.Image = Properties.Resources.AJP_HEN_Studio;
+                    #endregion      // AJP HEN STUDIO
                 }
                 else if (comboBoxProduct.SelectedIndex == Convert.ToInt32(ProductNameEnum.AJP_Sudoku))
                 {

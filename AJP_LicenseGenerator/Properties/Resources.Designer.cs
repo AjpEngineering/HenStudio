@@ -93,6 +93,16 @@ namespace AJP_LicenseGenerator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AJP_HEN_Studio {
+            get {
+                object obj = ResourceManager.GetObject("AJP_HEN_Studio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AJP_License_Generator_Logo___Transparent {
             get {
                 object obj = ResourceManager.GetObject("AJP License Generator Logo - Transparent", resourceCulture);
