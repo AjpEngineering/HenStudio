@@ -292,8 +292,8 @@
             this.statusStripMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelLicense,
-            this.toolStripStatusLabelDbConnect,
             this.toolStripStatusLabelUnits,
+            this.toolStripStatusLabelDbConnect,
             this.toolStripStatusLabelInput,
             this.toolStripStatusLabelTargets,
             this.toolStripStatusLabelSELECTED_STATE});
