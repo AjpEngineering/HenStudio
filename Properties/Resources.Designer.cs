@@ -83,6 +83,16 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AJP_HEN_Studio_with_Graphic {
+            get {
+                object obj = ResourceManager.GetObject("AJP HEN Studio with Graphic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AJP_Logo___600x600 {
             get {
                 object obj = ResourceManager.GetObject("AJP Logo...600x600", resourceCulture);
@@ -107,6 +117,16 @@ namespace HenStudio.Properties {
             get {
                 object obj = ResourceManager.GetObject("AJP_Pinch_no_background", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AJP_Refinery {
+            get {
+                object obj = ResourceManager.GetObject("AJP Refinery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

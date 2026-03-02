@@ -1353,7 +1353,6 @@ namespace HenStudio
         #endregion      // LOG METHODS
 
         #endregion  // METHODS
-
     }
     #endregion      // class FormPinch
 }

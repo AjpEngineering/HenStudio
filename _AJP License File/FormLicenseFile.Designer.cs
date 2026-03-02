@@ -780,7 +780,7 @@
             // pictureBoxProductLogo
             // 
             this.pictureBoxProductLogo.BackColor = System.Drawing.Color.White;
-            this.pictureBoxProductLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxProductLogo.Image")));
+            this.pictureBoxProductLogo.Image = global::AJP_License_File.Properties.Resources.AJP_HEN_Studio_Logo;
             this.pictureBoxProductLogo.Location = new System.Drawing.Point(934, 25);
             this.pictureBoxProductLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxProductLogo.Name = "pictureBoxProductLogo";
@@ -830,7 +830,7 @@
             // 
             this.labelVersion.AutoSize = true;
             this.labelVersion.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVersion.Location = new System.Drawing.Point(351, 33);
+            this.labelVersion.Location = new System.Drawing.Point(383, 33);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(64, 20);
             this.labelVersion.TabIndex = 34;
@@ -846,7 +846,7 @@
             this.textBoxProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxProductName.Name = "textBoxProductName";
             this.textBoxProductName.ReadOnly = true;
-            this.textBoxProductName.Size = new System.Drawing.Size(127, 20);
+            this.textBoxProductName.Size = new System.Drawing.Size(170, 20);
             this.textBoxProductName.TabIndex = 33;
             this.textBoxProductName.Text = "AJP Test 1.0";
             // 

@@ -79,6 +79,7 @@
   <ItemGroup>
     <Content Include="AJP LicenseFile.ico" />
     <Content Include="AJP.ico" />
+    <None Include="Resources\AJP HEN Studio Logo.png" />
     <None Include="Resources\BusinessCardwithEinstein......600x1036.png" />
     <None Include="Images\AJP Refinery.png" />
     <None Include="Images\AJP PRODUCT Logo.png" />

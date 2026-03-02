@@ -47,10 +47,12 @@
             this.pictureBoxAJPEngLogo = new System.Windows.Forms.PictureBox();
             this.buttonUserLicenseAgreement = new System.Windows.Forms.Button();
             this.labelUserLicenseAgreement = new System.Windows.Forms.Label();
+            this.pictureBoxHenStudio = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanelSupplier.SuspendLayout();
             this.tableLayoutPanelProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductWarning)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAJPEngLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHenStudio)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelSupplier
@@ -164,7 +166,7 @@
             this.labelProductFullNameValue.Name = "labelProductFullNameValue";
             this.labelProductFullNameValue.Size = new System.Drawing.Size(321, 28);
             this.labelProductFullNameValue.TabIndex = 3;
-            this.labelProductFullNameValue.Text = "  AJP Pinch 4.0";
+            this.labelProductFullNameValue.Text = "  AJP HEN Studio 1.0";
             this.labelProductFullNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelProductNameValue
@@ -179,7 +181,7 @@
             this.labelProductNameValue.Name = "labelProductNameValue";
             this.labelProductNameValue.Size = new System.Drawing.Size(321, 28);
             this.labelProductNameValue.TabIndex = 4;
-            this.labelProductNameValue.Text = "  AJP Pinch";
+            this.labelProductNameValue.Text = "  AJP HEN Studio";
             this.labelProductNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelProductVersion
@@ -208,7 +210,7 @@
             this.labelProductVersionValue.Name = "labelProductVersionValue";
             this.labelProductVersionValue.Size = new System.Drawing.Size(321, 28);
             this.labelProductVersionValue.TabIndex = 6;
-            this.labelProductVersionValue.Text = "  4.0.1";
+            this.labelProductVersionValue.Text = "  1.0.1";
             this.labelProductVersionValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelSerialNumber
@@ -237,7 +239,7 @@
             this.labelSerialNumberValue.Name = "labelSerialNumberValue";
             this.labelSerialNumberValue.Size = new System.Drawing.Size(321, 28);
             this.labelSerialNumberValue.TabIndex = 8;
-            this.labelSerialNumberValue.Text = "  1022-456-1189";
+            this.labelSerialNumberValue.Text = "  1022-789-1189";
             this.labelSerialNumberValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelProductCode
@@ -266,7 +268,7 @@
             this.labelProductCodeValue.Name = "labelProductCodeValue";
             this.labelProductCodeValue.Size = new System.Drawing.Size(321, 28);
             this.labelProductCodeValue.TabIndex = 10;
-            this.labelProductCodeValue.Text = "{6C6D7807-B72E-4460-9D5C-1A911D1299FB}";
+            this.labelProductCodeValue.Text = "{3D9721BA-003E-4711-B7AF-B579645F0AC9}";
             this.labelProductCodeValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBoxProductWarning
@@ -287,9 +289,9 @@
             this.pictureBoxAJPEngLogo.BackColor = System.Drawing.Color.White;
             this.pictureBoxAJPEngLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxAJPEngLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAJPEngLogo.Image")));
-            this.pictureBoxAJPEngLogo.Location = new System.Drawing.Point(945, 51);
+            this.pictureBoxAJPEngLogo.Location = new System.Drawing.Point(955, 51);
             this.pictureBoxAJPEngLogo.Name = "pictureBoxAJPEngLogo";
-            this.pictureBoxAJPEngLogo.Size = new System.Drawing.Size(125, 58);
+            this.pictureBoxAJPEngLogo.Size = new System.Drawing.Size(141, 71);
             this.pictureBoxAJPEngLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxAJPEngLogo.TabIndex = 6;
             this.pictureBoxAJPEngLogo.TabStop = false;
@@ -329,14 +331,27 @@
             this.labelUserLicenseAgreement.Text = "User License Agreement";
             this.labelUserLicenseAgreement.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBoxHenStudio
+            // 
+            this.pictureBoxHenStudio.BackColor = System.Drawing.Color.White;
+            this.pictureBoxHenStudio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxHenStudio.Image = global::HenStudio.Properties.Resources.AJP_HEN_Studio_with_Graphic;
+            this.pictureBoxHenStudio.Location = new System.Drawing.Point(25, 51);
+            this.pictureBoxHenStudio.Name = "pictureBoxHenStudio";
+            this.pictureBoxHenStudio.Size = new System.Drawing.Size(208, 124);
+            this.pictureBoxHenStudio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxHenStudio.TabIndex = 9;
+            this.pictureBoxHenStudio.TabStop = false;
+            // 
             // FormAboutPinch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Orange;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1108, 621);
+            this.Controls.Add(this.pictureBoxHenStudio);
             this.Controls.Add(this.labelUserLicenseAgreement);
             this.Controls.Add(this.buttonUserLicenseAgreement);
             this.Controls.Add(this.pictureBoxAJPEngLogo);
@@ -352,13 +367,14 @@
             this.MinimumSize = new System.Drawing.Size(1124, 660);
             this.Name = "FormAboutPinch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "About Pinch";
+            this.Text = "About AJP HEN Studio";
             this.tableLayoutPanelSupplier.ResumeLayout(false);
             this.tableLayoutPanelSupplier.PerformLayout();
             this.tableLayoutPanelProduct.ResumeLayout(false);
             this.tableLayoutPanelProduct.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductWarning)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAJPEngLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHenStudio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,5 +400,6 @@
         private System.Windows.Forms.PictureBox pictureBoxAJPEngLogo;
         private System.Windows.Forms.Button buttonUserLicenseAgreement;
         private System.Windows.Forms.Label labelUserLicenseAgreement;
+        private System.Windows.Forms.PictureBox pictureBoxHenStudio;
     }
 }
