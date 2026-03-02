@@ -122,9 +122,9 @@
     <value>..\Resources\BusinessCardwithEinstein......600x1036.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Business Card with Einstein......600x1036</comment>
   </data>
-  <data name="New_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\New...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>New Image ... 32x32</comment>
+  <data name="Optimize_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Optimize Target...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Optimize Image ... 32x32</comment>
   </data>
   <data name="Target" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Target.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -137,6 +137,10 @@
   <data name="HEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>HEN Image ... 32x32</comment>
+  </data>
+  <data name="Unknown_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UNKNOWN...White Circle border...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Unknown Image ... 32x32</comment>
   </data>
   <data name="Composite_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Composite...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -174,10 +178,6 @@
     <value>..\Resources\Cost...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Cost Image ... 32x32</comment>
   </data>
-  <data name="License_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\License...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>License Image ... 32x32</comment>
-  </data>
   <data name="Exit_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exit...32x32...no background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Exit Image ... 32x32</comment>
@@ -213,13 +213,12 @@
     <value>..\Resources\Exchanger3...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Exchanger Image ... 32x32</comment>
   </data>
+  <data name="AJP User License Agreement..32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP User License Agreement..32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AJP_Pinch_no_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AJP Pinch...no background.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     <comment>AJP Pinch No Background Icon ... 32x32</comment>
-  </data>
-  <data name="About_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\About...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>About Image ... 32x32</comment>
   </data>
   <data name="BusinessCard_600x1035" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BusinessCard...600x1035.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,13 +228,13 @@
     <value>..\Resources\Import Red..32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Import Image ... 32x32</comment>
   </data>
-  <data name="AJP_Pinch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AJP Pinch.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment>AJP Pinch White Background Icon ... 32x32</comment>
+  <data name="License_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\License...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>License Image ... 32x32</comment>
   </data>
-  <data name="Project_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Project...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Project Image ... 32x32</comment>
+  <data name="About_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\About...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>About Image ... 32x32</comment>
   </data>
   <data name="Scorecard_no_background_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_AJP License File\Resources\Scorecard with Keys No Background...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -257,9 +256,9 @@
     <value>..\Resources\Valid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Valid Image ... 32x32</comment>
   </data>
-  <data name="Optimize_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Optimize Target...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Optimize Image ... 32x32</comment>
+  <data name="Project_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Project...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Project Image ... 32x32</comment>
   </data>
   <data name="Validate_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Validate...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -269,11 +268,15 @@
     <value>..\Resources\English Imperial Units...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>English Imperial Units Image ... 32x32</comment>
   </data>
-  <data name="Unknown_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UNKNOWN...White Circle border...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Unknown Image ... 32x32</comment>
+  <data name="New_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\New...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>New Image ... 32x32</comment>
   </data>
-  <data name="AJP User License Agreement..32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AJP User License Agreement..32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AJP_Pinch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP Pinch.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>AJP Pinch White Background Icon ... 32x32</comment>
+  </data>
+  <data name="AJP Logo...600x600" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP Logo...600x600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

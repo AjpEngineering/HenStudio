@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />
+    <None Include="Resources\AJP Logo...600x600.png" />
     <None Include="Resources\AJP User License Agreement..32x32.png" />
     <None Include="Resources\AJP User License Agreement...600x600.png" />
   </ItemGroup>

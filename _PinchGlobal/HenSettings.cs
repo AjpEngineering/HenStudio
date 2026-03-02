@@ -230,6 +230,15 @@ namespace HenGlobal
         #endregion  // LICENSE
 
         #region STATUS BAR
+
+        #region DbConnectedEnum
+        /// <summary>
+        /// Database Connected Flag ... [UNKNOWN = -1 | UNCONNECTED = 0 | CONNECTED = 1]
+        /// Used in Status Bar display
+        /// </summary>
+        public HenTypes.DbConnected DbConnectedEnum { get; set; } // DB Connected [UNKNOWN | UNCONNECTED | CONNECTED]
+        #endregion  // DbConnectedEnum
+
         #region PinchUnitsEnum
         /// <summary>
         /// Pinch Units System ... [UNKNOWN = -1 | ENGLISH = 0 | METRIC = 1]

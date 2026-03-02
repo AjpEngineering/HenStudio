@@ -85,37 +85,32 @@ namespace HenStudio
         const string STREAM_PHASE_LNA = "NA";
         #endregion      // CONSTANTS
 
-        #region FIELDS
-
-        #region PUBLIC COLORS AND FONTS
-        //---------------------------------------------------------------------------------------------- AJP COLORS ---
-        public Color AJP_ENGINEERING_GREEN = Color.FromArgb(255, 0, 204, 153);   // Caribbean Green
-        public Color AJP_ENGINEERING_ORANGE = Color.FromArgb(255, 255, 153, 0);  // Vivid Gamboge
-        public Color AJP_PINCH_RED_ORANGE = Color.FromArgb(255, 255, 83, 73);    // Red-Orange
-        public Color AJP_PINCH_SKY_BLUE = Color.FromArgb(255, 0, 191, 255);      // Deep Sky Blue
-        //----------------------------------------------------------------------------------------------- AJP FONTS ---
-        public Font AJP_PINCH_DISPLAY_FONT = new Font("Segoe UI Variable Display", 10.0f); // Display
-        public Font AJP_PINCH_MONO_FONT = new Font("Cascadia Mono", 9.0f);              // Monospace for Numbers
-        #endregion  // PUBLIC COLORS AND FONTS
-
-        #region PRIVATE COLORS
-        //--------------------------------
-        //--- Stream Background Colors ---
-        //--------------------------------
-        private Color _colorBackgroundHotStream  = Color.LightCoral;
-        private Color _colorBackgroundColdStream = Color.LightBlue;
-        private Color _colorBackgroundNA_Stream  = Color.WhiteSmoke;
-        //--------------------------
-        //--- Stream Text Colors ---
-        //--------------------------
-        private Color _colorTextHotStream  = Color.Black;
-        private Color _colorTextColdStream = Color.Black;
-        private Color _colorTextNA_Stream  = Color.Black;
-        #endregion  // PRIVATE COLORS
-
-        #endregion      // FIELDS
-
         #region PROPERTIES
+        
+        #region AJP COLORS & FONTS
+        //---------------------------------------------------------------------------------------------- AJP COLORS ---
+        public Color AJP_ENGINEERING_GREEN { get; set; }      // Caribbean Green
+        public Color AJP_ENGINEERING_ORANGE { get; set; }     // Vivid Gamboge
+        public Color AJP_HEN_STUDIO_RED_ORANGE { get; set; }  // Red-Orange
+        public Color AJP_HEN_STUDIO_SKY_BLUE { get; set; }    // Deep Sky Blue
+        //----------------------------------------------------------------------------------------------- AJP FONTS ---
+        public Font AJP_HEN_STUDIO_DISPLAY_FONT { get; set; } // Display
+        public Font AJP_HEN_STUDIO_MONO_FONT { get; set; }    // Monospace for Numbers
+        #endregion  // AJP COLORS & FONTS
+
+        #region PANELS COLORS
+        //-------------------------------------------------------------------------------------------- PANEL COLORS ---
+        public Color ColorPanelBlueBackground { get; set; }    // Blue Panel Background Color
+        public Color ColorPanelBlueOutline { get; set; }       // Blue Panel Outline Color
+        public Color ColorPanelGreenBackground { get; set; }   // Green Panel Background Color
+        public Color ColorPanelGreenOutline { get; set; }      // Green Panel Outline Color
+        public Color ColorPanelOrangeBackground { get; set; }  // Orange Panel Background Color
+        public Color ColorPanelOrangeOutline { get; set; }     // Orange Panel Outline Color
+        public Color ColorPanelRedBackground { get; set; }     // Red Panel Background Color
+        public Color ColorPanelRedOutline { get; set; }        // Red Panel Outline Color
+        #endregion  // PANELS COLORS
+
+        #region STREAM COLORS
         //------------------------------------------------------------------------------------------- STREAM COLORS ---
         public Color ColorBackgroundHotStream { get; set; }        // Hot  Stream Background Color
         public Color ColorBackgroundColdStream { get; set; }       // Cold Stream Background Color
@@ -123,10 +118,14 @@ namespace HenStudio
         public Color ColorTextHotStream { get; set; }              // Hot  Stream Text Color
         public Color ColorTextColdStream { get; set; }             // Cold Stream Text Color
         public Color ColorTextNA_Stream { get; set; }              // NA   Stream Text Color
+        #endregion  // STREAM COLORS
+
+        #region SETTINGS
         //------------------------------------------------------------------------------------------------ SETTINGS ---
         public bool LicenseVerified { get; set; }                  // License Verified FLAG
+        public bool DbConnectedFlag { get; set; }                  // DB Connected FLAG
         public bool InputVerifiedFlag { get; set; }                // INPUT Verified FLAG
-        public bool PinchEnglishUnitsFlag { get; set; }            // UNITS FLAG
+        public bool HenStudioEnglishUnitsFlag { get; set; }        // Global External UNITS FLAG
         //----------------------------------------------------------------------------------------- LICENSE OBJECTS ---
         public LicenseMgr LicenseMgrObj { get; set; }              // License Manager Object
         //------------------------------------------------------------------------------------------ GLOBAL OBJECTS ---
@@ -134,7 +133,8 @@ namespace HenStudio
         public HenSettings HenSettingsObj { get; set; }            // HEN Studio Settings Object
         public HenTypes HenTypesObj { get; set; }                  // HEN Studio Types Object
         public HenMethods HenMethodsObj { get; set; }              // HEN Studio Methods Object
-        //-------------------------------------------------------------------------------------------- DATA OBJECTS ---
+        #endregion  // SETTINGS
+
         #endregion      // PROPERTIES
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -157,6 +157,32 @@ namespace HenStudio
 
                 #region INITIALIZE PROPERTIES
                 this.Text = "AJP HEN Studio";      // Form Title
+
+                #region AJP COLORS & FONTS
+                AJP_ENGINEERING_GREEN = Color.FromArgb(255, 0, 204, 153);      // Caribbean Green
+                AJP_ENGINEERING_ORANGE = Color.FromArgb(255, 255, 153, 0);     // Vivid Gamboge
+                AJP_HEN_STUDIO_RED_ORANGE = Color.FromArgb(255, 255, 153, 0);  // Red-Orange
+                AJP_HEN_STUDIO_SKY_BLUE = Color.FromArgb(255, 0, 191, 255);    // Deep Sky Blue
+
+                AJP_HEN_STUDIO_DISPLAY_FONT = new Font("Segoe UI Variable Display", 10.0f); // Display
+                AJP_HEN_STUDIO_MONO_FONT = new Font("Cascadia Mono", 9.0f);                 // Monospace for Numbers
+                #endregion  // AJP COLORS & FONTS
+
+                #region PANEL COLORS
+                ColorPanelBlueBackground = Color.FromArgb(255, 150, 255, 255);
+                ColorPanelBlueOutline = Color.FromArgb(255, 0, 0, 255);
+
+                ColorPanelGreenBackground = Color.Honeydew;
+                ColorPanelGreenOutline = Color.Green;
+
+                ColorPanelOrangeBackground = Color.FromArgb(255, 255, 224, 192);
+                ColorPanelOrangeOutline = Color.FromArgb(255, 242, 99, 48);
+
+                ColorPanelRedBackground = Color.FromArgb(255, 255, 200, 200);
+                ColorPanelRedOutline = Color.FromArgb(255, 255, 0, 0);
+                #endregion  // PANEL COLORS
+
+                #region STREAM COLORS
                 //-------------------------------------------- STREAM BACKGROUND COLORS ---
                 ColorBackgroundHotStream = Color.LightCoral;
                 ColorBackgroundColdStream = Color.LightBlue;
@@ -165,6 +191,8 @@ namespace HenStudio
                 ColorTextHotStream = Color.Black;
                 ColorTextColdStream = Color.Black;
                 ColorTextNA_Stream = Color.Black;
+                #endregion  // STREAM COLORS
+
                 //----------------------
                 //--- Create Objects ---
                 //----------------------
@@ -186,7 +214,11 @@ namespace HenStudio
                 //---------------------------------------
                 //--- Initialize Units Global Setting ---
                 //---------------------------------------
-                PinchEnglishUnitsFlag = true;
+                HenStudioEnglishUnitsFlag = true;
+                //---------------------------------------
+                //--- Initialize DB Connected Setting ---
+                //---------------------------------------
+                DbConnectedFlag = false;
                 #endregion  // INITIALIZE PROPERTIES
 
                 //---------------------------
@@ -200,6 +232,15 @@ namespace HenStudio
                 //--------------------------
                 bValidLicenseFile = ValidateLicense(); // Update Global Settings in Method - return valid flag
                 #endregion  // License Validation
+
+                #region DB Connected
+                //-----------------------------
+                //--- Is Database Connected ---
+                //-----------------------------
+                //HenSettingsObj.DbConnectedEnum = HenTypes.DbConnected.CONNECTED;
+                HenSettingsObj.DbConnectedEnum = HenTypes.DbConnected.UNCONNECTED;
+                UpdateDbConnectLabel();    // Update Database Connected Status Bar Label
+                #endregion  // DB Connected
 
                 #region Update Pinch Units Status Bar Label
                 //-------------------------------------------
@@ -311,7 +352,7 @@ namespace HenStudio
             try
             {
                 this.Text = "AJP HEN Studio";
-                this.BackColor = AJP_ENGINEERING_GREEN; // Form Background Color
+                this.BackColor = ColorPanelGreenBackground; // Form Background Color
 
             }
             catch (Exception ex)
@@ -483,6 +524,52 @@ namespace HenStudio
             }
         }
         #endregion  // UpdateLicenseStatusBarLabel()
+
+        #region UpdateDbConnectLabel()
+        /// <summary>
+        /// Update the DB Connected Status Bar Label using Global Setting
+        /// </summary>
+        private void UpdateDbConnectLabel()
+        {
+            string strMethod = "UpdateDbConnectLabel";
+            string strDbConnected = String.Format("DB {0}",
+                                    HenSettingsObj.DbConnectedEnum.ToString());
+            try
+            {
+                this.toolStripStatusLabelDbConnect.Text = strDbConnected;
+
+                switch (HenSettingsObj.DbConnectedEnum)
+                {
+                    case HenTypes.DbConnected.UNKNOWN:
+                        this.toolStripStatusLabelDbConnect.BackColor = Color.Orange;
+                        this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
+                        this.toolStripStatusLabelDbConnect.Image = Resources.Unknown_32x32;
+                        break;
+                    case HenTypes.DbConnected.UNCONNECTED:
+                        this.toolStripStatusLabelDbConnect.BackColor = Color.Red;
+                        this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
+                        this.toolStripStatusLabelDbConnect.Image = Resources.InValid_32x32;
+                        break;
+                    case HenTypes.DbConnected.CONNECTED:
+                        this.toolStripStatusLabelDbConnect.BackColor = Color.Green;
+                        this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
+                        this.toolStripStatusLabelDbConnect.Image = Resources.Valid_32x32;
+                        break;
+                    default:
+                        throw new Exception("INVALID Db Connected Enum Value!");
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateUnitsStatusBarLabel()
 
         #region UpdateUnitsStatusBarLabel()
         /// <summary>
@@ -676,124 +763,6 @@ namespace HenStudio
         #endregion       // EXIT MEMU ITEM HANDLER
 
         #endregion  // FILE MENU ITEMS
-
-        //#region ANALYSIS MENU ITEMS
-
-        //#region SPECIFY INPUT
-        //private void specifyInputToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // SPECIFY INPUT
-
-        //#region CALCULATE TARGETS
-        //private void calculateTargetsToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // CALCULATE TARGETS
-
-        //#region DESIGN HEAT EXCHANGER NETWORK
-        //private void designHeatExchangerNetworkToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // DESIGN HEAT EXCHANGER NETWORK
-
-        //#endregion  // ANALYSIS MENU ITEMS
-
-        //#region SUB-ANALYSIS MENU ITEMS
-
-        ////=========================================================================================
-        ////======================================== INPUT ==========================================
-        ////=========================================================================================
-
-        //#region INPUT-PROJECT MENU EVENT
-        //private void inputProjectDataToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // INPUT-PROJECT MENU EVENT
-
-        //#region INPUT-STREAMS MENU EVENT
-        //private void inputStreamsDataToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // INPUT-STREAMS MENU EVENT
-
-        //#region INPUT-UTILITIES MENU EVENT
-        //private void utilitiesToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // INPUT-UTILITIES MENU EVENT
-
-        //#region INPUT-COST MENU EVENT
-        //private void costToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // INPUT-COST MENU EVENT
-
-        //#region INPUT-EXCHANGER MENU EVENT
-        //private void exchangerToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // INPUT-EXCHANGER MENU EVENT
-
-        //#region INPUT-VALIDATE MENU EVENT
-        //private void validateToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // INPUT-VALIDATE MENU EVENT
-
-        ////=========================================================================================
-        ////======================================= TARGETS =========================================
-        ////=========================================================================================
-
-        //#region TARGETS-CALCULATE MENU EVENT
-        //private void calculateToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // TARGETS-CALCULATE MENU EVENT
-
-        //#region TARGETS-COMPOSITE MENU EVENT
-        //private void compositeToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // TARGETS-COMPOSITE MENU EVENT
-
-        //#region TARGETS-INTERVAL MENU EVENT
-        //private void intervalToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // TARGETS-INTERVAL MENU EVENT
-
-        //#region TARGETS-OPTIMIZE MENU EVENT
-        //private void optimizeToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // TARGETS-OPTIMIZE MENU EVENT
-
-        ////=========================================================================================
-        ////========================================== HEN ==========================================
-        ////=========================================================================================
-
-        //#region HEN-DESIGN MENU EVENT
-        //private void designToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //#endregion  // HEN-DESIGN MENU EVENT
-
-        //#endregion  // SUB-ANALYSIS MENU ITEMS
 
         #region HELP MENU ITEMS
 

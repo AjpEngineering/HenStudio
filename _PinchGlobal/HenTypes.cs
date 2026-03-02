@@ -95,11 +95,27 @@ namespace HenGlobal
 
         #endregion  // LICENSE
 
+        #region DB CONNECTED
+
+        #region enum DbConnected
+        /// <summary>
+        /// ENUMERATION: Pinch Units [ENGLISH | METRIC | UNKNOWN]
+        /// </summary>
+        public enum DbConnected
+        {
+            UNKNOWN = -1,       // UNKNOWN Connection
+            UNCONNECTED =  0,   // UNCONNECTED
+            CONNECTED =  1      // CONNECTED
+        };
+        #endregion      // enum DbConnected
+
+        #endregion  // DB CONNECTED
+
         #region UNITS
 
         #region enum PinchUnits
         /// <summary>
-        /// ENUMERATION: Pinch Units [ENGLISH | METIRC | UNKNOWN]
+        /// ENUMERATION: Pinch Units [ENGLISH | METRIC | UNKNOWN]
         /// </summary>
         public enum PinchUnits
         {

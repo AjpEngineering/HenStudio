@@ -58,6 +58,7 @@
             this.imageListInput = new System.Windows.Forms.ImageList(this.components);
             this.imageListTargets = new System.Windows.Forms.ImageList(this.components);
             this.imageListHen = new System.Windows.Forms.ImageList(this.components);
+            this.toolStripStatusLabelDbConnect = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -228,6 +229,7 @@
             this.statusStripMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelLicense,
+            this.toolStripStatusLabelDbConnect,
             this.toolStripStatusLabelUnits,
             this.toolStripStatusLabelInput,
             this.toolStripStatusLabelTargets,
@@ -298,14 +300,13 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelSELECTED_STATE.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelSELECTED_STATE.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelSELECTED_STATE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelSELECTED_STATE.Image")));
-            this.toolStripStatusLabelSELECTED_STATE.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripStatusLabelSELECTED_STATE.Image = global::HenStudio.Properties.Resources.AJP_Logo___600x600;
+            this.toolStripStatusLabelSELECTED_STATE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelSELECTED_STATE.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelSELECTED_STATE.Name = "toolStripStatusLabelSELECTED_STATE";
-            this.toolStripStatusLabelSELECTED_STATE.Size = new System.Drawing.Size(343, 28);
+            this.toolStripStatusLabelSELECTED_STATE.Size = new System.Drawing.Size(190, 28);
             this.toolStripStatusLabelSELECTED_STATE.Spring = true;
-            this.toolStripStatusLabelSELECTED_STATE.Text = "ACTIVITY:SUBACTIVITY";
-            this.toolStripStatusLabelSELECTED_STATE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripStatusLabelSELECTED_STATE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelSELECTED_STATE.ToolTipText = "Displayed View";
             // 
             // imageListAnalysis
@@ -341,6 +342,16 @@
             this.imageListHen.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListHen.ImageStream")));
             this.imageListHen.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListHen.Images.SetKeyName(0, "Design...32x32.png");
+            // 
+            // toolStripStatusLabelDbConnect
+            // 
+            this.toolStripStatusLabelDbConnect.BackColor = System.Drawing.Color.Green;
+            this.toolStripStatusLabelDbConnect.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelDbConnect.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelDbConnect.Image = global::HenStudio.Properties.Resources.Valid_32x32;
+            this.toolStripStatusLabelDbConnect.Name = "toolStripStatusLabelDbConnect";
+            this.toolStripStatusLabelDbConnect.Size = new System.Drawing.Size(155, 29);
+            this.toolStripStatusLabelDbConnect.Text = "DB CONNECTED";
             // 
             // FormMain
             // 
@@ -401,6 +412,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelTargets;
         private System.Windows.Forms.ToolStripMenuItem scorecardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userLicenseAgreementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDbConnect;
     }
 }
 
