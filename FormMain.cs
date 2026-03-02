@@ -134,7 +134,6 @@ namespace HenStudio
         public HenSettings HenSettingsObj { get; set; }            // HEN Studio Settings Object
         public HenTypes HenTypesObj { get; set; }                  // HEN Studio Types Object
         public HenMethods HenMethodsObj { get; set; }              // HEN Studio Methods Object
-        public PanelTableMgr PanelTableMgrObj { get; set; }        // Panel Table Manager Object
         //-------------------------------------------------------------------------------------------- DATA OBJECTS ---
         #endregion      // PROPERTIES
 
@@ -194,53 +193,6 @@ namespace HenStudio
                 //--- Initialize Controls ---
                 //---------------------------
                 InitializeControls();       // Set Inital State of the Form Controls
-                
-                #region Create PanelTableMgr Object
-                //-----------------------------------
-                //--- Create PanelTableMgr Object ---
-                //-----------------------------------
-                PanelTableMgrObj = new PanelTableMgr(HenTypesObj, HenSettingsObj);
-                //-----------------------------------------------------------------------------------------------------
-                //---------------------------- Assign ANALYSIS TabControl Panel Members -------------------------------
-                //-----------------------------------------------------------------------------------------------------
-                PanelTableMgrObj.MAIN_TAB_CONTROL = this.tabControlMain;    // ANALYSIS Tab Control
-                PanelTableMgrObj.INPUT_PANEL   = this.panelINPUT;           // SUB-ANALYSIS Tab Control
-                PanelTableMgrObj.TARGETS_PANEL = this.panelTARGETS;         // SUB-ANALYSIS Tab Control
-                PanelTableMgrObj.HEN_PANEL     = this.panelHEN;             // SUB-ANALYSIS Tab Control
-                //-----------------------------------------------------------------------------------------------------
-                //-------------------------- Assign SUB-ANALYSIS TabControl Panel Members -----------------------------
-                //-----------------------------------------------------------------------------------------------------
-                PanelTableMgrObj.INPUT_TAB_CONTROL       = this.tabControlINPUT;          // Tab Control
-                PanelTableMgrObj.INPUT_PROJECT_PANEL     = this.panelINPUT_PROJECT;       // Panel - PK: 00 ... [0,0]
-                PanelTableMgrObj.INPUT_STREAMS_PANEL     = this.panelINPUT_STREAMS;       // Panel - PK: 01 ... [0,1]
-                PanelTableMgrObj.INPUT_UTILITIES_PANEL   = this.panelINPUT_UTILITIES;     // Panel - PK: 02 ... [0,2]
-                PanelTableMgrObj.INPUT_COST_PANEL        = this.panelINPUT_COST;          // Panel - PK: 03 ... [0,3]
-                PanelTableMgrObj.INPUT_EXCHANGER_PANEL   = this.panelINPUT_EXCHANGER;     // Panel - PK: 04 ... [0,4]
-                PanelTableMgrObj.INPUT_VALIDATE_PANEL    = this.panelINPUT_VALIDATE;      // Panel - PK: 05 ... [0,5]
-                //-----------------------------------------------------------------------------------------------------
-                PanelTableMgrObj.TARGETS_TAB_CONTROL     = this.tabControlTARGETS;        // Tab Control
-                PanelTableMgrObj.TARGETS_CALCULATE_PANEL = this.panelTARGETS_CALCULATE;   // Panel - PK: 06 ... [1,0]
-                PanelTableMgrObj.TARGETS_COMPOSITE_PANEL = this.panelTARGETS_COMPOSITE;   // Panel - PK: 07 ... [1,1]
-                PanelTableMgrObj.TARGETS_INTERVAL_PANEL  = this.panelTARGETS_INTERVAL;    // Panel - PK: 08 ... [1,2]
-                PanelTableMgrObj.TARGETS_OPTIMIZE_PANEL  = this.panelTARGETS_OPTIMIZE;    // Panel - PK: 09 ... [1,3]
-                //-----------------------------------------------------------------------------------------------------
-                PanelTableMgrObj.HEN_TAB_CONTROL         = this.tabControlHEN;            // Tab Control
-                PanelTableMgrObj.HEN_DESIGN_PANEL        = this.panelHEN_DESIGN;          // Panel - PK: 10 ... [2,0]
-                //-----------------------------------------------------------------------------------------------------
-                PanelTableMgrObj.STATUS_BAR_LABEL_SELECTED_STATE =                        // StatusBar View Label
-                                                           this.toolStripStatusLabelSELECTED_STATE;
-                PanelTableMgrObj.STATUS_BAR_LABEL_LICENSE_STATE =                         // StatusBar License Label
-                                                           this.toolStripStatusLabelLicense;
-                //-----------------------------------------------------------------------------------------------------
-
-                //---------------------------------------------------------------------
-                //--- Initialize List and Table Object for Dynamic Panel Management ---
-                //--- Set Initial View                                              ---
-                //---------------------------------------------------------------------
-                PanelTableMgrObj.InitializeMgrObjects();    // Initialize Lists and Table in Mgr
-                PanelTableMgrObj.DisplaySelectedView(0,0);  // Display Initial View
-
-                #endregion  // Create PanelTableMgr Object
 
                 #region License Validation
                 //--------------------------
@@ -342,9 +294,6 @@ namespace HenStudio
             {
                 HenLogger.WriteSection("END OBJECT TREE CONSTRUCTION");
                 HenLogger.WriteSeparatorLine(' ');
-
-                PanelTableMgrObj.LogCurrentState(); // Log the current index state of the Panel Table Manager
-
                 HenLogger.WriteSection("END CONSTRUCTION SECTION");
             }
         }
@@ -359,26 +308,11 @@ namespace HenStudio
             string strMethod = "InitializeControls";
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
 
-            int nPanelLocationX = 0;
-            int nPanelLocationY = 61;
-            int nPanelSizeX = 1264;
-            int nPanelSizeY = 543;
             try
             {
-                this.Text = "AJP Pinch 4";
+                this.Text = "AJP HEN Studio";
                 this.BackColor = AJP_ENGINEERING_GREEN; // Form Background Color
 
-                //--- INPUT PANEL ---
-                this.panelINPUT.Location = new System.Drawing.Point(nPanelLocationX, nPanelLocationY);
-                this.panelINPUT.Size = new System.Drawing.Size(nPanelSizeX, nPanelSizeY);
-
-                //--- TARGETS PANEL ---
-                this.panelTARGETS.Location = new System.Drawing.Point(nPanelLocationX, nPanelLocationY);
-                this.panelTARGETS.Size = new System.Drawing.Size(nPanelSizeX, nPanelSizeY);
-
-                //--- HEN PANEL ---
-                this.panelHEN.Location = new System.Drawing.Point(nPanelLocationX, nPanelLocationY);
-                this.panelHEN.Size = new System.Drawing.Size(nPanelSizeX, nPanelSizeY);
             }
             catch (Exception ex)
             {
@@ -743,348 +677,123 @@ namespace HenStudio
 
         #endregion  // FILE MENU ITEMS
 
-        #region ANALYSIS MENU ITEMS
+        //#region ANALYSIS MENU ITEMS
 
-        #region SPECIFY INPUT
-        private void specifyInputToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "specifyInputToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgrObj.LastInputSubActivityIndex;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("Specify Input Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // SPECIFY INPUT
+        //#region SPECIFY INPUT
+        //private void specifyInputToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
-        #region CALCULATE TARGETS
-        private void calculateTargetsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "calculateTargetsToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
-            int nSubActivity = PanelTableMgrObj.LastTargetsSubActivityIndex;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("Calculate Targets Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // CALCULATE TARGETS
+        //}
+        //#endregion  // SPECIFY INPUT
 
-        #region DESIGN HEAT EXCHANGER NETWORK
-        private void designHeatExchangerNetworkToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "designHeatExchangerNetworkToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_HEN_PANEL;
-            int nSubActivity = PanelTableMgrObj.LastHenSubActivityIndex;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("Design Heat Exchanger Network Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
+        //#region CALCULATE TARGETS
+        //private void calculateTargetsToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // DESIGN HEAT EXCHANGER NETWORK
+        //}
+        //#endregion  // CALCULATE TARGETS
 
-        #endregion  // ANALYSIS MENU ITEMS
+        //#region DESIGN HEAT EXCHANGER NETWORK
+        //private void designHeatExchangerNetworkToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
-        #region SUB-ANALYSIS MENU ITEMS
+        //}
+        //#endregion  // DESIGN HEAT EXCHANGER NETWORK
 
-        //=========================================================================================
-        //======================================== INPUT ==========================================
-        //=========================================================================================
+        //#endregion  // ANALYSIS MENU ITEMS
 
-        #region INPUT-PROJECT MENU EVENT
-        private void inputProjectDataToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "inputProjectDataToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_PROJECT_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-PROJECT Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // INPUT-PROJECT MENU EVENT
+        //#region SUB-ANALYSIS MENU ITEMS
 
-        #region INPUT-STREAMS MENU EVENT
-        private void inputStreamsDataToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "inputStreamsDataToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_STREAMS_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-STREAMS Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // INPUT-STREAMS MENU EVENT
+        ////=========================================================================================
+        ////======================================== INPUT ==========================================
+        ////=========================================================================================
 
-        #region INPUT-UTILITIES MENU EVENT
-        private void utilitiesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "utilitiesToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_UTILITIES_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-UTILITIES Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // INPUT-UTILITIES MENU EVENT
+        //#region INPUT-PROJECT MENU EVENT
+        //private void inputProjectDataToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
-        #region INPUT-COST MENU EVENT
-        private void costToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "costToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_COST_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-COST Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // INPUT-COST MENU EVENT
+        //}
+        //#endregion  // INPUT-PROJECT MENU EVENT
 
-        #region INPUT-EXCHANGER MENU EVENT
-        private void exchangerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "exchangerToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_EXCHANGER_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-EXCHANGER Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // INPUT-EXCHANGER MENU EVENT
+        //#region INPUT-STREAMS MENU EVENT
+        //private void inputStreamsDataToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
-        #region INPUT-VALIDATE MENU EVENT
-        private void validateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "validateToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_VALIDATE_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-VALIDATE Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // INPUT-VALIDATE MENU EVENT
+        //}
+        //#endregion  // INPUT-STREAMS MENU EVENT
 
-        //=========================================================================================
-        //======================================= TARGETS =========================================
-        //=========================================================================================
+        //#region INPUT-UTILITIES MENU EVENT
+        //private void utilitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
-        #region TARGETS-CALCULATE MENU EVENT
-        private void calculateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "calculateToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_TARGETS_CALCULATE_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("TARGETS-CALCULATE Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TARGETS-CALCULATE MENU EVENT
+        //}
+        //#endregion  // INPUT-UTILITIES MENU EVENT
 
-        #region TARGETS-COMPOSITE MENU EVENT
-        private void compositeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "compositeToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_TARGETS_COMPOSITE_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("TARGETS-COMPOSITE Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TARGETS-COMPOSITE MENU EVENT
+        //#region INPUT-COST MENU EVENT
+        //private void costToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
-        #region TARGETS-INTERVAL MENU EVENT
-        private void intervalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "intervalToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_TARGETS_INTERVAL_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("TARGETS-INTERVAL Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TARGETS-INTERVAL MENU EVENT
+        //}
+        //#endregion  // INPUT-COST MENU EVENT
 
-        #region TARGETS-OPTIMIZE MENU EVENT
-        private void optimizeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "optimizeToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_TARGETS_OPTIMIZE_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("TARGETS-OPTIMIZE Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TARGETS-OPTIMIZE MENU EVENT
+        //#region INPUT-EXCHANGER MENU EVENT
+        //private void exchangerToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
-        //=========================================================================================
-        //========================================== HEN ==========================================
-        //=========================================================================================
+        //}
+        //#endregion  // INPUT-EXCHANGER MENU EVENT
 
-        #region HEN-DESIGN MENU EVENT
-        private void designToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string strMethod = "designToolStripMenuItem_Click";
-            int nActivity = PanelTableMgr.INDEX_HEN_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_HEN_DESIGN_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("HEN-DESIGN Menu Item Selected!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HEN-DESIGN MENU EVENT
+        //#region INPUT-VALIDATE MENU EVENT
+        //private void validateToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
-        #endregion  // SUB-ANALYSIS MENU ITEMS
+        //}
+        //#endregion  // INPUT-VALIDATE MENU EVENT
+
+        ////=========================================================================================
+        ////======================================= TARGETS =========================================
+        ////=========================================================================================
+
+        //#region TARGETS-CALCULATE MENU EVENT
+        //private void calculateToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+
+        //}
+        //#endregion  // TARGETS-CALCULATE MENU EVENT
+
+        //#region TARGETS-COMPOSITE MENU EVENT
+        //private void compositeToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+
+        //}
+        //#endregion  // TARGETS-COMPOSITE MENU EVENT
+
+        //#region TARGETS-INTERVAL MENU EVENT
+        //private void intervalToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+
+        //}
+        //#endregion  // TARGETS-INTERVAL MENU EVENT
+
+        //#region TARGETS-OPTIMIZE MENU EVENT
+        //private void optimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+
+        //}
+        //#endregion  // TARGETS-OPTIMIZE MENU EVENT
+
+        ////=========================================================================================
+        ////========================================== HEN ==========================================
+        ////=========================================================================================
+
+        //#region HEN-DESIGN MENU EVENT
+        //private void designToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+
+        //}
+        //#endregion  // HEN-DESIGN MENU EVENT
+
+        //#endregion  // SUB-ANALYSIS MENU ITEMS
 
         #region HELP MENU ITEMS
 
@@ -1114,341 +823,6 @@ namespace HenStudio
 
         #endregion  // MENU BAR EVENTS
 
-        #region TOOLBAR EVENTS
-
-        #region TOOLBAR NEW BUTTON EVENT
-        private void toolStripButtonNew_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("New Toobar Button Pressed!");
-            HandleNew();
-        }
-        #endregion  // TOOLBAR NEW BUTTON EVENT
-
-        #region TOOLBAR OPEN BUTTON EVENT
-        private void toolStripButtonOpen_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("Open Toobar Button Pressed!");
-            HandleOpen();
-        }
-        #endregion  // TOOLBAR OPEN BUTTON EVENT
-
-        #region TOOLBAR SAVE BUTTON EVENT
-        private void toolStripButtonSave_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("Save Toobar Button Pressed!");
-            HandleSave();
-        }
-        #endregion  // TOOLBAR SAVE BUTTON EVENT
-
-        #region TOOLBAR SAVE AS BUTTON EVENT
-        private void toolStripButtonSaveAs_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("Save As Toobar Button Pressed!");
-            HandleSaveAs();
-        }
-        #endregion      // TOOLBAR SAVE AS BUTTON EVENT
-
-        #region TOOLBAR IMPORT BUTTON EVENT
-        private void toolStripButtonImport_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("Import Toobar Button Pressed!");
-            HandleImport();
-        }
-        #endregion  // TOOLBAR IMPORT BUTTON EVENT
-
-        #region TOOLBAR EXPORT BUTTON EVENT
-        private void toolStripButtonExport_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("Export Toobar Button Pressed!");
-            HandleExport();
-        }
-        #endregion  // TOOLBAR EXPORT BUTTON EVENT
-
-        //---------------------------------------------------------------------
-
-        #region TOOLBAR INPUT-PROJECT BUTTON EVENT
-        private void toolStripButtonProject_Click(object sender, EventArgs e)
-        {
-            string strMethod = "toolStripButtonProject_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_PROJECT_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-PROJECT Toobar Button Pressed!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TOOLBAR INPUT-PROJECT BUTTON EVENT
-
-        #region TOOLBAR INPUT-STREAMS BUTTON EVENT
-        private void toolStripButtonStreams_Click(object sender, EventArgs e)
-        {
-            string strMethod = "toolStripButtonStreams_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_STREAMS_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-STREAMS Toobar Button Pressed!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TOOLBAR INPUT-STREAMS BUTTON EVENT
-
-        #region TOOLBAR INPUT-UTILITIES BUTTON EVENT
-        private void toolStripButtonUtilities_Click(object sender, EventArgs e)
-        {
-            string strMethod = "toolStripButtonUtilities_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_UTILITIES_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-UTILITIES Toobar Button Pressed!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TOOLBAR INPUT-UTILITIES BUTTON EVENT
-
-        #region TOOLBAR INPUT-COST BUTTON EVENT
-        private void toolStripButtonCost_Click(object sender, EventArgs e)
-        {
-            string strMethod = "toolStripButtonCost_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_COST_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-COST Toobar Button Pressed!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TOOLBAR INPUT-COST BUTTON EVENT
-
-        #region TOOLBAR INPUT-EXCHANGER BUTTON EVENT
-        private void toolStripButtonExchanger_Click(object sender, EventArgs e)
-        {
-            string strMethod = "toolStripButtonExchanger_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_EXCHANGER_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-EXCHANGER Toobar Button Pressed!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TOOLBAR INPUT-EXCHANGER BUTTON EVENT
-
-        #region TOOLBAR INPUT-VALIDATE BUTTON EVENT
-        private void toolStripButtonValidate_Click(object sender, EventArgs e)
-        {
-            string strMethod = "toolStripButtonValidate_Click";
-            int nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_INPUT_VALIDATE_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT-VALIDATE Toobar Button Pressed!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TOOLBAR INPUT-VALIDATE BUTTON EVENT
-
-        //---------------------------------------------------------------------
-
-        #region TOOLBAR TARGETS-CALCULATE BUTTON EVENT
-        private void toolStripButtonCalculate_Click(object sender, EventArgs e)
-        {
-            string strMethod = "toolStripButtonCalculate_Click";
-            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_TARGETS_CALCULATE_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("TARGETS-CALCULATE Toobar Button Pressed!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TOOLBAR TARGETS-CALCULATE BUTTON EVENT
-
-        #region TOOLBAR TARGETS-COMPOSITE BUTTON EVENT
-        private void toolStripButtonComposite_Click(object sender, EventArgs e)
-        {
-            string strMethod = "toolStripButtonComposite_Click";
-            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_TARGETS_COMPOSITE_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("TARGETS-COMPOSITE Toobar Button Pressed!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TOOLBAR TARGETS-COMPOSITE BUTTON EVENT
-
-        #region TOOLBAR TARGETS-INTERVAL BUTTON EVENT
-        private void toolStripButtonInterval_Click(object sender, EventArgs e)
-        {
-            string strMethod = "toolStripButtonInterval_Click";
-            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_TARGETS_INTERVAL_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("TARGETS-INTERVAL Toobar Button Pressed!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TOOLBAR TARGETS-INTERVAL BUTTON EVENT
-
-        #region TOOLBAR TARGETS-OPTIMIZE BUTTON EVENT
-        private void toolStripButtonOptimize_Click(object sender, EventArgs e)
-        {
-            string strMethod = "toolStripButtonOptimize_Click";
-            int nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_TARGETS_OPTIMIZE_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("TARGETS-OPTIMIZE Toobar Button Pressed!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TOOLBAR TARGETS-OPTIMIZE BUTTON EVENT
-
-        //---------------------------------------------------------------------
-
-        #region TOOLBAR HEN-DESIGN BUTTON EVENT
-        private void toolStripButtonHenDesign_Click(object sender, EventArgs e)
-        {
-            string strMethod = "toolStripButtonHenDesign_Click";
-            int nActivity = PanelTableMgr.INDEX_HEN_PANEL;
-            int nSubActivity = PanelTableMgr.INDEX_HEN_DESIGN_PANEL;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("HEN-DESIGN Toobar Button Pressed!");
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // TOOLBAR HEN-DESIGN BUTTON EVENT
-
-        //---------------------------------------------------------------------
-
-        #region TOOLBAR LICENSE BUTTON EVENT
-        private void toolStripButtonLicense_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("License Toolbar Button Presses!");
-            DisplayLicenseForm();
-        }
-        #endregion  // TOOLBAR LICENSE BUTTON EVENT
-
-        #region TOOLBAR SCORECARD BUTTON EVENT
-        private void toolStripButtonScoreCard_Click(object sender, EventArgs e)
-        {
-            DisplayScoreCardForm();
-        }
-        #endregion  // TOOLBAR SCORECARD BUTTON EVENT
-
-        #region TOOLBAR ABOUT BUTTON EVENT
-        private void toolStripButtonAbout_Click(object sender, EventArgs e)
-        {
-            DisplayAboutForm();
-        }
-        #endregion  // TOOLBAR ABOUT BUTTON EVENT
-
-        #endregion  // TOOLBAR EVENTS
-
         #region TAB CONTROL EVENTS
 
         #region MAIN ANALYSIS TAB CONTROL
@@ -1461,38 +835,7 @@ namespace HenStudio
         /// <param name="e"></param>
         private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string strMethod = "tabControlMain_SelectedIndexChanged()";
-            int nActivity;
-            int nSubActivity;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("MAIN ANALYSIS Tab Control Index Selected Changed!");
-                nActivity = PanelTableMgrObj.MAIN_TAB_CONTROL.SelectedIndex;
-                switch (nActivity)
-                {
-                    case PanelTableMgr.INDEX_INPUT_PANEL:
-                        nSubActivity = PanelTableMgrObj.LastInputSubActivityIndex;
-                        break;
-                    case PanelTableMgr.INDEX_TARGETS_PANEL:
-                        nSubActivity = PanelTableMgrObj.LastTargetsSubActivityIndex;
-                        break;
-                    case PanelTableMgr.INDEX_HEN_PANEL:
-                        nSubActivity = PanelTableMgrObj.LastHenSubActivityIndex;
-                        break;
-                    default:
-                        throw new Exception("INVALID Activity Index!");
-                }
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally 
-            {
-            }
+
         }
         #endregion  // tabControlMain_SelectedIndexChanged
 
@@ -1501,50 +844,14 @@ namespace HenStudio
         #region INPUT TAB CONTROL
         private void tabControlINPUT_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string strMethod = "tabControlINPUT_SelectedIndexChanged()";
-            int nActivity;
-            int nSubActivity;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("INPUT Tab Control Index Selected Changed!");
-                nActivity = PanelTableMgr.INDEX_INPUT_PANEL;
-                nSubActivity = this.tabControlINPUT.SelectedIndex; ;
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
+
         }
         #endregion  // INPUT TAB CONTROL
 
         #region TARGETS TAB CONTROL
         private void tabControlTARGETS_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string strMethod = "tabControlTARGETS_SelectedIndexChanged()";
-            int nActivity;
-            int nSubActivity;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("TARGETS Tab Control Index Selected Changed!");
-                nActivity = PanelTableMgr.INDEX_TARGETS_PANEL;
-                nSubActivity = this.tabControlTARGETS.SelectedIndex; ;
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
+
         }
 
         #endregion  // TARGETS TAB CONTROL
@@ -1552,25 +859,7 @@ namespace HenStudio
         #region HEN TAB CONTROL
         private void tabControlHEN_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string strMethod = "tabControlHEN_SelectedIndexChanged()";
-            int nActivity;
-            int nSubActivity;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("HEN Tab Control Index Selected Changed!");
-                nActivity = PanelTableMgr.INDEX_HEN_PANEL;
-                nSubActivity = this.tabControlHEN.SelectedIndex; ;
-                HandleViewCommand(nActivity, nSubActivity);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
+
         }
 
         #endregion  // HEN TAB CONTROL
@@ -1958,29 +1247,6 @@ namespace HenStudio
             }
         }
         #endregion  // HandleExit
-
-        #region HandleViewCommand
-        private void HandleViewCommand(int nActivity, int nSubActivity)
-        {
-            string strMethod = "HandleViewCommand";
-            PanelTableRow row;
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("Handle View Command!");
-                row = PanelTableMgrObj.DisplaySelectedView(nActivity, nSubActivity);
-                if (row == null) throw (new Exception("Handle View Command: Null View"));
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleViewCommand
 
         #endregion  // COMMON COMMAND HANDLERS
 
