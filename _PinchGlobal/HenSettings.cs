@@ -262,6 +262,16 @@ namespace HenGlobal
         /// </summary>
         public bool TargetsCalculatedFlag { get; set; }   // Targets Calculated Flag - true: Proceed to HEN
         #endregion  // TargetsCalculatedFlag
+
+        #region HenAnalysisStatusEnum
+        /// <summary>
+        /// HEN Analysis Status Enum ... [ UNKNOWN = -1 | NOT_EXECUTED = 0 | NOT_CONVERGED = 1 | CONVERGED = 2 ]
+        /// HEN Analysis Status for current HEN Design
+        /// </summary>
+        public HenTypes.HenAnalysisStatus HenAnalysisStatusEnum { get; set; }   // HEN Analysis Status
+        #endregion  // HenAnalysisStatusEnum
+
+
         #endregion  // STATUS BAR
 
         #region INTERNAL UNITS

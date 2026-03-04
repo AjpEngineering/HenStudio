@@ -50,6 +50,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+using static HenGlobal.HenTypes;
+
 #endregion  // REFERENCES
 
 #region namespace HenStudio
@@ -268,6 +270,16 @@ namespace HenStudio
                 HenSettingsObj.TargetsCalculatedFlag = false;
                 UpdateTargetsStatusBarLabel();      // Update Targets Calculated Status Bar Label
                 #endregion  // Update Targets Calculated Flag Status Bar Label
+
+                #region Update Current HEN Analysis Status Flag Status Bar Label
+                //----------------------------------------------------
+                //--- Update Current HEN Analysis Status Bar Label ---
+                //----------------------------------------------------
+                //HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.NOT_EXECUTED;
+                //HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.NOT_CONVERGED;
+                HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.CONVERGED;
+                UpdateHenAnalysisStatusBarLabel();      // Update Current HEN Analysis Status Bar Label
+                #endregion  // Update Current HEN Analysis Status Flag Status Bar Label
 
             }
             catch (Exception ex)
@@ -701,6 +713,59 @@ namespace HenStudio
         }
         #endregion  // UpdateTargetsStatusBarLabel()
 
+        #region UpdateHenAnalysisStatusBarLabel()
+        /// <summary>
+        /// Update the Current HEN Analysis Status Bar Label using Global Setting
+        /// </summary>
+        private void UpdateHenAnalysisStatusBarLabel()
+        {
+            string strMethod = "UpdateHenAnalysisStatusBarLabel";
+            string strHenAnalysisType = String.Format("HEN UNKNOWN ");
+            try
+            {
+                switch (HenSettingsObj.HenAnalysisStatusEnum)
+                {
+                    case HenTypes.HenAnalysisStatus.UNKNOWN:
+                        strHenAnalysisType = String.Format("HEN UNKNOWN ");
+                        this.toolStripStatusLabelHenConverged.BackColor = Color.Orange;
+                        this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
+                        this.toolStripStatusLabelHenConverged.Image = Resources.Unknown_32x32;
+                        break;
+                    case HenTypes.HenAnalysisStatus.NOT_EXECUTED:
+                        strHenAnalysisType = String.Format("HEN NOT EXECUTED ");
+                        this.toolStripStatusLabelHenConverged.BackColor = Color.Red;
+                        this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
+                        this.toolStripStatusLabelHenConverged.Image = Resources.InValid_32x32;
+                        break;
+                    case HenTypes.HenAnalysisStatus.NOT_CONVERGED:
+                        strHenAnalysisType = String.Format("HEN NOT CONVERGED ");
+                        this.toolStripStatusLabelHenConverged.BackColor = Color.Red;
+                        this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
+                        this.toolStripStatusLabelHenConverged.Image = Resources.InValid_32x32;
+                        break;
+                    case HenTypes.HenAnalysisStatus.CONVERGED:
+                        strHenAnalysisType = String.Format("HEN CONVERGED ");
+                        this.toolStripStatusLabelHenConverged.BackColor = Color.Green;
+                        this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
+                        this.toolStripStatusLabelHenConverged.Image = Resources.Valid_32x32;
+                        break;
+                    default:
+                        throw new Exception("INVALID HEN Analysis Status Enum Value!");
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                this.toolStripStatusLabelHenConverged.Text = strHenAnalysisType;
+            }
+        }
+        #endregion  // UpdateHenAnalysisStatusBarLabel()
+
         #endregion  // UPDATE STATUS BAR LABELS METHODS
 
         #region EVENT HANDLERS
@@ -765,6 +830,14 @@ namespace HenStudio
         #endregion  // FILE MENU ITEMS
 
         #region HELP MENU ITEMS
+        
+        #region SETTINGS
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //HenMsgDlg.DisplayWarningDlg("Settings Menu Item Selected!");
+            DisplayProjectSettingsForm();
+        }
+        #endregion  // SETTINGS
 
         #region LICENSE
         private void licenseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -791,49 +864,6 @@ namespace HenStudio
         #endregion  // HELP MENU ITEMS
 
         #endregion  // MENU BAR EVENTS
-
-        #region TAB CONTROL EVENTS
-
-        #region MAIN ANALYSIS TAB CONTROL
-
-        #region tabControlMain_SelectedIndexChanged
-        /// <summary>
-        /// MAIN TabControl Selected Index Changed Event Handler
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        #endregion  // tabControlMain_SelectedIndexChanged
-
-        #endregion  // MAIN ANALYSIS TAB CONTROL
-
-        #region INPUT TAB CONTROL
-        private void tabControlINPUT_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        #endregion  // INPUT TAB CONTROL
-
-        #region TARGETS TAB CONTROL
-        private void tabControlTARGETS_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        #endregion  // TARGETS TAB CONTROL
-
-        #region HEN TAB CONTROL
-        private void tabControlHEN_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        #endregion  // HEN TAB CONTROL
-
-        #endregion  // TAB CONTROL EVENTS
 
         #region PICTURE BOX EVENTS
         private void pictureBoxAJPLogo_Click(object sender, EventArgs e)
@@ -865,6 +895,32 @@ namespace HenStudio
         #region METHODS
 
         #region COMMON COMMAND HANDLERS
+
+        #region DisplayProjectSettingsForm()
+        /// <summary>
+        /// Common Display Project Settings Form Handler
+        /// </summary>
+        private void DisplayProjectSettingsForm()
+        {
+            string strMethod = "DisplayProjectSettingsForm";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Settings Form");
+            try
+            {
+                HenMsgDlg.DisplayWarningDlg("Handle Project Settings Form Command!");
+                //FormProjectSettings dlg = new FormProjectSettings();
+                //dlg.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // DisplayProjectSettingsForm()
 
         #region DisplayLicenseForm()
         /// <summary>
@@ -1353,6 +1409,7 @@ namespace HenStudio
         #endregion      // LOG METHODS
 
         #endregion  // METHODS
+
     }
     #endregion      // class FormPinch
 }

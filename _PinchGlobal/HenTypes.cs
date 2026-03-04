@@ -143,6 +143,24 @@ namespace HenGlobal
 
         #endregion  // UNITS
 
+        #region HEN ANALYSIS STATUS
+
+        #region enum HenAnalysisStatus
+        /// <summary>
+        /// ENUMERATION: HEN Analysis [ UNKNOWN | NOT_EXECUTED | NOT_CONVERGED | CONVERGED ]
+        /// </summary>
+        public enum HenAnalysisStatus
+        {
+            UNKNOWN = -1,       // UNKNOWN Analysis HEN Analysis Status
+            NOT_EXECUTED = 0,   // NOT EXECUTED HEN Analysis Status
+            NOT_CONVERGED = 1,  // NOT CONVERGED HEN Analysis Status
+            CONVERGED = 2       // CONVERGED HEN Analysis Status
+        };
+        #endregion      // enum HenAnalysisStatus
+
+
+        #endregion  // HEN ANALYSIS STATUS
+
         #region HEAT
 
         #region enum HeatLoadType
