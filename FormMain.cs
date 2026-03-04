@@ -284,9 +284,9 @@ namespace HenStudio
                 //----------------------------------------------------
                 //--- Update Current HEN Analysis Status Bar Label ---
                 //----------------------------------------------------
-                //HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.NOT_EXECUTED;
+                HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.NOT_EXECUTED;
                 //HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.NOT_CONVERGED;
-                HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.CONVERGED;
+                //HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.CONVERGED;
                 UpdateHenAnalysisStatusBarLabel();      // Update Current HEN Analysis Status Bar Label
                 #endregion  // Update Current HEN Analysis Status Flag Status Bar Label
 

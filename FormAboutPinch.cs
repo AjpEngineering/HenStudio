@@ -51,7 +51,7 @@ namespace HenStudio
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public HenTypes HenTypesObj { get; set; }         // Pinch Types
+        public HenTypes HenTypesObj { get; set; }         // HEN Studio Types
 
         #endregion      // PROPERTIES
 

@@ -72,7 +72,7 @@ namespace HenGlobal
         public const string AJP_PRODUCT_FULLNAME = "AJP HEN Studio 1.0";
         public const string AJP_PRODUCT_NAME = "AJP HEN Studio";
         public const string AJP_PRODUCT_VERSION = "1.0.1";
-        public const string AJP_PRODUCT_SERIAL_NUMBER = "1022-456-1189" ;
+        public const string AJP_PRODUCT_SERIAL_NUMBER = "1022-789-1189" ;
         public const string AJP_PRODUCT_CODE = "{3D9721BA-003E-4711-B7AF-B579645F0AC9}";
         #endregion  // SUPPLIER & PRODUCT INFORMATION ... LICENSE FILE STRINGS
 
