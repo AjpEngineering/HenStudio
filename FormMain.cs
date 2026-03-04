@@ -831,13 +831,13 @@ namespace HenStudio
 
         #region HELP MENU ITEMS
         
-        #region SETTINGS
+        #region PROJECT SETTINGS
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //HenMsgDlg.DisplayWarningDlg("Settings Menu Item Selected!");
             DisplayProjectSettingsForm();
         }
-        #endregion  // SETTINGS
+        #endregion  // PROJECT SETTINGS
 
         #region LICENSE
         private void licenseToolStripMenuItem_Click(object sender, EventArgs e)
