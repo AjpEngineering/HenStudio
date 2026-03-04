@@ -157,8 +157,9 @@ namespace HenStudio
             {
                 InitializeComponent();
 
-                #region INITIALIZE PROPERTIES
                 this.Text = "AJP HEN Studio";      // Form Title
+
+                #region INITIALIZE PROPERTIES
 
                 #region AJP COLORS & FONTS
                 AJP_ENGINEERING_GREEN = Color.FromArgb(255, 0, 204, 153);      // Caribbean Green
@@ -195,22 +196,28 @@ namespace HenStudio
                 ColorTextNA_Stream = Color.Black;
                 #endregion  // STREAM COLORS
 
-                //----------------------
-                //--- Create Objects ---
-                //----------------------
+                #region GLOBAL OBJECTS
+                //-----------------------------
+                //--- Create Global Objects ---
+                //-----------------------------
                 HenFileSysObj = new HenFileSystem();
                 HenSettingsObj = new HenSettings();
                 HenTypesObj = new HenTypes();
                 HenMethodsObj = new HenMethods(HenSettingsObj);
+                #endregion  // GLOBAL OBJECTS
 
-                LicenseMgrObj = new LicenseMgr(HenFileSysObj.LicenseFilePath);
+                #region LICENSE GLOBAL SETTINGS
                 //------------------------------------------
                 //--- Initialize License Global Settings ---
                 //------------------------------------------
+                LicenseMgrObj = new LicenseMgr(HenFileSysObj.LicenseFilePath);
+
                 HenSettingsObj.LicenseValidatedFlag = false;
                 HenSettingsObj.LicenseTypeEnum = HenTypes.LicenseType.UNKNOWN;
                 HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.UNKNOWN;
+                #endregion  // LICENSE GLOBAL SETTINGS
 
+                #region STATUS BAR SETTINGS
                 HenSettingsObj.InputValidatedFlag = false;
                 HenSettingsObj.TargetsCalculatedFlag = false;
                 //---------------------------------------
@@ -221,6 +228,8 @@ namespace HenStudio
                 //--- Initialize DB Connected Setting ---
                 //---------------------------------------
                 DbConnectedFlag = false;
+                #endregion  // STATUS BAR SETTINGS
+
                 #endregion  // INITIALIZE PROPERTIES
 
                 //---------------------------
@@ -235,14 +244,14 @@ namespace HenStudio
                 bValidLicenseFile = ValidateLicense(); // Update Global Settings in Method - return valid flag
                 #endregion  // License Validation
 
-                #region DB Connected
-                //-----------------------------
-                //--- Is Database Connected ---
-                //-----------------------------
+                #region Update DB Connected Status Bar Label
+                //--------------------------------------------
+                //--- Update DB Connected Status Bar Label ---
+                //--------------------------------------------
                 //HenSettingsObj.DbConnectedEnum = HenTypes.DbConnected.CONNECTED;
                 HenSettingsObj.DbConnectedEnum = HenTypes.DbConnected.UNCONNECTED;
                 UpdateDbConnectLabel();    // Update Database Connected Status Bar Label
-                #endregion  // DB Connected
+                #endregion  // Update DB Connected Status Bar Label
 
                 #region Update Pinch Units Status Bar Label
                 //-------------------------------------------
@@ -293,6 +302,33 @@ namespace HenStudio
             }
         }
         #endregion      // CTOR
+
+        #region public void Initialize Controls
+        /// <summary>
+        /// Set Initial State of Controls
+        /// </summary>
+        public void InitializeControls()
+        {
+            string strMethod = "InitializeControls";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
+
+            try
+            {
+                this.Text = "AJP HEN Studio";
+                this.BackColor = ColorPanelGreenBackground; // Form Background Color
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion      // public void Initialize Controls
 
         #region FormMain_Load
         private void FormMain_Load(object sender, EventArgs e)
@@ -351,33 +387,6 @@ namespace HenStudio
             }
         }
         #endregion  // FormMain_Load
-
-        #region public void Initialize Controls
-        /// <summary>
-        /// Set Initial State of Controls
-        /// </summary>
-        public void InitializeControls()
-        {
-            string strMethod = "InitializeControls";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
-
-            try
-            {
-                this.Text = "AJP HEN Studio";
-                this.BackColor = ColorPanelGreenBackground; // Form Background Color
-
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion      // public void Initialize Controls
 
         #region LICENSE METHODS
 
