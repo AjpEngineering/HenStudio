@@ -181,6 +181,16 @@ namespace HenStudio.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Catalog_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Catalog_16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Composite_32x32 {
@@ -257,6 +267,36 @@ namespace HenStudio.Properties {
             get {
                 object obj = ResourceManager.GetObject("HEN", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] HEN_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("HEN_16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hen_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Hen_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] HENSelected_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("HENSelected_16x16", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -351,12 +391,102 @@ namespace HenStudio.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Pinch_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Pinch_16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pinch_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Pinch_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PinchSelected_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("PinchSelected_16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ProfileLight_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("ProfileLight_16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfileLight_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("ProfileLight_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ProfileLightSelected_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("ProfileLightSelected_16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfileSelectedLight_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("ProfileSelectedLight_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Project_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Project_16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Project_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Project_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ProjectSelected_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("ProjectSelected_16x16", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
