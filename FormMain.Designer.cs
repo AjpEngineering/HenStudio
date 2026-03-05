@@ -43,6 +43,8 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scorecardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -50,31 +52,35 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelLicense = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelUnits = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelDbConnect = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelInput = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelTargets = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelHenConverged = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelUnits = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelAJP_ENG = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageListAnalysis = new System.Windows.Forms.ImageList(this.components);
             this.imageListInput = new System.Windows.Forms.ImageList(this.components);
             this.imageListTargets = new System.Windows.Forms.ImageList(this.components);
             this.imageListHen = new System.Windows.Forms.ImageList(this.components);
             this.splitContainerLefCenter = new System.Windows.Forms.SplitContainer();
-            this.toolStripStatusLabelHenConverged = new System.Windows.Forms.ToolStripStatusLabel();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tabControlProject = new System.Windows.Forms.TabControl();
-            this.tabPage1ProjectExplorer = new System.Windows.Forms.TabPage();
+            this.tabPageProjectExplorer = new System.Windows.Forms.TabPage();
             this.tabPageCurrentProject = new System.Windows.Forms.TabPage();
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
             this.tabControlAnalysisPhase = new System.Windows.Forms.TabControl();
             this.tabPageInputProfile = new System.Windows.Forms.TabPage();
-            this.tabPagePinchStudy = new System.Windows.Forms.TabPage();
-            this.tabPageHenDesign = new System.Windows.Forms.TabPage();
             this.tabControlInputPhase = new System.Windows.Forms.TabControl();
             this.tabPageStreams = new System.Windows.Forms.TabPage();
             this.tabPageUtilities = new System.Windows.Forms.TabPage();
             this.tabPageEconomics = new System.Windows.Forms.TabPage();
+            this.tabPagePinchStudy = new System.Windows.Forms.TabPage();
+            this.tabPageHenDesign = new System.Windows.Forms.TabPage();
+            this.imageListProjectExplorer = new System.Windows.Forms.ImageList(this.components);
+            this.splitContainerProject = new System.Windows.Forms.SplitContainer();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.textBoxInputBanner = new System.Windows.Forms.TextBox();
+            this.textBoxPinchBanner = new System.Windows.Forms.TextBox();
+            this.textBoxHenBanner = new System.Windows.Forms.TextBox();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerLefCenter)).BeginInit();
@@ -82,9 +88,17 @@
             this.splitContainerLefCenter.Panel2.SuspendLayout();
             this.splitContainerLefCenter.SuspendLayout();
             this.tabControlProject.SuspendLayout();
+            this.tabPageProjectExplorer.SuspendLayout();
+            this.tabPageCurrentProject.SuspendLayout();
             this.tabControlAnalysisPhase.SuspendLayout();
             this.tabPageInputProfile.SuspendLayout();
             this.tabControlInputPhase.SuspendLayout();
+            this.tabPagePinchStudy.SuspendLayout();
+            this.tabPageHenDesign.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerProject)).BeginInit();
+            this.splitContainerProject.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -121,7 +135,7 @@
             // 
             this.newToolStripMenuItem.Image = global::HenStudio.Properties.Resources.New_32x32;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.newToolStripMenuItem.Text = "New...";
             this.newToolStripMenuItem.ToolTipText = "Create New Project Database";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
@@ -130,7 +144,7 @@
             // 
             this.openToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Open_32x32;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.ToolTipText = "Open Existing Project Database";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
@@ -138,13 +152,13 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(130, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Save_32x32;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.ToolTipText = "Save Current Project Database";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
@@ -153,7 +167,7 @@
             // 
             this.saveAsToolStripMenuItem.Image = global::HenStudio.Properties.Resources.SaveAs_32x_32;
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.ToolTipText = "Save Current Project Database As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
@@ -161,13 +175,13 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(130, 6);
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Import;
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.importToolStripMenuItem.Text = "Import...";
             this.importToolStripMenuItem.ToolTipText = "Import Project Zip File";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
@@ -176,7 +190,7 @@
             // 
             this.exportToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Export_32x32;
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.exportToolStripMenuItem.Text = "Export...";
             this.exportToolStripMenuItem.ToolTipText = "Export Project Zip File";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
@@ -184,13 +198,13 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(130, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Exit_32x32;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.ToolTipText = "Exit Application";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
@@ -208,6 +222,19 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Calc_Gears_32x32;
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
+            this.settingsToolStripMenuItem.Text = "Settings...";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(216, 6);
             // 
             // licenseToolStripMenuItem
             // 
@@ -283,18 +310,6 @@
             this.toolStripStatusLabelLicense.Text = "UNKNOWN  LICENSE ";
             this.toolStripStatusLabelLicense.ToolTipText = "License Status";
             // 
-            // toolStripStatusLabelUnits
-            // 
-            this.toolStripStatusLabelUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(0)))));
-            this.toolStripStatusLabelUnits.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelUnits.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelUnits.Image = global::HenStudio.Properties.Resources.Unknown_32x32;
-            this.toolStripStatusLabelUnits.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelUnits.Name = "toolStripStatusLabelUnits";
-            this.toolStripStatusLabelUnits.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.toolStripStatusLabelUnits.Size = new System.Drawing.Size(182, 28);
-            this.toolStripStatusLabelUnits.Text = "UNKNOWN UNITS ";
-            // 
             // toolStripStatusLabelDbConnect
             // 
             this.toolStripStatusLabelDbConnect.BackColor = System.Drawing.Color.Green;
@@ -328,6 +343,28 @@
             this.toolStripStatusLabelTargets.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.toolStripStatusLabelTargets.Size = new System.Drawing.Size(244, 28);
             this.toolStripStatusLabelTargets.Text = "TARGETS NOT CALCULATED";
+            // 
+            // toolStripStatusLabelHenConverged
+            // 
+            this.toolStripStatusLabelHenConverged.BackColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelHenConverged.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelHenConverged.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelHenConverged.Image = global::HenStudio.Properties.Resources.InValid_32x32;
+            this.toolStripStatusLabelHenConverged.Name = "toolStripStatusLabelHenConverged";
+            this.toolStripStatusLabelHenConverged.Size = new System.Drawing.Size(179, 29);
+            this.toolStripStatusLabelHenConverged.Text = "HEN NOT EXECUTED";
+            // 
+            // toolStripStatusLabelUnits
+            // 
+            this.toolStripStatusLabelUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(0)))));
+            this.toolStripStatusLabelUnits.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelUnits.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelUnits.Image = global::HenStudio.Properties.Resources.Unknown_32x32;
+            this.toolStripStatusLabelUnits.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelUnits.Name = "toolStripStatusLabelUnits";
+            this.toolStripStatusLabelUnits.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.toolStripStatusLabelUnits.Size = new System.Drawing.Size(182, 28);
+            this.toolStripStatusLabelUnits.Text = "UNKNOWN UNITS ";
             // 
             // toolStripStatusLabelAJP_ENG
             // 
@@ -393,79 +430,59 @@
             this.splitContainerLefCenter.Panel1.BackColor = System.Drawing.Color.Honeydew;
             this.splitContainerLefCenter.Panel1.Controls.Add(this.tabControlProject);
             this.splitContainerLefCenter.Panel1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.splitContainerLefCenter.Panel1MinSize = 360;
+            this.splitContainerLefCenter.Panel1MinSize = 325;
             // 
             // splitContainerLefCenter.Panel2
             // 
             this.splitContainerLefCenter.Panel2.BackColor = System.Drawing.Color.Honeydew;
             this.splitContainerLefCenter.Panel2.Controls.Add(this.tabControlAnalysisPhase);
             this.splitContainerLefCenter.Panel2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.splitContainerLefCenter.Panel2MinSize = 910;
             this.splitContainerLefCenter.Size = new System.Drawing.Size(1264, 623);
-            this.splitContainerLefCenter.SplitterDistance = 364;
+            this.splitContainerLefCenter.SplitterDistance = 330;
             this.splitContainerLefCenter.TabIndex = 2;
-            // 
-            // toolStripStatusLabelHenConverged
-            // 
-            this.toolStripStatusLabelHenConverged.BackColor = System.Drawing.Color.Red;
-            this.toolStripStatusLabelHenConverged.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelHenConverged.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelHenConverged.Image = global::HenStudio.Properties.Resources.InValid_32x32;
-            this.toolStripStatusLabelHenConverged.Name = "toolStripStatusLabelHenConverged";
-            this.toolStripStatusLabelHenConverged.Size = new System.Drawing.Size(179, 29);
-            this.toolStripStatusLabelHenConverged.Text = "HEN NOT EXECUTED";
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Calc_Gears_32x32;
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(219, 30);
-            this.settingsToolStripMenuItem.Text = "Settings...";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(216, 6);
             // 
             // tabControlProject
             // 
             this.tabControlProject.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.tabControlProject.Controls.Add(this.tabPage1ProjectExplorer);
+            this.tabControlProject.Controls.Add(this.tabPageProjectExplorer);
             this.tabControlProject.Controls.Add(this.tabPageCurrentProject);
             this.tabControlProject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlProject.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlProject.ImageList = this.imageListProject;
             this.tabControlProject.Location = new System.Drawing.Point(0, 0);
-            this.tabControlProject.MinimumSize = new System.Drawing.Size(362, 621);
+            this.tabControlProject.MinimumSize = new System.Drawing.Size(350, 621);
             this.tabControlProject.Name = "tabControlProject";
             this.tabControlProject.SelectedIndex = 0;
             this.tabControlProject.ShowToolTips = true;
-            this.tabControlProject.Size = new System.Drawing.Size(362, 621);
+            this.tabControlProject.Size = new System.Drawing.Size(350, 621);
             this.tabControlProject.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControlProject.TabIndex = 0;
             // 
-            // tabPage1ProjectExplorer
+            // tabPageProjectExplorer
             // 
-            this.tabPage1ProjectExplorer.BackColor = System.Drawing.Color.White;
-            this.tabPage1ProjectExplorer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPage1ProjectExplorer.ImageIndex = 0;
-            this.tabPage1ProjectExplorer.Location = new System.Drawing.Point(4, 4);
-            this.tabPage1ProjectExplorer.Name = "tabPage1ProjectExplorer";
-            this.tabPage1ProjectExplorer.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1ProjectExplorer.Size = new System.Drawing.Size(356, 580);
-            this.tabPage1ProjectExplorer.TabIndex = 0;
-            this.tabPage1ProjectExplorer.Text = "PROJECT EXPLORER ";
-            this.tabPage1ProjectExplorer.ToolTipText = "Project Explorer";
+            this.tabPageProjectExplorer.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageProjectExplorer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPageProjectExplorer.Controls.Add(this.splitContainerProject);
+            this.tabPageProjectExplorer.ImageIndex = 0;
+            this.tabPageProjectExplorer.Location = new System.Drawing.Point(4, 4);
+            this.tabPageProjectExplorer.Name = "tabPageProjectExplorer";
+            this.tabPageProjectExplorer.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageProjectExplorer.Size = new System.Drawing.Size(342, 578);
+            this.tabPageProjectExplorer.TabIndex = 0;
+            this.tabPageProjectExplorer.Text = "PROJECT EXPLORER ";
+            this.tabPageProjectExplorer.ToolTipText = "Project Explorer";
             // 
             // tabPageCurrentProject
             // 
-            this.tabPageCurrentProject.BackColor = System.Drawing.Color.White;
+            this.tabPageCurrentProject.BackColor = System.Drawing.Color.Honeydew;
             this.tabPageCurrentProject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPageCurrentProject.Controls.Add(this.splitContainer2);
             this.tabPageCurrentProject.ImageIndex = 1;
             this.tabPageCurrentProject.Location = new System.Drawing.Point(4, 4);
             this.tabPageCurrentProject.Name = "tabPageCurrentProject";
             this.tabPageCurrentProject.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCurrentProject.Size = new System.Drawing.Size(354, 578);
+            this.tabPageCurrentProject.Size = new System.Drawing.Size(342, 578);
             this.tabPageCurrentProject.TabIndex = 1;
             this.tabPageCurrentProject.Text = "CURRENT PROJECT ";
             this.tabPageCurrentProject.ToolTipText = "Current Project";
@@ -489,58 +506,38 @@
             this.tabControlAnalysisPhase.Name = "tabControlAnalysisPhase";
             this.tabControlAnalysisPhase.SelectedIndex = 0;
             this.tabControlAnalysisPhase.ShowToolTips = true;
-            this.tabControlAnalysisPhase.Size = new System.Drawing.Size(894, 621);
+            this.tabControlAnalysisPhase.Size = new System.Drawing.Size(928, 621);
             this.tabControlAnalysisPhase.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControlAnalysisPhase.TabIndex = 0;
             // 
             // tabPageInputProfile
             // 
-            this.tabPageInputProfile.BackColor = System.Drawing.Color.White;
+            this.tabPageInputProfile.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageInputProfile.Controls.Add(this.textBoxInputBanner);
             this.tabPageInputProfile.Controls.Add(this.tabControlInputPhase);
             this.tabPageInputProfile.ImageIndex = 0;
             this.tabPageInputProfile.Location = new System.Drawing.Point(4, 4);
             this.tabPageInputProfile.Name = "tabPageInputProfile";
             this.tabPageInputProfile.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInputProfile.Size = new System.Drawing.Size(886, 578);
+            this.tabPageInputProfile.Size = new System.Drawing.Size(920, 578);
             this.tabPageInputProfile.TabIndex = 0;
             this.tabPageInputProfile.Text = "INPUT PROFILE ";
             this.tabPageInputProfile.ToolTipText = "Current Input Profile";
             // 
-            // tabPagePinchStudy
-            // 
-            this.tabPagePinchStudy.BackColor = System.Drawing.Color.White;
-            this.tabPagePinchStudy.ImageIndex = 1;
-            this.tabPagePinchStudy.Location = new System.Drawing.Point(4, 4);
-            this.tabPagePinchStudy.Name = "tabPagePinchStudy";
-            this.tabPagePinchStudy.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePinchStudy.Size = new System.Drawing.Size(886, 578);
-            this.tabPagePinchStudy.TabIndex = 1;
-            this.tabPagePinchStudy.Text = "PINCH STUDY ";
-            this.tabPagePinchStudy.ToolTipText = "Current Pinch Study";
-            // 
-            // tabPageHenDesign
-            // 
-            this.tabPageHenDesign.BackColor = System.Drawing.Color.White;
-            this.tabPageHenDesign.ImageIndex = 2;
-            this.tabPageHenDesign.Location = new System.Drawing.Point(4, 4);
-            this.tabPageHenDesign.Name = "tabPageHenDesign";
-            this.tabPageHenDesign.Size = new System.Drawing.Size(886, 578);
-            this.tabPageHenDesign.TabIndex = 2;
-            this.tabPageHenDesign.Text = "HEAT EXCHANGER NETWORK (HEN) DESIGN ";
-            this.tabPageHenDesign.ToolTipText = "Current Heat Exchanger Network (HEN Deisgn";
-            // 
             // tabControlInputPhase
             // 
+            this.tabControlInputPhase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlInputPhase.Controls.Add(this.tabPageStreams);
             this.tabControlInputPhase.Controls.Add(this.tabPageUtilities);
             this.tabControlInputPhase.Controls.Add(this.tabPageEconomics);
-            this.tabControlInputPhase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlInputPhase.ImageList = this.imageListInput;
-            this.tabControlInputPhase.Location = new System.Drawing.Point(3, 3);
+            this.tabControlInputPhase.Location = new System.Drawing.Point(3, 39);
             this.tabControlInputPhase.Name = "tabControlInputPhase";
             this.tabControlInputPhase.SelectedIndex = 0;
             this.tabControlInputPhase.ShowToolTips = true;
-            this.tabControlInputPhase.Size = new System.Drawing.Size(880, 572);
+            this.tabControlInputPhase.Size = new System.Drawing.Size(910, 542);
             this.tabControlInputPhase.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControlInputPhase.TabIndex = 0;
             // 
@@ -551,7 +548,7 @@
             this.tabPageStreams.Location = new System.Drawing.Point(4, 39);
             this.tabPageStreams.Name = "tabPageStreams";
             this.tabPageStreams.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStreams.Size = new System.Drawing.Size(872, 529);
+            this.tabPageStreams.Size = new System.Drawing.Size(910, 499);
             this.tabPageStreams.TabIndex = 0;
             this.tabPageStreams.Text = "PROCESS STREAMS ";
             this.tabPageStreams.ToolTipText = "Specify Process Streams for Current Input Profile";
@@ -574,10 +571,120 @@
             this.tabPageEconomics.ImageIndex = 2;
             this.tabPageEconomics.Location = new System.Drawing.Point(4, 39);
             this.tabPageEconomics.Name = "tabPageEconomics";
-            this.tabPageEconomics.Size = new System.Drawing.Size(872, 529);
+            this.tabPageEconomics.Size = new System.Drawing.Size(902, 499);
             this.tabPageEconomics.TabIndex = 2;
             this.tabPageEconomics.Text = "ECONONMIC PARAMETERS";
             this.tabPageEconomics.ToolTipText = "Specify Economic Parameters for Current Input Profile";
+            // 
+            // tabPagePinchStudy
+            // 
+            this.tabPagePinchStudy.BackColor = System.Drawing.Color.White;
+            this.tabPagePinchStudy.Controls.Add(this.textBoxPinchBanner);
+            this.tabPagePinchStudy.ImageIndex = 1;
+            this.tabPagePinchStudy.Location = new System.Drawing.Point(4, 4);
+            this.tabPagePinchStudy.Name = "tabPagePinchStudy";
+            this.tabPagePinchStudy.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePinchStudy.Size = new System.Drawing.Size(920, 578);
+            this.tabPagePinchStudy.TabIndex = 1;
+            this.tabPagePinchStudy.Text = "PINCH STUDY ";
+            this.tabPagePinchStudy.ToolTipText = "Current Pinch Study";
+            // 
+            // tabPageHenDesign
+            // 
+            this.tabPageHenDesign.BackColor = System.Drawing.Color.White;
+            this.tabPageHenDesign.Controls.Add(this.textBoxHenBanner);
+            this.tabPageHenDesign.ImageIndex = 2;
+            this.tabPageHenDesign.Location = new System.Drawing.Point(4, 4);
+            this.tabPageHenDesign.Name = "tabPageHenDesign";
+            this.tabPageHenDesign.Size = new System.Drawing.Size(920, 578);
+            this.tabPageHenDesign.TabIndex = 2;
+            this.tabPageHenDesign.Text = "HEAT EXCHANGER NETWORK (HEN) DESIGN ";
+            this.tabPageHenDesign.ToolTipText = "Current Heat Exchanger Network (HEN Deisgn";
+            // 
+            // imageListProjectExplorer
+            // 
+            this.imageListProjectExplorer.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageListProjectExplorer.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListProjectExplorer.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // splitContainerProject
+            // 
+            this.splitContainerProject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainerProject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerProject.Location = new System.Drawing.Point(3, 3);
+            this.splitContainerProject.Name = "splitContainerProject";
+            this.splitContainerProject.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerProject.Panel1
+            // 
+            this.splitContainerProject.Panel1.BackColor = System.Drawing.Color.White;
+            this.splitContainerProject.Panel1MinSize = 300;
+            this.splitContainerProject.Panel2MinSize = 250;
+            this.splitContainerProject.Size = new System.Drawing.Size(334, 570);
+            this.splitContainerProject.SplitterDistance = 300;
+            this.splitContainerProject.TabIndex = 0;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.White;
+            this.splitContainer2.Panel1MinSize = 300;
+            this.splitContainer2.Panel2MinSize = 250;
+            this.splitContainer2.Size = new System.Drawing.Size(334, 570);
+            this.splitContainer2.SplitterDistance = 300;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // textBoxInputBanner
+            // 
+            this.textBoxInputBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxInputBanner.BackColor = System.Drawing.Color.DodgerBlue;
+            this.textBoxInputBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxInputBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxInputBanner.ForeColor = System.Drawing.Color.Yellow;
+            this.textBoxInputBanner.Location = new System.Drawing.Point(7, 3);
+            this.textBoxInputBanner.Name = "textBoxInputBanner";
+            this.textBoxInputBanner.Size = new System.Drawing.Size(902, 33);
+            this.textBoxInputBanner.TabIndex = 1;
+            this.textBoxInputBanner.Text = "PROJECT: {name}  PROFILE: {name}";
+            this.textBoxInputBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPinchBanner
+            // 
+            this.textBoxPinchBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPinchBanner.BackColor = System.Drawing.Color.OrangeRed;
+            this.textBoxPinchBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxPinchBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPinchBanner.ForeColor = System.Drawing.Color.Yellow;
+            this.textBoxPinchBanner.Location = new System.Drawing.Point(7, 3);
+            this.textBoxPinchBanner.Name = "textBoxPinchBanner";
+            this.textBoxPinchBanner.Size = new System.Drawing.Size(902, 33);
+            this.textBoxPinchBanner.TabIndex = 2;
+            this.textBoxPinchBanner.Text = "PROJECT: {name}  PROFILE: {name}  PINCH: {name}";
+            this.textBoxPinchBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxHenBanner
+            // 
+            this.textBoxHenBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxHenBanner.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.textBoxHenBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxHenBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxHenBanner.ForeColor = System.Drawing.Color.Yellow;
+            this.textBoxHenBanner.Location = new System.Drawing.Point(7, 3);
+            this.textBoxHenBanner.Name = "textBoxHenBanner";
+            this.textBoxHenBanner.Size = new System.Drawing.Size(902, 33);
+            this.textBoxHenBanner.TabIndex = 3;
+            this.textBoxHenBanner.Text = "PROJECT: {name}  PROFILE: {name}  PINCH: {name}  HEN: {name}";
+            this.textBoxHenBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FormMain
             // 
@@ -609,9 +716,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerLefCenter)).EndInit();
             this.splitContainerLefCenter.ResumeLayout(false);
             this.tabControlProject.ResumeLayout(false);
+            this.tabPageProjectExplorer.ResumeLayout(false);
+            this.tabPageCurrentProject.ResumeLayout(false);
             this.tabControlAnalysisPhase.ResumeLayout(false);
             this.tabPageInputProfile.ResumeLayout(false);
+            this.tabPageInputProfile.PerformLayout();
             this.tabControlInputPhase.ResumeLayout(false);
+            this.tabPagePinchStudy.ResumeLayout(false);
+            this.tabPagePinchStudy.PerformLayout();
+            this.tabPageHenDesign.ResumeLayout(false);
+            this.tabPageHenDesign.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerProject)).EndInit();
+            this.splitContainerProject.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -653,7 +771,7 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.TabControl tabControlProject;
-        private System.Windows.Forms.TabPage tabPage1ProjectExplorer;
+        private System.Windows.Forms.TabPage tabPageProjectExplorer;
         private System.Windows.Forms.TabPage tabPageCurrentProject;
         private System.Windows.Forms.ImageList imageListProject;
         private System.Windows.Forms.TabControl tabControlAnalysisPhase;
@@ -664,6 +782,12 @@
         private System.Windows.Forms.TabPage tabPageStreams;
         private System.Windows.Forms.TabPage tabPageUtilities;
         private System.Windows.Forms.TabPage tabPageEconomics;
+        private System.Windows.Forms.ImageList imageListProjectExplorer;
+        private System.Windows.Forms.SplitContainer splitContainerProject;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.TextBox textBoxInputBanner;
+        private System.Windows.Forms.TextBox textBoxPinchBanner;
+        private System.Windows.Forms.TextBox textBoxHenBanner;
     }
 }
 

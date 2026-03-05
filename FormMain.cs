@@ -1419,6 +1419,37 @@ namespace HenStudio
 
         #endregion  // METHODS
 
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        //--------------------------------------- Project Explorer TreeView ---
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+        #region PROJECT EXPLORER TREE VIEW
+
+        #region InitializeProjectExplorerTreeView()
+        private void InitializeProjectExplorerTreeView()
+        {
+            string strMethod = "InitializeProjectExplorerTreeView";
+            string strMsg = String.Empty;
+            try
+            {
+
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // InitializeProjectExplorerTreeView()
+
+        #endregion      // PROJECT EXPLORER TREE VIEW
+
+
     }
     #endregion      // class FormPinch
 }
