@@ -64,7 +64,7 @@
             this.imageListHen = new System.Windows.Forms.ImageList(this.components);
             this.splitContainerLefCenter = new System.Windows.Forms.SplitContainer();
             this.tabControlProject = new System.Windows.Forms.TabControl();
-            this.tabPageProjectExplorer = new System.Windows.Forms.TabPage();
+            this.tabPageCatalogExplorer = new System.Windows.Forms.TabPage();
             this.tabPageCurrentProject = new System.Windows.Forms.TabPage();
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
             this.tabControlAnalysisPhase = new System.Windows.Forms.TabControl();
@@ -81,6 +81,8 @@
             this.textBoxInputBanner = new System.Windows.Forms.TextBox();
             this.textBoxPinchBanner = new System.Windows.Forms.TextBox();
             this.textBoxHenBanner = new System.Windows.Forms.TextBox();
+            this.treeViewCatalogExplorer = new System.Windows.Forms.TreeView();
+            this.treeViewCurrentProjectExplorer = new System.Windows.Forms.TreeView();
             this.menuStripMain.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerLefCenter)).BeginInit();
@@ -88,7 +90,7 @@
             this.splitContainerLefCenter.Panel2.SuspendLayout();
             this.splitContainerLefCenter.SuspendLayout();
             this.tabControlProject.SuspendLayout();
-            this.tabPageProjectExplorer.SuspendLayout();
+            this.tabPageCatalogExplorer.SuspendLayout();
             this.tabPageCurrentProject.SuspendLayout();
             this.tabControlAnalysisPhase.SuspendLayout();
             this.tabPageInputProfile.SuspendLayout();
@@ -96,8 +98,10 @@
             this.tabPagePinchStudy.SuspendLayout();
             this.tabPageHenDesign.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerProject)).BeginInit();
+            this.splitContainerProject.Panel1.SuspendLayout();
             this.splitContainerProject.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -445,7 +449,7 @@
             // tabControlProject
             // 
             this.tabControlProject.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.tabControlProject.Controls.Add(this.tabPageProjectExplorer);
+            this.tabControlProject.Controls.Add(this.tabPageCatalogExplorer);
             this.tabControlProject.Controls.Add(this.tabPageCurrentProject);
             this.tabControlProject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlProject.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -459,24 +463,22 @@
             this.tabControlProject.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControlProject.TabIndex = 0;
             // 
-            // tabPageProjectExplorer
+            // tabPageCatalogExplorer
             // 
-            this.tabPageProjectExplorer.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageProjectExplorer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPageProjectExplorer.Controls.Add(this.splitContainerProject);
-            this.tabPageProjectExplorer.ImageIndex = 0;
-            this.tabPageProjectExplorer.Location = new System.Drawing.Point(4, 4);
-            this.tabPageProjectExplorer.Name = "tabPageProjectExplorer";
-            this.tabPageProjectExplorer.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageProjectExplorer.Size = new System.Drawing.Size(342, 578);
-            this.tabPageProjectExplorer.TabIndex = 0;
-            this.tabPageProjectExplorer.Text = "PROJECT EXPLORER ";
-            this.tabPageProjectExplorer.ToolTipText = "Project Explorer";
+            this.tabPageCatalogExplorer.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageCatalogExplorer.Controls.Add(this.splitContainerProject);
+            this.tabPageCatalogExplorer.ImageIndex = 0;
+            this.tabPageCatalogExplorer.Location = new System.Drawing.Point(4, 4);
+            this.tabPageCatalogExplorer.Name = "tabPageCatalogExplorer";
+            this.tabPageCatalogExplorer.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCatalogExplorer.Size = new System.Drawing.Size(342, 578);
+            this.tabPageCatalogExplorer.TabIndex = 0;
+            this.tabPageCatalogExplorer.Text = "CATALOG EXPLORER ";
+            this.tabPageCatalogExplorer.ToolTipText = "Project Explorer";
             // 
             // tabPageCurrentProject
             // 
             this.tabPageCurrentProject.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageCurrentProject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPageCurrentProject.Controls.Add(this.splitContainer2);
             this.tabPageCurrentProject.ImageIndex = 1;
             this.tabPageCurrentProject.Location = new System.Drawing.Point(4, 4);
@@ -521,7 +523,7 @@
             this.tabPageInputProfile.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageInputProfile.Size = new System.Drawing.Size(920, 578);
             this.tabPageInputProfile.TabIndex = 0;
-            this.tabPageInputProfile.Text = "INPUT PROFILE ";
+            this.tabPageInputProfile.Text = "CURRENT INPUT PROFILE ";
             this.tabPageInputProfile.ToolTipText = "Current Input Profile";
             // 
             // tabControlInputPhase
@@ -548,7 +550,7 @@
             this.tabPageStreams.Location = new System.Drawing.Point(4, 39);
             this.tabPageStreams.Name = "tabPageStreams";
             this.tabPageStreams.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStreams.Size = new System.Drawing.Size(910, 499);
+            this.tabPageStreams.Size = new System.Drawing.Size(902, 499);
             this.tabPageStreams.TabIndex = 0;
             this.tabPageStreams.Text = "PROCESS STREAMS ";
             this.tabPageStreams.ToolTipText = "Specify Process Streams for Current Input Profile";
@@ -560,7 +562,7 @@
             this.tabPageUtilities.Location = new System.Drawing.Point(4, 39);
             this.tabPageUtilities.Name = "tabPageUtilities";
             this.tabPageUtilities.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUtilities.Size = new System.Drawing.Size(872, 529);
+            this.tabPageUtilities.Size = new System.Drawing.Size(902, 499);
             this.tabPageUtilities.TabIndex = 1;
             this.tabPageUtilities.Text = "UTILITY STREAMS";
             this.tabPageUtilities.ToolTipText = "Specify Utility Streams for Current Input Profile";
@@ -586,7 +588,7 @@
             this.tabPagePinchStudy.Padding = new System.Windows.Forms.Padding(3);
             this.tabPagePinchStudy.Size = new System.Drawing.Size(920, 578);
             this.tabPagePinchStudy.TabIndex = 1;
-            this.tabPagePinchStudy.Text = "PINCH STUDY ";
+            this.tabPagePinchStudy.Text = "CURRENT PINCH STUDY ";
             this.tabPagePinchStudy.ToolTipText = "Current Pinch Study";
             // 
             // tabPageHenDesign
@@ -598,7 +600,7 @@
             this.tabPageHenDesign.Name = "tabPageHenDesign";
             this.tabPageHenDesign.Size = new System.Drawing.Size(920, 578);
             this.tabPageHenDesign.TabIndex = 2;
-            this.tabPageHenDesign.Text = "HEAT EXCHANGER NETWORK (HEN) DESIGN ";
+            this.tabPageHenDesign.Text = "CURRENT HEAT EXCHANGER NETWORK (HEN) DESIGN ";
             this.tabPageHenDesign.ToolTipText = "Current Heat Exchanger Network (HEN Deisgn";
             // 
             // imageListProjectExplorer
@@ -618,10 +620,11 @@
             // splitContainerProject.Panel1
             // 
             this.splitContainerProject.Panel1.BackColor = System.Drawing.Color.White;
+            this.splitContainerProject.Panel1.Controls.Add(this.treeViewCatalogExplorer);
             this.splitContainerProject.Panel1MinSize = 300;
             this.splitContainerProject.Panel2MinSize = 250;
-            this.splitContainerProject.Size = new System.Drawing.Size(334, 570);
-            this.splitContainerProject.SplitterDistance = 300;
+            this.splitContainerProject.Size = new System.Drawing.Size(336, 572);
+            this.splitContainerProject.SplitterDistance = 301;
             this.splitContainerProject.TabIndex = 0;
             // 
             // splitContainer2
@@ -635,10 +638,11 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.BackColor = System.Drawing.Color.White;
+            this.splitContainer2.Panel1.Controls.Add(this.treeViewCurrentProjectExplorer);
             this.splitContainer2.Panel1MinSize = 300;
             this.splitContainer2.Panel2MinSize = 250;
-            this.splitContainer2.Size = new System.Drawing.Size(334, 570);
-            this.splitContainer2.SplitterDistance = 300;
+            this.splitContainer2.Size = new System.Drawing.Size(336, 572);
+            this.splitContainer2.SplitterDistance = 301;
             this.splitContainer2.TabIndex = 0;
             // 
             // textBoxInputBanner
@@ -686,6 +690,28 @@
             this.textBoxHenBanner.Text = "PROJECT: {name}  PROFILE: {name}  PINCH: {name}  HEN: {name}";
             this.textBoxHenBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // treeViewCatalogExplorer
+            // 
+            this.treeViewCatalogExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeViewCatalogExplorer.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.treeViewCatalogExplorer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewCatalogExplorer.Location = new System.Drawing.Point(-5, -5);
+            this.treeViewCatalogExplorer.Name = "treeViewCatalogExplorer";
+            this.treeViewCatalogExplorer.Size = new System.Drawing.Size(323, 301);
+            this.treeViewCatalogExplorer.TabIndex = 0;
+            // 
+            // treeViewCurrentProjectExplorer
+            // 
+            this.treeViewCurrentProjectExplorer.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.treeViewCurrentProjectExplorer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewCurrentProjectExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewCurrentProjectExplorer.Location = new System.Drawing.Point(0, 0);
+            this.treeViewCurrentProjectExplorer.Name = "treeViewCurrentProjectExplorer";
+            this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(334, 299);
+            this.treeViewCurrentProjectExplorer.TabIndex = 0;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -716,7 +742,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerLefCenter)).EndInit();
             this.splitContainerLefCenter.ResumeLayout(false);
             this.tabControlProject.ResumeLayout(false);
-            this.tabPageProjectExplorer.ResumeLayout(false);
+            this.tabPageCatalogExplorer.ResumeLayout(false);
             this.tabPageCurrentProject.ResumeLayout(false);
             this.tabControlAnalysisPhase.ResumeLayout(false);
             this.tabPageInputProfile.ResumeLayout(false);
@@ -726,8 +752,10 @@
             this.tabPagePinchStudy.PerformLayout();
             this.tabPageHenDesign.ResumeLayout(false);
             this.tabPageHenDesign.PerformLayout();
+            this.splitContainerProject.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerProject)).EndInit();
             this.splitContainerProject.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -771,7 +799,7 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.TabControl tabControlProject;
-        private System.Windows.Forms.TabPage tabPageProjectExplorer;
+        private System.Windows.Forms.TabPage tabPageCatalogExplorer;
         private System.Windows.Forms.TabPage tabPageCurrentProject;
         private System.Windows.Forms.ImageList imageListProject;
         private System.Windows.Forms.TabControl tabControlAnalysisPhase;
@@ -788,6 +816,8 @@
         private System.Windows.Forms.TextBox textBoxInputBanner;
         private System.Windows.Forms.TextBox textBoxPinchBanner;
         private System.Windows.Forms.TextBox textBoxHenBanner;
+        private System.Windows.Forms.TreeView treeViewCatalogExplorer;
+        private System.Windows.Forms.TreeView treeViewCurrentProjectExplorer;
     }
 }
 
