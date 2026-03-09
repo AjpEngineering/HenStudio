@@ -46,11 +46,12 @@ using HenGlobal;
 
 using HenStudio.Properties;
 
+
+//using HenStudio.Properties;
+
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-
-using static HenGlobal.HenTypes;
 
 #endregion  // REFERENCES
 
@@ -161,6 +162,16 @@ namespace HenStudio
 
                 #region INITIALIZE PROPERTIES
 
+                #region GLOBAL OBJECTS
+                //-----------------------------
+                //--- Create Global Objects ---
+                //-----------------------------
+                HenFileSysObj = new HenFileSystem();
+                HenSettingsObj = new HenSettings();
+                HenTypesObj = new HenTypes();
+                HenMethodsObj = new HenMethods(HenSettingsObj);
+                #endregion  // GLOBAL OBJECTS
+
                 #region AJP COLORS & FONTS
                 AJP_ENGINEERING_GREEN = Color.FromArgb(255, 0, 204, 153);      // Caribbean Green
                 AJP_ENGINEERING_ORANGE = Color.FromArgb(255, 255, 153, 0);     // Vivid Gamboge
@@ -195,16 +206,6 @@ namespace HenStudio
                 ColorTextColdStream = Color.Black;
                 ColorTextNA_Stream = Color.Black;
                 #endregion  // STREAM COLORS
-
-                #region GLOBAL OBJECTS
-                //-----------------------------
-                //--- Create Global Objects ---
-                //-----------------------------
-                HenFileSysObj = new HenFileSystem();
-                HenSettingsObj = new HenSettings();
-                HenTypesObj = new HenTypes();
-                HenMethodsObj = new HenMethods(HenSettingsObj);
-                #endregion  // GLOBAL OBJECTS
 
                 #region LICENSE GLOBAL SETTINGS
                 //------------------------------------------
@@ -284,7 +285,7 @@ namespace HenStudio
                 //----------------------------------------------------
                 //--- Update Current HEN Analysis Status Bar Label ---
                 //----------------------------------------------------
-                HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.NOT_EXECUTED;
+                HenSettingsObj.HenAnalysisStatusEnum = HenTypes.HenAnalysisStatus.NOT_EXECUTED;
                 //HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.NOT_CONVERGED;
                 //HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.CONVERGED;
                 UpdateHenAnalysisStatusBarLabel();      // Update Current HEN Analysis Status Bar Label
@@ -520,11 +521,11 @@ namespace HenStudio
                     case HenTypes.LicenseStatus.EXPIRED:
                     case HenTypes.LicenseStatus.INVALID:
                         this.toolStripStatusLabelLicense.BackColor = Color.Red;
-                        this.toolStripStatusLabelLicense.Image = Resources.InValid_32x32;
+                        this.toolStripStatusLabelLicense.Image = Resources.NotValid_32x32;
                         break;
                      case HenTypes.LicenseStatus.UNKNOWN:
                         this.toolStripStatusLabelLicense.BackColor = Color.Orange;
-                        this.toolStripStatusLabelLicense.Image = Resources.Unknown_32x32;
+                        this.toolStripStatusLabelLicense.Image = Resources.UNKNOWN_32x32;
                         break;
                    case HenTypes.LicenseStatus.VALID:
                         this.toolStripStatusLabelLicense.BackColor = Color.Green;
@@ -564,17 +565,17 @@ namespace HenStudio
                     case HenTypes.DbConnected.UNKNOWN:
                         this.toolStripStatusLabelDbConnect.BackColor = Color.Orange;
                         this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
-                        this.toolStripStatusLabelDbConnect.Image = Resources.Unknown_32x32;
+                        //this.toolStripStatusLabelDbConnect.Image = Resources.Unknown_32x32;
                         break;
                     case HenTypes.DbConnected.UNCONNECTED:
                         this.toolStripStatusLabelDbConnect.BackColor = Color.Red;
                         this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
-                        this.toolStripStatusLabelDbConnect.Image = Resources.InValid_32x32;
+                        //this.toolStripStatusLabelDbConnect.Image = Resources.InValid_32x32;
                         break;
                     case HenTypes.DbConnected.CONNECTED:
                         this.toolStripStatusLabelDbConnect.BackColor = Color.Green;
                         this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
-                        this.toolStripStatusLabelDbConnect.Image = Resources.Valid_32x32;
+                        //this.toolStripStatusLabelDbConnect.Image = Resources.Valid_32x32;
                         break;
                     default:
                         throw new Exception("INVALID Db Connected Enum Value!");
@@ -610,17 +611,17 @@ namespace HenStudio
                     case HenTypes.PinchUnits.UNKNOWN:
                         this.toolStripStatusLabelUnits.BackColor = Color.Orange;
                         this.toolStripStatusLabelUnits.ForeColor = Color.White;
-                        this.toolStripStatusLabelUnits.Image = Resources.Unknown_32x32;
+                        //this.toolStripStatusLabelUnits.Image = Resources.Unknown_32x32;
                         break;
                     case HenTypes.PinchUnits.ENGLISH:
                         this.toolStripStatusLabelUnits.BackColor = Color.Blue;
                         this.toolStripStatusLabelUnits.ForeColor = Color.White;
-                        this.toolStripStatusLabelUnits.Image = Resources.English_Imperial_Units_32x32;
+                        //this.toolStripStatusLabelUnits.Image = Resources.English_Imperial_Units_32x32;
                         break;
                     case HenTypes.PinchUnits.METRIC:
                         this.toolStripStatusLabelUnits.BackColor = Color.Blue;
                         this.toolStripStatusLabelUnits.ForeColor = Color.White;
-                        this.toolStripStatusLabelUnits.Image = Resources.Metric_SI_Units_32x32;
+                        //this.toolStripStatusLabelUnits.Image = Resources.Metric_SI_Units_32x32;
                         break;
                     default:
                         throw new Exception("INVALID Pinch Units Enum Value!");
@@ -656,7 +657,7 @@ namespace HenStudio
 
                     this.toolStripStatusLabelInput.BackColor = Color.Green;
                     this.toolStripStatusLabelInput.ForeColor = Color.White;
-                    this.toolStripStatusLabelInput.Image = Resources.Valid_32x32;
+                    //this.toolStripStatusLabelInput.Image = Resources.Valid_32x32;
                 }
                 else
                 {
@@ -665,7 +666,7 @@ namespace HenStudio
 
                     this.toolStripStatusLabelInput.BackColor = Color.Red;
                     this.toolStripStatusLabelInput.ForeColor = Color.White;
-                    this.toolStripStatusLabelInput.Image = Resources.InValid_32x32;
+                    //this.toolStripStatusLabelInput.Image = Resources.InValid_32x32;
                 }
             }
             catch (Exception ex)
@@ -698,7 +699,7 @@ namespace HenStudio
 
                     this.toolStripStatusLabelTargets.BackColor = Color.Green;
                     this.toolStripStatusLabelTargets.ForeColor = Color.White;
-                    this.toolStripStatusLabelTargets.Image = Resources.Valid_32x32;
+                    //this.toolStripStatusLabelTargets.Image = Resources.Valid_32x32;
                 }
                 else
                 {
@@ -707,7 +708,7 @@ namespace HenStudio
 
                     this.toolStripStatusLabelTargets.BackColor = Color.Red;
                     this.toolStripStatusLabelTargets.ForeColor = Color.White;
-                    this.toolStripStatusLabelTargets.Image = Resources.InValid_32x32;
+                    //this.toolStripStatusLabelTargets.Image = Resources.InValid_32x32;
                 }
             }
             catch (Exception ex)
@@ -738,25 +739,25 @@ namespace HenStudio
                         strHenAnalysisType = String.Format("HEN UNKNOWN ");
                         this.toolStripStatusLabelHenConverged.BackColor = Color.Orange;
                         this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
-                        this.toolStripStatusLabelHenConverged.Image = Resources.Unknown_32x32;
+                        //this.toolStripStatusLabelHenConverged.Image = Resources.Unknown_32x32;
                         break;
                     case HenTypes.HenAnalysisStatus.NOT_EXECUTED:
                         strHenAnalysisType = String.Format("HEN NOT EXECUTED ");
                         this.toolStripStatusLabelHenConverged.BackColor = Color.Red;
                         this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
-                        this.toolStripStatusLabelHenConverged.Image = Resources.InValid_32x32;
+                        //this.toolStripStatusLabelHenConverged.Image = Resources.InValid_32x32;
                         break;
                     case HenTypes.HenAnalysisStatus.NOT_CONVERGED:
                         strHenAnalysisType = String.Format("HEN NOT CONVERGED ");
                         this.toolStripStatusLabelHenConverged.BackColor = Color.Red;
                         this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
-                        this.toolStripStatusLabelHenConverged.Image = Resources.InValid_32x32;
+                        //this.toolStripStatusLabelHenConverged.Image = Resources.InValid_32x32;
                         break;
                     case HenTypes.HenAnalysisStatus.CONVERGED:
                         strHenAnalysisType = String.Format("HEN CONVERGED ");
                         this.toolStripStatusLabelHenConverged.BackColor = Color.Green;
                         this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
-                        this.toolStripStatusLabelHenConverged.Image = Resources.Valid_32x32;
+                        //this.toolStripStatusLabelHenConverged.Image = Resources.Valid_32x32;
                         break;
                     default:
                         throw new Exception("INVALID HEN Analysis Status Enum Value!");
@@ -783,73 +784,46 @@ namespace HenStudio
 
         #region FILE MENU ITEMS
 
-        #region NEW MENU ITEM HANDLER
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        #region NEW PROJECT MENU ITEM HANDLER
+        private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HenMsgDlg.DisplayWarningDlg("New Menu Item Selected!");
         }
         #endregion  // NEW MENU ITEM HANDLER
 
-        #region OPEN MENU ITEM HANDLER
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            HenMsgDlg.DisplayWarningDlg("Open Menu Item Selected!");
-        }
-        #endregion  // OPEN MENU ITEM HANDLER
-
-        #region SAVE MENU ITEM HANDLER
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("Save Menu Item Selected!");
-            HandleSave();
-        }
-        #endregion  // SAVE MENU ITEM HANDLER
-
-        #region SAVE AS MENU ITEM HANDLER
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("Save As Menu Item Selected!");
-            HandleSaveAs();
-        }
-        #endregion  // SAVE AS MENU ITEM HANDLER
-
-        #region IMPORT MENU ITEM HANDLER
-        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        #region IMPORT PROJECT ZIP MENU ITEM HANDLER
+        private void importProjectZIPToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //HenMsgDlg.DisplayWarningDlg("Import Menu Item Selected!");
             HandleImport();
         }
-        #endregion  // IMPORT MENU ITEM HANDLER
+        #endregion  // IMPORT PROJECT ZIP MENU ITEM HANDLER
 
-        #region EXPORT MENU ITEM HANDLER
-        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("Export Menu Item Selected!");
-            HandleExport();
-        }
-        #endregion  // EXPORT MENU ITEM HANDLER
-
-        #region EXIT MEMU ITEM HANDLER
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        #region EXIT AJP HEN STUDIO MEMU ITEM HANDLER
+        private void exitAJPHENStudioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HandleExit();    // Exit Pinch Application
         }
-        #endregion       // EXIT MEMU ITEM HANDLER
+        #endregion       // EXIT EXIT AJP HEN STUDIO MEMU ITEM HANDLER
 
         #endregion  // FILE MENU ITEMS
 
-        #region HELP MENU ITEMS
-        
-        #region PROJECT SETTINGS
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        #region EDIT MENU ITEMS
+
+        #region SETTINGS MENU ITME HANDLER
+        private void settingsDisplayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //HenMsgDlg.DisplayWarningDlg("Settings Menu Item Selected!");
             DisplayProjectSettingsForm();
-        }
-        #endregion  // PROJECT SETTINGS
+        }        
+        #endregion  // SETTINGS MENU ITME HANDLER
+
+        #endregion  // EDIT MENU ITEMS
+
+        #region HELP MENU ITEMS
 
         #region LICENSE
-        private void licenseToolStripMenuItem_Click(object sender, EventArgs e)
+        private void licenseViewerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //HenMsgDlg.DisplayWarningDlg("License Menu Item Selected!");
             DisplayLicenseForm();
@@ -857,14 +831,22 @@ namespace HenStudio
         #endregion      // LICENSE
 
         #region SCORECARD
-        private void scorecardToolStripMenuItem_Click(object sender, EventArgs e)
+        private void licenseScoreCardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayScoreCardForm();
         }
+
         #endregion  // SCORECARD
 
+        #region USER LICENSE AGREEMENT
+        private void userLicenseAgreementToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            DisplayUserLicenseAgreementForm();
+        }
+        #endregion  // USER LICENSE AGREEMENT
+
         #region ABOUT
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aboutAJPHENStudioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DisplayAboutForm();
         }
@@ -874,32 +856,8 @@ namespace HenStudio
 
         #endregion  // MENU BAR EVENTS
 
-        #region PICTURE BOX EVENTS
-        private void pictureBoxAJPLogo_Click(object sender, EventArgs e)
-        {
-            DisplayBusinessCardForm();
-        }
-        #endregion  // PICTURE BOX EVENTS
-
         #endregion      // EVENT HANDLERS
 
-        #region USER LICENSE AGREEMENT EVENTS
-
-        #region MENU BAR EVENT
-        private void userLicenseAgreementToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DisplayUserLicenseAgreementForm();
-        }
-        #endregion  // MENU BAR EVENT
-
-        #region TOOLBAR EVENT
-        private void toolStripButtonUserLicenseAgreement_Click(object sender, EventArgs e)
-        {
-            DisplayUserLicenseAgreementForm();
-        }
-        #endregion  // TOOLBAR EVENT
-
-        #endregion  // USER LICENSE AGREEMENT EVENTS
 
         #region METHODS
 
@@ -977,14 +935,17 @@ namespace HenStudio
                     if (tableData.NumInvalidProps > 0)
                     {
                         HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.INVALID;
+                        HenSettingsObj.LicenseValidatedFlag = false;
                     }
                     else if (tableData.DaysRemaining <= 0)
                     {
                         HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.EXPIRED;
+                        HenSettingsObj.LicenseValidatedFlag = false;
                     }
                     else
                     {
                         HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.VALID;
+                        HenSettingsObj.LicenseValidatedFlag = true;
                     }
 
                     #endregion  // GET LICENSE STATUS
@@ -1114,6 +1075,8 @@ namespace HenStudio
         }
         #endregion  // DisplayBusinessCardForm()
 
+        //-------------------------
+
         #region HandleNew
         /// <summary>
         /// Common New Command Handler
@@ -1137,6 +1100,82 @@ namespace HenStudio
             }
         }
         #endregion  // HandleNew
+
+        #region HandleImport
+        /// <summary>
+        /// Common Import Pinch Results ... invoked from Menu Item and Toolbar Click events
+        /// </summary>
+        private void HandleImport()
+        {
+            string strMethod = "HandleImport";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Import Pinch Results");
+            try
+            {
+                HenMsgDlg.DisplayWarningDlg("Handle IMPORT Command!");
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleImport
+
+        #region HandleExit
+        /// <summary>
+        /// Common Exit Pinch Application ... invoked from Menu Item and Toolbar Click events
+        /// </summary>
+        private void HandleExit()
+        {
+            string strMethod = "HandleExit";
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Exiting Pinch Application");
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleExit
+
+        //-------------------------
+
+        #region HandleSettings
+        /// <summary>
+        /// Common Display Settings Command Handler
+        /// </summary>
+        private void HandleSettings()
+        {
+            string strMethod = "HandleSettings";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Settings");
+            try
+            {
+                HenMsgDlg.DisplayWarningDlg("Handle Settings Command!");
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleSettings
+
+        //-------------------------
 
         #region HandleOpen
         /// <summary>
@@ -1210,30 +1249,6 @@ namespace HenStudio
         }
         #endregion  // HandleSaveAs
 
-        #region HandleImport
-        /// <summary>
-        /// Common Import Pinch Results ... invoked from Menu Item and Toolbar Click events
-        /// </summary>
-        private void HandleImport()
-        {
-            string strMethod = "HandleImport";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Import Pinch Results");
-            try
-            {
-                HenMsgDlg.DisplayWarningDlg("Handle IMPORT Command!");
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleImport
-
         #region HandleExport
         /// <summary>
         /// Common Export Pinch Results ... invoked from Menu Item and Toolbar Click events
@@ -1257,30 +1272,6 @@ namespace HenStudio
             }
         }
         #endregion  // HandleExport
-
-        #region HandleExit
-        /// <summary>
-        /// Common Exit Pinch Application ... invoked from Menu Item and Toolbar Click events
-        /// </summary>
-        private void HandleExit()
-        {
-            string strMethod = "HandleExit";
-            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Exiting Pinch Application");
-            try
-            {
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleExit
 
         #endregion  // COMMON COMMAND HANDLERS
 
@@ -1445,10 +1436,11 @@ namespace HenStudio
             {
             }
         }
+
+
         #endregion  // InitializeProjectExplorerTreeView()
 
         #endregion      // PROJECT EXPLORER TREE VIEW
-
 
     }
     #endregion      // class FormPinch

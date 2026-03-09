@@ -90,7 +90,22 @@
             this.toolStripMenuItemCurProjSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorCurProjSave = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemCurProjClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStripMain = new System.Windows.Forms.MenuStrip();
+            this.menuStripMainCatalog = new System.Windows.Forms.MenuStrip();
+            this.catalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.importProjectZIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitAJPHENStudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsDisplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.licenseViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licenseScoreCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.userLicenseAgreementToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutAJPHENStudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,6 +142,7 @@
             this.tabPageCatalogExplorer = new System.Windows.Forms.TabPage();
             this.splitContainerProject = new System.Windows.Forms.SplitContainer();
             this.treeViewCatalogExplorer = new System.Windows.Forms.TreeView();
+            this.imageListProjectTreeViews = new System.Windows.Forms.ImageList(this.components);
             this.tabPageCurrentProject = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.treeViewCurrentProjectExplorer = new System.Windows.Forms.TreeView();
@@ -142,14 +158,13 @@
             this.textBoxPinchBanner = new System.Windows.Forms.TextBox();
             this.tabPageHenDesign = new System.Windows.Forms.TabPage();
             this.textBoxHenBanner = new System.Windows.Forms.TextBox();
-            this.imageListProjectExplorer = new System.Windows.Forms.ImageList(this.components);
-            this.imageListProjectTreeViews = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStripProject.SuspendLayout();
             this.contextMenuStripProjectCatalog.SuspendLayout();
             this.contextMenuStripHen.SuspendLayout();
             this.contextMenuStripPinch.SuspendLayout();
             this.contextMenuStripProfile.SuspendLayout();
             this.contextMenuStripCurrProj.SuspendLayout();
+            this.menuStripMainCatalog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerLefCenter)).BeginInit();
             this.splitContainerLefCenter.Panel1.SuspendLayout();
             this.splitContainerLefCenter.Panel2.SuspendLayout();
@@ -215,14 +230,14 @@
             // 
             // toolStripMenuItemAddProject
             // 
-            this.toolStripMenuItemAddProject.Image = global::HenStudio.Properties.Resources.New_32x32;
+            this.toolStripMenuItemAddProject.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemAddProject.Image")));
             this.toolStripMenuItemAddProject.Name = "toolStripMenuItemAddProject";
             this.toolStripMenuItemAddProject.Size = new System.Drawing.Size(179, 22);
-            this.toolStripMenuItemAddProject.Text = "Add Project...";
+            this.toolStripMenuItemAddProject.Text = "Add New Project...";
             // 
             // toolStripMenuItemImport
             // 
-            this.toolStripMenuItemImport.Image = global::HenStudio.Properties.Resources.Import;
+            this.toolStripMenuItemImport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemImport.Image")));
             this.toolStripMenuItemImport.Name = "toolStripMenuItemImport";
             this.toolStripMenuItemImport.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItemImport.Text = "Import Zip Project...";
@@ -271,7 +286,6 @@
             // 
             // toolStripMenuItemPinchAdd
             // 
-            this.toolStripMenuItemPinchAdd.Image = global::HenStudio.Properties.Resources.Hen_32x32;
             this.toolStripMenuItemPinchAdd.Name = "toolStripMenuItemPinchAdd";
             this.toolStripMenuItemPinchAdd.Size = new System.Drawing.Size(312, 22);
             this.toolStripMenuItemPinchAdd.Text = "Add Heat Exchanger Network (HEN) Design...";
@@ -305,7 +319,6 @@
             // 
             // toolStripMenuItemProfileAdd
             // 
-            this.toolStripMenuItemProfileAdd.Image = global::HenStudio.Properties.Resources.Pinch_32x32;
             this.toolStripMenuItemProfileAdd.Name = "toolStripMenuItemProfileAdd";
             this.toolStripMenuItemProfileAdd.Size = new System.Drawing.Size(171, 22);
             this.toolStripMenuItemProfileAdd.Text = "Add Pinch Study...";
@@ -353,14 +366,12 @@
             // 
             // toolStripMenuItemCurProjSave
             // 
-            this.toolStripMenuItemCurProjSave.Image = global::HenStudio.Properties.Resources.Save_32x32;
             this.toolStripMenuItemCurProjSave.Name = "toolStripMenuItemCurProjSave";
             this.toolStripMenuItemCurProjSave.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItemCurProjSave.Text = "Save";
             // 
             // toolStripMenuItemCurProjSaveAs
             // 
-            this.toolStripMenuItemCurProjSaveAs.Image = global::HenStudio.Properties.Resources.SaveAs_32x_32;
             this.toolStripMenuItemCurProjSaveAs.Name = "toolStripMenuItemCurProjSaveAs";
             this.toolStripMenuItemCurProjSaveAs.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItemCurProjSaveAs.Text = "Save As...";
@@ -376,15 +387,145 @@
             this.toolStripMenuItemCurProjClose.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItemCurProjClose.Text = "Close";
             // 
-            // menuStripMain
+            // menuStripMainCatalog
             // 
-            this.menuStripMain.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStripMain.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStripMain.Location = new System.Drawing.Point(0, 0);
-            this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1264, 24);
-            this.menuStripMain.TabIndex = 0;
-            this.menuStripMain.Text = "menuStripPinch";
+            this.menuStripMainCatalog.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStripMainCatalog.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStripMainCatalog.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.catalogToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.helpToolStripMenuItem1});
+            this.menuStripMainCatalog.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMainCatalog.Name = "menuStripMainCatalog";
+            this.menuStripMainCatalog.Size = new System.Drawing.Size(1264, 24);
+            this.menuStripMainCatalog.TabIndex = 0;
+            this.menuStripMainCatalog.Text = "menuStripPinch";
+            // 
+            // catalogToolStripMenuItem
+            // 
+            this.catalogToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newProjectToolStripMenuItem,
+            this.toolStripSeparator10,
+            this.importProjectZIPToolStripMenuItem,
+            this.toolStripSeparator11,
+            this.exitAJPHENStudioToolStripMenuItem});
+            this.catalogToolStripMenuItem.Name = "catalogToolStripMenuItem";
+            this.catalogToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.catalogToolStripMenuItem.Text = "Catalog";
+            this.catalogToolStripMenuItem.ToolTipText = "Catalog of Projects";
+            // 
+            // newProjectToolStripMenuItem
+            // 
+            this.newProjectToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newProjectToolStripMenuItem.Image")));
+            this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
+            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(194, 30);
+            this.newProjectToolStripMenuItem.Text = "Add New Project...";
+            this.newProjectToolStripMenuItem.ToolTipText = "Add New Project to Catalog";
+            this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(191, 6);
+            // 
+            // importProjectZIPToolStripMenuItem
+            // 
+            this.importProjectZIPToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("importProjectZIPToolStripMenuItem.Image")));
+            this.importProjectZIPToolStripMenuItem.Name = "importProjectZIPToolStripMenuItem";
+            this.importProjectZIPToolStripMenuItem.Size = new System.Drawing.Size(194, 30);
+            this.importProjectZIPToolStripMenuItem.Text = "Import ZIP Project...";
+            this.importProjectZIPToolStripMenuItem.ToolTipText = "Import Zip Project";
+            this.importProjectZIPToolStripMenuItem.Click += new System.EventHandler(this.importProjectZIPToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(191, 6);
+            // 
+            // exitAJPHENStudioToolStripMenuItem
+            // 
+            this.exitAJPHENStudioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitAJPHENStudioToolStripMenuItem.Image")));
+            this.exitAJPHENStudioToolStripMenuItem.Name = "exitAJPHENStudioToolStripMenuItem";
+            this.exitAJPHENStudioToolStripMenuItem.Size = new System.Drawing.Size(194, 30);
+            this.exitAJPHENStudioToolStripMenuItem.Text = "Exit AJP HEN Studio";
+            this.exitAJPHENStudioToolStripMenuItem.ToolTipText = "Exit Application";
+            this.exitAJPHENStudioToolStripMenuItem.Click += new System.EventHandler(this.exitAJPHENStudioToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsDisplayToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // settingsDisplayToolStripMenuItem
+            // 
+            this.settingsDisplayToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("settingsDisplayToolStripMenuItem.Image")));
+            this.settingsDisplayToolStripMenuItem.Name = "settingsDisplayToolStripMenuItem";
+            this.settingsDisplayToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.settingsDisplayToolStripMenuItem.Text = "Settings...";
+            this.settingsDisplayToolStripMenuItem.ToolTipText = "System-Wide Settings";
+            this.settingsDisplayToolStripMenuItem.Click += new System.EventHandler(this.settingsDisplayToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.licenseViewerToolStripMenuItem,
+            this.licenseScoreCardToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.userLicenseAgreementToolStripMenuItem1,
+            this.toolStripSeparator8,
+            this.aboutAJPHENStudioToolStripMenuItem});
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(45, 20);
+            this.helpToolStripMenuItem1.Text = "Help";
+            // 
+            // licenseViewerToolStripMenuItem
+            // 
+            this.licenseViewerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("licenseViewerToolStripMenuItem.Image")));
+            this.licenseViewerToolStripMenuItem.Name = "licenseViewerToolStripMenuItem";
+            this.licenseViewerToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
+            this.licenseViewerToolStripMenuItem.Text = "License Viewer...";
+            this.licenseViewerToolStripMenuItem.ToolTipText = "Display License Viewer";
+            this.licenseViewerToolStripMenuItem.Click += new System.EventHandler(this.licenseViewerToolStripMenuItem_Click);
+            // 
+            // licenseScoreCardToolStripMenuItem
+            // 
+            this.licenseScoreCardToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("licenseScoreCardToolStripMenuItem.Image")));
+            this.licenseScoreCardToolStripMenuItem.Name = "licenseScoreCardToolStripMenuItem";
+            this.licenseScoreCardToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
+            this.licenseScoreCardToolStripMenuItem.Text = "License Score Card";
+            this.licenseScoreCardToolStripMenuItem.ToolTipText = "Display License Score Card";
+            this.licenseScoreCardToolStripMenuItem.Click += new System.EventHandler(this.licenseScoreCardToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(225, 6);
+            // 
+            // userLicenseAgreementToolStripMenuItem1
+            // 
+            this.userLicenseAgreementToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("userLicenseAgreementToolStripMenuItem1.Image")));
+            this.userLicenseAgreementToolStripMenuItem1.Name = "userLicenseAgreementToolStripMenuItem1";
+            this.userLicenseAgreementToolStripMenuItem1.Size = new System.Drawing.Size(228, 30);
+            this.userLicenseAgreementToolStripMenuItem1.Text = "User License Agreement...";
+            this.userLicenseAgreementToolStripMenuItem1.ToolTipText = "Display User-Software License Agreement";
+            this.userLicenseAgreementToolStripMenuItem1.Click += new System.EventHandler(this.userLicenseAgreementToolStripMenuItem1_Click_1);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(225, 6);
+            // 
+            // aboutAJPHENStudioToolStripMenuItem
+            // 
+            this.aboutAJPHENStudioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutAJPHENStudioToolStripMenuItem.Image")));
+            this.aboutAJPHENStudioToolStripMenuItem.Name = "aboutAJPHENStudioToolStripMenuItem";
+            this.aboutAJPHENStudioToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
+            this.aboutAJPHENStudioToolStripMenuItem.Text = "About AJP HEN Studio...";
+            this.aboutAJPHENStudioToolStripMenuItem.ToolTipText = "About AJP HEN Pinch";
+            this.aboutAJPHENStudioToolStripMenuItem.Click += new System.EventHandler(this.aboutAJPHENStudioToolStripMenuItem_Click);
             // 
             // fileToolStripMenuItem
             // 
@@ -405,21 +546,17 @@
             // 
             // newToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Image = global::HenStudio.Properties.Resources.New_32x32;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.newToolStripMenuItem.Text = "New...";
             this.newToolStripMenuItem.ToolTipText = "Create New Project Database";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
-            this.openToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Open_32x32;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.ToolTipText = "Open Existing Project Database";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -428,21 +565,17 @@
             // 
             // saveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Save_32x32;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.ToolTipText = "Save Current Project Database";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
-            this.saveAsToolStripMenuItem.Image = global::HenStudio.Properties.Resources.SaveAs_32x_32;
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.ToolTipText = "Save Current Project Database As";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -451,21 +584,17 @@
             // 
             // importToolStripMenuItem
             // 
-            this.importToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Import;
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
             this.importToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.importToolStripMenuItem.Text = "Import...";
             this.importToolStripMenuItem.ToolTipText = "Import Project Zip File";
-            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
-            this.exportToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Export_32x32;
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             this.exportToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.exportToolStripMenuItem.Text = "Export...";
             this.exportToolStripMenuItem.ToolTipText = "Export Project Zip File";
-            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -474,12 +603,10 @@
             // 
             // exitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Exit_32x32;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.ToolTipText = "Exit Application";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -497,11 +624,8 @@
             // 
             // settingsToolStripMenuItem
             // 
-            this.settingsToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Calc_Gears_32x32;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.settingsToolStripMenuItem.Text = "Settings...";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -510,21 +634,17 @@
             // 
             // licenseToolStripMenuItem
             // 
-            this.licenseToolStripMenuItem.Image = global::HenStudio.Properties.Resources.License_32x32;
             this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
             this.licenseToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.licenseToolStripMenuItem.Text = "License...";
             this.licenseToolStripMenuItem.ToolTipText = "Launch License Viewer";
-            this.licenseToolStripMenuItem.Click += new System.EventHandler(this.licenseToolStripMenuItem_Click);
             // 
             // scorecardToolStripMenuItem
             // 
-            this.scorecardToolStripMenuItem.Image = global::HenStudio.Properties.Resources.Scorecard_Check_32x32;
             this.scorecardToolStripMenuItem.Name = "scorecardToolStripMenuItem";
             this.scorecardToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.scorecardToolStripMenuItem.Text = "Scorecard...";
             this.scorecardToolStripMenuItem.ToolTipText = "Launch License ScoreCard Viewer";
-            this.scorecardToolStripMenuItem.Click += new System.EventHandler(this.scorecardToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -533,21 +653,17 @@
             // 
             // userLicenseAgreementToolStripMenuItem
             // 
-            this.userLicenseAgreementToolStripMenuItem.Image = global::HenStudio.Properties.Resources.AJP_User_License_Agreement__32x32;
             this.userLicenseAgreementToolStripMenuItem.Name = "userLicenseAgreementToolStripMenuItem";
             this.userLicenseAgreementToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.userLicenseAgreementToolStripMenuItem.Text = "User License Agreement";
             this.userLicenseAgreementToolStripMenuItem.ToolTipText = "Display User License Agreement";
-            this.userLicenseAgreementToolStripMenuItem.Click += new System.EventHandler(this.userLicenseAgreementToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.Image = global::HenStudio.Properties.Resources.About_32x32;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.ToolTipText = "Launch About Dialog";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // statusStripMain
             // 
@@ -579,7 +695,6 @@
             this.toolStripStatusLabelDbConnect.BackColor = System.Drawing.Color.Green;
             this.toolStripStatusLabelDbConnect.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelDbConnect.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelDbConnect.Image = global::HenStudio.Properties.Resources.Valid_32x32;
             this.toolStripStatusLabelDbConnect.Name = "toolStripStatusLabelDbConnect";
             this.toolStripStatusLabelDbConnect.Size = new System.Drawing.Size(155, 29);
             this.toolStripStatusLabelDbConnect.Text = "DB CONNECTED";
@@ -589,7 +704,6 @@
             this.toolStripStatusLabelInput.BackColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelInput.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelInput.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelInput.Image = global::HenStudio.Properties.Resources.InValid_32x32;
             this.toolStripStatusLabelInput.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelInput.Name = "toolStripStatusLabelInput";
             this.toolStripStatusLabelInput.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -601,7 +715,6 @@
             this.toolStripStatusLabelTargets.BackColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelTargets.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelTargets.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelTargets.Image = global::HenStudio.Properties.Resources.InValid_32x32;
             this.toolStripStatusLabelTargets.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelTargets.Name = "toolStripStatusLabelTargets";
             this.toolStripStatusLabelTargets.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -613,7 +726,6 @@
             this.toolStripStatusLabelHenConverged.BackColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelHenConverged.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelHenConverged.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelHenConverged.Image = global::HenStudio.Properties.Resources.InValid_32x32;
             this.toolStripStatusLabelHenConverged.Name = "toolStripStatusLabelHenConverged";
             this.toolStripStatusLabelHenConverged.Size = new System.Drawing.Size(179, 29);
             this.toolStripStatusLabelHenConverged.Text = "HEN NOT EXECUTED";
@@ -623,7 +735,6 @@
             this.toolStripStatusLabelUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(0)))));
             this.toolStripStatusLabelUnits.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelUnits.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelUnits.Image = global::HenStudio.Properties.Resources.Unknown_32x32;
             this.toolStripStatusLabelUnits.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelUnits.Name = "toolStripStatusLabelUnits";
             this.toolStripStatusLabelUnits.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -638,7 +749,6 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelAJP_ENG.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelAJP_ENG.ForeColor = System.Drawing.Color.Black;
-            this.toolStripStatusLabelAJP_ENG.Image = global::HenStudio.Properties.Resources.AJP_Logo___600x600;
             this.toolStripStatusLabelAJP_ENG.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripStatusLabelAJP_ENG.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelAJP_ENG.Name = "toolStripStatusLabelAJP_ENG";
@@ -794,6 +904,20 @@
             this.treeViewCatalogExplorer.Size = new System.Drawing.Size(334, 305);
             this.treeViewCatalogExplorer.TabIndex = 0;
             // 
+            // imageListProjectTreeViews
+            // 
+            this.imageListProjectTreeViews.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListProjectTreeViews.ImageStream")));
+            this.imageListProjectTreeViews.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListProjectTreeViews.Images.SetKeyName(0, "Catalog_16x16.ico");
+            this.imageListProjectTreeViews.Images.SetKeyName(1, "Project_16x16.ico");
+            this.imageListProjectTreeViews.Images.SetKeyName(2, "ProjectSelected_16x16.ico");
+            this.imageListProjectTreeViews.Images.SetKeyName(3, "Profile_Input_16x16.ico");
+            this.imageListProjectTreeViews.Images.SetKeyName(4, "Profile_Input_Selected_16x16.ico");
+            this.imageListProjectTreeViews.Images.SetKeyName(5, "Pinch_16x16.ico");
+            this.imageListProjectTreeViews.Images.SetKeyName(6, "PinchSelected_16x16.ico");
+            this.imageListProjectTreeViews.Images.SetKeyName(7, "HEN_16x16.ico");
+            this.imageListProjectTreeViews.Images.SetKeyName(8, "HENSelected_16x16.ico");
+            // 
             // tabPageCurrentProject
             // 
             this.tabPageCurrentProject.BackColor = System.Drawing.Color.Honeydew;
@@ -942,7 +1066,7 @@
             // 
             this.textBoxInputBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxInputBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.textBoxInputBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
             this.textBoxInputBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxInputBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxInputBanner.ForeColor = System.Drawing.Color.Black;
@@ -1060,26 +1184,6 @@
             this.textBoxHenBanner.Text = "PROJECT: {name}  PROFILE: {name}  PINCH: {name}  HEN: {name}";
             this.textBoxHenBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // imageListProjectExplorer
-            // 
-            this.imageListProjectExplorer.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageListProjectExplorer.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageListProjectExplorer.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // imageListProjectTreeViews
-            // 
-            this.imageListProjectTreeViews.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListProjectTreeViews.ImageStream")));
-            this.imageListProjectTreeViews.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListProjectTreeViews.Images.SetKeyName(0, "Catalog_16x16.ico");
-            this.imageListProjectTreeViews.Images.SetKeyName(1, "Project_16x16.ico");
-            this.imageListProjectTreeViews.Images.SetKeyName(2, "ProjectSelected_16x16.ico");
-            this.imageListProjectTreeViews.Images.SetKeyName(3, "Profile_16x16.ico");
-            this.imageListProjectTreeViews.Images.SetKeyName(4, "ProfileSelected_16x16.ico");
-            this.imageListProjectTreeViews.Images.SetKeyName(5, "Pinch_16x16.ico");
-            this.imageListProjectTreeViews.Images.SetKeyName(6, "PinchSelected_16x16.ico");
-            this.imageListProjectTreeViews.Images.SetKeyName(7, "HEN_16x16.ico");
-            this.imageListProjectTreeViews.Images.SetKeyName(8, "HENSelected_16x16.ico");
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -1090,11 +1194,11 @@
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.splitContainerLefCenter);
             this.Controls.Add(this.statusStripMain);
-            this.Controls.Add(this.menuStripMain);
+            this.Controls.Add(this.menuStripMainCatalog);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Cascadia Mono SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStripMain;
+            this.MainMenuStrip = this.menuStripMainCatalog;
             this.Margin = new System.Windows.Forms.Padding(1);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "FormMain";
@@ -1107,6 +1211,8 @@
             this.contextMenuStripPinch.ResumeLayout(false);
             this.contextMenuStripProfile.ResumeLayout(false);
             this.contextMenuStripCurrProj.ResumeLayout(false);
+            this.menuStripMainCatalog.ResumeLayout(false);
+            this.menuStripMainCatalog.PerformLayout();
             this.splitContainerLefCenter.Panel1.ResumeLayout(false);
             this.splitContainerLefCenter.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerLefCenter)).EndInit();
@@ -1135,7 +1241,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStripMain;
+        private System.Windows.Forms.MenuStrip menuStripMainCatalog;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
@@ -1180,7 +1286,6 @@
         private System.Windows.Forms.TabPage tabPageStreams;
         private System.Windows.Forms.TabPage tabPageUtilities;
         private System.Windows.Forms.TabPage tabPageEconomics;
-        private System.Windows.Forms.ImageList imageListProjectExplorer;
         private System.Windows.Forms.SplitContainer splitContainerProject;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.TextBox textBoxInputBanner;
@@ -1219,6 +1324,21 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparatorCurProjHenRename;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurProjHenDelete;
         private System.Windows.Forms.ImageList imageListProjectTreeViews;
+        private System.Windows.Forms.ToolStripMenuItem catalogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem importProjectZIPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripMenuItem exitAJPHENStudioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsDisplayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem licenseViewerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licenseScoreCardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem userLicenseAgreementToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem aboutAJPHENStudioToolStripMenuItem;
     }
 }
 
