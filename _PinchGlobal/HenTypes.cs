@@ -95,11 +95,11 @@ namespace HenGlobal
 
         #endregion  // LICENSE
 
-        #region DB CONNECTED
+        #region CATALOG & PROJECT DB CONNECTION STATUS
 
         #region enum DbConnected
         /// <summary>
-        /// ENUMERATION: Pinch Units [ENGLISH | METRIC | UNKNOWN]
+        /// ENUMERATION: Database Connection Status [ UNKNOWN | UNCONNECTED| CONNECTED ]
         /// </summary>
         public enum DbConnected
         {
@@ -113,17 +113,18 @@ namespace HenGlobal
 
         #region UNITS
 
-        #region enum PinchUnits
+        #region enum ProjectUnits
         /// <summary>
-        /// ENUMERATION: Pinch Units [ENGLISH | METRIC | UNKNOWN]
+        /// ENUMERATION: OPEN Project Units [ UNKNOWN | NA | ENGLISH | METRIC ]
         /// </summary>
-        public enum PinchUnits
+        public enum ProjectUnits
         {
             UNKNOWN = -1,       // UNKNOWN Units
-            ENGLISH =  0,       // ENGLISH-IMPERIAL Units
-            METRIC  =  1        // METRIC-SI Units
+            NA      =  0,       // NA ... NOT APPLICABLE - No Project Opened
+            ENGLISH =  1,       // ENGLISH-IMPERIAL Units
+            METRIC  =  2        // METRIC-SI Units
         };
-        #endregion      // enum PinchUnits
+        #endregion      // enum ProjectUnits
 
         #region enum ConversionUnitsTypes
         /// <summary>

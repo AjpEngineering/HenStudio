@@ -219,8 +219,6 @@ namespace HenStudio
                 #endregion  // LICENSE GLOBAL SETTINGS
 
                 #region STATUS BAR SETTINGS
-                HenSettingsObj.InputValidatedFlag = false;
-                HenSettingsObj.TargetsCalculatedFlag = false;
                 //---------------------------------------
                 //--- Initialize Units Global Setting ---
                 //---------------------------------------
@@ -245,52 +243,41 @@ namespace HenStudio
                 bValidLicenseFile = ValidateLicense(); // Update Global Settings in Method - return valid flag
                 #endregion  // License Validation
 
-                #region Update DB Connected Status Bar Label
-                //--------------------------------------------
-                //--- Update DB Connected Status Bar Label ---
-                //--------------------------------------------
-                //HenSettingsObj.DbConnectedEnum = HenTypes.DbConnected.CONNECTED;
-                HenSettingsObj.DbConnectedEnum = HenTypes.DbConnected.UNCONNECTED;
-                UpdateDbConnectLabel();    // Update Database Connected Status Bar Label
-                #endregion  // Update DB Connected Status Bar Label
-
-                #region Update Pinch Units Status Bar Label
-                //-------------------------------------------
-                //--- Update Pinch Units Status Bar Label ---
-                //-------------------------------------------
-                //HenSettingsObj.PinchUnitsEnum = HenTypes.PinchUnits.ENGLISH;
-                HenSettingsObj.PinchUnitsEnum = HenTypes.PinchUnits.METRIC;
-                UpdateUnitsStatusBarLabel();        // Update Pinch Units Status Bar Label
-                #endregion      // Update Pinch Units Status Bar Label
-
-                #region Update Input Validated Flag Status Bar Label
+                #region Update Catalog DB Connected Status Bar Label
                 //----------------------------------------------------
-                //--- Update Input Validated Flag Status Bar Label ---
+                //--- Update Catalog DB Connected Status Bar Label ---
                 //----------------------------------------------------
-                //HenSettingsObj.InputValidatedFlag = true;
-                HenSettingsObj.InputValidatedFlag = false;
-                UpdateInputStatusBarLabel();        // Update Input Validated Status Bar Label
-                #endregion  // Update Input Validated Flag Status Bar Label
+                //HenSettingsObj.CatalogDbConnectedEnum = HenTypes.DbConnected.CONNECTED;
+                HenSettingsObj.CatalogDbConnectedEnum = HenTypes.DbConnected.UNCONNECTED;
+                UpdateCatalogDbConnectLabel();    // Update Catalog Database Connected Status Bar Label
+                #endregion  // Update Catalog DB Connected Status Bar Label
 
-                #region Update Targets Calculated Flag Status Bar Label
-                //-------------------------------------------------------
-                //--- Update Targets Calculated Flag Status Bar Label ---
-                //-------------------------------------------------------
-                //HenSettingsObj.TargetsCalculatedFlag = true;
-                HenSettingsObj.TargetsCalculatedFlag = false;
-                UpdateTargetsStatusBarLabel();      // Update Targets Calculated Status Bar Label
-                #endregion  // Update Targets Calculated Flag Status Bar Label
-
-                #region Update Current HEN Analysis Status Flag Status Bar Label
+                #region Update Project DB Connected Status Bar Label
                 //----------------------------------------------------
-                //--- Update Current HEN Analysis Status Bar Label ---
+                //--- Update Project DB Connected Status Bar Label ---
                 //----------------------------------------------------
-                HenSettingsObj.HenAnalysisStatusEnum = HenTypes.HenAnalysisStatus.NOT_EXECUTED;
-                //HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.NOT_CONVERGED;
-                //HenSettingsObj.HenAnalysisStatusEnum = HenAnalysisStatus.CONVERGED;
-                UpdateHenAnalysisStatusBarLabel();      // Update Current HEN Analysis Status Bar Label
-                #endregion  // Update Current HEN Analysis Status Flag Status Bar Label
+                //HenSettingsObj.ProjectDbConnectedEnum = HenTypes.DbConnected.CONNECTED;
+                HenSettingsObj.ProjectDbConnectedEnum = HenTypes.DbConnected.UNCONNECTED;
+                UpdateProjectDbConnectLabel();    // Update Project Database Connected Status Bar Label
+                #endregion  // Update Project DB Connected Status Bar Label
 
+                #region Update OPEN Project Name Status Bar Label
+                //----------------------------------------------------
+                //--- Update OPEN Project Name Status Bar Label ---
+                //----------------------------------------------------
+                HenSettingsObj.ProjectDatabaseName = "Deer Park";
+                UpdateProjectNameStatusBarLabel();    // Update Project Database Connected Status Bar Label
+                #endregion  // Update Project DB Connected Status Bar Label
+
+                #region Update OPEN Project Units Status Bar Label
+                //--------------------------------------------------
+                //--- Update OPEN Project Units Status Bar Label ---
+                //--------------------------------------------------
+                //HenSettingsObj.ProjectUnitsEnum = HenTypes.ProjectUnits.ENGLISH;
+                HenSettingsObj.ProjectUnitsEnum = HenTypes.ProjectUnits.METRIC;
+                UpdateProjectUnitsStatusBarLabel();        // Update Project Units Status Bar Label
+                #endregion      // Update OPEN Project Units Status Bar Label
+                
             }
             catch (Exception ex)
             {
@@ -370,9 +357,12 @@ namespace HenStudio
                 //***** TBD
                 #endregion  // CONSTRUCT INITIAL OBJECT TREE
 
-                //--- TEST ---
+                #region TEST UNIT CONVERSION METHODS
+                //****************
+                //***** TEST *****
+                //****************
                 HenMethodsObj.TestUnitConversions();
-
+                #endregion  // TEST UNIT CONVERSION METHODS
             }
             catch (Exception ex)
             {
@@ -503,7 +493,7 @@ namespace HenStudio
 
         #region UPDATE STATUS BAR LABELS METHODS
 
-        #region UpdateLicenseStatusBarLabel()
+        #region UpdateLicenseStatusBarLabel() ... LICENSE
         /// <summary>
         /// Update the Status Bar Label for License using Global Settings
         /// </summary>
@@ -514,22 +504,22 @@ namespace HenStudio
                                     HenSettingsObj.LicenseTypeEnum.ToString());
             try
             {
-                this.toolStripStatusLabelLicense.Text = strLicenseType;
+                //this.toolStripStatusLabelLicense.Text = strLicenseType;
 
                 switch(HenSettingsObj.LicenseStatusEnum)
                 {
                     case HenTypes.LicenseStatus.EXPIRED:
                     case HenTypes.LicenseStatus.INVALID:
-                        this.toolStripStatusLabelLicense.BackColor = Color.Red;
-                        this.toolStripStatusLabelLicense.Image = Resources.NotValid_32x32;
+                            //this.toolStripStatusLabelLicense.BackColor = Color.Red;
+                            //this.toolStripStatusLabelLicense.Image = Resources.NotValid_32x32;
                         break;
                      case HenTypes.LicenseStatus.UNKNOWN:
-                        this.toolStripStatusLabelLicense.BackColor = Color.Orange;
-                        this.toolStripStatusLabelLicense.Image = Resources.UNKNOWN_32x32;
+                        //this.toolStripStatusLabelLicense.BackColor = Color.Orange;
+                        //this.toolStripStatusLabelLicense.Image = Resources.UNKNOWN_32x32;
                         break;
                    case HenTypes.LicenseStatus.VALID:
-                        this.toolStripStatusLabelLicense.BackColor = Color.Green;
-                        this.toolStripStatusLabelLicense.Image = Resources.Valid_32x32;
+                        //this.toolStripStatusLabelLicense.BackColor = Color.Green;
+                        //this.toolStripStatusLabelLicense.Image = Resources.Valid_32x32;
                         break;
                     default:
                         throw new Exception("INVALID Licesne Status Enum Value!");
@@ -545,40 +535,40 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // UpdateLicenseStatusBarLabel()
+        #endregion  // UpdateLicenseStatusBarLabel() ... LICENSE
 
-        #region UpdateDbConnectLabel()
+        #region UpdateCatalogDbConnectLabel() ... CAT_DB
         /// <summary>
-        /// Update the DB Connected Status Bar Label using Global Setting
+        /// Update the Catalog DB Connected Status Bar Label using Global Setting
         /// </summary>
-        private void UpdateDbConnectLabel()
+        private void UpdateCatalogDbConnectLabel()
         {
-            string strMethod = "UpdateDbConnectLabel";
+            string strMethod = "UpdateCatalogDbConnectLabel";
             string strDbConnected = String.Format("DB {0}",
-                                    HenSettingsObj.DbConnectedEnum.ToString());
+                                    HenSettingsObj.CatalogDbConnectedEnum.ToString());
             try
             {
-                this.toolStripStatusLabelDbConnect.Text = strDbConnected;
+                //this.toolStripStatusLabelDbConnect.Text = strDbConnected;
 
-                switch (HenSettingsObj.DbConnectedEnum)
+                switch (HenSettingsObj.CatalogDbConnectedEnum)
                 {
                     case HenTypes.DbConnected.UNKNOWN:
-                        this.toolStripStatusLabelDbConnect.BackColor = Color.Orange;
-                        this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
+                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Orange;
+                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
                         //this.toolStripStatusLabelDbConnect.Image = Resources.Unknown_32x32;
                         break;
                     case HenTypes.DbConnected.UNCONNECTED:
-                        this.toolStripStatusLabelDbConnect.BackColor = Color.Red;
-                        this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
+                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Red;
+                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
                         //this.toolStripStatusLabelDbConnect.Image = Resources.InValid_32x32;
                         break;
                     case HenTypes.DbConnected.CONNECTED:
-                        this.toolStripStatusLabelDbConnect.BackColor = Color.Green;
-                        this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
+                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Green;
+                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
                         //this.toolStripStatusLabelDbConnect.Image = Resources.Valid_32x32;
                         break;
                     default:
-                        throw new Exception("INVALID Db Connected Enum Value!");
+                        throw new Exception("INVALID Catalog DB Connected Enum Value!");
                 }
             }
             catch (Exception ex)
@@ -591,40 +581,121 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // UpdateUnitsStatusBarLabel()
+        #endregion  // UpdateCatalogDbConnectLabel() ... CAT_DB
 
-        #region UpdateUnitsStatusBarLabel()
+        #region UpdateProjectDbConnectLabel() ... PROJ_DB
         /// <summary>
-        /// Update the Pinch Units Status Bar Label using Global Setting
+        /// Update the Project DB Connected Status Bar Label using Global Setting
         /// </summary>
-        private void UpdateUnitsStatusBarLabel()
+        private void UpdateProjectDbConnectLabel()
         {
-            string strMethod = "UpdateUnitsStatusBarLabel";
-            string strUnitsType = String.Format("{0} UNITS ",
-                                    HenSettingsObj.PinchUnitsEnum.ToString());
+            string strMethod = "UpdateProjectDbConnectLabel";
+            string strDbConnected = String.Format("DB {0}",
+                                    HenSettingsObj.ProjectDbConnectedEnum.ToString());
             try
             {
-                this.toolStripStatusLabelUnits.Text = strUnitsType;
+                //this.toolStripStatusLabelDbConnect.Text = strDbConnected;
 
-                switch (HenSettingsObj.PinchUnitsEnum)
+                switch (HenSettingsObj.ProjectDbConnectedEnum)
                 {
-                    case HenTypes.PinchUnits.UNKNOWN:
-                        this.toolStripStatusLabelUnits.BackColor = Color.Orange;
-                        this.toolStripStatusLabelUnits.ForeColor = Color.White;
+                    case HenTypes.DbConnected.UNKNOWN:
+                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Orange;
+                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
+                        //this.toolStripStatusLabelDbConnect.Image = Resources.Unknown_32x32;
+                        break;
+                    case HenTypes.DbConnected.UNCONNECTED:
+                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Red;
+                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
+                        //this.toolStripStatusLabelDbConnect.Image = Resources.InValid_32x32;
+                        break;
+                    case HenTypes.DbConnected.CONNECTED:
+                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Green;
+                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
+                        //this.toolStripStatusLabelDbConnect.Image = Resources.Valid_32x32;
+                        break;
+                    default:
+                        throw new Exception("INVALID Project DB Connected Enum Value!");
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateProjectDbConnectLabel() ... PROJ_DB
+
+        #region UpdateProjectNameStatusBarLabel() ... PROJ_NAME
+        /// <summary>
+        /// Update the OPEN Project Name Status Bar Label using Global Setting
+        /// </summary>
+        private void UpdateProjectNameStatusBarLabel()
+        {
+            string strMethod = "UpdateProjectNameStatusBarLabel";
+            string strProjectName = String.Empty;
+            try
+            {
+                strProjectName = String.Format(" PROJECT: {0} ", HenSettingsObj.ProjectDatabaseName);
+                //this.toolStripStatusLabelInput.Text = strProjectName;
+
+                //this.toolStripStatusLabelInput.BackColor = Color.Green;
+                //this.toolStripStatusLabelInput.ForeColor = Color.White;
+                //this.toolStripStatusLabelInput.Image = Resources.Valid_32x32;
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateProjectNameStatusBarLabel() ... PROJ_NAME
+
+        #region UpdateProjectUnitsStatusBarLabel() ... PROJ_UNITS
+        /// <summary>
+        /// Update the OPEN Project Units Status Bar Label using Global Setting
+        /// </summary>
+        private void UpdateProjectUnitsStatusBarLabel()
+        {
+            string strMethod = "UpdateProjectUnitsStatusBarLabel";
+            string strUnitsType = String.Format("{0} UNITS ",
+                                    HenSettingsObj.ProjectUnitsEnum.ToString());
+            try
+            {
+                //this.toolStripStatusLabelUnits.Text = strUnitsType;
+
+                switch (HenSettingsObj.ProjectUnitsEnum)
+                {
+                    case HenTypes.ProjectUnits.UNKNOWN:
+                        //    this.toolStripStatusLabelUnits.BackColor = Color.Orange;
+                        //    this.toolStripStatusLabelUnits.ForeColor = Color.White;
                         //this.toolStripStatusLabelUnits.Image = Resources.Unknown_32x32;
                         break;
-                    case HenTypes.PinchUnits.ENGLISH:
-                        this.toolStripStatusLabelUnits.BackColor = Color.Blue;
-                        this.toolStripStatusLabelUnits.ForeColor = Color.White;
+                    case HenTypes.ProjectUnits.NA:
+                        //this.toolStripStatusLabelUnits.BackColor = Color.Red;
+                        //this.toolStripStatusLabelUnits.ForeColor = Color.White;
+                        //this.toolStripStatusLabelUnits.Image = Resources.Unknown_32x32;
+                        break;
+                    case HenTypes.ProjectUnits.ENGLISH:
+                        //this.toolStripStatusLabelUnits.BackColor = Color.Blue;
+                        //this.toolStripStatusLabelUnits.ForeColor = Color.White;
                         //this.toolStripStatusLabelUnits.Image = Resources.English_Imperial_Units_32x32;
                         break;
-                    case HenTypes.PinchUnits.METRIC:
-                        this.toolStripStatusLabelUnits.BackColor = Color.Blue;
-                        this.toolStripStatusLabelUnits.ForeColor = Color.White;
+                    case HenTypes.ProjectUnits.METRIC:
+                        //this.toolStripStatusLabelUnits.BackColor = Color.Blue;
+                        //this.toolStripStatusLabelUnits.ForeColor = Color.White;
                         //this.toolStripStatusLabelUnits.Image = Resources.Metric_SI_Units_32x32;
                         break;
                     default:
-                        throw new Exception("INVALID Pinch Units Enum Value!");
+                        throw new Exception("INVALID OPEN Project Units Enum Value!");
                 }
             }
             catch (Exception ex)
@@ -637,144 +708,7 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // UpdateUnitsStatusBarLabel()
-
-        #region UpdateInputStatusBarLabel()
-        /// <summary>
-        /// Update the Input Validated Flag Status Bar Label using Global Setting
-        /// </summary>
-        private void UpdateInputStatusBarLabel()
-        {
-            string strMethod = "UpdateInputStatusBarLabel";
-            bool bInputValidated = HenSettingsObj.InputValidatedFlag;
-            string strInputValidated = String.Empty;
-            try
-            {
-                if(bInputValidated)
-                {
-                    strInputValidated = String.Format("INPUT VALIDATED ");
-                    this.toolStripStatusLabelInput.Text = strInputValidated;
-
-                    this.toolStripStatusLabelInput.BackColor = Color.Green;
-                    this.toolStripStatusLabelInput.ForeColor = Color.White;
-                    //this.toolStripStatusLabelInput.Image = Resources.Valid_32x32;
-                }
-                else
-                {
-                    strInputValidated = String.Format("INPUT NOT VALIDATED ");
-                    this.toolStripStatusLabelInput.Text = strInputValidated;
-
-                    this.toolStripStatusLabelInput.BackColor = Color.Red;
-                    this.toolStripStatusLabelInput.ForeColor = Color.White;
-                    //this.toolStripStatusLabelInput.Image = Resources.InValid_32x32;
-                }
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // UpdateInputStatusBarLabel()
-
-        #region UpdateTargetsStatusBarLabel()
-        /// <summary>
-        /// Update the Targets Calculated Flag Status Bar Label using Global Setting
-        /// </summary>
-        private void UpdateTargetsStatusBarLabel()
-        {
-            string strMethod = "UpdateTargetsStatusBarLabel";
-            bool bTargetsCalculated = HenSettingsObj.TargetsCalculatedFlag;
-            string strTargetsCalculated = String.Empty;
-            try
-            {
-                if (bTargetsCalculated)
-                {
-                    strTargetsCalculated = String.Format("TARGETS CALCULATED ");
-                    this.toolStripStatusLabelTargets.Text = strTargetsCalculated;
-
-                    this.toolStripStatusLabelTargets.BackColor = Color.Green;
-                    this.toolStripStatusLabelTargets.ForeColor = Color.White;
-                    //this.toolStripStatusLabelTargets.Image = Resources.Valid_32x32;
-                }
-                else
-                {
-                    strTargetsCalculated = String.Format("TARGETS NOT CALCULATED ");
-                    this.toolStripStatusLabelTargets.Text = strTargetsCalculated;
-
-                    this.toolStripStatusLabelTargets.BackColor = Color.Red;
-                    this.toolStripStatusLabelTargets.ForeColor = Color.White;
-                    //this.toolStripStatusLabelTargets.Image = Resources.InValid_32x32;
-                }
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // UpdateTargetsStatusBarLabel()
-
-        #region UpdateHenAnalysisStatusBarLabel()
-        /// <summary>
-        /// Update the Current HEN Analysis Status Bar Label using Global Setting
-        /// </summary>
-        private void UpdateHenAnalysisStatusBarLabel()
-        {
-            string strMethod = "UpdateHenAnalysisStatusBarLabel";
-            string strHenAnalysisType = String.Format("HEN UNKNOWN ");
-            try
-            {
-                switch (HenSettingsObj.HenAnalysisStatusEnum)
-                {
-                    case HenTypes.HenAnalysisStatus.UNKNOWN:
-                        strHenAnalysisType = String.Format("HEN UNKNOWN ");
-                        this.toolStripStatusLabelHenConverged.BackColor = Color.Orange;
-                        this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
-                        //this.toolStripStatusLabelHenConverged.Image = Resources.Unknown_32x32;
-                        break;
-                    case HenTypes.HenAnalysisStatus.NOT_EXECUTED:
-                        strHenAnalysisType = String.Format("HEN NOT EXECUTED ");
-                        this.toolStripStatusLabelHenConverged.BackColor = Color.Red;
-                        this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
-                        //this.toolStripStatusLabelHenConverged.Image = Resources.InValid_32x32;
-                        break;
-                    case HenTypes.HenAnalysisStatus.NOT_CONVERGED:
-                        strHenAnalysisType = String.Format("HEN NOT CONVERGED ");
-                        this.toolStripStatusLabelHenConverged.BackColor = Color.Red;
-                        this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
-                        //this.toolStripStatusLabelHenConverged.Image = Resources.InValid_32x32;
-                        break;
-                    case HenTypes.HenAnalysisStatus.CONVERGED:
-                        strHenAnalysisType = String.Format("HEN CONVERGED ");
-                        this.toolStripStatusLabelHenConverged.BackColor = Color.Green;
-                        this.toolStripStatusLabelHenConverged.ForeColor = Color.White;
-                        //this.toolStripStatusLabelHenConverged.Image = Resources.Valid_32x32;
-                        break;
-                    default:
-                        throw new Exception("INVALID HEN Analysis Status Enum Value!");
-                }
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-                this.toolStripStatusLabelHenConverged.Text = strHenAnalysisType;
-            }
-        }
-        #endregion  // UpdateHenAnalysisStatusBarLabel()
+        #endregion  // UpdateProjectUnitsStatusBarLabel() ... PROJ_UNITS
 
         #endregion  // UPDATE STATUS BAR LABELS METHODS
 

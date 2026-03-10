@@ -205,6 +205,7 @@ namespace HenGlobal
         #region PROPERTIES
 
         #region LICENSE
+
         #region LicenseValidatedFlag
         /// <summary>
         /// License Validation Flag
@@ -227,50 +228,41 @@ namespace HenGlobal
         /// </summary>
         public HenTypes.LicenseStatus LicenseStatusEnum { get; set; }  // License Status
         #endregion  // LicenseStatusEnum
+
         #endregion  // LICENSE
+
+        #region ProjectDatabaseName
+        /// <summary>
+        /// Open Project Database Name
+        /// </summary>
+        public string ProjectDatabaseName { get; set; }  // Open Project Database Name
+        #endregion  // ProjectDatabaseName
 
         #region STATUS BAR
 
-        #region DbConnectedEnum
+        #region CatalogDbConnectedEnum
         /// <summary>
-        /// Database Connected Flag ... [UNKNOWN = -1 | UNCONNECTED = 0 | CONNECTED = 1]
+        /// Catalog Database Connected Flag ... [UNKNOWN = -1 | UNCONNECTED = 0 | CONNECTED = 1]
         /// Used in Status Bar display
         /// </summary>
-        public HenTypes.DbConnected DbConnectedEnum { get; set; } // DB Connected [UNKNOWN | UNCONNECTED | CONNECTED]
+        public HenTypes.DbConnected CatalogDbConnectedEnum { get; set; } // Catalog DB Connected [UNKNOWN | UNCONNECTED | CONNECTED]
+        #endregion  // CatalogDbConnectedEnum
+
+        #region ProjectDbConnectedEnum
+        /// <summary>
+        /// Project Database Connected Flag ... [UNKNOWN = -1 | UNCONNECTED = 0 | CONNECTED = 1]
+        /// Used in Status Bar display
+        /// </summary>
+        public HenTypes.DbConnected ProjectDbConnectedEnum { get; set; } // Project DB Connected [UNKNOWN | UNCONNECTED | CONNECTED]
         #endregion  // DbConnectedEnum
 
-        #region PinchUnitsEnum
+        #region ProjectUnitsEnum
         /// <summary>
-        /// Pinch Units System ... [UNKNOWN = -1 | ENGLISH = 0 | METRIC = 1]
-        /// ENGLISH-IMPERIAL Units or METRIC-SI Units
+        /// Project Units System ... [UNKNOWN = -1 | NA = 0 | ENGLISH = 1 | METRIC = 2 ]
+        /// OPEN Project ENGLISH-IMPERIAL Units or METRIC-SI Units
         /// </summary>
-        public HenTypes.PinchUnits PinchUnitsEnum { get; set; }        // Pinch Units [ENGLISH | METRIC]
-        #endregion  // PinchUnitsEnum
-
-        #region InputValidatedFlag
-        /// <summary>
-        /// Input Validated Flag
-        /// true if Input has been validated - OK to Proceed to Calculate Targets; otherwise false
-        /// </summary>
-        public bool InputValidatedFlag { get; set; }      // Input   Validated  Flag - true: Proceed to Targets
-        #endregion  // InputValidatedFlag
-
-        #region TargetsCalculatedFlag
-        /// <summary>
-        /// Targets Calculated Flag
-        /// true of Targets has been calculated - OK to Proceed to Heat Exchanger Network (HEN) Design; otherwise false
-        /// </summary>
-        public bool TargetsCalculatedFlag { get; set; }   // Targets Calculated Flag - true: Proceed to HEN
-        #endregion  // TargetsCalculatedFlag
-
-        #region HenAnalysisStatusEnum
-        /// <summary>
-        /// HEN Analysis Status Enum ... [ UNKNOWN = -1 | NOT_EXECUTED = 0 | NOT_CONVERGED = 1 | CONVERGED = 2 ]
-        /// HEN Analysis Status for current HEN Design
-        /// </summary>
-        public HenTypes.HenAnalysisStatus HenAnalysisStatusEnum { get; set; }   // HEN Analysis Status
-        #endregion  // HenAnalysisStatusEnum
-
+        public HenTypes.ProjectUnits ProjectUnitsEnum { get; set; }        // OPEN Project Units [ UNKNOWN | NA | ENGLISH | METRIC ]
+        #endregion  // ProjectUnitsEnum
 
         #endregion  // STATUS BAR
 
