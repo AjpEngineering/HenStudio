@@ -34,6 +34,7 @@
 
 #region REFERENCES
 using System;
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -177,6 +178,18 @@ namespace HenGlobal
 
         #endregion  // UNITS STRINGS
 
+        #region PROJECT PROFILE PINCH HEN NAMES
+        public const string UNOPENED_PROJECT = " Project: NA";
+        public const string UNOPENED_PROFILE = " Profile: NA";
+        public const string UNOPENED_PINCH   = " Pinch: NA";
+        public const string UNOPENED_HEN     = " HEN: NA";
+
+        public const string PROJECT_PREFIX   = " Project: ";
+        public const string PROFILE_PREFIX   = " Profile: ";
+        public const string PINCH_PREFIX     = " Pinch: ";
+        public const string HEN_PREFIX       = " HEN: ";
+        #endregion  // PROJECT PROFILE PINCH HEN NAMES
+
         #region FIELDS
 
         #region CUSTOMER INFORMATION ... SPECIFIED IN LICENSE FILE
@@ -231,12 +244,44 @@ namespace HenGlobal
 
         #endregion  // LICENSE
 
+        #region PROJECT - PROFILE - PINCH - HEN ... STATE PROPERTIES
+
         #region ProjectDatabaseName
         /// <summary>
         /// Open Project Database Name
         /// </summary>
         public string ProjectDatabaseName { get; set; }  // Open Project Database Name
         #endregion  // ProjectDatabaseName
+
+        #region CurrentProjectName
+        /// <summary>
+        /// Current Project Database Name
+        /// </summary>
+        public string CurrentProjectName { get; set; }  // Current Project Database Name
+        #endregion  // CurrentProjectName
+
+        #region CurrentProfileName
+        /// <summary>
+        /// Current Profile Database Name
+        /// </summary>
+        public string CurrentProfileName { get; set; }  // Current Profile Database Name
+        #endregion  // CurrentProfileName
+
+        #region CurrentPinchName
+        /// <summary>
+        /// Current Pinch Database Name
+        /// </summary>
+        public string CurrentPinchName { get; set; }  // Current Pinch Database Name
+        #endregion  // CurrentPinchName
+
+        #region CurrentHenName
+        /// <summary>
+        /// Current Hen Database Name
+        /// </summary>
+        public string CurrentHenName { get; set; }  // Current Hen Database Name
+        #endregion  // CurrentHenName
+
+        #endregion  // PROJECT - PROFILE - PINCH - HEN ... STATE PROPERTIES
 
         #region STATUS BAR
 
@@ -454,6 +499,16 @@ namespace HenGlobal
                 WriteExternalUnitsDataToLog();            // Write EXTERNAL Units Data to Log
                 #endregion  // EXTERNAL UNITS
 
+                #region INITIAL PROJECT-PROFILE-PINCH-HEN STATE
+                ProjectDatabaseName = UNOPENED_PROJECT;     // Intially Project Database is NOT Opened
+
+                CurrentProjectName = UNOPENED_PROJECT;      // Initially set to Unopened Project
+                CurrentProfileName = UNOPENED_PROFILE;      // Initially set to Unopened Profile
+                CurrentPinchName = UNOPENED_PINCH;          // Initially set to Unopened Pinch
+                CurrentHenName = UNOPENED_HEN;              // Initially set to Unopened HEN
+                #endregion  // INITIAL PROJECT-PROFILE-PINCH-HEN STATE
+
+                LogCurrentState();      // Log Current INITIAL State
             }
             catch (Exception ex)
             {
@@ -463,7 +518,7 @@ namespace HenGlobal
             }
             finally
             {
-                HenLogger.WriteSeparatorLine('=');
+                //HenLogger.WriteSeparatorLine('=');
 
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "HenSettings Object CREATED");
                 HenLogger.WriteSeparatorLine('<');
@@ -538,6 +593,35 @@ namespace HenGlobal
             }
         }
         #endregion  // WriteExternalUnitsDataToLog()
+
+        #region LogCurrentState()
+        /// <summary>
+        /// Write Current Product - Profile - Pinch - Hen State to Log
+        /// </summary>
+        private void LogCurrentState()
+        {
+            string strMethod = "LogCurrentState()";
+            try
+            {
+                HenLogger.WriteSection("CURRENT PRODUCT - PROFILE - PINCH - HEN STATE");
+
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " PROJECT : " + CurrentProjectName);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " PROFILE : " + CurrentProfileName);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " PINCH   : " + CurrentPinchName);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " HEN     : " + CurrentHenName);
+                HenLogger.WriteSeparatorLine('=');
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // LogCurrentState()
 
         #region WriteProductDataToLog()
         /// <summary>

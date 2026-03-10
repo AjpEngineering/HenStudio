@@ -504,22 +504,22 @@ namespace HenStudio
                                     HenSettingsObj.LicenseTypeEnum.ToString());
             try
             {
-                //this.toolStripStatusLabelLicense.Text = strLicenseType;
+                this.toolStripStatusLabelLICENSE.Text = strLicenseType;
 
-                switch(HenSettingsObj.LicenseStatusEnum)
+                switch (HenSettingsObj.LicenseStatusEnum)
                 {
                     case HenTypes.LicenseStatus.EXPIRED:
                     case HenTypes.LicenseStatus.INVALID:
-                            //this.toolStripStatusLabelLicense.BackColor = Color.Red;
-                            //this.toolStripStatusLabelLicense.Image = Resources.NotValid_32x32;
+                        this.toolStripStatusLabelLICENSE.BackColor = Color.Red;
+                        this.toolStripStatusLabelLICENSE.Image = Resources.NotValid_32x32;
                         break;
                      case HenTypes.LicenseStatus.UNKNOWN:
-                        //this.toolStripStatusLabelLicense.BackColor = Color.Orange;
-                        //this.toolStripStatusLabelLicense.Image = Resources.UNKNOWN_32x32;
+                        this.toolStripStatusLabelLICENSE.BackColor = Color.Orange;
+                        this.toolStripStatusLabelLICENSE.Image = Resources.UNKNOWN_32x32;
                         break;
                    case HenTypes.LicenseStatus.VALID:
-                        //this.toolStripStatusLabelLicense.BackColor = Color.Green;
-                        //this.toolStripStatusLabelLicense.Image = Resources.Valid_32x32;
+                        this.toolStripStatusLabelLICENSE.BackColor = Color.Green;
+                        this.toolStripStatusLabelLICENSE.Image = Resources.Valid_32x32;
                         break;
                     default:
                         throw new Exception("INVALID Licesne Status Enum Value!");
@@ -544,28 +544,28 @@ namespace HenStudio
         private void UpdateCatalogDbConnectLabel()
         {
             string strMethod = "UpdateCatalogDbConnectLabel";
-            string strDbConnected = String.Format("DB {0}",
+            string strDbConnected = String.Format("CATALOG {0}",
                                     HenSettingsObj.CatalogDbConnectedEnum.ToString());
             try
             {
-                //this.toolStripStatusLabelDbConnect.Text = strDbConnected;
+                this.toolStripStatusLabelCAT_DB.Text = strDbConnected;
 
                 switch (HenSettingsObj.CatalogDbConnectedEnum)
                 {
                     case HenTypes.DbConnected.UNKNOWN:
-                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Orange;
-                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
-                        //this.toolStripStatusLabelDbConnect.Image = Resources.Unknown_32x32;
+                        this.toolStripStatusLabelCAT_DB.BackColor = Color.Orange;
+                        this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
+                        this.toolStripStatusLabelCAT_DB.Image = Resources.UNKNOWN_32x32;
                         break;
                     case HenTypes.DbConnected.UNCONNECTED:
-                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Red;
-                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
-                        //this.toolStripStatusLabelDbConnect.Image = Resources.InValid_32x32;
+                        this.toolStripStatusLabelCAT_DB.BackColor = Color.Red;
+                        this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
+                        this.toolStripStatusLabelCAT_DB.Image = Resources.NotValid_32x32;
                         break;
                     case HenTypes.DbConnected.CONNECTED:
-                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Green;
-                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
-                        //this.toolStripStatusLabelDbConnect.Image = Resources.Valid_32x32;
+                        this.toolStripStatusLabelCAT_DB.BackColor = Color.Green;
+                        this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
+                        this.toolStripStatusLabelCAT_DB.Image = Resources.Valid_32x32;
                         break;
                     default:
                         throw new Exception("INVALID Catalog DB Connected Enum Value!");
@@ -590,28 +590,28 @@ namespace HenStudio
         private void UpdateProjectDbConnectLabel()
         {
             string strMethod = "UpdateProjectDbConnectLabel";
-            string strDbConnected = String.Format("DB {0}",
+            string strDbConnected = String.Format("PROJECT {0}",
                                     HenSettingsObj.ProjectDbConnectedEnum.ToString());
             try
             {
-                //this.toolStripStatusLabelDbConnect.Text = strDbConnected;
+                this.toolStripStatusLabelPROJ_DB.Text = strDbConnected;
 
                 switch (HenSettingsObj.ProjectDbConnectedEnum)
                 {
                     case HenTypes.DbConnected.UNKNOWN:
-                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Orange;
-                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
-                        //this.toolStripStatusLabelDbConnect.Image = Resources.Unknown_32x32;
+                        this.toolStripStatusLabelPROJ_DB.BackColor = Color.Orange;
+                        this.toolStripStatusLabelPROJ_DB.ForeColor = Color.White;
+                        this.toolStripStatusLabelPROJ_DB.Image = Resources.UNKNOWN_32x32;
                         break;
                     case HenTypes.DbConnected.UNCONNECTED:
-                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Red;
-                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
-                        //this.toolStripStatusLabelDbConnect.Image = Resources.InValid_32x32;
+                        this.toolStripStatusLabelPROJ_DB.BackColor = Color.Red;
+                        this.toolStripStatusLabelPROJ_DB.ForeColor = Color.White;
+                        this.toolStripStatusLabelPROJ_DB.Image = Resources.NotValid_32x32;
                         break;
                     case HenTypes.DbConnected.CONNECTED:
-                        //this.toolStripStatusLabelDbConnect.BackColor = Color.Green;
-                        //this.toolStripStatusLabelDbConnect.ForeColor = Color.White;
-                        //this.toolStripStatusLabelDbConnect.Image = Resources.Valid_32x32;
+                        this.toolStripStatusLabelPROJ_DB.BackColor = Color.Green;
+                        this.toolStripStatusLabelPROJ_DB.ForeColor = Color.White;
+                        this.toolStripStatusLabelPROJ_DB.Image = Resources.Valid_32x32;
                         break;
                     default:
                         throw new Exception("INVALID Project DB Connected Enum Value!");
