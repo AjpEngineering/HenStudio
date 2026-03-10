@@ -376,6 +376,11 @@ namespace HenStudio
                 HenLogger.WriteSeparatorLine(' ');
                 HenLogger.WriteSection("END CONSTRUCTION SECTION");
             }
+
+            //-------------------------------------------------
+            //--- Initialize Application Title & Status Bar ---
+            //-------------------------------------------------
+            UpdateProjectNameUI(HenSettingsObj.CurrentProjectName);
         }
         #endregion  // FormMain_Load
 
@@ -639,12 +644,21 @@ namespace HenStudio
             string strProjectName = String.Empty;
             try
             {
-                strProjectName = String.Format(" PROJECT: {0} ", HenSettingsObj.ProjectDatabaseName);
-                //this.toolStripStatusLabelInput.Text = strProjectName;
-
-                //this.toolStripStatusLabelInput.BackColor = Color.Green;
-                //this.toolStripStatusLabelInput.ForeColor = Color.White;
-                //this.toolStripStatusLabelInput.Image = Resources.Valid_32x32;
+                if (HenSettingsObj.CurrentProjectName.Length < 1)
+                {
+                    strProjectName = String.Format("{0}", HenSettings.UNOPENED_PROJECT);
+                    this.toolStripStatusLabelPROJ_NAME.BackColor = Color.Red;
+                    this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.White;
+                    this.toolStripStatusLabelPROJ_NAME.Image = Resources.NotValid_32x32;
+                }
+                else
+                {
+                    strProjectName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
+                    this.toolStripStatusLabelPROJ_NAME.BackColor = Color.Green;
+                    this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.White;
+                    this.toolStripStatusLabelPROJ_NAME.Image = Resources.Valid_32x32;
+                }
+                this.toolStripStatusLabelPROJ_NAME.Text = strProjectName;
 
             }
             catch (Exception ex)
@@ -792,8 +806,34 @@ namespace HenStudio
 
         #endregion      // EVENT HANDLERS
 
-
         #region METHODS
+
+        #region UpdateProjectNameUI()
+        /// <summary>
+        /// Update the Application Title & Status Bar based on User specified Current Project Name 
+        /// (e.g., User Passes in HenSettingsObj.CurrentProjectName)
+        /// </summary>
+        private void UpdateProjectNameUI(string strCurrProjName)
+        {
+            string strTitle = String.Empty;
+            string strStatusBar = String.Empty;
+
+            if (strCurrProjName.Length < 1)
+            {
+                strTitle = string.Format("AJP HEN Studio");
+                strStatusBar = HenSettings.UNOPENED_PROJECT;
+            }
+            else
+            {
+                strTitle = string.Format("AJP HEN Studio : {0}", strCurrProjName);
+                strStatusBar = string.Format("{0} {1}",HenSettings.PROJECT_PREFIX, strCurrProjName);
+                UpdateProjectNameStatusBarLabel();    // Update Project Database Connected Status Bar Label
+            }
+
+            this.Text = strTitle;
+            this.toolStripStatusLabelPROJ_NAME.Text = strStatusBar;
+        }
+        #endregion  // UpdateProjectNameUI()
 
         #region COMMON COMMAND HANDLERS
 

@@ -502,10 +502,10 @@ namespace HenGlobal
                 #region INITIAL PROJECT-PROFILE-PINCH-HEN STATE
                 ProjectDatabaseName = UNOPENED_PROJECT;     // Intially Project Database is NOT Opened
 
-                CurrentProjectName = UNOPENED_PROJECT;      // Initially set to Unopened Project
-                CurrentProfileName = UNOPENED_PROFILE;      // Initially set to Unopened Profile
-                CurrentPinchName = UNOPENED_PINCH;          // Initially set to Unopened Pinch
-                CurrentHenName = UNOPENED_HEN;              // Initially set to Unopened HEN
+                CurrentProjectName = string.Empty;      // Initially set to Empty
+                CurrentProfileName = string.Empty;      // Initially set to Empty
+                CurrentPinchName = string.Empty;        // Initially set to Empty
+                CurrentHenName = string.Empty;          // Initially set to Empty
                 #endregion  // INITIAL PROJECT-PROFILE-PINCH-HEN STATE
 
                 LogCurrentState();      // Log Current INITIAL State
