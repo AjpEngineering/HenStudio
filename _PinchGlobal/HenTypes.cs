@@ -144,23 +144,24 @@ namespace HenGlobal
 
         #endregion  // UNITS
 
-        #region HEN ANALYSIS STATUS
+        #region PROJECT EXPLORER LEVEL
 
-        #region enum HenAnalysisStatus
+        #region enum ProjectExplorerLevel
         /// <summary>
-        /// ENUMERATION: HEN Analysis [ UNKNOWN | NOT_EXECUTED | NOT_CONVERGED | CONVERGED ]
+        /// ENUMERATION: Project-Explorer Level [ UNKNOWN | CATALOG | PROJECT | PROFILE | PINCH | HEN ]
         /// </summary>
-        public enum HenAnalysisStatus
+        public enum ProjectExplorerLevel
         {
-            UNKNOWN = -1,       // UNKNOWN Analysis HEN Analysis Status
-            NOT_EXECUTED = 0,   // NOT EXECUTED HEN Analysis Status
-            NOT_CONVERGED = 1,  // NOT CONVERGED HEN Analysis Status
-            CONVERGED = 2       // CONVERGED HEN Analysis Status
+            UNKNOWN = -2,   // UNKNOWN Level
+            CATALOG = -1,   // Catalog - No Project Selected
+            PROJECT = 0,    // Project Selected (root)
+            PROFILE = 1,    // Profile Input
+            PINCH   = 2,    // Pinch Study
+            HEN     = 3     // HEN Design
         };
-        #endregion      // enum HenAnalysisStatus
+        #endregion      // enum ProjectExplorerLevel
 
-
-        #endregion  // HEN ANALYSIS STATUS
+        #endregion  // PROJECT EXPLORER LEVEL
 
         #region HEAT
 

@@ -53,6 +53,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+using static HenGlobal.HenTypes;
+
 #endregion  // REFERENCES
 
 #region namespace HenStudio
@@ -240,42 +242,59 @@ namespace HenStudio
                 //--------------------------
                 //--- License Validation ---
                 //--------------------------
-                bValidLicenseFile = ValidateLicense(); // Update Global Settings in Method - return valid flag
+                bValidLicenseFile = ValidateLicense(); // Initialize Global Settings in Method - return valid flag
                 #endregion  // License Validation
 
-                #region Update Catalog DB Connected Status Bar Label
-                //----------------------------------------------------
-                //--- Update Catalog DB Connected Status Bar Label ---
-                //----------------------------------------------------
+                #region Initialize Catalog DB Connected Status Bar Label
+                //--------------------------------------------------------
+                //--- Initialize Catalog DB Connected Status Bar Label ---
+                //--------------------------------------------------------
                 //HenSettingsObj.CatalogDbConnectedEnum = HenTypes.DbConnected.CONNECTED;
                 HenSettingsObj.CatalogDbConnectedEnum = HenTypes.DbConnected.UNCONNECTED;
-                UpdateCatalogDbConnectLabel();    // Update Catalog Database Connected Status Bar Label
-                #endregion  // Update Catalog DB Connected Status Bar Label
+                UpdateCatalogDbConnectLabel();    // Initialize Catalog Database Connected Status Bar Label
+                #endregion  // Initialize Catalog DB Connected Status Bar Label
 
-                #region Update Project DB Connected Status Bar Label
-                //----------------------------------------------------
-                //--- Update Project DB Connected Status Bar Label ---
-                //----------------------------------------------------
+                #region Initialize Project DB Connected Status Bar Label
+                //--------------------------------------------------------
+                //--- Initialize Project DB Connected Status Bar Label ---
+                //--------------------------------------------------------
                 //HenSettingsObj.ProjectDbConnectedEnum = HenTypes.DbConnected.CONNECTED;
                 HenSettingsObj.ProjectDbConnectedEnum = HenTypes.DbConnected.UNCONNECTED;
-                UpdateProjectDbConnectLabel();    // Update Project Database Connected Status Bar Label
-                #endregion  // Update Project DB Connected Status Bar Label
+                UpdateProjectDbConnectLabel();    // Initialize Project Database Connected Status Bar Label
+                #endregion  // Initialize Project DB Connected Status Bar Label
 
-                #region Update OPEN Project Name Status Bar Label
-                //----------------------------------------------------
-                //--- Update OPEN Project Name Status Bar Label ---
-                //----------------------------------------------------
+                #region Initialize Catalog-Project Level Status Bar Label
+                //---------------------------------------------------------
+                //--- Initialize Catalog-Project Level Status Bar Label ---
+                //---------------------------------------------------------
+                //HenSettingsObj.ProjectExplorerSelectedLevel = ProjectExplorerLevel.CATALOG;
+                //HenSettingsObj.ProjectDatabaseName = string.Empty;
+                //HenSettingsObj.CurrentProjectName = string.Empty;
+                //HenSettingsObj.CurrentProfileName = string.Empty;
+                //HenSettingsObj.CurrentPinchName = string.Empty;
+                //HenSettingsObj.CurrentHenName = string.Empty;
+                //UpdateProjectLevelStatusBarLabel();    // Initialize Catalog-Project Level Status Bar Label
+                //***********************************************************************************************
+                //***********************************************************************************************
+                //***********************************************************************************************
+                HenSettingsObj.ProjectExplorerSelectedLevel = ProjectExplorerLevel.HEN;
                 HenSettingsObj.ProjectDatabaseName = "Deer Park";
-                UpdateProjectNameStatusBarLabel();    // Update Project Database Connected Status Bar Label
-                #endregion  // Update Project DB Connected Status Bar Label
+                HenSettingsObj.CurrentProjectName = "Deer Park";
+                HenSettingsObj.CurrentProfileName = "Q1 Setup";
+                HenSettingsObj.CurrentPinchName = "Delta T = 10";
+                HenSettingsObj.CurrentHenName = "Base Design";
+                UpdateProjectLevelStatusBarLabel();    // Initialize Catalog-Project Level Status Bar Label
+                //***********************************************************************************************
+                //***********************************************************************************************
+                //***********************************************************************************************
+                #endregion  // Initialize Project DB Connected Status Bar Label
 
-                #region Update OPEN Project Units Status Bar Label
-                //--------------------------------------------------
-                //--- Update OPEN Project Units Status Bar Label ---
-                //--------------------------------------------------
+                #region Set Default Project Units Property
+                //-------------------------------------------------
+                //--- Initialize Default Project Units Property ---
+                //-------------------------------------------------
                 //HenSettingsObj.ProjectUnitsEnum = HenTypes.ProjectUnits.ENGLISH;
                 HenSettingsObj.ProjectUnitsEnum = HenTypes.ProjectUnits.METRIC;
-                UpdateProjectUnitsStatusBarLabel();        // Update Project Units Status Bar Label
                 #endregion      // Update OPEN Project Units Status Bar Label
                 
             }
@@ -377,10 +396,10 @@ namespace HenStudio
                 HenLogger.WriteSection("END CONSTRUCTION SECTION");
             }
 
-            //-------------------------------------------------
-            //--- Initialize Application Title & Status Bar ---
-            //-------------------------------------------------
-            UpdateProjectNameUI(HenSettingsObj.CurrentProjectName);
+            //-------------------------------------
+            //--- Initialize Application Title  ---
+            //-------------------------------------
+            UpdateProjectNameUI();
         }
         #endregion  // FormMain_Load
 
@@ -505,8 +524,7 @@ namespace HenStudio
         private void UpdateLicenseStatusBarLabel()
         {
             string strMethod = "UpdateLicenseStatusBarLabel";
-            string strLicenseType = String.Format("{0} LICENSE ", 
-                                    HenSettingsObj.LicenseTypeEnum.ToString());
+            string strLicenseType = String.Format(" LICENSE ");
             try
             {
                 this.toolStripStatusLabelLICENSE.Text = strLicenseType;
@@ -549,8 +567,7 @@ namespace HenStudio
         private void UpdateCatalogDbConnectLabel()
         {
             string strMethod = "UpdateCatalogDbConnectLabel";
-            string strDbConnected = String.Format("CATALOG {0}",
-                                    HenSettingsObj.CatalogDbConnectedEnum.ToString());
+            string strDbConnected = String.Format(" CATALOG DB ");
             try
             {
                 this.toolStripStatusLabelCAT_DB.Text = strDbConnected;
@@ -595,8 +612,7 @@ namespace HenStudio
         private void UpdateProjectDbConnectLabel()
         {
             string strMethod = "UpdateProjectDbConnectLabel";
-            string strDbConnected = String.Format("PROJECT {0}",
-                                    HenSettingsObj.ProjectDbConnectedEnum.ToString());
+            string strDbConnected = String.Format(" PROJECT DB ");
             try
             {
                 this.toolStripStatusLabelPROJ_DB.Text = strDbConnected;
@@ -634,83 +650,62 @@ namespace HenStudio
         }
         #endregion  // UpdateProjectDbConnectLabel() ... PROJ_DB
 
-        #region UpdateProjectNameStatusBarLabel() ... PROJ_NAME
+        #region UpdateProjectLevelStatusBarLabel() ... PROJ_LEVEL
         /// <summary>
-        /// Update the OPEN Project Name Status Bar Label using Global Setting
+        /// Update the Catalog-Project Level Status Bar Label using Global Setting
         /// </summary>
-        private void UpdateProjectNameStatusBarLabel()
+        private void UpdateProjectLevelStatusBarLabel()
         {
-            string strMethod = "UpdateProjectNameStatusBarLabel";
-            string strProjectName = String.Empty;
+            string strMethod = "UpdateProjectLevelStatusBarLabel";
+            string strStatusName = String.Empty;
             try
             {
-                if (HenSettingsObj.CurrentProjectName.Length < 1)
+                //--------------------------------------------------------------
+                //--- Update Status Bar Text Based on Project Explorer Level ---
+                //--------------------------------------------------------------
+                switch(HenSettingsObj.ProjectExplorerSelectedLevel)
                 {
-                    strProjectName = String.Format("{0}", HenSettings.UNOPENED_PROJECT);
-                    this.toolStripStatusLabelPROJ_NAME.BackColor = Color.Red;
-                    this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.White;
-                    this.toolStripStatusLabelPROJ_NAME.Image = Resources.NotValid_32x32;
-                }
-                else
-                {
-                    strProjectName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
-                    this.toolStripStatusLabelPROJ_NAME.BackColor = Color.Green;
-                    this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.White;
-                    this.toolStripStatusLabelPROJ_NAME.Image = Resources.Valid_32x32;
-                }
-                this.toolStripStatusLabelPROJ_NAME.Text = strProjectName;
-
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // UpdateProjectNameStatusBarLabel() ... PROJ_NAME
-
-        #region UpdateProjectUnitsStatusBarLabel() ... PROJ_UNITS
-        /// <summary>
-        /// Update the OPEN Project Units Status Bar Label using Global Setting
-        /// </summary>
-        private void UpdateProjectUnitsStatusBarLabel()
-        {
-            string strMethod = "UpdateProjectUnitsStatusBarLabel";
-            string strUnitsType = String.Format("{0} UNITS ",
-                                    HenSettingsObj.ProjectUnitsEnum.ToString());
-            try
-            {
-                //this.toolStripStatusLabelUnits.Text = strUnitsType;
-
-                switch (HenSettingsObj.ProjectUnitsEnum)
-                {
-                    case HenTypes.ProjectUnits.UNKNOWN:
-                        //    this.toolStripStatusLabelUnits.BackColor = Color.Orange;
-                        //    this.toolStripStatusLabelUnits.ForeColor = Color.White;
-                        //this.toolStripStatusLabelUnits.Image = Resources.Unknown_32x32;
+                    case ProjectExplorerLevel.CATALOG:
+                        strStatusName = String.Format(" CATALOG: No Project ");
+                        //this.toolStripStatusLabelPROJ_NAME.BackColor = Color.Gold;
+                        this.toolStripStatusLabelPROJ_NAME.BackColor = Color.FromArgb(255, 255, 217, 102);
+                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Black;
                         break;
-                    case HenTypes.ProjectUnits.NA:
-                        //this.toolStripStatusLabelUnits.BackColor = Color.Red;
-                        //this.toolStripStatusLabelUnits.ForeColor = Color.White;
-                        //this.toolStripStatusLabelUnits.Image = Resources.Unknown_32x32;
+                    case ProjectExplorerLevel.PROJECT:
+                        strStatusName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
+                        this.toolStripStatusLabelPROJ_NAME.BackColor = Color.FromArgb(255, 247, 99, 87);
+                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Black;
                         break;
-                    case HenTypes.ProjectUnits.ENGLISH:
-                        //this.toolStripStatusLabelUnits.BackColor = Color.Blue;
-                        //this.toolStripStatusLabelUnits.ForeColor = Color.White;
-                        //this.toolStripStatusLabelUnits.Image = Resources.English_Imperial_Units_32x32;
+                    case ProjectExplorerLevel.PROFILE:
+                        strStatusName = String.Format(" PROJECT: {0} : PROFILE: {1} ", 
+                                                       HenSettingsObj.CurrentProjectName,
+                                                       HenSettingsObj.CurrentProfileName);
+                        this.toolStripStatusLabelPROJ_NAME.BackColor = Color.FromArgb(255, 150, 150, 255);
+                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Black;
                         break;
-                    case HenTypes.ProjectUnits.METRIC:
-                        //this.toolStripStatusLabelUnits.BackColor = Color.Blue;
-                        //this.toolStripStatusLabelUnits.ForeColor = Color.White;
-                        //this.toolStripStatusLabelUnits.Image = Resources.Metric_SI_Units_32x32;
+                    case ProjectExplorerLevel.PINCH:
+                        strStatusName = String.Format(" PROJECT: {0} : PROFILE: {1} : PINCH: {2} ",
+                                                       HenSettingsObj.CurrentProjectName,
+                                                       HenSettingsObj.CurrentProfileName,
+                                                       HenSettingsObj.CurrentPinchName);
+                        this.toolStripStatusLabelPROJ_NAME.BackColor = Color.OrangeRed;
+                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Black;
+                        break;
+                    case ProjectExplorerLevel.HEN:
+                        strStatusName = String.Format(" PROJECT: {0} : PROFILE: {1} : PINCH: {2} : HEN: {3}",
+                                                       HenSettingsObj.CurrentProjectName,
+                                                       HenSettingsObj.CurrentProfileName,
+                                                       HenSettingsObj.CurrentPinchName,
+                                                       HenSettingsObj.CurrentHenName);
+                        this.toolStripStatusLabelPROJ_NAME.BackColor = Color.FromArgb(255, 0, 204, 204);
+                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Black;
                         break;
                     default:
-                        throw new Exception("INVALID OPEN Project Units Enum Value!");
+
+                        break;
                 }
+                this.toolStripStatusLabelPROJ_NAME.Image = Resources.StatusView_51x32;
+                this.toolStripStatusLabelPROJ_NAME.Text = strStatusName;
             }
             catch (Exception ex)
             {
@@ -722,7 +717,7 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // UpdateProjectUnitsStatusBarLabel() ... PROJ_UNITS
+        #endregion  // UpdateProjectLevelStatusBarLabel() ... PROJ_LEVEL
 
         #endregion  // UPDATE STATUS BAR LABELS METHODS
 
@@ -810,28 +805,23 @@ namespace HenStudio
 
         #region UpdateProjectNameUI()
         /// <summary>
-        /// Update the Application Title & Status Bar based on User specified Current Project Name 
-        /// (e.g., User Passes in HenSettingsObj.CurrentProjectName)
+        /// Update the Application Title based on Current Project Name 
+        /// (e.g., HenSettingsObj.CurrentProjectName)
         /// </summary>
-        private void UpdateProjectNameUI(string strCurrProjName)
+        private void UpdateProjectNameUI()
         {
             string strTitle = String.Empty;
-            string strStatusBar = String.Empty;
 
-            if (strCurrProjName.Length < 1)
+            if (HenSettingsObj.ProjectExplorerSelectedLevel == ProjectExplorerLevel.CATALOG)
             {
                 strTitle = string.Format("AJP HEN Studio");
-                strStatusBar = HenSettings.UNOPENED_PROJECT;
             }
             else
             {
-                strTitle = string.Format("AJP HEN Studio : {0}", strCurrProjName);
-                strStatusBar = string.Format("{0} {1}",HenSettings.PROJECT_PREFIX, strCurrProjName);
-                UpdateProjectNameStatusBarLabel();    // Update Project Database Connected Status Bar Label
+                strTitle = string.Format("AJP HEN Studio : {0}", HenSettingsObj.CurrentProjectName);
             }
 
             this.Text = strTitle;
-            this.toolStripStatusLabelPROJ_NAME.Text = strStatusBar;
         }
         #endregion  // UpdateProjectNameUI()
 

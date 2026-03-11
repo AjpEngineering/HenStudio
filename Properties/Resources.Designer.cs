@@ -283,6 +283,16 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HenSELECTED_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("HenSELECTED_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Import_Zip_120_120 {
             get {
                 object obj = ResourceManager.GetObject("Import_Zip_120_120", resourceCulture);
@@ -493,6 +503,16 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PinchSELECTED_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("PinchSELECTED_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Profile_Input_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Profile_Input_16x16", resourceCulture);
@@ -517,6 +537,16 @@ namespace HenStudio.Properties {
             get {
                 object obj = ResourceManager.GetObject("Profile_Input_Selected_16x16", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfileSELECTED_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("ProfileSELECTED_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

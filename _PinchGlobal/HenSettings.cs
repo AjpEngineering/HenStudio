@@ -45,6 +45,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using static HenGlobal.HenTypes;
 #endregion  // REFERENCES
 
 #region namespace HenGlobal
@@ -246,6 +248,13 @@ namespace HenGlobal
 
         #region PROJECT - PROFILE - PINCH - HEN ... STATE PROPERTIES
 
+        #region ProjectExplorerSelectedLevel
+        /// <summary>
+        /// Project Explorer Selected Level
+        /// </summary>
+        public ProjectExplorerLevel ProjectExplorerSelectedLevel { get; set; }  // Project Explorer Selected Level
+        #endregion  // ProjectExplorerSelectedLevel
+
         #region ProjectDatabaseName
         /// <summary>
         /// Open Project Database Name
@@ -255,30 +264,30 @@ namespace HenGlobal
 
         #region CurrentProjectName
         /// <summary>
-        /// Current Project Database Name
+        /// Current Project Name
         /// </summary>
-        public string CurrentProjectName { get; set; }  // Current Project Database Name
+        public string CurrentProjectName { get; set; }  // Current Project Name
         #endregion  // CurrentProjectName
 
         #region CurrentProfileName
         /// <summary>
-        /// Current Profile Database Name
+        /// Current Profile Name
         /// </summary>
-        public string CurrentProfileName { get; set; }  // Current Profile Database Name
+        public string CurrentProfileName { get; set; }  // Current Profile Name
         #endregion  // CurrentProfileName
 
         #region CurrentPinchName
         /// <summary>
-        /// Current Pinch Database Name
+        /// Current Pinch Name
         /// </summary>
-        public string CurrentPinchName { get; set; }  // Current Pinch Database Name
+        public string CurrentPinchName { get; set; }  // Current Pinch Name
         #endregion  // CurrentPinchName
 
         #region CurrentHenName
         /// <summary>
-        /// Current Hen Database Name
+        /// Current Hen Name
         /// </summary>
-        public string CurrentHenName { get; set; }  // Current Hen Database Name
+        public string CurrentHenName { get; set; }  // Current Hen Name
         #endregion  // CurrentHenName
 
         #endregion  // PROJECT - PROFILE - PINCH - HEN ... STATE PROPERTIES

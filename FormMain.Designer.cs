@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2);
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Project Catalog", 0, 0, new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2);
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Project Catalog", 0, 0, new System.Windows.Forms.TreeNode[] {
+            treeNode22,
+            treeNode23,
+            treeNode24});
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
             System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6, new System.Windows.Forms.TreeNode[] {
@@ -44,26 +44,37 @@
             treeNode6});
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
             System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
             treeNode8,
             treeNode9});
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
             treeNode7,
-            treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Project: Deer Park", 2, 2, new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode13,
-            treeNode14,
-            treeNode15});
+            treeNode27});
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode29});
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Project: Deer Park", 2, 2, new System.Windows.Forms.TreeNode[] {
+            treeNode28,
+            treeNode30,
+            treeNode31,
+            treeNode32});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode4});
             this.contextMenuStripProject = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorDelete = new System.Windows.Forms.ToolStripSeparator();
+            this.closeProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripProjectCatalog = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemAddProject = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,6 +137,11 @@
             this.userLicenseAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMainDASHBOARD = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelLICENSE = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelCAT_DB = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelPROJ_DB = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelPROJ_NAME = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelAJP_LOGO = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageListAnalysis = new System.Windows.Forms.ImageList(this.components);
             this.imageListInput = new System.Windows.Forms.ImageList(this.components);
             this.imageListTargets = new System.Windows.Forms.ImageList(this.components);
@@ -136,11 +152,12 @@
             this.splitContainerProject = new System.Windows.Forms.SplitContainer();
             this.treeViewCatalogExplorer = new System.Windows.Forms.TreeView();
             this.imageListProjectTreeViews = new System.Windows.Forms.ImageList(this.components);
-            this.tabPageCurrentProject = new System.Windows.Forms.TabPage();
+            this.tabPageCurrentProjectExplorer = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.treeViewCurrentProjectExplorer = new System.Windows.Forms.TreeView();
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
             this.tabControlAnalysisPhase = new System.Windows.Forms.TabControl();
+            this.tabPageCurrentProject = new System.Windows.Forms.TabPage();
             this.tabPageInputProfile = new System.Windows.Forms.TabPage();
             this.textBoxInputBanner = new System.Windows.Forms.TextBox();
             this.tabControlInputPhase = new System.Windows.Forms.TabControl();
@@ -151,14 +168,29 @@
             this.textBoxPinchBanner = new System.Windows.Forms.TextBox();
             this.tabPageHenDesign = new System.Windows.Forms.TabPage();
             this.textBoxHenBanner = new System.Windows.Forms.TextBox();
-            this.toolStripStatusLabelLICENSE = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelCAT_DB = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelPROJ_DB = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelPROJ_NAME = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelPROJ_UNITS = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelAJP_LOGO = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.closeProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.treeViewProjectZipExplorer = new System.Windows.Forms.TreeView();
+            this.imageListProjectZIP = new System.Windows.Forms.ImageList(this.components);
+            this.toolStripSeparatorExpandCollapse = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemExpandAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripProjectZip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemZipExpandAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemZipCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemCurrProjExpandAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemCurrProjCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparatorCurrProjExpandAll = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemProjExpandAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemProjCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.textBoxProjectBanner = new System.Windows.Forms.TextBox();
+            this.textBoxProjectName = new System.Windows.Forms.TextBox();
+            this.textBoxProjectNameValue = new System.Windows.Forms.TextBox();
+            this.textBoxProjectDescription = new System.Windows.Forms.TextBox();
+            this.textBoxProjectDescriptionValue = new System.Windows.Forms.TextBox();
+            this.textBoxProjectPurpose = new System.Windows.Forms.TextBox();
+            this.textBoxProjectPurposeValue = new System.Windows.Forms.TextBox();
+            this.textBoxProjectNotesValue = new System.Windows.Forms.TextBox();
+            this.textBoxProjectNotes = new System.Windows.Forms.TextBox();
             this.contextMenuStripProject.SuspendLayout();
             this.contextMenuStripProjectCatalog.SuspendLayout();
             this.contextMenuStripHen.SuspendLayout();
@@ -175,21 +207,27 @@
             this.tabPageCatalogExplorer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerProject)).BeginInit();
             this.splitContainerProject.Panel1.SuspendLayout();
+            this.splitContainerProject.Panel2.SuspendLayout();
             this.splitContainerProject.SuspendLayout();
-            this.tabPageCurrentProject.SuspendLayout();
+            this.tabPageCurrentProjectExplorer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tabControlAnalysisPhase.SuspendLayout();
+            this.tabPageCurrentProject.SuspendLayout();
             this.tabPageInputProfile.SuspendLayout();
             this.tabControlInputPhase.SuspendLayout();
             this.tabPagePinchStudy.SuspendLayout();
             this.tabPageHenDesign.SuspendLayout();
+            this.contextMenuStripProjectZip.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripProject
             // 
             this.contextMenuStripProject.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemProjExpandAll,
+            this.toolStripMenuItemProjCollapseAll,
+            this.toolStripSeparator12,
             this.toolStripMenuItemRename,
             this.toolStripMenuItemOpen,
             this.toolStripSeparatorDelete,
@@ -197,40 +235,54 @@
             this.toolStripSeparator9,
             this.toolStripMenuItemDelete});
             this.contextMenuStripProject.Name = "contextMenuStripProject";
-            this.contextMenuStripProject.Size = new System.Drawing.Size(181, 126);
+            this.contextMenuStripProject.Size = new System.Drawing.Size(167, 154);
             // 
             // toolStripMenuItemRename
             // 
             this.toolStripMenuItemRename.Name = "toolStripMenuItemRename";
-            this.toolStripMenuItemRename.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemRename.Size = new System.Drawing.Size(166, 22);
             this.toolStripMenuItemRename.Text = "Rename Project...";
             // 
             // toolStripMenuItemOpen
             // 
             this.toolStripMenuItemOpen.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemOpen.Image")));
             this.toolStripMenuItemOpen.Name = "toolStripMenuItemOpen";
-            this.toolStripMenuItemOpen.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemOpen.Size = new System.Drawing.Size(166, 22);
             this.toolStripMenuItemOpen.Text = "Open";
             // 
             // toolStripSeparatorDelete
             // 
             this.toolStripSeparatorDelete.Name = "toolStripSeparatorDelete";
-            this.toolStripSeparatorDelete.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparatorDelete.Size = new System.Drawing.Size(163, 6);
+            // 
+            // closeProjectToolStripMenuItem
+            // 
+            this.closeProjectToolStripMenuItem.Name = "closeProjectToolStripMenuItem";
+            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.closeProjectToolStripMenuItem.Text = "Close Project";
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(163, 6);
             // 
             // toolStripMenuItemDelete
             // 
             this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(166, 22);
             this.toolStripMenuItemDelete.Text = "Delete Project...";
             // 
             // contextMenuStripProjectCatalog
             // 
             this.contextMenuStripProjectCatalog.BackColor = System.Drawing.Color.WhiteSmoke;
             this.contextMenuStripProjectCatalog.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemCollapseAll,
+            this.toolStripMenuItemExpandAll,
+            this.toolStripSeparatorExpandCollapse,
             this.toolStripMenuItemAddProject,
             this.toolStripMenuItemImport});
             this.contextMenuStripProjectCatalog.Name = "contextMenuStripProjectCatalog";
-            this.contextMenuStripProjectCatalog.Size = new System.Drawing.Size(180, 48);
+            this.contextMenuStripProjectCatalog.Size = new System.Drawing.Size(180, 98);
             this.contextMenuStripProjectCatalog.Text = "PROJECT CATALOG";
             // 
             // toolStripMenuItemAddProject
@@ -342,6 +394,9 @@
             // contextMenuStripCurrProj
             // 
             this.contextMenuStripCurrProj.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemCurrProjExpandAll,
+            this.toolStripMenuItemCurrProjCollapseAll,
+            this.toolStripSeparatorCurrProjExpandAll,
             this.toolStripMenuItemCurProjRename,
             this.toolStripMenuItemCurProjAdd,
             this.toolStripSeparatorCurProjAdd,
@@ -350,7 +405,7 @@
             this.toolStripSeparatorCurProjSave,
             this.toolStripMenuItemCurProjClose});
             this.contextMenuStripCurrProj.Name = "contextMenuStripCurrProj";
-            this.contextMenuStripCurrProj.Size = new System.Drawing.Size(174, 126);
+            this.contextMenuStripCurrProj.Size = new System.Drawing.Size(174, 176);
             // 
             // toolStripMenuItemCurProjRename
             // 
@@ -677,21 +732,107 @@
             this.toolStripStatusLabelCAT_DB,
             this.toolStripStatusLabelPROJ_DB,
             this.toolStripStatusLabelPROJ_NAME,
-            this.toolStripStatusLabelPROJ_UNITS,
             this.toolStripStatusLabelAJP_LOGO});
-            this.statusStripMainDASHBOARD.Location = new System.Drawing.Point(0, 648);
+            this.statusStripMainDASHBOARD.Location = new System.Drawing.Point(0, 643);
             this.statusStripMainDASHBOARD.Name = "statusStripMainDASHBOARD";
-            this.statusStripMainDASHBOARD.Size = new System.Drawing.Size(1264, 33);
+            this.statusStripMainDASHBOARD.Size = new System.Drawing.Size(1264, 38);
             this.statusStripMainDASHBOARD.TabIndex = 6;
+            // 
+            // toolStripStatusLabelLICENSE
+            // 
+            this.toolStripStatusLabelLICENSE.BackColor = System.Drawing.Color.Orange;
+            this.toolStripStatusLabelLICENSE.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelLICENSE.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelLICENSE.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelLICENSE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLICENSE.Image")));
+            this.toolStripStatusLabelLICENSE.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelLICENSE.Name = "toolStripStatusLabelLICENSE";
+            this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(151, 32);
+            this.toolStripStatusLabelLICENSE.Text = "LIC: UNKNOWN";
+            this.toolStripStatusLabelLICENSE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripStatusLabelCAT_DB
+            // 
+            this.toolStripStatusLabelCAT_DB.BackColor = System.Drawing.Color.Orange;
+            this.toolStripStatusLabelCAT_DB.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelCAT_DB.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelCAT_DB.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelCAT_DB.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelCAT_DB.Image")));
+            this.toolStripStatusLabelCAT_DB.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelCAT_DB.Name = "toolStripStatusLabelCAT_DB";
+            this.toolStripStatusLabelCAT_DB.Padding = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(158, 32);
+            this.toolStripStatusLabelCAT_DB.Text = "CAT: UNKNOWN";
+            this.toolStripStatusLabelCAT_DB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripStatusLabelPROJ_DB
+            // 
+            this.toolStripStatusLabelPROJ_DB.BackColor = System.Drawing.Color.Orange;
+            this.toolStripStatusLabelPROJ_DB.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelPROJ_DB.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelPROJ_DB.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelPROJ_DB.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelPROJ_DB.Image")));
+            this.toolStripStatusLabelPROJ_DB.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelPROJ_DB.Name = "toolStripStatusLabelPROJ_DB";
+            this.toolStripStatusLabelPROJ_DB.Padding = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelPROJ_DB.Size = new System.Drawing.Size(166, 32);
+            this.toolStripStatusLabelPROJ_DB.Text = "PROJ: UNKNOWN";
+            this.toolStripStatusLabelPROJ_DB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripStatusLabelPROJ_NAME
+            // 
+            this.toolStripStatusLabelPROJ_NAME.BackColor = System.Drawing.Color.Orange;
+            this.toolStripStatusLabelPROJ_NAME.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelPROJ_NAME.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelPROJ_NAME.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelPROJ_NAME.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelPROJ_NAME.Image")));
+            this.toolStripStatusLabelPROJ_NAME.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelPROJ_NAME.Name = "toolStripStatusLabelPROJ_NAME";
+            this.toolStripStatusLabelPROJ_NAME.Padding = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelPROJ_NAME.Size = new System.Drawing.Size(216, 32);
+            this.toolStripStatusLabelPROJ_NAME.Text = "PROJ NAME: UNKNOWN";
+            this.toolStripStatusLabelPROJ_NAME.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripStatusLabelAJP_LOGO
+            // 
+            this.toolStripStatusLabelAJP_LOGO.BackColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelAJP_LOGO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.toolStripStatusLabelAJP_LOGO.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelAJP_LOGO.DoubleClickEnabled = true;
+            this.toolStripStatusLabelAJP_LOGO.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelAJP_LOGO.ForeColor = System.Drawing.Color.Black;
+            this.toolStripStatusLabelAJP_LOGO.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelAJP_LOGO.Image")));
+            this.toolStripStatusLabelAJP_LOGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabelAJP_LOGO.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelAJP_LOGO.Name = "toolStripStatusLabelAJP_LOGO";
+            this.toolStripStatusLabelAJP_LOGO.Padding = new System.Windows.Forms.Padding(6);
+            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(528, 32);
+            this.toolStripStatusLabelAJP_LOGO.Spring = true;
+            this.toolStripStatusLabelAJP_LOGO.Text = "Engineering  ";
+            this.toolStripStatusLabelAJP_LOGO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // imageListAnalysis
             // 
             this.imageListAnalysis.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListAnalysis.ImageStream")));
             this.imageListAnalysis.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListAnalysis.Images.SetKeyName(0, "Input.png");
-            this.imageListAnalysis.Images.SetKeyName(1, "Target.png");
-            this.imageListAnalysis.Images.SetKeyName(2, "HEN Studio Graphic...32x32.png");
-            this.imageListAnalysis.Images.SetKeyName(3, "HEN.png");
+            this.imageListAnalysis.Images.SetKeyName(0, "CurrentSelectedProject_32x32.png");
+            this.imageListAnalysis.Images.SetKeyName(1, "Profile_Input_32x32.png");
+            this.imageListAnalysis.Images.SetKeyName(2, "ProfileSELECTED_32x32.png");
+            this.imageListAnalysis.Images.SetKeyName(3, "Pinch_32x32.png");
+            this.imageListAnalysis.Images.SetKeyName(4, "PinchSELECTED_32x32.png");
+            this.imageListAnalysis.Images.SetKeyName(5, "HenSELECTED_32x32.png");
+            this.imageListAnalysis.Images.SetKeyName(6, "Hen_32x32.png");
             // 
             // imageListInput
             // 
@@ -721,6 +862,7 @@
             this.splitContainerLefCenter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainerLefCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerLefCenter.Location = new System.Drawing.Point(0, 24);
+            this.splitContainerLefCenter.MinimumSize = new System.Drawing.Size(1264, 619);
             this.splitContainerLefCenter.Name = "splitContainerLefCenter";
             // 
             // splitContainerLefCenter.Panel1
@@ -728,29 +870,31 @@
             this.splitContainerLefCenter.Panel1.BackColor = System.Drawing.Color.Honeydew;
             this.splitContainerLefCenter.Panel1.Controls.Add(this.tabControlProject);
             this.splitContainerLefCenter.Panel1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.splitContainerLefCenter.Panel1MinSize = 325;
+            this.splitContainerLefCenter.Panel1MinSize = 350;
             // 
             // splitContainerLefCenter.Panel2
             // 
             this.splitContainerLefCenter.Panel2.BackColor = System.Drawing.Color.Honeydew;
             this.splitContainerLefCenter.Panel2.Controls.Add(this.tabControlAnalysisPhase);
             this.splitContainerLefCenter.Panel2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.splitContainerLefCenter.Panel2MinSize = 910;
-            this.splitContainerLefCenter.Size = new System.Drawing.Size(1264, 624);
-            this.splitContainerLefCenter.SplitterDistance = 330;
+            this.splitContainerLefCenter.Panel2MinSize = 908;
+            this.splitContainerLefCenter.Size = new System.Drawing.Size(1264, 619);
+            this.splitContainerLefCenter.SplitterDistance = 351;
             this.splitContainerLefCenter.TabIndex = 2;
             // 
             // tabControlProject
             // 
             this.tabControlProject.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.tabControlProject.Controls.Add(this.tabPageCatalogExplorer);
-            this.tabControlProject.Controls.Add(this.tabPageCurrentProject);
+            this.tabControlProject.Controls.Add(this.tabPageCurrentProjectExplorer);
             this.tabControlProject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlProject.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlProject.ImageList = this.imageListProject;
             this.tabControlProject.Location = new System.Drawing.Point(0, 0);
-            this.tabControlProject.MinimumSize = new System.Drawing.Size(350, 621);
+            this.tabControlProject.Margin = new System.Windows.Forms.Padding(6);
+            this.tabControlProject.MinimumSize = new System.Drawing.Size(350, 622);
             this.tabControlProject.Name = "tabControlProject";
+            this.tabControlProject.Padding = new System.Drawing.Point(6, 6);
             this.tabControlProject.SelectedIndex = 0;
             this.tabControlProject.ShowToolTips = true;
             this.tabControlProject.Size = new System.Drawing.Size(350, 622);
@@ -761,11 +905,11 @@
             // 
             this.tabPageCatalogExplorer.BackColor = System.Drawing.Color.Honeydew;
             this.tabPageCatalogExplorer.Controls.Add(this.splitContainerProject);
-            this.tabPageCatalogExplorer.ImageIndex = 0;
+            this.tabPageCatalogExplorer.ImageKey = "Project Explorer...32x32.png";
             this.tabPageCatalogExplorer.Location = new System.Drawing.Point(4, 4);
             this.tabPageCatalogExplorer.Name = "tabPageCatalogExplorer";
             this.tabPageCatalogExplorer.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCatalogExplorer.Size = new System.Drawing.Size(342, 579);
+            this.tabPageCatalogExplorer.Size = new System.Drawing.Size(342, 573);
             this.tabPageCatalogExplorer.TabIndex = 0;
             this.tabPageCatalogExplorer.Text = "CATALOG EXPLORER ";
             this.tabPageCatalogExplorer.ToolTipText = "Project Explorer";
@@ -783,49 +927,54 @@
             this.splitContainerProject.Panel1.BackColor = System.Drawing.Color.White;
             this.splitContainerProject.Panel1.Controls.Add(this.treeViewCatalogExplorer);
             this.splitContainerProject.Panel1MinSize = 300;
+            // 
+            // splitContainerProject.Panel2
+            // 
+            this.splitContainerProject.Panel2.Controls.Add(this.treeViewProjectZipExplorer);
             this.splitContainerProject.Panel2MinSize = 250;
-            this.splitContainerProject.Size = new System.Drawing.Size(336, 573);
-            this.splitContainerProject.SplitterDistance = 301;
+            this.splitContainerProject.Size = new System.Drawing.Size(336, 567);
+            this.splitContainerProject.SplitterDistance = 303;
             this.splitContainerProject.TabIndex = 0;
             // 
             // treeViewCatalogExplorer
             // 
             this.treeViewCatalogExplorer.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.treeViewCatalogExplorer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewCatalogExplorer.ContextMenuStrip = this.contextMenuStripProjectCatalog;
             this.treeViewCatalogExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewCatalogExplorer.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeViewCatalogExplorer.ImageIndex = 0;
             this.treeViewCatalogExplorer.ImageList = this.imageListProjectTreeViews;
             this.treeViewCatalogExplorer.Location = new System.Drawing.Point(0, 0);
+            this.treeViewCatalogExplorer.Margin = new System.Windows.Forms.Padding(0);
             this.treeViewCatalogExplorer.Name = "treeViewCatalogExplorer";
-            treeNode1.ContextMenuStrip = this.contextMenuStripProject;
-            treeNode1.ImageIndex = 1;
-            treeNode1.Name = "NodeProject_01";
-            treeNode1.SelectedImageIndex = 2;
-            treeNode1.Text = "Project: Deer Park";
-            treeNode1.ToolTipText = "Shell Petrochemical Plant Retrofit";
-            treeNode2.ContextMenuStrip = this.contextMenuStripProject;
-            treeNode2.ImageIndex = 1;
-            treeNode2.Name = "NodeProject_02";
-            treeNode2.SelectedImageIndex = 2;
-            treeNode2.Text = "Project: Norco";
-            treeNode2.ToolTipText = "Shell Refinery Retrofit";
-            treeNode3.ContextMenuStrip = this.contextMenuStripProject;
-            treeNode3.ImageIndex = 1;
-            treeNode3.Name = "NodeProject_03";
-            treeNode3.SelectedImageIndex = 2;
-            treeNode3.Text = "Project: Convent";
-            treeNode3.ToolTipText = "Aramco Refinery Retrofit";
-            treeNode4.ContextMenuStrip = this.contextMenuStripProjectCatalog;
-            treeNode4.ImageIndex = 0;
-            treeNode4.Name = "NodeRootCatalog";
-            treeNode4.SelectedImageIndex = 0;
-            treeNode4.Text = "Project Catalog";
-            treeNode4.ToolTipText = "Root Project Catalog Node";
+            treeNode22.ContextMenuStrip = this.contextMenuStripProject;
+            treeNode22.ImageIndex = 1;
+            treeNode22.Name = "NodeProject_01";
+            treeNode22.SelectedImageIndex = 2;
+            treeNode22.Text = "Project: Deer Park";
+            treeNode22.ToolTipText = "Shell Petrochemical Plant Retrofit";
+            treeNode23.ContextMenuStrip = this.contextMenuStripProject;
+            treeNode23.ImageIndex = 1;
+            treeNode23.Name = "NodeProject_02";
+            treeNode23.SelectedImageIndex = 2;
+            treeNode23.Text = "Project: Norco";
+            treeNode23.ToolTipText = "Shell Refinery Retrofit";
+            treeNode24.ContextMenuStrip = this.contextMenuStripProject;
+            treeNode24.ImageIndex = 1;
+            treeNode24.Name = "NodeProject_03";
+            treeNode24.SelectedImageIndex = 2;
+            treeNode24.Text = "Project: Convent";
+            treeNode24.ToolTipText = "Aramco Refinery Retrofit";
+            treeNode25.ContextMenuStrip = this.contextMenuStripProjectCatalog;
+            treeNode25.ImageIndex = 0;
+            treeNode25.Name = "NodeRootCatalog";
+            treeNode25.SelectedImageIndex = 0;
+            treeNode25.Text = "Project Catalog";
+            treeNode25.ToolTipText = "Root Project Catalog Node";
             this.treeViewCatalogExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode25});
             this.treeViewCatalogExplorer.SelectedImageIndex = 0;
-            this.treeViewCatalogExplorer.Size = new System.Drawing.Size(334, 299);
+            this.treeViewCatalogExplorer.Size = new System.Drawing.Size(334, 301);
             this.treeViewCatalogExplorer.TabIndex = 0;
             // 
             // imageListProjectTreeViews
@@ -842,24 +991,25 @@
             this.imageListProjectTreeViews.Images.SetKeyName(7, "HEN_16x16.ico");
             this.imageListProjectTreeViews.Images.SetKeyName(8, "HENSelected_16x16.ico");
             // 
-            // tabPageCurrentProject
+            // tabPageCurrentProjectExplorer
             // 
-            this.tabPageCurrentProject.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageCurrentProject.Controls.Add(this.splitContainer2);
-            this.tabPageCurrentProject.ImageIndex = 1;
-            this.tabPageCurrentProject.Location = new System.Drawing.Point(4, 4);
-            this.tabPageCurrentProject.Name = "tabPageCurrentProject";
-            this.tabPageCurrentProject.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCurrentProject.Size = new System.Drawing.Size(342, 590);
-            this.tabPageCurrentProject.TabIndex = 1;
-            this.tabPageCurrentProject.Text = "CURRENT PROJECT ";
-            this.tabPageCurrentProject.ToolTipText = "Current Project";
+            this.tabPageCurrentProjectExplorer.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageCurrentProjectExplorer.Controls.Add(this.splitContainer2);
+            this.tabPageCurrentProjectExplorer.ImageKey = "Project...32x32.png";
+            this.tabPageCurrentProjectExplorer.Location = new System.Drawing.Point(4, 4);
+            this.tabPageCurrentProjectExplorer.Margin = new System.Windows.Forms.Padding(6);
+            this.tabPageCurrentProjectExplorer.Name = "tabPageCurrentProjectExplorer";
+            this.tabPageCurrentProjectExplorer.Padding = new System.Windows.Forms.Padding(6);
+            this.tabPageCurrentProjectExplorer.Size = new System.Drawing.Size(342, 573);
+            this.tabPageCurrentProjectExplorer.TabIndex = 1;
+            this.tabPageCurrentProjectExplorer.Text = "PROJECT EXPLORER ";
+            this.tabPageCurrentProjectExplorer.ToolTipText = "Project Explorer";
             // 
             // splitContainer2
             // 
             this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Location = new System.Drawing.Point(6, 6);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -869,14 +1019,14 @@
             this.splitContainer2.Panel1.Controls.Add(this.treeViewCurrentProjectExplorer);
             this.splitContainer2.Panel1MinSize = 300;
             this.splitContainer2.Panel2MinSize = 250;
-            this.splitContainer2.Size = new System.Drawing.Size(336, 584);
-            this.splitContainer2.SplitterDistance = 307;
+            this.splitContainer2.Size = new System.Drawing.Size(330, 561);
+            this.splitContainer2.SplitterDistance = 300;
             this.splitContainer2.TabIndex = 0;
             // 
             // treeViewCurrentProjectExplorer
             // 
             this.treeViewCurrentProjectExplorer.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.treeViewCurrentProjectExplorer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewCurrentProjectExplorer.ContextMenuStrip = this.contextMenuStripCurrProj;
             this.treeViewCurrentProjectExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewCurrentProjectExplorer.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeViewCurrentProjectExplorer.ImageIndex = 0;
@@ -908,45 +1058,45 @@
             treeNode9.Name = "NodeProfile_01_Pinch_02_Hen_02";
             treeNode9.SelectedImageIndex = 8;
             treeNode9.Text = "Hen: MER Design";
-            treeNode10.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode10.ImageIndex = 5;
-            treeNode10.Name = "NodeProfile_01_Pinch_02";
-            treeNode10.SelectedImageIndex = 6;
-            treeNode10.Text = "Pinch: Delta T=20";
-            treeNode11.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode11.ImageIndex = 3;
-            treeNode11.Name = "NodeProfile_01";
-            treeNode11.SelectedImageIndex = 4;
-            treeNode11.Text = "Profile: Q1 Setup";
-            treeNode12.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode12.ImageIndex = 5;
-            treeNode12.Name = "NodeProfile_02_Pinch_01";
-            treeNode12.SelectedImageIndex = 6;
-            treeNode12.Text = "Pinch: Delta T=10";
-            treeNode13.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode13.ImageIndex = 3;
-            treeNode13.Name = "NodeProfile_02";
-            treeNode13.SelectedImageIndex = 4;
-            treeNode13.Text = "Profile: Q2 Setup";
-            treeNode14.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode14.ImageIndex = 3;
-            treeNode14.Name = "NodeProfile_03";
-            treeNode14.SelectedImageIndex = 4;
-            treeNode14.Text = "Profile: Q3 Setup";
-            treeNode15.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode15.ImageIndex = 3;
-            treeNode15.Name = "NodeProfile_04";
-            treeNode15.SelectedImageIndex = 4;
-            treeNode15.Text = "Profile: Q4 Setup";
-            treeNode16.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode16.ImageIndex = 2;
-            treeNode16.Name = "NodeRootCurrProject";
-            treeNode16.SelectedImageIndex = 2;
-            treeNode16.Text = "Project: Deer Park";
+            treeNode27.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode27.ImageIndex = 5;
+            treeNode27.Name = "NodeProfile_01_Pinch_02";
+            treeNode27.SelectedImageIndex = 6;
+            treeNode27.Text = "Pinch: Delta T=20";
+            treeNode28.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode28.ImageIndex = 3;
+            treeNode28.Name = "NodeProfile_01";
+            treeNode28.SelectedImageIndex = 4;
+            treeNode28.Text = "Profile: Q1 Setup";
+            treeNode29.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode29.ImageIndex = 5;
+            treeNode29.Name = "NodeProfile_02_Pinch_01";
+            treeNode29.SelectedImageIndex = 6;
+            treeNode29.Text = "Pinch: Delta T=10";
+            treeNode30.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode30.ImageIndex = 3;
+            treeNode30.Name = "NodeProfile_02";
+            treeNode30.SelectedImageIndex = 4;
+            treeNode30.Text = "Profile: Q2 Setup";
+            treeNode31.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode31.ImageIndex = 3;
+            treeNode31.Name = "NodeProfile_03";
+            treeNode31.SelectedImageIndex = 4;
+            treeNode31.Text = "Profile: Q3 Setup";
+            treeNode32.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode32.ImageIndex = 3;
+            treeNode32.Name = "NodeProfile_04";
+            treeNode32.SelectedImageIndex = 4;
+            treeNode32.Text = "Profile: Q4 Setup";
+            treeNode33.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode33.ImageIndex = 2;
+            treeNode33.Name = "NodeRootCurrProject";
+            treeNode33.SelectedImageIndex = 2;
+            treeNode33.Text = "Project: Deer Park";
             this.treeViewCurrentProjectExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode16});
+            treeNode33});
             this.treeViewCurrentProjectExplorer.SelectedImageIndex = 0;
-            this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(334, 305);
+            this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(328, 298);
             this.treeViewCurrentProjectExplorer.TabIndex = 0;
             // 
             // imageListProject
@@ -959,6 +1109,7 @@
             // tabControlAnalysisPhase
             // 
             this.tabControlAnalysisPhase.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabControlAnalysisPhase.Controls.Add(this.tabPageCurrentProject);
             this.tabControlAnalysisPhase.Controls.Add(this.tabPageInputProfile);
             this.tabControlAnalysisPhase.Controls.Add(this.tabPagePinchStudy);
             this.tabControlAnalysisPhase.Controls.Add(this.tabPageHenDesign);
@@ -968,23 +1119,44 @@
             this.tabControlAnalysisPhase.Name = "tabControlAnalysisPhase";
             this.tabControlAnalysisPhase.SelectedIndex = 0;
             this.tabControlAnalysisPhase.ShowToolTips = true;
-            this.tabControlAnalysisPhase.Size = new System.Drawing.Size(928, 622);
+            this.tabControlAnalysisPhase.Size = new System.Drawing.Size(907, 617);
             this.tabControlAnalysisPhase.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControlAnalysisPhase.TabIndex = 0;
+            // 
+            // tabPageCurrentProject
+            // 
+            this.tabPageCurrentProject.BackColor = System.Drawing.Color.White;
+            this.tabPageCurrentProject.Controls.Add(this.textBoxProjectNotesValue);
+            this.tabPageCurrentProject.Controls.Add(this.textBoxProjectNotes);
+            this.tabPageCurrentProject.Controls.Add(this.textBoxProjectPurposeValue);
+            this.tabPageCurrentProject.Controls.Add(this.textBoxProjectPurpose);
+            this.tabPageCurrentProject.Controls.Add(this.textBoxProjectDescriptionValue);
+            this.tabPageCurrentProject.Controls.Add(this.textBoxProjectDescription);
+            this.tabPageCurrentProject.Controls.Add(this.textBoxProjectNameValue);
+            this.tabPageCurrentProject.Controls.Add(this.textBoxProjectName);
+            this.tabPageCurrentProject.Controls.Add(this.textBoxProjectBanner);
+            this.tabPageCurrentProject.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPageCurrentProject.ImageKey = "CurrentSelectedProject_32x32.png";
+            this.tabPageCurrentProject.Location = new System.Drawing.Point(4, 4);
+            this.tabPageCurrentProject.Name = "tabPageCurrentProject";
+            this.tabPageCurrentProject.Size = new System.Drawing.Size(899, 574);
+            this.tabPageCurrentProject.TabIndex = 3;
+            this.tabPageCurrentProject.Text = "OPENED PROJECT ";
+            this.tabPageCurrentProject.ToolTipText = "Current Open Project";
             // 
             // tabPageInputProfile
             // 
             this.tabPageInputProfile.BackColor = System.Drawing.Color.Honeydew;
             this.tabPageInputProfile.Controls.Add(this.textBoxInputBanner);
             this.tabPageInputProfile.Controls.Add(this.tabControlInputPhase);
-            this.tabPageInputProfile.ImageIndex = 0;
+            this.tabPageInputProfile.ImageIndex = 1;
             this.tabPageInputProfile.Location = new System.Drawing.Point(4, 4);
             this.tabPageInputProfile.Name = "tabPageInputProfile";
             this.tabPageInputProfile.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInputProfile.Size = new System.Drawing.Size(920, 579);
+            this.tabPageInputProfile.Size = new System.Drawing.Size(899, 574);
             this.tabPageInputProfile.TabIndex = 0;
-            this.tabPageInputProfile.Text = "CURRENT INPUT PROFILE ";
-            this.tabPageInputProfile.ToolTipText = "Current Input Profile";
+            this.tabPageInputProfile.Text = "SELECTED INPUT PROFILE ";
+            this.tabPageInputProfile.ToolTipText = "Currently Selected Input Profile in Project Explorer";
             // 
             // textBoxInputBanner
             // 
@@ -993,12 +1165,12 @@
             this.textBoxInputBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
             this.textBoxInputBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxInputBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInputBanner.ForeColor = System.Drawing.Color.Black;
+            this.textBoxInputBanner.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxInputBanner.Location = new System.Drawing.Point(7, 3);
             this.textBoxInputBanner.Name = "textBoxInputBanner";
             this.textBoxInputBanner.Size = new System.Drawing.Size(902, 33);
             this.textBoxInputBanner.TabIndex = 1;
-            this.textBoxInputBanner.Text = "PROJECT: {name}  PROFILE: {name}";
+            this.textBoxInputBanner.Text = "INPUT PROFILE";
             this.textBoxInputBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabControlInputPhase
@@ -1014,7 +1186,7 @@
             this.tabControlInputPhase.Name = "tabControlInputPhase";
             this.tabControlInputPhase.SelectedIndex = 0;
             this.tabControlInputPhase.ShowToolTips = true;
-            this.tabControlInputPhase.Size = new System.Drawing.Size(910, 543);
+            this.tabControlInputPhase.Size = new System.Drawing.Size(910, 539);
             this.tabControlInputPhase.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControlInputPhase.TabIndex = 0;
             // 
@@ -1025,7 +1197,7 @@
             this.tabPageStreams.Location = new System.Drawing.Point(4, 39);
             this.tabPageStreams.Name = "tabPageStreams";
             this.tabPageStreams.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStreams.Size = new System.Drawing.Size(902, 500);
+            this.tabPageStreams.Size = new System.Drawing.Size(902, 496);
             this.tabPageStreams.TabIndex = 0;
             this.tabPageStreams.Text = "PROCESS STREAMS ";
             this.tabPageStreams.ToolTipText = "Specify Process Streams for Current Input Profile";
@@ -1037,7 +1209,7 @@
             this.tabPageUtilities.Location = new System.Drawing.Point(4, 39);
             this.tabPageUtilities.Name = "tabPageUtilities";
             this.tabPageUtilities.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUtilities.Size = new System.Drawing.Size(902, 511);
+            this.tabPageUtilities.Size = new System.Drawing.Size(902, 496);
             this.tabPageUtilities.TabIndex = 1;
             this.tabPageUtilities.Text = "UTILITY STREAMS";
             this.tabPageUtilities.ToolTipText = "Specify Utility Streams for Current Input Profile";
@@ -1048,23 +1220,23 @@
             this.tabPageEconomics.ImageIndex = 2;
             this.tabPageEconomics.Location = new System.Drawing.Point(4, 39);
             this.tabPageEconomics.Name = "tabPageEconomics";
-            this.tabPageEconomics.Size = new System.Drawing.Size(902, 511);
+            this.tabPageEconomics.Size = new System.Drawing.Size(902, 496);
             this.tabPageEconomics.TabIndex = 2;
-            this.tabPageEconomics.Text = "ECONONMIC PARAMETERS";
+            this.tabPageEconomics.Text = "ECONOMIC PARAMETERS";
             this.tabPageEconomics.ToolTipText = "Specify Economic Parameters for Current Input Profile";
             // 
             // tabPagePinchStudy
             // 
             this.tabPagePinchStudy.BackColor = System.Drawing.Color.White;
             this.tabPagePinchStudy.Controls.Add(this.textBoxPinchBanner);
-            this.tabPagePinchStudy.ImageIndex = 1;
+            this.tabPagePinchStudy.ImageKey = "Pinch_32x32.png";
             this.tabPagePinchStudy.Location = new System.Drawing.Point(4, 4);
             this.tabPagePinchStudy.Name = "tabPagePinchStudy";
             this.tabPagePinchStudy.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePinchStudy.Size = new System.Drawing.Size(920, 590);
+            this.tabPagePinchStudy.Size = new System.Drawing.Size(899, 574);
             this.tabPagePinchStudy.TabIndex = 1;
-            this.tabPagePinchStudy.Text = "CURRENT PINCH STUDY ";
-            this.tabPagePinchStudy.ToolTipText = "Current Pinch Study";
+            this.tabPagePinchStudy.Text = "SELECTED PINCH STUDY ";
+            this.tabPagePinchStudy.ToolTipText = "Currently Selected Pinch Study in Project Explorer";
             // 
             // textBoxPinchBanner
             // 
@@ -1078,26 +1250,26 @@
             this.textBoxPinchBanner.Name = "textBoxPinchBanner";
             this.textBoxPinchBanner.Size = new System.Drawing.Size(902, 33);
             this.textBoxPinchBanner.TabIndex = 2;
-            this.textBoxPinchBanner.Text = "PROJECT: {name}  PROFILE: {name}  PINCH: {name}";
+            this.textBoxPinchBanner.Text = "PINCH STUDY";
             this.textBoxPinchBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabPageHenDesign
             // 
             this.tabPageHenDesign.BackColor = System.Drawing.Color.White;
             this.tabPageHenDesign.Controls.Add(this.textBoxHenBanner);
-            this.tabPageHenDesign.ImageIndex = 2;
+            this.tabPageHenDesign.ImageKey = "Hen_32x32.png";
             this.tabPageHenDesign.Location = new System.Drawing.Point(4, 4);
             this.tabPageHenDesign.Name = "tabPageHenDesign";
-            this.tabPageHenDesign.Size = new System.Drawing.Size(920, 590);
+            this.tabPageHenDesign.Size = new System.Drawing.Size(899, 574);
             this.tabPageHenDesign.TabIndex = 2;
-            this.tabPageHenDesign.Text = "CURRENT HEAT EXCHANGER NETWORK (HEN) DESIGN ";
-            this.tabPageHenDesign.ToolTipText = "Current Heat Exchanger Network (HEN Deisgn";
+            this.tabPageHenDesign.Text = "SELECTED HEN DESIGN ";
+            this.tabPageHenDesign.ToolTipText = "Currently Selected HEN Deisgn in Project Explorer";
             // 
             // textBoxHenBanner
             // 
             this.textBoxHenBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxHenBanner.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.textBoxHenBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.textBoxHenBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxHenBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxHenBanner.ForeColor = System.Drawing.Color.Yellow;
@@ -1105,103 +1277,238 @@
             this.textBoxHenBanner.Name = "textBoxHenBanner";
             this.textBoxHenBanner.Size = new System.Drawing.Size(902, 33);
             this.textBoxHenBanner.TabIndex = 3;
-            this.textBoxHenBanner.Text = "PROJECT: {name}  PROFILE: {name}  PINCH: {name}  HEN: {name}";
+            this.textBoxHenBanner.Text = "HEAT EXCHANGER NETWORK (HEN) DESIGN";
             this.textBoxHenBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // toolStripStatusLabelLICENSE
+            // treeViewProjectZipExplorer
             // 
-            this.toolStripStatusLabelLICENSE.BackColor = System.Drawing.Color.Orange;
-            this.toolStripStatusLabelLICENSE.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelLICENSE.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelLICENSE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLICENSE.Image")));
-            this.toolStripStatusLabelLICENSE.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLICENSE.Name = "toolStripStatusLabelLICENSE";
-            this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(147, 27);
-            this.toolStripStatusLabelLICENSE.Text = "LIC: UNKNOWN";
-            this.toolStripStatusLabelLICENSE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.treeViewProjectZipExplorer.ContextMenuStrip = this.contextMenuStripProjectZip;
+            this.treeViewProjectZipExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewProjectZipExplorer.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewProjectZipExplorer.ImageIndex = 0;
+            this.treeViewProjectZipExplorer.ImageList = this.imageListProjectZIP;
+            this.treeViewProjectZipExplorer.Location = new System.Drawing.Point(0, 0);
+            this.treeViewProjectZipExplorer.Name = "treeViewProjectZipExplorer";
+            treeNode1.ImageKey = "Project_16x16.ico";
+            treeNode1.Name = "NodeZipExport01";
+            treeNode1.SelectedImageKey = "Project_16x16.ico";
+            treeNode1.Text = "Deer Park Analysis - 20260311.zip";
+            treeNode1.ToolTipText = "Zip File";
+            treeNode2.ImageKey = "ExportZIP_16x16.ico";
+            treeNode2.Name = "NodeEXPORT";
+            treeNode2.SelectedImageKey = "ExportZIP_16x16.ico";
+            treeNode2.Text = "EXPORT";
+            treeNode2.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
+            treeNode3.ImageKey = "Project_16x16.ico";
+            treeNode3.Name = "NodeImportZip01";
+            treeNode3.SelectedImageKey = "Project_16x16.ico";
+            treeNode3.Text = "DeerPark Analysis - 20260310";
+            treeNode4.ImageKey = "ImportZIP_16x16.ico";
+            treeNode4.Name = "NodeIMPORT";
+            treeNode4.SelectedImageKey = "ImportZIP_16x16.ico";
+            treeNode4.Text = "IMPORT";
+            treeNode4.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
+            treeNode26.ImageKey = "ZipFolder_16x16.ico";
+            treeNode26.Name = "NodeRoot";
+            treeNode26.SelectedImageKey = "ZipFolder_16x16.ico";
+            treeNode26.Text = "Project ZIP Files";
+            treeNode26.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
+            this.treeViewProjectZipExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode26});
+            this.treeViewProjectZipExplorer.SelectedImageIndex = 0;
+            this.treeViewProjectZipExplorer.Size = new System.Drawing.Size(334, 258);
+            this.treeViewProjectZipExplorer.TabIndex = 0;
             // 
-            // toolStripStatusLabelCAT_DB
+            // imageListProjectZIP
             // 
-            this.toolStripStatusLabelCAT_DB.BackColor = System.Drawing.Color.Orange;
-            this.toolStripStatusLabelCAT_DB.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelCAT_DB.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelCAT_DB.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelCAT_DB.Image")));
-            this.toolStripStatusLabelCAT_DB.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelCAT_DB.Name = "toolStripStatusLabelCAT_DB";
-            this.toolStripStatusLabelCAT_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(154, 27);
-            this.toolStripStatusLabelCAT_DB.Text = "CAT: UNKNOWN";
-            this.toolStripStatusLabelCAT_DB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.imageListProjectZIP.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListProjectZIP.ImageStream")));
+            this.imageListProjectZIP.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListProjectZIP.Images.SetKeyName(0, "ZipFolder_16x16.ico");
+            this.imageListProjectZIP.Images.SetKeyName(1, "ExportZIP_16x16.ico");
+            this.imageListProjectZIP.Images.SetKeyName(2, "ImportZIP_16x16.ico");
+            this.imageListProjectZIP.Images.SetKeyName(3, "Project_16x16.ico");
             // 
-            // toolStripStatusLabelPROJ_DB
+            // toolStripSeparatorExpandCollapse
             // 
-            this.toolStripStatusLabelPROJ_DB.BackColor = System.Drawing.Color.Orange;
-            this.toolStripStatusLabelPROJ_DB.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelPROJ_DB.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelPROJ_DB.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelPROJ_DB.Image")));
-            this.toolStripStatusLabelPROJ_DB.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelPROJ_DB.Name = "toolStripStatusLabelPROJ_DB";
-            this.toolStripStatusLabelPROJ_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelPROJ_DB.Size = new System.Drawing.Size(162, 27);
-            this.toolStripStatusLabelPROJ_DB.Text = "PROJ: UNKNOWN";
-            this.toolStripStatusLabelPROJ_DB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripSeparatorExpandCollapse.Name = "toolStripSeparatorExpandCollapse";
+            this.toolStripSeparatorExpandCollapse.Size = new System.Drawing.Size(176, 6);
             // 
-            // toolStripStatusLabelPROJ_NAME
+            // toolStripMenuItemExpandAll
             // 
-            this.toolStripStatusLabelPROJ_NAME.BackColor = System.Drawing.Color.Orange;
-            this.toolStripStatusLabelPROJ_NAME.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelPROJ_NAME.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelPROJ_NAME.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelPROJ_NAME.Image")));
-            this.toolStripStatusLabelPROJ_NAME.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelPROJ_NAME.Name = "toolStripStatusLabelPROJ_NAME";
-            this.toolStripStatusLabelPROJ_NAME.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelPROJ_NAME.Size = new System.Drawing.Size(212, 27);
-            this.toolStripStatusLabelPROJ_NAME.Text = "PROJ NAME: UNKNOWN";
-            this.toolStripStatusLabelPROJ_NAME.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripMenuItemExpandAll.Name = "toolStripMenuItemExpandAll";
+            this.toolStripMenuItemExpandAll.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemExpandAll.Text = "Expand All";
             // 
-            // toolStripStatusLabelPROJ_UNITS
+            // toolStripMenuItemCollapseAll
             // 
-            this.toolStripStatusLabelPROJ_UNITS.BackColor = System.Drawing.Color.Orange;
-            this.toolStripStatusLabelPROJ_UNITS.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelPROJ_UNITS.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelPROJ_UNITS.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelPROJ_UNITS.Image")));
-            this.toolStripStatusLabelPROJ_UNITS.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelPROJ_UNITS.Name = "toolStripStatusLabelPROJ_UNITS";
-            this.toolStripStatusLabelPROJ_UNITS.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelPROJ_UNITS.Size = new System.Drawing.Size(211, 27);
-            this.toolStripStatusLabelPROJ_UNITS.Text = "PROJ UNITS: UNKNOWN";
-            this.toolStripStatusLabelPROJ_UNITS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripMenuItemCollapseAll.Name = "toolStripMenuItemCollapseAll";
+            this.toolStripMenuItemCollapseAll.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemCollapseAll.Text = "Collapse All";
             // 
-            // toolStripStatusLabelAJP_LOGO
+            // contextMenuStripProjectZip
             // 
-            this.toolStripStatusLabelAJP_LOGO.BackColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelAJP_LOGO.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabelAJP_LOGO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripStatusLabelAJP_LOGO.DoubleClickEnabled = true;
-            this.toolStripStatusLabelAJP_LOGO.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelAJP_LOGO.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelAJP_LOGO.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelAJP_LOGO.Image")));
-            this.toolStripStatusLabelAJP_LOGO.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelAJP_LOGO.Name = "toolStripStatusLabelAJP_LOGO";
-            this.toolStripStatusLabelAJP_LOGO.Padding = new System.Windows.Forms.Padding(3, 3, 6, 3);
-            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(327, 27);
-            this.toolStripStatusLabelAJP_LOGO.Spring = true;
-            this.toolStripStatusLabelAJP_LOGO.Text = "  ";
-            this.toolStripStatusLabelAJP_LOGO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.contextMenuStripProjectZip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemZipExpandAll,
+            this.toolStripMenuItemZipCollapseAll});
+            this.contextMenuStripProjectZip.Name = "contextMenuStripProjectZip";
+            this.contextMenuStripProjectZip.Size = new System.Drawing.Size(137, 48);
             // 
-            // toolStripSeparator9
+            // toolStripMenuItemZipExpandAll
             // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItemZipExpandAll.Name = "toolStripMenuItemZipExpandAll";
+            this.toolStripMenuItemZipExpandAll.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItemZipExpandAll.Text = "Expand All";
             // 
-            // closeProjectToolStripMenuItem
+            // toolStripMenuItemZipCollapseAll
             // 
-            this.closeProjectToolStripMenuItem.Name = "closeProjectToolStripMenuItem";
-            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.closeProjectToolStripMenuItem.Text = "Close Project";
+            this.toolStripMenuItemZipCollapseAll.Name = "toolStripMenuItemZipCollapseAll";
+            this.toolStripMenuItemZipCollapseAll.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItemZipCollapseAll.Text = "Collapse All";
+            // 
+            // toolStripMenuItemCurrProjExpandAll
+            // 
+            this.toolStripMenuItemCurrProjExpandAll.Name = "toolStripMenuItemCurrProjExpandAll";
+            this.toolStripMenuItemCurrProjExpandAll.Size = new System.Drawing.Size(173, 22);
+            this.toolStripMenuItemCurrProjExpandAll.Text = "Expand All";
+            // 
+            // toolStripMenuItemCurrProjCollapseAll
+            // 
+            this.toolStripMenuItemCurrProjCollapseAll.Name = "toolStripMenuItemCurrProjCollapseAll";
+            this.toolStripMenuItemCurrProjCollapseAll.Size = new System.Drawing.Size(173, 22);
+            this.toolStripMenuItemCurrProjCollapseAll.Text = "Collapse All";
+            // 
+            // toolStripSeparatorCurrProjExpandAll
+            // 
+            this.toolStripSeparatorCurrProjExpandAll.Name = "toolStripSeparatorCurrProjExpandAll";
+            this.toolStripSeparatorCurrProjExpandAll.Size = new System.Drawing.Size(170, 6);
+            // 
+            // toolStripMenuItemProjExpandAll
+            // 
+            this.toolStripMenuItemProjExpandAll.Name = "toolStripMenuItemProjExpandAll";
+            this.toolStripMenuItemProjExpandAll.Size = new System.Drawing.Size(166, 22);
+            this.toolStripMenuItemProjExpandAll.Text = "Expand All";
+            // 
+            // toolStripMenuItemProjCollapseAll
+            // 
+            this.toolStripMenuItemProjCollapseAll.Name = "toolStripMenuItemProjCollapseAll";
+            this.toolStripMenuItemProjCollapseAll.Size = new System.Drawing.Size(166, 22);
+            this.toolStripMenuItemProjCollapseAll.Text = "Collapse All";
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(163, 6);
+            // 
+            // textBoxProjectBanner
+            // 
+            this.textBoxProjectBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProjectBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(99)))), ((int)(((byte)(87)))));
+            this.textBoxProjectBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectBanner.ForeColor = System.Drawing.Color.Yellow;
+            this.textBoxProjectBanner.Location = new System.Drawing.Point(7, 3);
+            this.textBoxProjectBanner.Name = "textBoxProjectBanner";
+            this.textBoxProjectBanner.Size = new System.Drawing.Size(902, 33);
+            this.textBoxProjectBanner.TabIndex = 0;
+            this.textBoxProjectBanner.Text = "PROJECT";
+            this.textBoxProjectBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxProjectName
+            // 
+            this.textBoxProjectName.BackColor = System.Drawing.Color.White;
+            this.textBoxProjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectName.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectName.Location = new System.Drawing.Point(7, 44);
+            this.textBoxProjectName.Name = "textBoxProjectName";
+            this.textBoxProjectName.ReadOnly = true;
+            this.textBoxProjectName.Size = new System.Drawing.Size(100, 18);
+            this.textBoxProjectName.TabIndex = 1;
+            this.textBoxProjectName.Text = "Name: ";
+            this.textBoxProjectName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxProjectNameValue
+            // 
+            this.textBoxProjectNameValue.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxProjectNameValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxProjectNameValue.Location = new System.Drawing.Point(113, 42);
+            this.textBoxProjectNameValue.Name = "textBoxProjectNameValue";
+            this.textBoxProjectNameValue.Size = new System.Drawing.Size(315, 25);
+            this.textBoxProjectNameValue.TabIndex = 2;
+            this.textBoxProjectNameValue.Text = "Enter Project Name";
+            // 
+            // textBoxProjectDescription
+            // 
+            this.textBoxProjectDescription.BackColor = System.Drawing.Color.White;
+            this.textBoxProjectDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectDescription.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectDescription.Location = new System.Drawing.Point(7, 78);
+            this.textBoxProjectDescription.Name = "textBoxProjectDescription";
+            this.textBoxProjectDescription.ReadOnly = true;
+            this.textBoxProjectDescription.Size = new System.Drawing.Size(421, 18);
+            this.textBoxProjectDescription.TabIndex = 3;
+            this.textBoxProjectDescription.Text = "Description";
+            this.textBoxProjectDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxProjectDescriptionValue
+            // 
+            this.textBoxProjectDescriptionValue.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxProjectDescriptionValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxProjectDescriptionValue.Location = new System.Drawing.Point(7, 99);
+            this.textBoxProjectDescriptionValue.Multiline = true;
+            this.textBoxProjectDescriptionValue.Name = "textBoxProjectDescriptionValue";
+            this.textBoxProjectDescriptionValue.Size = new System.Drawing.Size(421, 117);
+            this.textBoxProjectDescriptionValue.TabIndex = 4;
+            this.textBoxProjectDescriptionValue.Text = "Enter Description";
+            // 
+            // textBoxProjectPurpose
+            // 
+            this.textBoxProjectPurpose.BackColor = System.Drawing.Color.White;
+            this.textBoxProjectPurpose.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectPurpose.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectPurpose.Location = new System.Drawing.Point(7, 228);
+            this.textBoxProjectPurpose.Name = "textBoxProjectPurpose";
+            this.textBoxProjectPurpose.ReadOnly = true;
+            this.textBoxProjectPurpose.Size = new System.Drawing.Size(421, 18);
+            this.textBoxProjectPurpose.TabIndex = 5;
+            this.textBoxProjectPurpose.Text = "Purpose";
+            this.textBoxProjectPurpose.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxProjectPurposeValue
+            // 
+            this.textBoxProjectPurposeValue.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxProjectPurposeValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxProjectPurposeValue.Location = new System.Drawing.Point(7, 252);
+            this.textBoxProjectPurposeValue.Multiline = true;
+            this.textBoxProjectPurposeValue.Name = "textBoxProjectPurposeValue";
+            this.textBoxProjectPurposeValue.Size = new System.Drawing.Size(421, 117);
+            this.textBoxProjectPurposeValue.TabIndex = 6;
+            this.textBoxProjectPurposeValue.Text = "Enter Purpose";
+            // 
+            // textBoxProjectNotesValue
+            // 
+            this.textBoxProjectNotesValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxProjectNotesValue.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxProjectNotesValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxProjectNotesValue.Location = new System.Drawing.Point(7, 408);
+            this.textBoxProjectNotesValue.Multiline = true;
+            this.textBoxProjectNotesValue.Name = "textBoxProjectNotesValue";
+            this.textBoxProjectNotesValue.Size = new System.Drawing.Size(421, 155);
+            this.textBoxProjectNotesValue.TabIndex = 8;
+            this.textBoxProjectNotesValue.Text = "Enter Notes";
+            // 
+            // textBoxProjectNotes
+            // 
+            this.textBoxProjectNotes.BackColor = System.Drawing.Color.White;
+            this.textBoxProjectNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectNotes.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectNotes.Location = new System.Drawing.Point(7, 384);
+            this.textBoxProjectNotes.Name = "textBoxProjectNotes";
+            this.textBoxProjectNotes.ReadOnly = true;
+            this.textBoxProjectNotes.Size = new System.Drawing.Size(421, 18);
+            this.textBoxProjectNotes.TabIndex = 7;
+            this.textBoxProjectNotes.Text = "Notes";
+            this.textBoxProjectNotes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FormMain
             // 
@@ -1241,13 +1548,16 @@
             this.tabControlProject.ResumeLayout(false);
             this.tabPageCatalogExplorer.ResumeLayout(false);
             this.splitContainerProject.Panel1.ResumeLayout(false);
+            this.splitContainerProject.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerProject)).EndInit();
             this.splitContainerProject.ResumeLayout(false);
-            this.tabPageCurrentProject.ResumeLayout(false);
+            this.tabPageCurrentProjectExplorer.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tabControlAnalysisPhase.ResumeLayout(false);
+            this.tabPageCurrentProject.ResumeLayout(false);
+            this.tabPageCurrentProject.PerformLayout();
             this.tabPageInputProfile.ResumeLayout(false);
             this.tabPageInputProfile.PerformLayout();
             this.tabControlInputPhase.ResumeLayout(false);
@@ -1255,6 +1565,7 @@
             this.tabPagePinchStudy.PerformLayout();
             this.tabPageHenDesign.ResumeLayout(false);
             this.tabPageHenDesign.PerformLayout();
+            this.contextMenuStripProjectZip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1290,7 +1601,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.TabControl tabControlProject;
         private System.Windows.Forms.TabPage tabPageCatalogExplorer;
-        private System.Windows.Forms.TabPage tabPageCurrentProject;
+        private System.Windows.Forms.TabPage tabPageCurrentProjectExplorer;
         private System.Windows.Forms.ImageList imageListProject;
         private System.Windows.Forms.TabControl tabControlAnalysisPhase;
         private System.Windows.Forms.TabPage tabPageInputProfile;
@@ -1357,10 +1668,33 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCAT_DB;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelPROJ_DB;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelPROJ_NAME;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelPROJ_UNITS;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelAJP_LOGO;
         private System.Windows.Forms.ToolStripMenuItem closeProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.TabPage tabPageCurrentProject;
+        private System.Windows.Forms.TreeView treeViewProjectZipExplorer;
+        private System.Windows.Forms.ImageList imageListProjectZIP;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCollapseAll;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExpandAll;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorExpandCollapse;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurrProjExpandAll;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurrProjCollapseAll;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorCurrProjExpandAll;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripProjectZip;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemZipExpandAll;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemZipCollapseAll;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProjExpandAll;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProjCollapseAll;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.TextBox textBoxProjectBanner;
+        private System.Windows.Forms.TextBox textBoxProjectNameValue;
+        private System.Windows.Forms.TextBox textBoxProjectName;
+        private System.Windows.Forms.TextBox textBoxProjectNotesValue;
+        private System.Windows.Forms.TextBox textBoxProjectNotes;
+        private System.Windows.Forms.TextBox textBoxProjectPurposeValue;
+        private System.Windows.Forms.TextBox textBoxProjectPurpose;
+        private System.Windows.Forms.TextBox textBoxProjectDescriptionValue;
+        private System.Windows.Forms.TextBox textBoxProjectDescription;
     }
 }
 
