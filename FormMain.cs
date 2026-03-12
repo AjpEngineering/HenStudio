@@ -837,9 +837,9 @@ namespace HenStudio
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Settings Form");
             try
             {
-                HenMsgDlg.DisplayWarningDlg("Handle Project Settings Form Command!");
-                //FormProjectSettings dlg = new FormProjectSettings();
-                //dlg.ShowDialog();
+                //HenMsgDlg.DisplayWarningDlg("Handle Project Settings Form Command!");
+                FormSettings dlg = new FormSettings();
+                dlg.ShowDialog();
             }
             catch (Exception ex)
             {

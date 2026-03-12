@@ -30,45 +30,45 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2);
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Project Catalog", 0, 0, new System.Windows.Forms.TreeNode[] {
-            treeNode22,
-            treeNode23,
-            treeNode24});
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Project Catalog", 0, 0, new System.Windows.Forms.TreeNode[] {
+            treeNode1,
             treeNode2,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6, new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9});
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode27});
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode29});
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Project: Deer Park", 2, 2, new System.Windows.Forms.TreeNode[] {
-            treeNode28,
-            treeNode30,
-            treeNode31,
-            treeNode32});
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6, new System.Windows.Forms.TreeNode[] {
+            treeNode10,
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Project: Deer Park", 2, 2, new System.Windows.Forms.TreeNode[] {
+            treeNode16,
+            treeNode18,
+            treeNode19,
+            treeNode20});
             this.contextMenuStripProject = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemProjExpandAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemProjCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -172,15 +172,49 @@
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
             this.tabControlAnalysisPhase = new System.Windows.Forms.TabControl();
             this.tabPageCurrentProject = new System.Windows.Forms.TabPage();
-            this.pictureBoxOpenedProject = new System.Windows.Forms.PictureBox();
-            this.textBoxProjectNotesValue = new System.Windows.Forms.TextBox();
-            this.textBoxProjectNotes = new System.Windows.Forms.TextBox();
+            this.panelProjectDbFileMetadata = new System.Windows.Forms.Panel();
+            this.textBoxFileSizeValue = new System.Windows.Forms.TextBox();
+            this.textBoxFileSize = new System.Windows.Forms.TextBox();
+            this.textBoxFileDateModifiedValue = new System.Windows.Forms.TextBox();
+            this.textBoxFileLastModified = new System.Windows.Forms.TextBox();
+            this.textBoxFileDateCreatedValue = new System.Windows.Forms.TextBox();
+            this.textBoxFileDateCreated = new System.Windows.Forms.TextBox();
+            this.textBoxProjectFilenameValue = new System.Windows.Forms.TextBox();
+            this.textBoxFilename = new System.Windows.Forms.TextBox();
+            this.textBoxProjectDbFileTitle = new System.Windows.Forms.TextBox();
+            this.panelProjectUnits = new System.Windows.Forms.Panel();
+            this.textBoxUnitsTitle = new System.Windows.Forms.TextBox();
+            this.textBoxUDefinition = new System.Windows.Forms.TextBox();
+            this.textBoxUnitsUValue = new System.Windows.Forms.TextBox();
+            this.textBoxUnitsU = new System.Windows.Forms.TextBox();
+            this.textBoxUnitsCPValue = new System.Windows.Forms.TextBox();
+            this.textBoxCPDefinition = new System.Windows.Forms.TextBox();
+            this.textBoxUnitsCP = new System.Windows.Forms.TextBox();
+            this.textBoxUnitsDutyValue = new System.Windows.Forms.TextBox();
+            this.textBoxUnitsDuty = new System.Windows.Forms.TextBox();
+            this.textBoxUnitsAreaValue = new System.Windows.Forms.TextBox();
+            this.textBoxUnitsArea = new System.Windows.Forms.TextBox();
+            this.comboBoxUnitsPress = new System.Windows.Forms.ComboBox();
+            this.textBoxUnitsPress = new System.Windows.Forms.TextBox();
+            this.comboBoxUnitsTemp = new System.Windows.Forms.ComboBox();
+            this.textBoxUnitsTemp = new System.Windows.Forms.TextBox();
+            this.comboBoxUnitsMagnitude = new System.Windows.Forms.ComboBox();
+            this.textBoxUnitsMagnitude = new System.Windows.Forms.TextBox();
+            this.pictureBoxUnitsSystem = new System.Windows.Forms.PictureBox();
+            this.comboBoxUnitsSystem = new System.Windows.Forms.ComboBox();
+            this.textBoxUnitsSystem = new System.Windows.Forms.TextBox();
+            this.panelProjectMetadata = new System.Windows.Forms.Panel();
             this.textBoxProjectPurposeValue = new System.Windows.Forms.TextBox();
-            this.textBoxProjectPurpose = new System.Windows.Forms.TextBox();
-            this.textBoxProjectDescriptionValue = new System.Windows.Forms.TextBox();
-            this.textBoxProjectDescription = new System.Windows.Forms.TextBox();
+            this.textBoxAnalystValue = new System.Windows.Forms.TextBox();
             this.textBoxProjectNameValue = new System.Windows.Forms.TextBox();
             this.textBoxProjectName = new System.Windows.Forms.TextBox();
+            this.textBoxAnalyst = new System.Windows.Forms.TextBox();
+            this.textBoxProjectDescription = new System.Windows.Forms.TextBox();
+            this.textBoxProjectDescriptionValue = new System.Windows.Forms.TextBox();
+            this.textBoxProjectPurpose = new System.Windows.Forms.TextBox();
+            this.textBoxProjectNotesValue = new System.Windows.Forms.TextBox();
+            this.textBoxProjectNotes = new System.Windows.Forms.TextBox();
+            this.pictureBoxOpenedProject = new System.Windows.Forms.PictureBox();
             this.textBoxProjectBanner = new System.Windows.Forms.TextBox();
             this.tabPageInputProfile = new System.Windows.Forms.TabPage();
             this.pictureBoxOpenedProfile = new System.Windows.Forms.PictureBox();
@@ -195,40 +229,6 @@
             this.tabPageHenDesign = new System.Windows.Forms.TabPage();
             this.pictureBoxOpenedHen = new System.Windows.Forms.PictureBox();
             this.textBoxHenBanner = new System.Windows.Forms.TextBox();
-            this.textBoxAnalystValue = new System.Windows.Forms.TextBox();
-            this.textBoxAnalyst = new System.Windows.Forms.TextBox();
-            this.panelProjectMetadata = new System.Windows.Forms.Panel();
-            this.panelProjectUnits = new System.Windows.Forms.Panel();
-            this.textBoxUnitsSystem = new System.Windows.Forms.TextBox();
-            this.comboBoxUnitsSystem = new System.Windows.Forms.ComboBox();
-            this.pictureBoxUnitsSystem = new System.Windows.Forms.PictureBox();
-            this.textBoxUnitsMagnitude = new System.Windows.Forms.TextBox();
-            this.comboBoxUnitsMagnitude = new System.Windows.Forms.ComboBox();
-            this.textBoxUnitsTemp = new System.Windows.Forms.TextBox();
-            this.comboBoxUnitsTemp = new System.Windows.Forms.ComboBox();
-            this.textBoxUnitsPress = new System.Windows.Forms.TextBox();
-            this.textBoxUnitsArea = new System.Windows.Forms.TextBox();
-            this.textBoxUnitsAreaValue = new System.Windows.Forms.TextBox();
-            this.textBoxUnitsDuty = new System.Windows.Forms.TextBox();
-            this.textBoxUnitsDutyValue = new System.Windows.Forms.TextBox();
-            this.textBoxUnitsCP = new System.Windows.Forms.TextBox();
-            this.textBoxCPDefinition = new System.Windows.Forms.TextBox();
-            this.textBoxUnitsCPValue = new System.Windows.Forms.TextBox();
-            this.textBoxUnitsU = new System.Windows.Forms.TextBox();
-            this.textBoxUnitsUValue = new System.Windows.Forms.TextBox();
-            this.textBoxUDefinition = new System.Windows.Forms.TextBox();
-            this.textBoxUnitsTitle = new System.Windows.Forms.TextBox();
-            this.comboBoxUnitsPress = new System.Windows.Forms.ComboBox();
-            this.panelProjectDbFileMetadata = new System.Windows.Forms.Panel();
-            this.textBoxProjectDbFileTitle = new System.Windows.Forms.TextBox();
-            this.textBoxFilename = new System.Windows.Forms.TextBox();
-            this.textBoxProjectFilenameValue = new System.Windows.Forms.TextBox();
-            this.textBoxFileDateCreated = new System.Windows.Forms.TextBox();
-            this.textBoxFileDateCreatedValue = new System.Windows.Forms.TextBox();
-            this.textBoxFileLastModified = new System.Windows.Forms.TextBox();
-            this.textBoxFileDateModifiedValue = new System.Windows.Forms.TextBox();
-            this.textBoxFileSize = new System.Windows.Forms.TextBox();
-            this.textBoxFileSizeValue = new System.Windows.Forms.TextBox();
             this.contextMenuStripProject.SuspendLayout();
             this.contextMenuStripProjectCatalog.SuspendLayout();
             this.contextMenuStripHen.SuspendLayout();
@@ -254,6 +254,10 @@
             this.splitContainer2.SuspendLayout();
             this.tabControlAnalysisPhase.SuspendLayout();
             this.tabPageCurrentProject.SuspendLayout();
+            this.panelProjectDbFileMetadata.SuspendLayout();
+            this.panelProjectUnits.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).BeginInit();
+            this.panelProjectMetadata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProject)).BeginInit();
             this.tabPageInputProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProfile)).BeginInit();
@@ -262,10 +266,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedPinch)).BeginInit();
             this.tabPageHenDesign.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).BeginInit();
-            this.panelProjectMetadata.SuspendLayout();
-            this.panelProjectUnits.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).BeginInit();
-            this.panelProjectDbFileMetadata.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripProject
@@ -620,7 +620,7 @@
             // 
             this.settingsDisplayToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("settingsDisplayToolStripMenuItem.Image")));
             this.settingsDisplayToolStripMenuItem.Name = "settingsDisplayToolStripMenuItem";
-            this.settingsDisplayToolStripMenuItem.Size = new System.Drawing.Size(137, 30);
+            this.settingsDisplayToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
             this.settingsDisplayToolStripMenuItem.Text = "Settings...";
             this.settingsDisplayToolStripMenuItem.ToolTipText = "System-Wide Settings";
             this.settingsDisplayToolStripMenuItem.Click += new System.EventHandler(this.settingsDisplayToolStripMenuItem_Click);
@@ -1044,32 +1044,32 @@
             this.treeViewCatalogExplorer.Location = new System.Drawing.Point(0, 0);
             this.treeViewCatalogExplorer.Margin = new System.Windows.Forms.Padding(0);
             this.treeViewCatalogExplorer.Name = "treeViewCatalogExplorer";
-            treeNode22.ContextMenuStrip = this.contextMenuStripProject;
-            treeNode22.ImageIndex = 1;
-            treeNode22.Name = "NodeProject_01";
-            treeNode22.SelectedImageIndex = 2;
-            treeNode22.Text = "Project: Deer Park";
-            treeNode22.ToolTipText = "Shell Petrochemical Plant Retrofit";
-            treeNode23.ContextMenuStrip = this.contextMenuStripProject;
-            treeNode23.ImageIndex = 1;
-            treeNode23.Name = "NodeProject_02";
-            treeNode23.SelectedImageIndex = 2;
-            treeNode23.Text = "Project: Norco";
-            treeNode23.ToolTipText = "Shell Refinery Retrofit";
-            treeNode24.ContextMenuStrip = this.contextMenuStripProject;
-            treeNode24.ImageIndex = 1;
-            treeNode24.Name = "NodeProject_03";
-            treeNode24.SelectedImageIndex = 2;
-            treeNode24.Text = "Project: Convent";
-            treeNode24.ToolTipText = "Aramco Refinery Retrofit";
-            treeNode25.ContextMenuStrip = this.contextMenuStripProjectCatalog;
-            treeNode25.ImageIndex = 0;
-            treeNode25.Name = "NodeRootCatalog";
-            treeNode25.SelectedImageIndex = 0;
-            treeNode25.Text = "Project Catalog";
-            treeNode25.ToolTipText = "Root Project Catalog Node";
+            treeNode1.ContextMenuStrip = this.contextMenuStripProject;
+            treeNode1.ImageIndex = 1;
+            treeNode1.Name = "NodeProject_01";
+            treeNode1.SelectedImageIndex = 2;
+            treeNode1.Text = "Project: Deer Park";
+            treeNode1.ToolTipText = "Shell Petrochemical Plant Retrofit";
+            treeNode2.ContextMenuStrip = this.contextMenuStripProject;
+            treeNode2.ImageIndex = 1;
+            treeNode2.Name = "NodeProject_02";
+            treeNode2.SelectedImageIndex = 2;
+            treeNode2.Text = "Project: Norco";
+            treeNode2.ToolTipText = "Shell Refinery Retrofit";
+            treeNode3.ContextMenuStrip = this.contextMenuStripProject;
+            treeNode3.ImageIndex = 1;
+            treeNode3.Name = "NodeProject_03";
+            treeNode3.SelectedImageIndex = 2;
+            treeNode3.Text = "Project: Convent";
+            treeNode3.ToolTipText = "Aramco Refinery Retrofit";
+            treeNode4.ContextMenuStrip = this.contextMenuStripProjectCatalog;
+            treeNode4.ImageIndex = 0;
+            treeNode4.Name = "NodeRootCatalog";
+            treeNode4.SelectedImageIndex = 0;
+            treeNode4.Text = "Project Catalog";
+            treeNode4.ToolTipText = "Root Project Catalog Node";
             this.treeViewCatalogExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode25});
+            treeNode4});
             this.treeViewCatalogExplorer.SelectedImageIndex = 0;
             this.treeViewCatalogExplorer.Size = new System.Drawing.Size(334, 301);
             this.treeViewCatalogExplorer.TabIndex = 0;
@@ -1097,32 +1097,32 @@
             this.treeViewProjectZipExplorer.ImageList = this.imageListProjectZIP;
             this.treeViewProjectZipExplorer.Location = new System.Drawing.Point(0, 0);
             this.treeViewProjectZipExplorer.Name = "treeViewProjectZipExplorer";
-            treeNode1.ImageKey = "Project_16x16.ico";
-            treeNode1.Name = "NodeZipExport01";
-            treeNode1.SelectedImageKey = "Project_16x16.ico";
-            treeNode1.Text = "Deer Park Analysis - 20260311.zip";
-            treeNode1.ToolTipText = "Zip File";
-            treeNode2.ImageKey = "ExportZIP_16x16.ico";
-            treeNode2.Name = "NodeEXPORT";
-            treeNode2.SelectedImageKey = "ExportZIP_16x16.ico";
-            treeNode2.Text = "EXPORT";
-            treeNode2.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
-            treeNode3.ImageKey = "Project_16x16.ico";
-            treeNode3.Name = "NodeImportZip01";
-            treeNode3.SelectedImageKey = "Project_16x16.ico";
-            treeNode3.Text = "DeerPark Analysis - 20260310";
-            treeNode4.ImageKey = "ImportZIP_16x16.ico";
-            treeNode4.Name = "NodeIMPORT";
-            treeNode4.SelectedImageKey = "ImportZIP_16x16.ico";
-            treeNode4.Text = "IMPORT";
-            treeNode4.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
-            treeNode26.ImageKey = "ZipFolder_16x16.ico";
-            treeNode26.Name = "NodeRoot";
-            treeNode26.SelectedImageKey = "ZipFolder_16x16.ico";
-            treeNode26.Text = "Project ZIP Files";
-            treeNode26.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
+            treeNode5.ImageKey = "Project_16x16.ico";
+            treeNode5.Name = "NodeZipExport01";
+            treeNode5.SelectedImageKey = "Project_16x16.ico";
+            treeNode5.Text = "Deer Park Analysis - 20260311.zip";
+            treeNode5.ToolTipText = "Zip File";
+            treeNode6.ImageKey = "ExportZIP_16x16.ico";
+            treeNode6.Name = "NodeEXPORT";
+            treeNode6.SelectedImageKey = "ExportZIP_16x16.ico";
+            treeNode6.Text = "EXPORT";
+            treeNode6.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
+            treeNode7.ImageKey = "Project_16x16.ico";
+            treeNode7.Name = "NodeImportZip01";
+            treeNode7.SelectedImageKey = "Project_16x16.ico";
+            treeNode7.Text = "DeerPark Analysis - 20260310";
+            treeNode8.ImageKey = "ImportZIP_16x16.ico";
+            treeNode8.Name = "NodeIMPORT";
+            treeNode8.SelectedImageKey = "ImportZIP_16x16.ico";
+            treeNode8.Text = "IMPORT";
+            treeNode8.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
+            treeNode9.ImageKey = "ZipFolder_16x16.ico";
+            treeNode9.Name = "NodeRoot";
+            treeNode9.SelectedImageKey = "ZipFolder_16x16.ico";
+            treeNode9.Text = "Project ZIP Files";
+            treeNode9.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
             this.treeViewProjectZipExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode26});
+            treeNode9});
             this.treeViewProjectZipExplorer.SelectedImageIndex = 0;
             this.treeViewProjectZipExplorer.Size = new System.Drawing.Size(334, 258);
             this.treeViewProjectZipExplorer.TabIndex = 0;
@@ -1198,68 +1198,68 @@
             this.treeViewCurrentProjectExplorer.ImageList = this.imageListProjectTreeViews;
             this.treeViewCurrentProjectExplorer.Location = new System.Drawing.Point(0, 0);
             this.treeViewCurrentProjectExplorer.Name = "treeViewCurrentProjectExplorer";
-            treeNode5.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode5.ImageIndex = 7;
-            treeNode5.Name = "NodeProfile_01_Pinch_01_Hen_01";
-            treeNode5.SelectedImageIndex = 8;
-            treeNode5.Text = "Hen: Base Design";
-            treeNode6.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode6.ImageIndex = 7;
-            treeNode6.Name = "NodeProfile_01_Pinch_01_Hen_02";
-            treeNode6.SelectedImageIndex = 8;
-            treeNode6.Text = "Hen: MER Design";
-            treeNode7.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode7.ImageIndex = 5;
-            treeNode7.Name = "NodeProfile_01_Pinch_01";
-            treeNode7.SelectedImageIndex = 6;
-            treeNode7.Text = "Pinch: Delta T=10";
-            treeNode8.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode8.ImageIndex = 7;
-            treeNode8.Name = "NodeProfile_01_Pinch_02_Hen_01";
-            treeNode8.SelectedImageIndex = 8;
-            treeNode8.Text = "Hen: Base Design";
-            treeNode9.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode9.ImageIndex = 7;
-            treeNode9.Name = "NodeProfile_01_Pinch_02_Hen_02";
-            treeNode9.SelectedImageIndex = 8;
-            treeNode9.Text = "Hen: MER Design";
-            treeNode27.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode27.ImageIndex = 5;
-            treeNode27.Name = "NodeProfile_01_Pinch_02";
-            treeNode27.SelectedImageIndex = 6;
-            treeNode27.Text = "Pinch: Delta T=20";
-            treeNode28.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode28.ImageIndex = 3;
-            treeNode28.Name = "NodeProfile_01";
-            treeNode28.SelectedImageIndex = 4;
-            treeNode28.Text = "Profile: Q1 Setup";
-            treeNode29.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode29.ImageIndex = 5;
-            treeNode29.Name = "NodeProfile_02_Pinch_01";
-            treeNode29.SelectedImageIndex = 6;
-            treeNode29.Text = "Pinch: Delta T=10";
-            treeNode30.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode30.ImageIndex = 3;
-            treeNode30.Name = "NodeProfile_02";
-            treeNode30.SelectedImageIndex = 4;
-            treeNode30.Text = "Profile: Q2 Setup";
-            treeNode31.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode31.ImageIndex = 3;
-            treeNode31.Name = "NodeProfile_03";
-            treeNode31.SelectedImageIndex = 4;
-            treeNode31.Text = "Profile: Q3 Setup";
-            treeNode32.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode32.ImageIndex = 3;
-            treeNode32.Name = "NodeProfile_04";
-            treeNode32.SelectedImageIndex = 4;
-            treeNode32.Text = "Profile: Q4 Setup";
-            treeNode33.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode33.ImageIndex = 2;
-            treeNode33.Name = "NodeRootCurrProject";
-            treeNode33.SelectedImageIndex = 2;
-            treeNode33.Text = "Project: Deer Park";
+            treeNode10.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode10.ImageIndex = 7;
+            treeNode10.Name = "NodeProfile_01_Pinch_01_Hen_01";
+            treeNode10.SelectedImageIndex = 8;
+            treeNode10.Text = "Hen: Base Design";
+            treeNode11.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode11.ImageIndex = 7;
+            treeNode11.Name = "NodeProfile_01_Pinch_01_Hen_02";
+            treeNode11.SelectedImageIndex = 8;
+            treeNode11.Text = "Hen: MER Design";
+            treeNode12.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode12.ImageIndex = 5;
+            treeNode12.Name = "NodeProfile_01_Pinch_01";
+            treeNode12.SelectedImageIndex = 6;
+            treeNode12.Text = "Pinch: Delta T=10";
+            treeNode13.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode13.ImageIndex = 7;
+            treeNode13.Name = "NodeProfile_01_Pinch_02_Hen_01";
+            treeNode13.SelectedImageIndex = 8;
+            treeNode13.Text = "Hen: Base Design";
+            treeNode14.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode14.ImageIndex = 7;
+            treeNode14.Name = "NodeProfile_01_Pinch_02_Hen_02";
+            treeNode14.SelectedImageIndex = 8;
+            treeNode14.Text = "Hen: MER Design";
+            treeNode15.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode15.ImageIndex = 5;
+            treeNode15.Name = "NodeProfile_01_Pinch_02";
+            treeNode15.SelectedImageIndex = 6;
+            treeNode15.Text = "Pinch: Delta T=20";
+            treeNode16.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode16.ImageIndex = 3;
+            treeNode16.Name = "NodeProfile_01";
+            treeNode16.SelectedImageIndex = 4;
+            treeNode16.Text = "Profile: Q1 Setup";
+            treeNode17.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode17.ImageIndex = 5;
+            treeNode17.Name = "NodeProfile_02_Pinch_01";
+            treeNode17.SelectedImageIndex = 6;
+            treeNode17.Text = "Pinch: Delta T=10";
+            treeNode18.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode18.ImageIndex = 3;
+            treeNode18.Name = "NodeProfile_02";
+            treeNode18.SelectedImageIndex = 4;
+            treeNode18.Text = "Profile: Q2 Setup";
+            treeNode19.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode19.ImageIndex = 3;
+            treeNode19.Name = "NodeProfile_03";
+            treeNode19.SelectedImageIndex = 4;
+            treeNode19.Text = "Profile: Q3 Setup";
+            treeNode20.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode20.ImageIndex = 3;
+            treeNode20.Name = "NodeProfile_04";
+            treeNode20.SelectedImageIndex = 4;
+            treeNode20.Text = "Profile: Q4 Setup";
+            treeNode21.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode21.ImageIndex = 2;
+            treeNode21.Name = "NodeRootCurrProject";
+            treeNode21.SelectedImageIndex = 2;
+            treeNode21.Text = "Project: Deer Park";
             this.treeViewCurrentProjectExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode33});
+            treeNode21});
             this.treeViewCurrentProjectExplorer.SelectedImageIndex = 0;
             this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(328, 298);
             this.treeViewCurrentProjectExplorer.TabIndex = 0;
@@ -1305,14 +1305,582 @@
             this.tabPageCurrentProject.Text = "OPENED PROJECT ";
             this.tabPageCurrentProject.ToolTipText = "Current Open Project";
             // 
-            // pictureBoxOpenedProject
+            // panelProjectDbFileMetadata
             // 
-            this.pictureBoxOpenedProject.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOpenedProject.Image")));
-            this.pictureBoxOpenedProject.Location = new System.Drawing.Point(7, 4);
-            this.pictureBoxOpenedProject.Name = "pictureBoxOpenedProject";
-            this.pictureBoxOpenedProject.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxOpenedProject.TabIndex = 9;
-            this.pictureBoxOpenedProject.TabStop = false;
+            this.panelProjectDbFileMetadata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelProjectDbFileMetadata.BackColor = System.Drawing.Color.OldLace;
+            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileSizeValue);
+            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileSize);
+            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileDateModifiedValue);
+            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileLastModified);
+            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileDateCreatedValue);
+            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileDateCreated);
+            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxProjectFilenameValue);
+            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFilename);
+            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxProjectDbFileTitle);
+            this.panelProjectDbFileMetadata.Location = new System.Drawing.Point(532, 402);
+            this.panelProjectDbFileMetadata.Name = "panelProjectDbFileMetadata";
+            this.panelProjectDbFileMetadata.Size = new System.Drawing.Size(350, 154);
+            this.panelProjectDbFileMetadata.TabIndex = 14;
+            // 
+            // textBoxFileSizeValue
+            // 
+            this.textBoxFileSizeValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxFileSizeValue.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxFileSizeValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxFileSizeValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFileSizeValue.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxFileSizeValue.Location = new System.Drawing.Point(120, 116);
+            this.textBoxFileSizeValue.Name = "textBoxFileSizeValue";
+            this.textBoxFileSizeValue.ReadOnly = true;
+            this.textBoxFileSizeValue.Size = new System.Drawing.Size(144, 18);
+            this.textBoxFileSizeValue.TabIndex = 39;
+            this.textBoxFileSizeValue.Text = "12,900 KB";
+            // 
+            // textBoxFileSize
+            // 
+            this.textBoxFileSize.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxFileSize.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxFileSize.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxFileSize.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFileSize.Location = new System.Drawing.Point(12, 116);
+            this.textBoxFileSize.Name = "textBoxFileSize";
+            this.textBoxFileSize.ReadOnly = true;
+            this.textBoxFileSize.Size = new System.Drawing.Size(96, 18);
+            this.textBoxFileSize.TabIndex = 38;
+            this.textBoxFileSize.Text = "File Size:";
+            this.textBoxFileSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxFileDateModifiedValue
+            // 
+            this.textBoxFileDateModifiedValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxFileDateModifiedValue.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxFileDateModifiedValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxFileDateModifiedValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFileDateModifiedValue.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxFileDateModifiedValue.Location = new System.Drawing.Point(120, 92);
+            this.textBoxFileDateModifiedValue.Name = "textBoxFileDateModifiedValue";
+            this.textBoxFileDateModifiedValue.ReadOnly = true;
+            this.textBoxFileDateModifiedValue.Size = new System.Drawing.Size(217, 18);
+            this.textBoxFileDateModifiedValue.TabIndex = 37;
+            this.textBoxFileDateModifiedValue.Text = "March ‎12, ‎2026, ‏‎1:16:55 PM";
+            // 
+            // textBoxFileLastModified
+            // 
+            this.textBoxFileLastModified.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxFileLastModified.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxFileLastModified.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxFileLastModified.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFileLastModified.Location = new System.Drawing.Point(12, 92);
+            this.textBoxFileLastModified.Name = "textBoxFileLastModified";
+            this.textBoxFileLastModified.ReadOnly = true;
+            this.textBoxFileLastModified.Size = new System.Drawing.Size(96, 18);
+            this.textBoxFileLastModified.TabIndex = 36;
+            this.textBoxFileLastModified.Text = "Last Modified: ";
+            this.textBoxFileLastModified.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxFileDateCreatedValue
+            // 
+            this.textBoxFileDateCreatedValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxFileDateCreatedValue.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxFileDateCreatedValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxFileDateCreatedValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFileDateCreatedValue.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxFileDateCreatedValue.Location = new System.Drawing.Point(120, 68);
+            this.textBoxFileDateCreatedValue.Name = "textBoxFileDateCreatedValue";
+            this.textBoxFileDateCreatedValue.ReadOnly = true;
+            this.textBoxFileDateCreatedValue.Size = new System.Drawing.Size(217, 18);
+            this.textBoxFileDateCreatedValue.TabIndex = 35;
+            this.textBoxFileDateCreatedValue.Text = "February ‎27, ‎2026, ‏‎11:06:13 AM";
+            // 
+            // textBoxFileDateCreated
+            // 
+            this.textBoxFileDateCreated.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxFileDateCreated.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxFileDateCreated.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxFileDateCreated.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFileDateCreated.Location = new System.Drawing.Point(12, 68);
+            this.textBoxFileDateCreated.Name = "textBoxFileDateCreated";
+            this.textBoxFileDateCreated.ReadOnly = true;
+            this.textBoxFileDateCreated.Size = new System.Drawing.Size(96, 18);
+            this.textBoxFileDateCreated.TabIndex = 34;
+            this.textBoxFileDateCreated.Text = "Date Created: ";
+            this.textBoxFileDateCreated.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxProjectFilenameValue
+            // 
+            this.textBoxProjectFilenameValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxProjectFilenameValue.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxProjectFilenameValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectFilenameValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectFilenameValue.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxProjectFilenameValue.Location = new System.Drawing.Point(120, 44);
+            this.textBoxProjectFilenameValue.Name = "textBoxProjectFilenameValue";
+            this.textBoxProjectFilenameValue.ReadOnly = true;
+            this.textBoxProjectFilenameValue.Size = new System.Drawing.Size(144, 18);
+            this.textBoxProjectFilenameValue.TabIndex = 33;
+            this.textBoxProjectFilenameValue.Text = "filename here";
+            // 
+            // textBoxFilename
+            // 
+            this.textBoxFilename.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxFilename.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxFilename.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxFilename.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFilename.Location = new System.Drawing.Point(12, 44);
+            this.textBoxFilename.Name = "textBoxFilename";
+            this.textBoxFilename.ReadOnly = true;
+            this.textBoxFilename.Size = new System.Drawing.Size(96, 18);
+            this.textBoxFilename.TabIndex = 33;
+            this.textBoxFilename.Text = "Filename: ";
+            this.textBoxFilename.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxProjectDbFileTitle
+            // 
+            this.textBoxProjectDbFileTitle.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxProjectDbFileTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectDbFileTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectDbFileTitle.Location = new System.Drawing.Point(2, 11);
+            this.textBoxProjectDbFileTitle.Name = "textBoxProjectDbFileTitle";
+            this.textBoxProjectDbFileTitle.Size = new System.Drawing.Size(346, 22);
+            this.textBoxProjectDbFileTitle.TabIndex = 33;
+            this.textBoxProjectDbFileTitle.Text = "PROJECT DATABASE";
+            this.textBoxProjectDbFileTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelProjectUnits
+            // 
+            this.panelProjectUnits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelProjectUnits.BackColor = System.Drawing.Color.Lavender;
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsTitle);
+            this.panelProjectUnits.Controls.Add(this.textBoxUDefinition);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsUValue);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsU);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsCPValue);
+            this.panelProjectUnits.Controls.Add(this.textBoxCPDefinition);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsCP);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsDutyValue);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsDuty);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsAreaValue);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsArea);
+            this.panelProjectUnits.Controls.Add(this.comboBoxUnitsPress);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsPress);
+            this.panelProjectUnits.Controls.Add(this.comboBoxUnitsTemp);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsTemp);
+            this.panelProjectUnits.Controls.Add(this.comboBoxUnitsMagnitude);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsMagnitude);
+            this.panelProjectUnits.Controls.Add(this.pictureBoxUnitsSystem);
+            this.panelProjectUnits.Controls.Add(this.comboBoxUnitsSystem);
+            this.panelProjectUnits.Controls.Add(this.textBoxUnitsSystem);
+            this.panelProjectUnits.Location = new System.Drawing.Point(532, 43);
+            this.panelProjectUnits.Name = "panelProjectUnits";
+            this.panelProjectUnits.Size = new System.Drawing.Size(352, 349);
+            this.panelProjectUnits.TabIndex = 13;
+            // 
+            // textBoxUnitsTitle
+            // 
+            this.textBoxUnitsTitle.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsTitle.Location = new System.Drawing.Point(3, 8);
+            this.textBoxUnitsTitle.Name = "textBoxUnitsTitle";
+            this.textBoxUnitsTitle.Size = new System.Drawing.Size(346, 22);
+            this.textBoxUnitsTitle.TabIndex = 32;
+            this.textBoxUnitsTitle.Text = "PROJECT UNITS";
+            this.textBoxUnitsTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxUDefinition
+            // 
+            this.textBoxUDefinition.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUDefinition.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUDefinition.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUDefinition.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUDefinition.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxUDefinition.Location = new System.Drawing.Point(87, 320);
+            this.textBoxUDefinition.Name = "textBoxUDefinition";
+            this.textBoxUDefinition.ReadOnly = true;
+            this.textBoxUDefinition.Size = new System.Drawing.Size(251, 18);
+            this.textBoxUDefinition.TabIndex = 31;
+            this.textBoxUDefinition.Text = "[ U ... Overall Heat Transfer Coefficient ]";
+            // 
+            // textBoxUnitsUValue
+            // 
+            this.textBoxUnitsUValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsUValue.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsUValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsUValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsUValue.Location = new System.Drawing.Point(121, 301);
+            this.textBoxUnitsUValue.Name = "textBoxUnitsUValue";
+            this.textBoxUnitsUValue.ReadOnly = true;
+            this.textBoxUnitsUValue.Size = new System.Drawing.Size(144, 18);
+            this.textBoxUnitsUValue.TabIndex = 30;
+            this.textBoxUnitsUValue.Text = "MMBtu/hr·ft²·°F ";
+            // 
+            // textBoxUnitsU
+            // 
+            this.textBoxUnitsU.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsU.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsU.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsU.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsU.Location = new System.Drawing.Point(13, 301);
+            this.textBoxUnitsU.Name = "textBoxUnitsU";
+            this.textBoxUnitsU.ReadOnly = true;
+            this.textBoxUnitsU.Size = new System.Drawing.Size(96, 18);
+            this.textBoxUnitsU.TabIndex = 29;
+            this.textBoxUnitsU.Text = "U: ";
+            this.textBoxUnitsU.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxUnitsCPValue
+            // 
+            this.textBoxUnitsCPValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsCPValue.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsCPValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsCPValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsCPValue.Location = new System.Drawing.Point(121, 257);
+            this.textBoxUnitsCPValue.Name = "textBoxUnitsCPValue";
+            this.textBoxUnitsCPValue.ReadOnly = true;
+            this.textBoxUnitsCPValue.Size = new System.Drawing.Size(144, 18);
+            this.textBoxUnitsCPValue.TabIndex = 28;
+            this.textBoxUnitsCPValue.Text = "MMBtu/(hr °F)";
+            // 
+            // textBoxCPDefinition
+            // 
+            this.textBoxCPDefinition.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxCPDefinition.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxCPDefinition.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxCPDefinition.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCPDefinition.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxCPDefinition.Location = new System.Drawing.Point(78, 275);
+            this.textBoxCPDefinition.Name = "textBoxCPDefinition";
+            this.textBoxCPDefinition.ReadOnly = true;
+            this.textBoxCPDefinition.Size = new System.Drawing.Size(251, 18);
+            this.textBoxCPDefinition.TabIndex = 27;
+            this.textBoxCPDefinition.Text = "[ CP ... Heat Capacity Flow Rate (m * Cp) ]";
+            // 
+            // textBoxUnitsCP
+            // 
+            this.textBoxUnitsCP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsCP.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsCP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsCP.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsCP.Location = new System.Drawing.Point(13, 257);
+            this.textBoxUnitsCP.Name = "textBoxUnitsCP";
+            this.textBoxUnitsCP.ReadOnly = true;
+            this.textBoxUnitsCP.Size = new System.Drawing.Size(96, 18);
+            this.textBoxUnitsCP.TabIndex = 26;
+            this.textBoxUnitsCP.Text = "CP: ";
+            this.textBoxUnitsCP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxUnitsDutyValue
+            // 
+            this.textBoxUnitsDutyValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsDutyValue.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsDutyValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsDutyValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsDutyValue.Location = new System.Drawing.Point(121, 231);
+            this.textBoxUnitsDutyValue.Name = "textBoxUnitsDutyValue";
+            this.textBoxUnitsDutyValue.ReadOnly = true;
+            this.textBoxUnitsDutyValue.Size = new System.Drawing.Size(144, 18);
+            this.textBoxUnitsDutyValue.TabIndex = 25;
+            this.textBoxUnitsDutyValue.Text = "MMBtu/hr";
+            // 
+            // textBoxUnitsDuty
+            // 
+            this.textBoxUnitsDuty.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsDuty.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsDuty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsDuty.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsDuty.Location = new System.Drawing.Point(13, 231);
+            this.textBoxUnitsDuty.Name = "textBoxUnitsDuty";
+            this.textBoxUnitsDuty.ReadOnly = true;
+            this.textBoxUnitsDuty.Size = new System.Drawing.Size(96, 18);
+            this.textBoxUnitsDuty.TabIndex = 24;
+            this.textBoxUnitsDuty.Text = "Duty: ";
+            this.textBoxUnitsDuty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxUnitsAreaValue
+            // 
+            this.textBoxUnitsAreaValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsAreaValue.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsAreaValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsAreaValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsAreaValue.Location = new System.Drawing.Point(121, 203);
+            this.textBoxUnitsAreaValue.Name = "textBoxUnitsAreaValue";
+            this.textBoxUnitsAreaValue.ReadOnly = true;
+            this.textBoxUnitsAreaValue.Size = new System.Drawing.Size(144, 18);
+            this.textBoxUnitsAreaValue.TabIndex = 23;
+            this.textBoxUnitsAreaValue.Text = "ft²";
+            // 
+            // textBoxUnitsArea
+            // 
+            this.textBoxUnitsArea.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsArea.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsArea.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsArea.Location = new System.Drawing.Point(13, 203);
+            this.textBoxUnitsArea.Name = "textBoxUnitsArea";
+            this.textBoxUnitsArea.ReadOnly = true;
+            this.textBoxUnitsArea.Size = new System.Drawing.Size(96, 18);
+            this.textBoxUnitsArea.TabIndex = 22;
+            this.textBoxUnitsArea.Text = "Area: ";
+            this.textBoxUnitsArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // comboBoxUnitsPress
+            // 
+            this.comboBoxUnitsPress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxUnitsPress.BackColor = System.Drawing.Color.Lavender;
+            this.comboBoxUnitsPress.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUnitsPress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxUnitsPress.FormattingEnabled = true;
+            this.comboBoxUnitsPress.Items.AddRange(new object[] {
+            "atm",
+            "inH20",
+            "inHg",
+            "psf",
+            "psia",
+            "psig"});
+            this.comboBoxUnitsPress.Location = new System.Drawing.Point(115, 163);
+            this.comboBoxUnitsPress.Name = "comboBoxUnitsPress";
+            this.comboBoxUnitsPress.Size = new System.Drawing.Size(150, 25);
+            this.comboBoxUnitsPress.Sorted = true;
+            this.comboBoxUnitsPress.TabIndex = 21;
+            // 
+            // textBoxUnitsPress
+            // 
+            this.textBoxUnitsPress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsPress.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsPress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsPress.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsPress.Location = new System.Drawing.Point(13, 167);
+            this.textBoxUnitsPress.Name = "textBoxUnitsPress";
+            this.textBoxUnitsPress.ReadOnly = true;
+            this.textBoxUnitsPress.Size = new System.Drawing.Size(96, 18);
+            this.textBoxUnitsPress.TabIndex = 20;
+            this.textBoxUnitsPress.Text = "Pressure: ";
+            this.textBoxUnitsPress.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // comboBoxUnitsTemp
+            // 
+            this.comboBoxUnitsTemp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxUnitsTemp.BackColor = System.Drawing.Color.Lavender;
+            this.comboBoxUnitsTemp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUnitsTemp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxUnitsTemp.FormattingEnabled = true;
+            this.comboBoxUnitsTemp.Items.AddRange(new object[] {
+            "Fahrenheit (°F)",
+            "Rankine (°R)"});
+            this.comboBoxUnitsTemp.Location = new System.Drawing.Point(115, 123);
+            this.comboBoxUnitsTemp.Name = "comboBoxUnitsTemp";
+            this.comboBoxUnitsTemp.Size = new System.Drawing.Size(150, 25);
+            this.comboBoxUnitsTemp.Sorted = true;
+            this.comboBoxUnitsTemp.TabIndex = 19;
+            // 
+            // textBoxUnitsTemp
+            // 
+            this.textBoxUnitsTemp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsTemp.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsTemp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsTemp.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsTemp.Location = new System.Drawing.Point(13, 124);
+            this.textBoxUnitsTemp.Name = "textBoxUnitsTemp";
+            this.textBoxUnitsTemp.ReadOnly = true;
+            this.textBoxUnitsTemp.Size = new System.Drawing.Size(96, 18);
+            this.textBoxUnitsTemp.TabIndex = 18;
+            this.textBoxUnitsTemp.Text = "Temperature: ";
+            this.textBoxUnitsTemp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // comboBoxUnitsMagnitude
+            // 
+            this.comboBoxUnitsMagnitude.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxUnitsMagnitude.BackColor = System.Drawing.Color.Lavender;
+            this.comboBoxUnitsMagnitude.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUnitsMagnitude.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxUnitsMagnitude.FormattingEnabled = true;
+            this.comboBoxUnitsMagnitude.Items.AddRange(new object[] {
+            "Base",
+            "Kilo ...... (10^3)",
+            "Mega ... (10^6)"});
+            this.comboBoxUnitsMagnitude.Location = new System.Drawing.Point(115, 83);
+            this.comboBoxUnitsMagnitude.Name = "comboBoxUnitsMagnitude";
+            this.comboBoxUnitsMagnitude.Size = new System.Drawing.Size(150, 25);
+            this.comboBoxUnitsMagnitude.Sorted = true;
+            this.comboBoxUnitsMagnitude.TabIndex = 17;
+            // 
+            // textBoxUnitsMagnitude
+            // 
+            this.textBoxUnitsMagnitude.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsMagnitude.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsMagnitude.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsMagnitude.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsMagnitude.Location = new System.Drawing.Point(13, 85);
+            this.textBoxUnitsMagnitude.Name = "textBoxUnitsMagnitude";
+            this.textBoxUnitsMagnitude.ReadOnly = true;
+            this.textBoxUnitsMagnitude.Size = new System.Drawing.Size(96, 18);
+            this.textBoxUnitsMagnitude.TabIndex = 16;
+            this.textBoxUnitsMagnitude.Text = "Magnitude: ";
+            this.textBoxUnitsMagnitude.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // pictureBoxUnitsSystem
+            // 
+            this.pictureBoxUnitsSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxUnitsSystem.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUnitsSystem.Image")));
+            this.pictureBoxUnitsSystem.Location = new System.Drawing.Point(287, 39);
+            this.pictureBoxUnitsSystem.Name = "pictureBoxUnitsSystem";
+            this.pictureBoxUnitsSystem.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxUnitsSystem.TabIndex = 15;
+            this.pictureBoxUnitsSystem.TabStop = false;
+            // 
+            // comboBoxUnitsSystem
+            // 
+            this.comboBoxUnitsSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxUnitsSystem.BackColor = System.Drawing.Color.Lavender;
+            this.comboBoxUnitsSystem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUnitsSystem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxUnitsSystem.FormattingEnabled = true;
+            this.comboBoxUnitsSystem.Items.AddRange(new object[] {
+            "English - Imperial",
+            "Metric - SI"});
+            this.comboBoxUnitsSystem.Location = new System.Drawing.Point(115, 43);
+            this.comboBoxUnitsSystem.Name = "comboBoxUnitsSystem";
+            this.comboBoxUnitsSystem.Size = new System.Drawing.Size(150, 25);
+            this.comboBoxUnitsSystem.Sorted = true;
+            this.comboBoxUnitsSystem.TabIndex = 14;
+            // 
+            // textBoxUnitsSystem
+            // 
+            this.textBoxUnitsSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxUnitsSystem.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxUnitsSystem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitsSystem.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsSystem.Location = new System.Drawing.Point(13, 46);
+            this.textBoxUnitsSystem.Name = "textBoxUnitsSystem";
+            this.textBoxUnitsSystem.ReadOnly = true;
+            this.textBoxUnitsSystem.Size = new System.Drawing.Size(96, 18);
+            this.textBoxUnitsSystem.TabIndex = 14;
+            this.textBoxUnitsSystem.Text = "System Units: ";
+            this.textBoxUnitsSystem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // panelProjectMetadata
+            // 
+            this.panelProjectMetadata.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelProjectMetadata.BackColor = System.Drawing.Color.LightCyan;
+            this.panelProjectMetadata.Controls.Add(this.textBoxProjectPurposeValue);
+            this.panelProjectMetadata.Controls.Add(this.textBoxAnalystValue);
+            this.panelProjectMetadata.Controls.Add(this.textBoxProjectNameValue);
+            this.panelProjectMetadata.Controls.Add(this.textBoxProjectName);
+            this.panelProjectMetadata.Controls.Add(this.textBoxAnalyst);
+            this.panelProjectMetadata.Controls.Add(this.textBoxProjectDescription);
+            this.panelProjectMetadata.Controls.Add(this.textBoxProjectDescriptionValue);
+            this.panelProjectMetadata.Controls.Add(this.textBoxProjectPurpose);
+            this.panelProjectMetadata.Controls.Add(this.textBoxProjectNotesValue);
+            this.panelProjectMetadata.Controls.Add(this.textBoxProjectNotes);
+            this.panelProjectMetadata.Location = new System.Drawing.Point(7, 42);
+            this.panelProjectMetadata.Name = "panelProjectMetadata";
+            this.panelProjectMetadata.Size = new System.Drawing.Size(508, 527);
+            this.panelProjectMetadata.TabIndex = 12;
+            // 
+            // textBoxProjectPurposeValue
+            // 
+            this.textBoxProjectPurposeValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProjectPurposeValue.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxProjectPurposeValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxProjectPurposeValue.Location = new System.Drawing.Point(14, 250);
+            this.textBoxProjectPurposeValue.Multiline = true;
+            this.textBoxProjectPurposeValue.Name = "textBoxProjectPurposeValue";
+            this.textBoxProjectPurposeValue.Size = new System.Drawing.Size(479, 100);
+            this.textBoxProjectPurposeValue.TabIndex = 6;
+            this.textBoxProjectPurposeValue.Text = "Enter Purpose";
+            // 
+            // textBoxAnalystValue
+            // 
+            this.textBoxAnalystValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxAnalystValue.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxAnalystValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxAnalystValue.Location = new System.Drawing.Point(118, 51);
+            this.textBoxAnalystValue.Name = "textBoxAnalystValue";
+            this.textBoxAnalystValue.Size = new System.Drawing.Size(375, 25);
+            this.textBoxAnalystValue.TabIndex = 11;
+            this.textBoxAnalystValue.Text = "Enter Analyst Name";
+            // 
+            // textBoxProjectNameValue
+            // 
+            this.textBoxProjectNameValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProjectNameValue.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxProjectNameValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxProjectNameValue.Location = new System.Drawing.Point(118, 13);
+            this.textBoxProjectNameValue.Name = "textBoxProjectNameValue";
+            this.textBoxProjectNameValue.Size = new System.Drawing.Size(375, 25);
+            this.textBoxProjectNameValue.TabIndex = 2;
+            this.textBoxProjectNameValue.Text = "Enter Project Name";
+            // 
+            // textBoxProjectName
+            // 
+            this.textBoxProjectName.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxProjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectName.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectName.Location = new System.Drawing.Point(16, 15);
+            this.textBoxProjectName.Name = "textBoxProjectName";
+            this.textBoxProjectName.ReadOnly = true;
+            this.textBoxProjectName.Size = new System.Drawing.Size(96, 18);
+            this.textBoxProjectName.TabIndex = 1;
+            this.textBoxProjectName.Text = "Project Name: ";
+            // 
+            // textBoxAnalyst
+            // 
+            this.textBoxAnalyst.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxAnalyst.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxAnalyst.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAnalyst.Location = new System.Drawing.Point(16, 53);
+            this.textBoxAnalyst.Name = "textBoxAnalyst";
+            this.textBoxAnalyst.ReadOnly = true;
+            this.textBoxAnalyst.Size = new System.Drawing.Size(96, 18);
+            this.textBoxAnalyst.TabIndex = 10;
+            this.textBoxAnalyst.Text = "Analyst Name: ";
+            // 
+            // textBoxProjectDescription
+            // 
+            this.textBoxProjectDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProjectDescription.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxProjectDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectDescription.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectDescription.Location = new System.Drawing.Point(20, 90);
+            this.textBoxProjectDescription.Name = "textBoxProjectDescription";
+            this.textBoxProjectDescription.ReadOnly = true;
+            this.textBoxProjectDescription.Size = new System.Drawing.Size(473, 18);
+            this.textBoxProjectDescription.TabIndex = 3;
+            this.textBoxProjectDescription.Text = "  Description";
+            // 
+            // textBoxProjectDescriptionValue
+            // 
+            this.textBoxProjectDescriptionValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProjectDescriptionValue.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxProjectDescriptionValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxProjectDescriptionValue.Location = new System.Drawing.Point(14, 114);
+            this.textBoxProjectDescriptionValue.Multiline = true;
+            this.textBoxProjectDescriptionValue.Name = "textBoxProjectDescriptionValue";
+            this.textBoxProjectDescriptionValue.Size = new System.Drawing.Size(479, 100);
+            this.textBoxProjectDescriptionValue.TabIndex = 4;
+            this.textBoxProjectDescriptionValue.Text = "Enter Description";
+            // 
+            // textBoxProjectPurpose
+            // 
+            this.textBoxProjectPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProjectPurpose.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxProjectPurpose.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectPurpose.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectPurpose.Location = new System.Drawing.Point(14, 226);
+            this.textBoxProjectPurpose.Name = "textBoxProjectPurpose";
+            this.textBoxProjectPurpose.ReadOnly = true;
+            this.textBoxProjectPurpose.Size = new System.Drawing.Size(479, 18);
+            this.textBoxProjectPurpose.TabIndex = 5;
+            this.textBoxProjectPurpose.Text = "  Purpose";
             // 
             // textBoxProjectNotesValue
             // 
@@ -1342,83 +1910,14 @@
             this.textBoxProjectNotes.TabIndex = 7;
             this.textBoxProjectNotes.Text = "  Notes";
             // 
-            // textBoxProjectPurposeValue
+            // pictureBoxOpenedProject
             // 
-            this.textBoxProjectPurposeValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectPurposeValue.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxProjectPurposeValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxProjectPurposeValue.Location = new System.Drawing.Point(14, 250);
-            this.textBoxProjectPurposeValue.Multiline = true;
-            this.textBoxProjectPurposeValue.Name = "textBoxProjectPurposeValue";
-            this.textBoxProjectPurposeValue.Size = new System.Drawing.Size(479, 100);
-            this.textBoxProjectPurposeValue.TabIndex = 6;
-            this.textBoxProjectPurposeValue.Text = "Enter Purpose";
-            // 
-            // textBoxProjectPurpose
-            // 
-            this.textBoxProjectPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectPurpose.BackColor = System.Drawing.Color.LightCyan;
-            this.textBoxProjectPurpose.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProjectPurpose.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectPurpose.Location = new System.Drawing.Point(14, 226);
-            this.textBoxProjectPurpose.Name = "textBoxProjectPurpose";
-            this.textBoxProjectPurpose.ReadOnly = true;
-            this.textBoxProjectPurpose.Size = new System.Drawing.Size(479, 18);
-            this.textBoxProjectPurpose.TabIndex = 5;
-            this.textBoxProjectPurpose.Text = "  Purpose";
-            // 
-            // textBoxProjectDescriptionValue
-            // 
-            this.textBoxProjectDescriptionValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectDescriptionValue.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxProjectDescriptionValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxProjectDescriptionValue.Location = new System.Drawing.Point(14, 114);
-            this.textBoxProjectDescriptionValue.Multiline = true;
-            this.textBoxProjectDescriptionValue.Name = "textBoxProjectDescriptionValue";
-            this.textBoxProjectDescriptionValue.Size = new System.Drawing.Size(479, 100);
-            this.textBoxProjectDescriptionValue.TabIndex = 4;
-            this.textBoxProjectDescriptionValue.Text = "Enter Description";
-            // 
-            // textBoxProjectDescription
-            // 
-            this.textBoxProjectDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectDescription.BackColor = System.Drawing.Color.LightCyan;
-            this.textBoxProjectDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProjectDescription.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectDescription.Location = new System.Drawing.Point(20, 90);
-            this.textBoxProjectDescription.Name = "textBoxProjectDescription";
-            this.textBoxProjectDescription.ReadOnly = true;
-            this.textBoxProjectDescription.Size = new System.Drawing.Size(473, 18);
-            this.textBoxProjectDescription.TabIndex = 3;
-            this.textBoxProjectDescription.Text = "  Description";
-            // 
-            // textBoxProjectNameValue
-            // 
-            this.textBoxProjectNameValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectNameValue.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxProjectNameValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxProjectNameValue.Location = new System.Drawing.Point(118, 13);
-            this.textBoxProjectNameValue.Name = "textBoxProjectNameValue";
-            this.textBoxProjectNameValue.Size = new System.Drawing.Size(375, 25);
-            this.textBoxProjectNameValue.TabIndex = 2;
-            this.textBoxProjectNameValue.Text = "Enter Project Name";
-            // 
-            // textBoxProjectName
-            // 
-            this.textBoxProjectName.BackColor = System.Drawing.Color.LightCyan;
-            this.textBoxProjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProjectName.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectName.Location = new System.Drawing.Point(16, 15);
-            this.textBoxProjectName.Name = "textBoxProjectName";
-            this.textBoxProjectName.ReadOnly = true;
-            this.textBoxProjectName.Size = new System.Drawing.Size(96, 18);
-            this.textBoxProjectName.TabIndex = 1;
-            this.textBoxProjectName.Text = "Project Name: ";
+            this.pictureBoxOpenedProject.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOpenedProject.Image")));
+            this.pictureBoxOpenedProject.Location = new System.Drawing.Point(7, 4);
+            this.pictureBoxOpenedProject.Name = "pictureBoxOpenedProject";
+            this.pictureBoxOpenedProject.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxOpenedProject.TabIndex = 9;
+            this.pictureBoxOpenedProject.TabStop = false;
             // 
             // textBoxProjectBanner
             // 
@@ -1600,505 +2099,6 @@
             this.textBoxHenBanner.Text = "HEAT EXCHANGER NETWORK (HEN) DESIGN";
             this.textBoxHenBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBoxAnalystValue
-            // 
-            this.textBoxAnalystValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxAnalystValue.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxAnalystValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxAnalystValue.Location = new System.Drawing.Point(118, 51);
-            this.textBoxAnalystValue.Name = "textBoxAnalystValue";
-            this.textBoxAnalystValue.Size = new System.Drawing.Size(375, 25);
-            this.textBoxAnalystValue.TabIndex = 11;
-            this.textBoxAnalystValue.Text = "Enter Analyst Name";
-            // 
-            // textBoxAnalyst
-            // 
-            this.textBoxAnalyst.BackColor = System.Drawing.Color.LightCyan;
-            this.textBoxAnalyst.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxAnalyst.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAnalyst.Location = new System.Drawing.Point(16, 53);
-            this.textBoxAnalyst.Name = "textBoxAnalyst";
-            this.textBoxAnalyst.ReadOnly = true;
-            this.textBoxAnalyst.Size = new System.Drawing.Size(96, 18);
-            this.textBoxAnalyst.TabIndex = 10;
-            this.textBoxAnalyst.Text = "Analyst Name: ";
-            // 
-            // panelProjectMetadata
-            // 
-            this.panelProjectMetadata.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelProjectMetadata.BackColor = System.Drawing.Color.LightCyan;
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectPurposeValue);
-            this.panelProjectMetadata.Controls.Add(this.textBoxAnalystValue);
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectNameValue);
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectName);
-            this.panelProjectMetadata.Controls.Add(this.textBoxAnalyst);
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectDescription);
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectDescriptionValue);
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectPurpose);
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectNotesValue);
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectNotes);
-            this.panelProjectMetadata.Location = new System.Drawing.Point(7, 42);
-            this.panelProjectMetadata.Name = "panelProjectMetadata";
-            this.panelProjectMetadata.Size = new System.Drawing.Size(508, 527);
-            this.panelProjectMetadata.TabIndex = 12;
-            // 
-            // panelProjectUnits
-            // 
-            this.panelProjectUnits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelProjectUnits.BackColor = System.Drawing.Color.Lavender;
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsTitle);
-            this.panelProjectUnits.Controls.Add(this.textBoxUDefinition);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsUValue);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsU);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsCPValue);
-            this.panelProjectUnits.Controls.Add(this.textBoxCPDefinition);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsCP);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsDutyValue);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsDuty);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsAreaValue);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsArea);
-            this.panelProjectUnits.Controls.Add(this.comboBoxUnitsPress);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsPress);
-            this.panelProjectUnits.Controls.Add(this.comboBoxUnitsTemp);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsTemp);
-            this.panelProjectUnits.Controls.Add(this.comboBoxUnitsMagnitude);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsMagnitude);
-            this.panelProjectUnits.Controls.Add(this.pictureBoxUnitsSystem);
-            this.panelProjectUnits.Controls.Add(this.comboBoxUnitsSystem);
-            this.panelProjectUnits.Controls.Add(this.textBoxUnitsSystem);
-            this.panelProjectUnits.Location = new System.Drawing.Point(531, 43);
-            this.panelProjectUnits.Name = "panelProjectUnits";
-            this.panelProjectUnits.Size = new System.Drawing.Size(352, 349);
-            this.panelProjectUnits.TabIndex = 13;
-            // 
-            // textBoxUnitsSystem
-            // 
-            this.textBoxUnitsSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsSystem.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsSystem.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsSystem.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsSystem.Location = new System.Drawing.Point(13, 46);
-            this.textBoxUnitsSystem.Name = "textBoxUnitsSystem";
-            this.textBoxUnitsSystem.ReadOnly = true;
-            this.textBoxUnitsSystem.Size = new System.Drawing.Size(96, 18);
-            this.textBoxUnitsSystem.TabIndex = 14;
-            this.textBoxUnitsSystem.Text = "System Units: ";
-            this.textBoxUnitsSystem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // comboBoxUnitsSystem
-            // 
-            this.comboBoxUnitsSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxUnitsSystem.BackColor = System.Drawing.Color.Lavender;
-            this.comboBoxUnitsSystem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxUnitsSystem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxUnitsSystem.FormattingEnabled = true;
-            this.comboBoxUnitsSystem.Items.AddRange(new object[] {
-            "English - Imperial",
-            "Metric - SI"});
-            this.comboBoxUnitsSystem.Location = new System.Drawing.Point(115, 43);
-            this.comboBoxUnitsSystem.Name = "comboBoxUnitsSystem";
-            this.comboBoxUnitsSystem.Size = new System.Drawing.Size(150, 25);
-            this.comboBoxUnitsSystem.Sorted = true;
-            this.comboBoxUnitsSystem.TabIndex = 14;
-            // 
-            // pictureBoxUnitsSystem
-            // 
-            this.pictureBoxUnitsSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBoxUnitsSystem.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUnitsSystem.Image")));
-            this.pictureBoxUnitsSystem.Location = new System.Drawing.Point(287, 39);
-            this.pictureBoxUnitsSystem.Name = "pictureBoxUnitsSystem";
-            this.pictureBoxUnitsSystem.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxUnitsSystem.TabIndex = 15;
-            this.pictureBoxUnitsSystem.TabStop = false;
-            // 
-            // textBoxUnitsMagnitude
-            // 
-            this.textBoxUnitsMagnitude.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsMagnitude.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsMagnitude.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsMagnitude.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsMagnitude.Location = new System.Drawing.Point(13, 85);
-            this.textBoxUnitsMagnitude.Name = "textBoxUnitsMagnitude";
-            this.textBoxUnitsMagnitude.ReadOnly = true;
-            this.textBoxUnitsMagnitude.Size = new System.Drawing.Size(96, 18);
-            this.textBoxUnitsMagnitude.TabIndex = 16;
-            this.textBoxUnitsMagnitude.Text = "Magnitude: ";
-            this.textBoxUnitsMagnitude.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // comboBoxUnitsMagnitude
-            // 
-            this.comboBoxUnitsMagnitude.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxUnitsMagnitude.BackColor = System.Drawing.Color.Lavender;
-            this.comboBoxUnitsMagnitude.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxUnitsMagnitude.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxUnitsMagnitude.FormattingEnabled = true;
-            this.comboBoxUnitsMagnitude.Items.AddRange(new object[] {
-            "Base",
-            "Kilo ...... (10^3)",
-            "Mega ... (10^6)"});
-            this.comboBoxUnitsMagnitude.Location = new System.Drawing.Point(115, 83);
-            this.comboBoxUnitsMagnitude.Name = "comboBoxUnitsMagnitude";
-            this.comboBoxUnitsMagnitude.Size = new System.Drawing.Size(150, 25);
-            this.comboBoxUnitsMagnitude.Sorted = true;
-            this.comboBoxUnitsMagnitude.TabIndex = 17;
-            // 
-            // textBoxUnitsTemp
-            // 
-            this.textBoxUnitsTemp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsTemp.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsTemp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsTemp.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsTemp.Location = new System.Drawing.Point(13, 124);
-            this.textBoxUnitsTemp.Name = "textBoxUnitsTemp";
-            this.textBoxUnitsTemp.ReadOnly = true;
-            this.textBoxUnitsTemp.Size = new System.Drawing.Size(96, 18);
-            this.textBoxUnitsTemp.TabIndex = 18;
-            this.textBoxUnitsTemp.Text = "Temperature: ";
-            this.textBoxUnitsTemp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // comboBoxUnitsTemp
-            // 
-            this.comboBoxUnitsTemp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxUnitsTemp.BackColor = System.Drawing.Color.Lavender;
-            this.comboBoxUnitsTemp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxUnitsTemp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxUnitsTemp.FormattingEnabled = true;
-            this.comboBoxUnitsTemp.Items.AddRange(new object[] {
-            "Fahrenheit (°F)",
-            "Rankine (°R)"});
-            this.comboBoxUnitsTemp.Location = new System.Drawing.Point(115, 123);
-            this.comboBoxUnitsTemp.Name = "comboBoxUnitsTemp";
-            this.comboBoxUnitsTemp.Size = new System.Drawing.Size(150, 25);
-            this.comboBoxUnitsTemp.Sorted = true;
-            this.comboBoxUnitsTemp.TabIndex = 19;
-            // 
-            // textBoxUnitsPress
-            // 
-            this.textBoxUnitsPress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsPress.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsPress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsPress.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsPress.Location = new System.Drawing.Point(13, 167);
-            this.textBoxUnitsPress.Name = "textBoxUnitsPress";
-            this.textBoxUnitsPress.ReadOnly = true;
-            this.textBoxUnitsPress.Size = new System.Drawing.Size(96, 18);
-            this.textBoxUnitsPress.TabIndex = 20;
-            this.textBoxUnitsPress.Text = "Pressure: ";
-            this.textBoxUnitsPress.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxUnitsArea
-            // 
-            this.textBoxUnitsArea.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsArea.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsArea.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsArea.Location = new System.Drawing.Point(13, 203);
-            this.textBoxUnitsArea.Name = "textBoxUnitsArea";
-            this.textBoxUnitsArea.ReadOnly = true;
-            this.textBoxUnitsArea.Size = new System.Drawing.Size(96, 18);
-            this.textBoxUnitsArea.TabIndex = 22;
-            this.textBoxUnitsArea.Text = "Area: ";
-            this.textBoxUnitsArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxUnitsAreaValue
-            // 
-            this.textBoxUnitsAreaValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsAreaValue.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsAreaValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsAreaValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsAreaValue.Location = new System.Drawing.Point(121, 203);
-            this.textBoxUnitsAreaValue.Name = "textBoxUnitsAreaValue";
-            this.textBoxUnitsAreaValue.ReadOnly = true;
-            this.textBoxUnitsAreaValue.Size = new System.Drawing.Size(144, 18);
-            this.textBoxUnitsAreaValue.TabIndex = 23;
-            this.textBoxUnitsAreaValue.Text = "ft²";
-            // 
-            // textBoxUnitsDuty
-            // 
-            this.textBoxUnitsDuty.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsDuty.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsDuty.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsDuty.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsDuty.Location = new System.Drawing.Point(13, 231);
-            this.textBoxUnitsDuty.Name = "textBoxUnitsDuty";
-            this.textBoxUnitsDuty.ReadOnly = true;
-            this.textBoxUnitsDuty.Size = new System.Drawing.Size(96, 18);
-            this.textBoxUnitsDuty.TabIndex = 24;
-            this.textBoxUnitsDuty.Text = "Duty: ";
-            this.textBoxUnitsDuty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxUnitsDutyValue
-            // 
-            this.textBoxUnitsDutyValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsDutyValue.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsDutyValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsDutyValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsDutyValue.Location = new System.Drawing.Point(121, 231);
-            this.textBoxUnitsDutyValue.Name = "textBoxUnitsDutyValue";
-            this.textBoxUnitsDutyValue.ReadOnly = true;
-            this.textBoxUnitsDutyValue.Size = new System.Drawing.Size(144, 18);
-            this.textBoxUnitsDutyValue.TabIndex = 25;
-            this.textBoxUnitsDutyValue.Text = "MMBtu/hr";
-            // 
-            // textBoxUnitsCP
-            // 
-            this.textBoxUnitsCP.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsCP.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsCP.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsCP.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsCP.Location = new System.Drawing.Point(13, 257);
-            this.textBoxUnitsCP.Name = "textBoxUnitsCP";
-            this.textBoxUnitsCP.ReadOnly = true;
-            this.textBoxUnitsCP.Size = new System.Drawing.Size(96, 18);
-            this.textBoxUnitsCP.TabIndex = 26;
-            this.textBoxUnitsCP.Text = "CP: ";
-            this.textBoxUnitsCP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxCPDefinition
-            // 
-            this.textBoxCPDefinition.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxCPDefinition.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxCPDefinition.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCPDefinition.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCPDefinition.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxCPDefinition.Location = new System.Drawing.Point(78, 275);
-            this.textBoxCPDefinition.Name = "textBoxCPDefinition";
-            this.textBoxCPDefinition.ReadOnly = true;
-            this.textBoxCPDefinition.Size = new System.Drawing.Size(251, 18);
-            this.textBoxCPDefinition.TabIndex = 27;
-            this.textBoxCPDefinition.Text = "[ CP ... Heat Capacity Flow Rate (m * Cp) ]";
-            // 
-            // textBoxUnitsCPValue
-            // 
-            this.textBoxUnitsCPValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsCPValue.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsCPValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsCPValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsCPValue.Location = new System.Drawing.Point(121, 257);
-            this.textBoxUnitsCPValue.Name = "textBoxUnitsCPValue";
-            this.textBoxUnitsCPValue.ReadOnly = true;
-            this.textBoxUnitsCPValue.Size = new System.Drawing.Size(144, 18);
-            this.textBoxUnitsCPValue.TabIndex = 28;
-            this.textBoxUnitsCPValue.Text = "MMBtu/(hr °F)";
-            // 
-            // textBoxUnitsU
-            // 
-            this.textBoxUnitsU.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsU.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsU.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsU.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsU.Location = new System.Drawing.Point(13, 301);
-            this.textBoxUnitsU.Name = "textBoxUnitsU";
-            this.textBoxUnitsU.ReadOnly = true;
-            this.textBoxUnitsU.Size = new System.Drawing.Size(96, 18);
-            this.textBoxUnitsU.TabIndex = 29;
-            this.textBoxUnitsU.Text = "U: ";
-            this.textBoxUnitsU.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxUnitsUValue
-            // 
-            this.textBoxUnitsUValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUnitsUValue.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsUValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsUValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsUValue.Location = new System.Drawing.Point(121, 301);
-            this.textBoxUnitsUValue.Name = "textBoxUnitsUValue";
-            this.textBoxUnitsUValue.ReadOnly = true;
-            this.textBoxUnitsUValue.Size = new System.Drawing.Size(144, 18);
-            this.textBoxUnitsUValue.TabIndex = 30;
-            this.textBoxUnitsUValue.Text = "MMBtu/hr·ft²·°F ";
-            // 
-            // textBoxUDefinition
-            // 
-            this.textBoxUDefinition.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUDefinition.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUDefinition.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUDefinition.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUDefinition.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxUDefinition.Location = new System.Drawing.Point(87, 320);
-            this.textBoxUDefinition.Name = "textBoxUDefinition";
-            this.textBoxUDefinition.ReadOnly = true;
-            this.textBoxUDefinition.Size = new System.Drawing.Size(251, 18);
-            this.textBoxUDefinition.TabIndex = 31;
-            this.textBoxUDefinition.Text = "[ U ... Overall Heat Transfer Coefficient ]";
-            // 
-            // textBoxUnitsTitle
-            // 
-            this.textBoxUnitsTitle.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxUnitsTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnitsTitle.Location = new System.Drawing.Point(3, 8);
-            this.textBoxUnitsTitle.Name = "textBoxUnitsTitle";
-            this.textBoxUnitsTitle.Size = new System.Drawing.Size(346, 22);
-            this.textBoxUnitsTitle.TabIndex = 32;
-            this.textBoxUnitsTitle.Text = "PROJECT UNITS";
-            this.textBoxUnitsTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // comboBoxUnitsPress
-            // 
-            this.comboBoxUnitsPress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxUnitsPress.BackColor = System.Drawing.Color.Lavender;
-            this.comboBoxUnitsPress.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxUnitsPress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxUnitsPress.FormattingEnabled = true;
-            this.comboBoxUnitsPress.Items.AddRange(new object[] {
-            "atm",
-            "inH20",
-            "inHg",
-            "psf",
-            "psia",
-            "psig"});
-            this.comboBoxUnitsPress.Location = new System.Drawing.Point(115, 163);
-            this.comboBoxUnitsPress.Name = "comboBoxUnitsPress";
-            this.comboBoxUnitsPress.Size = new System.Drawing.Size(150, 25);
-            this.comboBoxUnitsPress.Sorted = true;
-            this.comboBoxUnitsPress.TabIndex = 21;
-            // 
-            // panelProjectDbFileMetadata
-            // 
-            this.panelProjectDbFileMetadata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelProjectDbFileMetadata.BackColor = System.Drawing.Color.OldLace;
-            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileSizeValue);
-            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileSize);
-            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileDateModifiedValue);
-            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileLastModified);
-            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileDateCreatedValue);
-            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFileDateCreated);
-            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxProjectFilenameValue);
-            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxFilename);
-            this.panelProjectDbFileMetadata.Controls.Add(this.textBoxProjectDbFileTitle);
-            this.panelProjectDbFileMetadata.Location = new System.Drawing.Point(532, 402);
-            this.panelProjectDbFileMetadata.Name = "panelProjectDbFileMetadata";
-            this.panelProjectDbFileMetadata.Size = new System.Drawing.Size(350, 154);
-            this.panelProjectDbFileMetadata.TabIndex = 14;
-            // 
-            // textBoxProjectDbFileTitle
-            // 
-            this.textBoxProjectDbFileTitle.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxProjectDbFileTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProjectDbFileTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectDbFileTitle.Location = new System.Drawing.Point(2, 11);
-            this.textBoxProjectDbFileTitle.Name = "textBoxProjectDbFileTitle";
-            this.textBoxProjectDbFileTitle.Size = new System.Drawing.Size(346, 22);
-            this.textBoxProjectDbFileTitle.TabIndex = 33;
-            this.textBoxProjectDbFileTitle.Text = "PROJECT DATABASE";
-            this.textBoxProjectDbFileTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxFilename
-            // 
-            this.textBoxFilename.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxFilename.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxFilename.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxFilename.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFilename.Location = new System.Drawing.Point(12, 44);
-            this.textBoxFilename.Name = "textBoxFilename";
-            this.textBoxFilename.ReadOnly = true;
-            this.textBoxFilename.Size = new System.Drawing.Size(96, 18);
-            this.textBoxFilename.TabIndex = 33;
-            this.textBoxFilename.Text = "Filename: ";
-            this.textBoxFilename.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxProjectFilenameValue
-            // 
-            this.textBoxProjectFilenameValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxProjectFilenameValue.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxProjectFilenameValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProjectFilenameValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectFilenameValue.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxProjectFilenameValue.Location = new System.Drawing.Point(120, 44);
-            this.textBoxProjectFilenameValue.Name = "textBoxProjectFilenameValue";
-            this.textBoxProjectFilenameValue.ReadOnly = true;
-            this.textBoxProjectFilenameValue.Size = new System.Drawing.Size(144, 18);
-            this.textBoxProjectFilenameValue.TabIndex = 33;
-            this.textBoxProjectFilenameValue.Text = "filename here";
-            // 
-            // textBoxFileDateCreated
-            // 
-            this.textBoxFileDateCreated.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxFileDateCreated.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxFileDateCreated.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxFileDateCreated.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFileDateCreated.Location = new System.Drawing.Point(12, 68);
-            this.textBoxFileDateCreated.Name = "textBoxFileDateCreated";
-            this.textBoxFileDateCreated.ReadOnly = true;
-            this.textBoxFileDateCreated.Size = new System.Drawing.Size(96, 18);
-            this.textBoxFileDateCreated.TabIndex = 34;
-            this.textBoxFileDateCreated.Text = "Date Created: ";
-            this.textBoxFileDateCreated.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxFileDateCreatedValue
-            // 
-            this.textBoxFileDateCreatedValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxFileDateCreatedValue.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxFileDateCreatedValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxFileDateCreatedValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFileDateCreatedValue.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxFileDateCreatedValue.Location = new System.Drawing.Point(120, 68);
-            this.textBoxFileDateCreatedValue.Name = "textBoxFileDateCreatedValue";
-            this.textBoxFileDateCreatedValue.ReadOnly = true;
-            this.textBoxFileDateCreatedValue.Size = new System.Drawing.Size(217, 18);
-            this.textBoxFileDateCreatedValue.TabIndex = 35;
-            this.textBoxFileDateCreatedValue.Text = "February ‎27, ‎2026, ‏‎11:06:13 AM";
-            // 
-            // textBoxFileLastModified
-            // 
-            this.textBoxFileLastModified.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxFileLastModified.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxFileLastModified.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxFileLastModified.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFileLastModified.Location = new System.Drawing.Point(12, 92);
-            this.textBoxFileLastModified.Name = "textBoxFileLastModified";
-            this.textBoxFileLastModified.ReadOnly = true;
-            this.textBoxFileLastModified.Size = new System.Drawing.Size(96, 18);
-            this.textBoxFileLastModified.TabIndex = 36;
-            this.textBoxFileLastModified.Text = "Last Modified: ";
-            this.textBoxFileLastModified.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxFileDateModifiedValue
-            // 
-            this.textBoxFileDateModifiedValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxFileDateModifiedValue.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxFileDateModifiedValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxFileDateModifiedValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFileDateModifiedValue.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxFileDateModifiedValue.Location = new System.Drawing.Point(120, 92);
-            this.textBoxFileDateModifiedValue.Name = "textBoxFileDateModifiedValue";
-            this.textBoxFileDateModifiedValue.ReadOnly = true;
-            this.textBoxFileDateModifiedValue.Size = new System.Drawing.Size(217, 18);
-            this.textBoxFileDateModifiedValue.TabIndex = 37;
-            this.textBoxFileDateModifiedValue.Text = "March ‎12, ‎2026, ‏‎1:16:55 PM";
-            // 
-            // textBoxFileSize
-            // 
-            this.textBoxFileSize.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxFileSize.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxFileSize.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxFileSize.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFileSize.Location = new System.Drawing.Point(12, 116);
-            this.textBoxFileSize.Name = "textBoxFileSize";
-            this.textBoxFileSize.ReadOnly = true;
-            this.textBoxFileSize.Size = new System.Drawing.Size(96, 18);
-            this.textBoxFileSize.TabIndex = 38;
-            this.textBoxFileSize.Text = "File Size:";
-            this.textBoxFileSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxFileSizeValue
-            // 
-            this.textBoxFileSizeValue.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxFileSizeValue.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxFileSizeValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxFileSizeValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFileSizeValue.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxFileSizeValue.Location = new System.Drawing.Point(120, 116);
-            this.textBoxFileSizeValue.Name = "textBoxFileSizeValue";
-            this.textBoxFileSizeValue.ReadOnly = true;
-            this.textBoxFileSizeValue.Size = new System.Drawing.Size(144, 18);
-            this.textBoxFileSizeValue.TabIndex = 39;
-            this.textBoxFileSizeValue.Text = "12,900 KB";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -2148,6 +2148,13 @@
             this.tabControlAnalysisPhase.ResumeLayout(false);
             this.tabPageCurrentProject.ResumeLayout(false);
             this.tabPageCurrentProject.PerformLayout();
+            this.panelProjectDbFileMetadata.ResumeLayout(false);
+            this.panelProjectDbFileMetadata.PerformLayout();
+            this.panelProjectUnits.ResumeLayout(false);
+            this.panelProjectUnits.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).EndInit();
+            this.panelProjectMetadata.ResumeLayout(false);
+            this.panelProjectMetadata.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProject)).EndInit();
             this.tabPageInputProfile.ResumeLayout(false);
             this.tabPageInputProfile.PerformLayout();
@@ -2159,13 +2166,6 @@
             this.tabPageHenDesign.ResumeLayout(false);
             this.tabPageHenDesign.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).EndInit();
-            this.panelProjectMetadata.ResumeLayout(false);
-            this.panelProjectMetadata.PerformLayout();
-            this.panelProjectUnits.ResumeLayout(false);
-            this.panelProjectUnits.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).EndInit();
-            this.panelProjectDbFileMetadata.ResumeLayout(false);
-            this.panelProjectDbFileMetadata.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
