@@ -463,6 +463,46 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OpenedProject_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("OpenedProject_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] OpenedProject_16x16_ICON {
+            get {
+                object obj = ResourceManager.GetObject("OpenedProject_16x16_ICON", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OpenedProject_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("OpenedProject_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OpenedProject_64x64 {
+            get {
+                object obj = ResourceManager.GetObject("OpenedProject_64x64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Optimize_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Optimize_32x32", resourceCulture);
@@ -747,6 +787,16 @@ namespace HenStudio.Properties {
             get {
                 object obj = ResourceManager.GetObject("UNKNOWN_32x321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UnOpenedProject_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("UnOpenedProject_16x16", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

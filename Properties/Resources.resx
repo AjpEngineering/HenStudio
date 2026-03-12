@@ -397,4 +397,24 @@
     <value>..\Resources\PNG 32x32\HenSELECTED_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>HenSELECTED_32x32</comment>
   </data>
+  <data name="OpenedProject_64x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PNG 32x32\OpenedProject_64x64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>OpenedProject_64x64</comment>
+  </data>
+  <data name="OpenedProject_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PNG 32x32\OpenedProject_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>OpenedProject_32x32</comment>
+  </data>
+  <data name="OpenedProject_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PNG 32x32\OpenedProject_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>OpenedProject_16x16</comment>
+  </data>
+  <data name="OpenedProject_16x16_ICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_16x16\OpenedProject_16x16.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>OpenedProject_16x16_ICON</comment>
+  </data>
+  <data name="UnOpenedProject_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_16x16\UnOpenedProject_16x16.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>UnOpenedProject_16x16</comment>
+  </data>
 </root>

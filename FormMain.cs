@@ -669,19 +669,19 @@ namespace HenStudio
                         strStatusName = String.Format(" CATALOG: No Project ");
                         //this.toolStripStatusLabelPROJ_NAME.BackColor = Color.Gold;
                         this.toolStripStatusLabelPROJ_NAME.BackColor = Color.FromArgb(255, 255, 217, 102);
-                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Black;
+                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Yellow;
                         break;
                     case ProjectExplorerLevel.PROJECT:
                         strStatusName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelPROJ_NAME.BackColor = Color.FromArgb(255, 247, 99, 87);
-                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Black;
+                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Yellow;
                         break;
                     case ProjectExplorerLevel.PROFILE:
                         strStatusName = String.Format(" PROJECT: {0} : PROFILE: {1} ", 
                                                        HenSettingsObj.CurrentProjectName,
                                                        HenSettingsObj.CurrentProfileName);
                         this.toolStripStatusLabelPROJ_NAME.BackColor = Color.FromArgb(255, 150, 150, 255);
-                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Black;
+                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Yellow;
                         break;
                     case ProjectExplorerLevel.PINCH:
                         strStatusName = String.Format(" PROJECT: {0} : PROFILE: {1} : PINCH: {2} ",
@@ -689,7 +689,7 @@ namespace HenStudio
                                                        HenSettingsObj.CurrentProfileName,
                                                        HenSettingsObj.CurrentPinchName);
                         this.toolStripStatusLabelPROJ_NAME.BackColor = Color.OrangeRed;
-                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Black;
+                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Yellow;
                         break;
                     case ProjectExplorerLevel.HEN:
                         strStatusName = String.Format(" PROJECT: {0} : PROFILE: {1} : PINCH: {2} : HEN: {3}",
@@ -698,7 +698,7 @@ namespace HenStudio
                                                        HenSettingsObj.CurrentPinchName,
                                                        HenSettingsObj.CurrentHenName);
                         this.toolStripStatusLabelPROJ_NAME.BackColor = Color.FromArgb(255, 0, 204, 204);
-                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Black;
+                        this.toolStripStatusLabelPROJ_NAME.ForeColor = Color.Yellow;
                         break;
                     default:
 
