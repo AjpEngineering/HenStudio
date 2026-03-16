@@ -83,6 +83,16 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] AJP_HEN_StudioGraphic_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("AJP_HEN_StudioGraphic_16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] AJP_Pinch {
             get {
                 object obj = ResourceManager.GetObject("AJP_Pinch", resourceCulture);

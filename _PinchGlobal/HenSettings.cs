@@ -180,18 +180,6 @@ namespace HenGlobal
 
         #endregion  // UNITS STRINGS
 
-        #region PROJECT PROFILE PINCH HEN NAMES
-        public const string UNOPENED_PROJECT = " Project: NA";
-        public const string UNOPENED_PROFILE = " Profile: NA";
-        public const string UNOPENED_PINCH   = " Pinch: NA";
-        public const string UNOPENED_HEN     = " HEN: NA";
-
-        public const string PROJECT_PREFIX   = " Project: ";
-        public const string PROFILE_PREFIX   = " Profile: ";
-        public const string PINCH_PREFIX     = " Pinch: ";
-        public const string HEN_PREFIX       = " HEN: ";
-        #endregion  // PROJECT PROFILE PINCH HEN NAMES
-
         #region FIELDS
 
         #region CUSTOMER INFORMATION ... SPECIFIED IN LICENSE FILE
@@ -254,13 +242,6 @@ namespace HenGlobal
         /// </summary>
         public ProjectExplorerLevel ProjectExplorerSelectedLevel { get; set; }  // Project Explorer Selected Level
         #endregion  // ProjectExplorerSelectedLevel
-
-        #region ProjectDatabaseName
-        /// <summary>
-        /// Open Project Database Name
-        /// </summary>
-        public string ProjectDatabaseName { get; set; }  // Open Project Database Name
-        #endregion  // ProjectDatabaseName
 
         #region CurrentProjectName
         /// <summary>
@@ -509,8 +490,6 @@ namespace HenGlobal
                 #endregion  // EXTERNAL UNITS
 
                 #region INITIAL PROJECT-PROFILE-PINCH-HEN STATE
-                ProjectDatabaseName = UNOPENED_PROJECT;     // Intially Project Database is NOT Opened
-
                 CurrentProjectName = string.Empty;      // Initially set to Empty
                 CurrentProfileName = string.Empty;      // Initially set to Empty
                 CurrentPinchName = string.Empty;        // Initially set to Empty

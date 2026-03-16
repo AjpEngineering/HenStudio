@@ -30,45 +30,45 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2);
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Project Catalog", 0, 0, new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6, new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2);
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Project Catalog", 0, 0, new System.Windows.Forms.TreeNode[] {
+            treeNode9,
             treeNode10,
             treeNode11});
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode12,
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
             treeNode15});
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode17});
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Project: Deer Park", 2, 2, new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode18,
-            treeNode19,
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6, new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode3,
             treeNode20});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode22});
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Project: Deer Park", 2, 2, new System.Windows.Forms.TreeNode[] {
+            treeNode21,
+            treeNode23,
+            treeNode24,
+            treeNode25});
             this.contextMenuStripProject = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemProjExpandAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemProjCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,8 +148,6 @@
             this.statusStripMainDASHBOARD = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelLICENSE = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelCAT_DB = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelPROJ_DB = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelPROJ_NAME = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelAJP_LOGO = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageListAnalysis = new System.Windows.Forms.ImageList(this.components);
             this.imageListInput = new System.Windows.Forms.ImageList(this.components);
@@ -229,6 +227,10 @@
             this.tabPageHenDesign = new System.Windows.Forms.TabPage();
             this.pictureBoxOpenedHen = new System.Windows.Forms.PictureBox();
             this.textBoxHenBanner = new System.Windows.Forms.TextBox();
+            this.toolStripStatusLabelLEVEL_PROJECT = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelLEVEL_PROFILE = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelLEVEL_PINCH = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelLEVEL_HEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStripProject.SuspendLayout();
             this.contextMenuStripProjectCatalog.SuspendLayout();
             this.contextMenuStripHen.SuspendLayout();
@@ -620,7 +622,7 @@
             // 
             this.settingsDisplayToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("settingsDisplayToolStripMenuItem.Image")));
             this.settingsDisplayToolStripMenuItem.Name = "settingsDisplayToolStripMenuItem";
-            this.settingsDisplayToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.settingsDisplayToolStripMenuItem.Size = new System.Drawing.Size(137, 30);
             this.settingsDisplayToolStripMenuItem.Text = "Settings...";
             this.settingsDisplayToolStripMenuItem.ToolTipText = "System-Wide Settings";
             this.settingsDisplayToolStripMenuItem.Click += new System.EventHandler(this.settingsDisplayToolStripMenuItem_Click);
@@ -827,12 +829,14 @@
             this.statusStripMainDASHBOARD.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelLICENSE,
             this.toolStripStatusLabelCAT_DB,
-            this.toolStripStatusLabelPROJ_DB,
-            this.toolStripStatusLabelPROJ_NAME,
+            this.toolStripStatusLabelLEVEL_PROJECT,
+            this.toolStripStatusLabelLEVEL_PROFILE,
+            this.toolStripStatusLabelLEVEL_PINCH,
+            this.toolStripStatusLabelLEVEL_HEN,
             this.toolStripStatusLabelAJP_LOGO});
-            this.statusStripMainDASHBOARD.Location = new System.Drawing.Point(0, 643);
+            this.statusStripMainDASHBOARD.Location = new System.Drawing.Point(0, 639);
             this.statusStripMainDASHBOARD.Name = "statusStripMainDASHBOARD";
-            this.statusStripMainDASHBOARD.Size = new System.Drawing.Size(1264, 38);
+            this.statusStripMainDASHBOARD.Size = new System.Drawing.Size(1264, 42);
             this.statusStripMainDASHBOARD.TabIndex = 6;
             // 
             // toolStripStatusLabelLICENSE
@@ -844,6 +848,7 @@
             this.toolStripStatusLabelLICENSE.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLICENSE.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabelLICENSE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLICENSE.Image")));
+            this.toolStripStatusLabelLICENSE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelLICENSE.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelLICENSE.Name = "toolStripStatusLabelLICENSE";
             this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(3);
@@ -860,44 +865,13 @@
             this.toolStripStatusLabelCAT_DB.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelCAT_DB.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabelCAT_DB.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelCAT_DB.Image")));
+            this.toolStripStatusLabelCAT_DB.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelCAT_DB.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelCAT_DB.Name = "toolStripStatusLabelCAT_DB";
             this.toolStripStatusLabelCAT_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(158, 32);
-            this.toolStripStatusLabelCAT_DB.Text = "CAT: UNKNOWN";
+            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(203, 32);
+            this.toolStripStatusLabelCAT_DB.Text = "PROJECTS: UNKNOWN";
             this.toolStripStatusLabelCAT_DB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolStripStatusLabelPROJ_DB
-            // 
-            this.toolStripStatusLabelPROJ_DB.BackColor = System.Drawing.Color.Orange;
-            this.toolStripStatusLabelPROJ_DB.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabelPROJ_DB.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelPROJ_DB.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelPROJ_DB.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelPROJ_DB.Image")));
-            this.toolStripStatusLabelPROJ_DB.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelPROJ_DB.Name = "toolStripStatusLabelPROJ_DB";
-            this.toolStripStatusLabelPROJ_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelPROJ_DB.Size = new System.Drawing.Size(166, 32);
-            this.toolStripStatusLabelPROJ_DB.Text = "PROJ: UNKNOWN";
-            this.toolStripStatusLabelPROJ_DB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolStripStatusLabelPROJ_NAME
-            // 
-            this.toolStripStatusLabelPROJ_NAME.BackColor = System.Drawing.Color.Orange;
-            this.toolStripStatusLabelPROJ_NAME.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabelPROJ_NAME.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelPROJ_NAME.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelPROJ_NAME.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelPROJ_NAME.Image")));
-            this.toolStripStatusLabelPROJ_NAME.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelPROJ_NAME.Name = "toolStripStatusLabelPROJ_NAME";
-            this.toolStripStatusLabelPROJ_NAME.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelPROJ_NAME.Size = new System.Drawing.Size(216, 32);
-            this.toolStripStatusLabelPROJ_NAME.Text = "PROJ NAME: UNKNOWN";
-            this.toolStripStatusLabelPROJ_NAME.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // toolStripStatusLabelAJP_LOGO
             // 
@@ -907,14 +881,14 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelAJP_LOGO.DoubleClickEnabled = true;
-            this.toolStripStatusLabelAJP_LOGO.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelAJP_LOGO.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelAJP_LOGO.ForeColor = System.Drawing.Color.Black;
             this.toolStripStatusLabelAJP_LOGO.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelAJP_LOGO.Image")));
             this.toolStripStatusLabelAJP_LOGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelAJP_LOGO.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelAJP_LOGO.Name = "toolStripStatusLabelAJP_LOGO";
             this.toolStripStatusLabelAJP_LOGO.Padding = new System.Windows.Forms.Padding(6);
-            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(528, 32);
+            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(276, 36);
             this.toolStripStatusLabelAJP_LOGO.Spring = true;
             this.toolStripStatusLabelAJP_LOGO.Text = "Engineering  ";
             this.toolStripStatusLabelAJP_LOGO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1044,32 +1018,32 @@
             this.treeViewCatalogExplorer.Location = new System.Drawing.Point(0, 0);
             this.treeViewCatalogExplorer.Margin = new System.Windows.Forms.Padding(0);
             this.treeViewCatalogExplorer.Name = "treeViewCatalogExplorer";
-            treeNode1.ContextMenuStrip = this.contextMenuStripProject;
-            treeNode1.ImageIndex = 1;
-            treeNode1.Name = "NodeProject_01";
-            treeNode1.SelectedImageIndex = 2;
-            treeNode1.Text = "Project: Deer Park";
-            treeNode1.ToolTipText = "Shell Petrochemical Plant Retrofit";
-            treeNode2.ContextMenuStrip = this.contextMenuStripProject;
-            treeNode2.ImageIndex = 1;
-            treeNode2.Name = "NodeProject_02";
-            treeNode2.SelectedImageIndex = 2;
-            treeNode2.Text = "Project: Norco";
-            treeNode2.ToolTipText = "Shell Refinery Retrofit";
-            treeNode3.ContextMenuStrip = this.contextMenuStripProject;
-            treeNode3.ImageIndex = 1;
-            treeNode3.Name = "NodeProject_03";
-            treeNode3.SelectedImageIndex = 2;
-            treeNode3.Text = "Project: Convent";
-            treeNode3.ToolTipText = "Aramco Refinery Retrofit";
-            treeNode4.ContextMenuStrip = this.contextMenuStripProjectCatalog;
-            treeNode4.ImageIndex = 0;
-            treeNode4.Name = "NodeRootCatalog";
-            treeNode4.SelectedImageIndex = 0;
-            treeNode4.Text = "Project Catalog";
-            treeNode4.ToolTipText = "Root Project Catalog Node";
+            treeNode9.ContextMenuStrip = this.contextMenuStripProject;
+            treeNode9.ImageIndex = 1;
+            treeNode9.Name = "NodeProject_01";
+            treeNode9.SelectedImageIndex = 2;
+            treeNode9.Text = "Project: Deer Park";
+            treeNode9.ToolTipText = "Shell Petrochemical Plant Retrofit";
+            treeNode10.ContextMenuStrip = this.contextMenuStripProject;
+            treeNode10.ImageIndex = 1;
+            treeNode10.Name = "NodeProject_02";
+            treeNode10.SelectedImageIndex = 2;
+            treeNode10.Text = "Project: Norco";
+            treeNode10.ToolTipText = "Shell Refinery Retrofit";
+            treeNode11.ContextMenuStrip = this.contextMenuStripProject;
+            treeNode11.ImageIndex = 1;
+            treeNode11.Name = "NodeProject_03";
+            treeNode11.SelectedImageIndex = 2;
+            treeNode11.Text = "Project: Convent";
+            treeNode11.ToolTipText = "Aramco Refinery Retrofit";
+            treeNode12.ContextMenuStrip = this.contextMenuStripProjectCatalog;
+            treeNode12.ImageIndex = 0;
+            treeNode12.Name = "NodeRootCatalog";
+            treeNode12.SelectedImageIndex = 0;
+            treeNode12.Text = "Project Catalog";
+            treeNode12.ToolTipText = "Root Project Catalog Node";
             this.treeViewCatalogExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode12});
             this.treeViewCatalogExplorer.SelectedImageIndex = 0;
             this.treeViewCatalogExplorer.Size = new System.Drawing.Size(334, 301);
             this.treeViewCatalogExplorer.TabIndex = 0;
@@ -1097,32 +1071,32 @@
             this.treeViewProjectZipExplorer.ImageList = this.imageListProjectZIP;
             this.treeViewProjectZipExplorer.Location = new System.Drawing.Point(0, 0);
             this.treeViewProjectZipExplorer.Name = "treeViewProjectZipExplorer";
-            treeNode5.ImageKey = "Project_16x16.ico";
-            treeNode5.Name = "NodeZipExport01";
-            treeNode5.SelectedImageKey = "Project_16x16.ico";
-            treeNode5.Text = "Deer Park Analysis - 20260311.zip";
-            treeNode5.ToolTipText = "Zip File";
-            treeNode6.ImageKey = "ExportZIP_16x16.ico";
-            treeNode6.Name = "NodeEXPORT";
-            treeNode6.SelectedImageKey = "ExportZIP_16x16.ico";
-            treeNode6.Text = "EXPORT";
-            treeNode6.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
-            treeNode7.ImageKey = "Project_16x16.ico";
-            treeNode7.Name = "NodeImportZip01";
-            treeNode7.SelectedImageKey = "Project_16x16.ico";
-            treeNode7.Text = "DeerPark Analysis - 20260310";
-            treeNode8.ImageKey = "ImportZIP_16x16.ico";
-            treeNode8.Name = "NodeIMPORT";
-            treeNode8.SelectedImageKey = "ImportZIP_16x16.ico";
-            treeNode8.Text = "IMPORT";
-            treeNode8.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
-            treeNode9.ImageKey = "ZipFolder_16x16.ico";
-            treeNode9.Name = "NodeRoot";
-            treeNode9.SelectedImageKey = "ZipFolder_16x16.ico";
-            treeNode9.Text = "Project ZIP Files";
-            treeNode9.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
+            treeNode13.ImageKey = "Project_16x16.ico";
+            treeNode13.Name = "NodeZipExport01";
+            treeNode13.SelectedImageKey = "Project_16x16.ico";
+            treeNode13.Text = "Deer Park Analysis - 20260311.zip";
+            treeNode13.ToolTipText = "Zip File";
+            treeNode14.ImageKey = "ExportZIP_16x16.ico";
+            treeNode14.Name = "NodeEXPORT";
+            treeNode14.SelectedImageKey = "ExportZIP_16x16.ico";
+            treeNode14.Text = "EXPORT";
+            treeNode14.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
+            treeNode15.ImageKey = "Project_16x16.ico";
+            treeNode15.Name = "NodeImportZip01";
+            treeNode15.SelectedImageKey = "Project_16x16.ico";
+            treeNode15.Text = "DeerPark Analysis - 20260310";
+            treeNode16.ImageKey = "ImportZIP_16x16.ico";
+            treeNode16.Name = "NodeIMPORT";
+            treeNode16.SelectedImageKey = "ImportZIP_16x16.ico";
+            treeNode16.Text = "IMPORT";
+            treeNode16.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
+            treeNode17.ImageKey = "ZipFolder_16x16.ico";
+            treeNode17.Name = "NodeRoot";
+            treeNode17.SelectedImageKey = "ZipFolder_16x16.ico";
+            treeNode17.Text = "Project ZIP Files";
+            treeNode17.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
             this.treeViewProjectZipExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9});
+            treeNode17});
             this.treeViewProjectZipExplorer.SelectedImageIndex = 0;
             this.treeViewProjectZipExplorer.Size = new System.Drawing.Size(334, 258);
             this.treeViewProjectZipExplorer.TabIndex = 0;
@@ -1198,68 +1172,68 @@
             this.treeViewCurrentProjectExplorer.ImageList = this.imageListProjectTreeViews;
             this.treeViewCurrentProjectExplorer.Location = new System.Drawing.Point(0, 0);
             this.treeViewCurrentProjectExplorer.Name = "treeViewCurrentProjectExplorer";
-            treeNode10.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode10.ImageIndex = 7;
-            treeNode10.Name = "NodeProfile_01_Pinch_01_Hen_01";
-            treeNode10.SelectedImageIndex = 8;
-            treeNode10.Text = "Hen: Base Design";
-            treeNode11.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode11.ImageIndex = 7;
-            treeNode11.Name = "NodeProfile_01_Pinch_01_Hen_02";
-            treeNode11.SelectedImageIndex = 8;
-            treeNode11.Text = "Hen: MER Design";
-            treeNode12.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode12.ImageIndex = 5;
-            treeNode12.Name = "NodeProfile_01_Pinch_01";
-            treeNode12.SelectedImageIndex = 6;
-            treeNode12.Text = "Pinch: Delta T=10";
-            treeNode13.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode13.ImageIndex = 7;
-            treeNode13.Name = "NodeProfile_01_Pinch_02_Hen_01";
-            treeNode13.SelectedImageIndex = 8;
-            treeNode13.Text = "Hen: Base Design";
-            treeNode14.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode14.ImageIndex = 7;
-            treeNode14.Name = "NodeProfile_01_Pinch_02_Hen_02";
-            treeNode14.SelectedImageIndex = 8;
-            treeNode14.Text = "Hen: MER Design";
-            treeNode15.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode15.ImageIndex = 5;
-            treeNode15.Name = "NodeProfile_01_Pinch_02";
-            treeNode15.SelectedImageIndex = 6;
-            treeNode15.Text = "Pinch: Delta T=20";
-            treeNode16.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode16.ImageIndex = 3;
-            treeNode16.Name = "NodeProfile_01";
-            treeNode16.SelectedImageIndex = 4;
-            treeNode16.Text = "Profile: Q1 Setup";
-            treeNode17.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode17.ImageIndex = 5;
-            treeNode17.Name = "NodeProfile_02_Pinch_01";
-            treeNode17.SelectedImageIndex = 6;
-            treeNode17.Text = "Pinch: Delta T=10";
-            treeNode18.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode18.ImageIndex = 3;
-            treeNode18.Name = "NodeProfile_02";
-            treeNode18.SelectedImageIndex = 4;
-            treeNode18.Text = "Profile: Q2 Setup";
-            treeNode19.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode19.ImageIndex = 3;
-            treeNode19.Name = "NodeProfile_03";
-            treeNode19.SelectedImageIndex = 4;
-            treeNode19.Text = "Profile: Q3 Setup";
-            treeNode20.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode20.ImageIndex = 3;
-            treeNode20.Name = "NodeProfile_04";
-            treeNode20.SelectedImageIndex = 4;
-            treeNode20.Text = "Profile: Q4 Setup";
-            treeNode21.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode21.ImageIndex = 2;
-            treeNode21.Name = "NodeRootCurrProject";
-            treeNode21.SelectedImageIndex = 2;
-            treeNode21.Text = "Project: Deer Park";
+            treeNode1.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode1.ImageIndex = 7;
+            treeNode1.Name = "NodeProfile_01_Pinch_01_Hen_01";
+            treeNode1.SelectedImageIndex = 8;
+            treeNode1.Text = "Hen: Base Design";
+            treeNode2.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode2.ImageIndex = 7;
+            treeNode2.Name = "NodeProfile_01_Pinch_01_Hen_02";
+            treeNode2.SelectedImageIndex = 8;
+            treeNode2.Text = "Hen: MER Design";
+            treeNode3.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode3.ImageIndex = 5;
+            treeNode3.Name = "NodeProfile_01_Pinch_01";
+            treeNode3.SelectedImageIndex = 6;
+            treeNode3.Text = "Pinch: Delta T=10";
+            treeNode4.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode4.ImageIndex = 7;
+            treeNode4.Name = "NodeProfile_01_Pinch_02_Hen_01";
+            treeNode4.SelectedImageIndex = 8;
+            treeNode4.Text = "Hen: Base Design";
+            treeNode18.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode18.ImageIndex = 7;
+            treeNode18.Name = "NodeProfile_01_Pinch_02_Hen_02";
+            treeNode18.SelectedImageIndex = 8;
+            treeNode18.Text = "Hen: MER Design";
+            treeNode20.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode20.ImageIndex = 5;
+            treeNode20.Name = "NodeProfile_01_Pinch_02";
+            treeNode20.SelectedImageIndex = 6;
+            treeNode20.Text = "Pinch: Delta T=20";
+            treeNode21.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode21.ImageIndex = 3;
+            treeNode21.Name = "NodeProfile_01";
+            treeNode21.SelectedImageIndex = 4;
+            treeNode21.Text = "Profile: Q1 Setup";
+            treeNode22.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode22.ImageIndex = 5;
+            treeNode22.Name = "NodeProfile_02_Pinch_01";
+            treeNode22.SelectedImageIndex = 6;
+            treeNode22.Text = "Pinch: Delta T=10";
+            treeNode23.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode23.ImageIndex = 3;
+            treeNode23.Name = "NodeProfile_02";
+            treeNode23.SelectedImageIndex = 4;
+            treeNode23.Text = "Profile: Q2 Setup";
+            treeNode24.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode24.ImageIndex = 3;
+            treeNode24.Name = "NodeProfile_03";
+            treeNode24.SelectedImageIndex = 4;
+            treeNode24.Text = "Profile: Q3 Setup";
+            treeNode25.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode25.ImageIndex = 3;
+            treeNode25.Name = "NodeProfile_04";
+            treeNode25.SelectedImageIndex = 4;
+            treeNode25.Text = "Profile: Q4 Setup";
+            treeNode26.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode26.ImageIndex = 2;
+            treeNode26.Name = "NodeRootCurrProject";
+            treeNode26.SelectedImageIndex = 2;
+            treeNode26.Text = "Project: Deer Park";
             this.treeViewCurrentProjectExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode21});
+            treeNode26});
             this.treeViewCurrentProjectExplorer.SelectedImageIndex = 0;
             this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(328, 298);
             this.treeViewCurrentProjectExplorer.TabIndex = 0;
@@ -1444,7 +1418,7 @@
             this.textBoxProjectDbFileTitle.Name = "textBoxProjectDbFileTitle";
             this.textBoxProjectDbFileTitle.Size = new System.Drawing.Size(346, 22);
             this.textBoxProjectDbFileTitle.TabIndex = 33;
-            this.textBoxProjectDbFileTitle.Text = "PROJECT DATABASE";
+            this.textBoxProjectDbFileTitle.Text = "PROJECTS DATABASE";
             this.textBoxProjectDbFileTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panelProjectUnits
@@ -2099,6 +2073,70 @@
             this.textBoxHenBanner.Text = "HEAT EXCHANGER NETWORK (HEN) DESIGN";
             this.textBoxHenBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // toolStripStatusLabelLEVEL_PROJECT
+            // 
+            this.toolStripStatusLabelLEVEL_PROJECT.BackColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelLEVEL_PROJECT.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelLEVEL_PROJECT.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = System.Drawing.Color.OrangeRed;
+            this.toolStripStatusLabelLEVEL_PROJECT.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROJECT.Image")));
+            this.toolStripStatusLabelLEVEL_PROJECT.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabelLEVEL_PROJECT.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelLEVEL_PROJECT.Name = "toolStripStatusLabelLEVEL_PROJECT";
+            this.toolStripStatusLabelLEVEL_PROJECT.Padding = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelLEVEL_PROJECT.Size = new System.Drawing.Size(157, 32);
+            this.toolStripStatusLabelLEVEL_PROJECT.Text = "PROJECT: Name";
+            // 
+            // toolStripStatusLabelLEVEL_PROFILE
+            // 
+            this.toolStripStatusLabelLEVEL_PROFILE.BackColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelLEVEL_PROFILE.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelLEVEL_PROFILE.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.toolStripStatusLabelLEVEL_PROFILE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROFILE.Image")));
+            this.toolStripStatusLabelLEVEL_PROFILE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabelLEVEL_PROFILE.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelLEVEL_PROFILE.Name = "toolStripStatusLabelLEVEL_PROFILE";
+            this.toolStripStatusLabelLEVEL_PROFILE.Padding = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelLEVEL_PROFILE.Size = new System.Drawing.Size(147, 32);
+            this.toolStripStatusLabelLEVEL_PROFILE.Text = "PROFILE: None";
+            // 
+            // toolStripStatusLabelLEVEL_PINCH
+            // 
+            this.toolStripStatusLabelLEVEL_PINCH.BackColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelLEVEL_PINCH.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelLEVEL_PINCH.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelLEVEL_PINCH.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelLEVEL_PINCH.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PINCH.Image")));
+            this.toolStripStatusLabelLEVEL_PINCH.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabelLEVEL_PINCH.Margin = new System.Windows.Forms.Padding(3, 3, 0, 2);
+            this.toolStripStatusLabelLEVEL_PINCH.Name = "toolStripStatusLabelLEVEL_PINCH";
+            this.toolStripStatusLabelLEVEL_PINCH.Padding = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelLEVEL_PINCH.Size = new System.Drawing.Size(135, 33);
+            this.toolStripStatusLabelLEVEL_PINCH.Text = "PINCH: None";
+            // 
+            // toolStripStatusLabelLEVEL_HEN
+            // 
+            this.toolStripStatusLabelLEVEL_HEN.BackColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelLEVEL_HEN.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelLEVEL_HEN.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelLEVEL_HEN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.toolStripStatusLabelLEVEL_HEN.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_HEN.Image")));
+            this.toolStripStatusLabelLEVEL_HEN.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabelLEVEL_HEN.Margin = new System.Windows.Forms.Padding(3, 3, 0, 2);
+            this.toolStripStatusLabelLEVEL_HEN.Name = "toolStripStatusLabelLEVEL_HEN";
+            this.toolStripStatusLabelLEVEL_HEN.Padding = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelLEVEL_HEN.Size = new System.Drawing.Size(113, 33);
+            this.toolStripStatusLabelLEVEL_HEN.Text = "HEN None";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -2266,8 +2304,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutAJPHENStudioToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLICENSE;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCAT_DB;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelPROJ_DB;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelPROJ_NAME;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelAJP_LOGO;
         private System.Windows.Forms.ToolStripMenuItem closeProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
@@ -2333,6 +2369,10 @@
         private System.Windows.Forms.TextBox textBoxFileSizeValue;
         private System.Windows.Forms.TextBox textBoxFileSize;
         private System.Windows.Forms.TextBox textBoxFileDateModifiedValue;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLEVEL_PROJECT;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLEVEL_PROFILE;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLEVEL_PINCH;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLEVEL_HEN;
     }
 }
 
