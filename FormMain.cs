@@ -1424,6 +1424,49 @@ namespace HenStudio
 
         #region PROJECT EXPLORER TREE VIEW
 
+        #region Context Menu Handlers
+ 
+        #region COLLAPSE ALL
+        private void toolStripMenuItemCurrProjCollapseAll_Click(object sender, EventArgs e)
+        {
+            CollapseAllProjectsExplorer();
+        }
+        private void toolStripMenuItemCollapseAll_Click(object sender, EventArgs e)
+        {
+            CollapseAllProjectsExplorer();
+        }
+
+        #endregion      // COLLAPSE ALL
+
+        #region EXPAND ALL
+        private void toolStripMenuItemCurrProjExpandAll_Click(object sender, EventArgs e)
+        {
+            ExpandAllProjectsExplorer();
+        }
+
+        private void toolStripMenuItemExpandAll_Click(object sender, EventArgs e)
+        {
+            ExpandAllProjectsExplorer();
+        }
+
+        #endregion  // EXPAND ALL
+
+        #endregion  // Context Menu Handlers
+
+        #region CollapseAllProjectsExplorer()
+        public void CollapseAllProjectsExplorer()
+        {
+            this.treeViewCurrentProjectExplorer.CollapseAll();
+        }
+        #endregion  // CollapseAllProjectsExplorer()
+
+        #region ExpandAllProjectsExplorer()
+        public void ExpandAllProjectsExplorer()
+        {
+            this.treeViewCurrentProjectExplorer.ExpandAll();
+        }
+        #endregion  // ExpandAllProjectsExplorer()
+
         #region InitializeProjectExplorerTreeView()
         private void InitializeProjectExplorerTreeView()
         {
@@ -1446,9 +1489,52 @@ namespace HenStudio
         }
 
 
+
         #endregion  // InitializeProjectExplorerTreeView()
 
         #endregion      // PROJECT EXPLORER TREE VIEW
+
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        //----------------------------------- Project ZIP Explorer TreeView ---
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+        #region PROJECT ZIP (EXPORT | IMPORT) EXPLORER TREE VIEW
+
+        #region Context Menu Handlers
+
+        #region COLLAPSE ALL
+        private void toolStripMenuItemZipCollapseAll_Click(object sender, EventArgs e)
+        {
+            CollapseAllProjectZipExplorer();
+        }
+        #endregion  // COLLAPSE ALL
+
+        #region EXPAND ALL
+
+        private void toolStripMenuItemZipExpandAll_Click(object sender, EventArgs e)
+        {
+            ExpandAllProjectZipExplorer();
+        }
+
+        #endregion  // EXPAND ALL
+
+        #endregion  // Context Menu Handlers
+
+        #region CollapseAllProjectZipExplorer()
+        public void CollapseAllProjectZipExplorer()
+        {
+            this.treeViewProjectZipExplorer.CollapseAll();
+        }
+        #endregion  // CollapseAllProjectZipExplorer()
+
+        #region ExpandAllProjectZipExplorer()
+        public void ExpandAllProjectZipExplorer()
+        {
+            this.treeViewProjectZipExplorer.ExpandAll();
+        }
+        #endregion  // ExpandAllProjectZipExplorer()
+
+        #endregion  // PROJECT ZIP (EXPORT | IMPORT) EXPLORER TREE VIEW
 
     }
     #endregion      // class FormPinch
