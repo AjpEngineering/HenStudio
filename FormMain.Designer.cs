@@ -345,7 +345,7 @@
             // 
             this.toolStripMenuItemCollapseAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemCollapseAll.Image")));
             this.toolStripMenuItemCollapseAll.Name = "toolStripMenuItemCollapseAll";
-            this.toolStripMenuItemCollapseAll.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemCollapseAll.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemCollapseAll.Text = "Collapse All";
             this.toolStripMenuItemCollapseAll.Click += new System.EventHandler(this.toolStripMenuItemCollapseAll_Click);
             // 
@@ -353,27 +353,28 @@
             // 
             this.toolStripMenuItemExpandAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemExpandAll.Image")));
             this.toolStripMenuItemExpandAll.Name = "toolStripMenuItemExpandAll";
-            this.toolStripMenuItemExpandAll.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemExpandAll.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemExpandAll.Text = "Expand All";
             this.toolStripMenuItemExpandAll.Click += new System.EventHandler(this.toolStripMenuItemExpandAll_Click);
             // 
             // toolStripSeparatorExpandCollapse
             // 
             this.toolStripSeparatorExpandCollapse.Name = "toolStripSeparatorExpandCollapse";
-            this.toolStripSeparatorExpandCollapse.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparatorExpandCollapse.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripMenuItemAddProject
             // 
             this.toolStripMenuItemAddProject.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemAddProject.Image")));
             this.toolStripMenuItemAddProject.Name = "toolStripMenuItemAddProject";
-            this.toolStripMenuItemAddProject.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemAddProject.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemAddProject.Text = "Add New Project...";
+            this.toolStripMenuItemAddProject.Click += new System.EventHandler(this.toolStripMenuItemAddProject_Click);
             // 
             // toolStripMenuItemImport
             // 
             this.toolStripMenuItemImport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemImport.Image")));
             this.toolStripMenuItemImport.Name = "toolStripMenuItemImport";
-            this.toolStripMenuItemImport.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemImport.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemImport.Text = "Import Zip Project...";
             // 
             // contextMenuStripHen
@@ -834,6 +835,7 @@
             this.toolStripStatusLabelLEVEL_HEN,
             this.toolStripStatusLabelAJP_LOGO});
             this.statusStripMainDASHBOARD.Location = new System.Drawing.Point(0, 639);
+            this.statusStripMainDASHBOARD.Margin = new System.Windows.Forms.Padding(3);
             this.statusStripMainDASHBOARD.Name = "statusStripMainDASHBOARD";
             this.statusStripMainDASHBOARD.Size = new System.Drawing.Size(1264, 42);
             this.statusStripMainDASHBOARD.TabIndex = 6;
@@ -844,6 +846,7 @@
             this.toolStripStatusLabelLICENSE.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelLICENSE.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelLICENSE.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLICENSE.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabelLICENSE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLICENSE.Image")));
@@ -860,6 +863,7 @@
             this.toolStripStatusLabelCAT_DB.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelCAT_DB.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelCAT_DB.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelCAT_DB.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabelCAT_DB.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelCAT_DB.Image")));
@@ -877,6 +881,7 @@
             this.toolStripStatusLabelAJP_LOGO.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelAJP_LOGO.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelAJP_LOGO.DoubleClickEnabled = true;
             this.toolStripStatusLabelAJP_LOGO.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelAJP_LOGO.ForeColor = System.Drawing.Color.Black;
@@ -1050,7 +1055,7 @@
             // 
             this.toolStripMenuItemZipExpandAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemZipExpandAll.Image")));
             this.toolStripMenuItemZipExpandAll.Name = "toolStripMenuItemZipExpandAll";
-            this.toolStripMenuItemZipExpandAll.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemZipExpandAll.Size = new System.Drawing.Size(136, 22);
             this.toolStripMenuItemZipExpandAll.Text = "Expand All";
             this.toolStripMenuItemZipExpandAll.Click += new System.EventHandler(this.toolStripMenuItemZipExpandAll_Click);
             // 
@@ -1058,7 +1063,7 @@
             // 
             this.toolStripMenuItemZipCollapseAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemZipCollapseAll.Image")));
             this.toolStripMenuItemZipCollapseAll.Name = "toolStripMenuItemZipCollapseAll";
-            this.toolStripMenuItemZipCollapseAll.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemZipCollapseAll.Size = new System.Drawing.Size(136, 22);
             this.toolStripMenuItemZipCollapseAll.Text = "Collapse All";
             this.toolStripMenuItemZipCollapseAll.Click += new System.EventHandler(this.toolStripMenuItemZipCollapseAll_Click);
             // 
@@ -1836,6 +1841,7 @@
             this.toolStripStatusLabelLEVEL_PROJECT.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelLEVEL_PROJECT.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelLEVEL_PROJECT.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.toolStripStatusLabelLEVEL_PROJECT.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROJECT.Image")));
@@ -1852,6 +1858,7 @@
             this.toolStripStatusLabelLEVEL_PROFILE.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelLEVEL_PROFILE.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelLEVEL_PROFILE.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_PROFILE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROFILE.Image")));
@@ -1868,6 +1875,7 @@
             this.toolStripStatusLabelLEVEL_PINCH.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelLEVEL_PINCH.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelLEVEL_PINCH.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_PINCH.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_PINCH.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PINCH.Image")));
@@ -1884,6 +1892,7 @@
             this.toolStripStatusLabelLEVEL_HEN.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabelLEVEL_HEN.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelLEVEL_HEN.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_HEN.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_HEN.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_HEN.Image")));

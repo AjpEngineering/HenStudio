@@ -774,7 +774,8 @@ namespace HenStudio
         #region NEW PROJECT MENU ITEM HANDLER
         private void newProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HenMsgDlg.DisplayWarningDlg("New Menu Item Selected!");
+            //HenMsgDlg.DisplayWarningDlg("New Menu Item Selected!");
+            HandleNewProject();
         }
         #endregion  // NEW MENU ITEM HANDLER
 
@@ -1083,19 +1084,18 @@ namespace HenStudio
         }
         #endregion  // DisplayBusinessCardForm()
 
-        //-------------------------
-
-        #region HandleNew
+        #region DisplayNewProjectForm()
         /// <summary>
-        /// Common New Command Handler
+        /// Common Display About Form Handler
         /// </summary>
-        private void HandleNew()
+        private void DisplayNewProjectForm()
         {
-            string strMethod = "HandleNew";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "New Project");
+            string strMethod = "DisplayNewProjectForm";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display New Project Form");
             try
             {
-                HenMsgDlg.DisplayWarningDlg("Handle NEW Command!");
+                FormNewProject dlg = new FormNewProject();
+                dlg.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -1107,7 +1107,34 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // HandleNew
+        #endregion  // DisplayNewProjectForm()
+
+        //-------------------------
+
+        #region HandleNewProject
+        /// <summary>
+        /// Common New Command Handler
+        /// </summary>
+        private void HandleNewProject()
+        {
+            string strMethod = "HandleNewProject";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "New Project");
+            try
+            {
+                //HenMsgDlg.DisplayWarningDlg("Handle NEW PROJECT Command!");
+                DisplayNewProjectForm();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleNewProject
 
         #region HandleImport
         /// <summary>
@@ -1450,6 +1477,13 @@ namespace HenStudio
         }
 
         #endregion  // EXPAND ALL
+
+        #region NEW PROJECT
+        private void toolStripMenuItemAddProject_Click(object sender, EventArgs e)
+        {
+            HandleNewProject();
+        }
+        #endregion  // NEW PROJECT
 
         #endregion  // Context Menu Handlers
 
