@@ -249,15 +249,6 @@ namespace HenStudio
                 UpdateCatalogDbConnectLabel();    // Initialize Catalog Database Connected Status Bar Label
                 #endregion  // Initialize Catalog DB Connected Status Bar Label
 
-                #region Initialize Project DB Connected Status Bar Label
-                //--------------------------------------------------------
-                //--- Initialize Project DB Connected Status Bar Label ---
-                //--------------------------------------------------------
-                //HenSettingsObj.ProjectDbConnectedEnum = HenTypes.DbConnected.CONNECTED;
-                //HenSettingsObj.ProjectDbConnectedEnum = HenTypes.DbConnected.UNCONNECTED;
-                //UpdateProjectDbConnectLabel();    // Initialize Project Database Connected Status Bar Label
-                #endregion  // Initialize Project DB Connected Status Bar Label
-
                 #region Initialize Catalog-Project Level Status Bar Label
                 //---------------------------------------------------------
                 //--- Initialize Catalog-Project Level Status Bar Label ---
@@ -599,7 +590,7 @@ namespace HenStudio
         }
         #endregion  // UpdateCatalogDbConnectLabel() ... CAT_DB
 
-        #region UpdateProjectLevelStatusBarLabel() ... PROJ_LEVEL
+        #region UpdateProjectLevelStatusBarLabel() ... [LEVEL_PROJECT, LEVEL_PROFILE, LEVEL_PINCH, LEVEL_HEN]
         /// <summary>
         /// Update the Catalog-Project Level Status Bar Label using Global Setting
         /// </summary>
@@ -770,7 +761,7 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // UpdateProjectLevelStatusBarLabel() ... PROJ_LEVEL
+        #endregion  // UpdateProjectLevelStatusBarLabel() ... [LEVEL_PROJECT, LEVEL_PROFILE, LEVEL_PINCH, LEVEL_HEN]
 
         #endregion  // UPDATE STATUS BAR LABELS METHODS
 
