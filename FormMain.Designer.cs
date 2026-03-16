@@ -43,7 +43,7 @@
             System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
             System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
             treeNode15});
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
             treeNode14,
             treeNode16});
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
@@ -52,10 +52,10 @@
             treeNode1,
             treeNode2});
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
             System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
             treeNode4,
-            treeNode18});
+            treeNode17});
             System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
             treeNode3,
             treeNode20});
@@ -841,7 +841,7 @@
             // 
             // toolStripStatusLabelLICENSE
             // 
-            this.toolStripStatusLabelLICENSE.BackColor = System.Drawing.Color.Orange;
+            this.toolStripStatusLabelLICENSE.BackColor = System.Drawing.Color.Green;
             this.toolStripStatusLabelLICENSE.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
@@ -852,13 +852,12 @@
             this.toolStripStatusLabelLICENSE.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelLICENSE.Name = "toolStripStatusLabelLICENSE";
             this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(151, 32);
-            this.toolStripStatusLabelLICENSE.Text = "LIC: UNKNOWN";
-            this.toolStripStatusLabelLICENSE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(100, 36);
+            this.toolStripStatusLabelLICENSE.Text = "LICENSE ";
             // 
             // toolStripStatusLabelCAT_DB
             // 
-            this.toolStripStatusLabelCAT_DB.BackColor = System.Drawing.Color.Orange;
+            this.toolStripStatusLabelCAT_DB.BackColor = System.Drawing.Color.Red;
             this.toolStripStatusLabelCAT_DB.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
@@ -869,9 +868,8 @@
             this.toolStripStatusLabelCAT_DB.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelCAT_DB.Name = "toolStripStatusLabelCAT_DB";
             this.toolStripStatusLabelCAT_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(203, 32);
-            this.toolStripStatusLabelCAT_DB.Text = "PROJECTS: UNKNOWN";
-            this.toolStripStatusLabelCAT_DB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(131, 36);
+            this.toolStripStatusLabelCAT_DB.Text = "CATALOG DB";
             // 
             // toolStripStatusLabelAJP_LOGO
             // 
@@ -1090,13 +1088,13 @@
             treeNode16.SelectedImageKey = "ImportZIP_16x16.ico";
             treeNode16.Text = "IMPORT";
             treeNode16.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
-            treeNode17.ImageKey = "ZipFolder_16x16.ico";
-            treeNode17.Name = "NodeRoot";
-            treeNode17.SelectedImageKey = "ZipFolder_16x16.ico";
-            treeNode17.Text = "Project ZIP Files";
-            treeNode17.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
+            treeNode19.ImageKey = "ZipFolder_16x16.ico";
+            treeNode19.Name = "NodeRoot";
+            treeNode19.SelectedImageKey = "ZipFolder_16x16.ico";
+            treeNode19.Text = "Project ZIP Files";
+            treeNode19.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
             this.treeViewProjectZipExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode17});
+            treeNode19});
             this.treeViewProjectZipExplorer.SelectedImageIndex = 0;
             this.treeViewProjectZipExplorer.Size = new System.Drawing.Size(334, 258);
             this.treeViewProjectZipExplorer.TabIndex = 0;
@@ -1192,11 +1190,11 @@
             treeNode4.Name = "NodeProfile_01_Pinch_02_Hen_01";
             treeNode4.SelectedImageIndex = 8;
             treeNode4.Text = "Hen: Base Design";
-            treeNode18.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode18.ImageIndex = 7;
-            treeNode18.Name = "NodeProfile_01_Pinch_02_Hen_02";
-            treeNode18.SelectedImageIndex = 8;
-            treeNode18.Text = "Hen: MER Design";
+            treeNode17.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode17.ImageIndex = 7;
+            treeNode17.Name = "NodeProfile_01_Pinch_02_Hen_02";
+            treeNode17.SelectedImageIndex = 8;
+            treeNode17.Text = "Hen: MER Design";
             treeNode20.ContextMenuStrip = this.contextMenuStripPinch;
             treeNode20.ImageIndex = 5;
             treeNode20.Name = "NodeProfile_01_Pinch_02";
@@ -2080,14 +2078,14 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelLEVEL_PROJECT.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = System.Drawing.Color.OrangeRed;
+            this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.toolStripStatusLabelLEVEL_PROJECT.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROJECT.Image")));
             this.toolStripStatusLabelLEVEL_PROJECT.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelLEVEL_PROJECT.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelLEVEL_PROJECT.Name = "toolStripStatusLabelLEVEL_PROJECT";
             this.toolStripStatusLabelLEVEL_PROJECT.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_PROJECT.Size = new System.Drawing.Size(157, 32);
-            this.toolStripStatusLabelLEVEL_PROJECT.Text = "PROJECT: Name";
+            this.toolStripStatusLabelLEVEL_PROJECT.Size = new System.Drawing.Size(131, 36);
+            this.toolStripStatusLabelLEVEL_PROJECT.Text = "PROJECT: ---";
             // 
             // toolStripStatusLabelLEVEL_PROFILE
             // 
@@ -2096,14 +2094,14 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelLEVEL_PROFILE.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_PROFILE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROFILE.Image")));
             this.toolStripStatusLabelLEVEL_PROFILE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelLEVEL_PROFILE.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelLEVEL_PROFILE.Name = "toolStripStatusLabelLEVEL_PROFILE";
             this.toolStripStatusLabelLEVEL_PROFILE.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_PROFILE.Size = new System.Drawing.Size(147, 32);
-            this.toolStripStatusLabelLEVEL_PROFILE.Text = "PROFILE: None";
+            this.toolStripStatusLabelLEVEL_PROFILE.Size = new System.Drawing.Size(124, 36);
+            this.toolStripStatusLabelLEVEL_PROFILE.Text = "PROFILE: ---";
             // 
             // toolStripStatusLabelLEVEL_PINCH
             // 
@@ -2112,14 +2110,14 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelLEVEL_PINCH.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelLEVEL_PINCH.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelLEVEL_PINCH.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_PINCH.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PINCH.Image")));
             this.toolStripStatusLabelLEVEL_PINCH.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelLEVEL_PINCH.Margin = new System.Windows.Forms.Padding(3, 3, 0, 2);
             this.toolStripStatusLabelLEVEL_PINCH.Name = "toolStripStatusLabelLEVEL_PINCH";
             this.toolStripStatusLabelLEVEL_PINCH.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_PINCH.Size = new System.Drawing.Size(135, 33);
-            this.toolStripStatusLabelLEVEL_PINCH.Text = "PINCH: None";
+            this.toolStripStatusLabelLEVEL_PINCH.Size = new System.Drawing.Size(112, 37);
+            this.toolStripStatusLabelLEVEL_PINCH.Text = "PINCH: ---";
             // 
             // toolStripStatusLabelLEVEL_HEN
             // 
@@ -2128,14 +2126,14 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelLEVEL_HEN.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelLEVEL_HEN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.toolStripStatusLabelLEVEL_HEN.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_HEN.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_HEN.Image")));
             this.toolStripStatusLabelLEVEL_HEN.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelLEVEL_HEN.Margin = new System.Windows.Forms.Padding(3, 3, 0, 2);
             this.toolStripStatusLabelLEVEL_HEN.Name = "toolStripStatusLabelLEVEL_HEN";
             this.toolStripStatusLabelLEVEL_HEN.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_HEN.Size = new System.Drawing.Size(113, 33);
-            this.toolStripStatusLabelLEVEL_HEN.Text = "HEN None";
+            this.toolStripStatusLabelLEVEL_HEN.Size = new System.Drawing.Size(90, 37);
+            this.toolStripStatusLabelLEVEL_HEN.Text = "HEN ---";
             // 
             // FormMain
             // 
