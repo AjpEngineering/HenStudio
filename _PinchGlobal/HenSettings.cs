@@ -249,7 +249,7 @@ namespace HenGlobal
         /// <summary>
         /// Project Explorer Selected Level Enumeration
         /// </summary>
-        public ProjectExplorerLevel ExplorerSelectedLevelEnum { get; set; }  // Project Explorer Selected Level Enumeration
+        public ExplorerLevel ExplorerSelectedLevelEnum { get; set; }  // Project Explorer Selected Level Enumeration
         #endregion  // ExplorerSelectedLevelEnum
 
         #region CurrentProjectName

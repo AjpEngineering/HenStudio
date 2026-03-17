@@ -48,6 +48,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+using static HenGlobal.HenTypes;
+
 #endregion  // REFERENCES
 
 #region namespace HenStudio
@@ -130,6 +132,9 @@ namespace HenStudio
         public HenTypes HenTypesObj { get; set; }                  // HEN Studio Types Object
         public HenMethods HenMethodsObj { get; set; }              // HEN Studio Methods Object
         #endregion  // SETTINGS
+
+
+        public int ExplorerRootNodeID{ get; set; }        // Projects Explorer Root Node ID
 
         #endregion      // PROPERTIES
 
@@ -249,7 +254,7 @@ namespace HenStudio
                 //---------------------------------------------------------
                 //--- Initialize Catalog-Project Level Status Bar Label ---
                 //---------------------------------------------------------
-                HenSettingsObj.ExplorerSelectedLevelEnum = HenTypes.ProjectExplorerLevel.CATALOG;
+                HenSettingsObj.ExplorerSelectedLevelEnum = HenTypes.ExplorerLevel.CATALOG;
                 HenSettingsObj.CurrentProjectName = string.Empty;
                 HenSettingsObj.CurrentProfileName = string.Empty;
                 HenSettingsObj.CurrentPinchName = string.Empty;
@@ -258,7 +263,7 @@ namespace HenStudio
                 //***********************************************************************************************
                 //***********************************************************************************************
                 //***********************************************************************************************
-                //HenSettingsObj.ProjectExplorerSelectedLevel = HenTypes.ProjectExplorerLevel.CATALOG;
+                //HenSettingsObj.ProjectExplorerSelectedLevel = HenTypes.ExplorerLevel.CATALOG;
                 //HenSettingsObj.ProjectDatabaseName = "Deer Park";
                 //HenSettingsObj.CurrentProjectName = "Deer Park";
                 //HenSettingsObj.CurrentProfileName = "Q1 Setup";
@@ -277,7 +282,12 @@ namespace HenStudio
                 //HenSettingsObj.ProjectUnitsEnum = HenTypes.ProjectUnits.ENGLISH;
                 HenSettingsObj.ProjectUnitsEnum = HenTypes.ProjectUnits.METRIC;
                 #endregion      // Update OPEN Project Units Status Bar Label
-                
+
+                //---------------------------------------------------------------------
+                //--- Clear the Sub-PROJECTS (Root) Nodes from Project Explorer Tree --
+                //---------------------------------------------------------------------
+                ExplorerRootNodeID = 0;
+                RemoveAllNodes();
             }
             catch (Exception ex)
             {
@@ -604,7 +614,7 @@ namespace HenStudio
                 switch (HenSettingsObj.ExplorerSelectedLevelEnum)
                 {
                     #region CATALOG (PROJECTS) LEVEL
-                    case HenTypes.ProjectExplorerLevel.CATALOG:
+                    case HenTypes.ExplorerLevel.CATALOG:
                         strSelectedName = String.Format(" PROJECT: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OPEN_Project_DB_32_32;
@@ -630,7 +640,7 @@ namespace HenStudio
                     #endregion  // CATALOG (PROJECTS) LEVEL
 
                     #region PROJECT LEVEL
-                    case HenTypes.ProjectExplorerLevel.PROJECT:
+                    case HenTypes.ExplorerLevel.PROJECT:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
@@ -656,7 +666,7 @@ namespace HenStudio
                     #endregion  // PROJECT LEVEL
 
                     #region PROFILE LEVEL
-                    case HenTypes.ProjectExplorerLevel.PROFILE:
+                    case HenTypes.ExplorerLevel.PROFILE:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
@@ -682,7 +692,7 @@ namespace HenStudio
                     #endregion  // PROFILE LEVEL
 
                     #region PINCH LEVEL
-                    case HenTypes.ProjectExplorerLevel.PINCH:
+                    case HenTypes.ExplorerLevel.PINCH:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
@@ -708,7 +718,7 @@ namespace HenStudio
                     #endregion  // PINCH LEVEL
 
                     #region HEN LEVEL
-                    case HenTypes.ProjectExplorerLevel.HEN:
+                    case HenTypes.ExplorerLevel.HEN:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
@@ -846,7 +856,7 @@ namespace HenStudio
         {
             string strTitle = String.Empty;
 
-            if (HenSettingsObj.ExplorerSelectedLevelEnum == HenTypes.ProjectExplorerLevel.CATALOG)
+            if (HenSettingsObj.ExplorerSelectedLevelEnum == HenTypes.ExplorerLevel.CATALOG)
             {
                 strTitle = string.Format("AJP HEN Studio");
             }
@@ -1433,89 +1443,6 @@ namespace HenStudio
         #endregion      // LOG METHODS
 
         #endregion  // METHODS
-
-        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        //--------------------------------------- Project Explorer TreeView ---
-        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-        #region PROJECT EXPLORER TREE VIEW
-
-        #region Context Menu Handlers
- 
-        #region COLLAPSE ALL
-        private void toolStripMenuItemCurrProjCollapseAll_Click(object sender, EventArgs e)
-        {
-            CollapseAllProjectsExplorer();
-        }
-        private void toolStripMenuItemCollapseAll_Click(object sender, EventArgs e)
-        {
-            CollapseAllProjectsExplorer();
-        }
-
-        #endregion      // COLLAPSE ALL
-
-        #region EXPAND ALL
-        private void toolStripMenuItemCurrProjExpandAll_Click(object sender, EventArgs e)
-        {
-            ExpandAllProjectsExplorer();
-        }
-
-        private void toolStripMenuItemExpandAll_Click(object sender, EventArgs e)
-        {
-            ExpandAllProjectsExplorer();
-        }
-
-        #endregion  // EXPAND ALL
-
-        #region NEW PROJECT
-        private void toolStripMenuItemAddProject_Click(object sender, EventArgs e)
-        {
-            HandleNewProject();
-        }
-        #endregion  // NEW PROJECT
-
-        #endregion  // Context Menu Handlers
-
-        #region CollapseAllProjectsExplorer()
-        public void CollapseAllProjectsExplorer()
-        {
-            this.treeViewCurrentProjectExplorer.CollapseAll();
-        }
-        #endregion  // CollapseAllProjectsExplorer()
-
-        #region ExpandAllProjectsExplorer()
-        public void ExpandAllProjectsExplorer()
-        {
-            this.treeViewCurrentProjectExplorer.ExpandAll();
-        }
-        #endregion  // ExpandAllProjectsExplorer()
-
-        #region InitializeProjectExplorerTreeView()
-        private void InitializeProjectExplorerTreeView()
-        {
-            string strMethod = "InitializeProjectExplorerTreeView";
-            string strMsg = String.Empty;
-            try
-            {
-
-
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-
-
-
-        #endregion  // InitializeProjectExplorerTreeView()
-
-        #endregion      // PROJECT EXPLORER TREE VIEW
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         //----------------------------------- Project ZIP Explorer TreeView ---

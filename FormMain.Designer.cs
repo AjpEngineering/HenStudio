@@ -166,16 +166,6 @@
             this.toolStripMenuItemZipExpandAll = new System.Windows.Forms.ToolStripMenuItem();
             this.imageListProjectZIP = new System.Windows.Forms.ImageList(this.components);
             this.panelSELECTED_PROJECTS = new System.Windows.Forms.Panel();
-            this.pictureBoxProjects = new System.Windows.Forms.PictureBox();
-            this.textBoxProjectsBanner = new System.Windows.Forms.TextBox();
-            this.panelSELECTED_PROFILE = new System.Windows.Forms.Panel();
-            this.tabControlInputPhase = new System.Windows.Forms.TabControl();
-            this.tabPageStreams = new System.Windows.Forms.TabPage();
-            this.tabPageUtilities = new System.Windows.Forms.TabPage();
-            this.tabPageEconomics = new System.Windows.Forms.TabPage();
-            this.textBoxInputBanner = new System.Windows.Forms.TextBox();
-            this.pictureBoxOpenedProfile = new System.Windows.Forms.PictureBox();
-            this.panelSELECTED_PROJECT = new System.Windows.Forms.Panel();
             this.panelProjectDbFileMetadata = new System.Windows.Forms.Panel();
             this.textBoxFileSizeValue = new System.Windows.Forms.TextBox();
             this.textBoxFileSize = new System.Windows.Forms.TextBox();
@@ -186,6 +176,16 @@
             this.textBoxProjectFilenameValue = new System.Windows.Forms.TextBox();
             this.textBoxFilename = new System.Windows.Forms.TextBox();
             this.textBoxProjectDbFileTitle = new System.Windows.Forms.TextBox();
+            this.pictureBoxProjects = new System.Windows.Forms.PictureBox();
+            this.textBoxProjectsBanner = new System.Windows.Forms.TextBox();
+            this.panelSELECTED_PROFILE = new System.Windows.Forms.Panel();
+            this.tabControlInputPhase = new System.Windows.Forms.TabControl();
+            this.tabPageStreams = new System.Windows.Forms.TabPage();
+            this.tabPageUtilities = new System.Windows.Forms.TabPage();
+            this.tabPageEconomics = new System.Windows.Forms.TabPage();
+            this.textBoxInputBanner = new System.Windows.Forms.TextBox();
+            this.pictureBoxOpenedProfile = new System.Windows.Forms.PictureBox();
+            this.panelSELECTED_PROJECT = new System.Windows.Forms.Panel();
             this.textBoxProjectBanner = new System.Windows.Forms.TextBox();
             this.panelProjectUnits = new System.Windows.Forms.Panel();
             this.textBoxUnitsTitle = new System.Windows.Forms.TextBox();
@@ -245,12 +245,12 @@
             this.splitContainerProject.SuspendLayout();
             this.contextMenuStripProjectZip.SuspendLayout();
             this.panelSELECTED_PROJECTS.SuspendLayout();
+            this.panelProjectDbFileMetadata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProjects)).BeginInit();
             this.panelSELECTED_PROFILE.SuspendLayout();
             this.tabControlInputPhase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProfile)).BeginInit();
             this.panelSELECTED_PROJECT.SuspendLayout();
-            this.panelProjectDbFileMetadata.SuspendLayout();
             this.panelProjectUnits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProject)).BeginInit();
@@ -1255,138 +1255,6 @@
             this.panelSELECTED_PROJECTS.Size = new System.Drawing.Size(887, 605);
             this.panelSELECTED_PROJECTS.TabIndex = 1;
             // 
-            // pictureBoxProjects
-            // 
-            this.pictureBoxProjects.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxProjects.Image")));
-            this.pictureBoxProjects.Location = new System.Drawing.Point(4, 4);
-            this.pictureBoxProjects.Name = "pictureBoxProjects";
-            this.pictureBoxProjects.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxProjects.TabIndex = 11;
-            this.pictureBoxProjects.TabStop = false;
-            // 
-            // textBoxProjectsBanner
-            // 
-            this.textBoxProjectsBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectsBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
-            this.textBoxProjectsBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectsBanner.ForeColor = System.Drawing.Color.Yellow;
-            this.textBoxProjectsBanner.Location = new System.Drawing.Point(48, 4);
-            this.textBoxProjectsBanner.Name = "textBoxProjectsBanner";
-            this.textBoxProjectsBanner.Size = new System.Drawing.Size(828, 33);
-            this.textBoxProjectsBanner.TabIndex = 10;
-            this.textBoxProjectsBanner.Text = "PROJECTS DB";
-            this.textBoxProjectsBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panelSELECTED_PROFILE
-            // 
-            this.panelSELECTED_PROFILE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelSELECTED_PROFILE.BackColor = System.Drawing.Color.White;
-            this.panelSELECTED_PROFILE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSELECTED_PROFILE.Controls.Add(this.tabControlInputPhase);
-            this.panelSELECTED_PROFILE.Controls.Add(this.textBoxInputBanner);
-            this.panelSELECTED_PROFILE.Controls.Add(this.pictureBoxOpenedProfile);
-            this.panelSELECTED_PROFILE.Location = new System.Drawing.Point(10, 6);
-            this.panelSELECTED_PROFILE.Name = "panelSELECTED_PROFILE";
-            this.panelSELECTED_PROFILE.Padding = new System.Windows.Forms.Padding(6);
-            this.panelSELECTED_PROFILE.Size = new System.Drawing.Size(887, 605);
-            this.panelSELECTED_PROFILE.TabIndex = 12;
-            // 
-            // tabControlInputPhase
-            // 
-            this.tabControlInputPhase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControlInputPhase.Controls.Add(this.tabPageStreams);
-            this.tabControlInputPhase.Controls.Add(this.tabPageUtilities);
-            this.tabControlInputPhase.Controls.Add(this.tabPageEconomics);
-            this.tabControlInputPhase.ImageList = this.imageListInput;
-            this.tabControlInputPhase.Location = new System.Drawing.Point(9, 45);
-            this.tabControlInputPhase.Name = "tabControlInputPhase";
-            this.tabControlInputPhase.SelectedIndex = 0;
-            this.tabControlInputPhase.ShowToolTips = true;
-            this.tabControlInputPhase.Size = new System.Drawing.Size(876, 486);
-            this.tabControlInputPhase.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
-            this.tabControlInputPhase.TabIndex = 0;
-            // 
-            // tabPageStreams
-            // 
-            this.tabPageStreams.BackColor = System.Drawing.Color.White;
-            this.tabPageStreams.ImageIndex = 0;
-            this.tabPageStreams.Location = new System.Drawing.Point(4, 39);
-            this.tabPageStreams.Name = "tabPageStreams";
-            this.tabPageStreams.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStreams.Size = new System.Drawing.Size(868, 443);
-            this.tabPageStreams.TabIndex = 0;
-            this.tabPageStreams.Text = "PROCESS STREAMS ";
-            this.tabPageStreams.ToolTipText = "Specify Process Streams for Current Input Profile";
-            // 
-            // tabPageUtilities
-            // 
-            this.tabPageUtilities.BackColor = System.Drawing.Color.White;
-            this.tabPageUtilities.ImageIndex = 1;
-            this.tabPageUtilities.Location = new System.Drawing.Point(4, 39);
-            this.tabPageUtilities.Name = "tabPageUtilities";
-            this.tabPageUtilities.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUtilities.Size = new System.Drawing.Size(868, 443);
-            this.tabPageUtilities.TabIndex = 1;
-            this.tabPageUtilities.Text = "UTILITY STREAMS";
-            this.tabPageUtilities.ToolTipText = "Specify Utility Streams for Current Input Profile";
-            // 
-            // tabPageEconomics
-            // 
-            this.tabPageEconomics.BackColor = System.Drawing.Color.White;
-            this.tabPageEconomics.ImageIndex = 2;
-            this.tabPageEconomics.Location = new System.Drawing.Point(4, 39);
-            this.tabPageEconomics.Name = "tabPageEconomics";
-            this.tabPageEconomics.Size = new System.Drawing.Size(868, 443);
-            this.tabPageEconomics.TabIndex = 2;
-            this.tabPageEconomics.Text = "ECONOMIC PARAMETERS";
-            this.tabPageEconomics.ToolTipText = "Specify Economic Parameters for Current Input Profile";
-            // 
-            // textBoxInputBanner
-            // 
-            this.textBoxInputBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxInputBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
-            this.textBoxInputBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxInputBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInputBanner.ForeColor = System.Drawing.Color.Yellow;
-            this.textBoxInputBanner.Location = new System.Drawing.Point(51, 4);
-            this.textBoxInputBanner.Name = "textBoxInputBanner";
-            this.textBoxInputBanner.Size = new System.Drawing.Size(813, 33);
-            this.textBoxInputBanner.TabIndex = 1;
-            this.textBoxInputBanner.Text = "INPUT PROFILE";
-            this.textBoxInputBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pictureBoxOpenedProfile
-            // 
-            this.pictureBoxOpenedProfile.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOpenedProfile.Image")));
-            this.pictureBoxOpenedProfile.Location = new System.Drawing.Point(7, 4);
-            this.pictureBoxOpenedProfile.Name = "pictureBoxOpenedProfile";
-            this.pictureBoxOpenedProfile.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxOpenedProfile.TabIndex = 0;
-            this.pictureBoxOpenedProfile.TabStop = false;
-            // 
-            // panelSELECTED_PROJECT
-            // 
-            this.panelSELECTED_PROJECT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelSELECTED_PROJECT.BackColor = System.Drawing.Color.White;
-            this.panelSELECTED_PROJECT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSELECTED_PROJECT.Controls.Add(this.textBoxProjectBanner);
-            this.panelSELECTED_PROJECT.Controls.Add(this.panelProjectUnits);
-            this.panelSELECTED_PROJECT.Controls.Add(this.pictureBoxOpenedProject);
-            this.panelSELECTED_PROJECT.Controls.Add(this.panelProjectMetadata);
-            this.panelSELECTED_PROJECT.Location = new System.Drawing.Point(10, 6);
-            this.panelSELECTED_PROJECT.Name = "panelSELECTED_PROJECT";
-            this.panelSELECTED_PROJECT.Padding = new System.Windows.Forms.Padding(6);
-            this.panelSELECTED_PROJECT.Size = new System.Drawing.Size(887, 605);
-            this.panelSELECTED_PROJECT.TabIndex = 2;
-            // 
             // panelProjectDbFileMetadata
             // 
             this.panelProjectDbFileMetadata.BackColor = System.Drawing.Color.OldLace;
@@ -1527,6 +1395,138 @@
             this.textBoxProjectDbFileTitle.TabIndex = 33;
             this.textBoxProjectDbFileTitle.Text = "PROJECTS DATABASE";
             this.textBoxProjectDbFileTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBoxProjects
+            // 
+            this.pictureBoxProjects.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxProjects.Image")));
+            this.pictureBoxProjects.Location = new System.Drawing.Point(4, 4);
+            this.pictureBoxProjects.Name = "pictureBoxProjects";
+            this.pictureBoxProjects.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxProjects.TabIndex = 11;
+            this.pictureBoxProjects.TabStop = false;
+            // 
+            // textBoxProjectsBanner
+            // 
+            this.textBoxProjectsBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProjectsBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.textBoxProjectsBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectsBanner.ForeColor = System.Drawing.Color.Yellow;
+            this.textBoxProjectsBanner.Location = new System.Drawing.Point(48, 4);
+            this.textBoxProjectsBanner.Name = "textBoxProjectsBanner";
+            this.textBoxProjectsBanner.Size = new System.Drawing.Size(828, 33);
+            this.textBoxProjectsBanner.TabIndex = 10;
+            this.textBoxProjectsBanner.Text = "PROJECTS DB";
+            this.textBoxProjectsBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelSELECTED_PROFILE
+            // 
+            this.panelSELECTED_PROFILE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSELECTED_PROFILE.BackColor = System.Drawing.Color.White;
+            this.panelSELECTED_PROFILE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSELECTED_PROFILE.Controls.Add(this.tabControlInputPhase);
+            this.panelSELECTED_PROFILE.Controls.Add(this.textBoxInputBanner);
+            this.panelSELECTED_PROFILE.Controls.Add(this.pictureBoxOpenedProfile);
+            this.panelSELECTED_PROFILE.Location = new System.Drawing.Point(10, 6);
+            this.panelSELECTED_PROFILE.Name = "panelSELECTED_PROFILE";
+            this.panelSELECTED_PROFILE.Padding = new System.Windows.Forms.Padding(6);
+            this.panelSELECTED_PROFILE.Size = new System.Drawing.Size(887, 605);
+            this.panelSELECTED_PROFILE.TabIndex = 12;
+            // 
+            // tabControlInputPhase
+            // 
+            this.tabControlInputPhase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlInputPhase.Controls.Add(this.tabPageStreams);
+            this.tabControlInputPhase.Controls.Add(this.tabPageUtilities);
+            this.tabControlInputPhase.Controls.Add(this.tabPageEconomics);
+            this.tabControlInputPhase.ImageList = this.imageListInput;
+            this.tabControlInputPhase.Location = new System.Drawing.Point(9, 45);
+            this.tabControlInputPhase.Name = "tabControlInputPhase";
+            this.tabControlInputPhase.SelectedIndex = 0;
+            this.tabControlInputPhase.ShowToolTips = true;
+            this.tabControlInputPhase.Size = new System.Drawing.Size(876, 486);
+            this.tabControlInputPhase.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.tabControlInputPhase.TabIndex = 0;
+            // 
+            // tabPageStreams
+            // 
+            this.tabPageStreams.BackColor = System.Drawing.Color.White;
+            this.tabPageStreams.ImageIndex = 0;
+            this.tabPageStreams.Location = new System.Drawing.Point(4, 39);
+            this.tabPageStreams.Name = "tabPageStreams";
+            this.tabPageStreams.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStreams.Size = new System.Drawing.Size(868, 443);
+            this.tabPageStreams.TabIndex = 0;
+            this.tabPageStreams.Text = "PROCESS STREAMS ";
+            this.tabPageStreams.ToolTipText = "Specify Process Streams for Current Input Profile";
+            // 
+            // tabPageUtilities
+            // 
+            this.tabPageUtilities.BackColor = System.Drawing.Color.White;
+            this.tabPageUtilities.ImageIndex = 1;
+            this.tabPageUtilities.Location = new System.Drawing.Point(4, 39);
+            this.tabPageUtilities.Name = "tabPageUtilities";
+            this.tabPageUtilities.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUtilities.Size = new System.Drawing.Size(868, 443);
+            this.tabPageUtilities.TabIndex = 1;
+            this.tabPageUtilities.Text = "UTILITY STREAMS";
+            this.tabPageUtilities.ToolTipText = "Specify Utility Streams for Current Input Profile";
+            // 
+            // tabPageEconomics
+            // 
+            this.tabPageEconomics.BackColor = System.Drawing.Color.White;
+            this.tabPageEconomics.ImageIndex = 2;
+            this.tabPageEconomics.Location = new System.Drawing.Point(4, 39);
+            this.tabPageEconomics.Name = "tabPageEconomics";
+            this.tabPageEconomics.Size = new System.Drawing.Size(868, 443);
+            this.tabPageEconomics.TabIndex = 2;
+            this.tabPageEconomics.Text = "ECONOMIC PARAMETERS";
+            this.tabPageEconomics.ToolTipText = "Specify Economic Parameters for Current Input Profile";
+            // 
+            // textBoxInputBanner
+            // 
+            this.textBoxInputBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxInputBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.textBoxInputBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxInputBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxInputBanner.ForeColor = System.Drawing.Color.Yellow;
+            this.textBoxInputBanner.Location = new System.Drawing.Point(51, 4);
+            this.textBoxInputBanner.Name = "textBoxInputBanner";
+            this.textBoxInputBanner.Size = new System.Drawing.Size(813, 33);
+            this.textBoxInputBanner.TabIndex = 1;
+            this.textBoxInputBanner.Text = "INPUT PROFILE";
+            this.textBoxInputBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBoxOpenedProfile
+            // 
+            this.pictureBoxOpenedProfile.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOpenedProfile.Image")));
+            this.pictureBoxOpenedProfile.Location = new System.Drawing.Point(7, 4);
+            this.pictureBoxOpenedProfile.Name = "pictureBoxOpenedProfile";
+            this.pictureBoxOpenedProfile.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxOpenedProfile.TabIndex = 0;
+            this.pictureBoxOpenedProfile.TabStop = false;
+            // 
+            // panelSELECTED_PROJECT
+            // 
+            this.panelSELECTED_PROJECT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSELECTED_PROJECT.BackColor = System.Drawing.Color.White;
+            this.panelSELECTED_PROJECT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSELECTED_PROJECT.Controls.Add(this.textBoxProjectBanner);
+            this.panelSELECTED_PROJECT.Controls.Add(this.panelProjectUnits);
+            this.panelSELECTED_PROJECT.Controls.Add(this.pictureBoxOpenedProject);
+            this.panelSELECTED_PROJECT.Controls.Add(this.panelProjectMetadata);
+            this.panelSELECTED_PROJECT.Location = new System.Drawing.Point(10, 6);
+            this.panelSELECTED_PROJECT.Name = "panelSELECTED_PROJECT";
+            this.panelSELECTED_PROJECT.Padding = new System.Windows.Forms.Padding(6);
+            this.panelSELECTED_PROJECT.Size = new System.Drawing.Size(887, 605);
+            this.panelSELECTED_PROJECT.TabIndex = 2;
             // 
             // textBoxProjectBanner
             // 
@@ -2141,6 +2141,8 @@
             this.contextMenuStripProjectZip.ResumeLayout(false);
             this.panelSELECTED_PROJECTS.ResumeLayout(false);
             this.panelSELECTED_PROJECTS.PerformLayout();
+            this.panelProjectDbFileMetadata.ResumeLayout(false);
+            this.panelProjectDbFileMetadata.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProjects)).EndInit();
             this.panelSELECTED_PROFILE.ResumeLayout(false);
             this.panelSELECTED_PROFILE.PerformLayout();
@@ -2148,8 +2150,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProfile)).EndInit();
             this.panelSELECTED_PROJECT.ResumeLayout(false);
             this.panelSELECTED_PROJECT.PerformLayout();
-            this.panelProjectDbFileMetadata.ResumeLayout(false);
-            this.panelProjectDbFileMetadata.PerformLayout();
             this.panelProjectUnits.ResumeLayout(false);
             this.panelProjectUnits.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).EndInit();

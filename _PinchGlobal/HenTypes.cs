@@ -146,11 +146,11 @@ namespace HenGlobal
 
         #region PROJECT EXPLORER LEVEL
 
-        #region enum ProjectExplorerLevel
+        #region enum ExplorerLevel
         /// <summary>
         /// ENUMERATION: Project-Explorer Level [ UNKNOWN | CATALOG | PROJECT | PROFILE | PINCH | HEN ]
         /// </summary>
-        public enum ProjectExplorerLevel
+        public enum ExplorerLevel
         {
             UNKNOWN = -1,   // UNKNOWN Level
             CATALOG = 0,    // Projects (Catalog) - No Project Selected (root)
@@ -159,7 +159,24 @@ namespace HenGlobal
             PINCH   = 3,    // Pinch Study
             HEN     = 4     // HEN Design
         };
-        #endregion      // enum ProjectExplorerLevel
+        #endregion      // enum ExplorerLevel
+
+        #endregion  // PROJECT EXPLORER LEVEL
+
+        #region PROFILE INPUT
+
+        #region enum ProfileInputType
+        /// <summary>
+        /// ENUMERATION: Profile Input Type [ UNKNOWN | PROCESS_STREAM | UTILITY_STREAM | ECONOMIC_PARAMS ]
+        /// </summary>
+        public enum ProfileInputType
+        {
+            UNKNOWN = -1,          // UNKNOWN Input Type
+            PROCESS_STREAM = 0,    // Process Streams Input Type
+            UTILITY_STREAM = 1,    // Utilities Streams Input Type
+            ECONOMIC_PARAMS = 2    // Economic Parameters Input Type
+        };
+        #endregion      // enum ProfileInputType
 
         #endregion  // PROJECT EXPLORER LEVEL
 
