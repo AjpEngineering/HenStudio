@@ -75,7 +75,7 @@ namespace HenStudio.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap AJP_HEN_Studio_with_Graphic {
             get {
-                object obj = ResourceManager.GetObject("AJP HEN Studio with Graphic", resourceCulture);
+                object obj = ResourceManager.GetObject("AJP_HEN_Studio_with_Graphic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -115,7 +115,7 @@ namespace HenStudio.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap AJP_Refinery {
             get {
-                object obj = ResourceManager.GetObject("AJP Refinery", resourceCulture);
+                object obj = ResourceManager.GetObject("AJP_Refinery", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -125,7 +125,7 @@ namespace HenStudio.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap AJP_User_License_Agreement___600x600 {
             get {
-                object obj = ResourceManager.GetObject("AJP User License Agreement...600x600", resourceCulture);
+                object obj = ResourceManager.GetObject("AJP_User_License_Agreement...600x600", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,36 +373,6 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap New_Project_DB___32x32 {
-            get {
-                object obj = ResourceManager.GetObject("New Project DB...32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap New_Project_DB__1 {
-            get {
-                object obj = ResourceManager.GetObject("New Project DB..1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap New_Project_DB__2 {
-            get {
-                object obj = ResourceManager.GetObject("New Project DB..2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap New_Project_DB_120_120 {
             get {
                 object obj = ResourceManager.GetObject("New_Project_DB_120_120", resourceCulture);
@@ -455,7 +425,7 @@ namespace HenStudio.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap OPEN_Project_DB___120x120 {
             get {
-                object obj = ResourceManager.GetObject("OPEN Project DB...120x120", resourceCulture);
+                object obj = ResourceManager.GetObject("OPEN_Project DB...120x120", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -796,16 +766,6 @@ namespace HenStudio.Properties {
         internal static System.Drawing.Bitmap UNKNOWN_32x32 {
             get {
                 object obj = ResourceManager.GetObject("UNKNOWN_32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap UNKNOWN_32x321 {
-            get {
-                object obj = ResourceManager.GetObject("UNKNOWN_32x321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -44,8 +44,6 @@ using AJP_License_File;
 
 using HenGlobal;
 
-using HenStudio.Properties;     // Resources for images
-
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -122,9 +120,7 @@ namespace HenStudio
 
         #region SETTINGS
         //------------------------------------------------------------------------------------------------ SETTINGS ---
-        public bool LicenseVerified { get; set; }                  // License Verified FLAG
         public bool DbConnectedFlag { get; set; }                  // DB Connected FLAG
-        public bool InputVerifiedFlag { get; set; }                // INPUT Verified FLAG
         public bool HenStudioEnglishUnitsFlag { get; set; }        // Global External UNITS FLAG
         //----------------------------------------------------------------------------------------- LICENSE OBJECTS ---
         public LicenseMgr LicenseMgrObj { get; set; }              // License Manager Object
@@ -253,7 +249,7 @@ namespace HenStudio
                 //---------------------------------------------------------
                 //--- Initialize Catalog-Project Level Status Bar Label ---
                 //---------------------------------------------------------
-                HenSettingsObj.ProjectExplorerSelectedLevel = HenTypes.ProjectExplorerLevel.CATALOG;
+                HenSettingsObj.ExplorerSelectedLevelEnum = HenTypes.ProjectExplorerLevel.CATALOG;
                 HenSettingsObj.CurrentProjectName = string.Empty;
                 HenSettingsObj.CurrentProfileName = string.Empty;
                 HenSettingsObj.CurrentPinchName = string.Empty;
@@ -519,15 +515,15 @@ namespace HenStudio
                     case HenTypes.LicenseStatus.EXPIRED:
                     case HenTypes.LicenseStatus.INVALID:
                         this.toolStripStatusLabelLICENSE.BackColor = Color.Red;
-                        this.toolStripStatusLabelLICENSE.Image = Resources.NotValid_32x32;
+                        this.toolStripStatusLabelLICENSE.Image = HenStudio.Properties.Resources.NotValid_32x32;
                         break;
                      case HenTypes.LicenseStatus.UNKNOWN:
                         this.toolStripStatusLabelLICENSE.BackColor = Color.Orange;
-                        this.toolStripStatusLabelLICENSE.Image = Resources.UNKNOWN_32x32;
+                        this.toolStripStatusLabelLICENSE.Image = HenStudio.Properties.Resources.UNKNOWN_32x32;
                         break;
                    case HenTypes.LicenseStatus.VALID:
                         this.toolStripStatusLabelLICENSE.BackColor = Color.Green;
-                        this.toolStripStatusLabelLICENSE.Image = Resources.Valid_32x32;
+                        this.toolStripStatusLabelLICENSE.Image = HenStudio.Properties.Resources.Valid_32x32;
                         break;
                     default:
                         throw new Exception("INVALID Licesne Status Enum Value!");
@@ -562,17 +558,17 @@ namespace HenStudio
                     case HenTypes.DbConnected.UNKNOWN:
                         this.toolStripStatusLabelCAT_DB.BackColor = Color.Orange;
                         this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
-                        this.toolStripStatusLabelCAT_DB.Image = Resources.UNKNOWN_32x32;
+                        this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.UNKNOWN_32x32;
                         break;
                     case HenTypes.DbConnected.UNCONNECTED:
                         this.toolStripStatusLabelCAT_DB.BackColor = Color.Red;
                         this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
-                        this.toolStripStatusLabelCAT_DB.Image = Resources.NotValid_32x32;
+                        this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.NotValid_32x32;
                         break;
                     case HenTypes.DbConnected.CONNECTED:
                         this.toolStripStatusLabelCAT_DB.BackColor = Color.Green;
                         this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
-                        this.toolStripStatusLabelCAT_DB.Image = Resources.Valid_32x32;
+                        this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.Valid_32x32;
                         break;
                     default:
                         throw new Exception("INVALID Catalog DB Connected Enum Value!");
@@ -600,68 +596,61 @@ namespace HenStudio
 
             string strNone = "---";
             string strSelectedName = String.Empty;
-
-            Color colorNotSelectedText = Color.SlateGray;
-            Color colorCatalogText = Color.FromArgb(255, 90, 200, 255);     // Light Blue
-            Color colorProjectText = Color.FromArgb(255, 255, 100, 0);      // Light Orange
-            Color colorProfileText = Color.FromArgb(255, 150, 150, 255);    // Light Purple
-            Color colorPinchText = Color.FromArgb(255, 255, 0, 0);          // Red
-            Color colorHenText = Color.FromArgb(255, 0, 210, 210);          // Turquiose
             try
             {
                 //----------------------------------------------------------------------------
                 //--- Update Status Bar Text Based on Project Explorer Selected Node Level ---
                 //----------------------------------------------------------------------------
-                switch (HenSettingsObj.ProjectExplorerSelectedLevel)
+                switch (HenSettingsObj.ExplorerSelectedLevelEnum)
                 {
-                    #region CATALOG LEVEL
+                    #region CATALOG (PROJECTS) LEVEL
                     case HenTypes.ProjectExplorerLevel.CATALOG:
                         strSelectedName = String.Format(" PROJECT: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROJECT.Image = Resources.OPEN_Project_DB_32_32;
+                        this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OPEN_Project_DB_32_32;
                         this.toolStripStatusLabelLEVEL_PROJECT.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = colorCatalogText;
+                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = HenSettingsObj.ColorCatalogText;
 
                         strSelectedName = String.Format(" PROFILE: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = colorNotSelectedText;
+                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorNotSelectedText;
 
                         strSelectedName = String.Format(" PINCH: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PINCH.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = colorNotSelectedText;
+                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = HenSettingsObj.ColorNotSelectedText;
 
                         strSelectedName = String.Format(" HEN: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_HEN.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_HEN.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = colorNotSelectedText;
+                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = HenSettingsObj.ColorNotSelectedText;
 
                         break;
-                    #endregion  // CATALOG LEVEL
+                    #endregion  // CATALOG (PROJECTS) LEVEL
 
                     #region PROJECT LEVEL
                     case HenTypes.ProjectExplorerLevel.PROJECT:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROJECT.Image = Resources.OpenedProject_32x32;
+                        this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
                         this.toolStripStatusLabelLEVEL_PROJECT.BackColor = Color.Yellow;
-                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = colorProjectText;
+                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = HenSettingsObj.ColorProjectText;
 
                         strSelectedName = String.Format(" PROFILE: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = colorNotSelectedText;
+                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorNotSelectedText;
 
                         strSelectedName = String.Format(" PINCH: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PINCH.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = colorNotSelectedText;
+                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = HenSettingsObj.ColorNotSelectedText;
 
                         strSelectedName = String.Format(" HEN: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_HEN.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_HEN.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = colorNotSelectedText;
+                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = HenSettingsObj.ColorNotSelectedText;
 
                         break;
                     #endregion  // PROJECT LEVEL
@@ -670,24 +659,24 @@ namespace HenStudio
                     case HenTypes.ProjectExplorerLevel.PROFILE:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROJECT.Image = Resources.OpenedProject_32x32;
+                        this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
                         this.toolStripStatusLabelLEVEL_PROJECT.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = colorProjectText;
+                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = HenSettingsObj.ColorProjectText;
 
                         strSelectedName = String.Format(" PROFILE: {0} ", HenSettingsObj.CurrentProfileName);
                         this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.Yellow;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = colorProfileText;
+                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorProfileText;
 
                         strSelectedName = String.Format(" PINCH: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PINCH.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = colorNotSelectedText;
+                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = HenSettingsObj.ColorNotSelectedText;
 
                         strSelectedName = String.Format(" HEN: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_HEN.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_HEN.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = colorNotSelectedText;
+                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = HenSettingsObj.ColorNotSelectedText;
 
                         break;
                     #endregion  // PROFILE LEVEL
@@ -696,24 +685,24 @@ namespace HenStudio
                     case HenTypes.ProjectExplorerLevel.PINCH:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROJECT.Image = Resources.OpenedProject_32x32;
+                        this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
                         this.toolStripStatusLabelLEVEL_PROJECT.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = colorProjectText;
+                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = HenSettingsObj.ColorProjectText;
 
                         strSelectedName = String.Format(" PROFILE: {0} ", HenSettingsObj.CurrentProfileName);
                         this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = colorProjectText;
+                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorProjectText;
 
                         strSelectedName = String.Format(" PINCH: {0} ", HenSettingsObj.CurrentPinchName);
                         this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PINCH.BackColor = Color.Yellow;
-                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = colorPinchText;
+                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = HenSettingsObj.ColorPinchText;
 
                         strSelectedName = String.Format(" HEN: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_HEN.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_HEN.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = colorNotSelectedText;
+                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = HenSettingsObj.ColorNotSelectedText;
 
                         break;
                     #endregion  // PINCH LEVEL
@@ -722,24 +711,24 @@ namespace HenStudio
                     case HenTypes.ProjectExplorerLevel.HEN:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROJECT.Image = Resources.OpenedProject_32x32;
+                        this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
                         this.toolStripStatusLabelLEVEL_PROJECT.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = colorProjectText;
+                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = HenSettingsObj.ColorProjectText;
 
                         strSelectedName = String.Format(" PROFILE: {0} ", HenSettingsObj.CurrentProfileName);
                         this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = colorProjectText;
+                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorProjectText;
 
                         strSelectedName = String.Format(" PINCH: {0} ", HenSettingsObj.CurrentPinchName);
                         this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PINCH.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = colorPinchText;
+                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = HenSettingsObj.ColorPinchText;
 
                         strSelectedName = String.Format(" HEN: {0} ", HenSettingsObj.CurrentHenName);
                         this.toolStripStatusLabelLEVEL_HEN.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_HEN.BackColor = Color.Yellow;
-                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = colorHenText;
+                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = HenSettingsObj.ColorHenText;
 
                         break;
                     #endregion  // HEN LEVEL
@@ -857,7 +846,7 @@ namespace HenStudio
         {
             string strTitle = String.Empty;
 
-            if (HenSettingsObj.ProjectExplorerSelectedLevel == HenTypes.ProjectExplorerLevel.CATALOG)
+            if (HenSettingsObj.ExplorerSelectedLevelEnum == HenTypes.ProjectExplorerLevel.CATALOG)
             {
                 strTitle = string.Format("AJP HEN Studio");
             }

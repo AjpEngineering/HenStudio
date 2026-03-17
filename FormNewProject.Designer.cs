@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewProject));
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panelProjectMetadata = new System.Windows.Forms.Panel();
@@ -530,7 +529,7 @@
             // pictureBoxUnitsSystem
             // 
             this.pictureBoxUnitsSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBoxUnitsSystem.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUnitsSystem.Image")));
+            this.pictureBoxUnitsSystem.Image = global::HenStudio.Properties.Resources.English_Imperial_Units_32x32;
             this.pictureBoxUnitsSystem.Location = new System.Drawing.Point(287, 39);
             this.pictureBoxUnitsSystem.Name = "pictureBoxUnitsSystem";
             this.pictureBoxUnitsSystem.Size = new System.Drawing.Size(32, 32);
@@ -572,7 +571,7 @@
             this.pictureBoxAjpHenStudioLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxAjpHenStudioLogo.BackColor = System.Drawing.Color.White;
             this.pictureBoxAjpHenStudioLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxAjpHenStudioLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAjpHenStudioLogo.Image")));
+            this.pictureBoxAjpHenStudioLogo.Image = global::HenStudio.Properties.Resources.AJP_HEN_Studio_with_Graphic;
             this.pictureBoxAjpHenStudioLogo.Location = new System.Drawing.Point(521, 399);
             this.pictureBoxAjpHenStudioLogo.Name = "pictureBoxAjpHenStudioLogo";
             this.pictureBoxAjpHenStudioLogo.Size = new System.Drawing.Size(346, 179);
@@ -592,8 +591,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 690);
             this.MinimizeBox = false;

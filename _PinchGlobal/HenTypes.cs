@@ -152,12 +152,12 @@ namespace HenGlobal
         /// </summary>
         public enum ProjectExplorerLevel
         {
-            UNKNOWN = -2,   // UNKNOWN Level
-            CATALOG = -1,   // Catalog - No Project Selected
-            PROJECT = 0,    // Project Selected (root)
-            PROFILE = 1,    // Profile Input
-            PINCH   = 2,    // Pinch Study
-            HEN     = 3     // HEN Design
+            UNKNOWN = -1,   // UNKNOWN Level
+            CATALOG = 0,    // Projects (Catalog) - No Project Selected (root)
+            PROJECT = 1,    // Project Selected
+            PROFILE = 2,    // Profile Input
+            PINCH   = 3,    // Pinch Study
+            HEN     = 4     // HEN Design
         };
         #endregion      // enum ProjectExplorerLevel
 

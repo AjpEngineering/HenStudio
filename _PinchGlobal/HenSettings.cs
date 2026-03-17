@@ -207,6 +207,15 @@ namespace HenGlobal
 
         #region PROPERTIES
 
+        #region STANDARD COLORS
+        public Color ColorNotSelectedText { get; set; }  // Color.SlateGray;
+        public Color ColorCatalogText { get; set; }  // Color.FromArgb(255, 90, 200, 255);     // Light Blue
+        public Color ColorProjectText { get; set; }  // Color.FromArgb(255, 255, 100, 0);      // Light Orange
+        public Color ColorProfileText { get; set; }  // Color.FromArgb(255, 150, 150, 255);    // Light Purple
+        public Color ColorPinchText { get; set; }  // Color.FromArgb(255, 255, 0, 0);          // Red
+        public Color ColorHenText { get; set; }  // Color.FromArgb(255, 0, 210, 210);          // Turquiose
+        #endregion  // STANDARD COLORS
+
         #region LICENSE
 
         #region LicenseValidatedFlag
@@ -234,14 +243,14 @@ namespace HenGlobal
 
         #endregion  // LICENSE
 
-        #region PROJECT - PROFILE - PINCH - HEN ... STATE PROPERTIES
+        #region PROJECT - PROFILE - PINCH - HEN ... STATE PROPERTIES ... Used by StatusBar Items
 
-        #region ProjectExplorerSelectedLevel
+        #region ExplorerSelectedLevelEnum
         /// <summary>
-        /// Project Explorer Selected Level
+        /// Project Explorer Selected Level Enumeration
         /// </summary>
-        public ProjectExplorerLevel ProjectExplorerSelectedLevel { get; set; }  // Project Explorer Selected Level
-        #endregion  // ProjectExplorerSelectedLevel
+        public ProjectExplorerLevel ExplorerSelectedLevelEnum { get; set; }  // Project Explorer Selected Level Enumeration
+        #endregion  // ExplorerSelectedLevelEnum
 
         #region CurrentProjectName
         /// <summary>
@@ -271,7 +280,7 @@ namespace HenGlobal
         public string CurrentHenName { get; set; }  // Current Hen Name
         #endregion  // CurrentHenName
 
-        #endregion  // PROJECT - PROFILE - PINCH - HEN ... STATE PROPERTIES
+        #endregion  // PROJECT - PROFILE - PINCH - HEN ... STATE PROPERTIES ... Used by StatusBar Items
 
         #region STATUS BAR
 
@@ -449,6 +458,15 @@ namespace HenGlobal
             HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenSettings Object");
             try
             {
+                #region STANDARD COLORS
+                ColorNotSelectedText = Color.SlateGray;
+                ColorCatalogText = Color.FromArgb(255, 90, 200, 255);     // Light Blue
+                ColorProjectText = Color.FromArgb(255, 255, 100, 0);      // Light Orange
+                ColorProfileText = Color.FromArgb(255, 150, 150, 255);    // Light Purple
+                ColorPinchText = Color.FromArgb(255, 255, 0, 0);          // Red
+                ColorHenText = Color.FromArgb(255, 0, 210, 210);          // Turquiose
+                #endregion  // STANDARD COLORS
+
                 #region HEN COMPONENTS
                 AJP_HEN_COMPONENTS.Clear();
                 AJP_HEN_COMPONENTS.Add("HenStudio.exe");
