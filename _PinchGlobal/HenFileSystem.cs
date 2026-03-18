@@ -67,8 +67,10 @@ namespace HenGlobal
         public const string DEFAULT_PROJECTS_DB_FILENAME = "HenStudioProjects.txt";    // ***** TEST ONLY *****
         //public const string DEFAULT_PROJECTS_DB_FILENAME = "HenStudioProjects.mdb";  // HEN Studio Projects SQL Server 2025 EXPRESS Database File
 
-        public const string DEFAULT_EXPORT_FOLDERNAME   = "EXPORT";
-        public const string DEFAULT_IMPORT_FOLDERNAME   = "IMPORT";
+        public const string DEFAULT_ARCHIVE_FOLDERNAME = "ARCHIVE";
+        public const string DEFAULT_EXPORT_FOLDERNAME = "EXPORT";
+        public const string DEFAULT_IMPORT_FOLDERNAME = "IMPORT";
+        public const string DEFAULT_TEMPLATE_FOLDERNAME = "TEMPLATE";
 
         #endregion      // CONSTANTS
 
@@ -88,8 +90,10 @@ namespace HenGlobal
         public string LicenseFilePath { get; set; }          // Full Path LICENSE File Location
         public string ProjectsFolderPath { get; set; }       // Full Path PROJECTS Folder Location
         public string ProjectsDbFilePath { get; set; }       // Full Path HEN Projects SQL Server 2025 EXPRESS Database File Location
+        public string ArchiveFolderPath { get; set; }        // Full Path ARCHIVE Folder Location
         public string ExportFolderPath { get; set; }         // Full Path EXPORT Folder Location
         public string ImportFolderPath { get; set; }         // Full Path IMPORT Folder Location
+        public string TemplateFolderPath { get; set; }       // Full Path TEMPLATE Folder Location
         #endregion  // USER APP DATA LOCAL LOCATION
 
         #endregion      // PROPERTIES
@@ -148,6 +152,10 @@ namespace HenGlobal
                                                    Path.GetDirectoryName(Application.ExecutablePath),
                                                    DEFAULT_PROJECTS_FOLDERNAME);
 
+                ArchiveFolderPath = String.Format("{0}\\{1}",
+                                                   ProjectsFolderPath,
+                                                   DEFAULT_ARCHIVE_FOLDERNAME);
+
                 ExportFolderPath = String.Format("{0}\\{1}",
                                                    ProjectsFolderPath,
                                                    DEFAULT_EXPORT_FOLDERNAME);
@@ -155,6 +163,10 @@ namespace HenGlobal
                 ImportFolderPath = String.Format("{0}\\{1}",
                                                    ProjectsFolderPath,
                                                    DEFAULT_IMPORT_FOLDERNAME);
+
+                TemplateFolderPath = String.Format("{0}\\{1}",
+                                                   ProjectsFolderPath,
+                                                   DEFAULT_TEMPLATE_FOLDERNAME);
 
                 //**************************************************************************************** DATA ---
                 //*************************************************************************************************
@@ -171,7 +183,6 @@ namespace HenGlobal
             finally
             {
                 LogFileSystemStructure();
-                LogCurrentProjectsFolder();
             }
         }
         #endregion      // CTOR
@@ -278,18 +289,28 @@ namespace HenGlobal
             string strMethod = "GetFilenameList";
             bool bFolderExists = false;
             List<string> result = new List<string>();
-
-            #region Folder Location Checks
-            bFolderExists = DoesFolderExist(strFolderPath);
-            if(!bFolderExists) { return result; }
-            #endregion  // Folder Location Checks
-
-            foreach (var filePath in Directory.GetFiles(strFolderPath))
+            try
             {
-                string strFileName = Path.GetFileName(filePath);
-                result.Add(strFileName);
-            }
+                #region Folder Location Checks
+                bFolderExists = DoesFolderExist(strFolderPath);
+                if(!bFolderExists) { return result; }
+                #endregion  // Folder Location Checks
 
+                foreach (var filePath in Directory.GetFiles(strFolderPath))
+                {
+                    string strFileName = Path.GetFileName(filePath);
+                    result.Add(strFileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
             return result;
         }
         #endregion  // GetFilenameList()
@@ -346,9 +367,13 @@ namespace HenGlobal
                 strMsg = string.Format("           PROJECTS DB FILE LOCATION : {0}", ProjectsDbFilePath);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
+                strMsg = string.Format("             ARCHIVE FOLDER LOCATION : {0}", ArchiveFolderPath);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("              EXPORT FOLDER LOCATION : {0}", ExportFolderPath);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("              IMPORT FOLDER LOCATION : {0}", ImportFolderPath);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = string.Format("            TEMPLATE FOLDER LOCATION : {0}", TemplateFolderPath);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
                 //--------------------------------------------------------------
@@ -367,136 +392,6 @@ namespace HenGlobal
             }
         }
         #endregion  // LogFileSystemStructure()
-
-        #region LogCurrentProjectsFolder()
-        /// <summary>
-        /// Log the current state of the Catalog Project Database Files
-        /// </summary>
-        public void LogCurrentProjectsFolder()
-        {
-            string strMethod = "LogCurrentProjectsFolder";
-            string strMsg = string.Empty;
-            bool bFolderExists = false;
-            bool bFileExists = false;
-
-            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Log Current Projects Folder");
-            try
-            {
-                //------------------------------------------
-                //--- Log Current PROJECTS Folder HEADER ---
-                //------------------------------------------
-                HenLogger.WriteSection("CURRENT PRODUCTS FOLDER");
-
-                //------------------------------------------------------------
-                //--- Log AJP HEN Studio File System Folder Structure BODY ---
-                //------------------------------------------------------------
-
-                #region PROJECTS
-                strMsg = string.Format("        {0}  [ {1} ]", DEFAULT_PROJECTS_FOLDERNAME, ProjectsFolderPath);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                bFolderExists = DoesFolderExist(ProjectsFolderPath);
-                if (!bFolderExists)
-                {
-                    strMsg = string.Format("          + ");
-                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                    strMsg = string.Format("          +-- [ FOLDER DOES NOT EXIST ]");
-                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                    return;
-                }
-
-                bFileExists = DoesFileExist(ProjectsDbFilePath);
-                if(!bFileExists)
-                {
-                    strMsg = string.Format("          + ");
-                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                    strMsg = string.Format("          +-- [ PROJECTS DATABASE FILE DOES NOT EXIST ]");
-                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                    return;
-                }
-
-                strMsg = string.Format("          +-- {0} ", DEFAULT_PROJECTS_DB_FILENAME);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                #endregion  // CATALOG
-
-                #region EXPORT
-                strMsg = string.Format("          + ");
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("          +-- {0} [ {1} ]", DEFAULT_EXPORT_FOLDERNAME, ExportFolderPath);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                //-------------------------------------------------
-                //--- Get Export ZIP Names in the EXPORT Folder ---
-                //-------------------------------------------------
-                List<string> exports = new List<string>();
-                exports = GetFilenameList(ExportFolderPath);
-
-                if (exports.Count > 0)
-                {
-                    foreach (string strName in exports)
-                    {
-                        strMsg = string.Format("          +   +-- {0} ", strName);
-                        HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                    }
-                }
-                else
-                {
-                    strMsg = string.Format("          +   + ");
-                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                    strMsg = string.Format("               +   +-- [ EMPTY ] ");
-                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                }
-                #endregion  // EXPORT
-
-                #region IMPORT
-                strMsg = string.Format("          + ");
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("          +-- {0} [ {1} ]", DEFAULT_IMPORT_FOLDERNAME, ImportFolderPath);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                //-------------------------------------------------
-                //--- Get Import ZIP Names in the EXPORT Folder ---
-                //-------------------------------------------------
-                List<string> imports = new List<string>();
-                imports = GetFilenameList(ImportFolderPath);
-
-                if (imports.Count > 0)
-                {
-                    foreach (string strName in imports)
-                    {
-                        strMsg = string.Format("          +   +-- {0} ", strName);
-                        HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                    }
-                }
-                else
-                {
-                    strMsg = string.Format("          +   + ");
-                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                    strMsg = string.Format("          +   +-- {0} ", "[ EMPTY ]");
-                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                }
-                #endregion  // IMPORT
-
-                //--------------------------------------------------------------
-                //--- Log AJP HEN Studio File System Folder Structure FOOTER ---
-                //--------------------------------------------------------------
-                HenLogger.WriteSeparatorLine('=');
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // LogCurrentCatalog()
 
     }
     #endregion      // public class HenFileSystem

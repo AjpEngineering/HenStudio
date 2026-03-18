@@ -133,9 +133,6 @@ namespace HenStudio
         public HenMethods HenMethodsObj { get; set; }              // HEN Studio Methods Object
         #endregion  // SETTINGS
 
-
-        public int ExplorerRootNodeID{ get; set; }        // Projects Explorer Root Node ID
-
         #endregion      // PROPERTIES
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -286,7 +283,6 @@ namespace HenStudio
                 //---------------------------------------------------------------------
                 //--- Clear the Sub-PROJECTS (Root) Nodes from Project Explorer Tree --
                 //---------------------------------------------------------------------
-                ExplorerRootNodeID = 0;
                 RemoveAllNodes();
             }
             catch (Exception ex)
@@ -297,6 +293,7 @@ namespace HenStudio
             }
             finally
             {
+                this.panelSELECTED_PROJECTS.BringToFront();
             }
         }
         #endregion      // CTOR
@@ -702,7 +699,7 @@ namespace HenStudio
                         strSelectedName = String.Format(" PROFILE: {0} ", HenSettingsObj.CurrentProfileName);
                         this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorProjectText;
+                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorProfileText;
 
                         strSelectedName = String.Format(" PINCH: {0} ", HenSettingsObj.CurrentPinchName);
                         this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
@@ -728,7 +725,7 @@ namespace HenStudio
                         strSelectedName = String.Format(" PROFILE: {0} ", HenSettingsObj.CurrentProfileName);
                         this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorProjectText;
+                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorProfileText;
 
                         strSelectedName = String.Format(" PINCH: {0} ", HenSettingsObj.CurrentPinchName);
                         this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
@@ -749,6 +746,10 @@ namespace HenStudio
                         break;
                     #endregion  // UNKNOWN LEVEL
                 }
+                //-------------------------------------------------
+                //--- Update Application Title ... Project Name ---
+                //-------------------------------------------------
+                UpdateProjectNameUI();
             }
             catch (Exception ex)
             {
@@ -1082,58 +1083,6 @@ namespace HenStudio
             }
         }
         #endregion  // DisplayBusinessCardForm()
-
-        #region DisplayNewProjectForm()
-        /// <summary>
-        /// Common Display About Form Handler
-        /// </summary>
-        private void DisplayNewProjectForm()
-        {
-            string strMethod = "DisplayNewProjectForm";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display New Project Form");
-            try
-            {
-                FormNewProject dlg = new FormNewProject();
-                dlg.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // DisplayNewProjectForm()
-
-        //-------------------------
-
-        #region HandleNewProject
-        /// <summary>
-        /// Common New Command Handler
-        /// </summary>
-        private void HandleNewProject()
-        {
-            string strMethod = "HandleNewProject";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "New Project");
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("Handle NEW PROJECT Command!");
-                DisplayNewProjectForm();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleNewProject
 
         #region HandleImport
         /// <summary>
@@ -1490,6 +1439,7 @@ namespace HenStudio
     #endregion      // class FormPinch
 }
 #endregion      // namespace HenStudio
+
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
 //=====================================================================================================================

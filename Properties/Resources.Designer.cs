@@ -281,12 +281,12 @@ namespace HenStudio.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] HEN_16x16 {
+        internal static System.Drawing.Bitmap HEN_16x16 {
             get {
                 object obj = ResourceManager.GetObject("HEN_16x16", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -501,12 +501,12 @@ namespace HenStudio.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] Pinch_16x16 {
+        internal static System.Drawing.Bitmap Pinch_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Pinch_16x16", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

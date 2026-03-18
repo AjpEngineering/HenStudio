@@ -57,7 +57,7 @@ namespace HenStudio
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public int NodeID { get; set; }                 // Node ID
+        public string FullPathNodeLoc { get; set; }  // Full-Path Node location from root to node
         public string NodeName { get; set; }            // Name of Node
         public string DisplayName { get; set; }         // Display Name of Node (Prefix + NodeName)
         public ExplorerLevel LevelEnum { get; set; }    // Project Level Enumeration
@@ -79,15 +79,14 @@ namespace HenStudio
         /// <summary>
         /// Parameterized Constructor
         /// </summary>
-        /// <param name="nNodeID">Node ID</param>
-        /// <param name="strNodeName">Node name - not including the Level Prefix</param>
         /// <param name="level">Node Level</param>
-        public DataTagDisplay(int NodeId, string strNodeName, ExplorerLevel level) 
+        /// <param name="strNodeName">Node name - not including the Level Prefix</param>
+        public DataTagDisplay(ExplorerLevel level, string strNodeName) 
         {
             //-----------------------------
             //--- Initialize Properties ---
             //-----------------------------
-            NodeID = NodeId;
+            FullPathNodeLoc = string.Empty;
             NodeName = strNodeName;
             LevelEnum = level;
 

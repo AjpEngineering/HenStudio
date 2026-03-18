@@ -67,6 +67,92 @@ namespace HenStudio
         //---------------------------------------- Project Explorer TreeView ------------------------------------------
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+        #region GetRootNode()
+        /// <summary>
+        /// Get the Root Node of the tree 
+        /// NOTE: Tree is treeViewCurrentProjectExplorer
+        /// </summary>
+        /// <returns>Root Node</returns>
+        private TreeNode GetRootNode()
+        {
+            string strMethod = "GetRootNode";
+            TreeNode rootNode = treeViewCurrentProjectExplorer.SelectedNode;
+            try
+            {
+                while (rootNode.Parent != null)
+                {
+                    rootNode = rootNode.Parent;
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return rootNode;
+        }
+        #endregion  // GetRootNode()
+
+        #region GetParentNode()
+        /// <summary>
+        /// Get the Parent Node of the User Specified Node
+        /// NOTE: Tree is treeViewCurrentProjectExplorer
+        /// </summary>
+        /// <param name="currNode">User Specified Node</param>
+        /// <returns>Parent Node of Null if Specified Node is root</returns>
+        private TreeNode GetParentNode(TreeNode currNode)
+        {
+            string strMethod = "GetParentNode";
+            TreeNode parentNode = currNode;
+            try
+            {
+                if (currNode.Parent != null) parentNode = currNode.Parent;
+                else parentNode = null;
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return parentNode;
+        }
+        #endregion  // GetParentNode()
+
+        #region GetSelectedNode()
+        /// <summary>
+        /// Get the Selected Node
+        /// NOTE: Tree is treeViewCurrentProjectExplorer
+        /// </summary>
+        /// <returns>Selected Node or null if no node is selected</returns>
+        private TreeNode GetSelectedNode()
+        {
+            string strMethod = "GetSelectedNode";
+            TreeNode selectedNode = null;
+            try
+            {
+                selectedNode = treeViewCurrentProjectExplorer.SelectedNode;
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return selectedNode;
+        }
+        #endregion  // GetSelectedNode()
+
         #region RemoveAllNodes()
         /// <summary>
         /// Remove all Nodes from the Tree and then Add back Root Projects (CATALOG) Node
@@ -83,33 +169,28 @@ namespace HenStudio
                 //----------------------------------
                 treeViewCurrentProjectExplorer.Nodes.Clear();
 
-                //----------------------------------------
-                //-- Create Node and Assign Tag Object ---
-                //----------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(0, "Projects", ExplorerLevel.CATALOG);
+                //------------------------------------------
+                //-- Create New Node and Add to the Tree ---
+                //------------------------------------------
                 TreeNode node = new TreeNode("Projects");
-
-                //----------------------------
-                //--- Add Node to the Tree ---
-                //----------------------------
                 nDisplayNodeID = treeViewCurrentProjectExplorer.Nodes.Add(node);
 
-                //------------------------------------
-                //--- Update Node Id on Added Node ---
-                //------------------------------------
-                dataTagDisplayObj.NodeID = nDisplayNodeID;
+                //-----------------------------------------------
+                //-- Create Tag Object and Assign to New Node ---
+                //-----------------------------------------------
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerLevel.CATALOG, "Projects");
                 node.Tag = dataTagDisplayObj;
 
-
+                //----------------------------------
+                //--- Assign New Node Attributes ---
+                //----------------------------------
                 node.ContextMenuStrip = contextMenuStripProjectCatalog;
 
-
-                //-----------------------------
-                //--- Display Selected Node ---
-                //-----------------------------
+                //-----------------------------------
+                //--- Display and Select New Node ---
+                //-----------------------------------
                 treeViewCurrentProjectExplorer.SelectedNode = node;
                 node.EnsureVisible();
-
             }
             catch (Exception ex)
             {
@@ -123,9 +204,105 @@ namespace HenStudio
         }
         #endregion  // RemoveAllNodes()
 
-        #region PROJECT EXPLORER TREE VIEW EVENT HANDLERS
+        #region UpdateTreeStatusBar()
+        /// <summary>
+        /// Update Tree View - Status Bar States based on User Specified Tree Node
+        /// </summary>
+        /// <param name="node">Update state base on this Tree Node</param>
+        private void UpdateTreeStatusBar(TreeNode node)
+        {
+            string strMethod = "UpdateTreeStatusBar";
+            string strMsg = String.Empty;
+            DataTagDisplay dataTagDisplayObj;
+            HenTypes.ExplorerLevel level = ExplorerLevel.UNKNOWN;
+            string strProjectName = string.Empty;
+            string strProfileName = string.Empty;
+            string strPinchName = string.Empty;
+            string strHenName = string.Empty;
+            try
+            {
+                //------------------------------------------
+                //-- Get Tag Object Associated with node ---
+                //------------------------------------------
+                dataTagDisplayObj = ((DataTagDisplay)node.Tag);
 
-        #region Context Menu Handlers
+                level = dataTagDisplayObj.LevelEnum;
+                HenSettingsObj.ExplorerSelectedLevelEnum = level;
+                switch(level)
+                {
+                    case ExplorerLevel.CATALOG:
+                        HenSettingsObj.CurrentProjectName = strProjectName;
+                        HenSettingsObj.CurrentProfileName = strProfileName;
+                        HenSettingsObj.CurrentPinchName = strPinchName;
+                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
+                        break;
+
+                        case ExplorerLevel.PROJECT:
+                        strProjectName = dataTagDisplayObj.NodeName;
+                        HenSettingsObj.CurrentProjectName = strProjectName;
+                        HenSettingsObj.CurrentProfileName = strProfileName;
+                        HenSettingsObj.CurrentPinchName = strPinchName;
+                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
+                        break;
+
+                        case ExplorerLevel.PROFILE:
+                        strProjectName = ((DataTagDisplay)node.Parent.Tag).NodeName;
+                        strProfileName = dataTagDisplayObj.NodeName;
+                        HenSettingsObj.CurrentProjectName = strProjectName;
+                        HenSettingsObj.CurrentProfileName = strProfileName;
+                        HenSettingsObj.CurrentPinchName = strPinchName;
+                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
+                        break;
+
+                        case ExplorerLevel.PINCH:
+                        strProjectName = ((DataTagDisplay)node.Parent.Parent.Tag).NodeName;
+                        strProfileName = ((DataTagDisplay)node.Parent.Tag).NodeName;
+                        strPinchName = dataTagDisplayObj.NodeName;
+                        HenSettingsObj.CurrentProjectName = strProjectName;
+                        HenSettingsObj.CurrentProfileName = strProfileName;
+                        HenSettingsObj.CurrentPinchName = strPinchName;
+                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
+                        break;
+
+                        case ExplorerLevel.HEN:
+                        strProjectName = ((DataTagDisplay)node.Parent.Parent.Parent.Tag).NodeName;
+                        strProfileName = ((DataTagDisplay)node.Parent.Parent.Tag).NodeName;
+                        strPinchName = ((DataTagDisplay)node.Parent.Tag).NodeName;
+                        strHenName = dataTagDisplayObj.NodeName;
+                        HenSettingsObj.CurrentProjectName = strProjectName;
+                        HenSettingsObj.CurrentProfileName = strProfileName;
+                        HenSettingsObj.CurrentPinchName = strPinchName;
+                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
+                        break;
+
+                        default:
+                        HenSettingsObj.CurrentProjectName = strProjectName;
+                        HenSettingsObj.CurrentProfileName = strProfileName;
+                        HenSettingsObj.CurrentPinchName = strPinchName;
+                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
+                        break;
+                }
+                //--------------------------------------------
+                //--- Update Current Tree-Status Bar State ---
+                //--------------------------------------------
+                UpdateProjectLevelStatusBarLabel();    // Initialize Catalog-Project Level Status Bar Label
+            }
+
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateTreeStatusBar()
+
+        #region TREE VIEW EVENT HANDLERS
+
+        #region CONTEXT MENU EVENT HANDLERS
 
         #region COLLAPSE ALL
         private void toolStripMenuItemCurrProjCollapseAll_Click(object sender, EventArgs e)
@@ -153,13 +330,54 @@ namespace HenStudio
         #endregion  // EXPAND ALL
 
         #region NEW PROJECT
+        /// <summary>
+        /// Context Menu Associated with Root Projects Node -> Add Project...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripMenuItemAddProject_Click(object sender, EventArgs e)
         {
             HandleNewProject();
         }
         #endregion  // NEW PROJECT
 
-        #endregion  // Context Menu Handlers
+        #region NEW PROFILE
+        /// <summary>
+        /// Context Menu Associated with Project Node -> Add Profile...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItemCurProjAdd_Click(object sender, EventArgs e)
+        {
+            HandleNewProfile();
+        }
+        #endregion  // NEW PROFILE
+
+        #region NEW PINCH
+        /// <summary>
+        /// Context Menu Associated with Profile Node -> Add Pinch...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItemProfileAdd_Click(object sender, EventArgs e)
+        {
+            HandleNewPinch();
+        }
+        #endregion  // NEW PINCH
+
+        #region NEW HEN
+        /// <summary>
+        /// Context Menu Associated with Pinch Node -> Add Hen...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItemPinchAdd_Click(object sender, EventArgs e)
+        {
+            HandleNewHen();
+        }
+        #endregion  // NEW HEN
+
+        #endregion  // CONTEXT MENU EVENT HANDLERS
 
         #region CollapseAllProjectsExplorer()
         public void CollapseAllProjectsExplorer()
@@ -175,51 +393,283 @@ namespace HenStudio
         }
         #endregion  // ExpandAllProjectsExplorer()
 
-        #endregion      // PROJECT EXPLORER TREE VIEW EVENT HANDLERS
+        #endregion      // TREE VIEW EVENT HANDLERS
 
-        #region TREE OPERATIONS
+        #region COMMON EVENT HANDLERS
 
-        #region AddNode()
+        #region HandleNewProject
         /// <summary>
-        /// Add (CREATE) Node to the User Specified Parent Node of the Project Explorer Tree
-        /// NOTE: Use DataTagDisplay Object as the Tag Information Object
+        /// Common New Command Handler. Display New Project Form to capture display Name
         /// </summary>
-        /// <param name="parent">Parent Tree Node</param>
-        /// <param name="dataTagDisplayObj">Data Tag Display Object</param>
-        /// <returns>Node ID of node added</returns>
-        private int AddNode(TreeNode parent, DataTagDisplay dataTagDisplayObj)
+        private void HandleNewProject()
         {
-            string strMethod = "AddNode";
-            string strMsg = String.Empty;
+            string strMethod = "HandleNewProject";
+            string strNodeName = string.Empty;      // Node name no Prefix ... From New Dialog Name field
+            string strDisplayName = string.Empty;   // Includes Prefix (e.g., "Project: *")
             int nDisplayNodeID = 0;
+            Guid projectGUID = Guid.Empty;          // DB Project GUID (PK)
             try
             {
-                //----------------------------------------
-                //-- Create Node and Assign Tag Object ---
-                //----------------------------------------
-                TreeNode node = new TreeNode(dataTagDisplayObj.DisplayName);
+                //--------------------------------
+                //--- Display New Project Form ---
+                //--------------------------------
+                FormNewProject dlg = new FormNewProject();
+                if(dlg.ShowDialog()!=DialogResult.OK) return;   // User Canceled Dialog
 
+                //*********************************************************************************
+                //***** Scrape Dialog Data and SAVE to DB                                     *****
+                //***** Get DB ProjectID (PK)                                                 *****            
+                //*********************************************************************************
+                HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
+                HenMsgDlg.DisplayWarningDlg("***** Get DB ProjectID (PK) *****");
+                strNodeName = "Deer Park";      // From New Dialog ... Name Field
+                strDisplayName = "Project: Deer Park";  // Node name with prefix ("Project: ")
+                projectGUID = new Guid();
+                //********************************************************************** TEST *****
+
+                //-------------------------------------------------------
+                //-- Create Node Tag Object and Assign Tag Attributes ---
+                //-------------------------------------------------------
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerLevel.PROJECT, 
+                                                                      strNodeName);
+                dataTagDisplayObj.ProjectID = projectGUID;
+
+                //---------------------------------------------------
+                //--- Get Parent (Root) Node and Add Project Node ---
+                //---------------------------------------------------
+                TreeNode parentNode = GetRootNode();
+                nDisplayNodeID = AddProjectNode(parentNode, strDisplayName, dataTagDisplayObj);
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleNewProject
+
+        #region HandleNewProfile
+        /// <summary>
+        /// Common New Command Handler. Display New Project Form to capture display Name
+        /// </summary>
+        private void HandleNewProfile()
+        {
+            string strMethod = "HandleNewProfile";
+            string strNodeName = string.Empty;      // Node name no Prefix ... From New Dialog Name field
+            string strDisplayName = string.Empty;   // Includes Prefix (e.g., "Profile: *")
+            int nProfileNodeID = 0;
+            Guid profileGUID = Guid.Empty;          // DB Profile GUID (PK)
+            try
+            {
+                //--------------------------------
+                //--- Display New Profile Form ---
+                //--------------------------------
+                HenMsgDlg.DisplayWarningDlg("***** Display New Profile Form *****");
+                //FormNewProfile dlg = new FormNewProfile();
+                //if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
+
+                //*********************************************************************************
+                //***** Scrape Dialog Data and SAVE to DB                                     *****
+                //***** Get DB ProfileID (PK)                                                 *****            
+                //*********************************************************************************
+                HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
+                HenMsgDlg.DisplayWarningDlg("***** Get DB ProfileID (PK) *****");
+                strNodeName = "Q1 Setup";      // From New Dialog ... Name Field
+                strDisplayName = "Profile: Q1 Setup";  // Node name with prefix ("Profile: ")
+                profileGUID = new Guid();
+                //********************************************************************** TEST *****
+
+                //-------------------------------------------------------
+                //-- Create Node Tag Object and Assign Tag Attributes ---
+                //-------------------------------------------------------
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerLevel.PROFILE,
+                                                                      strNodeName);
+                dataTagDisplayObj.ProfileID = profileGUID;
+
+                //------------------------------------------------------
+                //--- Get Parent (Project) Node and Add Profile Node ---
+                //------------------------------------------------------
+                TreeNode parentNode = GetSelectedNode();
+                nProfileNodeID = AddProfileNode(parentNode, strDisplayName, dataTagDisplayObj);
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleNewProfile
+
+        #region HandleNewPinch
+        /// <summary>
+        /// Common New Command Handler. Display New Pinch Form to capture display Name
+        /// </summary>
+        private void HandleNewPinch()
+        {
+            string strMethod = "HandleNewPinch";
+            string strNodeName = string.Empty;      // Node name no Prefix ... From New Dialog Name field
+            string strDisplayName = string.Empty;   // Includes Prefix (e.g., "Pinch: *")
+            int nPinchNodeID = 0;
+            Guid pinchGUID = Guid.Empty;            // DB Pinch GUID (PK)
+            try
+            {
+                //------------------------------
+                //--- Display New Pinch Form ---
+                //------------------------------
+                HenMsgDlg.DisplayWarningDlg("***** Display New Pinch Form *****");
+                //FormNewPinch dlg = new FormNewPinch();
+                //if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
+
+                //*********************************************************************************
+                //***** Scrape Dialog Data and SAVE to DB                                     *****
+                //***** Get DB PinchID (PK)                                                   *****            
+                //*********************************************************************************
+                HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
+                HenMsgDlg.DisplayWarningDlg("***** Get DB PinchID (PK) *****");
+                strNodeName = "Delta T = 10";      // From New Dialog ... Name Field
+                strDisplayName = "Pinch: Delta T = 10";  // Node name with prefix ("Pinch: ")
+                pinchGUID = new Guid();
+                //********************************************************************** TEST *****
+
+                //-------------------------------------------------------
+                //-- Create Node Tag Object and Assign Tag Attributes ---
+                //-------------------------------------------------------
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerLevel.PINCH,
+                                                                      strNodeName);
+                dataTagDisplayObj.PinchID = pinchGUID;
+
+                //----------------------------------------------------
+                //--- Get Parent (Profile) Node and Add Pinch Node ---
+                //----------------------------------------------------
+                TreeNode parentNode = GetSelectedNode();
+                nPinchNodeID = AddPinchNode(parentNode, strDisplayName, dataTagDisplayObj);
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleNewPinch
+
+        #region HandleNewHen
+        /// <summary>
+        /// Common New Command Handler. Display New Hen Form to capture display Name
+        /// </summary>
+        private void HandleNewHen()
+        {
+            string strMethod = "HandleNewHen";
+            string strNodeName = string.Empty;      // Node name no Prefix ... From New Dialog Name field
+            string strDisplayName = string.Empty;   // Includes Prefix (e.g., "Hen: *")
+            int nHenNodeID = 0;
+            Guid henGUID = Guid.Empty;              // DB Hen GUID (PK)
+            try
+            {
                 //----------------------------
-                //--- Add Node to the Tree ---
+                //--- Display New Hen Form ---
                 //----------------------------
-                if (parent == null)
-                {
-                    nDisplayNodeID = treeViewCurrentProjectExplorer.Nodes.Add(node);
-                }
-                else
-                {
-                    nDisplayNodeID = parent.Nodes.Add(node);
-                }
+                HenMsgDlg.DisplayWarningDlg("***** Display New Hen Form *****");
+                //FormNewHen dlg = new FormNewHen();
+                //if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
+
+                //*********************************************************************************
+                //***** Scrape Dialog Data and SAVE to DB                                     *****
+                //***** Get DB HenID (PK)                                                     *****            
+                //*********************************************************************************
+                HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
+                HenMsgDlg.DisplayWarningDlg("***** Get DB HenID (PK) *****");
+                strNodeName = "Base Design";      // From New Dialog ... Name Field
+                strDisplayName = "Pinch: Base Design";  // Node name with prefix ("Hen: ")
+                henGUID = new Guid();
+                //********************************************************************** TEST *****
+
+                //-------------------------------------------------------
+                //-- Create Node Tag Object and Assign Tag Attributes ---
+                //-------------------------------------------------------
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerLevel.HEN,
+                                                                      strNodeName);
+                dataTagDisplayObj.HenID = henGUID;
+
+                //------------------------------------------------
+                //--- Get Parent (Pinch) Node and Add Hen Node ---
+                //------------------------------------------------
+                TreeNode parentNode = GetSelectedNode();
+                nHenNodeID = AddHenNode(parentNode, strDisplayName, dataTagDisplayObj);
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleNewHen
+
+        #endregion  // COMMON EVENT HANDLERS
+
+        #region ADD NODE METHODS
+
+        #region AddProjectNode()
+        /// <summary>
+        /// Create and Add a Project Node to the Tree
+        /// </summary>
+        /// <param name="parentNode">Parent node ... for Project-> Root Node</param>
+        /// <param name="strDisplayName">Display name of the new Project node</param>
+        /// <param name="dataTagDisplayObj">Tag object for the new Project node</param>
+        /// <returns>Node Id for the new Project node</returns>
+        private int AddProjectNode(TreeNode parentNode, string strDisplayName, DataTagDisplay dataTagDisplayObj)
+        {
+            string strMethod = "AddProjectNode";
+            string strMsg = String.Empty;
+            int nProjectNodeID = 0;
+            try
+            {
+                treeViewCurrentProjectExplorer.BeginUpdate();
+                //------------------------------------------
+                //-- Create New Node and Add to the Tree ---
+                //------------------------------------------
+                TreeNode node = new TreeNode(strDisplayName);
+                node.ContextMenuStrip = this.contextMenuStripCurrProj;
+                nProjectNodeID = parentNode.Nodes.Add(node);
 
                 //------------------------------------
-                //--- Update Node Id on Added Node ---
+                //-- Assign Tag Object to New Node ---
                 //------------------------------------
-                dataTagDisplayObj.NodeID = nDisplayNodeID;
                 node.Tag = dataTagDisplayObj;
 
+                //---------------------------------------
+                //--- Update Current Tree-Panel State ---
+                //---------------------------------------
+                UpdateTreeStatusBar(node);
+
+                //--------------------------------------
+                //--- Populate Current Project Panel ---
+                //--------------------------------------
+                HenMsgDlg.DisplayWarningDlg("***** Populate Current Panel *****");
+
                 //-----------------------------
-                //--- Display Selected Node ---
+                //--- Display Project Panel ---
                 //-----------------------------
+                this.panelSELECTED_PROJECT.BringToFront();
+
+                //-----------------------------------
+                //--- Display and Select New Node ---
+                //-----------------------------------
                 treeViewCurrentProjectExplorer.SelectedNode = node;
                 node.EnsureVisible();
             }
@@ -231,27 +681,61 @@ namespace HenStudio
             }
             finally
             {
+                treeViewCurrentProjectExplorer.EndUpdate();
             }
-            return nDisplayNodeID;
+            return nProjectNodeID;
         }
-        #endregion  // AddNode()
+        #endregion  // AddProjectNode()
 
-        #region FindNodeById()
+        #region AddProfileNode()
         /// <summary>
-        /// Find Node in the Tree by User Specified ID
+        /// Create and Add a Profile Node to the Tree
         /// </summary>
-        /// <param name="dataTagDisplayObj">Data Tag Display Object</param>
-        private TreeNode FindNodeById(int nID)
+        /// <param name="parentNode">Parent node ... for Profile-> Selected Project Node</param>
+        /// <param name="strDisplayName">Display name of the new Profile node</param>
+        /// <param name="dataTagDisplayObj">Tag object for the new Profile node</param>
+        /// <returns>Node Id for the new Profile node</returns>
+        private int AddProfileNode(TreeNode parentNode, string strDisplayName, DataTagDisplay dataTagDisplayObj)
         {
-            string strMethod = "FindNodeById";
+            string strMethod = "AddProfileNode";
             string strMsg = String.Empty;
+            int nProfileNodeID = 0;
+            string strProjectName = string.Empty;
             try
             {
-                foreach (TreeNode root in treeViewCurrentProjectExplorer.Nodes)
-                {
-                    TreeNode found = FindNodeRecursive(root, nID);
-                    if (found != null) { return found; }                    
-                }                
+                treeViewCurrentProjectExplorer.BeginUpdate();
+                //------------------------------------------
+                //-- Create New Node and Add to the Tree ---
+                //------------------------------------------
+                TreeNode node = new TreeNode(strDisplayName);
+                node.ContextMenuStrip = this.contextMenuStripProfile;
+                nProfileNodeID = parentNode.Nodes.Add(node);
+
+                //------------------------------------
+                //-- Assign Tag Object to New Node ---
+                //------------------------------------
+                node.Tag = dataTagDisplayObj;
+
+                //---------------------------------------
+                //--- Update Current Tree-Panel State ---
+                //---------------------------------------
+                UpdateTreeStatusBar(node);
+
+                //--------------------------------------
+                //--- Populate Current Project Panel ---
+                //--------------------------------------
+                HenMsgDlg.DisplayWarningDlg("***** Populate Current Panel *****");
+
+                //-----------------------------
+                //--- Display Profile Panel ---
+                //-----------------------------
+                this.panelSELECTED_PROFILE.BringToFront();
+
+                //-----------------------------------
+                //--- Display and Select New Node ---
+                //-----------------------------------
+                treeViewCurrentProjectExplorer.SelectedNode = node;
+                node.EnsureVisible();
             }
             catch (Exception ex)
             {
@@ -261,32 +745,62 @@ namespace HenStudio
             }
             finally
             {
+                treeViewCurrentProjectExplorer.EndUpdate();
             }
-            return null;
+            return nProfileNodeID;
         }
-        #endregion  // FindNodeById()
+        #endregion  // AddProfileNode()
 
-        #region FindNodeById()
+        #region AddPinchNode()
         /// <summary>
-        /// READ Node of the Project Explorer Tree using DataTagDisplay Object
-        /// NOTE: Display name is in the user specified DataTagDisplay Object
+        /// Create and Add a Pinch Node to the Tree
         /// </summary>
-        /// <param name="dataTagDisplayObj">Data Tag Display Object</param>
-        private TreeNode FindNodeRecursive(TreeNode node, int nID)
+        /// <param name="parentNode">Parent node ... for Pinch-> Selected Profile Node</param>
+        /// <param name="strDisplayName">Display name of the new Pinch node</param>
+        /// <param name="dataTagDisplayObj">Tag object for the new Pinch node</param>
+        /// <returns>Node Id for the new Pinch node</returns>
+        private int AddPinchNode(TreeNode parentNode, string strDisplayName, DataTagDisplay dataTagDisplayObj)
         {
-            string strMethod = "FindNodeById";
+            string strMethod = "AddPinchNode";
             string strMsg = String.Empty;
+            int nPinchNodeID = 0;
+            string strProjectName = string.Empty;
+            string strProfileName = string.Empty;
             try
             {
-                if (node.Tag is DataTagDisplay info && info.NodeID == nID)
-                    return node;
+                treeViewCurrentProjectExplorer.BeginUpdate();
+                //------------------------------------------
+                //-- Create New Node and Add to the Tree ---
+                //------------------------------------------
+                TreeNode node = new TreeNode(strDisplayName);
+                node.ContextMenuStrip = this.contextMenuStripPinch;
+                nPinchNodeID = parentNode.Nodes.Add(node);
 
-                foreach (TreeNode child in node.Nodes)
-                {
-                    TreeNode found = FindNodeRecursive(child, nID);
-                    if (found != null)
-                        return found;
-                }
+                //------------------------------------
+                //-- Assign Tag Object to New Node ---
+                //------------------------------------
+                node.Tag = dataTagDisplayObj;
+
+                //---------------------------------------
+                //--- Update Current Tree-Panel State ---
+                //---------------------------------------
+                UpdateTreeStatusBar(node);
+
+                //--------------------------------------
+                //--- Populate Current Project Panel ---
+                //--------------------------------------
+                HenMsgDlg.DisplayWarningDlg("***** Populate Current Panel *****");
+
+                //-----------------------------
+                //--- Display Profile Panel ---
+                //-----------------------------
+                this.panelSELECTED_PINCH.BringToFront();
+
+                //-----------------------------------
+                //--- Display and Select New Node ---
+                //-----------------------------------
+                treeViewCurrentProjectExplorer.SelectedNode = node;
+                node.EnsureVisible();
             }
             catch (Exception ex)
             {
@@ -296,10 +810,81 @@ namespace HenStudio
             }
             finally
             {
+                treeViewCurrentProjectExplorer.EndUpdate();
             }
-            return null;
+            return nPinchNodeID;
         }
-        #endregion  // FindNodeById()
+        #endregion  // AddPinchNode()
+
+        #region AddHenNode()
+        /// <summary>
+        /// Create and Add a Hen Node to the Tree
+        /// </summary>
+        /// <param name="parentNode">Parent node ... for Hen-> Selected Pinch Node</param>
+        /// <param name="strDisplayName">Display name of the new Hen node</param>
+        /// <param name="dataTagDisplayObj">Tag object for the new Hen node</param>
+        /// <returns>Node Id for the new Hen node</returns>
+        private int AddHenNode(TreeNode parentNode, string strDisplayName, DataTagDisplay dataTagDisplayObj)
+        {
+            string strMethod = "AddHenNode";
+            string strMsg = String.Empty;
+            int nHenNodeID = 0;
+            string strProjectName = string.Empty;
+            string strProfileName = string.Empty;
+            string strPinchName = string.Empty;
+            try
+            {
+                treeViewCurrentProjectExplorer.BeginUpdate();
+                //------------------------------------------
+                //-- Create New Node and Add to the Tree ---
+                //------------------------------------------
+                TreeNode node = new TreeNode(strDisplayName);
+                node.ContextMenuStrip = this.contextMenuStripHen;
+                nHenNodeID = parentNode.Nodes.Add(node);
+
+                //------------------------------------
+                //-- Assign Tag Object to New Node ---
+                //------------------------------------
+                node.Tag = dataTagDisplayObj;
+
+                //---------------------------------------
+                //--- Update Current Tree-Panel State ---
+                //---------------------------------------
+                UpdateTreeStatusBar(node);
+
+                //--------------------------------------
+                //--- Populate Current Project Panel ---
+                //--------------------------------------
+                HenMsgDlg.DisplayWarningDlg("***** Populate Current Panel *****");
+
+                //-----------------------------
+                //--- Display Profile Panel ---
+                //-----------------------------
+                this.panelSELECTED_HEN.BringToFront();
+
+                //-----------------------------------
+                //--- Display and Select New Node ---
+                //-----------------------------------
+                treeViewCurrentProjectExplorer.SelectedNode = node;
+                node.EnsureVisible();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                treeViewCurrentProjectExplorer.EndUpdate();
+            }
+            return nHenNodeID;
+        }
+        #endregion  // AddHenNode()
+
+        #endregion  // ADD NODE METHODS
+
+        #region DELETE NODE METHODS
 
         #region DeleteSelectedNode()
         /// <summary>
@@ -341,8 +926,7 @@ namespace HenStudio
         }
         #endregion  // DeleteSelectedNode()
 
-        #endregion  // TREE OPERATIONS
-
+        #endregion  // DELETE NODE METHODS
 
     }
     #endregion  // partial class FormMain

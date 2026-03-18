@@ -130,9 +130,9 @@
     <value>..\Resources\Design...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Design Image ... 32x32</comment>
   </data>
-  <data name="Project_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ICON_16x16\Project_16x16.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment>Project Tree View Icon</comment>
+  <data name="New_Project_DB_32_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PNG 32x32\New Project DB...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>New Project DB...32x32</comment>
   </data>
   <data name="Validate_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Validate...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -162,6 +162,10 @@
     <value>..\Resources\PNG 32x32\NotValid...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>NotValid...32x32</comment>
   </data>
+  <data name="Metric_SI_Units_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Metric SI Units...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Metric SI Units Image ... 32x32</comment>
+  </data>
   <data name="Cost_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cost...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Cost Image ... 32x32</comment>
@@ -186,10 +190,6 @@
     <value>..\Resources\ICON_16x16\Profile_Input_16x16.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Profile_Input_16x16</comment>
   </data>
-  <data name="Composite_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Composite...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Composite Image ... 32x32</comment>
-  </data>
   <data name="Refinery_Background_1080x600" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Refinery with PinchLogo...1080x600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Refinery with Pinch Logo Background ... 1080x600</comment>
@@ -202,9 +202,6 @@
     <value>..\Resources\ICON_16x16\HENSelected_16x16.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     <comment>Project Tree View Icon</comment>
   </data>
-  <data name="AJP_Refinery" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AJP Refinery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="BusinessCard_600x1035" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BusinessCard...600x1035.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Business Card Image ... 600x1035</comment>
@@ -213,17 +210,13 @@
     <value>..\Resources\Optimize Target...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Optimize Image ... 32x32</comment>
   </data>
-  <data name="CollapseAll_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ICON_16x16\CollapseAll_16x16.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment>CollapseAll_16x16</comment>
-  </data>
   <data name="Save_Project_DB_32_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PNG 32x32\Save Project DB...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Save Project DB...32x32</comment>
   </data>
-  <data name="Scorecard_white_background_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\_AJP License File\Resources\Scorecard with Keys...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Scorecard with Keys Image white background ... 32x32</comment>
+  <data name="CollapseAll_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_16x16\CollapseAll_16x16.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>CollapseAll_16x16</comment>
   </data>
   <data name="OpenedProject_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PNG 32x32\OpenedProject_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -237,9 +230,20 @@
     <value>..\Resources\Exchanger3...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Exchanger Image ... 32x32</comment>
   </data>
+  <data name="Scorecard_white_background_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_AJP License File\Resources\Scorecard with Keys...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Scorecard with Keys Image white background ... 32x32</comment>
+  </data>
   <data name="UNKNOWN_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PNG 32x32\UNKNOWN_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>UNKNOWN_32x32</comment>
+  </data>
+  <data name="AJP_User_License_Agreement...600x600" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP User License Agreement...600x600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UnOpenedProject_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_16x16\UnOpenedProject_16x16.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>UnOpenedProject_16x16</comment>
   </data>
   <data name="Scorecard_no_background_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_AJP License File\Resources\Scorecard with Keys No Background...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -257,6 +261,9 @@
     <value>..\Resources\PNG 32x32\New Project DB...120x120.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>New Project DB...120x120</comment>
   </data>
+  <data name="AJP_Refinery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP Refinery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Target" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Target.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Target Image ... 32x32</comment>
@@ -272,10 +279,6 @@
   <data name="ProjectSelected_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ICON_16x16\ProjectSelected_16x16.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     <comment>Project Tree View Icon</comment>
-  </data>
-  <data name="HenSELECTED_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PNG 32x32\HenSELECTED_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>HenSELECTED_32x32</comment>
   </data>
   <data name="Export_Zip_32_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PNG 32x32\Export Zip...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -300,10 +303,6 @@
     <value>..\Resources\PNG 32x32\Save Project DB...120x120.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Save Project DB...120x120</comment>
   </data>
-  <data name="UnOpenedProject_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ICON_16x16\UnOpenedProject_16x16.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment>UnOpenedProject_16x16</comment>
-  </data>
   <data name="Pinch_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PNG 32x32\Pinch_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -322,9 +321,6 @@
   <data name="OPEN_Project_DB_64_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PNG 32x32\OPEN Project DB...64x64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>OPEN Project DB...64x64</comment>
-  </data>
-  <data name="AJP_User_License_Agreement...600x600" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AJP User License Agreement...600x600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Import_Zip_32_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PNG 32x32\Import Zip...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -346,9 +342,9 @@
     <value>..\Resources\PNG 32x32\Settings_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Settings_32x32</comment>
   </data>
-  <data name="Metric_SI_Units_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Metric SI Units...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Metric SI Units Image ... 32x32</comment>
+  <data name="HenSELECTED_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PNG 32x32\HenSELECTED_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>HenSELECTED_32x32</comment>
   </data>
   <data name="Input" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Input.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -370,13 +366,20 @@
     <value>..\Resources\Project...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Project Image ... 32x32</comment>
   </data>
-  <data name="Pinch_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ICON_16x16\Pinch_16x16.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    <comment>Project Tree View Icon</comment>
+  <data name="OPEN_Project DB...120x120" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PNG 32x32\OPEN Project DB...120x120.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>OPEN_Project_DB_120_120</comment>
   </data>
-  <data name="New_Project_DB_32_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PNG 32x32\New Project DB...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>New Project DB...32x32</comment>
+  <data name="Pinch_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_16x16\Pinch_16x16.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Composite_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Composite...32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Composite Image ... 32x32</comment>
+  </data>
+  <data name="AJP_HEN_Studio_with_Graphic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AJP HEN Studio with Graphic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>AJP_HEN_Studio_with_Graphic</comment>
   </data>
   <data name="AJP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AJP.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -402,16 +405,15 @@
     <value>..\Resources\PNG 32x32\Save As Project DB...64x64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Save As Project DB...64x64</comment>
   </data>
-  <data name="OPEN_Project DB...120x120" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PNG 32x32\OPEN Project DB...120x120.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>OPEN_Project_DB_120_120</comment>
+  <data name="Project_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_16x16\Project_16x16.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>Project Tree View Icon</comment>
   </data>
   <data name="Save_Project_DB_64_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PNG 32x32\Save Project DB...64x64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Save Project DB...64x64</comment>
   </data>
-  <data name="AJP_HEN_Studio_with_Graphic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AJP HEN Studio with Graphic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>AJP_HEN_Studio_with_Graphic</comment>
+  <data name="HEN_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_16x16\HEN_16x16.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
