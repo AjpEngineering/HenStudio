@@ -1154,6 +1154,7 @@
             this.treeViewCurrentProjectExplorer.SelectedImageIndex = 0;
             this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(337, 386);
             this.treeViewCurrentProjectExplorer.TabIndex = 1;
+            this.treeViewCurrentProjectExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCurrentProjectExplorer_AfterSelect);
             // 
             // imageListProjectTreeViews
             // 

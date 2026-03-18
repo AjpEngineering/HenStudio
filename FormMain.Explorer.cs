@@ -300,7 +300,135 @@ namespace HenStudio
         }
         #endregion  // UpdateTreeStatusBar()
 
+        #region HandleSelectionChange()
+        private void HandleSelectionChange()
+        {
+            string strMethod = "HandleSelectionChange";
+            string strMsg = String.Empty;
+            ExplorerLevel level = ExplorerLevel.UNKNOWN;
+            try
+            {
+                //--------------------------
+                //--- Get Node and Level ---
+                //--------------------------
+                TreeNode node = treeViewCurrentProjectExplorer.SelectedNode;
+                level = ((DataTagDisplay)node.Tag).LevelEnum;
+
+                //---------------------------------------
+                //--- Update Current Tree-Panel State ---
+                //---------------------------------------
+                UpdateTreeStatusBar(node);
+
+                #region Popluate and Display Panels
+                //-----------------------------------
+                //--- Popluate and Display Panels ---
+                //-----------------------------------
+                switch (level)
+                {
+                    #region CATALOG (PROJECTS)
+                    case ExplorerLevel.CATALOG:
+                        //-------------------------------------------------
+                        //--- Populate Current Projects (CATALOG) Panel ---
+                        //-------------------------------------------------
+                        HenMsgDlg.DisplayWarningDlg("***** Populate Current PROJECTS (CATALOG) Panel *****");
+
+
+                        //----------------------------------------
+                        //--- Display Projects (CATALOG) Panel ---
+                        //----------------------------------------
+                        this.panelSELECTED_PROJECTS.BringToFront();
+                        break;
+                    #endregion  // CATALOG (PROJECTS)
+
+                    #region PROJECT
+                    case ExplorerLevel.PROJECT:
+                        //--------------------------------------
+                        //--- Populate Current Project Panel ---
+                        //--------------------------------------
+                        HenMsgDlg.DisplayWarningDlg("***** Populate Current PROJECT Panel *****");
+
+
+                        //-----------------------------
+                        //--- Display Project Panel ---
+                        //-----------------------------
+                        this.panelSELECTED_PROJECT.BringToFront();
+                        break;
+                    #endregion  // PROJECT
+
+                    #region PROFILE
+                    case ExplorerLevel.PROFILE:
+                        //--------------------------------------
+                        //--- Populate Current Profile Panel ---
+                        //--------------------------------------
+                        HenMsgDlg.DisplayWarningDlg("***** Populate Current PROFILE Panel *****");
+
+
+                        //-----------------------------
+                        //--- Display Profile Panel ---
+                        //-----------------------------
+                        this.panelSELECTED_PROFILE.BringToFront();
+                        break;
+                    #endregion  // PROFILE
+
+                    #region PINCH
+                    case ExplorerLevel.PINCH:
+                        //------------------------------------
+                        //--- Populate Current Pinch Panel ---
+                        //------------------------------------
+                        HenMsgDlg.DisplayWarningDlg("***** Populate Current PINCH Panel *****");
+
+
+                        //---------------------------
+                        //--- Display Pinch Panel ---
+                        //---------------------------
+                        this.panelSELECTED_PINCH.BringToFront();
+                        break;
+                    #endregion  // PINCH
+
+                    #region HEN
+                    case ExplorerLevel.HEN:
+                        //----------------------------------
+                        //--- Populate Current Hen Panel ---
+                        //----------------------------------
+                        HenMsgDlg.DisplayWarningDlg("***** Populate Current HEN Panel *****");
+
+
+                        //-------------------------
+                        //--- Display HEN Panel ---
+                        //-------------------------
+                        this.panelSELECTED_HEN.BringToFront();
+
+                        break;
+                    #endregion  // HEN
+
+                    #region UNKNOWN
+                    default:
+                        throw new Exception("INVALID Explorer Level!");
+                    #endregion  // UNKNOWN
+               
+                }
+                #endregion  // Popluate and Display Panels
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleSelectionChange()
+
         #region TREE VIEW EVENT HANDLERS
+
+        #region SELECTION CHANGED
+        private void treeViewCurrentProjectExplorer_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            HandleSelectionChange();
+        }
+        #endregion  // SELECTION CHANGED
 
         #region CONTEXT MENU EVENT HANDLERS
 
@@ -791,9 +919,9 @@ namespace HenStudio
                 //--------------------------------------
                 HenMsgDlg.DisplayWarningDlg("***** Populate Current Panel *****");
 
-                //-----------------------------
-                //--- Display Profile Panel ---
-                //-----------------------------
+                //---------------------------
+                //--- Display Pinch Panel ---
+                //---------------------------
                 this.panelSELECTED_PINCH.BringToFront();
 
                 //-----------------------------------
@@ -857,9 +985,9 @@ namespace HenStudio
                 //--------------------------------------
                 HenMsgDlg.DisplayWarningDlg("***** Populate Current Panel *****");
 
-                //-----------------------------
-                //--- Display Profile Panel ---
-                //-----------------------------
+                //-------------------------
+                //--- Display Hen Panel ---
+                //-------------------------
                 this.panelSELECTED_HEN.BringToFront();
 
                 //-----------------------------------
