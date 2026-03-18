@@ -153,6 +153,46 @@ namespace HenStudio
         }
         #endregion  // GetSelectedNode()
 
+        #region DeleteSelectedNode()
+        /// <summary>
+        /// DELETE the selected Node of the Project Explorer Tree
+        /// NOTE: Save tge Tag Object before deleting node
+        /// </summary>
+        private void DeleteSelectedNode()
+        {
+            string strMethod = "DeleteSelectedNode";
+            string strMsg = String.Empty;
+            try
+            {
+                //------------------
+                //--- Null Guard ---
+                //------------------
+                if (treeViewCurrentProjectExplorer.SelectedNode == null) return;
+
+                //-------------------------
+                //--- Get Selected Node ---
+                //-------------------------
+                TreeNode node = treeViewCurrentProjectExplorer.SelectedNode;
+
+                //-------------------------------------------------
+                //--- Optional: Retrieve Object Before Deleting ---
+                //-------------------------------------------------
+                var dataTagDisplayObj = node.Tag as DataTagDisplay;
+
+                node.Remove();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // DeleteSelectedNode()
+
         #region RemoveAllNodes()
         /// <summary>
         /// Remove all Nodes from the Tree and then Add back Root Projects (CATALOG) Node
@@ -719,7 +759,7 @@ namespace HenStudio
                 HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
                 HenMsgDlg.DisplayWarningDlg("***** Get DB HenID (PK) *****");
                 strNodeName = "Base Design";      // From New Dialog ... Name Field
-                strDisplayName = "Pinch: Base Design";  // Node name with prefix ("Hen: ")
+                strDisplayName = "Hen: Base Design";  // Node name with prefix ("Hen: ")
                 henGUID = new Guid();
                 //********************************************************************** TEST *****
 
@@ -1005,6 +1045,8 @@ namespace HenStudio
             finally
             {
                 treeViewCurrentProjectExplorer.EndUpdate();
+
+                //LogTree();  //***** TEST *****
             }
             return nHenNodeID;
         }
@@ -1012,35 +1054,24 @@ namespace HenStudio
 
         #endregion  // ADD NODE METHODS
 
-        #region DELETE NODE METHODS
+        #region LOG TREE METHODS
 
-        #region DeleteSelectedNode()
+        #region LogTree()
         /// <summary>
-        /// DELETE the selected Node of the Project Explorer Tree
-        /// NOTE: Save tge Tag Object before deleting node
+        /// Log Tree
         /// </summary>
-        private void DeleteSelectedNode()
+        private void LogTree()
         {
-            string strMethod = "DeleteSelectedNode";
+            string strMethod = "LogTree";
             string strMsg = String.Empty;
+            TreeNode node;
             try
             {
-                //------------------
-                //--- Null Guard ---
-                //------------------
-                if (treeViewCurrentProjectExplorer.SelectedNode == null) return;
-
-                //-------------------------
-                //--- Get Selected Node ---
-                //-------------------------
-                TreeNode node = treeViewCurrentProjectExplorer.SelectedNode;
-
-                //-------------------------------------------------
-                //--- Optional: Retrieve Object Before Deleting ---
-                //-------------------------------------------------
-                var dataTagDisplayObj = node.Tag as DataTagDisplay;
-
-                node.Remove();
+                node = GetRootNode();
+                //-----------------------------------
+                //--- Visit Each Node Recursively ---
+                //-----------------------------------
+                LogTreeRecursive(node);
             }
             catch (Exception ex)
             {
@@ -1052,9 +1083,63 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // DeleteSelectedNode()
+        #endregion  // LogTree()
 
-        #endregion  // DELETE NODE METHODS
+        #region LogTreeRecursive()
+        /// <summary>
+        /// Log Tree
+        /// </summary>
+        private void LogTreeRecursive(TreeNode node)
+        {
+            string strMethod = "LogTreeRecursive";
+            string strMsg = String.Empty;
+            ExplorerLevel level = ExplorerLevel.CATALOG;
+            try
+            {
+                level = ((DataTagDisplay)node.Tag).LevelEnum;
+
+                switch (level)
+                {
+                    case ExplorerLevel.CATALOG:
+                        strMsg = string.Format("  > {0}", node.Text);
+                        break;
+                    case ExplorerLevel.PROJECT:
+                        strMsg = string.Format("    + {0}", node.Text);
+                        break;
+                    case ExplorerLevel.PROFILE:
+                        strMsg = string.Format("      + {0}", node.Text);
+                        break;
+                    case ExplorerLevel.PINCH:
+                        strMsg = string.Format("        + {0}", node.Text);
+                        break;
+                    case ExplorerLevel.HEN:
+                        strMsg = string.Format("          + {0}", node.Text);
+                        break;
+                    default:
+                        break;
+                }
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                //-----------------------------------
+                //--- Visit Each Node Recursively ---
+                //-----------------------------------
+                foreach (TreeNode tn in node.Nodes)
+                {
+                    LogTreeRecursive(tn);
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // LogTreeRecursive()
+
+        #endregion  // LOG TREE METHODS
 
     }
     #endregion  // partial class FormMain
