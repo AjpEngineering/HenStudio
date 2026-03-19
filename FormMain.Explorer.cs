@@ -581,6 +581,37 @@ namespace HenStudio
 
         #endregion  // DELETE NODES
 
+        #region RENAME NODES
+
+        #region RENAME PROJECT
+        private void toolStripMenuItemCurProjRename_Click(object sender, EventArgs e)
+        {
+            HandleRenameProject();
+        }
+        #endregion  // RENAME PROJECT
+
+        #region RENAME PROFILE
+        private void toolStripMenuItemProfileRename_Click(object sender, EventArgs e)
+        {
+            HandleRenameProfile();
+        }
+        #endregion  // RENAME PROFILE
+
+        #region RENAME PINCH
+        private void toolStripMenuItemPinchRename_Click(object sender, EventArgs e)
+        {
+            HandleRenamePinch();
+        }
+        #endregion  // RENAME PINCH
+
+        #region RENAME HEN
+        private void toolStripMenuItemCurProjHenRename_Click(object sender, EventArgs e)
+        {
+            HandleRenameHen();
+        }
+        #endregion  // RENAME HEN
+
+        #endregion  // RENAME NODES
 
         #endregion  // CONTEXT MENU EVENT HANDLERS
 
@@ -956,6 +987,211 @@ namespace HenStudio
         #endregion  // HandleDeleteHen
 
         #endregion  // HANDLE DELETE NODE EVENTS
+
+        #region HANDLE RENAME NODE EVENTS
+
+        #region HandleRenameProject
+        /// <summary>
+        /// Common Rename Project Command Handler. Rename User Specified Node.
+        /// </summary>
+        private void HandleRenameProject()
+        {
+            string strMethod = "HandleRenameProject";
+            string strRenameFormTitle = "Rename PROJECT ";
+            string strOriginalName = string.Empty;
+            string strNewNodeName = string.Empty;
+            string strNewDisplayName = string.Empty;
+            TreeNode node;
+            try
+            {
+                node = GetSelectedNode();
+                //-----------------------
+                //--- Null Node Guard ---
+                //-----------------------
+                if (node == null) throw new Exception("Null Project Node Encountered!");
+
+                //---------------------------------------
+                //--- Rename Project Data in Database ---
+                //---------------------------------------
+                HenMsgDlg.DisplayWarningDlg("RENAME PROJECT Data in Database");
+
+                //---------------------------------------------
+                //--- Rename the Selected Project Tree Node ---
+                //---------------------------------------------
+                FormRename dlg = new FormRename(strRenameFormTitle, ((DataTagDisplay)node.Tag).NodeName);
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    strNewNodeName = dlg.NewNodeName;
+                    strNewDisplayName = string.Format("Project: {0}", dlg.NewNodeName);
+
+                    node.Text = strNewDisplayName;
+                    ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleRenameProject
+
+        #region HandleRenameProfile
+        /// <summary>
+        /// Common Rename Profile Command Handler. Rename User Specified Node.
+        /// </summary>
+        private void HandleRenameProfile()
+        {
+            string strMethod = "HandleRenameProfile";
+            string strRenameFormTitle = "Rename PROFILE ";
+            string strOriginalName = string.Empty;
+            string strNewNodeName = string.Empty;
+            string strNewDisplayName = string.Empty;
+            TreeNode node;
+            try
+            {
+                node = GetSelectedNode();
+                //-----------------------
+                //--- Null Node Guard ---
+                //-----------------------
+                if (node == null) throw new Exception("Null Profile Node Encountered!");
+
+                //---------------------------------------
+                //--- Rename Profile Data in Database ---
+                //---------------------------------------
+                HenMsgDlg.DisplayWarningDlg("RENAME PROFILE Data in Database");
+
+                //---------------------------------------------
+                //--- Rename the Selected Profile Tree Node ---
+                //---------------------------------------------
+                FormRename dlg = new FormRename(strRenameFormTitle, ((DataTagDisplay)node.Tag).NodeName);
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    strNewNodeName = dlg.NewNodeName;
+                    strNewDisplayName = string.Format("Profile: {0}", dlg.NewNodeName);
+
+                    node.Text = strNewDisplayName;
+                    ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleRenameProfile
+
+        #region HandleRenamePinch
+        /// <summary>
+        /// Common Rename Pinch Command Handler. Rename User Specified Node.
+        /// </summary>
+        private void HandleRenamePinch()
+        {
+            string strMethod = "HandleRenamePinch";
+            string strRenameFormTitle = "Rename PINCH ";
+            string strOriginalName = string.Empty;
+            string strNewNodeName = string.Empty;
+            string strNewDisplayName = string.Empty;
+            TreeNode node;
+            try
+            {
+                node = GetSelectedNode();
+                //-----------------------
+                //--- Null Node Guard ---
+                //-----------------------
+                if (node == null) throw new Exception("Null Pinch Node Encountered!");
+
+                //-------------------------------------
+                //--- Rename Pinch Data in Database ---
+                //-------------------------------------
+                HenMsgDlg.DisplayWarningDlg("RENAME PINCH Data in Database");
+
+                //-------------------------------------------
+                //--- Rename the Selected Pinch Tree Node ---
+                //-------------------------------------------
+                FormRename dlg = new FormRename(strRenameFormTitle, ((DataTagDisplay)node.Tag).NodeName);
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    strNewNodeName = dlg.NewNodeName;
+                    strNewDisplayName = string.Format("Pinch: {0}", dlg.NewNodeName);
+
+                    node.Text = strNewDisplayName;
+                    ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleRenamePinch
+
+        #region HandleRenameHen
+        /// <summary>
+        /// Common Rename Hen Command Handler. Rename User Specified Node.
+        /// </summary>
+        private void HandleRenameHen()
+        {
+            string strMethod = "HandleRenameHen";
+            string strRenameFormTitle = "Rename HEN ";
+            string strOriginalName = string.Empty;
+            string strNewNodeName = string.Empty;
+            string strNewDisplayName = string.Empty;
+            TreeNode node;
+            try
+            {
+                node = GetSelectedNode();
+                //-----------------------
+                //--- Null Node Guard ---
+                //-----------------------
+                if (node == null) throw new Exception("Null Hen Node Encountered!");
+
+                //-----------------------------------
+                //--- Rename Hen Data in Database ---
+                //-----------------------------------
+                HenMsgDlg.DisplayWarningDlg("RENAME HEN Data in Database");
+
+                //-----------------------------------------
+                //--- Rename the Selected Hen Tree Node ---
+                //-----------------------------------------
+                FormRename dlg = new FormRename(strRenameFormTitle, ((DataTagDisplay)node.Tag).NodeName);
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    strNewNodeName = dlg.NewNodeName;
+                    strNewDisplayName = string.Format("Hen: {0}", dlg.NewNodeName);
+
+                    node.Text = strNewDisplayName;
+                    ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleRenameHen
+
+        #endregion  // HANDLE RENAME NODE EVENTS
 
         #region ADD NODE METHODS
 

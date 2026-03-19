@@ -264,9 +264,11 @@
             // 
             // toolStripMenuItemCurProjHenRename
             // 
+            this.toolStripMenuItemCurProjHenRename.Image = global::HenStudio.Properties.Resources.Rename_16x16;
             this.toolStripMenuItemCurProjHenRename.Name = "toolStripMenuItemCurProjHenRename";
             this.toolStripMenuItemCurProjHenRename.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemCurProjHenRename.Text = "Rename HEN";
+            this.toolStripMenuItemCurProjHenRename.Click += new System.EventHandler(this.toolStripMenuItemCurProjHenRename_Click);
             // 
             // toolStripSeparatorCurProjHenRename
             // 
@@ -307,9 +309,11 @@
             // 
             // toolStripMenuItemPinchRename
             // 
+            this.toolStripMenuItemPinchRename.Image = global::HenStudio.Properties.Resources.Rename_16x16;
             this.toolStripMenuItemPinchRename.Name = "toolStripMenuItemPinchRename";
             this.toolStripMenuItemPinchRename.Size = new System.Drawing.Size(312, 22);
             this.toolStripMenuItemPinchRename.Text = "Rename Pinch";
+            this.toolStripMenuItemPinchRename.Click += new System.EventHandler(this.toolStripMenuItemPinchRename_Click);
             // 
             // toolStripSeparatorRename
             // 
@@ -350,9 +354,11 @@
             // 
             // toolStripMenuItemProfileRename
             // 
+            this.toolStripMenuItemProfileRename.Image = global::HenStudio.Properties.Resources.Rename_16x16;
             this.toolStripMenuItemProfileRename.Name = "toolStripMenuItemProfileRename";
             this.toolStripMenuItemProfileRename.Size = new System.Drawing.Size(171, 22);
             this.toolStripMenuItemProfileRename.Text = "Rename Profile";
+            this.toolStripMenuItemProfileRename.Click += new System.EventHandler(this.toolStripMenuItemProfileRename_Click);
             // 
             // toolStripSeparator4
             // 
@@ -431,9 +437,11 @@
             // 
             // toolStripMenuItemCurProjRename
             // 
+            this.toolStripMenuItemCurProjRename.Image = global::HenStudio.Properties.Resources.Rename_16x16;
             this.toolStripMenuItemCurProjRename.Name = "toolStripMenuItemCurProjRename";
             this.toolStripMenuItemCurProjRename.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItemCurProjRename.Text = "Rename Project...";
+            this.toolStripMenuItemCurProjRename.Click += new System.EventHandler(this.toolStripMenuItemCurProjRename_Click);
             // 
             // toolStripSeparator13
             // 

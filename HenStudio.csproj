@@ -95,6 +95,12 @@
     <Compile Include="FormNewProject.Designer.cs">
       <DependentUpon>FormNewProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRename.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRename.Designer.cs">
+      <DependentUpon>FormRename.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewProject.resx">
       <DependentUpon>FormNewProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRename.resx">
+      <DependentUpon>FormRename.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
@@ -194,6 +203,7 @@
     <Content Include="Resources\ICON_16x16\CollapseAll_32x32.ico" />
     <Content Include="Resources\ICON_16x16\ExpandAll_16x16.ico" />
     <Content Include="Resources\ICON_16x16\ExpandAll_32x32.ico" />
+    <None Include="Resources\ICON_16x16\Rename_16x16.ico" />
     <None Include="Resources\ICON_16x16\HenDelete_16x16.ico" />
     <Content Include="Resources\ICON_16x16\HENSelected_16x16.ico" />
     <Content Include="Resources\ICON_16x16\HenSelected_32x32.ico" />
