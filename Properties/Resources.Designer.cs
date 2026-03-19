@@ -291,6 +291,16 @@ namespace HenStudio.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HenDelete_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("HenDelete_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] HENSelected_16x16 {
@@ -521,6 +531,16 @@ namespace HenStudio.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PinchDelete_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("PinchDelete_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] PinchSelected_16x16 {
@@ -573,6 +593,16 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProfileDelete_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("ProfileDelete_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ProfileSELECTED_32x32 {
             get {
                 object obj = ResourceManager.GetObject("ProfileSELECTED_32x32", resourceCulture);
@@ -596,6 +626,16 @@ namespace HenStudio.Properties {
         internal static System.Drawing.Bitmap Project_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Project_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProjectDelete_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("ProjectDelete_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -676,6 +716,16 @@ namespace HenStudio.Properties {
         internal static System.Drawing.Bitmap Save_Project_DB_64_64 {
             get {
                 object obj = ResourceManager.GetObject("Save_Project_DB_64_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveProject_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("SaveProject_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

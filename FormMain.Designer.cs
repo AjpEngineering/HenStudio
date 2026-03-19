@@ -73,42 +73,35 @@
             this.toolStripSeparatorCurProjHenRename = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemCurProjHenDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripPinch = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemPinchRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPinchAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemPinchRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorRename = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemPinchDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemProfileRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemProfileAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemProfileRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemProfileDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripCurrProj = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemCurrProjExpandAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCurrProjCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorCurrProjExpandAll = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemCurProjRename = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemCurProjSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemCurProjAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorCurProjAdd = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemCurProjSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemCurProjSaveAs = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparatorCurProjSave = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemCurProjClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemCurProjRename = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemDeleteProject = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripProjectCatalog = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemExpandAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorExpandCollapse = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemAddProject = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemImport = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStripProject = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemProjExpandAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemProjCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemRename = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparatorDelete = new System.Windows.Forms.ToolStripSeparator();
-            this.closeProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemImport = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMainCatalog = new System.Windows.Forms.MenuStrip();
             this.catalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -232,7 +225,6 @@
             this.contextMenuStripProfile.SuspendLayout();
             this.contextMenuStripCurrProj.SuspendLayout();
             this.contextMenuStripProjectCatalog.SuspendLayout();
-            this.contextMenuStripProject.SuspendLayout();
             this.menuStripMainCatalog.SuspendLayout();
             this.statusStripMainDASHBOARD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerLefCenter)).BeginInit();
@@ -268,40 +260,37 @@
             this.toolStripSeparatorCurProjHenRename,
             this.toolStripMenuItemCurProjHenDelete});
             this.contextMenuStripHen.Name = "contextMenuStripHen";
-            this.contextMenuStripHen.Size = new System.Drawing.Size(127, 54);
+            this.contextMenuStripHen.Size = new System.Drawing.Size(181, 76);
             // 
             // toolStripMenuItemCurProjHenRename
             // 
             this.toolStripMenuItemCurProjHenRename.Name = "toolStripMenuItemCurProjHenRename";
-            this.toolStripMenuItemCurProjHenRename.Size = new System.Drawing.Size(126, 22);
-            this.toolStripMenuItemCurProjHenRename.Text = "Rename...";
+            this.toolStripMenuItemCurProjHenRename.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemCurProjHenRename.Text = "Rename HEN";
             // 
             // toolStripSeparatorCurProjHenRename
             // 
             this.toolStripSeparatorCurProjHenRename.Name = "toolStripSeparatorCurProjHenRename";
-            this.toolStripSeparatorCurProjHenRename.Size = new System.Drawing.Size(123, 6);
+            this.toolStripSeparatorCurProjHenRename.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripMenuItemCurProjHenDelete
             // 
+            this.toolStripMenuItemCurProjHenDelete.Image = global::HenStudio.Properties.Resources.HenDelete_16x16;
             this.toolStripMenuItemCurProjHenDelete.Name = "toolStripMenuItemCurProjHenDelete";
-            this.toolStripMenuItemCurProjHenDelete.Size = new System.Drawing.Size(126, 22);
-            this.toolStripMenuItemCurProjHenDelete.Text = "Delete...";
+            this.toolStripMenuItemCurProjHenDelete.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemCurProjHenDelete.Text = "Delete HEN";
+            this.toolStripMenuItemCurProjHenDelete.Click += new System.EventHandler(this.toolStripMenuItemCurProjHenDelete_Click);
             // 
             // contextMenuStripPinch
             // 
             this.contextMenuStripPinch.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemPinchRename,
             this.toolStripMenuItemPinchAdd,
+            this.toolStripSeparator15,
+            this.toolStripMenuItemPinchRename,
             this.toolStripSeparatorRename,
             this.toolStripMenuItemPinchDelete});
             this.contextMenuStripPinch.Name = "contextMenuStripPinch";
-            this.contextMenuStripPinch.Size = new System.Drawing.Size(313, 76);
-            // 
-            // toolStripMenuItemPinchRename
-            // 
-            this.toolStripMenuItemPinchRename.Name = "toolStripMenuItemPinchRename";
-            this.toolStripMenuItemPinchRename.Size = new System.Drawing.Size(312, 22);
-            this.toolStripMenuItemPinchRename.Text = "Rename...";
+            this.contextMenuStripPinch.Size = new System.Drawing.Size(313, 82);
             // 
             // toolStripMenuItemPinchAdd
             // 
@@ -311,6 +300,17 @@
             this.toolStripMenuItemPinchAdd.Text = "Add Heat Exchanger Network (HEN) Design...";
             this.toolStripMenuItemPinchAdd.Click += new System.EventHandler(this.toolStripMenuItemPinchAdd_Click);
             // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            this.toolStripSeparator15.Size = new System.Drawing.Size(309, 6);
+            // 
+            // toolStripMenuItemPinchRename
+            // 
+            this.toolStripMenuItemPinchRename.Name = "toolStripMenuItemPinchRename";
+            this.toolStripMenuItemPinchRename.Size = new System.Drawing.Size(312, 22);
+            this.toolStripMenuItemPinchRename.Text = "Rename Pinch";
+            // 
             // toolStripSeparatorRename
             // 
             this.toolStripSeparatorRename.Name = "toolStripSeparatorRename";
@@ -318,25 +318,22 @@
             // 
             // toolStripMenuItemPinchDelete
             // 
+            this.toolStripMenuItemPinchDelete.Image = global::HenStudio.Properties.Resources.PinchDelete_16x16;
             this.toolStripMenuItemPinchDelete.Name = "toolStripMenuItemPinchDelete";
             this.toolStripMenuItemPinchDelete.Size = new System.Drawing.Size(312, 22);
-            this.toolStripMenuItemPinchDelete.Text = "Delete...";
+            this.toolStripMenuItemPinchDelete.Text = "Delete Pinch";
+            this.toolStripMenuItemPinchDelete.Click += new System.EventHandler(this.toolStripMenuItemPinchDelete_Click);
             // 
             // contextMenuStripProfile
             // 
             this.contextMenuStripProfile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemProfileRename,
             this.toolStripMenuItemProfileAdd,
+            this.toolStripSeparator14,
+            this.toolStripMenuItemProfileRename,
             this.toolStripSeparator4,
             this.toolStripMenuItemProfileDelete});
             this.contextMenuStripProfile.Name = "contextMenuStripProfile";
-            this.contextMenuStripProfile.Size = new System.Drawing.Size(172, 76);
-            // 
-            // toolStripMenuItemProfileRename
-            // 
-            this.toolStripMenuItemProfileRename.Name = "toolStripMenuItemProfileRename";
-            this.toolStripMenuItemProfileRename.Size = new System.Drawing.Size(171, 22);
-            this.toolStripMenuItemProfileRename.Text = "Rename...";
+            this.contextMenuStripProfile.Size = new System.Drawing.Size(172, 82);
             // 
             // toolStripMenuItemProfileAdd
             // 
@@ -346,6 +343,17 @@
             this.toolStripMenuItemProfileAdd.Text = "Add Pinch Study...";
             this.toolStripMenuItemProfileAdd.Click += new System.EventHandler(this.toolStripMenuItemProfileAdd_Click);
             // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(168, 6);
+            // 
+            // toolStripMenuItemProfileRename
+            // 
+            this.toolStripMenuItemProfileRename.Name = "toolStripMenuItemProfileRename";
+            this.toolStripMenuItemProfileRename.Size = new System.Drawing.Size(171, 22);
+            this.toolStripMenuItemProfileRename.Text = "Rename Profile";
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -353,9 +361,11 @@
             // 
             // toolStripMenuItemProfileDelete
             // 
+            this.toolStripMenuItemProfileDelete.Image = global::HenStudio.Properties.Resources.ProfileDelete_16x16;
             this.toolStripMenuItemProfileDelete.Name = "toolStripMenuItemProfileDelete";
             this.toolStripMenuItemProfileDelete.Size = new System.Drawing.Size(171, 22);
-            this.toolStripMenuItemProfileDelete.Text = "Delete...";
+            this.toolStripMenuItemProfileDelete.Text = "Delete Profile";
+            this.toolStripMenuItemProfileDelete.Click += new System.EventHandler(this.toolStripMenuItemProfileDelete_Click);
             // 
             // contextMenuStripCurrProj
             // 
@@ -363,15 +373,15 @@
             this.toolStripMenuItemCurrProjExpandAll,
             this.toolStripMenuItemCurrProjCollapseAll,
             this.toolStripSeparatorCurrProjExpandAll,
-            this.toolStripMenuItemCurProjRename,
+            this.toolStripMenuItemCurProjSave,
+            this.toolStripSeparator9,
             this.toolStripMenuItemCurProjAdd,
             this.toolStripSeparatorCurProjAdd,
-            this.toolStripMenuItemCurProjSave,
-            this.toolStripMenuItemCurProjSaveAs,
-            this.toolStripSeparatorCurProjSave,
-            this.toolStripMenuItemCurProjClose});
+            this.toolStripMenuItemCurProjRename,
+            this.toolStripSeparator13,
+            this.toolStripMenuItemDeleteProject});
             this.contextMenuStripCurrProj.Name = "contextMenuStripCurrProj";
-            this.contextMenuStripCurrProj.Size = new System.Drawing.Size(174, 176);
+            this.contextMenuStripCurrProj.Size = new System.Drawing.Size(174, 160);
             // 
             // toolStripMenuItemCurrProjExpandAll
             // 
@@ -394,11 +404,17 @@
             this.toolStripSeparatorCurrProjExpandAll.Name = "toolStripSeparatorCurrProjExpandAll";
             this.toolStripSeparatorCurrProjExpandAll.Size = new System.Drawing.Size(170, 6);
             // 
-            // toolStripMenuItemCurProjRename
+            // toolStripMenuItemCurProjSave
             // 
-            this.toolStripMenuItemCurProjRename.Name = "toolStripMenuItemCurProjRename";
-            this.toolStripMenuItemCurProjRename.Size = new System.Drawing.Size(173, 22);
-            this.toolStripMenuItemCurProjRename.Text = "Rename Project...";
+            this.toolStripMenuItemCurProjSave.Image = global::HenStudio.Properties.Resources.SaveProject_16x16;
+            this.toolStripMenuItemCurProjSave.Name = "toolStripMenuItemCurProjSave";
+            this.toolStripMenuItemCurProjSave.Size = new System.Drawing.Size(173, 22);
+            this.toolStripMenuItemCurProjSave.Text = "Save Project";
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(170, 6);
             // 
             // toolStripMenuItemCurProjAdd
             // 
@@ -413,28 +429,24 @@
             this.toolStripSeparatorCurProjAdd.Name = "toolStripSeparatorCurProjAdd";
             this.toolStripSeparatorCurProjAdd.Size = new System.Drawing.Size(170, 6);
             // 
-            // toolStripMenuItemCurProjSave
+            // toolStripMenuItemCurProjRename
             // 
-            this.toolStripMenuItemCurProjSave.Name = "toolStripMenuItemCurProjSave";
-            this.toolStripMenuItemCurProjSave.Size = new System.Drawing.Size(173, 22);
-            this.toolStripMenuItemCurProjSave.Text = "Save";
+            this.toolStripMenuItemCurProjRename.Name = "toolStripMenuItemCurProjRename";
+            this.toolStripMenuItemCurProjRename.Size = new System.Drawing.Size(173, 22);
+            this.toolStripMenuItemCurProjRename.Text = "Rename Project...";
             // 
-            // toolStripMenuItemCurProjSaveAs
+            // toolStripSeparator13
             // 
-            this.toolStripMenuItemCurProjSaveAs.Name = "toolStripMenuItemCurProjSaveAs";
-            this.toolStripMenuItemCurProjSaveAs.Size = new System.Drawing.Size(173, 22);
-            this.toolStripMenuItemCurProjSaveAs.Text = "Save As...";
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(170, 6);
             // 
-            // toolStripSeparatorCurProjSave
+            // toolStripMenuItemDeleteProject
             // 
-            this.toolStripSeparatorCurProjSave.Name = "toolStripSeparatorCurProjSave";
-            this.toolStripSeparatorCurProjSave.Size = new System.Drawing.Size(170, 6);
-            // 
-            // toolStripMenuItemCurProjClose
-            // 
-            this.toolStripMenuItemCurProjClose.Name = "toolStripMenuItemCurProjClose";
-            this.toolStripMenuItemCurProjClose.Size = new System.Drawing.Size(173, 22);
-            this.toolStripMenuItemCurProjClose.Text = "Close";
+            this.toolStripMenuItemDeleteProject.Image = global::HenStudio.Properties.Resources.ProjectDelete_16x16;
+            this.toolStripMenuItemDeleteProject.Name = "toolStripMenuItemDeleteProject";
+            this.toolStripMenuItemDeleteProject.Size = new System.Drawing.Size(173, 22);
+            this.toolStripMenuItemDeleteProject.Text = "Delete Project";
+            this.toolStripMenuItemDeleteProject.Click += new System.EventHandler(this.toolStripMenuItemDeleteProject_Click);
             // 
             // contextMenuStripProjectCatalog
             // 
@@ -444,9 +456,10 @@
             this.toolStripMenuItemExpandAll,
             this.toolStripSeparatorExpandCollapse,
             this.toolStripMenuItemAddProject,
+            this.toolStripSeparator12,
             this.toolStripMenuItemImport});
             this.contextMenuStripProjectCatalog.Name = "contextMenuStripProjectCatalog";
-            this.contextMenuStripProjectCatalog.Size = new System.Drawing.Size(180, 98);
+            this.contextMenuStripProjectCatalog.Size = new System.Drawing.Size(180, 104);
             this.contextMenuStripProjectCatalog.Text = "PROJECT CATALOG";
             // 
             // toolStripMenuItemCollapseAll
@@ -478,79 +491,17 @@
             this.toolStripMenuItemAddProject.Text = "Add New Project...";
             this.toolStripMenuItemAddProject.Click += new System.EventHandler(this.toolStripMenuItemAddProject_Click);
             // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(176, 6);
+            // 
             // toolStripMenuItemImport
             // 
             this.toolStripMenuItemImport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemImport.Image")));
             this.toolStripMenuItemImport.Name = "toolStripMenuItemImport";
             this.toolStripMenuItemImport.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItemImport.Text = "Import Zip Project...";
-            // 
-            // contextMenuStripProject
-            // 
-            this.contextMenuStripProject.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemProjExpandAll,
-            this.toolStripMenuItemProjCollapseAll,
-            this.toolStripSeparator12,
-            this.toolStripMenuItemRename,
-            this.toolStripMenuItemOpen,
-            this.toolStripSeparatorDelete,
-            this.closeProjectToolStripMenuItem,
-            this.toolStripSeparator9,
-            this.toolStripMenuItemDelete});
-            this.contextMenuStripProject.Name = "contextMenuStripProject";
-            this.contextMenuStripProject.Size = new System.Drawing.Size(167, 154);
-            // 
-            // toolStripMenuItemProjExpandAll
-            // 
-            this.toolStripMenuItemProjExpandAll.Name = "toolStripMenuItemProjExpandAll";
-            this.toolStripMenuItemProjExpandAll.Size = new System.Drawing.Size(166, 22);
-            this.toolStripMenuItemProjExpandAll.Text = "Expand All";
-            // 
-            // toolStripMenuItemProjCollapseAll
-            // 
-            this.toolStripMenuItemProjCollapseAll.Name = "toolStripMenuItemProjCollapseAll";
-            this.toolStripMenuItemProjCollapseAll.Size = new System.Drawing.Size(166, 22);
-            this.toolStripMenuItemProjCollapseAll.Text = "Collapse All";
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(163, 6);
-            // 
-            // toolStripMenuItemRename
-            // 
-            this.toolStripMenuItemRename.Name = "toolStripMenuItemRename";
-            this.toolStripMenuItemRename.Size = new System.Drawing.Size(166, 22);
-            this.toolStripMenuItemRename.Text = "Rename Project...";
-            // 
-            // toolStripMenuItemOpen
-            // 
-            this.toolStripMenuItemOpen.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemOpen.Image")));
-            this.toolStripMenuItemOpen.Name = "toolStripMenuItemOpen";
-            this.toolStripMenuItemOpen.Size = new System.Drawing.Size(166, 22);
-            this.toolStripMenuItemOpen.Text = "Open";
-            // 
-            // toolStripSeparatorDelete
-            // 
-            this.toolStripSeparatorDelete.Name = "toolStripSeparatorDelete";
-            this.toolStripSeparatorDelete.Size = new System.Drawing.Size(163, 6);
-            // 
-            // closeProjectToolStripMenuItem
-            // 
-            this.closeProjectToolStripMenuItem.Name = "closeProjectToolStripMenuItem";
-            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.closeProjectToolStripMenuItem.Text = "Close Project";
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(163, 6);
-            // 
-            // toolStripMenuItemDelete
-            // 
-            this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(166, 22);
-            this.toolStripMenuItemDelete.Text = "Delete Project...";
             // 
             // menuStripMainCatalog
             // 
@@ -2133,7 +2084,6 @@
             this.contextMenuStripProfile.ResumeLayout(false);
             this.contextMenuStripCurrProj.ResumeLayout(false);
             this.contextMenuStripProjectCatalog.ResumeLayout(false);
-            this.contextMenuStripProject.ResumeLayout(false);
             this.menuStripMainCatalog.ResumeLayout(false);
             this.menuStripMainCatalog.PerformLayout();
             this.statusStripMainDASHBOARD.ResumeLayout(false);
@@ -2215,18 +2165,10 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripProjectCatalog;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddProject;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImport;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripProject;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRename;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOpen;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorDelete;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDelete;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripCurrProj;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurProjRename;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparatorCurProjAdd;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurProjClose;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorCurProjSave;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurProjSave;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurProjSaveAs;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripProfile;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripPinch;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPinchRename;
@@ -2261,8 +2203,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLICENSE;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCAT_DB;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelAJP_LOGO;
-        private System.Windows.Forms.ToolStripMenuItem closeProjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.TreeView treeViewProjectZipExplorer;
         private System.Windows.Forms.ImageList imageListProjectZIP;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCollapseAll;
@@ -2274,9 +2214,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripProjectZip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemZipExpandAll;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemZipCollapseAll;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProjExpandAll;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProjCollapseAll;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.TextBox textBoxProjectBanner;
         private System.Windows.Forms.TextBox textBoxProjectNameValue;
         private System.Windows.Forms.TextBox textBoxProjectName;
@@ -2336,6 +2273,12 @@
         private System.Windows.Forms.Panel panelSELECTED_PROJECT;
         private System.Windows.Forms.Panel panelSELECTED_HEN;
         private System.Windows.Forms.Panel panelSELECTED_PINCH;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDeleteProject;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
     }
 }
 

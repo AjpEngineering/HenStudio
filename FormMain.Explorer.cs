@@ -497,6 +497,8 @@ namespace HenStudio
 
         #endregion  // EXPAND ALL
 
+        #region NEW NODES
+
         #region NEW PROJECT
         /// <summary>
         /// Context Menu Associated with Root Projects Node -> Add Project...
@@ -545,6 +547,41 @@ namespace HenStudio
         }
         #endregion  // NEW HEN
 
+        #endregion  // NEW NODES
+
+        #region DELETE NODES
+
+        #region DELETE PROJECT NODE
+        private void toolStripMenuItemDeleteProject_Click(object sender, EventArgs e)
+        {
+            HandleDeleteProject();
+        }
+        #endregion  // DELETE PROJECT NODE
+
+        #region DELETE PROFILE NODE
+        private void toolStripMenuItemProfileDelete_Click(object sender, EventArgs e)
+        {
+            HandleDeleteProfile();
+        }
+        #endregion  // DELETE PROFILE NODE
+
+        #region DELETE PINCH NODE
+        private void toolStripMenuItemPinchDelete_Click(object sender, EventArgs e)
+        {
+            HandleDeletePinch();
+        }
+        #endregion  // DELETE PINCH NODE
+
+        #region DELETE HEN NODE
+        private void toolStripMenuItemCurProjHenDelete_Click(object sender, EventArgs e)
+        {
+            HandleDeleteHen();
+        }
+        #endregion  // DELETE HEN NODE
+
+        #endregion  // DELETE NODES
+
+
         #endregion  // CONTEXT MENU EVENT HANDLERS
 
         #region CollapseAllProjectsExplorer()
@@ -564,6 +601,8 @@ namespace HenStudio
         #endregion      // TREE VIEW EVENT HANDLERS
 
         #region COMMON EVENT HANDLERS
+
+        #region HANDLE NEW NODE EVENTS
 
         #region HandleNewProject
         /// <summary>
@@ -788,7 +827,135 @@ namespace HenStudio
         }
         #endregion  // HandleNewHen
 
-        #endregion  // COMMON EVENT HANDLERS
+        #endregion  // HANDLE NEW NODE EVENTS
+
+        #region HANDLE DELETE NODE EVENTS
+
+        #region HandleDeleteProject
+        /// <summary>
+        /// Common Delete Project Command Handler. 
+        /// </summary>
+        private void HandleDeleteProject()
+        {
+            string strMethod = "HandleDeleteProject";
+            try
+            {
+                //-----------------------------------------
+                //--- Delete Project Data from Database ---
+                //-----------------------------------------
+                HenMsgDlg.DisplayWarningDlg("Delete PROJECT Data from Database");
+
+                //-----------------------------------------------------------------------------
+                //--- Delete the Selected Project Tree Node and All Sub Nodes from the Tree ---
+                //-----------------------------------------------------------------------------
+                DeleteSelectedNode();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleDeleteProject
+
+        #region HandleDeleteProfile
+        /// <summary>
+        /// Common Delete Profile Command Handler. 
+        /// </summary>
+        private void HandleDeleteProfile()
+        {
+            string strMethod = "HandleDeleteProfile";
+            try
+            {
+                //-----------------------------------------
+                //--- Delete Profile Data from Database ---
+                //-----------------------------------------
+                HenMsgDlg.DisplayWarningDlg("Delete PROFILE Data from Database");
+
+                //-----------------------------------------------------------------------------
+                //--- Delete the Selected Profile Tree Node and All Sub Nodes from the Tree ---
+                //-----------------------------------------------------------------------------
+                DeleteSelectedNode();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleDeleteProfile
+
+        #region HandleDeletePinch
+        /// <summary>
+        /// Common Delete Pinch Command Handler. 
+        /// </summary>
+        private void HandleDeletePinch()
+        {
+            string strMethod = "HandleDeletePinch";
+            try
+            {
+                //---------------------------------------
+                //--- Delete Pinch Data from Database ---
+                //---------------------------------------
+                HenMsgDlg.DisplayWarningDlg("Delete PINCH Data from Database");
+
+                //---------------------------------------------------------------------------
+                //--- Delete the Selected Pinch Tree Node and All Sub Nodes from the Tree ---
+                //---------------------------------------------------------------------------
+                DeleteSelectedNode();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleDeletePinch
+
+        #region HandleDeleteHen
+        /// <summary>
+        /// Common Delete HEN Command Handler. 
+        /// </summary>
+        private void HandleDeleteHen()
+        {
+            string strMethod = "HandleDeleteHen";
+            try
+            {
+                //-------------------------------------
+                //--- Delete HEN Data from Database ---
+                //-------------------------------------
+                HenMsgDlg.DisplayWarningDlg("Delete HEN Data from Database");
+
+                //-------------------------------------------------------
+                //--- Delete the Selected HEN Tree Node from the Tree ---
+                //-------------------------------------------------------
+                DeleteSelectedNode();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleDeleteHen
+
+        #endregion  // HANDLE DELETE NODE EVENTS
 
         #region ADD NODE METHODS
 
@@ -804,7 +971,7 @@ namespace HenStudio
         {
             string strMethod = "AddProjectNode";
             string strMsg = String.Empty;
-            int nProjectNodeID = 0;
+            int nProjectNodeID = 0;     
             try
             {
                 treeViewCurrentProjectExplorer.BeginUpdate();
@@ -813,6 +980,10 @@ namespace HenStudio
                 //------------------------------------------
                 TreeNode node = new TreeNode(strDisplayName);
                 node.ContextMenuStrip = this.contextMenuStripCurrProj;
+
+                node.ImageIndex = 1;            // Project_16x16.ico ......... imageListProjectTreeViews
+                node.SelectedImageIndex = 2;    // OpenedProject_16x16.ico ... imageListProjectTreeViews
+
                 nProjectNodeID = parentNode.Nodes.Add(node);
 
                 //------------------------------------
@@ -877,6 +1048,10 @@ namespace HenStudio
                 //------------------------------------------
                 TreeNode node = new TreeNode(strDisplayName);
                 node.ContextMenuStrip = this.contextMenuStripProfile;
+
+                node.ImageIndex = 3;            // Profile_Input_16x16.ico ............ imageListProjectTreeViews
+                node.SelectedImageIndex = 4;    // Profile_Input_Selected_16x16.ico ... imageListProjectTreeViews
+
                 nProfileNodeID = parentNode.Nodes.Add(node);
 
                 //------------------------------------
@@ -942,6 +1117,10 @@ namespace HenStudio
                 //------------------------------------------
                 TreeNode node = new TreeNode(strDisplayName);
                 node.ContextMenuStrip = this.contextMenuStripPinch;
+
+                node.ImageIndex = 5;            // Pinch_16x16.ico ........... imageListProjectTreeViews
+                node.SelectedImageIndex = 6;    // PinchSelected_16x16.ico ... imageListProjectTreeViews
+
                 nPinchNodeID = parentNode.Nodes.Add(node);
 
                 //------------------------------------
@@ -1008,6 +1187,10 @@ namespace HenStudio
                 //------------------------------------------
                 TreeNode node = new TreeNode(strDisplayName);
                 node.ContextMenuStrip = this.contextMenuStripHen;
+
+                node.ImageIndex = 7;            // HEN_16x16.ico ........... imageListProjectTreeViews
+                node.SelectedImageIndex = 8;    // HENSelected_16x16.ico ... imageListProjectTreeViews
+
                 nHenNodeID = parentNode.Nodes.Add(node);
 
                 //------------------------------------
@@ -1053,6 +1236,8 @@ namespace HenStudio
         #endregion  // AddHenNode()
 
         #endregion  // ADD NODE METHODS
+
+        #endregion  // COMMON EVENT HANDLERS
 
         #region LOG TREE METHODS
 
