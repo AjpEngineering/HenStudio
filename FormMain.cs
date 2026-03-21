@@ -47,6 +47,7 @@ using HenGlobal;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 using static HenGlobal.HenTypes;
 
@@ -899,6 +900,34 @@ namespace HenStudio
 
         #region STATUS BAR EVENTS
 
+        #region LICENSE CLICK
+        private void toolStripStatusLabelLICENSE_Click(object sender, EventArgs e)
+        {
+            HandleLicenseStatus();
+        }
+        #endregion  // LICENSE CLICK
+
+        #region LICENSE DOUBLE CLICK
+        private void toolStripStatusLabelLICENSE_DoubleClick(object sender, EventArgs e)
+        {
+            HandleLicenseStatus();
+        }
+        #endregion  // LICENSE DOUBLE CLICK
+
+        #region DB CONNECTION CLICK
+        private void toolStripStatusLabelCAT_DB_Click(object sender, EventArgs e)
+        {
+            HandleDBConnectionState();
+        }
+        #endregion  // DB CONNECTION CLICK
+
+        #region DB CONNECTION DOUBLE CLICK
+        private void toolStripStatusLabelCAT_DB_DoubleClick(object sender, EventArgs e)
+        {
+            HandleDBConnectionState();
+        }
+        #endregion  // DB CONNECTION DOUBLE CLICK
+
         #region PROJECT DIRTY FLAG CLICK
         private void toolStripStatusLabelProjectDirtyFlag_Click(object sender, EventArgs e)
         {
@@ -914,6 +943,20 @@ namespace HenStudio
             HandleProjectDirtyFlagState();
         }
         #endregion  // PROJECT DIRTY FLAG DOUBLE CLICK
+
+        #region AJP LOGO CLICK
+        private void toolStripStatusLabelAJP_LOGO_Click(object sender, EventArgs e)
+        {
+            HandleAJPContactInfo();
+        }
+        #endregion  // AJP LOGO CLICK
+
+        #region AJP LOGO DOUBLE CLICK
+        private void toolStripStatusLabelAJP_LOGO_DoubleClick(object sender, EventArgs e)
+        {
+            HandleAJPContactInfo();
+        }
+        #endregion  // AJP LOGO DOUBLE CLICK
 
         #endregion  // STATUS BAR EVENTS
 
@@ -1207,14 +1250,70 @@ namespace HenStudio
 
         //-------------------------
 
+        #region HandleLicenseStatus
+        /// <summary>
+        /// Common License State Handler
+        /// </summary>
+        private void HandleLicenseStatus()
+        {
+            string strMethod = "HandleLicenseStatus";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Viewer");
+            try
+            {
+                //HenMsgDlg.DisplayWarningDlg("Display License Viewer!");
+                DisplayLicenseForm();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleLicenseStatus
+
+        #region HandleDBConnectionState
+        /// <summary>
+        /// Common Database Connection Handler
+        /// </summary>
+        private void HandleDBConnectionState()
+        {
+            string strMethod = "HandleDBConnectionState";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Handle Database Connection Command");
+            try
+            {
+                //HenMsgDlg.DisplayWarningDlg("Handle Database Connection Command!");
+                //----------------------------------------
+                //--- Display Projects (CATALOG) Panel ---
+                //----------------------------------------
+                this.panelSELECTED_PROJECTS.BringToFront();
+                treeViewCurrentProjectExplorer.SelectedNode = GetRootNode();
+                GetRootNode().EnsureVisible();
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleDBConnectionState
+
         #region HandleProjectDirtyFlagState
         /// <summary>
-        /// Common Project Dirty Falg State Handler
+        /// Common Project Dirty Flag State Handler
         /// </summary>
         private void HandleProjectDirtyFlagState()
         {
             string strMethod = "HandleProjectDirtyFlagState";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Settings");
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Handle Dirty Flag");
             try
             {
                 //HenMsgDlg.DisplayWarningDlg("Handle Project Dirty Falg State Command!");
@@ -1251,6 +1350,31 @@ namespace HenStudio
             }
         }
         #endregion  // HandleProjectDirtyFlagState
+
+        #region HandleAJPContactInfo
+        /// <summary>
+        /// Common AJP Contact Info Handler
+        /// </summary>
+        private void HandleAJPContactInfo()
+        {
+            string strMethod = "HandleLicenseStatus";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display AJP Contact Info");
+            try
+            {
+                //HenMsgDlg.DisplayWarningDlg("Display AJP Contact Info!");
+                DisplayBusinessCardForm();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleAJPContactInfo
 
         //-------------------------
 
@@ -1525,6 +1649,7 @@ namespace HenStudio
         {
             this.treeViewProjectZipExplorer.ExpandAll();
         }
+
         #endregion  // ExpandAllProjectZipExplorer()
 
         #endregion  // PROJECT ZIP (EXPORT | IMPORT) EXPLORER TREE VIEW

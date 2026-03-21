@@ -47,24 +47,24 @@
             this.textBoxUnitsTemp = new System.Windows.Forms.TextBox();
             this.comboBoxUnitsMagnitude = new System.Windows.Forms.ComboBox();
             this.textBoxUnitsMagnitude = new System.Windows.Forms.TextBox();
+            this.pictureBoxUnitsSystem = new System.Windows.Forms.PictureBox();
             this.comboBoxUnitsSystem = new System.Windows.Forms.ComboBox();
             this.textBoxUnitsSystem = new System.Windows.Forms.TextBox();
             this.buttonOK = new System.Windows.Forms.Button();
             this.panelExchanger = new System.Windows.Forms.Panel();
-            this.textBoxExchangerDefaults = new System.Windows.Forms.TextBox();
-            this.textBoxDefaultU = new System.Windows.Forms.TextBox();
-            this.textBoxDefaultU_Units = new System.Windows.Forms.TextBox();
             this.textBoxDefaultU_Value = new System.Windows.Forms.TextBox();
+            this.textBoxDefaultU_Units = new System.Windows.Forms.TextBox();
+            this.textBoxDefaultU = new System.Windows.Forms.TextBox();
+            this.textBoxExchangerDefaults = new System.Windows.Forms.TextBox();
             this.panelDefaultHenOptimizer = new System.Windows.Forms.Panel();
-            this.textBoxDefaultHenOptimizerTitle = new System.Windows.Forms.TextBox();
             this.comboBoxDefaultHenOpitimizer = new System.Windows.Forms.ComboBox();
+            this.textBoxDefaultHenOptimizerTitle = new System.Windows.Forms.TextBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxUnitsSystem = new System.Windows.Forms.PictureBox();
             this.panelProjectUnits.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).BeginInit();
             this.panelExchanger.SuspendLayout();
             this.panelDefaultHenOptimizer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).BeginInit();
             this.SuspendLayout();
             // 
             // panelProjectUnits
@@ -338,6 +338,16 @@
             this.textBoxUnitsMagnitude.Text = "Magnitude: ";
             this.textBoxUnitsMagnitude.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // pictureBoxUnitsSystem
+            // 
+            this.pictureBoxUnitsSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxUnitsSystem.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUnitsSystem.Image")));
+            this.pictureBoxUnitsSystem.Location = new System.Drawing.Point(287, 39);
+            this.pictureBoxUnitsSystem.Name = "pictureBoxUnitsSystem";
+            this.pictureBoxUnitsSystem.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxUnitsSystem.TabIndex = 15;
+            this.pictureBoxUnitsSystem.TabStop = false;
+            // 
             // comboBoxUnitsSystem
             // 
             this.comboBoxUnitsSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -399,17 +409,29 @@
             this.panelExchanger.Size = new System.Drawing.Size(334, 81);
             this.panelExchanger.TabIndex = 17;
             // 
-            // textBoxExchangerDefaults
+            // textBoxDefaultU_Value
             // 
-            this.textBoxExchangerDefaults.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxExchangerDefaults.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxExchangerDefaults.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxExchangerDefaults.Location = new System.Drawing.Point(3, 4);
-            this.textBoxExchangerDefaults.Name = "textBoxExchangerDefaults";
-            this.textBoxExchangerDefaults.Size = new System.Drawing.Size(328, 22);
-            this.textBoxExchangerDefaults.TabIndex = 33;
-            this.textBoxExchangerDefaults.Text = "DEFAULT EXCHANGER PARAMETERS";
-            this.textBoxExchangerDefaults.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxDefaultU_Value.BackColor = System.Drawing.Color.White;
+            this.textBoxDefaultU_Value.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultU_Value.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultU_Value.Location = new System.Drawing.Point(86, 41);
+            this.textBoxDefaultU_Value.Name = "textBoxDefaultU_Value";
+            this.textBoxDefaultU_Value.Size = new System.Drawing.Size(76, 18);
+            this.textBoxDefaultU_Value.TabIndex = 31;
+            this.textBoxDefaultU_Value.Text = "74.0";
+            this.textBoxDefaultU_Value.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxDefaultU_Units
+            // 
+            this.textBoxDefaultU_Units.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxDefaultU_Units.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultU_Units.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultU_Units.Location = new System.Drawing.Point(168, 41);
+            this.textBoxDefaultU_Units.Name = "textBoxDefaultU_Units";
+            this.textBoxDefaultU_Units.ReadOnly = true;
+            this.textBoxDefaultU_Units.Size = new System.Drawing.Size(110, 18);
+            this.textBoxDefaultU_Units.TabIndex = 31;
+            this.textBoxDefaultU_Units.Text = "MMBtu/hr·ft²·°F ";
             // 
             // textBoxDefaultU
             // 
@@ -424,29 +446,17 @@
             this.textBoxDefaultU.Text = "U: ";
             this.textBoxDefaultU.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBoxDefaultU_Units
+            // textBoxExchangerDefaults
             // 
-            this.textBoxDefaultU_Units.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxDefaultU_Units.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDefaultU_Units.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDefaultU_Units.Location = new System.Drawing.Point(168, 41);
-            this.textBoxDefaultU_Units.Name = "textBoxDefaultU_Units";
-            this.textBoxDefaultU_Units.ReadOnly = true;
-            this.textBoxDefaultU_Units.Size = new System.Drawing.Size(110, 18);
-            this.textBoxDefaultU_Units.TabIndex = 31;
-            this.textBoxDefaultU_Units.Text = "MMBtu/hr·ft²·°F ";
-            // 
-            // textBoxDefaultU_Value
-            // 
-            this.textBoxDefaultU_Value.BackColor = System.Drawing.Color.White;
-            this.textBoxDefaultU_Value.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDefaultU_Value.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDefaultU_Value.Location = new System.Drawing.Point(86, 41);
-            this.textBoxDefaultU_Value.Name = "textBoxDefaultU_Value";
-            this.textBoxDefaultU_Value.Size = new System.Drawing.Size(76, 18);
-            this.textBoxDefaultU_Value.TabIndex = 31;
-            this.textBoxDefaultU_Value.Text = "74.0";
-            this.textBoxDefaultU_Value.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxExchangerDefaults.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxExchangerDefaults.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxExchangerDefaults.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxExchangerDefaults.Location = new System.Drawing.Point(3, 4);
+            this.textBoxExchangerDefaults.Name = "textBoxExchangerDefaults";
+            this.textBoxExchangerDefaults.Size = new System.Drawing.Size(328, 22);
+            this.textBoxExchangerDefaults.TabIndex = 33;
+            this.textBoxExchangerDefaults.Text = "DEFAULT EXCHANGER PARAMETERS";
+            this.textBoxExchangerDefaults.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panelDefaultHenOptimizer
             // 
@@ -457,18 +467,6 @@
             this.panelDefaultHenOptimizer.Name = "panelDefaultHenOptimizer";
             this.panelDefaultHenOptimizer.Size = new System.Drawing.Size(334, 86);
             this.panelDefaultHenOptimizer.TabIndex = 18;
-            // 
-            // textBoxDefaultHenOptimizerTitle
-            // 
-            this.textBoxDefaultHenOptimizerTitle.BackColor = System.Drawing.Color.LightCyan;
-            this.textBoxDefaultHenOptimizerTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDefaultHenOptimizerTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDefaultHenOptimizerTitle.Location = new System.Drawing.Point(3, 4);
-            this.textBoxDefaultHenOptimizerTitle.Name = "textBoxDefaultHenOptimizerTitle";
-            this.textBoxDefaultHenOptimizerTitle.Size = new System.Drawing.Size(328, 22);
-            this.textBoxDefaultHenOptimizerTitle.TabIndex = 34;
-            this.textBoxDefaultHenOptimizerTitle.Text = "DEFAULT HEN OPTIMIZER";
-            this.textBoxDefaultHenOptimizerTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // comboBoxDefaultHenOpitimizer
             // 
@@ -486,6 +484,18 @@
             this.comboBoxDefaultHenOpitimizer.Sorted = true;
             this.comboBoxDefaultHenOpitimizer.TabIndex = 35;
             // 
+            // textBoxDefaultHenOptimizerTitle
+            // 
+            this.textBoxDefaultHenOptimizerTitle.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxDefaultHenOptimizerTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultHenOptimizerTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultHenOptimizerTitle.Location = new System.Drawing.Point(3, 4);
+            this.textBoxDefaultHenOptimizerTitle.Name = "textBoxDefaultHenOptimizerTitle";
+            this.textBoxDefaultHenOptimizerTitle.Size = new System.Drawing.Size(328, 22);
+            this.textBoxDefaultHenOptimizerTitle.TabIndex = 34;
+            this.textBoxDefaultHenOptimizerTitle.Text = "DEFAULT HEN OPTIMIZER";
+            this.textBoxDefaultHenOptimizerTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.White;
@@ -497,21 +507,11 @@
             this.pictureBoxLogo.TabIndex = 16;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // pictureBoxUnitsSystem
-            // 
-            this.pictureBoxUnitsSystem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBoxUnitsSystem.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUnitsSystem.Image")));
-            this.pictureBoxUnitsSystem.Location = new System.Drawing.Point(287, 39);
-            this.pictureBoxUnitsSystem.Name = "pictureBoxUnitsSystem";
-            this.pictureBoxUnitsSystem.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxUnitsSystem.TabIndex = 15;
-            this.pictureBoxUnitsSystem.TabStop = false;
-            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(724, 441);
             this.Controls.Add(this.panelDefaultHenOptimizer);
             this.Controls.Add(this.panelExchanger);
@@ -520,7 +520,7 @@
             this.Controls.Add(this.panelProjectUnits);
             this.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(740, 480);
             this.MinimizeBox = false;
@@ -530,12 +530,12 @@
             this.Text = "AJP HEN Studio Settings";
             this.panelProjectUnits.ResumeLayout(false);
             this.panelProjectUnits.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).EndInit();
             this.panelExchanger.ResumeLayout(false);
             this.panelExchanger.PerformLayout();
             this.panelDefaultHenOptimizer.ResumeLayout(false);
             this.panelDefaultHenOptimizer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).EndInit();
             this.ResumeLayout(false);
 
         }

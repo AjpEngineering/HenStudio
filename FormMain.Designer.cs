@@ -37,37 +37,37 @@
             treeNode2});
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
             treeNode4,
             treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
             treeNode3,
+            treeNode26});
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode28});
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode29,
+            treeNode30,
+            treeNode31});
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Projects", 0, 0, new System.Windows.Forms.TreeNode[] {
+            treeNode32,
+            treeNode33,
+            treeNode34});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
             treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
             treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
             treeNode7,
-            treeNode9,
-            treeNode10,
-            treeNode11});
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Projects", 0, 0, new System.Windows.Forms.TreeNode[] {
-            treeNode12,
-            treeNode13,
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
-            treeNode18});
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode19});
+            treeNode9});
             this.contextMenuStripHen = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemCurProjHenRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorCurProjHenRename = new System.Windows.Forms.ToolStripSeparator();
@@ -468,14 +468,14 @@
             this.toolStripSeparator12,
             this.toolStripMenuItemImport});
             this.contextMenuStripProjectCatalog.Name = "contextMenuStripProjectCatalog";
-            this.contextMenuStripProjectCatalog.Size = new System.Drawing.Size(181, 126);
+            this.contextMenuStripProjectCatalog.Size = new System.Drawing.Size(180, 104);
             this.contextMenuStripProjectCatalog.Text = "PROJECT CATALOG";
             // 
             // toolStripMenuItemCollapseAll
             // 
             this.toolStripMenuItemCollapseAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemCollapseAll.Image")));
             this.toolStripMenuItemCollapseAll.Name = "toolStripMenuItemCollapseAll";
-            this.toolStripMenuItemCollapseAll.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemCollapseAll.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItemCollapseAll.Text = "Collapse All";
             this.toolStripMenuItemCollapseAll.Click += new System.EventHandler(this.toolStripMenuItemCollapseAll_Click);
             // 
@@ -483,33 +483,33 @@
             // 
             this.toolStripMenuItemExpandAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemExpandAll.Image")));
             this.toolStripMenuItemExpandAll.Name = "toolStripMenuItemExpandAll";
-            this.toolStripMenuItemExpandAll.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemExpandAll.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItemExpandAll.Text = "Expand All";
             this.toolStripMenuItemExpandAll.Click += new System.EventHandler(this.toolStripMenuItemExpandAll_Click);
             // 
             // toolStripSeparatorExpandCollapse
             // 
             this.toolStripSeparatorExpandCollapse.Name = "toolStripSeparatorExpandCollapse";
-            this.toolStripSeparatorExpandCollapse.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparatorExpandCollapse.Size = new System.Drawing.Size(176, 6);
             // 
             // toolStripMenuItemAddProject
             // 
             this.toolStripMenuItemAddProject.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemAddProject.Image")));
             this.toolStripMenuItemAddProject.Name = "toolStripMenuItemAddProject";
-            this.toolStripMenuItemAddProject.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemAddProject.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItemAddProject.Text = "Add New Project...";
             this.toolStripMenuItemAddProject.Click += new System.EventHandler(this.toolStripMenuItemAddProject_Click);
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(176, 6);
             // 
             // toolStripMenuItemImport
             // 
             this.toolStripMenuItemImport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemImport.Image")));
             this.toolStripMenuItemImport.Name = "toolStripMenuItemImport";
-            this.toolStripMenuItemImport.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemImport.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItemImport.Text = "Import Zip Project...";
             // 
             // menuStripMainCatalog
@@ -823,6 +823,8 @@
             this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(100, 36);
             this.toolStripStatusLabelLICENSE.Text = "LICENSE ";
+            this.toolStripStatusLabelLICENSE.Click += new System.EventHandler(this.toolStripStatusLabelLICENSE_Click);
+            this.toolStripStatusLabelLICENSE.DoubleClick += new System.EventHandler(this.toolStripStatusLabelLICENSE_DoubleClick);
             // 
             // toolStripStatusLabelCAT_DB
             // 
@@ -838,8 +840,10 @@
             this.toolStripStatusLabelCAT_DB.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelCAT_DB.Name = "toolStripStatusLabelCAT_DB";
             this.toolStripStatusLabelCAT_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(131, 36);
-            this.toolStripStatusLabelCAT_DB.Text = "CATALOG DB";
+            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(130, 36);
+            this.toolStripStatusLabelCAT_DB.Text = "CONNECTED";
+            this.toolStripStatusLabelCAT_DB.Click += new System.EventHandler(this.toolStripStatusLabelCAT_DB_Click);
+            this.toolStripStatusLabelCAT_DB.DoubleClick += new System.EventHandler(this.toolStripStatusLabelCAT_DB_DoubleClick);
             // 
             // toolStripStatusLabelProjectDirtyFlag
             // 
@@ -946,6 +950,8 @@
             this.toolStripStatusLabelAJP_LOGO.Spring = true;
             this.toolStripStatusLabelAJP_LOGO.Text = "Engineering  ";
             this.toolStripStatusLabelAJP_LOGO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabelAJP_LOGO.Click += new System.EventHandler(this.toolStripStatusLabelAJP_LOGO_Click);
+            this.toolStripStatusLabelAJP_LOGO.DoubleClick += new System.EventHandler(this.toolStripStatusLabelAJP_LOGO_DoubleClick);
             // 
             // imageListAnalysis
             // 
@@ -1000,9 +1006,9 @@
             // splitContainerLefCenter.Panel2
             // 
             this.splitContainerLefCenter.Panel2.BackColor = System.Drawing.Color.Honeydew;
+            this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROJECTS);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROFILE);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROJECT);
-            this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROJECTS);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_HEN);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PINCH);
             this.splitContainerLefCenter.Panel2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1077,58 +1083,58 @@
             treeNode5.Name = "NodeProfile_01_Pinch_02_Hen_02";
             treeNode5.SelectedImageIndex = 8;
             treeNode5.Text = "Hen: MER Design";
-            treeNode6.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode6.ImageIndex = 5;
-            treeNode6.Name = "NodeProfile_01_Pinch_02";
-            treeNode6.SelectedImageIndex = 6;
-            treeNode6.Text = "Pinch: Delta T=20";
-            treeNode7.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode7.ImageIndex = 3;
-            treeNode7.Name = "NodeProfile_01";
-            treeNode7.SelectedImageIndex = 4;
-            treeNode7.Text = "Profile: Q1 Setup";
-            treeNode8.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode8.ImageIndex = 5;
-            treeNode8.Name = "NodeProfile_02_Pinch_01";
-            treeNode8.SelectedImageIndex = 6;
-            treeNode8.Text = "Pinch: Delta T=10";
-            treeNode9.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode9.ImageIndex = 3;
-            treeNode9.Name = "NodeProfile_02";
-            treeNode9.SelectedImageIndex = 4;
-            treeNode9.Text = "Profile: Q2 Setup";
-            treeNode10.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode10.ImageIndex = 3;
-            treeNode10.Name = "NodeProfile_03";
-            treeNode10.SelectedImageIndex = 4;
-            treeNode10.Text = "Profile: Q3 Setup";
-            treeNode11.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode11.ImageIndex = 3;
-            treeNode11.Name = "NodeProfile_04";
-            treeNode11.SelectedImageIndex = 4;
-            treeNode11.Text = "Profile: Q4 Setup";
-            treeNode12.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode12.ImageIndex = 1;
-            treeNode12.Name = "NodeProject02";
-            treeNode12.SelectedImageIndex = 2;
-            treeNode12.Text = "Project: Deer Park";
-            treeNode13.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode13.ImageIndex = 1;
-            treeNode13.Name = "NodeProject02";
-            treeNode13.SelectedImageIndex = 2;
-            treeNode13.Text = "Project: Convent";
-            treeNode14.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode14.ImageIndex = 1;
-            treeNode14.Name = "NodeProject03";
-            treeNode14.SelectedImageIndex = 2;
-            treeNode14.Text = "Project: Norco";
-            treeNode15.ContextMenuStrip = this.contextMenuStripProjectCatalog;
-            treeNode15.ImageIndex = 0;
-            treeNode15.Name = "NodeRootProjects";
-            treeNode15.SelectedImageIndex = 0;
-            treeNode15.Text = "Projects";
+            treeNode26.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode26.ImageIndex = 5;
+            treeNode26.Name = "NodeProfile_01_Pinch_02";
+            treeNode26.SelectedImageIndex = 6;
+            treeNode26.Text = "Pinch: Delta T=20";
+            treeNode27.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode27.ImageIndex = 3;
+            treeNode27.Name = "NodeProfile_01";
+            treeNode27.SelectedImageIndex = 4;
+            treeNode27.Text = "Profile: Q1 Setup";
+            treeNode28.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode28.ImageIndex = 5;
+            treeNode28.Name = "NodeProfile_02_Pinch_01";
+            treeNode28.SelectedImageIndex = 6;
+            treeNode28.Text = "Pinch: Delta T=10";
+            treeNode29.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode29.ImageIndex = 3;
+            treeNode29.Name = "NodeProfile_02";
+            treeNode29.SelectedImageIndex = 4;
+            treeNode29.Text = "Profile: Q2 Setup";
+            treeNode30.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode30.ImageIndex = 3;
+            treeNode30.Name = "NodeProfile_03";
+            treeNode30.SelectedImageIndex = 4;
+            treeNode30.Text = "Profile: Q3 Setup";
+            treeNode31.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode31.ImageIndex = 3;
+            treeNode31.Name = "NodeProfile_04";
+            treeNode31.SelectedImageIndex = 4;
+            treeNode31.Text = "Profile: Q4 Setup";
+            treeNode32.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode32.ImageIndex = 1;
+            treeNode32.Name = "NodeProject02";
+            treeNode32.SelectedImageIndex = 2;
+            treeNode32.Text = "Project: Deer Park";
+            treeNode33.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode33.ImageIndex = 1;
+            treeNode33.Name = "NodeProject02";
+            treeNode33.SelectedImageIndex = 2;
+            treeNode33.Text = "Project: Convent";
+            treeNode34.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode34.ImageIndex = 1;
+            treeNode34.Name = "NodeProject03";
+            treeNode34.SelectedImageIndex = 2;
+            treeNode34.Text = "Project: Norco";
+            treeNode35.ContextMenuStrip = this.contextMenuStripProjectCatalog;
+            treeNode35.ImageIndex = 0;
+            treeNode35.Name = "NodeRootProjects";
+            treeNode35.SelectedImageIndex = 0;
+            treeNode35.Text = "Projects";
             this.treeViewCurrentProjectExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode15});
+            treeNode35});
             this.treeViewCurrentProjectExplorer.SelectedImageIndex = 0;
             this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(337, 386);
             this.treeViewCurrentProjectExplorer.TabIndex = 1;
@@ -1161,32 +1167,32 @@
             this.treeViewProjectZipExplorer.Location = new System.Drawing.Point(6, 6);
             this.treeViewProjectZipExplorer.Margin = new System.Windows.Forms.Padding(6);
             this.treeViewProjectZipExplorer.Name = "treeViewProjectZipExplorer";
-            treeNode16.ImageKey = "Project_16x16.ico";
-            treeNode16.Name = "NodeZipExport01";
-            treeNode16.SelectedImageKey = "Project_16x16.ico";
-            treeNode16.Text = "Deer Park Analysis - 20260311.zip";
-            treeNode16.ToolTipText = "Zip File";
-            treeNode17.ImageKey = "ExportZIP_16x16.ico";
-            treeNode17.Name = "NodeEXPORT";
-            treeNode17.SelectedImageKey = "ExportZIP_16x16.ico";
-            treeNode17.Text = "EXPORT";
-            treeNode17.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
-            treeNode18.ImageKey = "Project_16x16.ico";
-            treeNode18.Name = "NodeImportZip01";
-            treeNode18.SelectedImageKey = "Project_16x16.ico";
-            treeNode18.Text = "DeerPark Analysis - 20260310";
-            treeNode19.ImageKey = "ImportZIP_16x16.ico";
-            treeNode19.Name = "NodeIMPORT";
-            treeNode19.SelectedImageKey = "ImportZIP_16x16.ico";
-            treeNode19.Text = "IMPORT";
-            treeNode19.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
-            treeNode20.ImageKey = "ZipFolder_16x16.ico";
-            treeNode20.Name = "NodeRoot";
-            treeNode20.SelectedImageKey = "ZipFolder_16x16.ico";
-            treeNode20.Text = "Project ZIP Files";
-            treeNode20.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
+            treeNode6.ImageKey = "Project_16x16.ico";
+            treeNode6.Name = "NodeZipExport01";
+            treeNode6.SelectedImageKey = "Project_16x16.ico";
+            treeNode6.Text = "Deer Park Analysis - 20260311.zip";
+            treeNode6.ToolTipText = "Zip File";
+            treeNode7.ImageKey = "ExportZIP_16x16.ico";
+            treeNode7.Name = "NodeEXPORT";
+            treeNode7.SelectedImageKey = "ExportZIP_16x16.ico";
+            treeNode7.Text = "EXPORT";
+            treeNode7.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
+            treeNode8.ImageKey = "Project_16x16.ico";
+            treeNode8.Name = "NodeImportZip01";
+            treeNode8.SelectedImageKey = "Project_16x16.ico";
+            treeNode8.Text = "DeerPark Analysis - 20260310";
+            treeNode9.ImageKey = "ImportZIP_16x16.ico";
+            treeNode9.Name = "NodeIMPORT";
+            treeNode9.SelectedImageKey = "ImportZIP_16x16.ico";
+            treeNode9.Text = "IMPORT";
+            treeNode9.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
+            treeNode10.ImageKey = "ZipFolder_16x16.ico";
+            treeNode10.Name = "NodeRoot";
+            treeNode10.SelectedImageKey = "ZipFolder_16x16.ico";
+            treeNode10.Text = "Project ZIP Files";
+            treeNode10.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
             this.treeViewProjectZipExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode20});
+            treeNode10});
             this.treeViewProjectZipExplorer.SelectedImageIndex = 0;
             this.treeViewProjectZipExplorer.Size = new System.Drawing.Size(337, 201);
             this.treeViewProjectZipExplorer.TabIndex = 0;
@@ -1997,7 +2003,7 @@
             this.textBoxProjectsBanner.Name = "textBoxProjectsBanner";
             this.textBoxProjectsBanner.Size = new System.Drawing.Size(828, 33);
             this.textBoxProjectsBanner.TabIndex = 10;
-            this.textBoxProjectsBanner.Text = "PROJECTS DB";
+            this.textBoxProjectsBanner.Text = "PROJECTS DATABASE";
             this.textBoxProjectsBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panelSELECTED_HEN
