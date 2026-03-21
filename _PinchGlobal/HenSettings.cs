@@ -292,13 +292,13 @@ namespace HenGlobal
         public HenTypes.DbConnected CatalogDbConnectedEnum { get; set; } // Catalog DB Connected [UNKNOWN | UNCONNECTED | CONNECTED]
         #endregion  // CatalogDbConnectedEnum
 
-        #region ProjectDbConnectedEnum
+        #region ProjectDirtyFlagStateEnum
         /// <summary>
-        /// Project Database Connected Flag ... [UNKNOWN = -1 | UNCONNECTED = 0 | CONNECTED = 1]
+        /// Project Dirty Flag State [ UNKNOWN = -1 | UPDATE = 0 | UPDATED = 1 ]
         /// Used in Status Bar display
         /// </summary>
-        public HenTypes.DbConnected ProjectDbConnectedEnum { get; set; } // Project DB Connected [UNKNOWN | UNCONNECTED | CONNECTED]
-        #endregion  // DbConnectedEnum
+        public HenTypes.ProjectDirtyFlagState ProjectDirtyFlagStateEnum { get; set; } // Project Dirty Flag State [ UNKNOWN = -1 | UPDATE = 0 | UPDATED = 1 ]
+        #endregion  // ProjectDirtyFlagStateEnum
 
         #region ProjectUnitsEnum
         /// <summary>

@@ -247,6 +247,15 @@ namespace HenStudio
                 UpdateCatalogDbConnectLabel();    // Initialize Catalog Database Connected Status Bar Label
                 #endregion  // Initialize Catalog DB Connected Status Bar Label
 
+                #region Initialize Project Dirty Flag State Status Bar Label
+                //------------------------------------------------------------
+                //--- Initialize Project Dirty Flag State Status Bar Label ---
+                //------------------------------------------------------------
+                //HenSettingsObj.ProjectDirtyFlagStateEnum = HenTypes.ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = HenTypes.ProjectDirtyFlagState.UPDATED;
+                UpdateProjectDirtyFlagLabel();    // Initialize Project Dirty Flag State Status Bar Label
+                #endregion  // Initialize Project Dirty Flag State Status Bar Label
+
                 #region Initialize Catalog-Project Level Status Bar Label
                 //---------------------------------------------------------
                 //--- Initialize Catalog-Project Level Status Bar Label ---
@@ -555,7 +564,7 @@ namespace HenStudio
         private void UpdateCatalogDbConnectLabel()
         {
             string strMethod = "UpdateCatalogDbConnectLabel";
-            string strDbConnected = String.Format(" PROJECTS DB ");
+            string strDbConnected = String.Format(" CONNECTED ");
             try
             {
                 this.toolStripStatusLabelCAT_DB.Text = strDbConnected;
@@ -592,6 +601,51 @@ namespace HenStudio
             }
         }
         #endregion  // UpdateCatalogDbConnectLabel() ... CAT_DB
+
+        #region UpdateProjectDirtyFlagLabel() ... PROJ_DIRTY
+        /// <summary>
+        /// Update the Projects Dirty Flag State Status Bar Label using Global Setting
+        /// </summary>
+        private void UpdateProjectDirtyFlagLabel()
+        {
+            string strMethod = "UpdateProjectDirtyFlagLabel";
+            string strDirtyFlag = String.Format("UPDATED");
+            try
+            {
+                this.toolStripStatusLabelProjectDirtyFlag.Text = strDirtyFlag;
+
+                switch (HenSettingsObj.ProjectDirtyFlagStateEnum)
+                {
+                    case HenTypes.ProjectDirtyFlagState.UNKNOWN:
+                        this.toolStripStatusLabelProjectDirtyFlag.BackColor = Color.Orange;
+                        this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
+                        this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.UNKNOWN_32x32;
+                        break;
+                    case HenTypes.ProjectDirtyFlagState.UPDATE:
+                        this.toolStripStatusLabelProjectDirtyFlag.BackColor = Color.Red;
+                        this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
+                        this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.NotValid_32x32;
+                        break;
+                    case HenTypes.ProjectDirtyFlagState.UPDATED:
+                        this.toolStripStatusLabelProjectDirtyFlag.BackColor = Color.Green;
+                        this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
+                        this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.Valid_32x32;
+                        break;
+                    default:
+                        throw new Exception("INVALID Project Dirty Flag State Enum Value!");
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateProjectDirtyFlagLabel() ... PROJ_DIRTY
 
         #region UpdateProjectLevelStatusBarLabel() ... [LEVEL_PROJECT, LEVEL_PROFILE, LEVEL_PINCH, LEVEL_HEN]
         /// <summary>

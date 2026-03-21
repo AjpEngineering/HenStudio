@@ -111,6 +111,22 @@ namespace HenGlobal
 
         #endregion  // DB CONNECTED
 
+        #region PROJECT DIRTY FLAG STATE
+
+        #region enum ProjectDirtyFlagState
+        /// <summary>
+        /// ENUMERATION: Project Dirty Flag State [ UNKNOWN = -1 | UPDATE = 0 | UPDATED = 1 ]
+        /// </summary>
+        public enum ProjectDirtyFlagState
+        {
+            UNKNOWN = -1,    // UNKNOWN Dirty Flag State
+            UPDATE = 0,      // UPDATE  Project Data ... DirtyFlag = true  ... DB Needs to be Synched
+            UPDATED = 1      // UPDATED Project Data ... DirtyFlag = false ... DB Synched
+        };
+        #endregion      // enum ProjectDirtyFlagState
+
+        #endregion  // PROJECT DIRTY FLAG STATE
+
         #region UNITS
 
         #region enum ProjectUnits
