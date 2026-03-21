@@ -140,6 +140,7 @@
             this.statusStripMainDASHBOARD = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelLICENSE = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelCAT_DB = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelProjectDirtyFlag = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelLEVEL_PROJECT = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelLEVEL_PROFILE = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelLEVEL_PINCH = new System.Windows.Forms.ToolStripStatusLabel();
@@ -220,7 +221,6 @@
             this.textBoxPinchBanner = new System.Windows.Forms.TextBox();
             this.pictureBoxOpenedPinch = new System.Windows.Forms.PictureBox();
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
-            this.toolStripStatusLabelProjectDirtyFlag = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStripHen.SuspendLayout();
             this.contextMenuStripPinch.SuspendLayout();
             this.contextMenuStripProfile.SuspendLayout();
@@ -468,14 +468,14 @@
             this.toolStripSeparator12,
             this.toolStripMenuItemImport});
             this.contextMenuStripProjectCatalog.Name = "contextMenuStripProjectCatalog";
-            this.contextMenuStripProjectCatalog.Size = new System.Drawing.Size(180, 104);
+            this.contextMenuStripProjectCatalog.Size = new System.Drawing.Size(181, 126);
             this.contextMenuStripProjectCatalog.Text = "PROJECT CATALOG";
             // 
             // toolStripMenuItemCollapseAll
             // 
             this.toolStripMenuItemCollapseAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemCollapseAll.Image")));
             this.toolStripMenuItemCollapseAll.Name = "toolStripMenuItemCollapseAll";
-            this.toolStripMenuItemCollapseAll.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemCollapseAll.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemCollapseAll.Text = "Collapse All";
             this.toolStripMenuItemCollapseAll.Click += new System.EventHandler(this.toolStripMenuItemCollapseAll_Click);
             // 
@@ -483,33 +483,33 @@
             // 
             this.toolStripMenuItemExpandAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemExpandAll.Image")));
             this.toolStripMenuItemExpandAll.Name = "toolStripMenuItemExpandAll";
-            this.toolStripMenuItemExpandAll.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemExpandAll.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemExpandAll.Text = "Expand All";
             this.toolStripMenuItemExpandAll.Click += new System.EventHandler(this.toolStripMenuItemExpandAll_Click);
             // 
             // toolStripSeparatorExpandCollapse
             // 
             this.toolStripSeparatorExpandCollapse.Name = "toolStripSeparatorExpandCollapse";
-            this.toolStripSeparatorExpandCollapse.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparatorExpandCollapse.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripMenuItemAddProject
             // 
             this.toolStripMenuItemAddProject.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemAddProject.Image")));
             this.toolStripMenuItemAddProject.Name = "toolStripMenuItemAddProject";
-            this.toolStripMenuItemAddProject.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemAddProject.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemAddProject.Text = "Add New Project...";
             this.toolStripMenuItemAddProject.Click += new System.EventHandler(this.toolStripMenuItemAddProject_Click);
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripMenuItemImport
             // 
             this.toolStripMenuItemImport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemImport.Image")));
             this.toolStripMenuItemImport.Name = "toolStripMenuItemImport";
-            this.toolStripMenuItemImport.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemImport.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemImport.Text = "Import Zip Project...";
             // 
             // menuStripMainCatalog
@@ -841,6 +841,23 @@
             this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(131, 36);
             this.toolStripStatusLabelCAT_DB.Text = "CATALOG DB";
             // 
+            // toolStripStatusLabelProjectDirtyFlag
+            // 
+            this.toolStripStatusLabelProjectDirtyFlag.BackColor = System.Drawing.Color.Green;
+            this.toolStripStatusLabelProjectDirtyFlag.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
+            this.toolStripStatusLabelProjectDirtyFlag.DoubleClickEnabled = true;
+            this.toolStripStatusLabelProjectDirtyFlag.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelProjectDirtyFlag.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelProjectDirtyFlag.Image = global::HenStudio.Properties.Resources.Valid_32x32;
+            this.toolStripStatusLabelProjectDirtyFlag.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabelProjectDirtyFlag.Margin = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelProjectDirtyFlag.Name = "toolStripStatusLabelProjectDirtyFlag";
+            this.toolStripStatusLabelProjectDirtyFlag.Padding = new System.Windows.Forms.Padding(3);
+            this.toolStripStatusLabelProjectDirtyFlag.Size = new System.Drawing.Size(101, 36);
+            this.toolStripStatusLabelProjectDirtyFlag.Text = "UPDATED";
+            this.toolStripStatusLabelProjectDirtyFlag.Click += new System.EventHandler(this.toolStripStatusLabelProjectDirtyFlag_Click);
+            this.toolStripStatusLabelProjectDirtyFlag.DoubleClick += new System.EventHandler(this.toolStripStatusLabelProjectDirtyFlag_DoubleClick);
+            // 
             // toolStripStatusLabelLEVEL_PROJECT
             // 
             this.toolStripStatusLabelLEVEL_PROJECT.BackColor = System.Drawing.Color.White;
@@ -925,7 +942,7 @@
             this.toolStripStatusLabelAJP_LOGO.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripStatusLabelAJP_LOGO.Name = "toolStripStatusLabelAJP_LOGO";
             this.toolStripStatusLabelAJP_LOGO.Padding = new System.Windows.Forms.Padding(6);
-            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(387, 36);
+            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(418, 36);
             this.toolStripStatusLabelAJP_LOGO.Spring = true;
             this.toolStripStatusLabelAJP_LOGO.Text = "Engineering  ";
             this.toolStripStatusLabelAJP_LOGO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2067,20 +2084,6 @@
             this.imageListProject.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListProject.Images.SetKeyName(0, "Project Explorer...32x32.png");
             this.imageListProject.Images.SetKeyName(1, "Project...32x32.png");
-            // 
-            // toolStripStatusLabelProjectDirtyFlag
-            // 
-            this.toolStripStatusLabelProjectDirtyFlag.BackColor = System.Drawing.Color.Green;
-            this.toolStripStatusLabelProjectDirtyFlag.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
-            this.toolStripStatusLabelProjectDirtyFlag.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelProjectDirtyFlag.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelProjectDirtyFlag.Image = global::HenStudio.Properties.Resources.Valid_32x32;
-            this.toolStripStatusLabelProjectDirtyFlag.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolStripStatusLabelProjectDirtyFlag.Margin = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelProjectDirtyFlag.Name = "toolStripStatusLabelProjectDirtyFlag";
-            this.toolStripStatusLabelProjectDirtyFlag.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelProjectDirtyFlag.Size = new System.Drawing.Size(101, 36);
-            this.toolStripStatusLabelProjectDirtyFlag.Text = "UPDATED";
             // 
             // FormMain
             // 

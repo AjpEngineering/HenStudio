@@ -677,6 +677,12 @@ namespace HenStudio
                 //---------------------------------------------------
                 TreeNode parentNode = GetRootNode();
                 nDisplayNodeID = AddProjectNode(parentNode, strDisplayName, dataTagDisplayObj);
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -733,6 +739,12 @@ namespace HenStudio
                 //------------------------------------------------------
                 TreeNode parentNode = GetSelectedNode();
                 nProfileNodeID = AddProfileNode(parentNode, strDisplayName, dataTagDisplayObj);
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -789,6 +801,12 @@ namespace HenStudio
                 //----------------------------------------------------
                 TreeNode parentNode = GetSelectedNode();
                 nPinchNodeID = AddPinchNode(parentNode, strDisplayName, dataTagDisplayObj);
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -845,6 +863,12 @@ namespace HenStudio
                 //------------------------------------------------
                 TreeNode parentNode = GetSelectedNode();
                 nHenNodeID = AddHenNode(parentNode, strDisplayName, dataTagDisplayObj);
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -880,6 +904,12 @@ namespace HenStudio
                 //--- Delete the Selected Project Tree Node and All Sub Nodes from the Tree ---
                 //-----------------------------------------------------------------------------
                 DeleteSelectedNode();
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -911,6 +941,12 @@ namespace HenStudio
                 //--- Delete the Selected Profile Tree Node and All Sub Nodes from the Tree ---
                 //-----------------------------------------------------------------------------
                 DeleteSelectedNode();
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -942,6 +978,12 @@ namespace HenStudio
                 //--- Delete the Selected Pinch Tree Node and All Sub Nodes from the Tree ---
                 //---------------------------------------------------------------------------
                 DeleteSelectedNode();
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -973,6 +1015,12 @@ namespace HenStudio
                 //--- Delete the Selected HEN Tree Node from the Tree ---
                 //-------------------------------------------------------
                 DeleteSelectedNode();
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -1027,7 +1075,12 @@ namespace HenStudio
                     node.Text = strNewDisplayName;
                     ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
                 }
-                
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -1078,6 +1131,12 @@ namespace HenStudio
                     node.Text = strNewDisplayName;
                     ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
                 }
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -1128,6 +1187,12 @@ namespace HenStudio
                     node.Text = strNewDisplayName;
                     ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
                 }
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -1178,6 +1243,12 @@ namespace HenStudio
                     node.Text = strNewDisplayName;
                     ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
                 }
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {

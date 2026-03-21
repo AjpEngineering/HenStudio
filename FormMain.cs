@@ -320,7 +320,6 @@ namespace HenStudio
             {
                 this.Text = "AJP HEN Studio";
                 this.BackColor = ColorPanelGreenBackground; // Form Background Color
-
             }
             catch (Exception ex)
             {
@@ -609,24 +608,24 @@ namespace HenStudio
         private void UpdateProjectDirtyFlagLabel()
         {
             string strMethod = "UpdateProjectDirtyFlagLabel";
-            string strDirtyFlag = String.Format("UPDATED");
             try
             {
-                this.toolStripStatusLabelProjectDirtyFlag.Text = strDirtyFlag;
-
                 switch (HenSettingsObj.ProjectDirtyFlagStateEnum)
                 {
                     case HenTypes.ProjectDirtyFlagState.UNKNOWN:
+                        this.toolStripStatusLabelProjectDirtyFlag.Text = "UNKNOWN";
                         this.toolStripStatusLabelProjectDirtyFlag.BackColor = Color.Orange;
                         this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
                         this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.UNKNOWN_32x32;
                         break;
                     case HenTypes.ProjectDirtyFlagState.UPDATE:
+                        this.toolStripStatusLabelProjectDirtyFlag.Text = "UPDATE";
                         this.toolStripStatusLabelProjectDirtyFlag.BackColor = Color.Red;
                         this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
                         this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.NotValid_32x32;
                         break;
                     case HenTypes.ProjectDirtyFlagState.UPDATED:
+                        this.toolStripStatusLabelProjectDirtyFlag.Text = "UPDATED";
                         this.toolStripStatusLabelProjectDirtyFlag.BackColor = Color.Green;
                         this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
                         this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.Valid_32x32;
@@ -897,6 +896,26 @@ namespace HenStudio
         #endregion  // HELP MENU ITEMS
 
         #endregion  // MENU BAR EVENTS
+
+        #region STATUS BAR EVENTS
+
+        #region PROJECT DIRTY FLAG CLICK
+        private void toolStripStatusLabelProjectDirtyFlag_Click(object sender, EventArgs e)
+        {
+            //HenMsgDlg.DisplayWarningDlg("PROJECT DIRTY FLAG CLICK EVENT");
+            HandleProjectDirtyFlagState();
+        }
+        #endregion  // PROJECT DIRTY FLAG CLICK
+
+        #region PROJECT DIRTY FLAG DOUBLE CLICK
+        private void toolStripStatusLabelProjectDirtyFlag_DoubleClick(object sender, EventArgs e)
+        {
+            //HenMsgDlg.DisplayWarningDlg("PROJECT DIRTY FLAG DOUBLE CLICK EVENT");
+            HandleProjectDirtyFlagState();
+        }
+        #endregion  // PROJECT DIRTY FLAG DOUBLE CLICK
+
+        #endregion  // STATUS BAR EVENTS
 
         #endregion      // EVENT HANDLERS
 
@@ -1188,17 +1207,38 @@ namespace HenStudio
 
         //-------------------------
 
-        #region HandleSettings
+        #region HandleProjectDirtyFlagState
         /// <summary>
-        /// Common Display Settings Command Handler
+        /// Common Project Dirty Falg State Handler
         /// </summary>
-        private void HandleSettings()
+        private void HandleProjectDirtyFlagState()
         {
-            string strMethod = "HandleSettings";
+            string strMethod = "HandleProjectDirtyFlagState";
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Settings");
             try
             {
-                HenMsgDlg.DisplayWarningDlg("Handle Settings Command!");
+                //HenMsgDlg.DisplayWarningDlg("Handle Project Dirty Falg State Command!");
+                switch(HenSettingsObj.ProjectDirtyFlagStateEnum)
+                {
+                    case ProjectDirtyFlagState.UPDATE:
+                        //---------------------------
+                        //--- Update the Database ---
+                        //---------------------------
+                        HenMsgDlg.DisplayWarningDlg("Update the Database!");
+                        //-------------------------------------------------------
+                        //--- Change Dirty Flag State & Update the Status Bar ---
+                        //-------------------------------------------------------
+                        HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATED;
+                        UpdateProjectDirtyFlagLabel();
+                        break;
+                    case ProjectDirtyFlagState.UPDATED:
+                        //---------------------------------------
+                        //--- Alreadly Updated ... Do Nothing ---
+                        //---------------------------------------
+                        break;
+                    default:
+                        throw new Exception("UNKNOWN Dirty Flag Status Encountered!");                        
+                }
             }
             catch (Exception ex)
             {
@@ -1210,7 +1250,7 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // HandleSettings
+        #endregion  // HandleProjectDirtyFlagState
 
         //-------------------------
 
