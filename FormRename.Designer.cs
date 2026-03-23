@@ -107,7 +107,7 @@
             this.Controls.Add(this.textBoxRenameLabel);
             this.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(380, 135);
             this.MinimizeBox = false;
@@ -115,7 +115,7 @@
             this.Name = "FormRename";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rename *";
             this.ResumeLayout(false);
             this.PerformLayout();

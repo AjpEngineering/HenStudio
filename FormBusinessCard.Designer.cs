@@ -47,7 +47,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 520);
             this.Name = "FormBusinessCard";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AJP Engineering Contact Info";
             this.ResumeLayout(false);
 

@@ -564,7 +564,7 @@ namespace HenStudio
         private void UpdateCatalogDbConnectLabel()
         {
             string strMethod = "UpdateCatalogDbConnectLabel";
-            string strDbConnected = String.Format(" CONNECTED ");
+            string strDbConnected = String.Format(" DISCONNECTED ");
             try
             {
                 this.toolStripStatusLabelCAT_DB.Text = strDbConnected;
@@ -572,16 +572,19 @@ namespace HenStudio
                 switch (HenSettingsObj.CatalogDbConnectedEnum)
                 {
                     case HenTypes.DbConnected.UNKNOWN:
+                        strDbConnected = String.Format(" UNKNOWN ");
                         this.toolStripStatusLabelCAT_DB.BackColor = Color.Orange;
                         this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
                         this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.UNKNOWN_32x32;
                         break;
                     case HenTypes.DbConnected.UNCONNECTED:
+                        strDbConnected = String.Format(" DISCONNECTED ");
                         this.toolStripStatusLabelCAT_DB.BackColor = Color.Red;
                         this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
                         this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.NotValid_32x32;
                         break;
                     case HenTypes.DbConnected.CONNECTED:
+                        strDbConnected = String.Format(" CONNECTED ");
                         this.toolStripStatusLabelCAT_DB.BackColor = Color.Green;
                         this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
                         this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.Valid_32x32;
@@ -598,6 +601,7 @@ namespace HenStudio
             }
             finally
             {
+                this.toolStripStatusLabelCAT_DB.Text = strDbConnected;
             }
         }
         #endregion  // UpdateCatalogDbConnectLabel() ... CAT_DB
@@ -1658,6 +1662,167 @@ namespace HenStudio
         #endregion  // ExpandAllProjectZipExplorer()
 
         #endregion  // PROJECT ZIP (EXPORT | IMPORT) EXPLORER TREE VIEW
+
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        //----------------------------------------- CATALOG (Projects) Panel---
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+        #region CATALOG (Projects) Panel
+
+        #region SetConnectButtonText()
+        private void SetConnectButtonText()
+        {
+            string strMethod = "SetConnectButtonText";
+            string strBtnText = string.Empty;
+            try
+            {
+                switch(HenSettingsObj.CatalogDbConnectedEnum)
+                {
+                    case DbConnected.CONNECTED:
+                        strBtnText = "  DISCONNECT FROM DATABASE";
+                        break;
+                    
+                    case DbConnected.UNCONNECTED:
+                        strBtnText = "  CONNECT TO DATABASE";
+                        break;
+                    
+                    default:
+                        strBtnText = "UNKNOWN";
+                        break;
+                }
+                buttonConnection.Text = strBtnText;
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                UpdateCatalogDbConnectLabel();
+            }
+        }
+        #endregion  // SetConnectButtonText()
+
+        #region CLICK CONNECTION BUTTON EVENT
+        private void buttonConnection_Click(object sender, EventArgs e)
+        {
+            string strMethod = "buttonConnection_Click";
+            try
+            {
+                if (HenSettingsObj.CatalogDbConnectedEnum == DbConnected.UNCONNECTED)
+                {
+                    #region NOT CONNECTED
+                    //=========================================
+                    //--- Catalog Database is NOT CONNECTED ---
+                    //=========================================
+
+                    //--------------------------
+                    //--- Attempt to Connect ---
+                    //--------------------------
+                    HandleConnectToDB();
+                }
+                #endregion  // NOT CONNECTED
+
+                else if (HenSettingsObj.CatalogDbConnectedEnum == DbConnected.CONNECTED)
+                {
+                    #region CONNECTED
+                    //=====================================
+                    //--- Catalog Database is CONNECTED ---
+                    //=====================================
+
+                    //-----------------------------
+                    //--- Attempt to Disconnect ---
+                    //-----------------------------
+                    HandleDisconnectFromDB();
+                }
+                #endregion  // CONNECTED
+
+                else
+                {
+                    throw new Exception("INVALID CONNECTION STATE!");
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // CLICK CONNECTION BUTTON EVENT
+
+        #region HandleConnectToDB()
+        private void HandleConnectToDB()
+        {
+            string strMethod = "HandleConnectToDB";
+            try
+            {
+                //-------------------------------
+                //--- CONNECT to the Database ---
+                //-------------------------------
+                HenMsgDlg.DisplayWarningDlg("Handle Connect To Database!");
+
+                HenSettingsObj.CatalogDbConnectedEnum = DbConnected.CONNECTED;      // Successful Connection
+                //HenSettingsObj.CatalogDbConnectedEnum = DbConnected.UNCONNECTED;      // Unsuccessful Connection
+
+                //--------------------------
+                //--- Toggle Button Text ---
+                //--------------------------
+                SetConnectButtonText();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleConnectToDB()
+
+        #region HandleDisconnectFromDB()
+        private void HandleDisconnectFromDB()
+        {
+            string strMethod = "HandleDisconnectFromDB";
+            try
+            {
+                HenMsgDlg.DisplayWarningDlg("Handle Disconnect From Database!");
+
+                HenSettingsObj.CatalogDbConnectedEnum = DbConnected.UNCONNECTED;      // Successful Disconnection
+                //HenSettingsObj.CatalogDbConnectedEnum = DbConnected.CONNECTED;      // Unsuccessful Disconnection
+
+                //--------------------------
+                //--- Toggle Button Text ---
+                //--------------------------
+                SetConnectButtonText();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleDisconnectFromDB()
+
+        #region AJP HEN STUDIO LOGO CLICK
+        private void pictureBoxProductLogo_Click(object sender, EventArgs e)
+        {
+            DisplayAboutForm();
+        }
+        #endregion  // AJP HEN STUDIO LOGO CLICK
+
+        #endregion  // CATALOG (Projects) Panel
 
     }
     #endregion      // class FormPinch

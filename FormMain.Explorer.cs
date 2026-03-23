@@ -73,17 +73,15 @@ namespace HenStudio
         /// Get the Root Node of the tree 
         /// NOTE: Tree is treeViewCurrentProjectExplorer
         /// </summary>
-        /// <returns>Root Node</returns>
+        /// <returns>Root Node on Success; null otherwise</returns>
         private TreeNode GetRootNode()
         {
             string strMethod = "GetRootNode";
-            TreeNode rootNode = treeViewCurrentProjectExplorer.SelectedNode;
+            TreeNode rootNode = null;
             try
             {
-                while (rootNode.Parent != null)
-                {
-                    rootNode = rootNode.Parent;
-                }
+                if(treeViewCurrentProjectExplorer.Nodes.Count > 0) 
+                    rootNode = treeViewCurrentProjectExplorer.Nodes[0];
             }
             catch (Exception ex)
             {
@@ -360,8 +358,9 @@ namespace HenStudio
                 //--- Get Node and Level ---
                 //--------------------------
                 TreeNode node = treeViewCurrentProjectExplorer.SelectedNode;
-                DataTagDisplay dataTagDisplayObj = ((DataTagDisplay)node.Tag);
+                if (node == null) return;  // Null Guard
 
+                DataTagDisplay dataTagDisplayObj = ((DataTagDisplay)node.Tag);
                 if(dataTagDisplayObj == null ) return;  // Null Guard
 
                 level = dataTagDisplayObj.LevelEnum;

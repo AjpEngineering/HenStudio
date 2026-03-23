@@ -928,7 +928,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1200, 900);
             this.Name = "FormLicenseFile";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "License File";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLicenseFile_FormClosing);

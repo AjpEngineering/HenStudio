@@ -58,7 +58,7 @@
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "FormUserLicenseAgreement";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AJP User License Agreement";
             this.ResumeLayout(false);
 

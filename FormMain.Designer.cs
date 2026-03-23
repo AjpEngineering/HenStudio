@@ -160,7 +160,19 @@
             this.toolStripMenuItemZipExpandAll = new System.Windows.Forms.ToolStripMenuItem();
             this.imageListProjectZIP = new System.Windows.Forms.ImageList(this.components);
             this.panelSELECTED_PROJECTS = new System.Windows.Forms.Panel();
+            this.pictureBoxProductLogo = new System.Windows.Forms.PictureBox();
+            this.buttonConnection = new System.Windows.Forms.Button();
             this.panelProjectDbFileMetadata = new System.Windows.Forms.Panel();
+            this.textBoxConnServerVersionValue = new System.Windows.Forms.TextBox();
+            this.textBoxConnServerVersion = new System.Windows.Forms.TextBox();
+            this.textBoxConnTimeoutValue = new System.Windows.Forms.TextBox();
+            this.textBoxConnTimeout = new System.Windows.Forms.TextBox();
+            this.textBoxConnInitCatalogValue = new System.Windows.Forms.TextBox();
+            this.textBoxConnInitCatalog = new System.Windows.Forms.TextBox();
+            this.textBoxConnWorkstationIDValue = new System.Windows.Forms.TextBox();
+            this.textBoxConnWorkstationID = new System.Windows.Forms.TextBox();
+            this.textBoxConnUserIDValue = new System.Windows.Forms.TextBox();
+            this.textBoxConnUserID = new System.Windows.Forms.TextBox();
             this.textBoxConnPacketSizeValue = new System.Windows.Forms.TextBox();
             this.textBoxConnPacketSize = new System.Windows.Forms.TextBox();
             this.textBoxConnStateValue = new System.Windows.Forms.TextBox();
@@ -219,16 +231,6 @@
             this.textBoxPinchBanner = new System.Windows.Forms.TextBox();
             this.pictureBoxOpenedPinch = new System.Windows.Forms.PictureBox();
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
-            this.textBoxConnUserIDValue = new System.Windows.Forms.TextBox();
-            this.textBoxConnUserID = new System.Windows.Forms.TextBox();
-            this.textBoxConnWorkstationIDValue = new System.Windows.Forms.TextBox();
-            this.textBoxConnWorkstationID = new System.Windows.Forms.TextBox();
-            this.textBoxConnInitCatalogValue = new System.Windows.Forms.TextBox();
-            this.textBoxConnInitCatalog = new System.Windows.Forms.TextBox();
-            this.textBoxConnTimeoutValue = new System.Windows.Forms.TextBox();
-            this.textBoxConnTimeout = new System.Windows.Forms.TextBox();
-            this.textBoxConnServerVersionValue = new System.Windows.Forms.TextBox();
-            this.textBoxConnServerVersion = new System.Windows.Forms.TextBox();
             this.contextMenuStripHen.SuspendLayout();
             this.contextMenuStripPinch.SuspendLayout();
             this.contextMenuStripProfile.SuspendLayout();
@@ -246,6 +248,7 @@
             this.splitContainerProject.SuspendLayout();
             this.contextMenuStripProjectZip.SuspendLayout();
             this.panelSELECTED_PROJECTS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductLogo)).BeginInit();
             this.panelProjectDbFileMetadata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProjects)).BeginInit();
             this.panelSELECTED_PROFILE.SuspendLayout();
@@ -543,8 +546,8 @@
             this.toolStripSeparator11,
             this.exitAJPHENStudioToolStripMenuItem});
             this.catalogToolStripMenuItem.Name = "catalogToolStripMenuItem";
-            this.catalogToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.catalogToolStripMenuItem.Text = "Projects";
+            this.catalogToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.catalogToolStripMenuItem.Text = "Catalog";
             this.catalogToolStripMenuItem.ToolTipText = "Catalog of Projects";
             // 
             // newProjectToolStripMenuItem
@@ -1245,7 +1248,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSELECTED_PROJECTS.BackColor = System.Drawing.Color.White;
+            this.panelSELECTED_PROJECTS.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery___1280x720;
             this.panelSELECTED_PROJECTS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSELECTED_PROJECTS.Controls.Add(this.pictureBoxProductLogo);
+            this.panelSELECTED_PROJECTS.Controls.Add(this.buttonConnection);
             this.panelSELECTED_PROJECTS.Controls.Add(this.panelProjectDbFileMetadata);
             this.panelSELECTED_PROJECTS.Controls.Add(this.pictureBoxProjects);
             this.panelSELECTED_PROJECTS.Controls.Add(this.textBoxProjectsBanner);
@@ -1254,6 +1260,39 @@
             this.panelSELECTED_PROJECTS.Padding = new System.Windows.Forms.Padding(6);
             this.panelSELECTED_PROJECTS.Size = new System.Drawing.Size(887, 605);
             this.panelSELECTED_PROJECTS.TabIndex = 1;
+            // 
+            // pictureBoxProductLogo
+            // 
+            this.pictureBoxProductLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxProductLogo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxProductLogo.Image = global::HenStudio.Properties.Resources.AJP_HEN_Studio_with_Graphic;
+            this.pictureBoxProductLogo.Location = new System.Drawing.Point(522, 414);
+            this.pictureBoxProductLogo.Name = "pictureBoxProductLogo";
+            this.pictureBoxProductLogo.Size = new System.Drawing.Size(353, 180);
+            this.pictureBoxProductLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxProductLogo.TabIndex = 16;
+            this.pictureBoxProductLogo.TabStop = false;
+            this.pictureBoxProductLogo.Click += new System.EventHandler(this.pictureBoxProductLogo_Click);
+            // 
+            // buttonConnection
+            // 
+            this.buttonConnection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.buttonConnection.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonConnection.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonConnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonConnection.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConnection.ForeColor = System.Drawing.Color.Yellow;
+            this.buttonConnection.Image = global::HenStudio.Properties.Resources.HEN_Studio_Graphic___32x32;
+            this.buttonConnection.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonConnection.Location = new System.Drawing.Point(10, 287);
+            this.buttonConnection.Name = "buttonConnection";
+            this.buttonConnection.Padding = new System.Windows.Forms.Padding(3, 3, 6, 3);
+            this.buttonConnection.Size = new System.Drawing.Size(349, 50);
+            this.buttonConnection.TabIndex = 15;
+            this.buttonConnection.Text = "  CONNECT TO DATABASE";
+            this.buttonConnection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonConnection.UseVisualStyleBackColor = false;
+            this.buttonConnection.Click += new System.EventHandler(this.buttonConnection_Click);
             // 
             // panelProjectDbFileMetadata
             // 
@@ -1279,6 +1318,136 @@
             this.panelProjectDbFileMetadata.Name = "panelProjectDbFileMetadata";
             this.panelProjectDbFileMetadata.Size = new System.Drawing.Size(350, 237);
             this.panelProjectDbFileMetadata.TabIndex = 14;
+            // 
+            // textBoxConnServerVersionValue
+            // 
+            this.textBoxConnServerVersionValue.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxConnServerVersionValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxConnServerVersionValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConnServerVersionValue.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxConnServerVersionValue.Location = new System.Drawing.Point(139, 178);
+            this.textBoxConnServerVersionValue.Name = "textBoxConnServerVersionValue";
+            this.textBoxConnServerVersionValue.ReadOnly = true;
+            this.textBoxConnServerVersionValue.Size = new System.Drawing.Size(198, 18);
+            this.textBoxConnServerVersionValue.TabIndex = 49;
+            this.textBoxConnServerVersionValue.Text = "Server Version Here";
+            // 
+            // textBoxConnServerVersion
+            // 
+            this.textBoxConnServerVersion.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxConnServerVersion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxConnServerVersion.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConnServerVersion.Location = new System.Drawing.Point(12, 178);
+            this.textBoxConnServerVersion.Name = "textBoxConnServerVersion";
+            this.textBoxConnServerVersion.ReadOnly = true;
+            this.textBoxConnServerVersion.Size = new System.Drawing.Size(121, 18);
+            this.textBoxConnServerVersion.TabIndex = 48;
+            this.textBoxConnServerVersion.Text = "Server Version: ";
+            this.textBoxConnServerVersion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxConnTimeoutValue
+            // 
+            this.textBoxConnTimeoutValue.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxConnTimeoutValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxConnTimeoutValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConnTimeoutValue.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxConnTimeoutValue.Location = new System.Drawing.Point(139, 134);
+            this.textBoxConnTimeoutValue.Name = "textBoxConnTimeoutValue";
+            this.textBoxConnTimeoutValue.ReadOnly = true;
+            this.textBoxConnTimeoutValue.Size = new System.Drawing.Size(198, 18);
+            this.textBoxConnTimeoutValue.TabIndex = 46;
+            this.textBoxConnTimeoutValue.Text = "Timeout Here";
+            // 
+            // textBoxConnTimeout
+            // 
+            this.textBoxConnTimeout.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxConnTimeout.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxConnTimeout.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConnTimeout.Location = new System.Drawing.Point(11, 134);
+            this.textBoxConnTimeout.Name = "textBoxConnTimeout";
+            this.textBoxConnTimeout.ReadOnly = true;
+            this.textBoxConnTimeout.Size = new System.Drawing.Size(122, 18);
+            this.textBoxConnTimeout.TabIndex = 47;
+            this.textBoxConnTimeout.Text = "Timeout: ";
+            this.textBoxConnTimeout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxConnInitCatalogValue
+            // 
+            this.textBoxConnInitCatalogValue.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxConnInitCatalogValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxConnInitCatalogValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConnInitCatalogValue.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxConnInitCatalogValue.Location = new System.Drawing.Point(139, 112);
+            this.textBoxConnInitCatalogValue.Name = "textBoxConnInitCatalogValue";
+            this.textBoxConnInitCatalogValue.ReadOnly = true;
+            this.textBoxConnInitCatalogValue.Size = new System.Drawing.Size(198, 18);
+            this.textBoxConnInitCatalogValue.TabIndex = 44;
+            this.textBoxConnInitCatalogValue.Text = "Initial Catalog Here";
+            // 
+            // textBoxConnInitCatalog
+            // 
+            this.textBoxConnInitCatalog.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxConnInitCatalog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxConnInitCatalog.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConnInitCatalog.Location = new System.Drawing.Point(12, 112);
+            this.textBoxConnInitCatalog.Name = "textBoxConnInitCatalog";
+            this.textBoxConnInitCatalog.ReadOnly = true;
+            this.textBoxConnInitCatalog.Size = new System.Drawing.Size(121, 18);
+            this.textBoxConnInitCatalog.TabIndex = 45;
+            this.textBoxConnInitCatalog.Text = "Initial Catalog: ";
+            this.textBoxConnInitCatalog.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxConnWorkstationIDValue
+            // 
+            this.textBoxConnWorkstationIDValue.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxConnWorkstationIDValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxConnWorkstationIDValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConnWorkstationIDValue.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxConnWorkstationIDValue.Location = new System.Drawing.Point(139, 88);
+            this.textBoxConnWorkstationIDValue.Name = "textBoxConnWorkstationIDValue";
+            this.textBoxConnWorkstationIDValue.ReadOnly = true;
+            this.textBoxConnWorkstationIDValue.Size = new System.Drawing.Size(198, 18);
+            this.textBoxConnWorkstationIDValue.TabIndex = 42;
+            this.textBoxConnWorkstationIDValue.Text = "Workstation ID Here";
+            // 
+            // textBoxConnWorkstationID
+            // 
+            this.textBoxConnWorkstationID.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxConnWorkstationID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxConnWorkstationID.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConnWorkstationID.Location = new System.Drawing.Point(12, 88);
+            this.textBoxConnWorkstationID.Name = "textBoxConnWorkstationID";
+            this.textBoxConnWorkstationID.ReadOnly = true;
+            this.textBoxConnWorkstationID.Size = new System.Drawing.Size(121, 18);
+            this.textBoxConnWorkstationID.TabIndex = 43;
+            this.textBoxConnWorkstationID.Text = "Workstation ID: ";
+            this.textBoxConnWorkstationID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxConnUserIDValue
+            // 
+            this.textBoxConnUserIDValue.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxConnUserIDValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxConnUserIDValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConnUserIDValue.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxConnUserIDValue.Location = new System.Drawing.Point(139, 66);
+            this.textBoxConnUserIDValue.Name = "textBoxConnUserIDValue";
+            this.textBoxConnUserIDValue.ReadOnly = true;
+            this.textBoxConnUserIDValue.Size = new System.Drawing.Size(198, 18);
+            this.textBoxConnUserIDValue.TabIndex = 40;
+            this.textBoxConnUserIDValue.Text = "User ID Here";
+            // 
+            // textBoxConnUserID
+            // 
+            this.textBoxConnUserID.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxConnUserID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxConnUserID.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConnUserID.Location = new System.Drawing.Point(12, 66);
+            this.textBoxConnUserID.Name = "textBoxConnUserID";
+            this.textBoxConnUserID.ReadOnly = true;
+            this.textBoxConnUserID.Size = new System.Drawing.Size(121, 18);
+            this.textBoxConnUserID.TabIndex = 41;
+            this.textBoxConnUserID.Text = "User ID: ";
+            this.textBoxConnUserID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxConnPacketSizeValue
             // 
@@ -1329,7 +1498,7 @@
             this.textBoxConnState.ReadOnly = true;
             this.textBoxConnState.Size = new System.Drawing.Size(121, 18);
             this.textBoxConnState.TabIndex = 34;
-            this.textBoxConnState.Text = "Connecion State: ";
+            this.textBoxConnState.Text = "Connection State: ";
             this.textBoxConnState.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxConnDataSourceValue
@@ -1372,8 +1541,9 @@
             // 
             // pictureBoxProjects
             // 
+            this.pictureBoxProjects.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxProjects.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxProjects.Image")));
-            this.pictureBoxProjects.Location = new System.Drawing.Point(4, 4);
+            this.pictureBoxProjects.Location = new System.Drawing.Point(13, 4);
             this.pictureBoxProjects.Name = "pictureBoxProjects";
             this.pictureBoxProjects.Size = new System.Drawing.Size(32, 32);
             this.pictureBoxProjects.TabIndex = 11;
@@ -2074,136 +2244,6 @@
             this.imageListProject.Images.SetKeyName(0, "Project Explorer...32x32.png");
             this.imageListProject.Images.SetKeyName(1, "Project...32x32.png");
             // 
-            // textBoxConnUserIDValue
-            // 
-            this.textBoxConnUserIDValue.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxConnUserIDValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxConnUserIDValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConnUserIDValue.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxConnUserIDValue.Location = new System.Drawing.Point(139, 66);
-            this.textBoxConnUserIDValue.Name = "textBoxConnUserIDValue";
-            this.textBoxConnUserIDValue.ReadOnly = true;
-            this.textBoxConnUserIDValue.Size = new System.Drawing.Size(198, 18);
-            this.textBoxConnUserIDValue.TabIndex = 40;
-            this.textBoxConnUserIDValue.Text = "User ID Here";
-            // 
-            // textBoxConnUserID
-            // 
-            this.textBoxConnUserID.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxConnUserID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxConnUserID.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConnUserID.Location = new System.Drawing.Point(12, 66);
-            this.textBoxConnUserID.Name = "textBoxConnUserID";
-            this.textBoxConnUserID.ReadOnly = true;
-            this.textBoxConnUserID.Size = new System.Drawing.Size(121, 18);
-            this.textBoxConnUserID.TabIndex = 41;
-            this.textBoxConnUserID.Text = "User ID: ";
-            this.textBoxConnUserID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxConnWorkstationIDValue
-            // 
-            this.textBoxConnWorkstationIDValue.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxConnWorkstationIDValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxConnWorkstationIDValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConnWorkstationIDValue.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxConnWorkstationIDValue.Location = new System.Drawing.Point(139, 88);
-            this.textBoxConnWorkstationIDValue.Name = "textBoxConnWorkstationIDValue";
-            this.textBoxConnWorkstationIDValue.ReadOnly = true;
-            this.textBoxConnWorkstationIDValue.Size = new System.Drawing.Size(198, 18);
-            this.textBoxConnWorkstationIDValue.TabIndex = 42;
-            this.textBoxConnWorkstationIDValue.Text = "Workstation ID Here";
-            // 
-            // textBoxConnWorkstationID
-            // 
-            this.textBoxConnWorkstationID.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxConnWorkstationID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxConnWorkstationID.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConnWorkstationID.Location = new System.Drawing.Point(12, 88);
-            this.textBoxConnWorkstationID.Name = "textBoxConnWorkstationID";
-            this.textBoxConnWorkstationID.ReadOnly = true;
-            this.textBoxConnWorkstationID.Size = new System.Drawing.Size(121, 18);
-            this.textBoxConnWorkstationID.TabIndex = 43;
-            this.textBoxConnWorkstationID.Text = "Workstation ID: ";
-            this.textBoxConnWorkstationID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxConnInitCatalogValue
-            // 
-            this.textBoxConnInitCatalogValue.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxConnInitCatalogValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxConnInitCatalogValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConnInitCatalogValue.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxConnInitCatalogValue.Location = new System.Drawing.Point(139, 112);
-            this.textBoxConnInitCatalogValue.Name = "textBoxConnInitCatalogValue";
-            this.textBoxConnInitCatalogValue.ReadOnly = true;
-            this.textBoxConnInitCatalogValue.Size = new System.Drawing.Size(198, 18);
-            this.textBoxConnInitCatalogValue.TabIndex = 44;
-            this.textBoxConnInitCatalogValue.Text = "Initial Catalog Here";
-            // 
-            // textBoxConnInitCatalog
-            // 
-            this.textBoxConnInitCatalog.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxConnInitCatalog.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxConnInitCatalog.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConnInitCatalog.Location = new System.Drawing.Point(12, 112);
-            this.textBoxConnInitCatalog.Name = "textBoxConnInitCatalog";
-            this.textBoxConnInitCatalog.ReadOnly = true;
-            this.textBoxConnInitCatalog.Size = new System.Drawing.Size(121, 18);
-            this.textBoxConnInitCatalog.TabIndex = 45;
-            this.textBoxConnInitCatalog.Text = "Initial Catalog: ";
-            this.textBoxConnInitCatalog.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxConnTimeoutValue
-            // 
-            this.textBoxConnTimeoutValue.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxConnTimeoutValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxConnTimeoutValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConnTimeoutValue.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxConnTimeoutValue.Location = new System.Drawing.Point(139, 134);
-            this.textBoxConnTimeoutValue.Name = "textBoxConnTimeoutValue";
-            this.textBoxConnTimeoutValue.ReadOnly = true;
-            this.textBoxConnTimeoutValue.Size = new System.Drawing.Size(198, 18);
-            this.textBoxConnTimeoutValue.TabIndex = 46;
-            this.textBoxConnTimeoutValue.Text = "Timeout Here";
-            // 
-            // textBoxConnTimeout
-            // 
-            this.textBoxConnTimeout.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxConnTimeout.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxConnTimeout.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConnTimeout.Location = new System.Drawing.Point(11, 134);
-            this.textBoxConnTimeout.Name = "textBoxConnTimeout";
-            this.textBoxConnTimeout.ReadOnly = true;
-            this.textBoxConnTimeout.Size = new System.Drawing.Size(122, 18);
-            this.textBoxConnTimeout.TabIndex = 47;
-            this.textBoxConnTimeout.Text = "Timeout: ";
-            this.textBoxConnTimeout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxConnServerVersionValue
-            // 
-            this.textBoxConnServerVersionValue.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxConnServerVersionValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxConnServerVersionValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConnServerVersionValue.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxConnServerVersionValue.Location = new System.Drawing.Point(139, 178);
-            this.textBoxConnServerVersionValue.Name = "textBoxConnServerVersionValue";
-            this.textBoxConnServerVersionValue.ReadOnly = true;
-            this.textBoxConnServerVersionValue.Size = new System.Drawing.Size(198, 18);
-            this.textBoxConnServerVersionValue.TabIndex = 49;
-            this.textBoxConnServerVersionValue.Text = "Server Version Here";
-            // 
-            // textBoxConnServerVersion
-            // 
-            this.textBoxConnServerVersion.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxConnServerVersion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxConnServerVersion.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConnServerVersion.Location = new System.Drawing.Point(12, 178);
-            this.textBoxConnServerVersion.Name = "textBoxConnServerVersion";
-            this.textBoxConnServerVersion.ReadOnly = true;
-            this.textBoxConnServerVersion.Size = new System.Drawing.Size(121, 18);
-            this.textBoxConnServerVersion.TabIndex = 48;
-            this.textBoxConnServerVersion.Text = "Server Version: ";
-            this.textBoxConnServerVersion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -2245,6 +2285,7 @@
             this.contextMenuStripProjectZip.ResumeLayout(false);
             this.panelSELECTED_PROJECTS.ResumeLayout(false);
             this.panelSELECTED_PROJECTS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductLogo)).EndInit();
             this.panelProjectDbFileMetadata.ResumeLayout(false);
             this.panelProjectDbFileMetadata.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProjects)).EndInit();
@@ -2434,6 +2475,8 @@
         private System.Windows.Forms.TextBox textBoxConnTimeout;
         private System.Windows.Forms.TextBox textBoxConnServerVersionValue;
         private System.Windows.Forms.TextBox textBoxConnServerVersion;
+        private System.Windows.Forms.Button buttonConnection;
+        private System.Windows.Forms.PictureBox pictureBoxProductLogo;
     }
 }
 

@@ -366,7 +366,7 @@
             this.MaximumSize = new System.Drawing.Size(1124, 660);
             this.MinimumSize = new System.Drawing.Size(1124, 660);
             this.Name = "FormAboutPinch";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About AJP HEN Studio";
             this.tableLayoutPanelSupplier.ResumeLayout(false);
             this.tableLayoutPanelSupplier.PerformLayout();

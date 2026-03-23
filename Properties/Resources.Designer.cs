@@ -81,12 +81,12 @@ namespace HenStudio.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] AJP_HEN_StudioGraphic_16x16 {
+        internal static System.Drawing.Bitmap AJP_HEN_StudioGraphic_16x16 {
             get {
                 object obj = ResourceManager.GetObject("AJP_HEN_StudioGraphic_16x16", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -116,6 +116,16 @@ namespace HenStudio.Properties {
         internal static System.Drawing.Bitmap AJP_Refinery {
             get {
                 object obj = ResourceManager.GetObject("AJP_Refinery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AJP_Refinery___1280x720 {
+            get {
+                object obj = ResourceManager.GetObject("AJP Refinery...1280x720", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -306,6 +316,16 @@ namespace HenStudio.Properties {
         internal static System.Drawing.Bitmap HEN_16x16 {
             get {
                 object obj = ResourceManager.GetObject("HEN_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HEN_Studio_Graphic___32x32 {
+            get {
+                object obj = ResourceManager.GetObject("HEN Studio Graphic...32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

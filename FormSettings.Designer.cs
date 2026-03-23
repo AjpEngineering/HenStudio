@@ -526,7 +526,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(740, 480);
             this.Name = "FormSettings";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AJP HEN Studio Settings";
             this.panelProjectUnits.ResumeLayout(false);
             this.panelProjectUnits.PerformLayout();

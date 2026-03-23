@@ -599,7 +599,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(900, 690);
             this.Name = "FormNewProject";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Project";
             this.panelProjectMetadata.ResumeLayout(false);
             this.panelProjectMetadata.PerformLayout();
