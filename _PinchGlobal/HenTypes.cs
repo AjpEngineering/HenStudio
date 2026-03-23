@@ -116,12 +116,14 @@ namespace HenGlobal
         #region enum ProjectDirtyFlagState
         /// <summary>
         /// ENUMERATION: Project Dirty Flag State [ UNKNOWN = -1 | UPDATE = 0 | UPDATED = 1 ]
+        /// UPDATE  the same as SYNCHED [RED]   (Dirty Flag is true) ... 
+        /// UPDATED the same as SYNCHED [GREEN] (Dirty Flag is false - data Clean)
         /// </summary>
         public enum ProjectDirtyFlagState
         {
             UNKNOWN = -1,    // UNKNOWN Dirty Flag State
-            UPDATE = 0,      // UPDATE  Project Data ... DirtyFlag = true  ... DB Needs to be Synched
-            UPDATED = 1      // UPDATED Project Data ... DirtyFlag = false ... DB Synched
+            DIRTY = 0,       // DIRTY Project Data ... DirtyFlag = true  ... DB Needs to be Synched
+            CLEAN = 1        // CLEAN Project Data ... DirtyFlag = false ... DB Synched
         };
         #endregion      // enum ProjectDirtyFlagState
 

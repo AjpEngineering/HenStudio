@@ -163,6 +163,26 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] CatalogDB_Connected_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("CatalogDB_Connected_16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] CatalogDB_UnConnected_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("CatalogDB_UnConnected_16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] CollapseAll_16x16 {
             get {
                 object obj = ResourceManager.GetObject("CollapseAll_16x16", resourceCulture);

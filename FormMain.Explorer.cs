@@ -46,6 +46,7 @@ using HenGlobal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -204,33 +205,40 @@ namespace HenStudio
             int nDisplayNodeID = 0;
             try
             {
-                //----------------------------------
-                //--- Remove all Nodes from Tree ---
-                //----------------------------------
-                treeViewCurrentProjectExplorer.Nodes.Clear();
+                //------------------------------
+                //--- Assign Tree Properties ---
+                //------------------------------
+                treeViewCurrentProjectExplorer.ImageList = this.imageListProjectTreeViews;
 
-                //------------------------------------------
-                //-- Create New Node and Add to the Tree ---
-                //------------------------------------------
-                TreeNode node = new TreeNode("Projects");
-                nDisplayNodeID = treeViewCurrentProjectExplorer.Nodes.Add(node);
-
-                //-----------------------------------------------
-                //-- Create Tag Object and Assign to New Node ---
-                //-----------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerLevel.CATALOG, "Projects");
-                node.Tag = dataTagDisplayObj;
+                //---------------------------
+                //-- Create New ROOT Node ---
+                //---------------------------
+                TreeNode rootNode = new TreeNode("HEN Studio CATALOG");
 
                 //----------------------------------
                 //--- Assign New Node Attributes ---
                 //----------------------------------
-                node.ContextMenuStrip = contextMenuStripProjectCatalog;
+                rootNode.ContextMenuStrip = contextMenuStripProjectCatalog;
 
-                //-----------------------------------
-                //--- Display and Select New Node ---
-                //-----------------------------------
-                treeViewCurrentProjectExplorer.SelectedNode = node;
-                node.EnsureVisible();
+                //-----------------------------------------------
+                //-- Create Tag Object and Assign to New Node ---
+                //-----------------------------------------------
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerLevel.CATALOG, "HEN Studio CATALOG");
+                rootNode.Tag = dataTagDisplayObj;
+
+                //---------------------------
+                //--- Set Root Node Image ---
+                //---------------------------
+                rootNode.ImageIndex = 9;
+                rootNode.SelectedImageIndex = 9;
+
+                //--------------------------------------------------------------------
+                //--- Remove all Existing Nodes from Tree, Add and Select New Node ---
+                //--------------------------------------------------------------------
+                treeViewCurrentProjectExplorer.Nodes.Clear();
+                nDisplayNodeID = treeViewCurrentProjectExplorer.Nodes.Add(rootNode);
+                treeViewCurrentProjectExplorer.SelectedNode = rootNode;
+                rootNode.EnsureVisible();
             }
             catch (Exception ex)
             {
@@ -352,7 +360,11 @@ namespace HenStudio
                 //--- Get Node and Level ---
                 //--------------------------
                 TreeNode node = treeViewCurrentProjectExplorer.SelectedNode;
-                level = ((DataTagDisplay)node.Tag).LevelEnum;
+                DataTagDisplay dataTagDisplayObj = ((DataTagDisplay)node.Tag);
+
+                if(dataTagDisplayObj == null ) return;  // Null Guard
+
+                level = dataTagDisplayObj.LevelEnum;
 
                 //---------------------------------------
                 //--- Update Current Tree-Panel State ---
@@ -619,6 +631,7 @@ namespace HenStudio
         public void CollapseAllProjectsExplorer()
         {
             this.treeViewCurrentProjectExplorer.CollapseAll();
+            HandleSelectionChange();
         }
         #endregion  // CollapseAllProjectsExplorer()
 
@@ -681,7 +694,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
@@ -743,7 +756,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
@@ -805,7 +818,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
@@ -867,7 +880,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
@@ -908,7 +921,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
@@ -945,7 +958,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
@@ -982,7 +995,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
@@ -1019,7 +1032,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
@@ -1079,7 +1092,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
@@ -1135,7 +1148,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
@@ -1191,7 +1204,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
@@ -1247,7 +1260,7 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATE;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
                 UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)

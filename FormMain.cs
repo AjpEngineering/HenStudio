@@ -252,8 +252,8 @@ namespace HenStudio
                 //------------------------------------------------------------
                 //--- Initialize Project Dirty Flag State Status Bar Label ---
                 //------------------------------------------------------------
-                //HenSettingsObj.ProjectDirtyFlagStateEnum = HenTypes.ProjectDirtyFlagState.UPDATE;
-                HenSettingsObj.ProjectDirtyFlagStateEnum = HenTypes.ProjectDirtyFlagState.UPDATED;
+                //HenSettingsObj.ProjectDirtyFlagStateEnum = HenTypes.ProjectDirtyFlagState.DIRTY;
+                HenSettingsObj.ProjectDirtyFlagStateEnum = HenTypes.ProjectDirtyFlagState.CLEAN;
                 UpdateProjectDirtyFlagLabel();    // Initialize Project Dirty Flag State Status Bar Label
                 #endregion  // Initialize Project Dirty Flag State Status Bar Label
 
@@ -289,11 +289,6 @@ namespace HenStudio
                 //HenSettingsObj.ProjectUnitsEnum = HenTypes.ProjectUnits.ENGLISH;
                 HenSettingsObj.ProjectUnitsEnum = HenTypes.ProjectUnits.METRIC;
                 #endregion      // Update OPEN Project Units Status Bar Label
-
-                //---------------------------------------------------------------------
-                //--- Clear the Sub-PROJECTS (Root) Nodes from Project Explorer Tree --
-                //---------------------------------------------------------------------
-                RemoveAllNodes();
             }
             catch (Exception ex)
             {
@@ -388,6 +383,11 @@ namespace HenStudio
             }
             finally
             {
+                //---------------------------------------------------------------------
+                //--- Clear the Sub-PROJECTS (Root) Nodes from Project Explorer Tree --
+                //---------------------------------------------------------------------
+                RemoveAllNodes();
+
                 HenLogger.WriteSection("END OBJECT TREE CONSTRUCTION");
                 HenLogger.WriteSeparatorLine(' ');
                 HenLogger.WriteSection("END CONSTRUCTION SECTION");
@@ -619,14 +619,14 @@ namespace HenStudio
                         this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
                         this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.UNKNOWN_32x32;
                         break;
-                    case HenTypes.ProjectDirtyFlagState.UPDATE:
-                        this.toolStripStatusLabelProjectDirtyFlag.Text = "UPDATE";
+                    case HenTypes.ProjectDirtyFlagState.DIRTY:
+                        this.toolStripStatusLabelProjectDirtyFlag.Text = "SYNCHED";
                         this.toolStripStatusLabelProjectDirtyFlag.BackColor = Color.Red;
                         this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
                         this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.NotValid_32x32;
                         break;
-                    case HenTypes.ProjectDirtyFlagState.UPDATED:
-                        this.toolStripStatusLabelProjectDirtyFlag.Text = "UPDATED";
+                    case HenTypes.ProjectDirtyFlagState.CLEAN:
+                        this.toolStripStatusLabelProjectDirtyFlag.Text = "SYNCHED";
                         this.toolStripStatusLabelProjectDirtyFlag.BackColor = Color.Green;
                         this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
                         this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.Valid_32x32;
@@ -1282,17 +1282,22 @@ namespace HenStudio
         private void HandleDBConnectionState()
         {
             string strMethod = "HandleDBConnectionState";
+            TreeNode rootNode = GetRootNode();
+
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Handle Database Connection Command");
             try
             {
                 //HenMsgDlg.DisplayWarningDlg("Handle Database Connection Command!");
+
                 //----------------------------------------
                 //--- Display Projects (CATALOG) Panel ---
                 //----------------------------------------
-                this.panelSELECTED_PROJECTS.BringToFront();
-                treeViewCurrentProjectExplorer.SelectedNode = GetRootNode();
-                GetRootNode().EnsureVisible();
+                rootNode.ImageIndex = 9;
 
+                this.panelSELECTED_PROJECTS.BringToFront();
+                treeViewCurrentProjectExplorer.SelectedNode = rootNode;
+                rootNode.EnsureVisible();
+                treeViewCurrentProjectExplorer.HideSelection = false;
             }
             catch (Exception ex)
             {
@@ -1319,7 +1324,7 @@ namespace HenStudio
                 //HenMsgDlg.DisplayWarningDlg("Handle Project Dirty Falg State Command!");
                 switch(HenSettingsObj.ProjectDirtyFlagStateEnum)
                 {
-                    case ProjectDirtyFlagState.UPDATE:
+                    case ProjectDirtyFlagState.DIRTY:
                         //---------------------------
                         //--- Update the Database ---
                         //---------------------------
@@ -1327,13 +1332,13 @@ namespace HenStudio
                         //-------------------------------------------------------
                         //--- Change Dirty Flag State & Update the Status Bar ---
                         //-------------------------------------------------------
-                        HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.UPDATED;
+                        HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.CLEAN;
                         UpdateProjectDirtyFlagLabel();
                         break;
-                    case ProjectDirtyFlagState.UPDATED:
-                        //---------------------------------------
-                        //--- Alreadly Updated ... Do Nothing ---
-                        //---------------------------------------
+                    case ProjectDirtyFlagState.CLEAN:
+                        //-----------------------------------------------
+                        //--- Alreadly CLEAN (Updated) ... Do Nothing ---
+                        //-----------------------------------------------
                         break;
                     default:
                         throw new Exception("UNKNOWN Dirty Flag Status Encountered!");                        
