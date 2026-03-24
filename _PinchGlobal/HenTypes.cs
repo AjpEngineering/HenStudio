@@ -51,7 +51,7 @@ namespace HenGlobal
 {
     #region public class HenTypes
     /// <summary>
-    /// Pinch Types Class
+    /// AJP HEN Studio Types Class
     /// </summary>
     public class HenTypes
     {
@@ -131,18 +131,17 @@ namespace HenGlobal
 
         #region UNITS
 
-        #region enum ProjectUnits
+        #region enum ProjectSystemUnits
         /// <summary>
-        /// ENUMERATION: OPEN Project Units [ UNKNOWN | NA | ENGLISH | METRIC ]
+        /// ENUMERATION: Project System Units [ UNKNOWN | ENGLISH | METRIC ]
         /// </summary>
-        public enum ProjectUnits
+        public enum ProjectSystemUnits
         {
             UNKNOWN = -1,       // UNKNOWN Units
-            NA      =  0,       // NA ... NOT APPLICABLE - No Project Opened
-            ENGLISH =  1,       // ENGLISH-IMPERIAL Units
-            METRIC  =  2        // METRIC-SI Units
+            ENGLISH =  0,       // ENGLISH-IMPERIAL Units
+            METRIC  =  1        // METRIC-SI Units
         };
-        #endregion      // enum ProjectUnits
+        #endregion      // enum ProjectSystemUnits
 
         #region enum ConversionUnitsTypes
         /// <summary>
@@ -161,6 +160,23 @@ namespace HenGlobal
         #endregion      // enum ConversionUnitsTypes
 
         #endregion  // UNITS
+
+        #region OPTIMIZER
+
+        #region enum HenOptimizer
+        /// <summary>
+        /// ENUMERATION: AJP HEN Studio Optimizer [ UNKNOWN | GENETIC | GREEDY ]
+        /// </summary>
+        public enum HenOptimizer
+        {
+            UNKNOWN = -1,     // UNKNOWN Units
+            GENETIC = 0,      // GENETIC Optimizer
+            GREEDY = 1        // GREEDY Optimizer
+        };
+        #endregion      // enum HenOptimizer
+
+
+        #endregion  // OPTIMIZER
 
         #region PROJECT EXPLORER LEVEL
 

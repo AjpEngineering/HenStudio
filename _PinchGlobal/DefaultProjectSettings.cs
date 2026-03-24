@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//#######################################  F o r m N e w P r o j e c t . c s  #########################################
+//###############################  D e f a u l t P r o j e c t S e t t i n g s . c s  #################################
 //#####################################################################################################################
-//  FILENAME:  FormNewProject.cs
-//  NAMESPACE: HenStudio
-//  CLASS(S):  FormNewProject
-//  COMPONENT: HenStudio.exe
+//  FILENAME:  DefaultProjectSettings.cs
+//  NAMESPACE: HenGlobal
+//  CLASS(S):  DefaultProjectSettings
+//  COMPONENT: _HenGLobal.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the New PROJECT Form.
+//    This file contains the code for the Default Project Settings Class.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -26,61 +26,83 @@
 //    All rights reserved.
 //=====================================================================================================================
 //  HISTORY:
-//    01/01/26 .. pg .. Version 1.0
+//    01/01/26 .. pg .. Version 4.0
 //#####################################################################################################################
 //#####################################################################################################################
 //#####################################################################################################################
 #endregion      // HEADER
 
 #region REFERENCES
-using HenGlobal;
-
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Xml.Linq;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 using static HenGlobal.HenTypes;
-
 #endregion  // REFERENCES
 
-#region namespace HenStudio
-namespace HenStudio
+#region namespace HenGlobal
+namespace HenGlobal
 {
-    #region partial class FormNewProject
+    #region public class DefaultProjectSettings
     /// <summary>
-    ///  New PROJECT Form Class
+    /// Default Project Settings Class
     /// </summary>
-    public partial class FormNewProject : Form
+    public class DefaultProjectSettings
     {
         #region CONSTANTS
-        const string NAMESPACE = "HenStudio";
-        const string CLASS = "FormNewProject";
+        const string NAMESPACE = "HenGlobal";
+        const string CLASS = "DefaultProjectSettings";
 
         #endregion      // CONSTANTS
 
         #region PROPERTIES
+        public HenProjectUnits ExternalAppDefaultUnitsObj { get; set; } // EXTERNAL Application Default Units Object
+        public HenProjectUnits ExternalProjectUnitsObj { get; set; }    // EXTERNAL Project Units Object
+
+        public double ProjectExchangerU { get; set; }                   // PROJECT Exchanger Heat Transfer Coefficient (U)
+        public HenOptimizer ProjectHenOptimizerEnum { get; set; }       // PROJECT HEN Optimizer Enumeration
 
         #endregion  // PROPERTIES
-
-        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        //------------------------------------------------------------ CTOR ---
-        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
         #region CTOR
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public FormNewProject()
+        public DefaultProjectSettings()
         {
-            InitializeComponent();
+            string strMethod = "CTOR";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating DefaultProjectSettings Object");
+            try
+            {
+                ExternalAppDefaultUnitsObj = new HenProjectUnits();
+                ExternalProjectUnitsObj = new HenProjectUnits();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "HenTypes Object CREATED");
+                HenLogger.WriteSeparatorLine('<');
+            }
         }
-        #endregion  // CTOR
+        #endregion      // CTOR
 
     }
-    #endregion  // partial class FormNewProject
+    #endregion      // public class DefaultProjectSettings
 }
-#endregion      // namespace HenStudio
+#endregion      // namespace HenGlobal
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

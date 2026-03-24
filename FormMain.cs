@@ -282,13 +282,6 @@ namespace HenStudio
                 //***********************************************************************************************
                 #endregion  // Initialize Project DB Connected Status Bar Label
 
-                #region Set Default Project Units Property
-                //-------------------------------------------------
-                //--- Initialize Default Project Units Property ---
-                //-------------------------------------------------
-                //HenSettingsObj.ProjectUnitsEnum = HenTypes.ProjectUnits.ENGLISH;
-                HenSettingsObj.ProjectUnitsEnum = HenTypes.ProjectUnits.METRIC;
-                #endregion      // Update OPEN Project Units Status Bar Label
             }
             catch (Exception ex)
             {
@@ -1000,11 +993,40 @@ namespace HenStudio
         {
             string strMethod = "DisplayProjectSettingsForm";
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Settings Form");
+            DefaultProjectSettings currDefaultUnits = new DefaultProjectSettings();
+            double dCurrDefaultExchangerU = 74.0;
+            HenOptimizer currHenOptimizerEnum = HenOptimizer.GREEDY;
             try
             {
-                //HenMsgDlg.DisplayWarningDlg("Handle Project Settings Form Command!");
-                FormSettings dlg = new FormSettings();
-                dlg.ShowDialog();
+                //----------------------------------------------------
+                //--- Get Current Default Application Data from DB ---
+                //----------------------------------------------------
+                HenMsgDlg.DisplayWarningDlg("Get Current Default Application Data from DB!");
+                //********************************************************************************
+                //********************************************************************************
+                //********************************************************************************
+                currDefaultUnits = new DefaultProjectSettings();
+                currDefaultUnits.ProjectExchangerU = dCurrDefaultExchangerU;
+                currDefaultUnits.ProjectHenOptimizerEnum = currHenOptimizerEnum;
+                //********************************************************************************
+                //********************************************************************************
+                //********************************************************************************
+
+                //--------------------------------------------------------------------------------
+                //--- Launch Project Settings Dialog with Current Application Default Settings ---
+                //--------------------------------------------------------------------------------
+                FormSettings dlg = new FormSettings(currDefaultUnits);
+                
+                if(dlg.ShowDialog()==DialogResult.Cancel) return;   // User Cancelled Dialog
+
+                //-----------------------------------------------------------------------------
+                //--- Assign Application Default Values from Dialog to Application Settings ---
+                //-----------------------------------------------------------------------------
+                HenMsgDlg.DisplayWarningDlg("UPDATE DB with APPLICATION DEFAULT SETTINGS!");
+
+
+
+
             }
             catch (Exception ex)
             {

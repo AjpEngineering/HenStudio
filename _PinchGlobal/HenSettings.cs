@@ -300,14 +300,6 @@ namespace HenGlobal
         public HenTypes.ProjectDirtyFlagState ProjectDirtyFlagStateEnum { get; set; } // Project Dirty Flag State [ UNKNOWN = -1 | UPDATE = 0 | UPDATED = 1 ]
         #endregion  // ProjectDirtyFlagStateEnum
 
-        #region ProjectUnitsEnum
-        /// <summary>
-        /// Project Units System ... [UNKNOWN = -1 | NA = 0 | ENGLISH = 1 | METRIC = 2 ]
-        /// OPEN Project ENGLISH-IMPERIAL Units or METRIC-SI Units
-        /// </summary>
-        public HenTypes.ProjectUnits ProjectUnitsEnum { get; set; }        // OPEN Project Units [ UNKNOWN | NA | ENGLISH | METRIC ]
-        #endregion  // ProjectUnitsEnum
-
         #endregion  // STATUS BAR
 
         #region INTERNAL UNITS

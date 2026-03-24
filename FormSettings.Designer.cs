@@ -60,6 +60,7 @@
             this.comboBoxDefaultHenOpitimizer = new System.Windows.Forms.ComboBox();
             this.textBoxDefaultHenOptimizerTitle = new System.Windows.Forms.TextBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.panelProjectUnits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).BeginInit();
             this.panelExchanger.SuspendLayout();
@@ -363,6 +364,7 @@
             this.comboBoxUnitsSystem.Size = new System.Drawing.Size(150, 24);
             this.comboBoxUnitsSystem.Sorted = true;
             this.comboBoxUnitsSystem.TabIndex = 14;
+            this.comboBoxUnitsSystem.SelectionChangeCommitted += new System.EventHandler(this.comboBoxUnitsSystem_SelectionChangeCommitted);
             // 
             // textBoxUnitsSystem
             // 
@@ -389,12 +391,13 @@
             this.buttonOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOK.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOK.Location = new System.Drawing.Point(386, 369);
+            this.buttonOK.Location = new System.Drawing.Point(377, 369);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(326, 60);
+            this.buttonOK.Size = new System.Drawing.Size(334, 60);
             this.buttonOK.TabIndex = 15;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = false;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // panelExchanger
             // 
@@ -420,6 +423,7 @@
             this.textBoxDefaultU_Value.TabIndex = 31;
             this.textBoxDefaultU_Value.Text = "74.0";
             this.textBoxDefaultU_Value.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxDefaultU_Value.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDefaultU_Value_KeyPress);
             // 
             // textBoxDefaultU_Units
             // 
@@ -500,12 +504,31 @@
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.White;
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(10, 369);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(377, 215);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(354, 59);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(334, 146);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 16;
             this.pictureBoxLogo.TabStop = false;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonCancel.FlatAppearance.BorderSize = 2;
+            this.buttonCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.Location = new System.Drawing.Point(15, 369);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(334, 60);
+            this.buttonCancel.TabIndex = 19;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // FormSettings
             // 
@@ -513,6 +536,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(724, 441);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.panelDefaultHenOptimizer);
             this.Controls.Add(this.panelExchanger);
             this.Controls.Add(this.pictureBoxLogo);
@@ -527,7 +551,8 @@
             this.MinimumSize = new System.Drawing.Size(740, 480);
             this.Name = "FormSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AJP HEN Studio Settings";
+            this.Text = "AJP HEN Studio Default Settings";
+            this.Load += new System.EventHandler(this.FormSettings_Load);
             this.panelProjectUnits.ResumeLayout(false);
             this.panelProjectUnits.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).EndInit();
@@ -573,5 +598,6 @@
         private System.Windows.Forms.Panel panelDefaultHenOptimizer;
         private System.Windows.Forms.ComboBox comboBoxDefaultHenOpitimizer;
         private System.Windows.Forms.TextBox textBoxDefaultHenOptimizerTitle;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }

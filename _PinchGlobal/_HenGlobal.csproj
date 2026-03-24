@@ -51,8 +51,10 @@
     <Compile Include="HenMethods.cs" />
     <Compile Include="HenMsgDlg.cs" />
     <Compile Include="HenLogger.cs" />
+    <Compile Include="HenProjectUnits.cs" />
     <Compile Include="HenSettings.cs" />
     <Compile Include="HenTypes.cs" />
+    <Compile Include="DefaultProjectSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
