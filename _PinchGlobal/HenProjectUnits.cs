@@ -157,6 +157,11 @@ namespace HenGlobal
         public const string MW_K_U = "MMW/(m² K)";              // K
         #endregion  // U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
 
+        #region HEN OPTIMIZER
+        public const string GENETIC = "Genetic";   // Genetic HEN Optimizer
+        public const string GREEDY = "Greedy";     // Greedy HEN Optimizer
+        #endregion  // HEN OPTIMIZER
+
         #endregion  // UNITS STRINGS
 
         #endregion      // CONSTANTS
@@ -349,8 +354,8 @@ namespace HenGlobal
             List<string> lst = new List<string>();
 
             lst.Clear();
-            lst.Add("Metric  - SI");
-            lst.Add("English - Imperial");
+            lst.Add(METRIC_UNITS);
+            lst.Add(ENGLISH_UNITS);
             return lst;
         }
         #endregion  // GetSystemUnitsList()
@@ -365,9 +370,9 @@ namespace HenGlobal
             List<string> lst = new List<string>();
 
             lst.Clear();
-            lst.Add("Base ... 10^0");
-            lst.Add("Kilo ... 10^3");
-            lst.Add("Mega ... 10^6");
+            lst.Add(MAG_BASE);
+            lst.Add(MAG_KILO);
+            lst.Add(MAG_MEGA);
             return lst;
         }
         #endregion  // GetMagnitudeList()
@@ -382,8 +387,8 @@ namespace HenGlobal
             List<string> lst = new List<string>();
 
             lst.Clear();
-            lst.Add("°F");
-            lst.Add("°R");
+            lst.Add(DEG_F);
+            lst.Add(DEG_R);
             return lst;
         }
         #endregion  // GetMetricTempList()
@@ -398,8 +403,8 @@ namespace HenGlobal
             List<string> lst = new List<string>();
 
             lst.Clear();
-            lst.Add("°C");
-            lst.Add("K");
+            lst.Add(DEG_C);
+            lst.Add(KELVIN);
             return lst;
         }
         #endregion  // GetMetricTempList()
@@ -414,12 +419,12 @@ namespace HenGlobal
             List<string> lst = new List<string>();
 
             lst.Clear();
-            lst.Add("psia");
-            lst.Add("psig");
-            lst.Add("psf");
-            lst.Add("Atm");
-            lst.Add("inHg");
-            lst.Add("InH2O");
+            lst.Add(Psia);
+            lst.Add(Psig);
+            lst.Add(Psfa);
+            lst.Add(Atm);
+            lst.Add(InHg);
+            lst.Add(InH2O);
             return lst;
         }
         #endregion  // GetEnglishPressList()
@@ -439,18 +444,18 @@ namespace HenGlobal
             switch(ProjectMagnitudeEnum)
             {
                 case ProjectMagnitude.BASE:
-                    lst.Add("bar");
-                    lst.Add("Pa");
+                    lst.Add(Bar);
+                    lst.Add(Pa);
                     break;
 
                 case ProjectMagnitude.KILO:
-                    lst.Add("kBar");
-                    lst.Add("KPa");
+                    lst.Add(KBar);
+                    lst.Add(kPa);
                     break;
 
                 case ProjectMagnitude.MEGA:
-                    lst.Add("MBar");
-                    lst.Add("MPa");
+                    lst.Add(MBar);
+                    lst.Add(MPa);
                     break;
 
                 default:
@@ -472,8 +477,8 @@ namespace HenGlobal
             List<string> lst = new List<string>();
 
             lst.Clear();
-            lst.Add("Genetic");
-            lst.Add("Greedy");
+            lst.Add(GENETIC);
+            lst.Add(GREEDY);
             return lst;
         }
         #endregion  // GetHenOptimizerList()

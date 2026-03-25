@@ -38,6 +38,8 @@ using HenGlobal;
 using HenStudio.Properties;
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -80,16 +82,16 @@ namespace HenStudio
         /// <summary>
         /// Parameterized Constructor
         /// </summary>
-        /// <param name="currDefaultProjectUnitsObj">Initial Default Project Settings</param>
-        public FormAppSettings(DefaultProjectSettings currDefaultProjectUnitsObj)
+        /// <param name="appProjectSettingsObj">Application Project Settings</param>
+        public FormAppSettings(DefaultProjectSettings appProjectSettingsObj)
         {
             //-------------------------------------
             //--- Initialize Default Properties ---
             //-------------------------------------
 
-            InitialDefaultProjectSettingsObj = currDefaultProjectUnitsObj;
+            InitialDefaultProjectSettingsObj = appProjectSettingsObj;
 
-            FinalDefaultProjectSettingsObj = currDefaultProjectUnitsObj;
+            FinalDefaultProjectSettingsObj = appProjectSettingsObj;
 
             InitializeComponent();
 
@@ -106,18 +108,20 @@ namespace HenStudio
             string strMethod = "FormSettings_Load";
             try
             {
-                ////---------------------------
-                ////--- Load ComboBox Items ---
-                ////---------------------------
-                //LoadSystemUnits();
-                //LoadMagnitude();
-                //LoadTemperature(InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectSystemUnitsEnum);
+                //---------------------------
+                //--- Load ComboBox Items ---
+                //---------------------------
+                LoadSystemUnits(FinalDefaultProjectSettingsObj.ExternalUnitsObj);
+                LoadMagnitude();
+
+                LoadTemperature();
+
                 //LoadPressure(InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectSystemUnitsEnum,
                 //             InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectMagnitudeEnum);
 
-                ////------------------------------------------------------------------
-                ////--- Initialize Controls with Inital Default Project Properties ---
-                ////------------------------------------------------------------------
+                //------------------------------------------------------------------
+                //--- Initialize Controls with Inital Default Project Properties ---
+                //------------------------------------------------------------------
                 //if (InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC)
                 //{
                 //    comboBoxUnitsSystem.SelectedItem = HenProjectUnits.ProjectSystemUnits.METRIC.ToString();
@@ -150,7 +154,7 @@ namespace HenStudio
         #region SYSTEM UNITS SELECTION CHANGED
         private void comboBoxUnitsSystem_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            UpdateDefaultControls();
+            UpdateForSystemUnitsChange();
         }
         #endregion  // SYSTEM UNITS SELECTION CHANGED
 
@@ -174,108 +178,110 @@ namespace HenStudio
         }
         #endregion  // U VALUE TEXTBOX KEY PRESS HANDLER ... Ensure Numeric Data Only
 
-
-        private void LoadSystemUnits()
+        #region UpdateSystemUnitsImage()
+        private void UpdateSystemUnitsImage()
         {
-            //----------------------------------------
-            //--- Load System Units ComboBox Items ---
-            //----------------------------------------
-            comboBoxUnitsSystem.Items.Clear();
-            comboBoxUnitsSystem.Items.Add(HenProjectUnits.ProjectSystemUnits.ENGLISH.ToString());
-            comboBoxUnitsSystem.Items.Add(HenProjectUnits.ProjectSystemUnits.METRIC.ToString());
-        }
+            #region METRIC
+            if (FinalDefaultProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC)
+            {
+                pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
+            }
+            #endregion  // METRIC
 
+            #region ENGLISH
+            else if (FinalDefaultProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.ENGLISH)
+            {
+                pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
+            }
+                #endregion  // ENGLISH        
+        }
+        #endregion  // UpdateSystemUnitsImage()
+
+        #region LOAD COMBO BOX DROP DOWN LISTS
+
+        #region LoadSystemUnits()
+        private void LoadSystemUnits(HenProjectUnits externUnits)
+        {
+            string strMethod = "LoadSystemUnits";
+            int nIndex = 0;
+            int nSelectIndex = 0;
+            string strSelectName = externUnits.GetSystemUnitsString();
+            try
+            {
+                ProjectSystemUnits systemUnitsEnum = externUnits.ProjectSystemUnitsEnum;
+
+                //----------------------------------------
+                //--- Load System Units ComboBox Items ---
+                //----------------------------------------
+                List<string> lst = externUnits.GetSystemUnitsList();
+
+                comboBoxUnitsSystem.Items.Clear();
+                foreach(string str in lst)
+                {
+                    nIndex= comboBoxUnitsSystem.Items.Add(str);
+                }
+                if (comboBoxUnitsSystem.Items.Count > 0) comboBoxUnitsSystem.SelectedItem = strSelectName;  // Select Item
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                UpdateSystemUnitsImage();
+            }
+        }
+        #endregion  // LoadSystemUnits()
+
+        #region LoadMagnitude()
         private void LoadMagnitude()
         {
             //-------------------------------------
             //--- Load Magnitude ComboBox Items ---
             //-------------------------------------
+            List<string> lst = FinalDefaultProjectSettingsObj.ExternalUnitsObj.GetMagnitudeList();
+
             comboBoxUnitsMagnitude.Items.Clear();
-            comboBoxUnitsMagnitude.Items.Add(HenProjectUnits.ProjectMagnitude.BASE.ToString());
-            comboBoxUnitsMagnitude.Items.Add(HenProjectUnits.ProjectMagnitude.KILO.ToString());
-            comboBoxUnitsMagnitude.Items.Add(HenProjectUnits.ProjectMagnitude.MEGA.ToString());
+            foreach (string str in lst)
+            {
+                comboBoxUnitsMagnitude.Items.Add(str);
+            }
+            if (comboBoxUnitsMagnitude.Items.Count > 0) comboBoxUnitsMagnitude.SelectedIndex = 0;  // Select First Item
         }
+        #endregion  // LoadMagnitude()
 
-        private void LoadTemperature(HenProjectUnits.ProjectSystemUnits ProjectSystemUnitsEnum)
+        #region LoadTemperature()
+        private void LoadTemperature()
         {
-            if (ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.ENGLISH)
-            {
-                comboBoxUnitsTemp.Items.Clear();
-                comboBoxUnitsTemp.Items.Add(HenProjectUnits.ProjectEnglishTemp.DEG_F.ToString());
-                comboBoxUnitsTemp.Items.Add(HenProjectUnits.ProjectEnglishTemp.DEG_R.ToString());
-            }
-            else if (ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC)
-            {
-                comboBoxUnitsTemp.Items.Clear();
-                comboBoxUnitsTemp.Items.Add(HenProjectUnits.ProjectMetricTemp.DEG_C.ToString());
-                comboBoxUnitsTemp.Items.Add(HenProjectUnits.ProjectMetricTemp.KELVIN.ToString());
-            }
-        }
-
-
-        private void LoadPressure(HenProjectUnits.ProjectSystemUnits ProjectSystemUnitsEnum,
-                                  HenProjectUnits.ProjectMagnitude ProjectMagnitudeEnum)
-        {
-            if (ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.ENGLISH)
-            {
-                comboBoxUnitsPress.Items.Clear();
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectEnglishPress.PSIA.ToString());
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectEnglishPress.PSIG.ToString());
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectEnglishPress.PSF.ToString());
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectEnglishPress.ATM.ToString());
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectEnglishPress.IN_HG.ToString());
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectEnglishPress.IN_H2O.ToString());
-            }
-            else if ((ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC) &&
-                     (ProjectMagnitudeEnum == HenProjectUnits.ProjectMagnitude.BASE))
-            {
-                comboBoxUnitsPress.Items.Clear();
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectMetricPress.BAR.ToString());
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectMetricPress.Pa.ToString());
-            }
-            else if ((ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC) &&
-                     (ProjectMagnitudeEnum == HenProjectUnits.ProjectMagnitude.KILO))
-            {
-                comboBoxUnitsPress.Items.Clear();
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectMetricPress.BAR.ToString());
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectMetricPress.Pa.ToString());
-            }
-            else if ((ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC) &&
-                     (ProjectMagnitudeEnum == HenProjectUnits.ProjectMagnitude.BASE))
-            {
-                comboBoxUnitsPress.Items.Clear();
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectMetricPress.BAR.ToString());
-                comboBoxUnitsPress.Items.Add(HenProjectUnits.ProjectMetricPress.Pa.ToString());
-            }
-        }
-
-
-        #region UpdateDefaultControls()
-        private void UpdateDefaultControls()
-        {
-            string strMethod = "UpdateDefaultControls";
+            string strMethod = "LoadTemperature";
+            HenProjectUnits externUnits = FinalDefaultProjectSettingsObj.ExternalUnitsObj;
+            ProjectSystemUnits systemUnitsEnum = externUnits.ProjectSystemUnitsEnum;
             try
             {
-                //--------------------
-                //--- SYSTEM UNITS ---
-                //--------------------
-                string strSelectedItem = comboBoxUnitsSystem.SelectedItem.ToString();
-                #region METRIC
-                if (string.Compare(strSelectedItem, HenProjectUnits.ProjectSystemUnits.METRIC.ToString(), true) == 0)
+                if (systemUnitsEnum == HenProjectUnits.ProjectSystemUnits.ENGLISH)
                 {
-                    FinalDefaultProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = HenProjectUnits.ProjectSystemUnits.METRIC;
-                    pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
-                }
-                #endregion  // METRIC
+                    List<string> lstEng = externUnits.GetEnglishTempList();
 
-                #region ENGLISH
-                else if (string.Compare(strSelectedItem, HenProjectUnits.ProjectSystemUnits.ENGLISH.ToString(), true) == 0)
+                    comboBoxUnitsTemp.Items.Clear();
+                    foreach (string str in lstEng)
+                    {
+                        comboBoxUnitsTemp.Items.Add(str);
+                    }
+                    if (comboBoxUnitsTemp.Items.Count > 0) comboBoxUnitsTemp.SelectedIndex = 0;  // Select First Item
+                }
+                else if (systemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC)
                 {
-                    FinalDefaultProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = HenProjectUnits.ProjectSystemUnits.ENGLISH;
-                    pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
-                }
-                #endregion  // ENGLISH
+                    List<string> lstMet = externUnits.GetMetricTempList();
 
+                    comboBoxUnitsTemp.Items.Clear();
+                    foreach (string str in lstMet)
+                    {
+                        comboBoxUnitsTemp.Items.Add(str);
+                    }
+                    if (comboBoxUnitsTemp.Items.Count > 0) comboBoxUnitsTemp.SelectedIndex = 0;  // Select First Item
+                }
             }
             catch (Exception ex)
             {
@@ -287,7 +293,108 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // UpdateDefaultControls()
+        #endregion  // LoadTemperature()
+
+        #region LoadPressure()
+        private void LoadPressure()
+        {
+            string strMethod = "LoadPressure";
+            HenProjectUnits externUnits = FinalDefaultProjectSettingsObj.ExternalUnitsObj;
+            ProjectSystemUnits systemUnitsEnum = externUnits.ProjectSystemUnitsEnum;
+            ProjectMagnitude magnitudeEnum = externUnits.ProjectMagnitudeEnum;
+            try
+            {
+                if (systemUnitsEnum == HenProjectUnits.ProjectSystemUnits.ENGLISH)
+                {
+                    List<string> lstEng = externUnits.GetEnglishPressList();
+
+                    comboBoxUnitsPress.Items.Clear();
+                    foreach (string str in lstEng)
+                    {
+                        comboBoxUnitsPress.Items.Add(str);
+                    }
+                    if (comboBoxUnitsPress.Items.Count > 0) comboBoxUnitsPress.SelectedIndex = 0;  // Select First Item
+                }
+                else if (systemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC)
+                {
+                    List<string> lstMet = externUnits.GetMetricPressList(magnitudeEnum);
+
+                    comboBoxUnitsPress.Items.Clear();
+                    foreach (string str in lstMet)
+                    {
+                        comboBoxUnitsPress.Items.Add(str);
+                    }
+                    if (comboBoxUnitsPress.Items.Count > 0) comboBoxUnitsPress.SelectedIndex = 0;  // Select First Item
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // LoadPressure()
+
+        #endregion  // LOAD COMBO BOX DROP DOWN LISTS
+
+        #region UpdateForSystemUnitsChange()
+        private void UpdateForSystemUnitsChange()
+        {
+            string strMethod = "UpdateForSystemUnitsChange";
+            try
+            {
+                //--------------------
+                //--- SYSTEM UNITS ---
+                //--------------------
+                string strSelectedItem = comboBoxUnitsSystem.SelectedItem.ToString();
+                #region METRIC
+                if (string.Compare(strSelectedItem, HenProjectUnits.METRIC_UNITS, true) == 0)
+                {
+                    FinalDefaultProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = HenProjectUnits.ProjectSystemUnits.METRIC;
+                    pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
+                }
+                #endregion  // METRIC
+
+                #region ENGLISH
+                else if (string.Compare(strSelectedItem, HenProjectUnits.ENGLISH_UNITS, true) == 0)
+                {
+                    FinalDefaultProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = HenProjectUnits.ProjectSystemUnits.ENGLISH;
+                    pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
+                }
+                #endregion  // ENGLISH
+
+                //-----------------
+                //--- MAGNITUDE ---
+                //-----------------
+                LoadMagnitude();
+
+                //-------------------
+                //--- TEMPERATURE ---
+                //-------------------
+                LoadTemperature();
+
+                //----------------
+                //--- PRESSURE ---
+                //----------------
+                LoadPressure();
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                UpdateSystemUnitsImage();
+            }
+        }
+        #endregion  // UpdateForSystemUnitsChange()
 
         #region OK BUTTON HANDLER
         private void buttonOK_Click(object sender, EventArgs e)

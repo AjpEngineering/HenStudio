@@ -993,7 +993,7 @@ namespace HenStudio
         {
             string strMethod = "DisplayApplicationSettingsForm";
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Application Settings Form");
-            DefaultProjectSettings currDefaultUnits = new DefaultProjectSettings();
+            DefaultProjectSettings appProjectSettings = null;
             double dCurrDefaultExchangerU = 74.0;
             HenOptimizer currHenOptimizerEnum = HenOptimizer.GREEDY;
             try
@@ -1002,12 +1002,11 @@ namespace HenStudio
                 //--- Get Current Default Application Data from DB ---
                 //----------------------------------------------------
                 HenMsgDlg.DisplayWarningDlg("Get Current Default Application Data from DB!");
+
                 //********************************************************************************
                 //********************************************************************************
                 //********************************************************************************
-                currDefaultUnits = new DefaultProjectSettings();
-                currDefaultUnits.ProjectExchangerU = dCurrDefaultExchangerU;
-                currDefaultUnits.ProjectHenOptimizerEnum = currHenOptimizerEnum;
+                appProjectSettings = HenSettingsObj.EXTERNAL_APP_SettingsObj;
                 //********************************************************************************
                 //********************************************************************************
                 //********************************************************************************
@@ -1015,7 +1014,7 @@ namespace HenStudio
                 //--------------------------------------------------------------------------------
                 //--- Launch Project Settings Dialog with Current Application Default Settings ---
                 //--------------------------------------------------------------------------------
-                FormAppSettings dlg = new FormAppSettings(currDefaultUnits);
+                FormAppSettings dlg = new FormAppSettings(appProjectSettings);
                 
                 if(dlg.ShowDialog()==DialogResult.Cancel) return;   // User Cancelled Dialog
 

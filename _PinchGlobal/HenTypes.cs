@@ -131,18 +131,6 @@ namespace HenGlobal
 
         #region UNITS
 
-        #region enum ProjectSystemUnits
-        /// <summary>
-        /// ENUMERATION: Project System Units [ UNKNOWN | ENGLISH | METRIC ]
-        /// </summary>
-        public enum ProjectSystemUnits
-        {
-            UNKNOWN = -1,       // UNKNOWN Units
-            ENGLISH =  0,       // ENGLISH-IMPERIAL Units
-            METRIC  =  1        // METRIC-SI Units
-        };
-        #endregion      // enum ProjectSystemUnits
-
         #region enum ConversionUnitsTypes
         /// <summary>
         /// ENUMERATION: Conversion Units Types [ UNKNOWN | HEAT_FLOW | TEMP | CP | U | A ]
