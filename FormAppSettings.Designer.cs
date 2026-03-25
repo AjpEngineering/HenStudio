@@ -263,6 +263,7 @@
             this.comboBoxUnitsPress.Size = new System.Drawing.Size(150, 24);
             this.comboBoxUnitsPress.Sorted = true;
             this.comboBoxUnitsPress.TabIndex = 21;
+            this.comboBoxUnitsPress.SelectedIndexChanged += new System.EventHandler(this.comboBoxUnitsPress_SelectedIndexChanged);
             // 
             // textBoxUnitsPress
             // 
@@ -293,6 +294,7 @@
             this.comboBoxUnitsTemp.Size = new System.Drawing.Size(150, 24);
             this.comboBoxUnitsTemp.Sorted = true;
             this.comboBoxUnitsTemp.TabIndex = 19;
+            this.comboBoxUnitsTemp.SelectedIndexChanged += new System.EventHandler(this.comboBoxUnitsTemp_SelectedIndexChanged);
             // 
             // textBoxUnitsTemp
             // 
@@ -324,6 +326,7 @@
             this.comboBoxUnitsMagnitude.Size = new System.Drawing.Size(150, 24);
             this.comboBoxUnitsMagnitude.Sorted = true;
             this.comboBoxUnitsMagnitude.TabIndex = 17;
+            this.comboBoxUnitsMagnitude.SelectedIndexChanged += new System.EventHandler(this.comboBoxUnitsMagnitude_SelectedIndexChanged);
             // 
             // textBoxUnitsMagnitude
             // 
@@ -530,7 +533,7 @@
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // FormSettings
+            // FormAppSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -549,7 +552,7 @@
             this.MaximumSize = new System.Drawing.Size(740, 480);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(740, 480);
-            this.Name = "FormSettings";
+            this.Name = "FormAppSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AJP HEN Studio Default Settings";
             this.Load += new System.EventHandler(this.FormSettings_Load);

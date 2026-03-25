@@ -158,6 +158,27 @@ namespace HenStudio
         }
         #endregion  // SYSTEM UNITS SELECTION CHANGED
 
+        #region MAGNITUDE SELECTION CHANGED
+        private void comboBoxUnitsMagnitude_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateForMagnitudeChange();
+        }
+        #endregion  // MAGNITUDE SELECTION CHANGED
+
+        #region TEMPERATURE SELECTION CHANGED
+        private void comboBoxUnitsTemp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateForTemperatureChange();
+        }
+        #endregion  // TEMPERATURE SELECTION CHANGED
+
+        #region PRESSURE SELECTION CHANGED
+        private void comboBoxUnitsPress_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateForPressureChange();
+        }
+        #endregion  // PRESSURE SELECTION CHANGED
+
         #endregion  // DEFAULT UNITS EVENT HANDLERS
 
         #region DEFAULT EXCHANGER EVENT HANDLERS
@@ -341,6 +362,8 @@ namespace HenStudio
 
         #endregion  // LOAD COMBO BOX DROP DOWN LISTS
 
+        #region COMBO BOX SELECTION CHANGE HANDLERS
+
         #region UpdateForSystemUnitsChange()
         private void UpdateForSystemUnitsChange()
         {
@@ -381,7 +404,6 @@ namespace HenStudio
                 //--- PRESSURE ---
                 //----------------
                 LoadPressure();
-
             }
             catch (Exception ex)
             {
@@ -395,6 +417,71 @@ namespace HenStudio
             }
         }
         #endregion  // UpdateForSystemUnitsChange()
+
+        #region UpdateForMagnitudeChange()
+        private void UpdateForMagnitudeChange()
+        {
+            string strMethod = "UpdateForMagnitudeChange";
+            try
+            {
+
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateForMagnitudeChange()
+
+        #region UpdateForTemperatureChange()
+        private void UpdateForTemperatureChange()
+        {
+            string strMethod = "UpdateForTemperatureChange";
+            try
+            {
+
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateForTemperatureChange()
+
+        #region UpdateForPressureChange()
+        private void UpdateForPressureChange()
+        {
+            string strMethod = "UpdateForPressureChange";
+            try
+            {
+
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateForPressureChange()
+
+        #endregion  // COMBO BOX SELECTIOCHANGE HANDLERS
 
         #region OK BUTTON HANDLER
         private void buttonOK_Click(object sender, EventArgs e)
