@@ -59,6 +59,106 @@ namespace HenGlobal
         const string NAMESPACE = "HenGlobal";
         const string CLASS = "HenProjectUnits";
 
+        #region UNITS STRINGS
+
+        #region SYSTEM UNITS
+        public const string ENGLISH_UNITS = "English - Imperial";
+        public const string METRIC_UNITS = "Metric - SI";     // <<<--- INTERNAL ---<<<
+        #endregion  // SYSTEM UNITS
+
+        #region MAG - MAGNITUDE UNITS
+        //------------------------------------------- MAG - MAGNITUDE UNITS ---
+        public const string MAG_BASE = "Base : 10^0";    // BASE * 10^0
+        public const string MAG_KILO = "Kilo : 10^3";    // BASE * 10^3   // <<<--- INTERNAL ---<<<
+        public const string MAG_MEGA = "Mega : 10^6";    // BASE * 10^6
+        #endregion  // MAG - MAGNITUDE UNITS
+
+        #region A - AREA UNITS
+        //---------------------------------------------------- ENGLISH AREA ---
+        public const string SqFt = "ft²";   // "ft\u00B2"
+        //----------------------------------------------------- METRIC AREA ---
+        public const string SqM = "m²";     // "m\u00B2" <<<------ INTERNAL ---<<<
+        #endregion  // A - AREA UNITS
+
+        #region T - TEMPERATURE UNITS
+        //---------------------------------------------- ENGLISH TEMPEATURE ---
+        public const string DEG_F = "°F";   // $"\u00B0F";
+        public const string DEG_R = "°R";   // $"\u00B0R";
+        //----------------------------------------------- METRIC TEMPEATURE ---
+        public const string DEG_C = "°C";   // $"\u00B0C";
+        public const string KELVIN = "K";   // <<<---------------- INTERNAL ---<<<
+        #endregion  // T - TEMPERATURE UNITS
+
+        #region P - PRESSURE UNITS
+        //------------------------------------------------ ENGLISH PRESSURE ---
+        public const string Psia = "psia";   // "psia  - lbs/in² absolute"
+        public const string Psig = "psig";   // "psia  - lbs/in² guage"
+        public const string Psfa = "psfa";   // "psia  - lbs/ft² absolute"
+        public const string Atm = "atm";     // "atm   - atmosphere"
+        public const string InHg = "inHg";   // "inHg  - inches of Mercury"
+        public const string InH2O = "inH2O"; // "inH2O - inches of Water"
+        //------------------------------------------------- METRIC PRESSURE ---
+        public const string Bar = "bar";     // "bar
+        public const string KBar = "kBbar";  // "kilo bar"
+        public const string MBar = "MBar";   // "Mega bar"
+        public const string Pa = "Pa";       // "Pa  - Pascals" 
+        public const string kPa = "kPa";     // "kPa - Kilo Pascals" <<<------ INTERNAL ---<<<
+        public const string MPa = "MPa";     // "MPa - Mega Pascals"
+        #endregion  // P - PRESSURE UNITS
+
+        #region H - HEAT FLOW UNITS
+        //------------------------------------------- ENGLISH BTU HEAT FLOW ---
+        public const string BTU_HEAT_FLOW = "Btu/hr";
+        public const string KBTU_HEAT_FLOW = "kBtu/hr";
+        public const string MMBTU_HEAT_FLOW = "MMBtu/hr";
+        //---------------------------------------------- METRIC W HEAT FLOW ---
+        public const string W_HEAT_FLOW = "W";
+        public const string KW_HEAT_FLOW = "kW";    // <<<-------- INTERNAL ---<<<
+        public const string MW_HEAT_FLOW = "MW";
+        #endregion  // H - HEAT FLOW UNITS
+
+        #region CP - HEAT CAPACITY FLOW RATE UNITS
+        //-------------------------------------------------- ENGLISH BTU CP ---
+        public const string BTU_F_CP = "Btu/(hr °F)";        // °F
+        public const string KBTU_F_CP = "kBtu/(hr °F)";      // °F
+        public const string MMBTU_F_CP = "MMBtu/(hr °F)";    // °F
+        //---------------------------------------------------------------------
+        public const string BTU_R_CP = "Btu/(hr °R)";        // °R
+        public const string KBTU_R_CP = "kBtu/(hr °R)";      // °R
+        public const string MMBTU_R_CP = "MMBtu/(hr °R)";    // °R
+
+        //----------------------------------------------------- METRIC W CP ---
+        public const string W_C_CP = "W/°C";    // °C
+        public const string KW_C_CP = "kW/°C";  // °C
+        public const string MW_C_CP = "MW/°C"; // °C
+        //---------------------------------------------------------------------
+        public const string W_K_CP = "W/K";     // K
+        public const string KW_K_CP = "kW/K";   // <<<------------ INTERNAL ---<<<
+        public const string MW_K_CP = "MW/K";  // K
+        #endregion  // CP - HEAT CAPACITY FLOW RATE UNITS
+
+        #region U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
+        //--------------------------------------------------- ENGLISH BTU U ---
+        public const string BTU_F_U = "Btu/(hr ft² °F)";        // °F
+        public const string KBTU_F_U = "kBtu/(hr ft² °F)";      // °F
+        public const string MMBTU_F_U = "MMBtu/(hr ft² °F)";    // °F
+        //---------------------------------------------------------------------
+        public const string BTU_R_U = "Btu/(hr ft² °R)";        // °R
+        public const string KBTU_R_U = "kBtu/(hr ft² °R)";      // °R
+        public const string MMBTU_R_U = "MMBtu/(hr ft² °R)";    // °R
+
+        //------------------------------------------------------ METRIC W U ---
+        public const string W_C_U = "W/(m² °C)";                // °C
+        public const string KW_C_U = "kW/(m² °C)";              // °C
+        public const string MW_C_U = "MMW/(m² °C)";             // °C
+        //---------------------------------------------------------------------
+        public const string W_K_U = "W/(m² K)";                 // K
+        public const string KW_K_U = "kW/(m² K)";    // <<<------- INTERNAL ---<<<
+        public const string MW_K_U = "MMW/(m² K)";              // K
+        #endregion  // U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
+
+        #endregion  // UNITS STRINGS
+
         #endregion      // CONSTANTS
 
         #region ENUMS
@@ -181,11 +281,11 @@ namespace HenGlobal
         #endregion      // ENUMS
 
         #region PROPERTIES
-        public ProjectSystemUnits ProjectSystemUnitsEnum { get; set; } // Project System Units Enum [ UNKNOWN | ENGLISH | METRIC ]
-        public ProjectMagnitude ProjectMagnitudeEnum { get; set; }     // Project Magnitude Enum [ UNKNOWN | BASE | KILO | MEGA ]
+        public ProjectSystemUnits ProjectSystemUnitsEnum { get; set; }    // Project System Units Enum [ UNKNOWN | ENGLISH | METRIC ]
+        public ProjectMagnitude ProjectMagnitudeEnum { get; set; }        // Project Magnitude Enum [ UNKNOWN | BASE | KILO | MEGA ]
 
-        public ProjectEnglishTemp ProjectEnglishTempEnum { get; set; }  // Project English Temp Enum [ UNKNOWN = -1 | DEG_F = 0 | DEG_R = 1 ]
-        public ProjectMetricTemp ProjectMetricTempEnum { get; set; }    // Project Metric  Temp Enum [ UNKNOWN = -1 | DEG_C = 0 | K = 1 ]
+        public ProjectEnglishTemp ProjectEnglishTempEnum { get; set; }    // Project English Temp Enum [ UNKNOWN = -1 | DEG_F = 0 | DEG_R = 1 ]
+        public ProjectMetricTemp ProjectMetricTempEnum { get; set; }      // Project Metric  Temp Enum [ UNKNOWN = -1 | DEG_C = 0 | K = 1 ]
 
         public ProjectEnglishPress ProjectEnglishPressEnum { get; set; }  // Project English Press Enum [ UNKNOWN = -1 | PSIA = 0 | PSIG = 1 | PSF = 2 | ATM = 3 | IN_HG = 4 | IN_H2O = 5 ]
         public ProjectMetricPress ProjectMetricPressEnum { get; set; }    // Project Metric  Press Enum [ UNKNOWN = -1 | BAR = 0 | Pa = 1 ]
@@ -382,7 +482,110 @@ namespace HenGlobal
 
         #region GET UNIT STRINGS ... based on Property Settings
 
+        #region GetSystemUnitsString()
+        /// <summary>
+        /// Get System Units String
+        /// </summary>
+        /// <returns>System Units String</returns>
+        public string GetSystemUnitsString()
+        {
+            string strMethod = "GetSystemUnitsString";
+            string strUnitsString = String.Empty;
+            try
+            {
+                #region METRIC
+                if (ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC)
+                {
+                    strUnitsString = METRIC_UNITS;
+                }
+                #endregion  // METRIC
+
+                #region ENGLISH
+                else if (ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH)
+                {
+                    strUnitsString = ENGLISH_UNITS;
+                }
+                #endregion  // ENGLISH
+
+                #region UNKNOWN
+                else
+                {
+                    strUnitsString = "???";
+                }
+                #endregion  // UNKNOWN
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return strUnitsString;
+        }
+        #endregion  // GetSystemUnitsString()
+
+        #region GetMagnitudeString()
+        /// <summary>
+        /// Get the Magnitude Units String
+        /// </summary>
+        /// <returns>Magnitude Units String</returns>
+        public string GetMagnitudeString()
+        {
+            string strMethod = "GetMagnitudeString";
+            string strUnitsString = String.Empty;
+            try
+            {
+                #region BASE
+                if (ProjectMagnitudeEnum == ProjectMagnitude.BASE)
+                {
+                    strUnitsString = MAG_BASE;
+                }
+                #endregion  // BASE
+
+                #region KILO
+                else if (ProjectMagnitudeEnum == ProjectMagnitude.KILO)
+                {
+                    strUnitsString = MAG_KILO;
+                }
+                #endregion  // KILO
+
+                #region MEGA
+                else if (ProjectMagnitudeEnum == ProjectMagnitude.MEGA)
+                {
+                    strUnitsString = MAG_MEGA;
+                }
+                #endregion  // MEGA
+
+                #region UNKNOWN
+                else
+                {
+                    strUnitsString = "???";
+                }
+                #endregion  // UNKNOWN
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return strUnitsString;
+        }
+        #endregion  // GetMagnitudeString()
+
         #region GetAreaString()
+        /// <summary>
+        /// Get Area Units String
+        /// </summary>
+        /// <returns>Area Units String</returns>
         public string GetAreaString()
         {
             string strMethod = "GetAreaString";
@@ -393,7 +596,7 @@ namespace HenGlobal
                 if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                     (ProjectMetricAreaEnum == ProjectMetricArea.M2) )
                 {
-                    strUnitsString = "m2";
+                    strUnitsString = SqM;
                 }
                 #endregion  // METRIC
 
@@ -401,7 +604,7 @@ namespace HenGlobal
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectEnglishAreaEnum == ProjectEnglishArea.FT2))
                 {
-                    strUnitsString = "ft2";
+                    strUnitsString = SqFt;
                 }
                 #endregion  // ENGLISH
 
@@ -427,6 +630,10 @@ namespace HenGlobal
         #endregion  // GetAreaString()
 
         #region GetTemperatureString()
+        /// <summary>
+        /// Get Temperature Units String
+        /// </summary>
+        /// <returns>Temperature Units String</returns>
         public string GetTemperatureString()
         {
             string strMethod = "GetTemperatureString";
@@ -437,12 +644,12 @@ namespace HenGlobal
                 if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                     (ProjectMetricTempEnum == ProjectMetricTemp.DEG_C))
                 {
-                    strUnitsString = "°C";
+                    strUnitsString = DEG_C;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMetricTempEnum == ProjectMetricTemp.KELVIN))
                 {
-                    strUnitsString = "K";
+                    strUnitsString = KELVIN;
                 }
                 #endregion  // METRIC
 
@@ -450,12 +657,12 @@ namespace HenGlobal
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_F))
                 {
-                    strUnitsString = "°F";
+                    strUnitsString = DEG_F;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_R))
                 {
-                    strUnitsString = "°R";
+                    strUnitsString = DEG_R;
                 }
                 #endregion  // ENGLISH
 
@@ -481,6 +688,10 @@ namespace HenGlobal
         #endregion  // GetTemperatureString()
 
         #region GetPressureString()
+        /// <summary>
+        /// Get Pressure Units String
+        /// </summary>
+        /// <returns>Pressure Units String</returns>
         public string GetPressureString()
         {
             string strMethod = "GetPressureString";
@@ -492,37 +703,37 @@ namespace HenGlobal
                     (ProjectMagnitudeEnum == ProjectMagnitude.BASE) &&
                     (ProjectMetricPressEnum == ProjectMetricPress.BAR))
                 {
-                    strUnitsString = "bar";
+                    strUnitsString = Bar;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.BASE) &&
                          (ProjectMetricPressEnum == ProjectMetricPress.Pa))
                 {
-                    strUnitsString = "Pa";
+                    strUnitsString = Pa;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO) &&
                          (ProjectMetricPressEnum == ProjectMetricPress.BAR))
                 {
-                    strUnitsString = "kBar";
+                    strUnitsString = KBar;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO) &&
                          (ProjectMetricPressEnum == ProjectMetricPress.Pa))
                 {
-                    strUnitsString = "kPa";
+                    strUnitsString = kPa;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA) &&
                          (ProjectMetricPressEnum == ProjectMetricPress.BAR))
                 {
-                    strUnitsString = "mBar";
+                    strUnitsString = MBar;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA) &&
                          (ProjectMetricPressEnum == ProjectMetricPress.Pa))
                 {
-                    strUnitsString = "MPa";
+                    strUnitsString = MPa;
                 }
                 #endregion  // METRIC
 
@@ -530,32 +741,32 @@ namespace HenGlobal
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectEnglishPressEnum == ProjectEnglishPress.PSIA))
                 {
-                    strUnitsString = "psia";
+                    strUnitsString = Psia;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectEnglishPressEnum == ProjectEnglishPress.PSIG))
                 {
-                    strUnitsString = "psig";
+                    strUnitsString = Psig;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectEnglishPressEnum == ProjectEnglishPress.PSF))
                 {
-                    strUnitsString = "psf";
+                    strUnitsString = Psfa;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectEnglishPressEnum == ProjectEnglishPress.ATM))
                 {
-                    strUnitsString = "atm";
+                    strUnitsString = Atm;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectEnglishPressEnum == ProjectEnglishPress.IN_HG))
                 {
-                    strUnitsString = "inHg";
+                    strUnitsString = InHg;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectEnglishPressEnum == ProjectEnglishPress.IN_H2O))
                 {
-                    strUnitsString = "inH2O";
+                    strUnitsString = InH2O;
                 }
                 #endregion  // ENGLISH
 
@@ -581,6 +792,10 @@ namespace HenGlobal
         #endregion  // GetPressureString()
 
         #region GetEnthalpyString()
+        /// <summary>
+        /// Get Heat Flow (Enthalpy) Units String 
+        /// </summary>
+        /// <returns>Heat Flow (Enthalpy) Units String</returns>
         public string GetEnthalpyString()
         {
             string strMethod = "GetEnthalpyString";
@@ -591,17 +806,17 @@ namespace HenGlobal
                 if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) && 
                    (ProjectMagnitudeEnum == ProjectMagnitude.BASE))
                 {
-                    strEnthalpyString = "W";
+                    strEnthalpyString = W_HEAT_FLOW;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO))
                 {
-                    strEnthalpyString = "kW";
+                    strEnthalpyString = KW_HEAT_FLOW;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA))
                 {
-                    strEnthalpyString = "MW";
+                    strEnthalpyString = MW_HEAT_FLOW;
                 }
                 #endregion  // METRIC
 
@@ -609,17 +824,17 @@ namespace HenGlobal
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.BASE))
                 {
-                    strEnthalpyString = "Btu/hr";
+                    strEnthalpyString = BTU_HEAT_FLOW;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO))
                 {
-                    strEnthalpyString = "kBtu/hr";
+                    strEnthalpyString = KBTU_HEAT_FLOW;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA))
                 {
-                    strEnthalpyString = "MMBtu/hr";
+                    strEnthalpyString = MMBTU_HEAT_FLOW;
                 }
                 #endregion  // ENGLISH
 
@@ -645,6 +860,10 @@ namespace HenGlobal
         #endregion  // GetEnthalpyString()
 
         #region GetHeatCapacityFlowRateString()
+        /// <summary>
+        /// Get Heat Capacity Flow Rate (CP) Units String
+        /// </summary>
+        /// <returns>Heat Capacity Flow Rate (CP) Units String</returns>
         public string GetHeatCapacityFlowRateString()
         {
             string strMethod = "GetHeatCapacityFlowRateString";
@@ -656,37 +875,37 @@ namespace HenGlobal
                    (ProjectMagnitudeEnum == ProjectMagnitude.BASE) &&
                    (ProjectMetricTempEnum == ProjectMetricTemp.DEG_C))
                 {
-                    strUnitsString = "W/°C";
+                    strUnitsString = W_C_CP;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.BASE) &&
                          (ProjectMetricTempEnum == ProjectMetricTemp.KELVIN))
                 {
-                    strUnitsString = "W/K";
+                    strUnitsString = W_K_CP;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO) &&
                          (ProjectMetricTempEnum == ProjectMetricTemp.DEG_C))
                 {
-                    strUnitsString = "kW/°C";
+                    strUnitsString = KW_C_CP;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO) &&
                          (ProjectMetricTempEnum == ProjectMetricTemp.KELVIN))
                 {
-                    strUnitsString = "kW/K";
+                    strUnitsString = KW_K_CP;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA) &&
                          (ProjectMetricTempEnum == ProjectMetricTemp.DEG_C))
                 {
-                    strUnitsString = "MW/°C";
+                    strUnitsString = MW_C_CP;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA) &&
                          (ProjectMetricTempEnum == ProjectMetricTemp.KELVIN))
                 {
-                    strUnitsString = "MW/K";
+                    strUnitsString = MW_K_CP;
                 }
                 #endregion  // METRIC
 
@@ -695,37 +914,37 @@ namespace HenGlobal
                          (ProjectMagnitudeEnum == ProjectMagnitude.BASE) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_F))
                 {
-                    strUnitsString = "Btu/(hr °F)";
+                    strUnitsString = BTU_F_CP;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.BASE) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_R))
                 {
-                    strUnitsString = "Btu/(hr °R)";
+                    strUnitsString = BTU_R_CP;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_F))
                 {
-                    strUnitsString = "kBtu/(hr °F)";
+                    strUnitsString = KBTU_F_CP;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_R))
                 {
-                    strUnitsString = "kBtu/(hr °R)";
+                    strUnitsString = KBTU_R_CP;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_F))
                 {
-                    strUnitsString = "MMBtu/(hr °F)";
+                    strUnitsString = MMBTU_F_CP;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_R))
                 {
-                    strUnitsString = "MMBtu/(hr °R)";
+                    strUnitsString = MMBTU_R_CP;
                 }
                 #endregion  // ENGLISH
 
@@ -751,6 +970,10 @@ namespace HenGlobal
         #endregion  // GetHeatCapacityFlowRateString()
 
         #region GetHeatTransferCoefficientString()
+        /// <summary>
+        /// Get Heat Transfer Coefficient Units (U) String
+        /// </summary>
+        /// <returns>Heat Transfer Coefficient Units (U) String </returns>
         public string GetHeatTransferCoefficientString()
         {
             string strMethod = "GetHeatTransferCoefficientString";
@@ -762,37 +985,37 @@ namespace HenGlobal
                    (ProjectMagnitudeEnum == ProjectMagnitude.BASE) &&
                    (ProjectMetricTempEnum == ProjectMetricTemp.DEG_C))
                 {
-                    strUnitsString = "W/(m2 °C)";
+                    strUnitsString = W_C_U;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.BASE) &&
                          (ProjectMetricTempEnum == ProjectMetricTemp.KELVIN))
                 {
-                    strUnitsString = "W/(m2 K)";
+                    strUnitsString = W_K_U;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO) &&
                          (ProjectMetricTempEnum == ProjectMetricTemp.DEG_C))
                 {
-                    strUnitsString = "kW/(m2 °C)";
+                    strUnitsString = KW_C_U;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO) &&
                          (ProjectMetricTempEnum == ProjectMetricTemp.KELVIN))
                 {
-                    strUnitsString = "kW/(m2 K)";
+                    strUnitsString = KW_K_U;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA) &&
                          (ProjectMetricTempEnum == ProjectMetricTemp.DEG_C))
                 {
-                    strUnitsString = "MW/(m2 °C)";
+                    strUnitsString = MW_C_U;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA) &&
                          (ProjectMetricTempEnum == ProjectMetricTemp.KELVIN))
                 {
-                    strUnitsString = "MW/(m2 K)";
+                    strUnitsString = MW_K_U;
                 }
                 #endregion  // METRIC
 
@@ -801,37 +1024,37 @@ namespace HenGlobal
                          (ProjectMagnitudeEnum == ProjectMagnitude.BASE) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_F))
                 {
-                    strUnitsString = "Btu/(hr ft2 °F)";
+                    strUnitsString = BTU_F_U;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.BASE) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_R))
                 {
-                    strUnitsString = "Btu/(hr ft2 °R)";
+                    strUnitsString = BTU_R_U;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_F))
                 {
-                    strUnitsString = "kBtu/(hr ft2 °F)";
+                    strUnitsString = KBTU_F_U;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.KILO) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_R))
                 {
-                    strUnitsString = "kBtu/(hr ft2 °R)";
+                    strUnitsString = KBTU_R_U;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_F))
                 {
-                    strUnitsString = "MMBtu/(hr ft2 °F)";
+                    strUnitsString = MMBTU_F_U;
                 }
                 else if ((ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH) &&
                          (ProjectMagnitudeEnum == ProjectMagnitude.MEGA) &&
                          (ProjectEnglishTempEnum == ProjectEnglishTemp.DEG_R))
                 {
-                    strUnitsString = "MMBtu/(hr ft2 °R)";
+                    strUnitsString = MMBTU_R_U;
                 }
                 #endregion  // ENGLISH
 
@@ -857,7 +1080,6 @@ namespace HenGlobal
         #endregion  // GetHeatTransferCoefficientString()
 
         #endregion  // GET UNIT STRINGS ... based on Property Settings
-
 
     }
     #endregion      // public class HenProjectUnits

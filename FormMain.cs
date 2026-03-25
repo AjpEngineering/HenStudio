@@ -853,7 +853,7 @@ namespace HenStudio
         private void settingsDisplayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //HenMsgDlg.DisplayWarningDlg("Settings Menu Item Selected!");
-            DisplayProjectSettingsForm();
+            DisplayApplicationSettingsForm();
         }        
         #endregion  // SETTINGS MENU ITME HANDLER
 
@@ -985,14 +985,14 @@ namespace HenStudio
 
         #region COMMON COMMAND HANDLERS
 
-        #region DisplayProjectSettingsForm()
+        #region DisplayApplicationSettingsForm()
         /// <summary>
         /// Common Display Project Settings Form Handler
         /// </summary>
-        private void DisplayProjectSettingsForm()
+        private void DisplayApplicationSettingsForm()
         {
-            string strMethod = "DisplayProjectSettingsForm";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Settings Form");
+            string strMethod = "DisplayApplicationSettingsForm";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Application Settings Form");
             DefaultProjectSettings currDefaultUnits = new DefaultProjectSettings();
             double dCurrDefaultExchangerU = 74.0;
             HenOptimizer currHenOptimizerEnum = HenOptimizer.GREEDY;
@@ -1015,7 +1015,7 @@ namespace HenStudio
                 //--------------------------------------------------------------------------------
                 //--- Launch Project Settings Dialog with Current Application Default Settings ---
                 //--------------------------------------------------------------------------------
-                FormSettings dlg = new FormSettings(currDefaultUnits);
+                FormAppSettings dlg = new FormAppSettings(currDefaultUnits);
                 
                 if(dlg.ShowDialog()==DialogResult.Cancel) return;   // User Cancelled Dialog
 
@@ -1038,7 +1038,7 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // DisplayProjectSettingsForm()
+        #endregion  // DisplayApplicationSettingsForm()
 
         #region DisplayLicenseForm()
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿namespace HenStudio
 {
-    partial class FormSettings
+    partial class FormAppSettings
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSettings));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAppSettings));
             this.panelProjectUnits = new System.Windows.Forms.Panel();
             this.textBoxUnitsTitle = new System.Windows.Forms.TextBox();
             this.textBoxUDefinition = new System.Windows.Forms.TextBox();

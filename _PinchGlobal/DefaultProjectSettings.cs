@@ -64,8 +64,7 @@ namespace HenGlobal
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public HenProjectUnits ExternalAppDefaultUnitsObj { get; set; } // EXTERNAL Application Default Units Object
-        public HenProjectUnits ExternalProjectUnitsObj { get; set; }    // EXTERNAL Project Units Object
+        public HenProjectUnits ExternalUnitsObj { get; set; } // EXTERNAL Units Object
 
         public double ProjectExchangerU { get; set; }                   // PROJECT Exchanger Heat Transfer Coefficient (U)
         public HenOptimizer ProjectHenOptimizerEnum { get; set; }       // PROJECT HEN Optimizer Enumeration
@@ -82,8 +81,9 @@ namespace HenGlobal
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating DefaultProjectSettings Object");
             try
             {
-                ExternalAppDefaultUnitsObj = new HenProjectUnits();
-                ExternalProjectUnitsObj = new HenProjectUnits();
+                ExternalUnitsObj = new HenProjectUnits();
+                ProjectExchangerU = 74.0;
+                ProjectHenOptimizerEnum = HenOptimizer.GENETIC;
             }
             catch (Exception ex)
             {

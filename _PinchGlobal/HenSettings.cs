@@ -79,106 +79,106 @@ namespace HenGlobal
         public const string AJP_PRODUCT_CODE = "{3D9721BA-003E-4711-B7AF-B579645F0AC9}";
         #endregion  // SUPPLIER & PRODUCT INFORMATION ... LICENSE FILE STRINGS
 
-        #region UNITS STRINGS
+        //#region UNITS STRINGS
 
-        #region UNITS SYSTEM
-        //----------------------------------------------------- PINCH UNITS ---
-        public const string ENGLISH_UNITS = "ENGLISH";
-        public const string METRIC_UNITS = "METRIC";     // <<<--- INTERNAL ---<<<
-        #endregion  // UNITS SYSTEM
+        //#region UNITS SYSTEM
+        ////----------------------------------------------------- PINCH UNITS ---
+        //public const string ENGLISH_UNITS = "ENGLISH";
+        //public const string METRIC_UNITS = "METRIC";     // <<<--- INTERNAL ---<<<
+        //#endregion  // UNITS SYSTEM
 
-        #region MAG - MAGNITUDE UNITS
-        //------------------------------------------- MAG - MAGNITUDE UNITS ---
-        public const string MAG_BASE = "BASE";    // BASE * 10^0
-        public const string MAG_KILO = "KILO";    // BASE * 10^3   // <<<--- INTERNAL ---<<<
-        public const string MAG_MEGA = "MEGA";    // BASE * 10^6
-        #endregion  // MAG - MAGNITUDE UNITS
+        //#region MAG - MAGNITUDE UNITS
+        ////------------------------------------------- MAG - MAGNITUDE UNITS ---
+        //public const string MAG_BASE = "BASE";    // BASE * 10^0
+        //public const string MAG_KILO = "KILO";    // BASE * 10^3   // <<<--- INTERNAL ---<<<
+        //public const string MAG_MEGA = "MEGA";    // BASE * 10^6
+        //#endregion  // MAG - MAGNITUDE UNITS
 
-        #region T - TEMPERATURE UNITS
-        //---------------------------------------------- ENGLISH TEMPEATURE ---
-        public const string DEG_F = "°F";   // $"\u00B0F";
-        public const string DEG_R = "°R";   // $"\u00B0R";
-        //----------------------------------------------- METRIC TEMPEATURE ---
-        public const string DEG_C = "°C";   // $"\u00B0C";
-        public const string KELVIN = "K";   // <<<---------------- INTERNAL ---<<<
-        #endregion  // T - TEMPERATURE UNITS
+        //#region T - TEMPERATURE UNITS
+        ////---------------------------------------------- ENGLISH TEMPEATURE ---
+        //public const string DEG_F = "°F";   // $"\u00B0F";
+        //public const string DEG_R = "°R";   // $"\u00B0R";
+        ////----------------------------------------------- METRIC TEMPEATURE ---
+        //public const string DEG_C = "°C";   // $"\u00B0C";
+        //public const string KELVIN = "K";   // <<<---------------- INTERNAL ---<<<
+        //#endregion  // T - TEMPERATURE UNITS
 
-        #region P - PRESSURE UNITS
-        //------------------------------------------------ ENGLISH PRESSURE ---
-        public const string Psia = "psia";   // "psia  - lbs/in² absolute"
-        public const string Psig = "psig";   // "psia  - lbs/in² guage"
-        public const string Psfa = "psfa";   // "psia  - lbs/ft² absolute"
-        public const string Atm = "atm";     // "atm   - atmosphere"
-        public const string InHg = "inHg";   // "inHg  - inches of Mercury"
-        public const string InH2O = "inH2O"; // "inH2O - inches of Water"
-        //------------------------------------------------- METRIC PRESSURE ---
-        public const string Bar = "bar";     // "bar
-        public const string KBar = "kBbar";  // "kilo bar"
-        public const string MBar = "MBar";   // "Mega bar"
-        public const string Pa = "Pa";       // "Pa  - Pascals" 
-        public const string kPa = "kPa";     // "kPa - Kilo Pascals" <<<------ INTERNAL ---<<<
-        public const string MPa = "MPa";     // "MPa - Mega Pascals"
-        #endregion  // P - PRESSURE UNITS
+        //#region P - PRESSURE UNITS
+        ////------------------------------------------------ ENGLISH PRESSURE ---
+        //public const string Psia = "psia";   // "psia  - lbs/in² absolute"
+        //public const string Psig = "psig";   // "psia  - lbs/in² guage"
+        //public const string Psfa = "psfa";   // "psia  - lbs/ft² absolute"
+        //public const string Atm = "atm";     // "atm   - atmosphere"
+        //public const string InHg = "inHg";   // "inHg  - inches of Mercury"
+        //public const string InH2O = "inH2O"; // "inH2O - inches of Water"
+        ////------------------------------------------------- METRIC PRESSURE ---
+        //public const string Bar = "bar";     // "bar
+        //public const string KBar = "kBbar";  // "kilo bar"
+        //public const string MBar = "MBar";   // "Mega bar"
+        //public const string Pa = "Pa";       // "Pa  - Pascals" 
+        //public const string kPa = "kPa";     // "kPa - Kilo Pascals" <<<------ INTERNAL ---<<<
+        //public const string MPa = "MPa";     // "MPa - Mega Pascals"
+        //#endregion  // P - PRESSURE UNITS
 
-        #region A - AREA UNITS
-        //---------------------------------------------------- ENGLISH AREA ---
-        public const string SqFt = "ft²";   // "ft\u00B2"
-        //----------------------------------------------------- METRIC AREA ---
-        public const string SqM = "m²";     // "m\u00B2" <<<------ INTERNAL ---<<<
-        #endregion  // A - AREA UNITS
+        //#region A - AREA UNITS
+        ////---------------------------------------------------- ENGLISH AREA ---
+        //public const string SqFt = "ft²";   // "ft\u00B2"
+        ////----------------------------------------------------- METRIC AREA ---
+        //public const string SqM = "m²";     // "m\u00B2" <<<------ INTERNAL ---<<<
+        //#endregion  // A - AREA UNITS
 
-        #region H - HEAT FLOW UNITS
-        //------------------------------------------- ENGLISH BTU HEAT FLOW ---
-        public const string BTU_HEAT_FLOW = "Btu/hr";
-        public const string KBTU_HEAT_FLOW = "kBtu/hr";
-        public const string MMBTU_HEAT_FLOW = "MMBtu/hr";
-        //---------------------------------------------- METRIC W HEAT FLOW ---
-        public const string W_HEAT_FLOW = "W";
-        public const string KW_HEAT_FLOW = "kW";    // <<<-------- INTERNAL ---<<<
-        public const string MW_HEAT_FLOW = "MW";
-        #endregion  // H - HEAT FLOW UNITS
+        //#region H - HEAT FLOW UNITS
+        ////------------------------------------------- ENGLISH BTU HEAT FLOW ---
+        //public const string BTU_HEAT_FLOW = "Btu/hr";
+        //public const string KBTU_HEAT_FLOW = "kBtu/hr";
+        //public const string MMBTU_HEAT_FLOW = "MMBtu/hr";
+        ////---------------------------------------------- METRIC W HEAT FLOW ---
+        //public const string W_HEAT_FLOW = "W";
+        //public const string KW_HEAT_FLOW = "kW";    // <<<-------- INTERNAL ---<<<
+        //public const string MW_HEAT_FLOW = "MW";
+        //#endregion  // H - HEAT FLOW UNITS
 
-        #region CP - HEAT CAPACITY FLOW RATE UNITS
-        //-------------------------------------------------- ENGLISH BTU CP ---
-        public const string BTU_F_CP = "Btu/(hr °F)";        // °F
-        public const string KBTU_F_CP = "kBtu/(hr °F)";      // °F
-        public const string MMBTU_F_CP = "MMBtu/(hr °F)";    // °F
-        //---------------------------------------------------------------------
-        public const string BTU_R_CP = "Btu/(hr °R)";        // °R
-        public const string KBTU_R_CP = "kBtu/(hr °R)";      // °R
-        public const string MMBTU_R_CP = "MMBtu/(hr °R)";    // °R
+        //#region CP - HEAT CAPACITY FLOW RATE UNITS
+        ////-------------------------------------------------- ENGLISH BTU CP ---
+        //public const string BTU_F_CP = "Btu/(hr °F)";        // °F
+        //public const string KBTU_F_CP = "kBtu/(hr °F)";      // °F
+        //public const string MMBTU_F_CP = "MMBtu/(hr °F)";    // °F
+        ////---------------------------------------------------------------------
+        //public const string BTU_R_CP = "Btu/(hr °R)";        // °R
+        //public const string KBTU_R_CP = "kBtu/(hr °R)";      // °R
+        //public const string MMBTU_R_CP = "MMBtu/(hr °R)";    // °R
 
-        //----------------------------------------------------- METRIC W CP ---
-        public const string W_C_CP = "W/°C";    // °C
-        public const string KW_C_CP = "kW/°C";  // °C
-        public const string MW_C_CP = "MW/°C"; // °C
-        //---------------------------------------------------------------------
-        public const string W_K_CP = "W/K";     // K
-        public const string KW_K_CP = "kW/K";   // <<<------------ INTERNAL ---<<<
-        public const string MW_K_CP = "MW/K";  // K
-        #endregion  // CP - HEAT CAPACITY FLOW RATE UNITS
+        ////----------------------------------------------------- METRIC W CP ---
+        //public const string W_C_CP = "W/°C";    // °C
+        //public const string KW_C_CP = "kW/°C";  // °C
+        //public const string MW_C_CP = "MW/°C"; // °C
+        ////---------------------------------------------------------------------
+        //public const string W_K_CP = "W/K";     // K
+        //public const string KW_K_CP = "kW/K";   // <<<------------ INTERNAL ---<<<
+        //public const string MW_K_CP = "MW/K";  // K
+        //#endregion  // CP - HEAT CAPACITY FLOW RATE UNITS
 
-        #region U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
-        //--------------------------------------------------- ENGLISH BTU U ---
-        public const string BTU_F_U = "Btu/(hr ft² °F)";        // °F
-        public const string KBTU_F_U = "kBtu/(hr ft² °F)";      // °F
-        public const string MMBTU_F_U = "MMBtu/(hr ft² °F)";    // °F
-        //---------------------------------------------------------------------
-        public const string BTU_R_U = "Btu/(hr ft² °R)";        // °R
-        public const string KBTU_R_U = "kBtu/(hr ft² °R)";      // °R
-        public const string MMBTU_R_U = "MMBtu/(hr ft² °R)";    // °R
+        //#region U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
+        ////--------------------------------------------------- ENGLISH BTU U ---
+        //public const string BTU_F_U = "Btu/(hr ft² °F)";        // °F
+        //public const string KBTU_F_U = "kBtu/(hr ft² °F)";      // °F
+        //public const string MMBTU_F_U = "MMBtu/(hr ft² °F)";    // °F
+        ////---------------------------------------------------------------------
+        //public const string BTU_R_U = "Btu/(hr ft² °R)";        // °R
+        //public const string KBTU_R_U = "kBtu/(hr ft² °R)";      // °R
+        //public const string MMBTU_R_U = "MMBtu/(hr ft² °R)";    // °R
 
-        //------------------------------------------------------ METRIC W U ---
-        public const string W_C_U = "W/(m² °C)";                // °C
-        public const string KW_C_U = "kW/(m² °C)";              // °C
-        public const string MW_C_U = "MMW/(m² °C)";             // °C
-        //---------------------------------------------------------------------
-        public const string W_K_U = "W/(m² K)";                 // K
-        public const string KW_K_U = "kW/(m² K)";    // <<<------- INTERNAL ---<<<
-        public const string MW_K_U = "MMW/(m² K)";              // K
-        #endregion  // U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
+        ////------------------------------------------------------ METRIC W U ---
+        //public const string W_C_U = "W/(m² °C)";                // °C
+        //public const string KW_C_U = "kW/(m² °C)";              // °C
+        //public const string MW_C_U = "MMW/(m² °C)";             // °C
+        ////---------------------------------------------------------------------
+        //public const string W_K_U = "W/(m² K)";                 // K
+        //public const string KW_K_U = "kW/(m² K)";    // <<<------- INTERNAL ---<<<
+        //public const string MW_K_U = "MMW/(m² K)";              // K
+        //#endregion  // U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
 
-        #endregion  // UNITS STRINGS
+        //#endregion  // UNITS STRINGS
 
         #region FIELDS
 
@@ -306,63 +306,7 @@ namespace HenGlobal
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         //-=-=-=-=-=- INTERNAL UNITS PROPERTIES ARE GETTER ONLY -=-=-=-=-=-
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-        #region InternalUnitsSystem
-        /// <summary>
-        /// Internal Units System ... Set to "METRIC"
-        /// </summary>
-        public string InternalUnitsSystem { get; }      // INTERNAL Units System ... Getter ONLY
-        #endregion  // InternalUnitsSystem
-
-        #region InternalMagUnits
-        /// <summary>
-        /// Internal Magnitude Units ... Set to "KILO" ... (BASE * 10^3)
-        /// </summary>
-        public string InternalMagUnits { get; }      // INTERNAL Magnitude Units ... Getter ONLY
-        #endregion  // InternalMagUnits
-
-        #region InternalHeatFlowUnits
-        /// <summary>
-        /// Internal Heat Flow Units ... Set to "W"
-        /// </summary>
-        public string InternalHeatFlowUnits { get; }  // INTERNAL Heat Flow Units ... Getter ONLY
-        #endregion  // InternalHeatFlowUnits
-
-        #region InternalTemperatureUnits
-        /// <summary>
-        /// Internal Temperature Units ... Set to "K"  -  Kelvin
-        /// </summary>
-        public string InternalTemperatureUnits { get; }      // INTERNAL Temperature Units ... Getter ONLY
-        #endregion  // InternalTemperatureUnits
-
-        #region InternalPressureUnits
-        /// <summary>
-        /// Internal Pressure Units ... Set to "kPa"  -  Kilo Pascals
-        /// </summary>
-        public string InternalPressureUnits { get; }      // INTERNAL Pressure Units ... Getter ONLY
-        #endregion  // InternalPressureUnits
-
-        #region InternalCP_Units
-        /// <summary>
-        /// Internal CP - Heat Capacity Flow Rate (m*Cp) Units ... Set to "kW/K"
-        /// </summary>
-        public string InternalCP_Units { get; }   // INTERNAL CP - Heat Capacity Flow Rate (m*Cp) Units ... Getter ONLY
-        #endregion  // InternalCP_Units
-
-        #region InternalU_Units
-        /// <summary>
-        /// Internal U - Overall Heat Transfer Coefficient Units ... Set to "kW/(m² K)"
-        /// </summary>
-        public string InternalU_Units { get; }   // INTERNAL U - Overall Heat Transfer Coefficient Units ... Getter ONLY
-        #endregion  // InternalU_Units
-
-        #region InternalArea_Units
-        /// <summary>
-        /// Internal A - Area Units ... Set to "m²"
-        /// </summary>
-        public string InternalArea_Units { get; }   // INTERNAL A - Area Units ... Getter ONLY
-        #endregion  // InternalArea_Units
-
+        public HenProjectUnits INTERNAL_UnitsObj { get; }  // INTERNAL UNITS Object ... Getter ONLY
         #endregion  // INTERNAL UNITS
 
         #region EXTERNAL UNITS
@@ -370,69 +314,7 @@ namespace HenGlobal
         //-=-=-=-=-=- EXTERNAL UNITS PROPERTIES ARE BOTH GETTER AND SETTER =-=-=-=-=-=
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-        #region ExternalUnitsSystem
-        /// <summary>
-        /// External Units System ... Set by User Selection (e.g., "ENGLISH")
-        /// </summary>
-        public string ExternalUnitsSystem { get; set; }      // EXTERNAL Units System
-        #endregion  // ExternalUnitsSystem
-
-        #region ExternalMagUnits
-        /// <summary>
-        /// External Magnitude Units ... Set by User Selection (e.g., "MEGA" - MM ... [BASE * 10^6])
-        /// </summary>
-        public string ExternalMagUnits { get; set; }      // EXTERNAL Magnitude Units
-        #endregion  // ExternalMagUnits
-
-        #region ExternalHeatFlowUnits
-        /// <summary>
-        /// External Heat Flow Units ... Set by User Selections
-        /// User selects System (e.g., ENGLISH), Magnitude (e.g., MEGA-MM) 
-        /// Heat Flow External Units constructed based on User Selections (e.g., "MMBtu/hr")
-        /// </summary>
-        public string ExternalHeatFlowUnits { get; set; }      // EXTERNAL Heat Flow Units
-        #endregion  // ExternalHeatFlowUnits
-
-        #region ExternalTemperatureUnits
-        /// <summary>
-        /// External Temperature Units ... Set to "°F"  -  Fahrenheit
-        /// </summary>
-        public string ExternalTemperatureUnits { get; set; }      // EXTERNAL Temperature Units
-        #endregion  // ExternalTemperatureUnits
-
-        #region ExternalPressureUnits
-        /// <summary>
-        /// External Pressure Units ... Set to "psia" ... lbs/in² absolute
-        /// </summary>
-        public string ExternalPressureUnits { get; set; }      // EXTERNAL Temperature Units
-        #endregion  // ExternalPressureUnits
-
-        #region ExternalCP_Units
-        /// <summary>
-        /// Internal CP - Heat Capacity Flow Rate (m*Cp) Units ... Set by User Selections
-        /// User selects System (e.g., ENGLISH), Magnitude (e.g., MEGA-MM), and Temperature (e.g., °F)
-        /// CP External Units constructed based on User Selections (e.g., "MMBtu/(hr °F)" )
-        /// </summary>
-        public string ExternalCP_Units { get; set; }   // EXTERNAL CP - Heat Capacity Flow Rate (m*Cp) Units
-        #endregion  // ExternalCP_Units
-
-        #region ExternalU_Units
-        /// <summary>
-        /// Internal U - Overall Heat Transfer Coefficient Units ... Set by User Selections
-        /// User selects System (e.g., ENGLISH), Magnitude (e.g., MEGA-MM), and Temperature (e.g., °F)
-        /// U External Units constructed based on User Selections (e.g., "MMBtu/(hr ft² °F)"
-        /// </summary>
-        public string ExternalU_Units { get; set; }   // EXTERNAL U - Overall Heat Transfer Coefficient Units
-        #endregion  // ExternalU_Units
-
-        #region ExternalArea_Units
-        /// <summary>
-        /// External A - Area Units ... Set by User Selections
-        /// User selects System (e.g., ENGLISH)
-        /// Area (A) External Units constructed based on User Selections (e.g., "ft²")
-        /// </summary>
-        public string ExternalArea_Units { get; set; }   // EXTERNAL A - Area Units
-        #endregion  // ExternalArea_Units
+        public DefaultProjectSettings EXTERNAL_APP_SettingsObj { get; set; }       // EXTERNAL APPLICATION PROJECT Settings Object
 
         #endregion  // INTERNAL UNITS
 
@@ -476,28 +358,14 @@ namespace HenGlobal
                 #endregion  // LOG LICENSE DATA
 
                 #region INTERNAL UNITS
-                InternalUnitsSystem = METRIC_UNITS;     // INTERNAL System:      "METRIC"
-                InternalMagUnits = MAG_KILO;            // INTERNAL Magnitude:   "KILO"
-                InternalHeatFlowUnits = KW_HEAT_FLOW;   // INTERNAL Heat Flow:   "kW"
-                InternalTemperatureUnits = KELVIN;      // INTERNAL Temperature: "K"
-                InternalPressureUnits = KELVIN;         // INTERNAL Pressure:    "kPa"
-                InternalCP_Units = KW_K_CP;             // INTERNAL CP:          "kW/K"
-                InternalU_Units = KW_K_U;               // INTERNAL U:           "kW/(m² K)"
-                InternalArea_Units = SqM;               // INTERNAL Area:        "m²"
-                WriteInternalUnitsDataToLog();          // Write INTERNAL Units Data to Log
-                #endregion  // INTERNAL UNITS
+                INTERNAL_UnitsObj = new HenProjectUnits();
+                WriteInternalUnitsDataToLog();           // Write INTERNAL Units Data to Log
+                #endregion  // INTERNAL PROJECT SETTINGS
 
-                #region EXTERNAL UNITS
-                ExternalUnitsSystem = ENGLISH_UNITS;      // EXTERNAL System:      "ENGLISH"
-                ExternalMagUnits = MAG_MEGA;              // EXTERNAL Magnitude:   "MEGA"
-                ExternalHeatFlowUnits = MMBTU_HEAT_FLOW;  // EXTERNAL Heat Flow:   "MMBtu/hr"
-                ExternalTemperatureUnits = DEG_F;         // EXTERNAL Temperature: "°F"
-                ExternalPressureUnits = Psia;             // EXTERNAL Pressure:    "psia"
-                ExternalCP_Units = MMBTU_F_CP;            // EXTERNAL CP:          "MMBtu/(hr °F)"
-                ExternalU_Units = MMBTU_F_U;              // EXTERNAL U:           "MMBtu/(hr ft² °F)"
-                ExternalArea_Units = SqFt;                // EXTERNAL Area:        "ft²"
-                WriteExternalUnitsDataToLog();            // Write EXTERNAL Units Data to Log
-                #endregion  // EXTERNAL UNITS
+                #region EXTERNAL APPLICATION DEFAULT UNITS
+                EXTERNAL_APP_SettingsObj = new DefaultProjectSettings();
+                WriteExternalAppSettingsDataToLog(); // Write EXTERNAL APPLICATION Settings Data to Log
+                #endregion  // EXTERNAL APPLICATION DEFAULT UNITS
 
                 #region INITIAL PROJECT-PROFILE-PINCH-HEN STATE
                 CurrentProjectName = string.Empty;      // Initially set to Empty
@@ -537,13 +405,14 @@ namespace HenGlobal
             {
                 HenLogger.WriteSection("INTERNAL UNITS DATA");
 
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL System      : " + InternalUnitsSystem);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Magnitude   : " + InternalMagUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Heat Flow   : " + InternalHeatFlowUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Temperature : " + InternalTemperatureUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL CP          : " + InternalCP_Units);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL U           : " + InternalU_Units);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Area        : " + InternalArea_Units);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL System                    : " + INTERNAL_UnitsObj.GetSystemUnitsString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Magnitude                 : " + INTERNAL_UnitsObj.GetMagnitudeString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Area                      : " + INTERNAL_UnitsObj.GetAreaString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Temperature               : " + INTERNAL_UnitsObj.GetTemperatureString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Pressure                  : " + INTERNAL_UnitsObj.GetPressureString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Enthalpy                  : " + INTERNAL_UnitsObj.GetEnthalpyString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Heat Capacity Flowrate    : " + INTERNAL_UnitsObj.GetHeatCapacityFlowRateString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Heat Transfer Coefficient : " + INTERNAL_UnitsObj.GetHeatTransferCoefficientString());
 
                 //HenLogger.WriteSeparatorLine('=');
             }
@@ -559,24 +428,25 @@ namespace HenGlobal
         }
         #endregion  // WriteInternalUnitsDataToLog()
 
-        #region WriteExternalUnitsDataToLog()
+        #region WriteExternalAppSettingsDataToLog()
         /// <summary>
-        /// Write AJP HEN Studio Internal Units to Log
+        /// Write AJP HEN Studio EXTERNAL APPLICATION Settings Data To Log
         /// </summary>
-        private void WriteExternalUnitsDataToLog()
+        private void WriteExternalAppSettingsDataToLog()
         {
-            string strMethod = "WriteExternalUnitsDataToLog()";
+            string strMethod = "WriteExternalAppSettingsDataToLog()";
             try
             {
-                HenLogger.WriteSection("EXTERNAL UNITS DATA");
+                HenLogger.WriteSection("EXTERNAL APPLICATION PROJECT SETTINGS DATA");
 
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL System      : " + ExternalUnitsSystem);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Magnitude   : " + ExternalMagUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Heat Flow   : " + ExternalHeatFlowUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Temperature : " + ExternalTemperatureUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL CP          : " + ExternalCP_Units);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL U           : " + ExternalU_Units);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL Area        : " + ExternalArea_Units);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP System                    : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetSystemUnitsString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Magnitude                 : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetMagnitudeString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Area                      : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetAreaString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Temperature               : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetTemperatureString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Pressure                  : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetPressureString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Enthalpy                  : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetEnthalpyString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Heat Capacity Flowrate    : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetHeatCapacityFlowRateString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Heat Transfer Coefficient : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetHeatTransferCoefficientString());
 
                 //HenLogger.WriteSeparatorLine('=');
             }
@@ -590,7 +460,7 @@ namespace HenGlobal
             {
             }
         }
-        #endregion  // WriteExternalUnitsDataToLog()
+        #endregion  // WriteExternalAppSettingsDataToLog()
 
         #region LogCurrentState()
         /// <summary>

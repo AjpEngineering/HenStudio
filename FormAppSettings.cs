@@ -55,7 +55,7 @@ namespace HenStudio
     ///  AJP HEN Studio Application Settings Form Class
     /// </summary>
 
-    public partial class FormSettings : Form
+    public partial class FormAppSettings : Form
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio";
@@ -81,11 +81,12 @@ namespace HenStudio
         /// Parameterized Constructor
         /// </summary>
         /// <param name="currDefaultProjectUnitsObj">Initial Default Project Settings</param>
-        public FormSettings(DefaultProjectSettings currDefaultProjectUnitsObj)
+        public FormAppSettings(DefaultProjectSettings currDefaultProjectUnitsObj)
         {
             //-------------------------------------
             //--- Initialize Default Properties ---
             //-------------------------------------
+
             InitialDefaultProjectSettingsObj = currDefaultProjectUnitsObj;
 
             FinalDefaultProjectSettingsObj = currDefaultProjectUnitsObj;
@@ -105,28 +106,28 @@ namespace HenStudio
             string strMethod = "FormSettings_Load";
             try
             {
-                //---------------------------
-                //--- Load ComboBox Items ---
-                //---------------------------
-                LoadSystemUnits();
-                LoadMagnitude();
-                LoadTemperature(InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectSystemUnitsEnum);
-                LoadPressure(InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectSystemUnitsEnum,
-                             InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectMagnitudeEnum);
+                ////---------------------------
+                ////--- Load ComboBox Items ---
+                ////---------------------------
+                //LoadSystemUnits();
+                //LoadMagnitude();
+                //LoadTemperature(InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectSystemUnitsEnum);
+                //LoadPressure(InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectSystemUnitsEnum,
+                //             InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectMagnitudeEnum);
 
-                //------------------------------------------------------------------
-                //--- Initialize Controls with Inital Default Project Properties ---
-                //------------------------------------------------------------------
-                if (InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC)
-                {
-                    comboBoxUnitsSystem.SelectedItem = HenProjectUnits.ProjectSystemUnits.METRIC.ToString();
-                    pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
-                }
-                else
-                {
-                    comboBoxUnitsSystem.SelectedItem = HenProjectUnits.ProjectSystemUnits.ENGLISH.ToString();
-                    pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
-                }
+                ////------------------------------------------------------------------
+                ////--- Initialize Controls with Inital Default Project Properties ---
+                ////------------------------------------------------------------------
+                //if (InitialDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC)
+                //{
+                //    comboBoxUnitsSystem.SelectedItem = HenProjectUnits.ProjectSystemUnits.METRIC.ToString();
+                //    pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
+                //}
+                //else
+                //{
+                //    comboBoxUnitsSystem.SelectedItem = HenProjectUnits.ProjectSystemUnits.ENGLISH.ToString();
+                //    pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
+                //}
 
 
             }
@@ -262,7 +263,7 @@ namespace HenStudio
                 #region METRIC
                 if (string.Compare(strSelectedItem, HenProjectUnits.ProjectSystemUnits.METRIC.ToString(), true) == 0)
                 {
-                    FinalDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectSystemUnitsEnum = HenProjectUnits.ProjectSystemUnits.METRIC;
+                    FinalDefaultProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = HenProjectUnits.ProjectSystemUnits.METRIC;
                     pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
                 }
                 #endregion  // METRIC
@@ -270,7 +271,7 @@ namespace HenStudio
                 #region ENGLISH
                 else if (string.Compare(strSelectedItem, HenProjectUnits.ProjectSystemUnits.ENGLISH.ToString(), true) == 0)
                 {
-                    FinalDefaultProjectSettingsObj.ExternalAppDefaultUnitsObj.ProjectSystemUnitsEnum = HenProjectUnits.ProjectSystemUnits.ENGLISH;
+                    FinalDefaultProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = HenProjectUnits.ProjectSystemUnits.ENGLISH;
                     pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
                 }
                 #endregion  // ENGLISH
