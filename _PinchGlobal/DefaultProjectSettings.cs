@@ -84,6 +84,7 @@ namespace HenGlobal
         #endregion      // enum HenOptimizer
 
         #region PROPERTIES
+        public Guid NewProjectGUID { get; set; } // New Project GUID
         public string NewProjectName { get; set; } // New Project Name
         public string NewProjectDescription { get; set; } // New Project Description
 
@@ -104,6 +105,7 @@ namespace HenGlobal
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating DefaultProjectSettings Object");
             try
             {
+                NewProjectGUID = new Guid();
                 NewProjectName = "Enter Project Name";
                 NewProjectDescription = "Enter Project Descripiton";
                 ExternalUnitsObj = new HenProjectUnits();

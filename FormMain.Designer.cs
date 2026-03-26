@@ -212,16 +212,10 @@
             this.textBoxUnitsSystem = new System.Windows.Forms.TextBox();
             this.pictureBoxOpenedProject = new System.Windows.Forms.PictureBox();
             this.panelProjectMetadata = new System.Windows.Forms.Panel();
-            this.textBoxProjectPurposeValue = new System.Windows.Forms.TextBox();
-            this.textBoxAnalystValue = new System.Windows.Forms.TextBox();
             this.textBoxProjectNameValue = new System.Windows.Forms.TextBox();
             this.textBoxProjectName = new System.Windows.Forms.TextBox();
-            this.textBoxAnalyst = new System.Windows.Forms.TextBox();
             this.textBoxProjectDescription = new System.Windows.Forms.TextBox();
             this.textBoxProjectDescriptionValue = new System.Windows.Forms.TextBox();
-            this.textBoxProjectPurpose = new System.Windows.Forms.TextBox();
-            this.textBoxProjectNotesValue = new System.Windows.Forms.TextBox();
-            this.textBoxProjectNotes = new System.Windows.Forms.TextBox();
             this.panelSELECTED_HEN = new System.Windows.Forms.Panel();
             this.textBoxHenBanner = new System.Windows.Forms.TextBox();
             this.pictureBoxOpenedHen = new System.Windows.Forms.PictureBox();
@@ -229,6 +223,18 @@
             this.textBoxPinchBanner = new System.Windows.Forms.TextBox();
             this.pictureBoxOpenedPinch = new System.Windows.Forms.PictureBox();
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
+            this.panelDefaultParmeters = new System.Windows.Forms.Panel();
+            this.textBoxDefaultLabel = new System.Windows.Forms.TextBox();
+            this.panelExchanger = new System.Windows.Forms.Panel();
+            this.textBoxDefaultU_Value = new System.Windows.Forms.TextBox();
+            this.textBoxDefaultU_Units = new System.Windows.Forms.TextBox();
+            this.textBoxDefaultU = new System.Windows.Forms.TextBox();
+            this.textBoxExchangerDefaults = new System.Windows.Forms.TextBox();
+            this.panelDefaultHenOptimizer = new System.Windows.Forms.Panel();
+            this.textBoxDefaultHenOptimizerTitle = new System.Windows.Forms.TextBox();
+            this.textBoxDefaultHenOpitimizer = new System.Windows.Forms.TextBox();
+            this.textBoxProjectGUID = new System.Windows.Forms.TextBox();
+            this.textBoxProjectID = new System.Windows.Forms.TextBox();
             this.contextMenuStripHen.SuspendLayout();
             this.contextMenuStripPinch.SuspendLayout();
             this.contextMenuStripProfile.SuspendLayout();
@@ -261,6 +267,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).BeginInit();
             this.panelSELECTED_PINCH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedPinch)).BeginInit();
+            this.panelDefaultParmeters.SuspendLayout();
+            this.panelExchanger.SuspendLayout();
+            this.panelDefaultHenOptimizer.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripHen
@@ -997,9 +1006,9 @@
             // splitContainerLefCenter.Panel2
             // 
             this.splitContainerLefCenter.Panel2.BackColor = System.Drawing.Color.Honeydew;
+            this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROJECT);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROJECTS);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROFILE);
-            this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROJECT);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_HEN);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PINCH);
             this.splitContainerLefCenter.Panel2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1642,6 +1651,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSELECTED_PROJECT.BackColor = System.Drawing.Color.White;
             this.panelSELECTED_PROJECT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSELECTED_PROJECT.Controls.Add(this.panelDefaultParmeters);
             this.panelSELECTED_PROJECT.Controls.Add(this.textBoxProjectBanner);
             this.panelSELECTED_PROJECT.Controls.Add(this.panelProjectUnits);
             this.panelSELECTED_PROJECT.Controls.Add(this.pictureBoxOpenedProject);
@@ -1690,7 +1700,7 @@
             this.panelProjectUnits.Controls.Add(this.pictureBoxUnitsSystem);
             this.panelProjectUnits.Controls.Add(this.comboBoxUnitsSystem);
             this.panelProjectUnits.Controls.Add(this.textBoxUnitsSystem);
-            this.panelProjectUnits.Location = new System.Drawing.Point(515, 62);
+            this.panelProjectUnits.Location = new System.Drawing.Point(515, 48);
             this.panelProjectUnits.Name = "panelProjectUnits";
             this.panelProjectUnits.Size = new System.Drawing.Size(352, 349);
             this.panelProjectUnits.TabIndex = 13;
@@ -1989,49 +1999,19 @@
             // 
             // panelProjectMetadata
             // 
-            this.panelProjectMetadata.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelProjectMetadata.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelProjectMetadata.BackColor = System.Drawing.Color.LightCyan;
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectPurposeValue);
-            this.panelProjectMetadata.Controls.Add(this.textBoxAnalystValue);
+            this.panelProjectMetadata.Controls.Add(this.textBoxProjectID);
+            this.panelProjectMetadata.Controls.Add(this.textBoxProjectGUID);
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectNameValue);
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectName);
-            this.panelProjectMetadata.Controls.Add(this.textBoxAnalyst);
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectDescription);
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectDescriptionValue);
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectPurpose);
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectNotesValue);
-            this.panelProjectMetadata.Controls.Add(this.textBoxProjectNotes);
-            this.panelProjectMetadata.Location = new System.Drawing.Point(10, 62);
+            this.panelProjectMetadata.Location = new System.Drawing.Point(10, 49);
             this.panelProjectMetadata.Name = "panelProjectMetadata";
-            this.panelProjectMetadata.Size = new System.Drawing.Size(489, 529);
+            this.panelProjectMetadata.Size = new System.Drawing.Size(489, 191);
             this.panelProjectMetadata.TabIndex = 12;
-            // 
-            // textBoxProjectPurposeValue
-            // 
-            this.textBoxProjectPurposeValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectPurposeValue.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxProjectPurposeValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxProjectPurposeValue.Location = new System.Drawing.Point(14, 250);
-            this.textBoxProjectPurposeValue.Multiline = true;
-            this.textBoxProjectPurposeValue.Name = "textBoxProjectPurposeValue";
-            this.textBoxProjectPurposeValue.Size = new System.Drawing.Size(460, 100);
-            this.textBoxProjectPurposeValue.TabIndex = 6;
-            this.textBoxProjectPurposeValue.Text = "Enter Purpose";
-            // 
-            // textBoxAnalystValue
-            // 
-            this.textBoxAnalystValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxAnalystValue.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxAnalystValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxAnalystValue.Location = new System.Drawing.Point(118, 51);
-            this.textBoxAnalystValue.Name = "textBoxAnalystValue";
-            this.textBoxAnalystValue.Size = new System.Drawing.Size(356, 23);
-            this.textBoxAnalystValue.TabIndex = 11;
-            this.textBoxAnalystValue.Text = "Enter Analyst Name";
             // 
             // textBoxProjectNameValue
             // 
@@ -2039,9 +2019,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxProjectNameValue.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxProjectNameValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxProjectNameValue.Location = new System.Drawing.Point(118, 13);
+            this.textBoxProjectNameValue.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectNameValue.Location = new System.Drawing.Point(135, 38);
             this.textBoxProjectNameValue.Name = "textBoxProjectNameValue";
-            this.textBoxProjectNameValue.Size = new System.Drawing.Size(356, 23);
+            this.textBoxProjectNameValue.ReadOnly = true;
+            this.textBoxProjectNameValue.Size = new System.Drawing.Size(339, 25);
             this.textBoxProjectNameValue.TabIndex = 2;
             this.textBoxProjectNameValue.Text = "Enter Project Name";
             // 
@@ -2050,24 +2032,13 @@
             this.textBoxProjectName.BackColor = System.Drawing.Color.LightCyan;
             this.textBoxProjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectName.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectName.Location = new System.Drawing.Point(16, 15);
+            this.textBoxProjectName.Location = new System.Drawing.Point(33, 40);
             this.textBoxProjectName.Name = "textBoxProjectName";
             this.textBoxProjectName.ReadOnly = true;
             this.textBoxProjectName.Size = new System.Drawing.Size(96, 18);
             this.textBoxProjectName.TabIndex = 1;
             this.textBoxProjectName.Text = "Project Name: ";
-            // 
-            // textBoxAnalyst
-            // 
-            this.textBoxAnalyst.BackColor = System.Drawing.Color.LightCyan;
-            this.textBoxAnalyst.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxAnalyst.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAnalyst.Location = new System.Drawing.Point(16, 53);
-            this.textBoxAnalyst.Name = "textBoxAnalyst";
-            this.textBoxAnalyst.ReadOnly = true;
-            this.textBoxAnalyst.Size = new System.Drawing.Size(96, 18);
-            this.textBoxAnalyst.TabIndex = 10;
-            this.textBoxAnalyst.Text = "Analyst Name: ";
+            this.textBoxProjectName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxProjectDescription
             // 
@@ -2076,12 +2047,13 @@
             this.textBoxProjectDescription.BackColor = System.Drawing.Color.LightCyan;
             this.textBoxProjectDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectDescription.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectDescription.Location = new System.Drawing.Point(20, 90);
+            this.textBoxProjectDescription.Location = new System.Drawing.Point(20, 70);
             this.textBoxProjectDescription.Name = "textBoxProjectDescription";
             this.textBoxProjectDescription.ReadOnly = true;
             this.textBoxProjectDescription.Size = new System.Drawing.Size(454, 18);
             this.textBoxProjectDescription.TabIndex = 3;
             this.textBoxProjectDescription.Text = "  Description";
+            this.textBoxProjectDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxProjectDescriptionValue
             // 
@@ -2089,55 +2061,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxProjectDescriptionValue.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxProjectDescriptionValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxProjectDescriptionValue.Location = new System.Drawing.Point(14, 114);
+            this.textBoxProjectDescriptionValue.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectDescriptionValue.Location = new System.Drawing.Point(14, 92);
             this.textBoxProjectDescriptionValue.Multiline = true;
             this.textBoxProjectDescriptionValue.Name = "textBoxProjectDescriptionValue";
-            this.textBoxProjectDescriptionValue.Size = new System.Drawing.Size(460, 100);
+            this.textBoxProjectDescriptionValue.ReadOnly = true;
+            this.textBoxProjectDescriptionValue.Size = new System.Drawing.Size(460, 85);
             this.textBoxProjectDescriptionValue.TabIndex = 4;
             this.textBoxProjectDescriptionValue.Text = "Enter Description";
-            // 
-            // textBoxProjectPurpose
-            // 
-            this.textBoxProjectPurpose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectPurpose.BackColor = System.Drawing.Color.LightCyan;
-            this.textBoxProjectPurpose.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProjectPurpose.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectPurpose.Location = new System.Drawing.Point(14, 226);
-            this.textBoxProjectPurpose.Name = "textBoxProjectPurpose";
-            this.textBoxProjectPurpose.ReadOnly = true;
-            this.textBoxProjectPurpose.Size = new System.Drawing.Size(460, 18);
-            this.textBoxProjectPurpose.TabIndex = 5;
-            this.textBoxProjectPurpose.Text = "  Purpose";
-            // 
-            // textBoxProjectNotesValue
-            // 
-            this.textBoxProjectNotesValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectNotesValue.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxProjectNotesValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxProjectNotesValue.Location = new System.Drawing.Point(14, 383);
-            this.textBoxProjectNotesValue.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxProjectNotesValue.Multiline = true;
-            this.textBoxProjectNotesValue.Name = "textBoxProjectNotesValue";
-            this.textBoxProjectNotesValue.Size = new System.Drawing.Size(460, 140);
-            this.textBoxProjectNotesValue.TabIndex = 8;
-            this.textBoxProjectNotesValue.Text = "Enter Notes";
-            // 
-            // textBoxProjectNotes
-            // 
-            this.textBoxProjectNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectNotes.BackColor = System.Drawing.Color.LightCyan;
-            this.textBoxProjectNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProjectNotes.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectNotes.Location = new System.Drawing.Point(14, 359);
-            this.textBoxProjectNotes.Name = "textBoxProjectNotes";
-            this.textBoxProjectNotes.ReadOnly = true;
-            this.textBoxProjectNotes.Size = new System.Drawing.Size(460, 18);
-            this.textBoxProjectNotes.TabIndex = 7;
-            this.textBoxProjectNotes.Text = "  Notes";
             // 
             // panelSELECTED_HEN
             // 
@@ -2224,6 +2155,156 @@
             this.imageListProject.Images.SetKeyName(0, "Project Explorer...32x32.png");
             this.imageListProject.Images.SetKeyName(1, "Project...32x32.png");
             // 
+            // panelDefaultParmeters
+            // 
+            this.panelDefaultParmeters.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelDefaultParmeters.Controls.Add(this.textBoxDefaultLabel);
+            this.panelDefaultParmeters.Controls.Add(this.panelExchanger);
+            this.panelDefaultParmeters.Controls.Add(this.panelDefaultHenOptimizer);
+            this.panelDefaultParmeters.Location = new System.Drawing.Point(10, 251);
+            this.panelDefaultParmeters.Name = "panelDefaultParmeters";
+            this.panelDefaultParmeters.Size = new System.Drawing.Size(489, 146);
+            this.panelDefaultParmeters.TabIndex = 37;
+            // 
+            // textBoxDefaultLabel
+            // 
+            this.textBoxDefaultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDefaultLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxDefaultLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultLabel.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultLabel.Location = new System.Drawing.Point(24, 10);
+            this.textBoxDefaultLabel.Name = "textBoxDefaultLabel";
+            this.textBoxDefaultLabel.Size = new System.Drawing.Size(451, 22);
+            this.textBoxDefaultLabel.TabIndex = 35;
+            this.textBoxDefaultLabel.TabStop = false;
+            this.textBoxDefaultLabel.Text = "DEFAULT PARAMETERS";
+            this.textBoxDefaultLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelExchanger
+            // 
+            this.panelExchanger.BackColor = System.Drawing.Color.OldLace;
+            this.panelExchanger.Controls.Add(this.textBoxDefaultU_Value);
+            this.panelExchanger.Controls.Add(this.textBoxDefaultU_Units);
+            this.panelExchanger.Controls.Add(this.textBoxDefaultU);
+            this.panelExchanger.Controls.Add(this.textBoxExchangerDefaults);
+            this.panelExchanger.Location = new System.Drawing.Point(17, 42);
+            this.panelExchanger.Name = "panelExchanger";
+            this.panelExchanger.Size = new System.Drawing.Size(250, 80);
+            this.panelExchanger.TabIndex = 17;
+            // 
+            // textBoxDefaultU_Value
+            // 
+            this.textBoxDefaultU_Value.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxDefaultU_Value.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultU_Value.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultU_Value.Location = new System.Drawing.Point(55, 40);
+            this.textBoxDefaultU_Value.Name = "textBoxDefaultU_Value";
+            this.textBoxDefaultU_Value.Size = new System.Drawing.Size(76, 18);
+            this.textBoxDefaultU_Value.TabIndex = 6;
+            this.textBoxDefaultU_Value.Text = "74.0";
+            this.textBoxDefaultU_Value.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxDefaultU_Units
+            // 
+            this.textBoxDefaultU_Units.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxDefaultU_Units.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultU_Units.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultU_Units.Location = new System.Drawing.Point(137, 40);
+            this.textBoxDefaultU_Units.Name = "textBoxDefaultU_Units";
+            this.textBoxDefaultU_Units.ReadOnly = true;
+            this.textBoxDefaultU_Units.Size = new System.Drawing.Size(110, 18);
+            this.textBoxDefaultU_Units.TabIndex = 31;
+            this.textBoxDefaultU_Units.Text = "MMBtu/(hr·ft²·°F )";
+            // 
+            // textBoxDefaultU
+            // 
+            this.textBoxDefaultU.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxDefaultU.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultU.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultU.Location = new System.Drawing.Point(8, 40);
+            this.textBoxDefaultU.Name = "textBoxDefaultU";
+            this.textBoxDefaultU.ReadOnly = true;
+            this.textBoxDefaultU.Size = new System.Drawing.Size(37, 18);
+            this.textBoxDefaultU.TabIndex = 30;
+            this.textBoxDefaultU.TabStop = false;
+            this.textBoxDefaultU.Text = "U: ";
+            this.textBoxDefaultU.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxExchangerDefaults
+            // 
+            this.textBoxExchangerDefaults.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxExchangerDefaults.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxExchangerDefaults.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxExchangerDefaults.Location = new System.Drawing.Point(11, 5);
+            this.textBoxExchangerDefaults.Name = "textBoxExchangerDefaults";
+            this.textBoxExchangerDefaults.Size = new System.Drawing.Size(233, 22);
+            this.textBoxExchangerDefaults.TabIndex = 33;
+            this.textBoxExchangerDefaults.TabStop = false;
+            this.textBoxExchangerDefaults.Text = "EXCHANGER";
+            this.textBoxExchangerDefaults.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelDefaultHenOptimizer
+            // 
+            this.panelDefaultHenOptimizer.BackColor = System.Drawing.Color.LightCyan;
+            this.panelDefaultHenOptimizer.Controls.Add(this.textBoxDefaultHenOpitimizer);
+            this.panelDefaultHenOptimizer.Controls.Add(this.textBoxDefaultHenOptimizerTitle);
+            this.panelDefaultHenOptimizer.Location = new System.Drawing.Point(278, 43);
+            this.panelDefaultHenOptimizer.Name = "panelDefaultHenOptimizer";
+            this.panelDefaultHenOptimizer.Size = new System.Drawing.Size(190, 80);
+            this.panelDefaultHenOptimizer.TabIndex = 18;
+            // 
+            // textBoxDefaultHenOptimizerTitle
+            // 
+            this.textBoxDefaultHenOptimizerTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDefaultHenOptimizerTitle.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxDefaultHenOptimizerTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultHenOptimizerTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultHenOptimizerTitle.Location = new System.Drawing.Point(3, 5);
+            this.textBoxDefaultHenOptimizerTitle.Name = "textBoxDefaultHenOptimizerTitle";
+            this.textBoxDefaultHenOptimizerTitle.Size = new System.Drawing.Size(184, 22);
+            this.textBoxDefaultHenOptimizerTitle.TabIndex = 34;
+            this.textBoxDefaultHenOptimizerTitle.TabStop = false;
+            this.textBoxDefaultHenOptimizerTitle.Text = "HEN OPTIMIZER";
+            this.textBoxDefaultHenOptimizerTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxDefaultHenOpitimizer
+            // 
+            this.textBoxDefaultHenOpitimizer.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxDefaultHenOpitimizer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultHenOpitimizer.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultHenOpitimizer.Location = new System.Drawing.Point(13, 38);
+            this.textBoxDefaultHenOpitimizer.Name = "textBoxDefaultHenOpitimizer";
+            this.textBoxDefaultHenOpitimizer.ReadOnly = true;
+            this.textBoxDefaultHenOpitimizer.Size = new System.Drawing.Size(160, 18);
+            this.textBoxDefaultHenOpitimizer.TabIndex = 35;
+            this.textBoxDefaultHenOpitimizer.Text = "Greedy";
+            this.textBoxDefaultHenOpitimizer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxProjectGUID
+            // 
+            this.textBoxProjectGUID.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxProjectGUID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectGUID.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectGUID.Location = new System.Drawing.Point(135, 10);
+            this.textBoxProjectGUID.Name = "textBoxProjectGUID";
+            this.textBoxProjectGUID.ReadOnly = true;
+            this.textBoxProjectGUID.Size = new System.Drawing.Size(339, 18);
+            this.textBoxProjectGUID.TabIndex = 5;
+            this.textBoxProjectGUID.Text = "GUID here";
+            // 
+            // textBoxProjectID
+            // 
+            this.textBoxProjectID.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxProjectID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectID.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectID.Location = new System.Drawing.Point(33, 10);
+            this.textBoxProjectID.Name = "textBoxProjectID";
+            this.textBoxProjectID.ReadOnly = true;
+            this.textBoxProjectID.Size = new System.Drawing.Size(96, 18);
+            this.textBoxProjectID.TabIndex = 6;
+            this.textBoxProjectID.Text = "Project ID: ";
+            this.textBoxProjectID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -2287,6 +2368,12 @@
             this.panelSELECTED_PINCH.ResumeLayout(false);
             this.panelSELECTED_PINCH.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedPinch)).EndInit();
+            this.panelDefaultParmeters.ResumeLayout(false);
+            this.panelDefaultParmeters.PerformLayout();
+            this.panelExchanger.ResumeLayout(false);
+            this.panelExchanger.PerformLayout();
+            this.panelDefaultHenOptimizer.ResumeLayout(false);
+            this.panelDefaultHenOptimizer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2382,18 +2469,12 @@
         private System.Windows.Forms.TextBox textBoxProjectBanner;
         private System.Windows.Forms.TextBox textBoxProjectNameValue;
         private System.Windows.Forms.TextBox textBoxProjectName;
-        private System.Windows.Forms.TextBox textBoxProjectNotesValue;
-        private System.Windows.Forms.TextBox textBoxProjectNotes;
-        private System.Windows.Forms.TextBox textBoxProjectPurposeValue;
-        private System.Windows.Forms.TextBox textBoxProjectPurpose;
         private System.Windows.Forms.TextBox textBoxProjectDescriptionValue;
         private System.Windows.Forms.TextBox textBoxProjectDescription;
         private System.Windows.Forms.PictureBox pictureBoxOpenedProject;
         private System.Windows.Forms.PictureBox pictureBoxOpenedProfile;
         private System.Windows.Forms.PictureBox pictureBoxOpenedPinch;
         private System.Windows.Forms.PictureBox pictureBoxOpenedHen;
-        private System.Windows.Forms.TextBox textBoxAnalystValue;
-        private System.Windows.Forms.TextBox textBoxAnalyst;
         private System.Windows.Forms.Panel panelProjectMetadata;
         private System.Windows.Forms.ComboBox comboBoxUnitsSystem;
         private System.Windows.Forms.Panel panelProjectUnits;
@@ -2455,6 +2536,18 @@
         private System.Windows.Forms.TextBox textBoxConnServerVersion;
         private System.Windows.Forms.Button buttonConnection;
         private System.Windows.Forms.PictureBox pictureBoxProductLogo;
+        private System.Windows.Forms.Panel panelDefaultParmeters;
+        private System.Windows.Forms.TextBox textBoxDefaultLabel;
+        private System.Windows.Forms.Panel panelExchanger;
+        private System.Windows.Forms.TextBox textBoxDefaultU_Value;
+        private System.Windows.Forms.TextBox textBoxDefaultU_Units;
+        private System.Windows.Forms.TextBox textBoxDefaultU;
+        private System.Windows.Forms.TextBox textBoxExchangerDefaults;
+        private System.Windows.Forms.Panel panelDefaultHenOptimizer;
+        private System.Windows.Forms.TextBox textBoxDefaultHenOptimizerTitle;
+        private System.Windows.Forms.TextBox textBoxDefaultHenOpitimizer;
+        private System.Windows.Forms.TextBox textBoxProjectGUID;
+        private System.Windows.Forms.TextBox textBoxProjectID;
     }
 }
 

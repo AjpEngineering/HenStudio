@@ -562,9 +562,9 @@
             this.textBoxProjectNameValue.BackColor = System.Drawing.Color.White;
             this.textBoxProjectNameValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxProjectNameValue.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectNameValue.Location = new System.Drawing.Point(111, 12);
+            this.textBoxProjectNameValue.Location = new System.Drawing.Point(119, 11);
             this.textBoxProjectNameValue.Name = "textBoxProjectNameValue";
-            this.textBoxProjectNameValue.Size = new System.Drawing.Size(253, 25);
+            this.textBoxProjectNameValue.Size = new System.Drawing.Size(245, 25);
             this.textBoxProjectNameValue.TabIndex = 0;
             this.textBoxProjectNameValue.Text = "Enter Project Name";
             // 
@@ -573,7 +573,7 @@
             this.textBoxProjectName.BackColor = System.Drawing.Color.Honeydew;
             this.textBoxProjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectName.Font = new System.Drawing.Font("Segoe UI Variable Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectName.Location = new System.Drawing.Point(9, 14);
+            this.textBoxProjectName.Location = new System.Drawing.Point(15, 14);
             this.textBoxProjectName.Name = "textBoxProjectName";
             this.textBoxProjectName.ReadOnly = true;
             this.textBoxProjectName.Size = new System.Drawing.Size(96, 18);

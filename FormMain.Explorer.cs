@@ -645,6 +645,22 @@ namespace HenStudio
 
         #region COMMON EVENT HANDLERS
 
+        #region PopulateProjectPanel(DefaultProjectSettings newProjectData)
+        /// <summary>
+        /// Populate the Project Panel with New Project Data
+        /// </summary>
+        /// <param name="newProjectData"></param>
+        private void PopulateProjectPanel(DefaultProjectSettings newProjectData)
+        {
+            this.textBoxProjectGUID.Text = newProjectData.NewProjectGUID.ToString();
+            this.textBoxProjectNameValue.Text = newProjectData.NewProjectName;
+            this.textBoxProjectDescriptionValue.Text = newProjectData.NewProjectDescription;
+
+            this.textBoxDefaultU_Value.Text = newProjectData.ProjectExchangerU.ToString();
+            this.textBoxDefaultHenOpitimizer.Text = newProjectData.GetHenOptimizerString();
+        }
+        #endregion  // PopulateProjectPanel(DefaultProjectSettings newProjectData)
+
         #region HANDLE NEW NODE EVENTS
 
         #region HandleNewProject
@@ -675,7 +691,7 @@ namespace HenStudio
 
                 strNodeName = dlg.NewProjectSettingsObj.NewProjectName;      // From New Dialog ... Name Field
                 strDisplayName = string.Format("Project: {0}", strNodeName); // Node name with prefix ("Project: ")
-                projectGUID = new Guid();
+                projectGUID = new Guid();                                    // Get Database GUID
                 //********************************************************************** TEST *****
 
                 //-------------------------------------------------------
@@ -690,6 +706,12 @@ namespace HenStudio
                 //---------------------------------------------------
                 TreeNode parentNode = GetRootNode();
                 nDisplayNodeID = AddProjectNode(parentNode, strDisplayName, dataTagDisplayObj);
+
+                //----------------------------------------------------
+                //--- Populate Project Panel with New Project Data ---
+                //----------------------------------------------------
+                dlg.NewProjectSettingsObj.NewProjectGUID = projectGUID;     // Assign DATABASE GUID
+                PopulateProjectPanel(dlg.NewProjectSettingsObj);
 
                 //------------------------------
                 //--- Set Project Dirty Flag ---
