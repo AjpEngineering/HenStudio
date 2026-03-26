@@ -649,7 +649,7 @@ namespace HenStudio
 
         #region HandleNewProject
         /// <summary>
-        /// Common New Command Handler. Display New Project Form to capture display Name
+        /// Common New Command Handler. Display New Project Form (FormSettings)
         /// </summary>
         private void HandleNewProject()
         {
@@ -660,11 +660,11 @@ namespace HenStudio
             Guid projectGUID = Guid.Empty;          // DB Project GUID (PK)
             try
             {
-                //--------------------------------
-                //--- Display New Project Form ---
-                //--------------------------------
-                FormNewProject dlg = new FormNewProject();
-                if(dlg.ShowDialog()!=DialogResult.OK) return;   // User Canceled Dialog
+                //-------------------------------------
+                //--- Display New Project Data Form ---
+                //-------------------------------------
+                FormSettings dlg = new FormSettings();
+                if (dlg.ShowDialog()!=DialogResult.OK) return;   // User Canceled Dialog
 
                 //*********************************************************************************
                 //***** Scrape Dialog Data and SAVE to DB                                     *****
@@ -672,8 +672,9 @@ namespace HenStudio
                 //*********************************************************************************
                 HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
                 HenMsgDlg.DisplayWarningDlg("***** Get DB ProjectID (PK) *****");
-                strNodeName = "Deer Park";      // From New Dialog ... Name Field
-                strDisplayName = "Project: Deer Park";  // Node name with prefix ("Project: ")
+
+                strNodeName = dlg.NewProjectSettingsObj.NewProjectName;      // From New Dialog ... Name Field
+                strDisplayName = string.Format("Project: {0}", strNodeName); // Node name with prefix ("Project: ")
                 projectGUID = new Guid();
                 //********************************************************************** TEST *****
 

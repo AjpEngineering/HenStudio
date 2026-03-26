@@ -109,8 +109,6 @@
             this.importProjectZIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.exitAJPHENStudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsDisplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseScoreCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -529,7 +527,6 @@
             this.menuStripMainCatalog.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStripMainCatalog.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.catalogToolStripMenuItem,
-            this.editToolStripMenuItem,
             this.helpToolStripMenuItem1});
             this.menuStripMainCatalog.Location = new System.Drawing.Point(0, 0);
             this.menuStripMainCatalog.Name = "menuStripMainCatalog";
@@ -586,23 +583,6 @@
             this.exitAJPHENStudioToolStripMenuItem.Text = "Exit AJP HEN Studio";
             this.exitAJPHENStudioToolStripMenuItem.ToolTipText = "Exit Application";
             this.exitAJPHENStudioToolStripMenuItem.Click += new System.EventHandler(this.exitAJPHENStudioToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsDisplayToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // settingsDisplayToolStripMenuItem
-            // 
-            this.settingsDisplayToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("settingsDisplayToolStripMenuItem.Image")));
-            this.settingsDisplayToolStripMenuItem.Name = "settingsDisplayToolStripMenuItem";
-            this.settingsDisplayToolStripMenuItem.Size = new System.Drawing.Size(137, 30);
-            this.settingsDisplayToolStripMenuItem.Text = "Settings...";
-            this.settingsDisplayToolStripMenuItem.ToolTipText = "System-Wide Settings";
-            this.settingsDisplayToolStripMenuItem.Click += new System.EventHandler(this.settingsDisplayToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem1
             // 
@@ -2378,8 +2358,6 @@
         private System.Windows.Forms.ToolStripMenuItem importProjectZIPToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripMenuItem exitAJPHENStudioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingsDisplayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem licenseViewerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licenseScoreCardToolStripMenuItem;

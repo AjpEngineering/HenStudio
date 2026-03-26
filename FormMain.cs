@@ -849,14 +849,6 @@ namespace HenStudio
 
         #region EDIT MENU ITEMS
 
-        #region SETTINGS MENU ITME HANDLER
-        private void settingsDisplayToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("Settings Menu Item Selected!");
-            DisplayApplicationSettingsForm();
-        }        
-        #endregion  // SETTINGS MENU ITME HANDLER
-
         #endregion  // EDIT MENU ITEMS
 
         #region HELP MENU ITEMS
@@ -984,60 +976,6 @@ namespace HenStudio
         #endregion  // UpdateProjectNameUI()
 
         #region COMMON COMMAND HANDLERS
-
-        #region DisplayApplicationSettingsForm()
-        /// <summary>
-        /// Common Display Project Settings Form Handler
-        /// </summary>
-        private void DisplayApplicationSettingsForm()
-        {
-            string strMethod = "DisplayApplicationSettingsForm";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display Application Settings Form");
-            DefaultProjectSettings appProjectSettings = null;
-            double dCurrDefaultExchangerU = 74.0;
-            HenOptimizer currHenOptimizerEnum = HenOptimizer.GREEDY;
-            try
-            {
-                //----------------------------------------------------
-                //--- Get Current Default Application Data from DB ---
-                //----------------------------------------------------
-                HenMsgDlg.DisplayWarningDlg("Get Current Default Application Data from DB!");
-
-                //********************************************************************************
-                //********************************************************************************
-                //********************************************************************************
-                appProjectSettings = HenSettingsObj.EXTERNAL_APP_SettingsObj;
-                //********************************************************************************
-                //********************************************************************************
-                //********************************************************************************
-
-                //--------------------------------------------------------------------------------
-                //--- Launch Project Settings Dialog with Current Application Default Settings ---
-                //--------------------------------------------------------------------------------
-                FormAppSettings dlg = new FormAppSettings(appProjectSettings);
-                
-                if(dlg.ShowDialog()==DialogResult.Cancel) return;   // User Cancelled Dialog
-
-                //-----------------------------------------------------------------------------
-                //--- Assign Application Default Values from Dialog to Application Settings ---
-                //-----------------------------------------------------------------------------
-                HenMsgDlg.DisplayWarningDlg("UPDATE DB with APPLICATION DEFAULT SETTINGS!");
-
-
-
-
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // DisplayApplicationSettingsForm()
 
         #region DisplayLicenseForm()
         /// <summary>

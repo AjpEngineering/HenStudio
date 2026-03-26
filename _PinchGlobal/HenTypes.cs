@@ -151,17 +151,17 @@ namespace HenGlobal
 
         #region OPTIMIZER
 
-        #region enum HenOptimizer
-        /// <summary>
-        /// ENUMERATION: AJP HEN Studio Optimizer [ UNKNOWN | GENETIC | GREEDY ]
-        /// </summary>
-        public enum HenOptimizer
-        {
-            UNKNOWN = -1,     // UNKNOWN Units
-            GENETIC = 0,      // GENETIC Optimizer
-            GREEDY = 1        // GREEDY Optimizer
-        };
-        #endregion      // enum HenOptimizer
+        //#region enum HenOptimizer
+        ///// <summary>
+        ///// ENUMERATION: AJP HEN Studio Optimizer [ UNKNOWN | GENETIC | GREEDY ]
+        ///// </summary>
+        //public enum HenOptimizer
+        //{
+        //    UNKNOWN = -1,     // UNKNOWN Units
+        //    GENETIC = 0,      // GENETIC Optimizer
+        //    GREEDY = 1        // GREEDY Optimizer
+        //};
+        //#endregion      // enum HenOptimizer
 
 
         #endregion  // OPTIMIZER

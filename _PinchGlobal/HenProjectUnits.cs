@@ -119,13 +119,13 @@ namespace HenGlobal
 
         #region CP - HEAT CAPACITY FLOW RATE UNITS
         //-------------------------------------------------- ENGLISH BTU CP ---
-        public const string BTU_F_CP = "Btu/(hr °F)";        // °F
-        public const string KBTU_F_CP = "kBtu/(hr °F)";      // °F
-        public const string MMBTU_F_CP = "MMBtu/(hr °F)";    // °F
+        public const string BTU_F_CP = "Btu/(hr·°F)";        // °F
+        public const string KBTU_F_CP = "kBtu/(hr·°F)";      // °F
+        public const string MMBTU_F_CP = "MMBtu/(hr·°F)";    // °F
         //---------------------------------------------------------------------
-        public const string BTU_R_CP = "Btu/(hr °R)";        // °R
-        public const string KBTU_R_CP = "kBtu/(hr °R)";      // °R
-        public const string MMBTU_R_CP = "MMBtu/(hr °R)";    // °R
+        public const string BTU_R_CP = "Btu/(hr·°R)";        // °R
+        public const string KBTU_R_CP = "kBtu/(hr·°R)";      // °R
+        public const string MMBTU_R_CP = "MMBtu/(hr·°R)";    // °R
 
         //----------------------------------------------------- METRIC W CP ---
         public const string W_C_CP = "W/°C";    // °C
@@ -139,28 +139,23 @@ namespace HenGlobal
 
         #region U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
         //--------------------------------------------------- ENGLISH BTU U ---
-        public const string BTU_F_U = "Btu/(hr ft² °F)";        // °F
-        public const string KBTU_F_U = "kBtu/(hr ft² °F)";      // °F
-        public const string MMBTU_F_U = "MMBtu/(hr ft² °F)";    // °F
+        public const string BTU_F_U = "Btu/(hr·ft²·°F)";        // °F
+        public const string KBTU_F_U = "kBtu/(hr·ft²·°F)";      // °F
+        public const string MMBTU_F_U = "MMBtu/(hr·ft²·°F)";    // °F
         //---------------------------------------------------------------------
-        public const string BTU_R_U = "Btu/(hr ft² °R)";        // °R
-        public const string KBTU_R_U = "kBtu/(hr ft² °R)";      // °R
-        public const string MMBTU_R_U = "MMBtu/(hr ft² °R)";    // °R
+        public const string BTU_R_U = "Btu/(hr·ft²·°R)";        // °R
+        public const string KBTU_R_U = "kBtu/(hr·ft²·°R)";      // °R
+        public const string MMBTU_R_U = "MMBtu/(hr·ft²·°R)";    // °R
 
         //------------------------------------------------------ METRIC W U ---
-        public const string W_C_U = "W/(m² °C)";                // °C
-        public const string KW_C_U = "kW/(m² °C)";              // °C
-        public const string MW_C_U = "MMW/(m² °C)";             // °C
+        public const string W_C_U = "W/(m²·°C)";                // °C
+        public const string KW_C_U = "kW/(m²·°C)";              // °C
+        public const string MW_C_U = "MW/(m²·°C)";              // °C
         //---------------------------------------------------------------------
-        public const string W_K_U = "W/(m² K)";                 // K
-        public const string KW_K_U = "kW/(m² K)";    // <<<------- INTERNAL ---<<<
-        public const string MW_K_U = "MMW/(m² K)";              // K
+        public const string W_K_U = "W/(m²·K)";                 // K
+        public const string KW_K_U = "kW/(m²·K)";    // <<<------- INTERNAL ---<<<
+        public const string MW_K_U = "MW/(m²·K)";               // K
         #endregion  // U - OVERALL HEAT TRANSFER COEFFICIENT UNITS
-
-        #region HEN OPTIMIZER
-        public const string GENETIC = "Genetic";   // Genetic HEN Optimizer
-        public const string GREEDY = "Greedy";     // Greedy HEN Optimizer
-        #endregion  // HEN OPTIMIZER
 
         #endregion  // UNITS STRINGS
 
@@ -466,22 +461,6 @@ namespace HenGlobal
             return lst;
         }
         #endregion  // GetMetricPressList()
-
-        #region GetHenOptimizerList()
-        /// <summary>
-        /// Get the List of Stings used for the HEN Optimizer List Combo Box Dropdowns
-        /// </summary>
-        /// <returns>List of HEN Optimizer strings for Combo Box</returns>
-        public List<string> GetHenOptimizerList()
-        {
-            List<string> lst = new List<string>();
-
-            lst.Clear();
-            lst.Add(GENETIC);
-            lst.Add(GREEDY);
-            return lst;
-        }
-        #endregion  // GetHenOptimizerList()
 
         #endregion  // GET STRING LISTS FOR COMBO BOX DROPDOWN
 
