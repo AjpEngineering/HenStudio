@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{57CF15C7-2050-4948-B9EF-DE7161C6BF69}</ProjectGuid>
+    <ProjectGuid>{E5E6ED77-199E-4CD7-B2EC-3DE3C3AE83B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HenDomain</RootNamespace>
-    <AssemblyName>_HenDomain</AssemblyName>
+    <RootNamespace>HenGlobalData</RootNamespace>
+    <AssemblyName>_HenGlobalData</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,17 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HenFileSystem.cs" />
+    <Compile Include="HenMethods.cs" />
+    <Compile Include="HenMsgDlg.cs" />
+    <Compile Include="HenLogger.cs" />
+    <Compile Include="HenProjectUnits.cs" />
+    <Compile Include="HenSettings.cs" />
+    <Compile Include="HenTypes.cs" />
+    <Compile Include="DefaultProjectSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\_PinchData\_HenPersistence.csproj">
-      <Project>{41b4ad50-a07f-4c7d-89bd-b9979fc76833}</Project>
-      <Name>_HenPersistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\_PinchGlobal\_HenGlobal.csproj">
-      <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
-      <Name>_HenGlobal</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />

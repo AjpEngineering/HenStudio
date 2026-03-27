@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//########################################  T a r g e t s E n g i n e . c s  ##########################################
+//##########################################  P i n c h E n g i n e . c s  ############################################
 //#####################################################################################################################
-//  FILENAME:  TargetsEngine.cs
-//  NAMESPACE: HenDomain
-//  CLASS(S):  TargetsEngine
-//  COMPONENT: _PinchTargets.dll
+//  FILENAME:  PinchEngine.cs
+//  NAMESPACE: HenDomainModel
+//  CLASS(S):  PinchEngine
+//  COMPONENT: _HenDomainModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Targets Engine class.
+//    This file contains the code for the Pinch Engine class.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -38,7 +38,7 @@ using HenGlobal;
 using System;
 #endregion  // REFERENCES
 
-#region namespace HenDomain
+#region namespace HenDomainModel
 namespace HenDomain
 {
     #region class PinchEngine
@@ -48,7 +48,7 @@ namespace HenDomain
     public class PinchEngine
     {
         #region CONSTANTS
-        const string NAMESPACE = "HenDomain";
+        const string NAMESPACE = "HenDomainModel";
         const string CLASS = "PinchEngine";
         #endregion      // CONSTANTS
 
@@ -88,7 +88,7 @@ namespace HenDomain
     }
     #endregion  // class PinchEngine
 }
-#endregion      // namespace HenDomain
+#endregion      // namespace HenDomainModel
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -4,19 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{57CF15C7-2050-4948-B9EF-DE7161C6BF69}</ProjectGuid>
+    <ProjectGuid>{42A404CA-256F-47C8-82FD-319C99292C74}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HenDomain</RootNamespace>
-    <AssemblyName>_HenDomain</AssemblyName>
+    <RootNamespace>HenRepositories</RootNamespace>
+    <AssemblyName>_HenRepositories</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>embedded</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\..\AJP HEN Studio\_REVISION 1.0\DEPLOY\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -46,16 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\_PinchData\_HenPersistence.csproj">
-      <Project>{41b4ad50-a07f-4c7d-89bd-b9979fc76833}</Project>
-      <Name>_HenPersistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\_PinchGlobal\_HenGlobal.csproj">
-      <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
-      <Name>_HenGlobal</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />

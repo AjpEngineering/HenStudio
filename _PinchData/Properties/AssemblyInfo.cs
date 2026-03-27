@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("_HenPersistence")]
+[assembly: AssemblyTitle("_HenPersistenceData")]
 [assembly: AssemblyDescription("Heat Exchanger Network (HEN) Persistence Component")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("AJP Engineering")]
-[assembly: AssemblyProduct("_HenPersistence")]
+[assembly: AssemblyProduct("_HenPersistenceData")]
 [assembly: AssemblyCopyright("Copyright ©  2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

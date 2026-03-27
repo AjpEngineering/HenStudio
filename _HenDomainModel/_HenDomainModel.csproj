@@ -4,19 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E5E6ED77-199E-4CD7-B2EC-3DE3C3AE83B9}</ProjectGuid>
+    <ProjectGuid>{50B16387-1A20-4E86-8296-AE58EEF37F16}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HenGlobal</RootNamespace>
-    <AssemblyName>_HenGlobal</AssemblyName>
+    <RootNamespace>HenDomainModel</RootNamespace>
+    <AssemblyName>_HenDomainModel</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>embedded</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\..\AJP HEN Studio\_REVISION 1.0\DEPLOY\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -37,7 +36,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,18 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HenFileSystem.cs" />
-    <Compile Include="HenMethods.cs" />
-    <Compile Include="HenMsgDlg.cs" />
-    <Compile Include="HenLogger.cs" />
-    <Compile Include="HenProjectUnits.cs" />
-    <Compile Include="HenSettings.cs" />
-    <Compile Include="HenTypes.cs" />
-    <Compile Include="DefaultProjectSettings.cs" />
+    <Compile Include="HenEngine.cs" />
+    <Compile Include="PinchEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\_HenGlobal\_HenGlobal.csproj">
+      <Project>{c73899c1-09e9-4981-a906-f33c3ae4078a}</Project>
+      <Name>_HenGlobal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
