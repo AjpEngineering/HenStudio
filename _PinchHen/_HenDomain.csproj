@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="HenEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TargetsEngine.cs" />
+    <Compile Include="PinchEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\_PinchData\_HenDatabase.csproj">

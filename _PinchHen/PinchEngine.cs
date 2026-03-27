@@ -3,7 +3,7 @@
 //########################################  T a r g e t s E n g i n e . c s  ##########################################
 //#####################################################################################################################
 //  FILENAME:  TargetsEngine.cs
-//  NAMESPACE: PinchTargets
+//  NAMESPACE: HenDomain
 //  CLASS(S):  TargetsEngine
 //  COMPONENT: _PinchTargets.dll
 //=====================================================================================================================
@@ -41,15 +41,15 @@ using System;
 #region namespace HenDomain
 namespace HenDomain
 {
-    #region class TargetsEngine
+    #region class PinchEngine
     /// <summary>
-    /// Targets Engine Class
+    /// Pinch Targets Engine Class
     /// </summary>
-    public class TargetsEngine
+    public class PinchEngine
     {
         #region CONSTANTS
-        const string NAMESPACE = "PinchTargets";
-        const string CLASS = "TargetsEngine";
+        const string NAMESPACE = "HenDomain";
+        const string CLASS = "PinchEngine";
         #endregion      // CONSTANTS
 
         #region PROPERTIES
@@ -60,12 +60,12 @@ namespace HenDomain
         /// <summary>
         /// Parameterized Constructor
         /// </summary>
-        public TargetsEngine() 
+        public PinchEngine() 
         {
             string strMethod = "CTOR";
             HenLogger.WriteSeparatorLine(' ');
             HenLogger.WriteSeparatorLine('>');
-            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating TargetsEngine Object");
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating PinchEngine Object");
             try
             {
 
@@ -78,13 +78,15 @@ namespace HenDomain
             }
             finally
             {
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "PinchEngine Object CREATED");
                 HenLogger.WriteSeparatorLine('<');
             }
         }
         #endregion  // class CTOR
+
+
     }
-    #endregion  // class TargetsEngine
+    #endregion  // class PinchEngine
 }
 #endregion      // namespace HenDomain
 
