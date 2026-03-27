@@ -110,6 +110,7 @@
             this.textBoxUnitsTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUnitsTitle.Location = new System.Drawing.Point(3, 4);
             this.textBoxUnitsTitle.Name = "textBoxUnitsTitle";
+            this.textBoxUnitsTitle.ReadOnly = true;
             this.textBoxUnitsTitle.Size = new System.Drawing.Size(346, 22);
             this.textBoxUnitsTitle.TabIndex = 32;
             this.textBoxUnitsTitle.TabStop = false;
@@ -441,7 +442,7 @@
             this.textBoxDefaultU_Value.TabIndex = 6;
             this.textBoxDefaultU_Value.Text = "74.0";
             this.textBoxDefaultU_Value.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxDefaultU_Value.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDefaultU_Value_KeyPress);
+            this.textBoxDefaultU_Value.TextChanged += new System.EventHandler(this.textBoxDefaultU_Value_TextChanged);
             // 
             // textBoxDefaultU_Units
             // 
@@ -476,6 +477,7 @@
             this.textBoxExchangerDefaults.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxExchangerDefaults.Location = new System.Drawing.Point(11, 5);
             this.textBoxExchangerDefaults.Name = "textBoxExchangerDefaults";
+            this.textBoxExchangerDefaults.ReadOnly = true;
             this.textBoxExchangerDefaults.Size = new System.Drawing.Size(233, 22);
             this.textBoxExchangerDefaults.TabIndex = 33;
             this.textBoxExchangerDefaults.TabStop = false;
@@ -518,6 +520,7 @@
             this.textBoxDefaultHenOptimizerTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDefaultHenOptimizerTitle.Location = new System.Drawing.Point(3, 5);
             this.textBoxDefaultHenOptimizerTitle.Name = "textBoxDefaultHenOptimizerTitle";
+            this.textBoxDefaultHenOptimizerTitle.ReadOnly = true;
             this.textBoxDefaultHenOptimizerTitle.Size = new System.Drawing.Size(184, 22);
             this.textBoxDefaultHenOptimizerTitle.TabIndex = 34;
             this.textBoxDefaultHenOptimizerTitle.TabStop = false;
@@ -567,6 +570,7 @@
             this.textBoxProjectNameValue.Size = new System.Drawing.Size(245, 25);
             this.textBoxProjectNameValue.TabIndex = 0;
             this.textBoxProjectNameValue.Text = "Enter Project Name";
+            this.textBoxProjectNameValue.TextChanged += new System.EventHandler(this.textBoxProjectNameValue_TextChanged);
             // 
             // textBoxProjectName
             // 
@@ -620,6 +624,7 @@
             this.textBoxDefaultLabel.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDefaultLabel.Location = new System.Drawing.Point(17, 10);
             this.textBoxDefaultLabel.Name = "textBoxDefaultLabel";
+            this.textBoxDefaultLabel.ReadOnly = true;
             this.textBoxDefaultLabel.Size = new System.Drawing.Size(451, 22);
             this.textBoxDefaultLabel.TabIndex = 35;
             this.textBoxDefaultLabel.TabStop = false;

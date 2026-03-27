@@ -41,6 +41,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -225,6 +226,103 @@ namespace HenStudio
         //-------------------------------------------------- EVENT HANDLERS ---
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+        #region IsFormDataValid()
+        private bool IsFormDataValid()
+        {
+            string strMethod = "IsFormDataValid";
+            bool bValidProjectName = false;
+            bool bValidU = false;
+            bool bValidOverall = false;
+            try
+            {
+                #region PROJECT NAME
+                //------------------------------------------
+                //--- Project Name Test for Empty String ---
+                //------------------------------------------
+                this.textBoxProjectNameValue.Text = this.textBoxProjectNameValue.Text.Trim();
+                string strValueProjectName = this.textBoxProjectNameValue.Text;
+                if (strValueProjectName.Length > 0)
+                {
+                    textBoxProjectNameValue.BackColor = Color.White;
+                    textBoxProjectNameValue.ForeColor = Color.Black;
+                    bValidProjectName = true;
+                }
+                else
+                {
+                    textBoxProjectNameValue.BackColor = Color.Orange;
+                    textBoxProjectNameValue.ForeColor = Color.Black;
+                    bValidProjectName = false;
+                }
+                #endregion  // PROJECT NAME
+
+                #region EXCHANGER U
+                //-----------------------------------------------------
+                //--- Exchanger U Value Test for Valid Double Value ---
+                //-----------------------------------------------------
+                string strValueU = this.textBoxDefaultU_Value.Text;
+                double dValueU = 0.00;
+
+                //--- Check for Valid Double Value ---
+                if (Double.TryParse(strValueU, out dValueU))
+                {
+                    //--- VALID Double: Check for Positive Value ---
+                    if (dValueU > 0.0)
+                    {
+                        //--- Positive Double Value ---
+                        textBoxDefaultU_Value.BackColor = Color.White;
+                        textBoxDefaultU_Value.ForeColor = Color.Black;
+                        bValidU = true;
+                    }
+                    else
+                    {
+                        //--- Negative Double Value ---
+                        textBoxDefaultU_Value.BackColor = Color.Orange;
+                        textBoxDefaultU_Value.ForeColor = Color.Black;
+                        bValidU = false;
+                    }
+                }
+                else
+                {
+                    //--- INVALID Double Value ---
+                    textBoxDefaultU_Value.BackColor = Color.Orange;
+                    textBoxDefaultU_Value.ForeColor = Color.Black;
+                    bValidU = false;
+                }
+                #endregion  // EXCHANGER U
+
+                #region OVERALL FORM VALIDITY
+                //-----------------------------------------
+                //--- Overall Valid Input Data for Form ---
+                //-----------------------------------------
+                bValidOverall = (bValidProjectName && bValidU);
+                if(bValidOverall)
+                {
+                    buttonOK.BackColor = Color.White;
+                    buttonOK.ForeColor = Color.Black;
+                    buttonOK.Enabled = true;
+                }
+                else
+                {
+                    buttonOK.BackColor = Color.Orange;
+                    buttonOK.ForeColor = Color.Black;
+                    buttonOK.Enabled = false;
+                }
+                #endregion  // OVERALL FORM VALIDITY
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return bValidOverall;
+        }
+        #endregion  // IsFormDataValid()
+
         #region DEFAULT UNITS EVENT HANDLERS
 
         #region SYSTEM UNITS SELECTION CHANGED
@@ -257,23 +355,19 @@ namespace HenStudio
 
         #endregion  // DEFAULT UNITS EVENT HANDLERS
 
-        #region DEFAULT EXCHANGER EVENT HANDLERS
-
-        #endregion  // DEFAULT EXCHANGER EVENT HANDLERS
-
-        #region DEFAULT HEN EVENT HANDLERS
-
-        #endregion  // DEFAULT HEN EVENT HANDLERS
-
-        #region U VALUE TEXTBOX KEY PRESS HANDLER ... Ensure Numeric Data Only
-        private void textBoxDefaultU_Value_KeyPress(object sender, KeyPressEventArgs e)
+        #region U TEXTBOX TEXT CHANGED ... Ensure Text is Valid Double Numeric Value
+        private void textBoxDefaultU_Value_TextChanged(object sender, EventArgs e)
         {
-            //-----------------------------------------
-            //--- Ensure Only Numberic Data Entered ---
-            //-----------------------------------------
-            e.Handled = !char.IsDigit(e.KeyChar);
+            IsFormDataValid();
         }
-        #endregion  // U VALUE TEXTBOX KEY PRESS HANDLER ... Ensure Numeric Data Only
+        #endregion  // U TEXTBOX TEXT CHANGED ... Ensure Text is Valid Double Numeric Value
+
+        #region PROJECT NAME TEXTBOX TEXT CHANGED ... Ensure Text is not Blank
+        private void textBoxProjectNameValue_TextChanged(object sender, EventArgs e)
+        {
+            IsFormDataValid();
+        }
+        #endregion      //PROJECT NAME TEXTBOX TEXT CHANGED ... Ensure Text is not Blank
 
         #region UpdateSystemUnitsImage()
         /// <summary>
@@ -776,20 +870,24 @@ namespace HenStudio
                 #endregion  // DEFAULT EXCHANGER PARAMETERS
 
                 #region DEFAULT HEN OPTIMIZER
-                if (string.Compare(comboBoxDefaultHenOpitimizer.Text, DefaultProjectSettings.GENETIC) == 0)
-                {
-                    NewProjectSettingsObj.HenOptimizerEnum = DefaultProjectSettings.HenOptimizer.GENETIC;
-                }
-                else if (string.Compare(comboBoxDefaultHenOpitimizer.Text, DefaultProjectSettings.GENETIC) == 0)
-                {
-                    NewProjectSettingsObj.HenOptimizerEnum = DefaultProjectSettings.HenOptimizer.GREEDY;
-                }
-                else if (string.Compare(comboBoxDefaultHenOpitimizer.Text, DefaultProjectSettings.MILP) == 0)
-                {
-                    NewProjectSettingsObj.HenOptimizerEnum = DefaultProjectSettings.HenOptimizer.MILP;
-                }
+                NewProjectSettingsObj.HenOptimizerEnum = NewProjectSettingsObj.GetHenOptimizerEnum(comboBoxDefaultHenOpitimizer.Text);
                 #endregion  // DEFAULT HEN OPTIMIZER
 
+                #region DEFAULT PROJECT UNITS
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = NewProjectSettingsObj.ExternalUnitsObj.GetSystemUnitsEnum(comboBoxUnitsSystem.Text);
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = NewProjectSettingsObj.ExternalUnitsObj.GetMagnitudeEnum(comboBoxUnitsMagnitude.Text);
+
+                if(NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH)
+                {
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishTempEnum = NewProjectSettingsObj.ExternalUnitsObj.GetEnglishTempEnum(comboBoxUnitsTemp.Text);
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishPressEnum = NewProjectSettingsObj.ExternalUnitsObj.GetEnglishPressEnum(comboBoxUnitsPress.Text);
+                }
+                else if (NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC)
+                {
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricTempEnum = NewProjectSettingsObj.ExternalUnitsObj.GetMetricTempEnum(comboBoxUnitsTemp.Text);
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricPressEnum = NewProjectSettingsObj.ExternalUnitsObj.GetMetricPressEnum(comboBoxUnitsPress.Text);
+                }
+                #endregion  // DEFAULT PROJECT UNITS
             }
             catch (Exception ex)
             {

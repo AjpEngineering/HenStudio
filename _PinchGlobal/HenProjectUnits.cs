@@ -44,6 +44,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using static HenGlobal.HenProjectUnits;
 #endregion  // REFERENCES
 
 #region namespace HenGlobal
@@ -1064,6 +1066,188 @@ namespace HenGlobal
         #endregion  // GetHeatTransferCoefficientString()
 
         #endregion  // GET UNIT STRINGS ... based on Property Settings
+
+        #region GET ENUMERATION FROM STRING
+
+        #region GetSystemUnitsEnum()
+        /// <summary>
+        /// Get the System Units Enum Given System Units String
+        /// </summary>
+        /// <param name="strSystemUnits">System Units String</param>
+        /// <returns>System Units Enum value</returns>
+        public ProjectSystemUnits GetSystemUnitsEnum(string strSystemUnits)
+        {
+            string strMethod = "GetSystemUnitsEnum";
+            ProjectSystemUnits projectSystemUnitsEnum = ProjectSystemUnits.UNKNOWN;
+            try
+            {
+                if(string.Compare(strSystemUnits, ENGLISH_UNITS, true) ==0) projectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
+                else if (string.Compare(strSystemUnits, METRIC_UNITS, true) == 0) projectSystemUnitsEnum = ProjectSystemUnits.METRIC;
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return projectSystemUnitsEnum;
+        }
+        #endregion  // GetSystemUnitsEnum()
+
+        #region GetMagnitudeEnum()
+        /// <summary>
+        /// Get the Magnitude Enum Given Magnitude String
+        /// </summary>
+        /// <param name="strMagnitude">Magnitude String</param>
+        /// <returns>Magnitude Enum value</returns>
+        public ProjectMagnitude GetMagnitudeEnum(string strMagnitude)
+        {
+            string strMethod = "GetMagnitudeEnum";
+            ProjectMagnitude projectMagnitudeEnum = ProjectMagnitude.UNKNOWN;
+            try
+            {
+                if (string.Compare(strMagnitude, MAG_BASE, true) == 0) projectMagnitudeEnum = ProjectMagnitude.BASE;
+                else if (string.Compare(strMagnitude, MAG_KILO, true) == 0) projectMagnitudeEnum = ProjectMagnitude.KILO;
+                else if (string.Compare(strMagnitude, MAG_MEGA, true) == 0) projectMagnitudeEnum = ProjectMagnitude.MEGA;
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return projectMagnitudeEnum;
+        }
+        #endregion  // GetMagnitudeEnum()
+
+        #region GetEnglishTempEnum()
+        /// <summary>
+        /// Get the English Temperature Enum Given English Temperature String
+        /// </summary>
+        /// <param name="strEnglishTemp">English Temperature String</param>
+        /// <returns>English Temperature Enum value</returns>
+        public ProjectEnglishTemp GetEnglishTempEnum(string strEnglishTemp)
+        {
+            string strMethod = "GetEnglishTempEnum";
+            ProjectEnglishTemp projectEnglishTempEnum = ProjectEnglishTemp.UNKNOWN;
+            try
+            {
+                if (string.Compare(strEnglishTemp, DEG_F, true) == 0) projectEnglishTempEnum = ProjectEnglishTemp.DEG_F;
+                else if (string.Compare(strEnglishTemp, DEG_R, true) == 0) projectEnglishTempEnum = ProjectEnglishTemp.DEG_R;
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return projectEnglishTempEnum;
+        }
+        #endregion  // GetEnglishTempEnum()
+
+        #region GetMetricTempEnum()
+        /// <summary>
+        /// Get the Metric Temperature Enum Given Metric Temperature String
+        /// </summary>
+        /// <param name="strMetricTemp">Metric Temperature String</param>
+        /// <returns>Metric Temperature Enum value</returns>
+        public ProjectMetricTemp GetMetricTempEnum(string strMetricTemp)
+        {
+            string strMethod = "GetMetricTempEnum";
+            ProjectMetricTemp projectMetricTempEnum = ProjectMetricTemp.UNKNOWN;
+            try
+            {
+                if (string.Compare(strMetricTemp, DEG_C, true) == 0) projectMetricTempEnum = ProjectMetricTemp.DEG_C;
+                else if (string.Compare(strMetricTemp, KELVIN, true) == 0) projectMetricTempEnum = ProjectMetricTemp.KELVIN;
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return projectMetricTempEnum;
+        }
+        #endregion  // GetMetricTempEnum()
+
+        #region GetEnglishPressEnum()
+        /// <summary>
+        /// Get the English Pressure Enum Given English Pressure String
+        /// </summary>
+        /// <param name="strEnglishPress">English Pressure String</param>
+        /// <returns>English Pressure Enum value</returns>
+        public ProjectEnglishPress GetEnglishPressEnum(string strEnglishPress)
+        {
+            string strMethod = "GetEnglishPressEnum";
+            ProjectEnglishPress projectEnglishPressEnum = ProjectEnglishPress.UNKNOWN;
+            try
+            {
+                if (string.Compare(strEnglishPress, Psia, true) == 0) projectEnglishPressEnum = ProjectEnglishPress.PSIA;
+                else if (string.Compare(strEnglishPress, Psig, true) == 0) projectEnglishPressEnum = ProjectEnglishPress.PSIG;
+                else if (string.Compare(strEnglishPress, Psfa, true) == 0) projectEnglishPressEnum = ProjectEnglishPress.PSF;
+                else if (string.Compare(strEnglishPress, Atm, true) == 0) projectEnglishPressEnum = ProjectEnglishPress.ATM;
+                else if (string.Compare(strEnglishPress, InHg, true) == 0) projectEnglishPressEnum = ProjectEnglishPress.IN_HG;
+                else if (string.Compare(strEnglishPress, InH2O, true) == 0) projectEnglishPressEnum = ProjectEnglishPress.IN_H2O;
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return projectEnglishPressEnum;
+        }
+        #endregion  // GetEnglishPressEnum()
+
+        #region GetMetricPressEnum()
+        /// <summary>
+        /// Get the Metric Pressure Enum Given Metric Pressure String
+        /// </summary>
+        /// <param name="strMetricPress">Metric Pressure String</param>
+        /// <returns>Metric Pressure Enum value</returns>
+        public ProjectMetricPress GetMetricPressEnum(string strMetricPress)
+        {
+            string strMethod = "GetMetricPressEnum";
+            ProjectMetricPress projectMetricPressEnum = ProjectMetricPress.UNKNOWN;
+            try
+            {
+                if (string.Compare(strMetricPress, Bar, true) == 0) projectMetricPressEnum = ProjectMetricPress.BAR;
+                else if (string.Compare(strMetricPress, KBar, true) == 0) projectMetricPressEnum = ProjectMetricPress.BAR;
+                else if (string.Compare(strMetricPress, MBar, true) == 0) projectMetricPressEnum = ProjectMetricPress.BAR;
+                else if (string.Compare(strMetricPress, Pa, true) == 0) projectMetricPressEnum = ProjectMetricPress.Pa;
+                else if (string.Compare(strMetricPress, kPa, true) == 0) projectMetricPressEnum = ProjectMetricPress.Pa;
+                else if (string.Compare(strMetricPress, MPa, true) == 0) projectMetricPressEnum = ProjectMetricPress.Pa;
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return projectMetricPressEnum;
+        }
+        #endregion  // GetMetricPressEnum()
+
+        #endregion  // GET ENUMERATION FROM STRING
+
 
     }
     #endregion      // public class HenProjectUnits

@@ -46,6 +46,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using static HenGlobal.DefaultProjectSettings;
+using static HenGlobal.HenProjectUnits;
 using static HenGlobal.HenTypes;
 #endregion  // REFERENCES
 
@@ -107,7 +108,7 @@ namespace HenGlobal
             {
                 NewProjectGUID = new Guid();
                 NewProjectName = "Enter Project Name";
-                NewProjectDescription = "Enter Project Descripiton";
+                NewProjectDescription = "Enter Project Description";
                 ExternalUnitsObj = new HenProjectUnits();
                 ProjectExchangerU = 74.0;
                 HenOptimizerEnum = HenOptimizer.GENETIC;
@@ -195,6 +196,35 @@ namespace HenGlobal
             return strUnitsString;
         }
         #endregion  // GetHenOptimizerString()
+
+        #region GetHenOptimizerEnum()
+        /// <summary>
+        /// Get the HEN Optimizer Enum Given HEN Optimizer String
+        /// </summary>
+        /// <param name="strHenOptimizer">System Units String</param>
+        /// <returns>HEN Optimizer Enum value</returns>
+        public HenOptimizer GetHenOptimizerEnum(string strHenOptimizer)
+        {
+            string strMethod = "GetHenOptimizerEnum";
+            HenOptimizer henOptimizerEnum = HenOptimizer.UNKNOWN;
+            try
+            {
+                if (string.Compare(strHenOptimizer, GENETIC, true) == 0) henOptimizerEnum = HenOptimizer.GENETIC;
+                else if (string.Compare(strHenOptimizer, GREEDY, true) == 0) henOptimizerEnum = HenOptimizer.GREEDY;
+                else if (string.Compare(strHenOptimizer, MILP, true) == 0) henOptimizerEnum = HenOptimizer.MILP;
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+            return henOptimizerEnum;
+        }
+        #endregion  // GetHenOptimizerEnum()
 
     }
     #endregion      // public class DefaultProjectSettings

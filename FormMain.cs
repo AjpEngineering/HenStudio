@@ -571,7 +571,7 @@ namespace HenStudio
                         this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.UNKNOWN_32x32;
                         break;
                     case HenTypes.DbConnected.UNCONNECTED:
-                        strDbConnected = String.Format(" DISCONNECTED ");
+                        strDbConnected = String.Format(" CONNECTED ");
                         this.toolStripStatusLabelCAT_DB.BackColor = Color.Red;
                         this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
                         this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.NotValid_32x32;

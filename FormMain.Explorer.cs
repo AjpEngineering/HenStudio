@@ -43,6 +43,8 @@
 
 using HenGlobal;
 
+using HenStudio.Properties;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -658,6 +660,29 @@ namespace HenStudio
 
             this.textBoxDefaultU_Value.Text = newProjectData.ProjectExchangerU.ToString();
             this.textBoxDefaultHenOpitimizer.Text = newProjectData.GetHenOptimizerString();
+            this.textBoxDefaultU_Units.Text = newProjectData.ExternalUnitsObj.GetHeatTransferCoefficientString();
+
+            //--- PROJECT UNITS ---
+
+            this.textBoxProjectUnitsSystem.Text = newProjectData.ExternalUnitsObj.GetSystemUnitsString();
+            this.textBoxProjectUnitsMagnitude.Text = newProjectData.ExternalUnitsObj.GetMagnitudeString();
+            this.textBoxProjectUnitsTemp.Text = newProjectData.ExternalUnitsObj.GetTemperatureString();
+            this.textBoxProjectUnitsPress.Text = newProjectData.ExternalUnitsObj.GetPressureString();
+
+            this.textBoxUnitsAreaValue.Text = newProjectData.ExternalUnitsObj.GetAreaString();
+            this.textBoxUnitsDutyValue.Text = newProjectData.ExternalUnitsObj.GetEnthalpyString();
+            this.textBoxUnitsCPValue.Text = newProjectData.ExternalUnitsObj.GetHeatCapacityFlowRateString();
+            this.textBoxUnitsUValue.Text = newProjectData.ExternalUnitsObj.GetHeatTransferCoefficientString();
+
+            //--- Update Systems Units Image ---
+            if (newProjectData.ExternalUnitsObj.ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC)
+            {
+                pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
+            }
+            else if (newProjectData.ExternalUnitsObj.ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.ENGLISH)
+            {
+                pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
+            }
         }
         #endregion  // PopulateProjectPanel(DefaultProjectSettings newProjectData)
 
