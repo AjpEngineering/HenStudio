@@ -2,7 +2,7 @@
   <Project Path="AJP_LicenseGenerator/AJP_LicenseGenerator.csproj" Id="c3b9e227-ea4d-4df4-bde8-4f8cdaa4ba73" />
   <Project Path="HenStudio.csproj" Id="759cbd9c-52b2-44f0-b3ae-695ad1fc508a" />
   <Project Path="_AJP License File/_AJP License File.csproj" Id="146de66e-f297-4664-8f5f-6edcbdfacbed" />
-  <Project Path="_PinchData/_HenDatabase.csproj" Id="41b4ad50-a07f-4c7d-89bd-b9979fc76833" />
+  <Project Path="_PinchData/_HenPersistence.csproj" Id="41b4ad50-a07f-4c7d-89bd-b9979fc76833" />
   <Project Path="_PinchGlobal/_HenGlobal.csproj" Id="e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9" />
   <Project Path="_PinchHen/_HenDomain.csproj" Id="57cf15c7-2050-4948-b9ef-de7161c6bf69" />
   <Project Path="_PinchTargets/_HenReport.csproj" Id="d0cd902a-466a-40c4-937a-6b3d7b8f86e5" />

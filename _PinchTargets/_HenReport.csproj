@@ -49,9 +49,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\_PinchData\_HenDatabase.csproj">
+    <ProjectReference Include="..\_PinchData\_HenPersistence.csproj">
       <Project>{41b4ad50-a07f-4c7d-89bd-b9979fc76833}</Project>
-      <Name>_HenDatabase</Name>
+      <Name>_HenPersistence</Name>
     </ProjectReference>
     <ProjectReference Include="..\_PinchGlobal\_HenGlobal.csproj">
       <Project>{e5e6ed77-199e-4cd7-b2ec-3de3c3ae83b9}</Project>
