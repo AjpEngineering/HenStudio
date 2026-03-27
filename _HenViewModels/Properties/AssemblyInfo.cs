@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("__HenRepositories")]
-[assembly: AssemblyDescription("Heat Exchanger Network (HEN) Repositories component")]
+[assembly: AssemblyTitle("_HenViewModels")]
+[assembly: AssemblyDescription("Heat Exchanger Network (HEN) View Models Component")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("AJP Engineering")]
-[assembly: AssemblyProduct("_HenRepositories")]
+[assembly: AssemblyProduct("_HenViewModels")]
 [assembly: AssemblyCopyright("Copyright ©  2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d0cd902a-466a-40c4-937a-6b3d7b8f86e5")]
+[assembly: Guid("58b4795c-8a98-4e0f-a07f-3769bba0079f")]
 
 // Version information for an assembly consists of the following four values:
 //
