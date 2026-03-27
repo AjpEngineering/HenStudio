@@ -30,44 +30,44 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6, new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22});
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
-            treeNode24,
-            treeNode25});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode23,
-            treeNode26});
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode28});
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode29,
-            treeNode30,
-            treeNode31});
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("HEN Studio CATALOG", 10, 10, new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode33,
-            treeNode34});
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6, new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode10});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode14,
+            treeNode15,
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("HEN Studio CATALOG", 10, 10, new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18,
+            treeNode19});
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
+            treeNode23});
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
+            treeNode22,
+            treeNode24});
             this.contextMenuStripHen = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemCurProjHenRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorCurProjHenRename = new System.Windows.Forms.ToolStripSeparator();
@@ -1058,83 +1058,83 @@
             this.treeViewCurrentProjectExplorer.Location = new System.Drawing.Point(6, 6);
             this.treeViewCurrentProjectExplorer.Margin = new System.Windows.Forms.Padding(6);
             this.treeViewCurrentProjectExplorer.Name = "treeViewCurrentProjectExplorer";
-            treeNode21.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode21.ImageIndex = 7;
-            treeNode21.Name = "NodeProfile_01_Pinch_01_Hen_01";
-            treeNode21.SelectedImageIndex = 8;
-            treeNode21.Text = "Hen: Base Design";
-            treeNode22.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode22.ImageIndex = 7;
-            treeNode22.Name = "NodeProfile_01_Pinch_01_Hen_02";
-            treeNode22.SelectedImageIndex = 8;
-            treeNode22.Text = "Hen: MER Design";
-            treeNode23.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode23.ImageIndex = 5;
-            treeNode23.Name = "NodeProfile_01_Pinch_01";
-            treeNode23.SelectedImageIndex = 6;
-            treeNode23.Text = "Pinch: Delta T=10";
-            treeNode24.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode24.ImageIndex = 7;
-            treeNode24.Name = "NodeProfile_01_Pinch_02_Hen_01";
-            treeNode24.SelectedImageIndex = 8;
-            treeNode24.Text = "Hen: Base Design";
-            treeNode25.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode25.ImageIndex = 7;
-            treeNode25.Name = "NodeProfile_01_Pinch_02_Hen_02";
-            treeNode25.SelectedImageIndex = 8;
-            treeNode25.Text = "Hen: MER Design";
-            treeNode26.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode26.ImageIndex = 5;
-            treeNode26.Name = "NodeProfile_01_Pinch_02";
-            treeNode26.SelectedImageIndex = 6;
-            treeNode26.Text = "Pinch: Delta T=20";
-            treeNode27.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode27.ImageIndex = 3;
-            treeNode27.Name = "NodeProfile_01";
-            treeNode27.SelectedImageIndex = 4;
-            treeNode27.Text = "Profile: Q1 Setup";
-            treeNode28.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode28.ImageIndex = 5;
-            treeNode28.Name = "NodeProfile_02_Pinch_01";
-            treeNode28.SelectedImageIndex = 6;
-            treeNode28.Text = "Pinch: Delta T=10";
-            treeNode29.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode29.ImageIndex = 3;
-            treeNode29.Name = "NodeProfile_02";
-            treeNode29.SelectedImageIndex = 4;
-            treeNode29.Text = "Profile: Q2 Setup";
-            treeNode30.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode30.ImageIndex = 3;
-            treeNode30.Name = "NodeProfile_03";
-            treeNode30.SelectedImageIndex = 4;
-            treeNode30.Text = "Profile: Q3 Setup";
-            treeNode31.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode31.ImageIndex = 3;
-            treeNode31.Name = "NodeProfile_04";
-            treeNode31.SelectedImageIndex = 4;
-            treeNode31.Text = "Profile: Q4 Setup";
-            treeNode32.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode32.ImageIndex = 1;
-            treeNode32.Name = "NodeProject02";
-            treeNode32.SelectedImageIndex = 2;
-            treeNode32.Text = "Project: Deer Park";
-            treeNode33.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode33.ImageIndex = 1;
-            treeNode33.Name = "NodeProject02";
-            treeNode33.SelectedImageIndex = 2;
-            treeNode33.Text = "Project: Convent";
-            treeNode34.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode34.ImageIndex = 1;
-            treeNode34.Name = "NodeProject03";
-            treeNode34.SelectedImageIndex = 2;
-            treeNode34.Text = "Project: Norco";
-            treeNode35.ContextMenuStrip = this.contextMenuStripProjectCatalog;
-            treeNode35.ImageIndex = 10;
-            treeNode35.Name = "NodeRootProjects";
-            treeNode35.SelectedImageIndex = 10;
-            treeNode35.Text = "HEN Studio CATALOG";
+            treeNode6.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode6.ImageIndex = 7;
+            treeNode6.Name = "NodeProfile_01_Pinch_01_Hen_01";
+            treeNode6.SelectedImageIndex = 8;
+            treeNode6.Text = "Hen: Base Design";
+            treeNode7.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode7.ImageIndex = 7;
+            treeNode7.Name = "NodeProfile_01_Pinch_01_Hen_02";
+            treeNode7.SelectedImageIndex = 8;
+            treeNode7.Text = "Hen: MER Design";
+            treeNode8.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode8.ImageIndex = 5;
+            treeNode8.Name = "NodeProfile_01_Pinch_01";
+            treeNode8.SelectedImageIndex = 6;
+            treeNode8.Text = "Pinch: Delta T=10";
+            treeNode9.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode9.ImageIndex = 7;
+            treeNode9.Name = "NodeProfile_01_Pinch_02_Hen_01";
+            treeNode9.SelectedImageIndex = 8;
+            treeNode9.Text = "Hen: Base Design";
+            treeNode10.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode10.ImageIndex = 7;
+            treeNode10.Name = "NodeProfile_01_Pinch_02_Hen_02";
+            treeNode10.SelectedImageIndex = 8;
+            treeNode10.Text = "Hen: MER Design";
+            treeNode11.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode11.ImageIndex = 5;
+            treeNode11.Name = "NodeProfile_01_Pinch_02";
+            treeNode11.SelectedImageIndex = 6;
+            treeNode11.Text = "Pinch: Delta T=20";
+            treeNode12.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode12.ImageIndex = 3;
+            treeNode12.Name = "NodeProfile_01";
+            treeNode12.SelectedImageIndex = 4;
+            treeNode12.Text = "Profile: Q1 Setup";
+            treeNode13.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode13.ImageIndex = 5;
+            treeNode13.Name = "NodeProfile_02_Pinch_01";
+            treeNode13.SelectedImageIndex = 6;
+            treeNode13.Text = "Pinch: Delta T=10";
+            treeNode14.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode14.ImageIndex = 3;
+            treeNode14.Name = "NodeProfile_02";
+            treeNode14.SelectedImageIndex = 4;
+            treeNode14.Text = "Profile: Q2 Setup";
+            treeNode15.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode15.ImageIndex = 3;
+            treeNode15.Name = "NodeProfile_03";
+            treeNode15.SelectedImageIndex = 4;
+            treeNode15.Text = "Profile: Q3 Setup";
+            treeNode16.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode16.ImageIndex = 3;
+            treeNode16.Name = "NodeProfile_04";
+            treeNode16.SelectedImageIndex = 4;
+            treeNode16.Text = "Profile: Q4 Setup";
+            treeNode17.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode17.ImageIndex = 1;
+            treeNode17.Name = "NodeProject02";
+            treeNode17.SelectedImageIndex = 2;
+            treeNode17.Text = "Project: Deer Park";
+            treeNode18.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode18.ImageIndex = 1;
+            treeNode18.Name = "NodeProject02";
+            treeNode18.SelectedImageIndex = 2;
+            treeNode18.Text = "Project: Convent";
+            treeNode19.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode19.ImageIndex = 1;
+            treeNode19.Name = "NodeProject03";
+            treeNode19.SelectedImageIndex = 2;
+            treeNode19.Text = "Project: Norco";
+            treeNode20.ContextMenuStrip = this.contextMenuStripProjectCatalog;
+            treeNode20.ImageIndex = 10;
+            treeNode20.Name = "NodeRootProjects";
+            treeNode20.SelectedImageIndex = 10;
+            treeNode20.Text = "HEN Studio CATALOG";
             this.treeViewCurrentProjectExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode35});
+            treeNode20});
             this.treeViewCurrentProjectExplorer.SelectedImageIndex = 9;
             this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(337, 386);
             this.treeViewCurrentProjectExplorer.TabIndex = 1;
@@ -1168,32 +1168,32 @@
             this.treeViewProjectZipExplorer.Location = new System.Drawing.Point(6, 6);
             this.treeViewProjectZipExplorer.Margin = new System.Windows.Forms.Padding(6);
             this.treeViewProjectZipExplorer.Name = "treeViewProjectZipExplorer";
-            treeNode1.ImageKey = "Project_16x16.ico";
-            treeNode1.Name = "NodeZipExport01";
-            treeNode1.SelectedImageKey = "Project_16x16.ico";
-            treeNode1.Text = "Deer Park Analysis - 20260311.zip";
-            treeNode1.ToolTipText = "Zip File";
-            treeNode2.ImageKey = "ExportZIP_16x16.ico";
-            treeNode2.Name = "NodeEXPORT";
-            treeNode2.SelectedImageKey = "ExportZIP_16x16.ico";
-            treeNode2.Text = "EXPORT";
-            treeNode2.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
-            treeNode3.ImageKey = "Project_16x16.ico";
-            treeNode3.Name = "NodeImportZip01";
-            treeNode3.SelectedImageKey = "Project_16x16.ico";
-            treeNode3.Text = "DeerPark Analysis - 20260310";
-            treeNode4.ImageKey = "ImportZIP_16x16.ico";
-            treeNode4.Name = "NodeIMPORT";
-            treeNode4.SelectedImageKey = "ImportZIP_16x16.ico";
-            treeNode4.Text = "IMPORT";
-            treeNode4.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
-            treeNode5.ImageKey = "ZipFolder_16x16.ico";
-            treeNode5.Name = "NodeRoot";
-            treeNode5.SelectedImageKey = "ZipFolder_16x16.ico";
-            treeNode5.Text = "Project ZIP Files";
-            treeNode5.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
+            treeNode21.ImageKey = "Project_16x16.ico";
+            treeNode21.Name = "NodeZipExport01";
+            treeNode21.SelectedImageKey = "Project_16x16.ico";
+            treeNode21.Text = "Deer Park Analysis - 20260311.zip";
+            treeNode21.ToolTipText = "Zip File";
+            treeNode22.ImageKey = "ExportZIP_16x16.ico";
+            treeNode22.Name = "NodeEXPORT";
+            treeNode22.SelectedImageKey = "ExportZIP_16x16.ico";
+            treeNode22.Text = "EXPORT";
+            treeNode22.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
+            treeNode23.ImageKey = "Project_16x16.ico";
+            treeNode23.Name = "NodeImportZip01";
+            treeNode23.SelectedImageKey = "Project_16x16.ico";
+            treeNode23.Text = "DeerPark Analysis - 20260310";
+            treeNode24.ImageKey = "ImportZIP_16x16.ico";
+            treeNode24.Name = "NodeIMPORT";
+            treeNode24.SelectedImageKey = "ImportZIP_16x16.ico";
+            treeNode24.Text = "IMPORT";
+            treeNode24.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
+            treeNode25.ImageKey = "ZipFolder_16x16.ico";
+            treeNode25.Name = "NodeRoot";
+            treeNode25.SelectedImageKey = "ZipFolder_16x16.ico";
+            treeNode25.Text = "Project ZIP Files";
+            treeNode25.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
             this.treeViewProjectZipExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            treeNode25});
             this.treeViewProjectZipExplorer.SelectedImageIndex = 0;
             this.treeViewProjectZipExplorer.Size = new System.Drawing.Size(337, 201);
             this.treeViewProjectZipExplorer.TabIndex = 0;
@@ -1343,7 +1343,7 @@
             // 
             // panelDefaultHenOptimizer
             // 
-            this.panelDefaultHenOptimizer.BackColor = System.Drawing.Color.LightCyan;
+            this.panelDefaultHenOptimizer.BackColor = System.Drawing.Color.OldLace;
             this.panelDefaultHenOptimizer.Controls.Add(this.textBoxDefaultHenOpitimizer);
             this.panelDefaultHenOptimizer.Controls.Add(this.textBoxDefaultHenOptimizerTitle);
             this.panelDefaultHenOptimizer.Location = new System.Drawing.Point(278, 43);
@@ -1353,7 +1353,7 @@
             // 
             // textBoxDefaultHenOpitimizer
             // 
-            this.textBoxDefaultHenOpitimizer.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxDefaultHenOpitimizer.BackColor = System.Drawing.Color.OldLace;
             this.textBoxDefaultHenOpitimizer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDefaultHenOpitimizer.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDefaultHenOpitimizer.Location = new System.Drawing.Point(13, 38);
@@ -1367,7 +1367,7 @@
             // textBoxDefaultHenOptimizerTitle
             // 
             this.textBoxDefaultHenOptimizerTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDefaultHenOptimizerTitle.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxDefaultHenOptimizerTitle.BackColor = System.Drawing.Color.OldLace;
             this.textBoxDefaultHenOptimizerTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDefaultHenOptimizerTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDefaultHenOptimizerTitle.Location = new System.Drawing.Point(3, 5);

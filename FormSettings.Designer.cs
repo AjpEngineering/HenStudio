@@ -486,7 +486,7 @@
             // 
             // panelDefaultHenOptimizer
             // 
-            this.panelDefaultHenOptimizer.BackColor = System.Drawing.Color.LightCyan;
+            this.panelDefaultHenOptimizer.BackColor = System.Drawing.Color.OldLace;
             this.panelDefaultHenOptimizer.Controls.Add(this.comboBoxDefaultHenOpitimizer);
             this.panelDefaultHenOptimizer.Controls.Add(this.textBoxDefaultHenOptimizerTitle);
             this.panelDefaultHenOptimizer.Location = new System.Drawing.Point(278, 43);
@@ -515,7 +515,7 @@
             // textBoxDefaultHenOptimizerTitle
             // 
             this.textBoxDefaultHenOptimizerTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDefaultHenOptimizerTitle.BackColor = System.Drawing.Color.LightCyan;
+            this.textBoxDefaultHenOptimizerTitle.BackColor = System.Drawing.Color.OldLace;
             this.textBoxDefaultHenOptimizerTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDefaultHenOptimizerTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDefaultHenOptimizerTitle.Location = new System.Drawing.Point(3, 5);
