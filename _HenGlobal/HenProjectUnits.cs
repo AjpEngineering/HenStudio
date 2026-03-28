@@ -5,7 +5,7 @@
 //  FILENAME:  HenProjectUnits.cs
 //  NAMESPACE: HenGlobal
 //  CLASS(S):  HenProjectUnits
-//  COMPONENT: _HenGLobal.dll
+//  COMPONENT: _HenGlobal.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the code for the HEN Project Units Class.
@@ -45,7 +45,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using static HenGlobal.HenProjectUnits;
 #endregion  // REFERENCES
 
 #region namespace HenGlobal

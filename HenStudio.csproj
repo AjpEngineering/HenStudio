@@ -68,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTagDisplay.cs" />
-    <Compile Include="DefaultProjectSettings.cs" />
     <Compile Include="FormAboutPinch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,7 +107,6 @@
     <Compile Include="FormUserLicenseAgreement.Designer.cs">
       <DependentUpon>FormUserLicenseAgreement.cs</DependentUpon>
     </Compile>
-    <Compile Include="HenProjectUnits.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAboutPinch.resx">

@@ -5,7 +5,7 @@
 //  FILENAME:  DefaultProjectSettings.cs
 //  NAMESPACE: HenGlobal
 //  CLASS(S):  DefaultProjectSettings
-//  COMPONENT: _HenGLobal.dll
+//  COMPONENT: _HenGlobal.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the code for the Default Project Settings Class.
@@ -45,9 +45,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using static HenGlobal.DefaultProjectSettings;
-using static HenGlobal.HenProjectUnits;
-using static HenGlobal.HenTypes;
 #endregion  // REFERENCES
 
 #region namespace HenGlobal
