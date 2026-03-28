@@ -47,7 +47,6 @@ using static HenGlobal.HenTypes;
 #region namespace HenStudio
 namespace HenStudio
 {
-
     #region internal class DataTagDisplay
     internal class DataTagDisplay
     {
@@ -57,11 +56,11 @@ namespace HenStudio
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public string FullPathNodeLoc { get; set; }  // Full-Path Node location from root to node
-        public string NodeName { get; set; }            // Name of Node
-        public string DisplayName { get; set; }         // Display Name of Node (Prefix + NodeName)
-        public ExplorerLevel LevelEnum { get; set; }    // Project Level Enumeration
-                                                        // [ UNKNOWN | CATALOG | PROJECT | PROFILE | PINCH | HEN ]
+        public string FullPathNodeLoc { get; set; }    // Full-Path Node location from root to node
+        public string NodeName { get; set; }           // Name of Node
+        public string DisplayName { get; set; }        // Display Name of Node (Prefix + NodeName)
+        public ExplorerLevel LevelEnum { get; set; }   // Project Level Enumeration
+                                                       // [ UNKNOWN | CATALOG | PROJECT | PROFILE | PINCH | HEN ]
 
         public Guid ProjectID { get; set; }     // Project ID (PK)
         public Guid ProfileID { get; set; }     // Profile ID (PK)
