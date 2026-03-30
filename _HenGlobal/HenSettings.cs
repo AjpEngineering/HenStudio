@@ -89,13 +89,6 @@ namespace HenGlobal
         public string CUSTOMER_EMAIL = "TBD";
         #endregion  // CUSTOMER INFORMATION ... SPECIFIED IN LICENSE FILE
 
-        #region HEN COMPONENTS ... ArrayList
-        //------------------------------
-        //--- HEN Product Components ---
-        //------------------------------
-        public ArrayList AJP_HEN_COMPONENTS = new ArrayList();
-        #endregion  // HEN  COMPONENTS ... ArrayList
-
         #region LICENSE INFORMATION - SEE LICENSE FILE CLASS
         //-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //--- License Information ... Specified in License File ---
@@ -105,6 +98,10 @@ namespace HenGlobal
         #endregion      // FIELDS
 
         #region PROPERTIES
+        
+        #region HEN Studio Application Components (Assemblies)
+        public List<string> AJP_HEN_COMPONENTS { get; set; }  // Component List;
+        #endregion  // HEN Studio Application Components (Assemblies)
 
         #region STANDARD COLORS
         public Color ColorNotSelectedText { get; set; }  // Color.SlateGray;
@@ -240,15 +237,17 @@ namespace HenGlobal
                 ColorHenText = Color.FromArgb(255, 0, 210, 210);          // Turquiose
                 #endregion  // STANDARD COLORS
 
-                #region HEN COMPONENTS
+                #region HEN COMPONENTS (ASSEMBLIES)
+                AJP_HEN_COMPONENTS = new List<string>();
                 AJP_HEN_COMPONENTS.Clear();
                 AJP_HEN_COMPONENTS.Add("HenStudio.exe");
                 AJP_HEN_COMPONENTS.Add("_AJP License File.dll");
-                AJP_HEN_COMPONENTS.Add("_HenDatabase.dll");
-                AJP_HEN_COMPONENTS.Add("_HenDomain.dll");
+                AJP_HEN_COMPONENTS.Add("_HenDomainModel.dll");
                 AJP_HEN_COMPONENTS.Add("_HenGlobal.dll");
-                AJP_HEN_COMPONENTS.Add("_HenReport.dll");
-                #endregion  // HEN COMPONENTS
+                AJP_HEN_COMPONENTS.Add("_HenPersistence.dll");
+                AJP_HEN_COMPONENTS.Add("_HenRepositories.dll");
+                AJP_HEN_COMPONENTS.Add("_HenViewModels.dll");
+                #endregion  // HEN COMPONENTS (ASSEMBLIES)
 
                 #region LOG LICENSE DATA
                 WriteSupplierDataToLog();   // Write Supplier Data to Log
