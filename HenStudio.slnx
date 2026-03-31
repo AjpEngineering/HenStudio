@@ -6,5 +6,9 @@
   <Project Path="_HenGlobal/_HenGlobal.csproj" Id="c73899c1-09e9-4981-a906-f33c3ae4078a" />
   <Project Path="_HenPersistence/_HenPersistence.csproj" Id="eb33e6f8-aa86-4be8-8d1c-b1b9b92435ad" />
   <Project Path="_HenRepositories/_HenRepositories.csproj" Id="42a404ca-256f-47c8-82fd-319c99292c74" />
+  <Project Path="_HenStudioDatabase/_HenStudioDatabase.sqlproj" Id="6d436111-d440-474c-ae5e-84cc10d29e47">
+    <Build />
+    <Deploy />
+  </Project>
   <Project Path="_HenViewModels/_HenViewModels.csproj" Id="58b4795c-8a98-4e0f-a07f-3769bba0079f" />
 </Solution>

@@ -1,0 +1,50 @@
+﻿-- --------------------------------------------------------------------------------
+--  Table: HenOptimizer
+--  File : HenOptimizer.sql
+-- --------------------------------------------------------------------------------
+--  Description: 
+--    Hen Optimizer entity for HEN Studio. Leaf Table.
+--    HenOptimizer includes fields for ...
+--      + PK (GUID)
+--      + FK to Project (GUID)
+--      + Optimizer Name
+--      + Optimizer Description
+--      + Optimizer Type [Genetic, Greedy, MILP]
+--      + Default HEN Optimizer Objective (Total Annual Cost, Total Energy Consumption)
+--      + Default Max Number of HEN Optimizer Iterations
+--      + Default HEN Optimizer Convergence Tolerance
+--      + Default HEN Optimizer Population Size (for Genetic)
+--      + Default HEN Optimizer Crossover Rate (for Genetic)
+--      + Default HEN Optimizer Mutation Rate (for Genetic)
+--      + Default HEN Optimizer Elitism Rate (for Genetic)
+--      + Default HEN Optimizer Time Limit (for Genetic)
+--      + Default HEN Optimizer MIP Gap (for MILP)
+--      + Default HEN Optimizer Time Limit (for MILP)
+--      + Default HEN Optimizer MIP Emphasis (for MILP)
+--      + Default HEN Optimizer Heuristic Emphasis (for MILP)
+--      + Default HEN Optimizer Presolve (for MILP)
+--      + Default HEN Optimizer Threads (for MILP)
+--      + Default HEN Optimizer Solution Pool (for MILP)
+-- ================================================================================
+-- 
+-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+--                                                                               !!
+--           A        JJJJJJJJ  PPPPPPP         EEEEEEE  NN     NN   GGGGGG      !!
+--          AAA          JJ     PP    PP        EE       NNN    NN  GG    GG     !!
+--         AA AA         JJ     PP    PP        EE       NNNN   NN  GG           !!
+--        AA   AA        JJ     PPPPPP          EEEEEEE  NN NN  NN  GG   GGGG    !!
+--       AAAAAAAA   JJ   JJ     PP              EE       NN  NN NN  GG    GG     !!
+--      AA      AA  JJ   JJ     PP              EE       NN    NNN  GG    GG     !!
+--     AA        AA  JJJJJJ     PP              EEEEEEE  NN     NN   GGGGGG      !!
+--                                                                               !!
+-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+--    (c)Copyright 2026 AJP Engineering
+--    All rights reserved.
+-- ================================================================================
+--  HISTORY:
+--    01/01/26 .. AJP Engineering .. Version 1.0
+-- ================================================================================
+CREATE TABLE [dbo].[HenOptimizer]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
