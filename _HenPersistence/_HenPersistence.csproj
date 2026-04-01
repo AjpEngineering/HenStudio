@@ -63,6 +63,10 @@
     <Compile Include="Repos\GridDiagramPointIDRepo.cs" />
     <Compile Include="Repos\HeatReleaseCurveRepo.cs" />
     <Compile Include="Repos\HeatReleaseCurvePointIDRepo.cs" />
+    <Compile Include="Repos\HenOptimizerRepo.cs" />
+    <Compile Include="Repos\HenOptimizerGeneticRepo.cs" />
+    <Compile Include="Repos\HenOptimizerGreedyRepo.cs" />
+    <Compile Include="Repos\HenOptimizerMILPRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +80,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
 
 
 

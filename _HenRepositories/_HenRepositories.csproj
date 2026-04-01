@@ -82,6 +82,14 @@
     <Compile Include="Interfaces\IGridDiagramPointIDRepo.cs" />
     <Compile Include="Interfaces\IHeatReleaseCurveRepo.cs" />
     <Compile Include="Interfaces\IHeatReleaseCurvePointIDRepo.cs" />
+    <Compile Include="Dto\HenOptimizerDto.cs" />
+    <Compile Include="Dto\HenOptimizerGeneticDto.cs" />
+    <Compile Include="Dto\HenOptimizerGreedyDto.cs" />
+    <Compile Include="Dto\HenOptimizerMILPDto.cs" />
+    <Compile Include="Interfaces\IHenOptimizerRepo.cs" />
+    <Compile Include="Interfaces\IHenOptimizerGeneticRepo.cs" />
+    <Compile Include="Interfaces\IHenOptimizerGreedyRepo.cs" />
+    <Compile Include="Interfaces\IHenOptimizerMILPRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +97,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
 
 
 
