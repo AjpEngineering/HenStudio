@@ -44,10 +44,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repos\ProjectRepo.cs" />
+    <Compile Include="Repos\ProfileRepo.cs" />
+    <Compile Include="Repos\PinchRepo.cs" />
+    <Compile Include="Repos\HenRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\_HenRepositories\_HenRepositories.csproj">
+      <Project>{42A404CA-256F-47C8-82FD-319C99292C74}</Project>
+      <Name>_HenRepositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

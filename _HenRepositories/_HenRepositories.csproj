@@ -44,6 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\ProjectDto.cs" />
+    <Compile Include="Dto\ProfileDto.cs" />
+    <Compile Include="Dto\PinchDto.cs" />
+    <Compile Include="Dto\HenDto.cs" />
+    <Compile Include="Interfaces\IProjectRepo.cs" />
+    <Compile Include="Interfaces\IProfileRepo.cs" />
+    <Compile Include="Interfaces\IPinchRepo.cs" />
+    <Compile Include="Interfaces\IHenRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,3 +59,5 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
+
