@@ -67,6 +67,8 @@
     <Compile Include="Repos\HenOptimizerGeneticRepo.cs" />
     <Compile Include="Repos\HenOptimizerGreedyRepo.cs" />
     <Compile Include="Repos\HenOptimizerMILPRepo.cs" />
+    <Compile Include="Interfaces\IDbConnectionFactory.cs" />
+    <Compile Include="Connection\SqlConnectionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +82,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
 
 
 
