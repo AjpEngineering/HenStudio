@@ -1,20 +1,13 @@
-﻿-- --------------------------------------------------------------------------------
---  Table: THDiagram
---  File : THDiagram.sql
+-- --------------------------------------------------------------------------------
+--  Table: HenOptimizerGreedy
+--  File : HenOptimizerGreedy.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
---    Temperature-Enthalpy Diagram Data entity for HEN Studio. 
---    Parent entity is Profile. Contains zero or more THDiagramPointID child entities.
---    THDiagram contains T-H diagram data used to visualize 
---    Temp-Enthapy relationship.
---    THDiagram includes fields for ...
---      + PK (GUID)
---      + FK to Profile (GUID)
---      + Diagram Type [Hot|Cold]
---      + Diagram Title (e.g. "Hot T-H Diagram")
---	    + Diagram X-Axis Label (e.g.,"Enthalpy (MMBtu/hr)") ... External Units
---      + Diagram Y-Axis Label (e.g.,"Temperature (°F)") ...... External Units
---      + Zero or more THDiagramPointID child entities containing T-H data points
+--    Greedy Optimizer subtype entity for HEN Studio.
+--    Parent entity is HenOptimizer. Leaf table.
+--    HenOptimizerGreedy includes fields for ...
+--      + PK/FK to HenOptimizer (GUID)
+--      + Greedy specific optimizer fields (TBD)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -35,16 +28,10 @@
 --    01/01/26 .. AJP Engineering .. Version 1.0
 -- ================================================================================
 
-CREATE TABLE [dbo].[THDiagram]
+CREATE TABLE [dbo].[HenOptimizerGreedy]
 (
-    [Id]             UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
-	[ProfileId]      UNIQUEIDENTIFIER NOT NULL,
-	[DiagramType]    NVARCHAR(8)      NOT NULL DEFAULT N'Hot',
-	[Title]          NVARCHAR(256)    NOT NULL,
-	[XAxisLabel]     NVARCHAR(256)    NOT NULL,
-	[YAxisLabel]     NVARCHAR(256)    NOT NULL,
+	[HenOptimizerId] UNIQUEIDENTIFIER NOT NULL,
 
-	CONSTRAINT [PK_THDiagram] PRIMARY KEY CLUSTERED ([Id]),
-	CONSTRAINT [FK_THDiagram_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id]),
-	CONSTRAINT [CK_THDiagram_DiagramType] CHECK ([DiagramType] IN (N'Hot', N'Cold'))
+	CONSTRAINT [PK_HenOptimizerGreedy] PRIMARY KEY CLUSTERED ([HenOptimizerId]),
+	CONSTRAINT [FK_HenOptimizerGreedy_HenOptimizer] FOREIGN KEY ([HenOptimizerId]) REFERENCES [dbo].[HenOptimizer]([Id])
 )

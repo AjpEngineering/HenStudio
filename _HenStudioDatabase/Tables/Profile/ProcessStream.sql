@@ -44,5 +44,26 @@
 
 CREATE TABLE [dbo].[ProcessStream]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+    [Id]                               UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[ProfileId]                        UNIQUEIDENTIFIER NOT NULL,
+	[StreamCategory]                   NVARCHAR(16)     NOT NULL DEFAULT N'Process',
+	[StreamHeat]                       NVARCHAR(16)     NOT NULL DEFAULT N'Sensible',
+	[StreamId]                         NVARCHAR(16)     NOT NULL,
+	[StreamSegmentId]                  NVARCHAR(16)     NOT NULL,
+	[Name]                             NVARCHAR(256)    NOT NULL,
+	[StreamType]                       NVARCHAR(8)      NOT NULL DEFAULT N'Hot',
+	[StreamSubtype]                    NVARCHAR(8)      NOT NULL DEFAULT N'Liquid',
+	[SupplyTemperature]                FLOAT            NOT NULL DEFAULT 0.0,
+	[SupplyPressure]                   FLOAT            NOT NULL DEFAULT 0.0,
+	[TargetTemperature]                FLOAT            NOT NULL DEFAULT 0.0,
+	[TargetPressure]                   FLOAT            NOT NULL DEFAULT 0.0,
+	[HeatCapacityFlowRate]             FLOAT            NOT NULL DEFAULT 0.0,
+	[HeatTransferCoefficient]          FLOAT            NOT NULL DEFAULT 0.0,
+
+	CONSTRAINT [PK_ProcessStream] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_ProcessStream_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id]),
+	CONSTRAINT [CK_ProcessStream_StreamCategory] CHECK ([StreamCategory] IN (N'Process', N'Utility')),
+	CONSTRAINT [CK_ProcessStream_StreamHeat] CHECK ([StreamHeat] IN (N'Sensible', N'Latent')),
+	CONSTRAINT [CK_ProcessStream_StreamType] CHECK ([StreamType] IN (N'Hot', N'Cold')),
+	CONSTRAINT [CK_ProcessStream_StreamSubtype] CHECK ([StreamSubtype] IN (N'Liquid', N'Vapor', N'Mixed'))
 )

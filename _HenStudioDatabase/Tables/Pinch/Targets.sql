@@ -36,5 +36,14 @@
 
 CREATE TABLE [dbo].[Targets]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+    [Id]                            UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[PinchId]                       UNIQUEIDENTIFIER NOT NULL,
+	[MinimumHotUtilityLoad]         FLOAT            NOT NULL DEFAULT 0.0,
+	[MinimumColdUtilityLoad]        FLOAT            NOT NULL DEFAULT 0.0,
+	[MinimumNumberOfExchangers]     INT              NOT NULL DEFAULT 1,
+	[HotPinchTargetTemperature]     FLOAT            NOT NULL DEFAULT 0.0,
+	[ColdPinchTargetTemperature]    FLOAT            NOT NULL DEFAULT 0.0,
+
+	CONSTRAINT [PK_Targets] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_Targets_Pinch] FOREIGN KEY ([PinchId]) REFERENCES [dbo].[Pinch]([Id])
 )

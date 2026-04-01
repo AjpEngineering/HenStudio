@@ -4,7 +4,7 @@
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    HeatReleaseCurve Data entity for HEN Studio. 
---    Parent entity is Exchanger. Leaf entity.
+--    Parent entity is Exchanger. Contains zero or more HeatReleaseCurvePointID child entities.
 --    HeatReleaseCurve contains Heat Release curve data used to visualize 
 --    Exchanger Duty - Temp relationship.
 --    HeatReleaseCurve includes fields for ...
@@ -13,7 +13,6 @@
 --      + Curve Title (e.g. "E-101 Heat Release Curve")
 --	    + Diagram X-Axis Label (e.g.,"Duty (MMBtu/hr)") .... External Units
 --      + Diagram Y-Axis Label (e.g.,"Temperature (°F)") ... External Units
---      + Diagram Data Points (e.g.,JSON or XML string containing Duty-Temp data points)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -36,5 +35,11 @@
 
 CREATE TABLE [dbo].[HeatReleaseCurve]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+    [Id]           UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[ExchangerId]  UNIQUEIDENTIFIER NOT NULL,
+	[Title]        NVARCHAR(256)    NOT NULL,
+	[XAxisLabel]   NVARCHAR(256)    NOT NULL,
+	[YAxisLabel]   NVARCHAR(256)    NOT NULL,
+
+	CONSTRAINT [PK_HeatReleaseCurve] PRIMARY KEY CLUSTERED ([Id])
 )

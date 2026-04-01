@@ -40,9 +40,9 @@ CREATE TABLE [dbo].[Project]
 	[Name]                            NVARCHAR(256)    NOT NULL,
 	[Description]                     NVARCHAR(1024)   NULL,
 	[DefaultHeatTransferCoefficient]  FLOAT            NOT NULL DEFAULT 0.0,
-	[DefaultHenOptimizer]             NVARCHAR(48)     NOT NULL DEFAULT N'Genetic',
-	[DefaultSystemUnits]              NVARCHAR(48)     NOT NULL DEFAULT N'SI',
-	[DefaultMagnitudeUnits]           NVARCHAR(48)     NOT NULL DEFAULT N'Base',
+	[DefaultHenOptimizer]             NVARCHAR(16)     NOT NULL DEFAULT N'Genetic',
+	[DefaultSystemUnits]              NVARCHAR(16)     NOT NULL DEFAULT N'SI',
+	[DefaultMagnitudeUnits]           NVARCHAR(8)      NOT NULL DEFAULT N'Base',
 	[DefaultTemperatureUnits]         NVARCHAR(8)      NOT NULL DEFAULT N'K',
 	[DefaultPressureUnits]            NVARCHAR(8)      NOT NULL DEFAULT N'Pa',
 

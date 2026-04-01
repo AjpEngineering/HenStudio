@@ -40,5 +40,16 @@
 
 CREATE TABLE [dbo].[EconParam]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+    [Id]                             UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[ProfileId]                      UNIQUEIDENTIFIER NOT NULL,
+	[CapitalCostIndexName]           NVARCHAR(256)    NOT NULL,
+	[CapitalCostIndexC1]             FLOAT            NOT NULL DEFAULT 0.0,
+	[CapitalCostIndexC2]             FLOAT            NOT NULL DEFAULT 0.0,
+	[CapitalCostIndexC3]             FLOAT            NOT NULL DEFAULT 0.0,
+    [CapitalCostIndexConfiguration]  NVARCHAR(24)     NOT NULL DEFAULT N'Heat Exchanger',
+	[RateOfReturn]                   FLOAT            NOT NULL DEFAULT 0.0,
+	[ProjectLifetime]                INT              NOT NULL DEFAULT 1,
+
+	CONSTRAINT [PK_EconParam] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_EconParam_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id])
 )

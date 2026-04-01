@@ -4,7 +4,7 @@
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    GrandCompositeCurve Data entity for HEN Studio. 
---    Parent entity is Pinch. Leaf entity.
+--    Parent entity is Pinch. Contains zero or more GrandCompositeCurvePointID child entities.
 --    GrandCompositeCurve contains Grand Composite Curve data used to visualize 
 --    Pinch Minimum Utility Loads and Pinch Temperatures.
 --    GrandCompositeCurve includes fields for ...
@@ -14,7 +14,6 @@
 --      + Curve Title (e.g., "Grand Composite Curve")
 --	    + Curve X-Axis Label (e.g.,"Enthalpy (MMBtu/hr)") ... External Units
 --      + Curve Y-Axis Label (e.g.,"Temperature (°F)") ...... External Units
---      + Curve Data Points (e.g.,JSON or XML string containing T-H data points)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -37,5 +36,14 @@
 
 CREATE TABLE [dbo].[GrandCompositeCurve]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+    [Id]           UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[PinchId]      UNIQUEIDENTIFIER NOT NULL,
+	[CurveSubtype] NVARCHAR(16)     NOT NULL DEFAULT N'Raw',
+	[Title]        NVARCHAR(256)    NOT NULL,
+	[XAxisLabel]   NVARCHAR(256)    NOT NULL,
+	[YAxisLabel]   NVARCHAR(256)    NOT NULL,
+
+	CONSTRAINT [PK_GrandCompositeCurve] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_GrandCompositeCurve_Pinch] FOREIGN KEY ([PinchId]) REFERENCES [dbo].[Pinch]([Id]),
+	CONSTRAINT [CK_GrandCompositeCurve_CurveSubtype] CHECK ([CurveSubtype] IN (N'Raw', N'Shifted'))
 )

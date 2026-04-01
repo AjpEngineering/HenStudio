@@ -4,14 +4,13 @@
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    GridDiagram Data entity for HEN Studio. 
---    Parent entity is Hen. Leaf entity.
+--    Parent entity is Hen. Contains zero or more GridDiagramPointID child entities.
 --    GridDiagram contains Grid Diagram data used to visualize Hen Design
 --    (stream matches).
 --    GridDiagram includes fields for ...
 --      + PK (GUID)
 --      + FK to Hen (GUID)
 --      + Diagram Title (e.g., "Grid Diagram")
---      + Diagram Data Points (e.g.,JSON or XML string containing Grid data points)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -34,5 +33,10 @@
 
 CREATE TABLE [dbo].[GridDiagram]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+    [Id]         UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[HenId]      UNIQUEIDENTIFIER NOT NULL,
+	[Title]      NVARCHAR(256)    NOT NULL,
+
+	CONSTRAINT [PK_GridDiagram] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_GridDiagram_Hen] FOREIGN KEY ([HenId]) REFERENCES [dbo].[Hen]([Id])
 )

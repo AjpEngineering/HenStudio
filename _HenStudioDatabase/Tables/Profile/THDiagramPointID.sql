@@ -1,20 +1,18 @@
-﻿-- --------------------------------------------------------------------------------
---  Table: THDiagram
---  File : THDiagram.sql
+-- --------------------------------------------------------------------------------
+--  Table: THDiagramPointID
+--  File : THDiagramPointID.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
---    Temperature-Enthalpy Diagram Data entity for HEN Studio. 
---    Parent entity is Profile. Contains zero or more THDiagramPointID child entities.
---    THDiagram contains T-H diagram data used to visualize 
---    Temp-Enthapy relationship.
---    THDiagram includes fields for ...
+--    Temperature-Enthalpy Diagram Point entity for HEN Studio. 
+--    Parent entity is THDiagram. Leaf entity.
+--    THDiagramPointID contains individual T-H diagram data points used to visualize
+--    the Temp-Enthalpy relationship.
+--    THDiagramPointID includes fields for ...
 --      + PK (GUID)
---      + FK to Profile (GUID)
---      + Diagram Type [Hot|Cold]
---      + Diagram Title (e.g. "Hot T-H Diagram")
---	    + Diagram X-Axis Label (e.g.,"Enthalpy (MMBtu/hr)") ... External Units
---      + Diagram Y-Axis Label (e.g.,"Temperature (°F)") ...... External Units
---      + Zero or more THDiagramPointID child entities containing T-H data points
+--      + FK to THDiagram (GUID)
+--      + Point Sequence Number
+--      + Point Enthalpy Value (External Units)
+--      + Point Temperature Value (External Units)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -35,16 +33,15 @@
 --    01/01/26 .. AJP Engineering .. Version 1.0
 -- ================================================================================
 
-CREATE TABLE [dbo].[THDiagram]
+CREATE TABLE [dbo].[THDiagramPointID]
 (
-    [Id]             UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
-	[ProfileId]      UNIQUEIDENTIFIER NOT NULL,
-	[DiagramType]    NVARCHAR(8)      NOT NULL DEFAULT N'Hot',
-	[Title]          NVARCHAR(256)    NOT NULL,
-	[XAxisLabel]     NVARCHAR(256)    NOT NULL,
-	[YAxisLabel]     NVARCHAR(256)    NOT NULL,
+    [Id]               UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[THDiagramId]      UNIQUEIDENTIFIER NOT NULL,
+	[PointSequence]    INT              NOT NULL,
+	[EnthalpyValue]    FLOAT            NOT NULL DEFAULT 0.0,
+	[TemperatureValue] FLOAT            NOT NULL DEFAULT 0.0,
 
-	CONSTRAINT [PK_THDiagram] PRIMARY KEY CLUSTERED ([Id]),
-	CONSTRAINT [FK_THDiagram_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id]),
-	CONSTRAINT [CK_THDiagram_DiagramType] CHECK ([DiagramType] IN (N'Hot', N'Cold'))
+	CONSTRAINT [PK_THDiagramPointID] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_THDiagramPointID_THDiagram] FOREIGN KEY ([THDiagramId]) REFERENCES [dbo].[THDiagram]([Id]),
+	CONSTRAINT [UQ_THDiagramPointID_THDiagramId_PointSequence] UNIQUE ([THDiagramId], [PointSequence])
 )

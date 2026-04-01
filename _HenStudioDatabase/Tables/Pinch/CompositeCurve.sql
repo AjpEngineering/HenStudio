@@ -4,20 +4,19 @@
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    CompositeCurve Data entity for HEN Studio. 
---    Parent entity is Pinch. Leaf entity.
+--    Parent entity is Pinch. Contains zero or more CompositeCurvePointID child entities.
 --    CompositeCurve contains T-H Composite Curve data used to visualize 
 --    composite Temp-Enthapy relationship.
---    NOTE: The Curve Data Points field contains the Hot data points, or the 
+--    NOTE: The CompositeCurvePointID child table contains the Hot data points, or the 
 --          Cold data points, or both, depending on the Curve Type.
 --    CompositeCurve includes fields for ...
 --      + PK (GUID)
---      + FK to Profile (GUID)
+--      + FK to Pinch (GUID)
 --      + Curve Type [Hot|Cold|Combined]
 --      + Curve Subtype [Raw|Shifted]
 --      + Curve Title (e.g., "Hot Composite Curve")
 --	    + Curve X-Axis Label (e.g.,"Enthalpy (MMBtu/hr)") ... External Units
 --      + Curve Y-Axis Label (e.g.,"Temperature (°F)") ...... External Units
---      + Curve Data Points (e.g.,JSON or XML string containing T-H data points)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -40,5 +39,16 @@
 
 CREATE TABLE [dbo].[CompositeCurve]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+    [Id]           UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[PinchId]      UNIQUEIDENTIFIER NOT NULL,
+	[CurveType]    NVARCHAR(16)     NOT NULL DEFAULT N'Hot',
+	[CurveSubtype] NVARCHAR(16)     NOT NULL DEFAULT N'Raw',
+	[Title]        NVARCHAR(256)    NOT NULL,
+	[XAxisLabel]   NVARCHAR(256)    NOT NULL,
+	[YAxisLabel]   NVARCHAR(256)    NOT NULL,
+
+	CONSTRAINT [PK_CompositeCurve] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_CompositeCurve_Pinch] FOREIGN KEY ([PinchId]) REFERENCES [dbo].[Pinch]([Id]),
+	CONSTRAINT [CK_CompositeCurve_CurveType] CHECK ([CurveType] IN (N'Hot', N'Cold', N'Combined')),
+	CONSTRAINT [CK_CompositeCurve_CurveSubtype] CHECK ([CurveSubtype] IN (N'Raw', N'Shifted'))
 )

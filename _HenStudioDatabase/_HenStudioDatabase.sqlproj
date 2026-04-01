@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -77,14 +77,28 @@
     <Build Include="Tables\Profile\UtilityStream.sql" />
     <Build Include="Tables\Profile\EconParam.sql" />
     <Build Include="Tables\Profile\THDiagram.sql" />
+    <Build Include="Tables\Profile\THDiagramPointID.sql" />
     <Build Include="Tables\Pinch\Pinch.sql" />
     <Build Include="Tables\Pinch\Targets.sql" />
     <Build Include="Tables\Pinch\CompositeCurve.sql" />
+    <Build Include="Tables\Pinch\CompositeCurvePointID.sql" />
     <Build Include="Tables\Pinch\GrandCompositeCurve.sql" />
+    <Build Include="Tables\Pinch\GrandCompositeCurvePointID.sql" />
     <Build Include="Tables\Hen\Hen.sql" />
     <Build Include="Tables\Hen\GridDiagram.sql" />
+    <Build Include="Tables\Hen\GridDiagramPointID.sql" />
     <Build Include="Tables\Hen\Exchanger.sql" />
     <Build Include="Tables\Hen\HeatReleaseCurve.sql" />
+    <Build Include="Tables\Hen\HeatReleaseCurvePointID.sql" />
     <Build Include="Tables\Project\HenOptimizer.sql" />
+    <Build Include="Tables\Project\HenOptimizerGenetic.sql" />
+    <Build Include="Tables\Project\HenOptimizerGreedy.sql" />
+    <Build Include="Tables\Project\HenOptimizerMILP.sql" />
   </ItemGroup>
 </Project>
+
+
+
+
+
+
