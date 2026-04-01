@@ -1,0 +1,67 @@
+#region HEADER
+//#####################################################################################################################
+//######################################  I G r i d D i a g r a m R e p o . c s  ######################################
+//#####################################################################################################################
+//  FILENAME:  IGridDiagramRepo.cs
+//  NAMESPACE: HenRepositories.Interfaces
+//  INTERFACE: IGridDiagramRepo
+//  COMPONENT: _HenRepositories.dll
+//=====================================================================================================================
+//  DESCRIPTION: 
+//    This file contains the repo interface for the GridDiagram Hen sub table.
+//=====================================================================================================================
+//  AUTHOR:
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//                                                                                                                   !!
+//                              A        JJJJJJJJ  PPPPPPP         EEEEEEE  NN     NN   GGGGGG                       !!
+//                             AAA          JJ     PP    PP        EE       NNN    NN  GG    GG                      !!
+//                            AA AA         JJ     PP    PP        EE       NNNN   NN  GG                            !!
+//                           AA   AA        JJ     PPPPPP          EEEEEEE  NN NN  NN  GG   GGGG                     !!
+//                          AAAAAAAA   JJ   JJ     PP              EE       NN  NN NN  GG    GG                      !!
+//                         AA      AA  JJ   JJ     PP              EE       NN    NNN  GG    GG                      !!
+//                        AA        AA  JJJJJJ     PP              EEEEEEE  NN     NN   GGGGGG                       !!
+//                                                                                                                   !!
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//    (c)Copyright 2026 AJP Engineering
+//    All rights reserved.
+//=====================================================================================================================
+//  HISTORY:
+//    01/01/26 .. AJP Engineering .. Version 1.0
+//#####################################################################################################################
+//#####################################################################################################################
+//#####################################################################################################################
+#endregion      // HEADER
+
+#region REFERENCES
+using HenRepositories.Dto;
+
+using System;
+using System.Collections.Generic;
+#endregion      // REFERENCES
+
+#region namespace HenRepositories.Interfaces
+namespace HenRepositories.Interfaces
+{
+    #region public interface IGridDiagramRepo
+    /// <summary>
+    /// GridDiagram Repo Interface
+    /// </summary>
+    public interface IGridDiagramRepo
+    {
+        #region METHODS
+        IList<GridDiagramDto> GetGridDiagrams();
+        IList<GridDiagramDto> GetGridDiagramsByHenId(Guid henId);
+        GridDiagramDto GetGridDiagramById(Guid gridDiagramId);
+        GridDiagramDto GetGridDiagramByTitle(Guid henId, string title);
+        Guid AddGridDiagram(GridDiagramDto gridDiagramDto);
+        void UpdateGridDiagram(GridDiagramDto gridDiagramDto);
+        void DeleteGridDiagram(Guid gridDiagramId);
+        #endregion      // METHODS
+    }
+    #endregion      // public interface IGridDiagramRepo
+}
+#endregion      // namespace HenRepositories.Interfaces
+
+//=====================================================================================================================
+//---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
+//=====================================================================================================================

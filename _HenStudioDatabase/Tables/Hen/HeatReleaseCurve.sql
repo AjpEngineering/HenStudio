@@ -41,5 +41,6 @@ CREATE TABLE [dbo].[HeatReleaseCurve]
 	[XAxisLabel]   NVARCHAR(256)    NOT NULL,
 	[YAxisLabel]   NVARCHAR(256)    NOT NULL,
 
-	CONSTRAINT [PK_HeatReleaseCurve] PRIMARY KEY CLUSTERED ([Id])
+   CONSTRAINT [PK_HeatReleaseCurve] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_HeatReleaseCurve_Exchanger] FOREIGN KEY ([ExchangerId]) REFERENCES [dbo].[Exchanger]([Id])
 )

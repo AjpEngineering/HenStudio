@@ -48,6 +48,21 @@
     <Compile Include="Repos\ProfileRepo.cs" />
     <Compile Include="Repos\PinchRepo.cs" />
     <Compile Include="Repos\HenRepo.cs" />
+    <Compile Include="Repos\EconParamRepo.cs" />
+    <Compile Include="Repos\ProcessStreamRepo.cs" />
+    <Compile Include="Repos\THDiagramRepo.cs" />
+    <Compile Include="Repos\THDiagramPointIDRepo.cs" />
+    <Compile Include="Repos\UtilityStreamRepo.cs" />
+    <Compile Include="Repos\TargetsRepo.cs" />
+    <Compile Include="Repos\CompositeCurveRepo.cs" />
+    <Compile Include="Repos\CompositeCurvePointIDRepo.cs" />
+    <Compile Include="Repos\GrandCompositeCurveRepo.cs" />
+    <Compile Include="Repos\GrandCompositeCurvePointIDRepo.cs" />
+    <Compile Include="Repos\ExchangerRepo.cs" />
+    <Compile Include="Repos\GridDiagramRepo.cs" />
+    <Compile Include="Repos\GridDiagramPointIDRepo.cs" />
+    <Compile Include="Repos\HeatReleaseCurveRepo.cs" />
+    <Compile Include="Repos\HeatReleaseCurvePointIDRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,3 +76,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
+
+

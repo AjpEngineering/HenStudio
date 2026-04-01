@@ -52,6 +52,36 @@
     <Compile Include="Interfaces\IProfileRepo.cs" />
     <Compile Include="Interfaces\IPinchRepo.cs" />
     <Compile Include="Interfaces\IHenRepo.cs" />
+    <Compile Include="Dto\EconParamDto.cs" />
+    <Compile Include="Dto\ProcessStreamDto.cs" />
+    <Compile Include="Dto\THDiagramDto.cs" />
+    <Compile Include="Dto\THDiagramPointIDDto.cs" />
+    <Compile Include="Dto\UtilityStreamDto.cs" />
+    <Compile Include="Interfaces\IEconParamRepo.cs" />
+    <Compile Include="Interfaces\IProcessStreamRepo.cs" />
+    <Compile Include="Interfaces\ITHDiagramRepo.cs" />
+    <Compile Include="Interfaces\ITHDiagramPointIDRepo.cs" />
+    <Compile Include="Interfaces\IUtilityStreamRepo.cs" />
+    <Compile Include="Dto\TargetsDto.cs" />
+    <Compile Include="Dto\CompositeCurveDto.cs" />
+    <Compile Include="Dto\CompositeCurvePointIDDto.cs" />
+    <Compile Include="Dto\GrandCompositeCurveDto.cs" />
+    <Compile Include="Dto\GrandCompositeCurvePointIDDto.cs" />
+    <Compile Include="Interfaces\ITargetsRepo.cs" />
+    <Compile Include="Interfaces\ICompositeCurveRepo.cs" />
+    <Compile Include="Interfaces\ICompositeCurvePointIDRepo.cs" />
+    <Compile Include="Interfaces\IGrandCompositeCurveRepo.cs" />
+    <Compile Include="Interfaces\IGrandCompositeCurvePointIDRepo.cs" />
+    <Compile Include="Dto\ExchangerDto.cs" />
+    <Compile Include="Dto\GridDiagramDto.cs" />
+    <Compile Include="Dto\GridDiagramPointIDDto.cs" />
+    <Compile Include="Dto\HeatReleaseCurveDto.cs" />
+    <Compile Include="Dto\HeatReleaseCurvePointIDDto.cs" />
+    <Compile Include="Interfaces\IExchangerRepo.cs" />
+    <Compile Include="Interfaces\IGridDiagramRepo.cs" />
+    <Compile Include="Interfaces\IGridDiagramPointIDRepo.cs" />
+    <Compile Include="Interfaces\IHeatReleaseCurveRepo.cs" />
+    <Compile Include="Interfaces\IHeatReleaseCurvePointIDRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,5 +89,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
+
+
 
 

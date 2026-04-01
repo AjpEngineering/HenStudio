@@ -12,7 +12,7 @@
 --      + Exchanger ID [e.g., E-101]
 --	    + Exchanger Name [e.g., Naptha Preheater]
 --	    + Exchanger Is Utility (Boolean)
---	    + Exchanger Type [e.g., Shell & Tube]
+--	    + Exchanger Type [e.g., Shell-Tube]
 --	    + Exchanger Shells [e.g., 1, 2, 4, 6, 8]
 --      + Exchanger Area (Internal Units)
 --	    + Exchanger Hot Temperature In (Internal Units)
@@ -52,5 +52,30 @@
 
 CREATE TABLE [dbo].[Exchanger]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+    [Id]                     UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[HenId]                  UNIQUEIDENTIFIER NOT NULL,
+	[ExchangerId]            NVARCHAR(24)     NOT NULL,
+	[Name]                   NVARCHAR(256)    NOT NULL,
+	[IsUtility]              BIT              NOT NULL DEFAULT 0,
+	[ExchangerType]          NVARCHAR(48)     NOT NULL DEFAULT N'Shell-Tube',
+	[Shells]                 INT              NOT NULL DEFAULT 1,
+	[Area]                   FLOAT            NOT NULL DEFAULT 0.0,
+	[HotTemperatureIn]       FLOAT            NOT NULL DEFAULT 0.0,
+	[HotTemperatureOut]      FLOAT            NOT NULL DEFAULT 0.0,
+	[HotPressureIn]          FLOAT            NOT NULL DEFAULT 0.0,
+	[HotPressureOut]         FLOAT            NOT NULL DEFAULT 0.0,
+	[ColdTemperatureIn]      FLOAT            NOT NULL DEFAULT 0.0,
+	[ColdTemperatureOut]     FLOAT            NOT NULL DEFAULT 0.0,
+	[ColdPressureIn]         FLOAT            NOT NULL DEFAULT 0.0,
+	[ColdPressureOut]        FLOAT            NOT NULL DEFAULT 0.0,
+	[PressureDrop]           FLOAT            NOT NULL DEFAULT 0.0,
+	[HeatDuty]               FLOAT            NOT NULL DEFAULT 0.0,
+	[LmtdCorrectionFactor]   FLOAT            NOT NULL DEFAULT 0.8,
+	[HeatTransferCoefficient] FLOAT           NOT NULL DEFAULT 0.0,
+	[CapitalCost]            FLOAT            NOT NULL DEFAULT 0.0,
+	[AnnualizedCost]         FLOAT            NOT NULL DEFAULT 0.0,
+	[FoulingFactor]          FLOAT            NOT NULL DEFAULT 0.0,
+
+	CONSTRAINT [PK_Exchanger] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_Exchanger_Hen] FOREIGN KEY ([HenId]) REFERENCES [dbo].[Hen]([Id])
 )
