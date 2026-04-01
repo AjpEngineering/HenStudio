@@ -33,5 +33,11 @@
 
 CREATE TABLE [dbo].[Profile]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+    [Id]            UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[ProjectId]     UNIQUEIDENTIFIER NOT NULL,
+	[Name]          NVARCHAR(256)    NOT NULL,
+	[Description]   NVARCHAR(1024)   NULL,
+
+	CONSTRAINT [PK_Profile] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_Profile_Project] FOREIGN KEY ([ProjectId]) REFERENCES [dbo].[Project]([Id])
 )

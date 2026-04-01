@@ -33,5 +33,11 @@
 
 CREATE TABLE [dbo].[Hen]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+    [Id]            UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[PinchId]       UNIQUEIDENTIFIER NOT NULL,
+	[Name]          NVARCHAR(256)    NOT NULL,
+	[Description]   NVARCHAR(1024)   NULL,
+
+	CONSTRAINT [PK_Hen] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_Hen_Pinch] FOREIGN KEY ([PinchId]) REFERENCES [dbo].[Pinch]([Id])
 )

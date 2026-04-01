@@ -34,5 +34,12 @@
 
 CREATE TABLE [dbo].[Pinch]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+    [Id]            UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[ProfileId]     UNIQUEIDENTIFIER NOT NULL,
+	[Name]          NVARCHAR(256)    NOT NULL,
+	[Description]   NVARCHAR(1024)   NULL,
+    [DeltaTmin]     FLOAT            NOT NULL DEFAULT 10.0,
+
+	CONSTRAINT [PK_Pinch] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_Pinch_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id])
 )
