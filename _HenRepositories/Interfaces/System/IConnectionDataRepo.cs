@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//####################################  I G l o b a l S e t t i n g s R e p o . c s  ##################################
+//####################################  I C o n n e c t i o n D a t a R e p o . c s  ##################################
 //#####################################################################################################################
-//  FILENAME:  IGlobalSettingsRepo.cs
+//  FILENAME:  IConnectionDataRepo.cs
 //  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IGlobalSettingsRepo
+//  INTERFACE: IConnectionDataRepo
 //  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the GlobalSettings table.
+//    This file contains the repo interface for database connection metadata queries.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -34,25 +34,22 @@
 
 #region REFERENCES
 using HenRepositories.Dto;
-
-using System.Collections.Generic;
 #endregion      // REFERENCES
 
 #region namespace HenRepositories.Interfaces
 namespace HenRepositories.Interfaces
 {
-    #region public interface IGlobalSettingsRepo
+    #region public interface IConnectionDataRepo
     /// <summary>
-    /// GlobalSettings Repo Interface
+    /// ConnectionData Repo Interface
     /// </summary>
-    public interface IGlobalSettingsRepo
+    public interface IConnectionDataRepo
     {
         #region METHODS
-        IList<GlobalSettingsDto> GetGlobalSettings();
-        GlobalSettingsDto GetGlobalSettingsByKey(string settingKey);
+        ConnectionDataDto GetConnectionData();
         #endregion      // METHODS
     }
-    #endregion      // public interface IGlobalSettingsRepo
+    #endregion      // public interface IConnectionDataRepo
 }
 #endregion      // namespace HenRepositories.Interfaces
 

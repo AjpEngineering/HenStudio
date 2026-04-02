@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//####################################  I G l o b a l S e t t i n g s R e p o . c s  ##################################
+//######################################  C o n n e c t i o n D a t a D t o . c s  ####################################
 //#####################################################################################################################
-//  FILENAME:  IGlobalSettingsRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IGlobalSettingsRepo
+//  FILENAME:  ConnectionDataDto.cs
+//  NAMESPACE: HenRepositories.Dto
+//  CLASS(S):  ConnectionDataDto
 //  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the GlobalSettings table.
+//    This file contains the DTO class for database connection metadata query results.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -32,29 +32,29 @@
 //#####################################################################################################################
 #endregion      // HEADER
 
-#region REFERENCES
-using HenRepositories.Dto;
-
-using System.Collections.Generic;
-#endregion      // REFERENCES
-
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenRepositories.Dto
+namespace HenRepositories.Dto
 {
-    #region public interface IGlobalSettingsRepo
+    #region public class ConnectionDataDto
     /// <summary>
-    /// GlobalSettings Repo Interface
+    /// ConnectionData DTO Class
     /// </summary>
-    public interface IGlobalSettingsRepo
+    public class ConnectionDataDto
     {
-        #region METHODS
-        IList<GlobalSettingsDto> GetGlobalSettings();
-        GlobalSettingsDto GetGlobalSettingsByKey(string settingKey);
-        #endregion      // METHODS
+        #region PROPERTIES
+        public string DataSource { get; set; }
+        public string UserId { get; set; }
+        public string WorkstationId { get; set; }
+        public string InitialCatalog { get; set; }
+        public int Timeout { get; set; }
+        public int PacketSize { get; set; }
+        public string ServerVersion { get; set; }
+        public string ConnectionState { get; set; }
+        #endregion      // PROPERTIES
     }
-    #endregion      // public interface IGlobalSettingsRepo
+    #endregion      // public class ConnectionDataDto
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenRepositories.Dto
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

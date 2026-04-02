@@ -94,6 +94,8 @@
     <Compile Include="Dto\System\GlobalSettingsDto.cs" />
     <Compile Include="Interfaces\System\IDatabaseTableRepo.cs" />
     <Compile Include="Interfaces\System\IGlobalSettingsRepo.cs" />
+    <Compile Include="Dto\System\ConnectionDataDto.cs" />
+    <Compile Include="Interfaces\System\IConnectionDataRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +103,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
 
 
 

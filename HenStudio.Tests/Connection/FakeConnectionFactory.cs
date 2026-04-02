@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//####################################  I G l o b a l S e t t i n g s R e p o . c s  ##################################
+//######################################  F a k e C o n n e c t i o n F a c t o r y . c s  ############################
 //#####################################################################################################################
-//  FILENAME:  IGlobalSettingsRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IGlobalSettingsRepo
-//  COMPONENT: _HenRepositories.dll
+//  FILENAME:  FakeConnectionFactory.cs
+//  NAMESPACE: HenStudio.Tests.Connection
+//  CLASS(S):  FakeConnectionFactory
+//  COMPONENT: HenStudio.Tests.dll
 //=====================================================================================================================
-//  DESCRIPTION: 
-//    This file contains the repo interface for the GlobalSettings table.
+//  DESCRIPTION:
+//    This file contains a fake database connection factory for ConnectionDataRepo tests.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,28 +33,58 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenPersistence.Interfaces;
 
-using System.Collections.Generic;
+using System;
+using System.Data;
+using System.Data.SqlClient;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenStudio.Tests.Connection
+namespace HenStudio.Tests.Connection
 {
-    #region public interface IGlobalSettingsRepo
+    #region public class FakeConnectionFactory
     /// <summary>
-    /// GlobalSettings Repo Interface
+    /// Fake connection factory class for ConnectionDataRepo tests.
     /// </summary>
-    public interface IGlobalSettingsRepo
+    public class FakeConnectionFactory : IDbConnectionFactory
     {
-        #region METHODS
-        IList<GlobalSettingsDto> GetGlobalSettings();
-        GlobalSettingsDto GetGlobalSettingsByKey(string settingKey);
-        #endregion      // METHODS
+        #region PRIVATE FIELDS
+        private readonly IDbConnection _connection;
+        #endregion      // PRIVATE FIELDS
+
+        #region CTOR
+        /// <summary>
+        /// Parameterized Constructor
+        /// </summary>
+        /// <param name="connection">The fake SQL connection instance.</param>
+        public FakeConnectionFactory(IDbConnection connection)
+        {
+            if (connection == null)
+            {
+                throw new ArgumentNullException(nameof(connection));
+            }
+
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connection.ConnectionString);
+
+            _connection = connection;
+        }
+        #endregion      // CTOR
+
+        #region CreateConnection()
+        /// <summary>
+        /// Creates a database connection for the test repository.
+        /// </summary>
+        /// <returns>The configured fake SQL connection.</returns>
+        public IDbConnection CreateConnection()
+        {
+            return _connection;
+        }
+        #endregion      // CreateConnection()
     }
-    #endregion      // public interface IGlobalSettingsRepo
+    #endregion      // public class FakeConnectionFactory
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenStudio.Tests.Connection
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

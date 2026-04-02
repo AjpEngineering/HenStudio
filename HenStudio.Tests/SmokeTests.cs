@@ -1,14 +1,14 @@
-#region HEADER
+﻿#region HEADER
 //#####################################################################################################################
-//####################################  I G l o b a l S e t t i n g s R e p o . c s  ##################################
+//############################################  S m o k e T e s t s . c s  ############################################
 //#####################################################################################################################
-//  FILENAME:  IGlobalSettingsRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IGlobalSettingsRepo
-//  COMPONENT: _HenRepositories.dll
+//  FILENAME:  SmokeTests.cs
+//  NAMESPACE: HenStudio.Tests
+//  CLASS(S):  SmokeTests
+//  COMPONENT: HenStudio.Tests.dll
 //=====================================================================================================================
-//  DESCRIPTION: 
-//    This file contains the repo interface for the GlobalSettings table.
+//  DESCRIPTION:
+//    This file contains smoke tests for HEN Studio.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,28 +33,30 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
-
-using System.Collections.Generic;
+using NUnit.Framework;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenStudio.Tests
+namespace HenStudio.Tests
 {
-    #region public interface IGlobalSettingsRepo
-    /// <summary>
-    /// GlobalSettings Repo Interface
-    /// </summary>
-    public interface IGlobalSettingsRepo
+    #region public class SmokeTests
+    [TestFixture]
+    public class SmokeTests
     {
-        #region METHODS
-        IList<GlobalSettingsDto> GetGlobalSettings();
-        GlobalSettingsDto GetGlobalSettingsByKey(string settingKey);
-        #endregion      // METHODS
+        #region ItWorks()
+        /// <summary>
+        /// Verifies that the smoke test fixture is executing correctly.
+        /// </summary>
+        [Test]
+        public void ItWorks()
+        {
+            Assert.That(1 + 1, Is.EqualTo(2));
+        }
+        #endregion      // ItWorks()
     }
-    #endregion      // public interface IGlobalSettingsRepo
+    #endregion      // public class SmokeTests
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenStudio.Tests
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

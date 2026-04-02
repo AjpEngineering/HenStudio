@@ -64,6 +64,8 @@
     <Folder Include="Tables\Pinch" />
     <Folder Include="Tables\Hen" />
     <Folder Include="Tables\System" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\PostDeployment" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -97,12 +99,8 @@
     <Build Include="Tables\Project\HenOptimizerGreedy.sql" />
     <Build Include="Tables\Project\HenOptimizerMILP.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeployment.sql" />
+    <None Include="Scripts\PostDeployment\Seed_GlobalSettings.sql" />
+  </ItemGroup>
 </Project>
-
-
-
-
-
-
-
-

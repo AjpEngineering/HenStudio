@@ -71,6 +71,7 @@
     <Compile Include="Repos\System\GlobalSettingsRepo.cs" />
     <Compile Include="Interfaces\IDbConnectionFactory.cs" />
     <Compile Include="Connection\SqlConnectionFactory.cs" />
+    <Compile Include="Repos\System\ConnectionDataRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,4 +85,5 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
 

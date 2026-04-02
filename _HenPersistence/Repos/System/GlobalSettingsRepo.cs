@@ -39,6 +39,7 @@ using HenRepositories.Interfaces;
 
 using System;
 using System.Collections.Generic;
+using System.Data;
 #endregion      // REFERENCES
 
 #region namespace HenPersistence.Repos
@@ -53,6 +54,39 @@ namespace HenPersistence.Repos
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
+
+        #region PRIVATE METHODS
+
+        #region MapGlobalSettings()
+        /// <summary>
+        /// Maps a data record from the global settings query result set to a <see cref="GlobalSettingsDto"/> instance.
+        /// </summary>
+        /// <param name="record">The data record containing the global settings column values.</param>
+        /// <param name="settingKeyOrdinal">The ordinal position of the <c>SettingKey</c> column.</param>
+        /// <param name="settingValueOrdinal">The ordinal position of the <c>SettingValue</c> column.</param>
+        /// <param name="valueTypeOrdinal">The ordinal position of the <c>ValueType</c> column.</param>
+        /// <param name="descriptionOrdinal">The ordinal position of the <c>Description</c> column.</param>
+        /// <param name="updatedOnOrdinal">The ordinal position of the <c>UpdatedOn</c> column.</param>
+        /// <returns>A <see cref="GlobalSettingsDto"/> populated from the supplied data record.</returns>
+        private static GlobalSettingsDto MapGlobalSettings(IDataRecord record, 
+                                                           int settingKeyOrdinal, 
+                                                           int settingValueOrdinal, 
+                                                           int valueTypeOrdinal, 
+                                                           int descriptionOrdinal, 
+                                                           int updatedOnOrdinal)
+        {
+            return new GlobalSettingsDto
+            {
+                SettingKey = record.IsDBNull(settingKeyOrdinal) ? null : record.GetString(settingKeyOrdinal),
+                SettingValue = record.IsDBNull(settingValueOrdinal) ? null : record.GetString(settingValueOrdinal),
+                ValueType = record.IsDBNull(valueTypeOrdinal) ? null : record.GetString(valueTypeOrdinal),
+                Description = record.IsDBNull(descriptionOrdinal) ? null : record.GetString(descriptionOrdinal),
+                UpdatedOn = record.GetDateTime(updatedOnOrdinal)
+            };
+        }
+        #endregion  // MapGlobalSettings()
+
+        #endregion      // PRIVATE METHODS
 
         #region CTOR
         /// <summary>
@@ -71,30 +105,117 @@ namespace HenPersistence.Repos
         #endregion      // CTOR
 
         #region METHODS
+
+        #region GetGlobalSettings()
+        /// <summary>
+        /// Retrieves all global application settings from the data store.
+        /// </summary>
+        /// <remarks>The settings are returned in ascending order by their setting key. This method is
+        /// typically used to access configuration values that apply across the entire application.</remarks>
+        /// <returns>A list of <see cref="GlobalSettingsDto"/> objects representing the global settings. The list is empty if no
+        /// settings are found.</returns>
         public IList<GlobalSettingsDto> GetGlobalSettings()
         {
-            throw new NotImplementedException();
-        }
+            const string sql = @"SELECT SettingKey,
+                                        SettingValue,
+                                        ValueType,
+                                        Description,
+                                        UpdatedOn
+                                 FROM dbo.GlobalSettings
+                                 ORDER BY SettingKey;";
 
+            List<GlobalSettingsDto> settings = new List<GlobalSettingsDto>();
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        int settingKeyOrdinal = reader.GetOrdinal("SettingKey");
+                        int settingValueOrdinal = reader.GetOrdinal("SettingValue");
+                        int valueTypeOrdinal = reader.GetOrdinal("ValueType");
+                        int descriptionOrdinal = reader.GetOrdinal("Description");
+                        int updatedOnOrdinal = reader.GetOrdinal("UpdatedOn");
+
+                        while (reader.Read())
+                        {
+                            settings.Add(MapGlobalSettings(reader, 
+                                                           settingKeyOrdinal, 
+                                                           settingValueOrdinal, 
+                                                           valueTypeOrdinal, 
+                                                           descriptionOrdinal, 
+                                                           updatedOnOrdinal));
+                        }
+                    }
+                }
+            }
+
+            return settings;
+        }
+        #endregion  // GetGlobalSettings()
+
+        #region GetGlobalSettingsByKey()
+        /// <summary>
+        /// Retrieves a global application setting from the data store by its setting key.
+        /// </summary>
+        /// <param name="settingKey">The unique key that identifies the global setting to retrieve.</param>
+        /// <returns>A <see cref="GlobalSettingsDto"/> object representing the requested setting, or <c>null</c> if no matching setting is found.</returns>
         public GlobalSettingsDto GetGlobalSettingsByKey(string settingKey)
         {
-            throw new NotImplementedException();
-        }
+            if (String.IsNullOrWhiteSpace(settingKey))
+            {
+                throw new ArgumentException("Setting key cannot be null or whitespace.", nameof(settingKey));
+            }
 
-        public string AddGlobalSettings(GlobalSettingsDto globalSettingsDto)
-        {
-            throw new NotImplementedException();
-        }
+            const string sql = @"SELECT SettingKey,
+                                        SettingValue,
+                                        ValueType,
+                                        Description,
+                                        UpdatedOn
+                                 FROM dbo.GlobalSettings
+                                 WHERE SettingKey = @SettingKey;";
 
-        public void UpdateGlobalSettings(GlobalSettingsDto globalSettingsDto)
-        {
-            throw new NotImplementedException();
-        }
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
 
-        public void DeleteGlobalSettings(string settingKey)
-        {
-            throw new NotImplementedException();
+                    IDbDataParameter parameter = command.CreateParameter();
+                    parameter.ParameterName = "@SettingKey";
+                    parameter.DbType = DbType.String;
+                    parameter.Value = settingKey;
+                    command.Parameters.Add(parameter);
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                        {
+                            return null;
+                        }
+
+                        int settingKeyOrdinal = reader.GetOrdinal("SettingKey");
+                        int settingValueOrdinal = reader.GetOrdinal("SettingValue");
+                        int valueTypeOrdinal = reader.GetOrdinal("ValueType");
+                        int descriptionOrdinal = reader.GetOrdinal("Description");
+                        int updatedOnOrdinal = reader.GetOrdinal("UpdatedOn");
+
+                        return MapGlobalSettings(reader, settingKeyOrdinal, settingValueOrdinal, valueTypeOrdinal, descriptionOrdinal, updatedOnOrdinal);
+                    }
+                }
+            }
         }
+        #endregion  // GetGlobalSettingsByKey()
+
         #endregion      // METHODS
     }
     #endregion      // public class GlobalSettingsRepo
