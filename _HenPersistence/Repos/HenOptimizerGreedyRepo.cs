@@ -32,6 +32,7 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenPersistence.Interfaces;
 using HenRepositories.Dto;
 using HenRepositories.Interfaces;
 
@@ -48,6 +49,26 @@ namespace HenPersistence.Repos
     /// </summary>
     public class HenOptimizerGreedyRepo : IHenOptimizerGreedyRepo
     {
+        #region PRIVATE FIELDS
+        private readonly IDbConnectionFactory _connectionFactory;
+        #endregion      // PRIVATE FIELDS
+
+        #region CTOR
+        /// <summary>
+        /// Parameterized Constructor
+        /// </summary>
+        /// <param name="connectionFactory">Database connection factory.</param>
+        public HenOptimizerGreedyRepo(IDbConnectionFactory connectionFactory)
+        {
+            if (connectionFactory == null)
+            {
+                throw new ArgumentNullException(nameof(connectionFactory));
+            }
+
+            _connectionFactory = connectionFactory;
+        }
+        #endregion      // CTOR
+
         #region METHODS
         public IList<HenOptimizerGreedyDto> GetHenOptimizerGreedys()
         {

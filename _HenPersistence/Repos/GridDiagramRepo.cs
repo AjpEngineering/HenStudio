@@ -33,6 +33,7 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenPersistence.Interfaces;
 using HenRepositories.Dto;
 using HenRepositories.Interfaces;
 
@@ -49,6 +50,26 @@ namespace HenPersistence.Repos
     /// </summary>
     public class GridDiagramRepo : IGridDiagramRepo
     {
+        #region PRIVATE FIELDS
+        private readonly IDbConnectionFactory _connectionFactory;
+        #endregion      // PRIVATE FIELDS
+
+        #region CTOR
+        /// <summary>
+        /// Parameterized Constructor
+        /// </summary>
+        /// <param name="connectionFactory">Database connection factory.</param>
+        public GridDiagramRepo(IDbConnectionFactory connectionFactory)
+        {
+            if (connectionFactory == null)
+            {
+                throw new ArgumentNullException(nameof(connectionFactory));
+            }
+
+            _connectionFactory = connectionFactory;
+        }
+        #endregion      // CTOR
+
         #region METHODS
         public IList<GridDiagramDto> GetGridDiagrams()
         {

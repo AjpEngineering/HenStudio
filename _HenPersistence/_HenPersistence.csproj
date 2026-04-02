@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repos\DatabaseTableRepo.cs" />
     <Compile Include="Repos\ProjectRepo.cs" />
     <Compile Include="Repos\ProfileRepo.cs" />
     <Compile Include="Repos\PinchRepo.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Repos\HenOptimizerMILPRepo.cs" />
     <Compile Include="Interfaces\IDbConnectionFactory.cs" />
     <Compile Include="Connection\SqlConnectionFactory.cs" />
+    <Compile Include="Repos\GlobalSettingsRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,8 +84,3 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
-
-
-
-
-

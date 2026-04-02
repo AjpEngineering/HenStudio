@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//##########################################  T H D i a g r a m R e p o . c s  ########################################
+//######################################  D a t a b a s e T a b l e D t o . c s  ######################################
 //#####################################################################################################################
-//  FILENAME:  THDiagramRepo.cs
-//  NAMESPACE: HenPersistence.Repos
-//  CLASS(S):  THDiagramRepo
-//  COMPONENT: _HenPersistence.dll
+//  FILENAME:  DatabaseTableDto.cs
+//  NAMESPACE: HenRepositories.Dto
+//  CLASS(S):  DatabaseTableDto
+//  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the THDiagram Profile sub table.
+//    This file contains the DTO class for database table name query results.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -32,84 +32,23 @@
 //#####################################################################################################################
 #endregion      // HEADER
 
-#region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
-
-using System;
-using System.Collections.Generic;
-#endregion      // REFERENCES
-
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenRepositories.Dto
+namespace HenRepositories.Dto
 {
-    #region public class THDiagramRepo
+    #region public class DatabaseTableDto
     /// <summary>
-    /// THDiagram Repo Class
+    /// DatabaseTable DTO Class
     /// </summary>
-    public class THDiagramRepo : ITHDiagramRepo
+    public class DatabaseTableDto
     {
-        #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
-        #endregion      // PRIVATE FIELDS
-
-        #region CTOR
-        /// <summary>
-        /// Parameterized Constructor
-        /// </summary>
-        /// <param name="connectionFactory">Database connection factory.</param>
-        public THDiagramRepo(IDbConnectionFactory connectionFactory)
-        {
-            if (connectionFactory == null)
-            {
-                throw new ArgumentNullException(nameof(connectionFactory));
-            }
-
-            _connectionFactory = connectionFactory;
-        }
-        #endregion      // CTOR
-
-        #region METHODS
-        public IList<THDiagramDto> GetTHDiagrams()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<THDiagramDto> GetTHDiagramsByProfileId(Guid profileId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public THDiagramDto GetTHDiagramById(Guid thDiagramId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public THDiagramDto GetTHDiagramByTitle(Guid profileId, string title)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Guid AddTHDiagram(THDiagramDto thDiagramDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateTHDiagram(THDiagramDto thDiagramDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteTHDiagram(Guid thDiagramId)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion      // METHODS
+        #region PROPERTIES
+        public string SchemaName { get; set; }
+        public string TableName { get; set; }
+        #endregion      // PROPERTIES
     }
-    #endregion      // public class THDiagramRepo
+    #endregion      // public class DatabaseTableDto
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenRepositories.Dto
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

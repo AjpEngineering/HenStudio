@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//##########################################  T H D i a g r a m R e p o . c s  ########################################
+//######################################  G l o b a l S e t t i n g s R e p o . c s  ##################################
 //#####################################################################################################################
-//  FILENAME:  THDiagramRepo.cs
+//  FILENAME:  GlobalSettingsRepo.cs
 //  NAMESPACE: HenPersistence.Repos
-//  CLASS(S):  THDiagramRepo
+//  CLASS(S):  GlobalSettingsRepo
 //  COMPONENT: _HenPersistence.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the THDiagram Profile sub table.
+//    This file contains the concrete repo implementation stub for the GlobalSettings table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -44,11 +44,11 @@ using System.Collections.Generic;
 #region namespace HenPersistence.Repos
 namespace HenPersistence.Repos
 {
-    #region public class THDiagramRepo
+    #region public class GlobalSettingsRepo
     /// <summary>
-    /// THDiagram Repo Class
+    /// GlobalSettings Repo Class
     /// </summary>
-    public class THDiagramRepo : ITHDiagramRepo
+    public class GlobalSettingsRepo : IGlobalSettingsRepo
     {
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;
@@ -59,7 +59,7 @@ namespace HenPersistence.Repos
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public THDiagramRepo(IDbConnectionFactory connectionFactory)
+        public GlobalSettingsRepo(IDbConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {
@@ -71,43 +71,33 @@ namespace HenPersistence.Repos
         #endregion      // CTOR
 
         #region METHODS
-        public IList<THDiagramDto> GetTHDiagrams()
+        public IList<GlobalSettingsDto> GetGlobalSettings()
         {
             throw new NotImplementedException();
         }
 
-        public IList<THDiagramDto> GetTHDiagramsByProfileId(Guid profileId)
+        public GlobalSettingsDto GetGlobalSettingsByKey(string settingKey)
         {
             throw new NotImplementedException();
         }
 
-        public THDiagramDto GetTHDiagramById(Guid thDiagramId)
+        public string AddGlobalSettings(GlobalSettingsDto globalSettingsDto)
         {
             throw new NotImplementedException();
         }
 
-        public THDiagramDto GetTHDiagramByTitle(Guid profileId, string title)
+        public void UpdateGlobalSettings(GlobalSettingsDto globalSettingsDto)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddTHDiagram(THDiagramDto thDiagramDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateTHDiagram(THDiagramDto thDiagramDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteTHDiagram(Guid thDiagramId)
+        public void DeleteGlobalSettings(string settingKey)
         {
             throw new NotImplementedException();
         }
         #endregion      // METHODS
     }
-    #endregion      // public class THDiagramRepo
+    #endregion      // public class GlobalSettingsRepo
 }
 #endregion      // namespace HenPersistence.Repos
 

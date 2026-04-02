@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//##########################################  T H D i a g r a m R e p o . c s  ########################################
+//####################################  I G l o b a l S e t t i n g s R e p o . c s  ##################################
 //#####################################################################################################################
-//  FILENAME:  THDiagramRepo.cs
-//  NAMESPACE: HenPersistence.Repos
-//  CLASS(S):  THDiagramRepo
-//  COMPONENT: _HenPersistence.dll
+//  FILENAME:  IGlobalSettingsRepo.cs
+//  NAMESPACE: HenRepositories.Interfaces
+//  INTERFACE: IGlobalSettingsRepo
+//  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the THDiagram Profile sub table.
+//    This file contains the repo interface for the GlobalSettings table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,83 +33,31 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
 using HenRepositories.Dto;
-using HenRepositories.Interfaces;
 
-using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenRepositories.Interfaces
+namespace HenRepositories.Interfaces
 {
-    #region public class THDiagramRepo
+    #region public interface IGlobalSettingsRepo
     /// <summary>
-    /// THDiagram Repo Class
+    /// GlobalSettings Repo Interface
     /// </summary>
-    public class THDiagramRepo : ITHDiagramRepo
+    public interface IGlobalSettingsRepo
     {
-        #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
-        #endregion      // PRIVATE FIELDS
-
-        #region CTOR
-        /// <summary>
-        /// Parameterized Constructor
-        /// </summary>
-        /// <param name="connectionFactory">Database connection factory.</param>
-        public THDiagramRepo(IDbConnectionFactory connectionFactory)
-        {
-            if (connectionFactory == null)
-            {
-                throw new ArgumentNullException(nameof(connectionFactory));
-            }
-
-            _connectionFactory = connectionFactory;
-        }
-        #endregion      // CTOR
-
         #region METHODS
-        public IList<THDiagramDto> GetTHDiagrams()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<THDiagramDto> GetTHDiagramsByProfileId(Guid profileId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public THDiagramDto GetTHDiagramById(Guid thDiagramId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public THDiagramDto GetTHDiagramByTitle(Guid profileId, string title)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Guid AddTHDiagram(THDiagramDto thDiagramDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateTHDiagram(THDiagramDto thDiagramDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteTHDiagram(Guid thDiagramId)
-        {
-            throw new NotImplementedException();
-        }
+        IList<GlobalSettingsDto> GetGlobalSettings();
+        GlobalSettingsDto GetGlobalSettingsByKey(string settingKey);
+        string AddGlobalSettings(GlobalSettingsDto globalSettingsDto);
+        void UpdateGlobalSettings(GlobalSettingsDto globalSettingsDto);
+        void DeleteGlobalSettings(string settingKey);
         #endregion      // METHODS
     }
-    #endregion      // public class THDiagramRepo
+    #endregion      // public interface IGlobalSettingsRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenRepositories.Interfaces
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

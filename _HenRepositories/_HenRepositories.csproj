@@ -90,6 +90,10 @@
     <Compile Include="Interfaces\IHenOptimizerGeneticRepo.cs" />
     <Compile Include="Interfaces\IHenOptimizerGreedyRepo.cs" />
     <Compile Include="Interfaces\IHenOptimizerMILPRepo.cs" />
+    <Compile Include="Dto\DatabaseTableDto.cs" />
+    <Compile Include="Interfaces\IDatabaseTableRepo.cs" />
+    <Compile Include="Dto\GlobalSettingsDto.cs" />
+    <Compile Include="Interfaces\IGlobalSettingsRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +101,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
+
 
 
 
