@@ -63,6 +63,7 @@
     <Folder Include="Tables\Profile" />
     <Folder Include="Tables\Pinch" />
     <Folder Include="Tables\Hen" />
+    <Folder Include="Tables\System" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -72,7 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Project\Project.sql" />
-    <Build Include="Tables\Project\GlobalSettings.sql" />
+    <Build Include="Tables\System\GlobalSettings.sql" />
     <Build Include="Tables\Profile\Profile.sql" />
     <Build Include="Tables\Profile\ProcessStream.sql" />
     <Build Include="Tables\Profile\UtilityStream.sql" />
@@ -97,6 +98,7 @@
     <Build Include="Tables\Project\HenOptimizerMILP.sql" />
   </ItemGroup>
 </Project>
+
 
 
 

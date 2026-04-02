@@ -44,56 +44,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dto\ProjectDto.cs" />
-    <Compile Include="Dto\ProfileDto.cs" />
-    <Compile Include="Dto\PinchDto.cs" />
-    <Compile Include="Dto\HenDto.cs" />
-    <Compile Include="Interfaces\IProjectRepo.cs" />
-    <Compile Include="Interfaces\IProfileRepo.cs" />
-    <Compile Include="Interfaces\IPinchRepo.cs" />
-    <Compile Include="Interfaces\IHenRepo.cs" />
-    <Compile Include="Dto\EconParamDto.cs" />
-    <Compile Include="Dto\ProcessStreamDto.cs" />
-    <Compile Include="Dto\THDiagramDto.cs" />
-    <Compile Include="Dto\THDiagramPointIDDto.cs" />
-    <Compile Include="Dto\UtilityStreamDto.cs" />
-    <Compile Include="Interfaces\IEconParamRepo.cs" />
-    <Compile Include="Interfaces\IProcessStreamRepo.cs" />
-    <Compile Include="Interfaces\ITHDiagramRepo.cs" />
-    <Compile Include="Interfaces\ITHDiagramPointIDRepo.cs" />
-    <Compile Include="Interfaces\IUtilityStreamRepo.cs" />
-    <Compile Include="Dto\TargetsDto.cs" />
-    <Compile Include="Dto\CompositeCurveDto.cs" />
-    <Compile Include="Dto\CompositeCurvePointIDDto.cs" />
-    <Compile Include="Dto\GrandCompositeCurveDto.cs" />
-    <Compile Include="Dto\GrandCompositeCurvePointIDDto.cs" />
-    <Compile Include="Interfaces\ITargetsRepo.cs" />
-    <Compile Include="Interfaces\ICompositeCurveRepo.cs" />
-    <Compile Include="Interfaces\ICompositeCurvePointIDRepo.cs" />
-    <Compile Include="Interfaces\IGrandCompositeCurveRepo.cs" />
-    <Compile Include="Interfaces\IGrandCompositeCurvePointIDRepo.cs" />
-    <Compile Include="Dto\ExchangerDto.cs" />
-    <Compile Include="Dto\GridDiagramDto.cs" />
-    <Compile Include="Dto\GridDiagramPointIDDto.cs" />
-    <Compile Include="Dto\HeatReleaseCurveDto.cs" />
-    <Compile Include="Dto\HeatReleaseCurvePointIDDto.cs" />
-    <Compile Include="Interfaces\IExchangerRepo.cs" />
-    <Compile Include="Interfaces\IGridDiagramRepo.cs" />
-    <Compile Include="Interfaces\IGridDiagramPointIDRepo.cs" />
-    <Compile Include="Interfaces\IHeatReleaseCurveRepo.cs" />
-    <Compile Include="Interfaces\IHeatReleaseCurvePointIDRepo.cs" />
-    <Compile Include="Dto\HenOptimizerDto.cs" />
-    <Compile Include="Dto\HenOptimizerGeneticDto.cs" />
-    <Compile Include="Dto\HenOptimizerGreedyDto.cs" />
-    <Compile Include="Dto\HenOptimizerMILPDto.cs" />
-    <Compile Include="Interfaces\IHenOptimizerRepo.cs" />
-    <Compile Include="Interfaces\IHenOptimizerGeneticRepo.cs" />
-    <Compile Include="Interfaces\IHenOptimizerGreedyRepo.cs" />
-    <Compile Include="Interfaces\IHenOptimizerMILPRepo.cs" />
-    <Compile Include="Dto\DatabaseTableDto.cs" />
-    <Compile Include="Interfaces\IDatabaseTableRepo.cs" />
-    <Compile Include="Dto\GlobalSettingsDto.cs" />
-    <Compile Include="Interfaces\IGlobalSettingsRepo.cs" />
+    <Compile Include="Dto\Project\ProjectDto.cs" />
+    <Compile Include="Dto\Project\HenOptimizerDto.cs" />
+    <Compile Include="Dto\Project\HenOptimizerGeneticDto.cs" />
+    <Compile Include="Dto\Project\HenOptimizerGreedyDto.cs" />
+    <Compile Include="Dto\Project\HenOptimizerMILPDto.cs" />
+    <Compile Include="Interfaces\Project\IProjectRepo.cs" />
+    <Compile Include="Interfaces\Project\IHenOptimizerRepo.cs" />
+    <Compile Include="Interfaces\Project\IHenOptimizerGeneticRepo.cs" />
+    <Compile Include="Interfaces\Project\IHenOptimizerGreedyRepo.cs" />
+    <Compile Include="Interfaces\Project\IHenOptimizerMILPRepo.cs" />
+    <Compile Include="Dto\Profile\ProfileDto.cs" />
+    <Compile Include="Dto\Profile\EconParamDto.cs" />
+    <Compile Include="Dto\Profile\ProcessStreamDto.cs" />
+    <Compile Include="Dto\Profile\THDiagramDto.cs" />
+    <Compile Include="Dto\Profile\THDiagramPointIDDto.cs" />
+    <Compile Include="Dto\Profile\UtilityStreamDto.cs" />
+    <Compile Include="Interfaces\Profile\IProfileRepo.cs" />
+    <Compile Include="Interfaces\Profile\IEconParamRepo.cs" />
+    <Compile Include="Interfaces\Profile\IProcessStreamRepo.cs" />
+    <Compile Include="Interfaces\Profile\ITHDiagramRepo.cs" />
+    <Compile Include="Interfaces\Profile\ITHDiagramPointIDRepo.cs" />
+    <Compile Include="Interfaces\Profile\IUtilityStreamRepo.cs" />
+    <Compile Include="Dto\Pinch\PinchDto.cs" />
+    <Compile Include="Dto\Pinch\TargetsDto.cs" />
+    <Compile Include="Dto\Pinch\CompositeCurveDto.cs" />
+    <Compile Include="Dto\Pinch\CompositeCurvePointIDDto.cs" />
+    <Compile Include="Dto\Pinch\GrandCompositeCurveDto.cs" />
+    <Compile Include="Dto\Pinch\GrandCompositeCurvePointIDDto.cs" />
+    <Compile Include="Interfaces\Pinch\IPinchRepo.cs" />
+    <Compile Include="Interfaces\Pinch\ITargetsRepo.cs" />
+    <Compile Include="Interfaces\Pinch\ICompositeCurveRepo.cs" />
+    <Compile Include="Interfaces\Pinch\ICompositeCurvePointIDRepo.cs" />
+    <Compile Include="Interfaces\Pinch\IGrandCompositeCurveRepo.cs" />
+    <Compile Include="Interfaces\Pinch\IGrandCompositeCurvePointIDRepo.cs" />
+    <Compile Include="Dto\Hen\HenDto.cs" />
+    <Compile Include="Dto\Hen\ExchangerDto.cs" />
+    <Compile Include="Dto\Hen\GridDiagramDto.cs" />
+    <Compile Include="Dto\Hen\GridDiagramPointIDDto.cs" />
+    <Compile Include="Dto\Hen\HeatReleaseCurveDto.cs" />
+    <Compile Include="Dto\Hen\HeatReleaseCurvePointIDDto.cs" />
+    <Compile Include="Interfaces\Hen\IHenRepo.cs" />
+    <Compile Include="Interfaces\Hen\IExchangerRepo.cs" />
+    <Compile Include="Interfaces\Hen\IGridDiagramRepo.cs" />
+    <Compile Include="Interfaces\Hen\IGridDiagramPointIDRepo.cs" />
+    <Compile Include="Interfaces\Hen\IHeatReleaseCurveRepo.cs" />
+    <Compile Include="Interfaces\Hen\IHeatReleaseCurvePointIDRepo.cs" />
+    <Compile Include="Dto\System\DatabaseTableDto.cs" />
+    <Compile Include="Dto\System\GlobalSettingsDto.cs" />
+    <Compile Include="Interfaces\System\IDatabaseTableRepo.cs" />
+    <Compile Include="Interfaces\System\IGlobalSettingsRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +101,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
 
 
 

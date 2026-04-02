@@ -44,33 +44,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Repos\DatabaseTableRepo.cs" />
-    <Compile Include="Repos\ProjectRepo.cs" />
-    <Compile Include="Repos\ProfileRepo.cs" />
-    <Compile Include="Repos\PinchRepo.cs" />
-    <Compile Include="Repos\HenRepo.cs" />
-    <Compile Include="Repos\EconParamRepo.cs" />
-    <Compile Include="Repos\ProcessStreamRepo.cs" />
-    <Compile Include="Repos\THDiagramRepo.cs" />
-    <Compile Include="Repos\THDiagramPointIDRepo.cs" />
-    <Compile Include="Repos\UtilityStreamRepo.cs" />
-    <Compile Include="Repos\TargetsRepo.cs" />
-    <Compile Include="Repos\CompositeCurveRepo.cs" />
-    <Compile Include="Repos\CompositeCurvePointIDRepo.cs" />
-    <Compile Include="Repos\GrandCompositeCurveRepo.cs" />
-    <Compile Include="Repos\GrandCompositeCurvePointIDRepo.cs" />
-    <Compile Include="Repos\ExchangerRepo.cs" />
-    <Compile Include="Repos\GridDiagramRepo.cs" />
-    <Compile Include="Repos\GridDiagramPointIDRepo.cs" />
-    <Compile Include="Repos\HeatReleaseCurveRepo.cs" />
-    <Compile Include="Repos\HeatReleaseCurvePointIDRepo.cs" />
-    <Compile Include="Repos\HenOptimizerRepo.cs" />
-    <Compile Include="Repos\HenOptimizerGeneticRepo.cs" />
-    <Compile Include="Repos\HenOptimizerGreedyRepo.cs" />
-    <Compile Include="Repos\HenOptimizerMILPRepo.cs" />
+    <Compile Include="Repos\System\DatabaseTableRepo.cs" />
+    <Compile Include="Repos\Project\ProjectRepo.cs" />
+    <Compile Include="Repos\Project\HenOptimizerRepo.cs" />
+    <Compile Include="Repos\Project\HenOptimizerGeneticRepo.cs" />
+    <Compile Include="Repos\Project\HenOptimizerGreedyRepo.cs" />
+    <Compile Include="Repos\Project\HenOptimizerMILPRepo.cs" />
+    <Compile Include="Repos\Profile\ProfileRepo.cs" />
+    <Compile Include="Repos\Profile\EconParamRepo.cs" />
+    <Compile Include="Repos\Profile\ProcessStreamRepo.cs" />
+    <Compile Include="Repos\Profile\THDiagramRepo.cs" />
+    <Compile Include="Repos\Profile\THDiagramPointIDRepo.cs" />
+    <Compile Include="Repos\Profile\UtilityStreamRepo.cs" />
+    <Compile Include="Repos\Pinch\PinchRepo.cs" />
+    <Compile Include="Repos\Pinch\TargetsRepo.cs" />
+    <Compile Include="Repos\Pinch\CompositeCurveRepo.cs" />
+    <Compile Include="Repos\Pinch\CompositeCurvePointIDRepo.cs" />
+    <Compile Include="Repos\Pinch\GrandCompositeCurveRepo.cs" />
+    <Compile Include="Repos\Pinch\GrandCompositeCurvePointIDRepo.cs" />
+    <Compile Include="Repos\Hen\HenRepo.cs" />
+    <Compile Include="Repos\Hen\ExchangerRepo.cs" />
+    <Compile Include="Repos\Hen\GridDiagramRepo.cs" />
+    <Compile Include="Repos\Hen\GridDiagramPointIDRepo.cs" />
+    <Compile Include="Repos\Hen\HeatReleaseCurveRepo.cs" />
+    <Compile Include="Repos\Hen\HeatReleaseCurvePointIDRepo.cs" />
+    <Compile Include="Repos\System\GlobalSettingsRepo.cs" />
     <Compile Include="Interfaces\IDbConnectionFactory.cs" />
     <Compile Include="Connection\SqlConnectionFactory.cs" />
-    <Compile Include="Repos\GlobalSettingsRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,3 +84,4 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
