@@ -119,6 +119,7 @@
   <ItemGroup>
     <Compile Include="Connection\ConnectionInfoRepoTests.cs" />
     <Compile Include="Project\ProjectRepoTests.cs" />
+    <Compile Include="Project\ProjectViewModelTests.cs" />
     <Compile Include="Connection\FakeConnectionFactory.cs" />
     <Compile Include="Connection\FakeSqlConnection.cs">
       <SubType>Component</SubType>

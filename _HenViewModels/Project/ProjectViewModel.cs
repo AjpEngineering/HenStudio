@@ -52,18 +52,20 @@ namespace HenViewModels
     public class ProjectViewModel : ViewModelBase
     {
         #region PROPERTIES
+        public ProjectRepo ProjectRepoObj { get; set; }
         public HenProjectUnits ExternalUnitsObj { get; set; }
         public HenProjectUnits InternalUnitsObj { get; set; }
-        public ProjectDto Project { get; set; }
         #endregion      // PROPERTIES
 
         #region CTOR
         /// <summary>
         /// Default CTOR
         /// </summary>
-        public ProjectViewModel(HenProjectUnits EXTERNAL_UnitsObj,
+        public ProjectViewModel(ProjectRepo projectRepoObj,
+                                HenProjectUnits EXTERNAL_UnitsObj,
                                 HenProjectUnits INTERNAL_UnitsObj) 
         {
+            ProjectRepoObj   = projectRepoObj;
             ExternalUnitsObj = EXTERNAL_UnitsObj;
             InternalUnitsObj = INTERNAL_UnitsObj;
         }
@@ -71,34 +73,80 @@ namespace HenViewModels
 
         #region ConvertToExternalU()
         /// <summary>
-        /// Conver the Het Transfer Coefficient (U) value from INTERNAL Units to EXTERNAL Units.
+        /// Conver the Heat Transfer Coefficient (U) value from INTERNAL Units to EXTERNAL Units.
         /// </summary>
         /// <param name="internalValueU"></param>
         /// <returns>Heat Transfer Coefficient (U) in EXTERNAL Units on Success; 0.0 otherwise</returns>
         private double ConvertToExternalU(double internalValueU)
         {
-            double valueInExternalUnits = 0.0;
-             valueInExternalUnits = ConvertFromInternal(HenGlobal.HenTypes.ConversionUnitsTypes.U, 
-                                                        internalValueU, 
-                                                        ExternalUnitsObj, 
-                                                        InternalUnitsObj);
-            return valueInExternalUnits; 
+            double valueExternalUnits = 0.0;
+            valueExternalUnits = ConvertFromInternal(HenGlobal.HenTypes.ConversionUnitsTypes.U, 
+                                                     internalValueU, 
+                                                     ExternalUnitsObj, 
+                                                     InternalUnitsObj);
+             return valueExternalUnits; 
         }
         #endregion  // ConvertToExternalU()
 
+        #region ConvertFromExternalU()
         /// <summary>
-        /// Retrieves a list of all projects in EXTERNAL Units.
+        /// Conver the Heat Transfer Coefficient (U) value from EXTERNAL Units to INTERNAL Units.
+        /// </summary>
+        /// <param name="externalValueU"></param>
+        /// <returns>Heat Transfer Coefficient (U) in INTERNAL Units on Success; 0.0 otherwise</returns>
+        private double ConvertFromExternalU(double externalValueU)
+        {
+            double valueInternalUnits = 0.0;
+            valueInternalUnits = ConvertToInternal(HenGlobal.HenTypes.ConversionUnitsTypes.U,
+                                                   externalValueU,
+                                                   ExternalUnitsObj,
+                                                   InternalUnitsObj);
+            return valueInternalUnits;
+        }
+        #endregion  // ConvertToExternalU()
+
+        #region GetProjects()
+        /// <summary>
+        /// Retrieves a list of all Projects in EXTERNAL Units.
         /// Database access is performed by the repository layer, and the results are returned as a 
         /// list of <see cref="ProjectDto"/> objects in INTERNAL Units.
         /// </summary>
         /// <returns>A list of <see cref="ProjectDto"/> objects in EXTERNAL Units
-        /// representing the available projects. The list is empty if no
-        /// projects are found.</returns>
+        /// representing the available projects, or an empty list if no projects found.</returns>
         public IList<ProjectDto> GetProjects()
         {
-            return new List<ProjectDto>();
+            List<ProjectDto> externalProjects = new List<ProjectDto>(); // List of Project Dtos [EXTERNAL Units]
+            try
+            {
+                foreach (ProjectDto internalProject in ProjectRepoObj.GetProjects())   // List of Project Dtos [INTERNAL Units]
+                {
+                    ProjectDto externalProject = new ProjectDto();
+                    //-------------------------------------------------
+                    //--- Convert INTERNAL Fields to EXTERNAL Units ---
+                    //-------------------------------------------------
+                    externalProject.Id = internalProject.Id;
+                    externalProject.Name = internalProject.Name;
+                    externalProject.Description = internalProject.Description;
+                    externalProject.DefaultHeatTransferCoefficient = ConvertToExternalU(internalProject.DefaultHeatTransferCoefficient);
+                    externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
+                    externalProject.DefaultSystemUnits = internalProject.DefaultSystemUnits;
+                    externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
+                    externalProject.DefaultTemperatureUnits = internalProject.DefaultTemperatureUnits;
+                    externalProject.DefaultPressureUnits = internalProject.DefaultPressureUnits;
+                    externalProjects.Add(externalProject);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving project: {ex.Message}");
+                return null; // Return null if an error occurs
+            }
+            return externalProjects;
         }
+        #endregion  // GetProjects()
 
+        #region GetProjectById(Guid projectId)
         /// <summary>
         /// Retrieves the Project Dto associated with the specified unique identifier.
         /// The project retrieved from the Database is in INTERNAL Units, 
@@ -117,7 +165,7 @@ namespace HenViewModels
                 //-------------------------------------------------------------------------
                 //--- Retrieve Project Dto from the Database using the Repository layer ---
                 //-------------------------------------------------------------------------
-                ProjectDto internalProject = GetProjectById(projectId);     // Retrieved Project Dto [INTERNAL Units]
+                ProjectDto internalProject = ProjectRepoObj.GetProjectById(projectId);     // Retrieved Project Dto [INTERNAL Units]
 
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
@@ -125,9 +173,7 @@ namespace HenViewModels
                 externalProject.Id = internalProject.Id;
                 externalProject.Name = internalProject.Name;
                 externalProject.Description = internalProject.Description;
-
-                externalProject.DefaultHeatTransferCoefficient = internalProject.DefaultHeatTransferCoefficient; // Convert to EXTERNAL Units
-                
+                externalProject.DefaultHeatTransferCoefficient = ConvertToExternalU(internalProject.DefaultHeatTransferCoefficient);
                 externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
                 externalProject.DefaultSystemUnits = internalProject.DefaultSystemUnits;
                 externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
@@ -143,6 +189,160 @@ namespace HenViewModels
 
             return externalProject;
         }
+        #endregion  // GetProjectById(Guid projectId)
+
+        #region GetProjectByName(string projectName)
+        /// <summary>
+        /// Retrieves a Project by its name and returns its details as a data transfer object.
+        /// </summary>
+        /// <remarks>The returned ProjectDto contains project information with fields converted to
+        /// EXTERNAL units where applicable. If an error occurs during retrieval, the method returns null.</remarks>
+        /// <param name="projectName">The name of the project to retrieve. Cannot be null or empty.</param>
+        /// <returns>A ProjectDto containing the project's details if found; otherwise, null.</returns>
+        public ProjectDto GetProjectByName(string projectName)
+        {
+            try
+            {
+                //-------------------------------------------------------------------------
+                //--- Retrieve Project Dto from the Database using the Repository Layer ---
+                //-------------------------------------------------------------------------
+                ProjectDto internalProject = ProjectRepoObj.GetProjectByName(projectName);     // Retrieved Project Dto [INTERNAL Units]
+                //-------------------------------------------------
+                //--- Convert INTERNAL Fields to EXTERNAL Units ---
+                //-------------------------------------------------
+                ProjectDto externalProject = new ProjectDto();
+                externalProject.Id = internalProject.Id;
+                externalProject.Name = internalProject.Name;
+                externalProject.Description = internalProject.Description;
+                externalProject.DefaultHeatTransferCoefficient = ConvertToExternalU(internalProject.DefaultHeatTransferCoefficient);
+                externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
+                externalProject.DefaultSystemUnits = internalProject.DefaultSystemUnits;
+                externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
+                externalProject.DefaultTemperatureUnits = internalProject.DefaultTemperatureUnits;
+                externalProject.DefaultPressureUnits = internalProject.DefaultPressureUnits;
+                return externalProject;
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving project: {ex.Message}");
+                return null; // Return null if an error occurs
+            }
+        }
+        #endregion  // GetProjectByName(string projectName)
+
+        #region AddProject(ProjectDto externalProjectDto)
+        /// <summary>
+        /// Adds a new project to the database using the specified project data transfer object.
+        /// </summary>
+        /// <remarks>The method converts the provided project data from external to internal units before
+        /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
+        /// an empty GUID.</remarks>
+        /// <param name="externalProjectDto">The project data to add. The object must contain all required project fields in external units. Cannot be
+        /// null.</param>
+        /// <returns>A GUID representing the unique identifier of the newly added project.</returns>
+        public Guid AddProject(ProjectDto externalProjectDto)
+        {
+            Guid projectID = new Guid();
+            try
+            {
+                //----------------------------------------------------------------
+                //--- Project Dto [INTERNAL Units] to be Added to the Database ---
+                //----------------------------------------------------------------
+                ProjectDto internalProjectDto = new ProjectDto();
+                //-------------------------------------------------
+                //--- Convert EXTERNAL Fields to INTERNAL Units ---
+                //-------------------------------------------------
+                internalProjectDto.Id = externalProjectDto.Id;
+                internalProjectDto.Name = externalProjectDto.Name;
+                internalProjectDto.Description = externalProjectDto.Description;
+                internalProjectDto.DefaultHeatTransferCoefficient = ConvertFromExternalU(externalProjectDto.DefaultHeatTransferCoefficient);
+                internalProjectDto.DefaultHenOptimizer = externalProjectDto.DefaultHenOptimizer;
+                internalProjectDto.DefaultSystemUnits = externalProjectDto.DefaultSystemUnits;
+                internalProjectDto.DefaultMagnitudeUnits = externalProjectDto.DefaultMagnitudeUnits;
+                internalProjectDto.DefaultTemperatureUnits = externalProjectDto.DefaultTemperatureUnits;
+                internalProjectDto.DefaultPressureUnits = externalProjectDto.DefaultPressureUnits;
+                //----------------------------------------------------------------------------
+                //--- Add INTERNAL Project Dto to the Database using the Repository Layer  ---
+                //--- Returns the Project ID (PK) from the Project Table database addition ---
+                //----------------------------------------------------------------------------
+                projectID = ProjectRepoObj.AddProject(internalProjectDto);
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving project: {ex.Message}");
+            }
+            return projectID; // Return Project ID (PK) from the Project Table database addition
+        }
+        #endregion  // AddProject(ProjectDto externalProjectDto)
+
+        #region UpdateProject(ProjectDto externalProjectDto)
+        /// <summary>
+        /// Updates an existing project in the database using the specified project data transfer object (DTO) 
+        /// with external units.
+        /// </summary>
+        /// <remarks>This method converts the provided project data from external units to the internal
+        /// units required by the database before updating the project. If the specified project does not exist,
+        /// the behavior depends on the repository implementation.</remarks>
+        /// <param name="externalProjectDto">The project data transfer object containing updated project 
+        /// information in external units. Cannot be null.</param>
+        public void UpdateProject(ProjectDto externalProjectDto)
+        {
+            try
+            {
+                //----------------------------------------------------------------
+                //--- Project Dto [INTERNAL Units] to be Added to the Database ---
+                //----------------------------------------------------------------
+                ProjectDto internalProjectDto = new ProjectDto();
+                //-------------------------------------------------
+                //--- Convert EXTERNAL Fields to INTERNAL Units ---
+                //-------------------------------------------------
+                internalProjectDto.Id = externalProjectDto.Id;
+                internalProjectDto.Name = externalProjectDto.Name;
+                internalProjectDto.Description = externalProjectDto.Description;
+                internalProjectDto.DefaultHeatTransferCoefficient = ConvertFromExternalU(externalProjectDto.DefaultHeatTransferCoefficient);
+                internalProjectDto.DefaultHenOptimizer = externalProjectDto.DefaultHenOptimizer;
+                internalProjectDto.DefaultSystemUnits = externalProjectDto.DefaultSystemUnits;
+                internalProjectDto.DefaultMagnitudeUnits = externalProjectDto.DefaultMagnitudeUnits;
+                internalProjectDto.DefaultTemperatureUnits = externalProjectDto.DefaultTemperatureUnits;
+                internalProjectDto.DefaultPressureUnits = externalProjectDto.DefaultPressureUnits;
+                //------------------------------------------------------------------------------
+                //--- UPDATE INTERNAL Project Dto to the Database using the Repository Layer ---
+                //------------------------------------------------------------------------------
+                ProjectRepoObj.UpdateProject(internalProjectDto);
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving project: {ex.Message}");
+            }
+        }
+        #endregion  // UpdateProject(ProjectDto projectDto)
+
+        #region DeleteProject(Guid projectId)
+        /// <summary>
+        /// Deletes the project with the specified unique identifier.
+        /// </summary>
+        /// <param name="projectId">The unique identifier of the project to delete.</param>
+        public void DeleteProject(Guid projectId)
+        {
+            try
+            {
+                //-------------------------------------------------------------------
+                //--- DELETE Project from the Database using the Repository Layer ---
+                //-------------------------------------------------------------------
+                ProjectRepoObj.DeleteProject(projectId);
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving project: {ex.Message}");
+            }
+        }
+        #endregion  // DeleteProject(Guid projectId)
+
     }
     #endregion      // public class ProjectViewModel
 
