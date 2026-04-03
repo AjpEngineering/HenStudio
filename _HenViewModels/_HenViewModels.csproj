@@ -44,10 +44,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="Project\ProjectViewModel.cs" />
+    <Compile Include="Profile\ProfileViewModel.cs" />
+    <Compile Include="Pinch\PinchViewModel.cs" />
+    <Compile Include="Hen\HenViewModel.cs" />
+    <Compile Include="System\SystemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\_HenGlobal\_HenGlobal.csproj">
+      <Project>{c73899c1-09e9-4981-a906-f33c3ae4078a}</Project>
+      <Name>_HenGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\_HenPersistence\_HenPersistence.csproj">
+      <Project>{eb33e6f8-aa86-4be8-8d1c-b1b9b92435ad}</Project>
+      <Name>_HenPersistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\_HenRepositories\_HenRepositories.csproj">
+      <Project>{42A404CA-256F-47C8-82FD-319C99292C74}</Project>
+      <Name>_HenRepositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -365,7 +365,7 @@ namespace HenStudio
                 //****************
                 //***** TEST *****
                 //****************
-                HenMethodsObj.TestUnitConversions();
+                //HenMethodsObj.TestUnitConversions();
                 #endregion  // TEST UNIT CONVERSION METHODS
             }
             catch (Exception ex)

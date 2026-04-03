@@ -124,6 +124,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Helpers\AssertEx.cs" />
+    <Compile Include="UnitConversions\ViewModelBaseUnitConversionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmokeTests.cs" />
   </ItemGroup>
