@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//#####################################  T H D i a g r a m P o i n t I D D t o . c s  ################################
+//######################################  T H D i a g r a m P o i n t D t o . c s  ####################################
 //#####################################################################################################################
-//  FILENAME:  THDiagramPointIDDto.cs
+//  FILENAME:  THDiagramPointDto.cs
 //  NAMESPACE: HenRepositories.Dto
-//  CLASS(S):  THDiagramPointIDDto
+//  CLASS(S):  THDiagramPointDto
 //  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the THDiagramPointID Profile sub table.
+//    This file contains the DTO class for the THDiagramPoint Profile sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -39,11 +39,11 @@ using System;
 #region namespace HenRepositories.Dto
 namespace HenRepositories.Dto
 {
-    #region public class THDiagramPointIDDto
+    #region public class THDiagramPointDto
     /// <summary>
-    /// THDiagramPointID DTO Class
+    /// THDiagramPoint DTO Class
     /// </summary>
-    public class THDiagramPointIDDto
+    public class THDiagramPointDto
     {
         #region PROPERTIES
         public Guid Id { get; set; }
@@ -53,7 +53,7 @@ namespace HenRepositories.Dto
         public double TemperatureValue { get; set; }
         #endregion      // PROPERTIES
     }
-    #endregion      // public class THDiagramPointIDDto
+    #endregion      // public class THDiagramPointDto
 }
 #endregion      // namespace HenRepositories.Dto
 

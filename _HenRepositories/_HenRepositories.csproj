@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -58,13 +58,13 @@
     <Compile Include="Dto\Profile\EconParamDto.cs" />
     <Compile Include="Dto\Profile\ProcessStreamDto.cs" />
     <Compile Include="Dto\Profile\THDiagramDto.cs" />
-    <Compile Include="Dto\Profile\THDiagramPointIDDto.cs" />
+    <Compile Include="Dto\Profile\THDiagramPointDto.cs" />
     <Compile Include="Dto\Profile\UtilityStreamDto.cs" />
     <Compile Include="Interfaces\Profile\IProfileRepo.cs" />
     <Compile Include="Interfaces\Profile\IEconParamRepo.cs" />
     <Compile Include="Interfaces\Profile\IProcessStreamRepo.cs" />
     <Compile Include="Interfaces\Profile\ITHDiagramRepo.cs" />
-    <Compile Include="Interfaces\Profile\ITHDiagramPointIDRepo.cs" />
+    <Compile Include="Interfaces\Profile\ITHDiagramPointRepo.cs" />
     <Compile Include="Interfaces\Profile\IUtilityStreamRepo.cs" />
     <Compile Include="Dto\Pinch\PinchDto.cs" />
     <Compile Include="Dto\Pinch\TargetsDto.cs" />
@@ -103,6 +103,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+
 
 
 

@@ -1,13 +1,13 @@
 -- --------------------------------------------------------------------------------
---  Table: THDiagramPointID
---  File : THDiagramPointID.sql
+--  Table: THDiagramPoint
+--  File : THDiagramPoint.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Temperature-Enthalpy Diagram Point entity for HEN Studio. 
 --    Parent entity is THDiagram. Leaf entity.
---    THDiagramPointID contains individual T-H diagram data points used to visualize
+--    THDiagramPoint contains individual T-H diagram data points used to visualize
 --    the Temp-Enthalpy relationship.
---    THDiagramPointID includes fields for ...
+--    THDiagramPoint includes fields for ...
 --      + PK (GUID)
 --      + FK to THDiagram (GUID)
 --      + Point Sequence Number
@@ -33,7 +33,7 @@
 --    01/01/26 .. AJP Engineering .. Version 1.0
 -- ================================================================================
 
-CREATE TABLE [dbo].[THDiagramPointID]
+CREATE TABLE [dbo].[THDiagramPoint]
 (
     [Id]               UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
 	[THDiagramId]      UNIQUEIDENTIFIER NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE [dbo].[THDiagramPointID]
 	[EnthalpyValue]    FLOAT            NOT NULL DEFAULT 0.0,
 	[TemperatureValue] FLOAT            NOT NULL DEFAULT 0.0,
 
-	CONSTRAINT [PK_THDiagramPointID] PRIMARY KEY CLUSTERED ([Id]),
-	CONSTRAINT [FK_THDiagramPointID_THDiagram] FOREIGN KEY ([THDiagramId]) REFERENCES [dbo].[THDiagram]([Id]),
-	CONSTRAINT [UQ_THDiagramPointID_THDiagramId_PointSequence] UNIQUE ([THDiagramId], [PointSequence])
+	CONSTRAINT [PK_THDiagramPoint] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_THDiagramPoint_THDiagram] FOREIGN KEY ([THDiagramId]) REFERENCES [dbo].[THDiagram]([Id]),
+	CONSTRAINT [UQ_THDiagramPoint_THDiagramId_PointSequence] UNIQUE ([THDiagramId], [PointSequence])
 )

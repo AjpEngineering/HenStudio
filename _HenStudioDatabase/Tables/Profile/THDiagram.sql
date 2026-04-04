@@ -4,7 +4,7 @@
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Temperature-Enthalpy Diagram Data entity for HEN Studio. 
---    Parent entity is Profile. Contains zero or more THDiagramPointID child entities.
+--    Parent entity is Profile. Contains zero or more THDiagramPoint child entities.
 --    THDiagram contains T-H diagram data used to visualize 
 --    Temp-Enthapy relationship.
 --    THDiagram includes fields for ...
@@ -14,7 +14,7 @@
 --      + Diagram Title (e.g. "Hot T-H Diagram")
 --	    + Diagram X-Axis Label (e.g.,"Enthalpy (MMBtu/hr)") ... External Units
 --      + Diagram Y-Axis Label (e.g.,"Temperature (°F)") ...... External Units
---      + Zero or more THDiagramPointID child entities containing T-H data points
+--      + Zero or more THDiagramPoint child entities containing T-H data points
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -81,7 +81,7 @@
     <Build Include="Tables\Profile\UtilityStream.sql" />
     <Build Include="Tables\Profile\EconParam.sql" />
     <Build Include="Tables\Profile\THDiagram.sql" />
-    <Build Include="Tables\Profile\THDiagramPointID.sql" />
+    <Build Include="Tables\Profile\THDiagramPoint.sql" />
     <Build Include="Tables\Pinch\Pinch.sql" />
     <Build Include="Tables\Pinch\Targets.sql" />
     <Build Include="Tables\Pinch\CompositeCurve.sql" />
@@ -104,3 +104,4 @@
     <None Include="Scripts\PostDeployment\Seed_GlobalSettings.sql" />
   </ItemGroup>
 </Project>
+

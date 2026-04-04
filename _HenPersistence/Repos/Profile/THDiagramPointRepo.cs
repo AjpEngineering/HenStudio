@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//#################################  T H D i a g r a m P o i n t I D R e p o . c s  ##################################
+//###################################  T H D i a g r a m P o i n t R e p o . c s  #####################################
 //#####################################################################################################################
-//  FILENAME:  THDiagramPointIDRepo.cs
+//  FILENAME:  THDiagramPointRepo.cs
 //  NAMESPACE: HenPersistence.Repos
-//  CLASS(S):  THDiagramPointIDRepo
+//  CLASS(S):  THDiagramPointRepo
 //  COMPONENT: _HenPersistence.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the THDiagramPointID Profile sub table.
+//    This file contains the concrete repo implementation stub for the THDiagramPoint Profile sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -44,11 +44,11 @@ using System.Collections.Generic;
 #region namespace HenPersistence.Repos
 namespace HenPersistence.Repos
 {
-    #region public class THDiagramPointIDRepo
+    #region public class THDiagramPointRepo
     /// <summary>
-    /// THDiagramPointID Repo Class
+    /// THDiagramPoint Repo Class
     /// </summary>
-    public class THDiagramPointIDRepo : ITHDiagramPointIDRepo
+    public class THDiagramPointRepo : ITHDiagramPointRepo
     {
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;
@@ -59,7 +59,7 @@ namespace HenPersistence.Repos
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public THDiagramPointIDRepo(IDbConnectionFactory connectionFactory)
+        public THDiagramPointRepo(IDbConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {
@@ -71,43 +71,43 @@ namespace HenPersistence.Repos
         #endregion      // CTOR
 
         #region METHODS
-        public IList<THDiagramPointIDDto> GetTHDiagramPointIDs()
+        public IList<THDiagramPointDto> GetTHDiagramPoints()
         {
             throw new NotImplementedException();
         }
 
-        public IList<THDiagramPointIDDto> GetTHDiagramPointIDsByTHDiagramId(Guid thDiagramId)
+        public IList<THDiagramPointDto> GetTHDiagramPointsByTHDiagramId(Guid thDiagramId)
         {
             throw new NotImplementedException();
         }
 
-        public THDiagramPointIDDto GetTHDiagramPointIDById(Guid thDiagramPointId)
+        public THDiagramPointDto GetTHDiagramPointById(Guid thDiagramPointId)
         {
             throw new NotImplementedException();
         }
 
-        public THDiagramPointIDDto GetTHDiagramPointIDByPointSequence(Guid thDiagramId, int pointSequence)
+        public THDiagramPointDto GetTHDiagramPointByPointSequence(Guid thDiagramId, int pointSequence)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddTHDiagramPointID(THDiagramPointIDDto thDiagramPointIdDto)
+        public Guid AddTHDiagramPoint(THDiagramPointDto thDiagramPointDto)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateTHDiagramPointID(THDiagramPointIDDto thDiagramPointIdDto)
+        public void UpdateTHDiagramPoint(THDiagramPointDto thDiagramPointDto)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteTHDiagramPointID(Guid thDiagramPointId)
+        public void DeleteTHDiagramPoint(Guid thDiagramPointId)
         {
             throw new NotImplementedException();
         }
         #endregion      // METHODS
     }
-    #endregion      // public class THDiagramPointIDRepo
+    #endregion      // public class THDiagramPointRepo
 }
 #endregion      // namespace HenPersistence.Repos
 

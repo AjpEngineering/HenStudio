@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//###############################  I T H D i a g r a m P o i n t I D R e p o . c s  ###################################
+//#################################  I T H D i a g r a m P o i n t R e p o . c s  #####################################
 //#####################################################################################################################
-//  FILENAME:  ITHDiagramPointIDRepo.cs
+//  FILENAME:  ITHDiagramPointRepo.cs
 //  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: ITHDiagramPointIDRepo
+//  INTERFACE: ITHDiagramPointRepo
 //  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the THDiagramPointID Profile sub table.
+//    This file contains the repo interface for the THDiagramPoint Profile sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -42,23 +42,23 @@ using System.Collections.Generic;
 #region namespace HenRepositories.Interfaces
 namespace HenRepositories.Interfaces
 {
-    #region public interface ITHDiagramPointIDRepo
+    #region public interface ITHDiagramPointRepo
     /// <summary>
-    /// THDiagramPointID Repo Interface
+    /// THDiagramPoint Repo Interface
     /// </summary>
-    public interface ITHDiagramPointIDRepo
+    public interface ITHDiagramPointRepo
     {
         #region METHODS
-        IList<THDiagramPointIDDto> GetTHDiagramPointIDs();
-        IList<THDiagramPointIDDto> GetTHDiagramPointIDsByTHDiagramId(Guid thDiagramId);
-        THDiagramPointIDDto GetTHDiagramPointIDById(Guid thDiagramPointId);
-        THDiagramPointIDDto GetTHDiagramPointIDByPointSequence(Guid thDiagramId, int pointSequence);
-        Guid AddTHDiagramPointID(THDiagramPointIDDto thDiagramPointIdDto);
-        void UpdateTHDiagramPointID(THDiagramPointIDDto thDiagramPointIdDto);
-        void DeleteTHDiagramPointID(Guid thDiagramPointId);
+        IList<THDiagramPointDto> GetTHDiagramPoints();
+        IList<THDiagramPointDto> GetTHDiagramPointsByTHDiagramId(Guid thDiagramId);
+        THDiagramPointDto GetTHDiagramPointById(Guid thDiagramPointId);
+        THDiagramPointDto GetTHDiagramPointByPointSequence(Guid thDiagramId, int pointSequence);
+        Guid AddTHDiagramPoint(THDiagramPointDto thDiagramPointDto);
+        void UpdateTHDiagramPoint(THDiagramPointDto thDiagramPointDto);
+        void DeleteTHDiagramPoint(Guid thDiagramPointId);
         #endregion      // METHODS
     }
-    #endregion      // public interface ITHDiagramPointIDRepo
+    #endregion      // public interface ITHDiagramPointRepo
 }
 #endregion      // namespace HenRepositories.Interfaces
 
