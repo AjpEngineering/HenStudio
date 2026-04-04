@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -47,6 +47,11 @@
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="Project\ProjectViewModel.cs" />
     <Compile Include="Profile\ProfileViewModel.cs" />
+    <Compile Include="Profile\EconParamViewModel.cs" />
+    <Compile Include="Profile\ProcessStreamViewModel.cs" />
+    <Compile Include="Profile\UtilityStreamViewModel.cs" />
+    <Compile Include="Profile\THDiagramViewModel.cs" />
+    <Compile Include="Profile\THDiagramPointViewModel.cs" />
     <Compile Include="Pinch\PinchViewModel.cs" />
     <Compile Include="Hen\HenViewModel.cs" />
     <Compile Include="System\SystemViewModel.cs" />

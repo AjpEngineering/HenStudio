@@ -119,7 +119,18 @@
   <ItemGroup>
     <Compile Include="Connection\ConnectionInfoRepoTests.cs" />
     <Compile Include="Profile\ProfileRepoTests.cs" />
+    <Compile Include="Profile\EconParamRepoTests.cs" />
+    <Compile Include="Profile\ProcessStreamRepoTests.cs" />
+    <Compile Include="Profile\UtilityStreamRepoTests.cs" />
+    <Compile Include="Profile\THDiagramRepoTests.cs" />
+    <Compile Include="Profile\THDiagramPointRepoTests.cs" />
     <Compile Include="Profile\ProfileViewModelTests.cs" />
+    <Compile Include="Profile\ProfileViewModelTestHelpers.cs" />
+    <Compile Include="Profile\EconParamViewModelTests.cs" />
+    <Compile Include="Profile\ProcessStreamViewModelTests.cs" />
+    <Compile Include="Profile\UtilityStreamViewModelTests.cs" />
+    <Compile Include="Profile\THDiagramViewModelTests.cs" />
+    <Compile Include="Profile\THDiagramPointViewModelTests.cs" />
     <Compile Include="Project\ProjectRepoTests.cs" />
     <Compile Include="Project\ProjectViewModelTests.cs" />
     <Compile Include="Connection\FakeConnectionFactory.cs" />
