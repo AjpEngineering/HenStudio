@@ -56,6 +56,11 @@ namespace HenViewModels
         const string CLASS = "ViewModelBase";
         #endregion      // CONSTANTS
 
+        #region PROPERTIES
+        public HenProjectUnits ExternalUnitsObj { get; set; }
+        public HenProjectUnits InternalUnitsObj { get; set; }
+        #endregion  // PROPERTIES
+
         #region CTOR
         /// <summary>
         /// Default CTOR
@@ -88,6 +93,238 @@ namespace HenViewModels
             else return bEqual;
         }
         #endregion  // public static CheckForEquality()
+
+        #region CONVERSION FIELD METHODS
+
+        #region AREA (A) CONVERSION METHODS
+
+        #region ConvertToExternalArea()
+        /// <summary>
+        /// Conver the Area (A) value from INTERNAL Units to EXTERNAL Units.
+        /// </summary>
+        /// <param name="dInternalValue"></param>
+        /// <returns>Area (A) in EXTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertToExternalArea(double dInternalValue)
+        {
+            double dExternalValue = 0.0;
+            dExternalValue = ConvertFromInternal(HenGlobal.HenTypes.ConversionUnitsTypes.A,
+                                                 dInternalValue,
+                                                 ExternalUnitsObj,
+                                                 InternalUnitsObj);
+            return dExternalValue;
+        }
+        #endregion  // ConvertToExternalArea()
+
+        #region ConvertFromExternalArea()
+        /// <summary>
+        /// Conver the Area (A) value from EXTERNAL Units to INTERNAL Units.
+        /// </summary>
+        /// <param name="dExternalValue"></param>
+        /// <returns>Area (A) in INTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertFromExternalArea(double dExternalValue)
+        {
+            double dInternalValue = 0.0;
+            dInternalValue = ConvertToInternal(HenGlobal.HenTypes.ConversionUnitsTypes.A,
+                                              dExternalValue,
+                                              ExternalUnitsObj,
+                                              InternalUnitsObj);
+            return dInternalValue;
+        }
+        #endregion  // ConvertFromExternalArea()
+
+        #endregion  // AREA (A) CONVERSION METHODS
+
+        #region TEMPERATURE (TEMP) CONVERSION METHODS
+
+        #region ConvertToExternalTemp()
+        /// <summary>
+        /// Conver the Temperature (Temp) value from INTERNAL Units to EXTERNAL Units.
+        /// </summary>
+        /// <param name="dInternalValue"></param>
+        /// <returns>Temperature (Temp) in EXTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertToExternalTemp(double dInternalValue)
+        {
+            double dExternalValue = 0.0;
+            dExternalValue = ConvertFromInternal(HenGlobal.HenTypes.ConversionUnitsTypes.TEMP,
+                                                 dInternalValue,
+                                                 ExternalUnitsObj,
+                                                 InternalUnitsObj);
+            return dExternalValue;
+        }
+        #endregion  // ConvertToExternalTemp()
+
+        #region ConvertFromExternalTemp()
+        /// <summary>
+        /// Conver the Temperature (Temp) value from EXTERNAL Units to INTERNAL Units.
+        /// </summary>
+        /// <param name="dExternalValue"></param>
+        /// <returns>Temperature (Temp) in INTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertFromExternalTemp(double dExternalValue)
+        {
+            double dInternalValue = 0.0;
+            dInternalValue = ConvertToInternal(HenGlobal.HenTypes.ConversionUnitsTypes.TEMP,
+                                              dExternalValue,
+                                              ExternalUnitsObj,
+                                              InternalUnitsObj);
+            return dInternalValue;
+        }
+        #endregion  // ConvertFromExternalTemp()
+
+        #endregion  // TEMPERATURE (TEMP) CONVERSION METHODS
+
+        #region PRESSURE (PRESS) CONVERSION METHODS
+
+        #region ConvertToExternalPress()
+        /// <summary>
+        /// Conver the Pressure (Press) value from INTERNAL Units to EXTERNAL Units.
+        /// </summary>
+        /// <param name="dInternalValue"></param>
+        /// <returns>Pressure (Press) in EXTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertToExternalPress(double dInternalValue)
+        {
+            double dExternalValue = 0.0;
+            dExternalValue = ConvertFromInternal(HenGlobal.HenTypes.ConversionUnitsTypes.PRESS,
+                                                 dInternalValue,
+                                                 ExternalUnitsObj,
+                                                 InternalUnitsObj);
+            return dExternalValue;
+        }
+        #endregion  // ConvertToExternalPress()
+
+        #region ConvertFromExternalPress()
+        /// <summary>
+        /// Conver the Pressure (Press) value from EXTERNAL Units to INTERNAL Units.
+        /// </summary>
+        /// <param name="dExternalValue"></param>
+        /// <returns>Pressure (Press) in INTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertFromExternalPress(double dExternalValue)
+        {
+            double dInternalValue = 0.0;
+            dInternalValue = ConvertToInternal(HenGlobal.HenTypes.ConversionUnitsTypes.PRESS,
+                                              dExternalValue,
+                                              ExternalUnitsObj,
+                                              InternalUnitsObj);
+            return dInternalValue;
+        }
+        #endregion  // ConvertFromExternalPress()
+
+        #endregion  // PRESSURE (PRESS) CONVERSION METHODS
+
+        #region ENTHALPY ... HEAT FLOW (H) CONVERSION METHODS
+
+        #region ConvertToExternalH()
+        /// <summary>
+        /// Conver the Enthaply ... Heat Flow (H) value from INTERNAL Units to EXTERNAL Units.
+        /// </summary>
+        /// <param name="dInternalValue"></param>
+        /// <returns>Enthalpy ... Heat Flow (H) in EXTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertToExternalH(double dInternalValue)
+        {
+            double dExternalValue = 0.0;
+            dExternalValue = ConvertFromInternal(HenGlobal.HenTypes.ConversionUnitsTypes.HEAT_FLOW,
+                                                 dInternalValue,
+                                                 ExternalUnitsObj,
+                                                 InternalUnitsObj);
+            return dExternalValue;
+        }
+        #endregion  // ConvertToExternalH()
+
+        #region ConvertFromExternalH()
+        /// <summary>
+        /// Conver the Enthaply ... Heat Flow (H) value from EXTERNAL Units to INTERNAL Units.
+        /// </summary>
+        /// <param name="dExternalValue"></param>
+        /// <returns>Enthalpy ... Heat Flow (H) in INTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertFromExternalH(double dExternalValue)
+        {
+            double dInternalValue = 0.0;
+            dInternalValue = ConvertToInternal(HenGlobal.HenTypes.ConversionUnitsTypes.HEAT_FLOW,
+                                               dExternalValue,
+                                               ExternalUnitsObj,
+                                               InternalUnitsObj);
+            return dInternalValue;
+        }
+        #endregion  // ConvertFromExternalH()
+
+        #endregion  // ENTHALPY ... HEAT FLOW (H) CONVERSION METHODS
+
+        #region HEAT CAPACITY FLOW RATE (CP) CONVERSION METHODS
+
+        #region ConvertToExternalCP()
+        /// <summary>
+        /// Conver the Heat Capacity Flow Rate (CP) value from INTERNAL Units to EXTERNAL Units.
+        /// </summary>
+        /// <param name="dInternalValue"></param>
+        /// <returns>Heat Capacity Flow Rate  (CP) in EXTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertToExternalCP(double dInternalValue)
+        {
+            double dExternalValue = 0.0;
+            dExternalValue = ConvertFromInternal(HenGlobal.HenTypes.ConversionUnitsTypes.CP,
+                                                 dInternalValue,
+                                                 ExternalUnitsObj,
+                                                 InternalUnitsObj);
+            return dExternalValue;
+        }
+        #endregion  // ConvertToExternalCP()
+
+        #region ConvertFromExternalCP()
+        /// <summary>
+        /// Conver the Heat Capacity Flow Rate (CP) value from EXTERNAL Units to INTERNAL Units.
+        /// </summary>
+        /// <param name="dExternalValue"></param>
+        /// <returns>Heat CapacityFlow Rate (CP) in INTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertFromExternalCP(double dExternalValue)
+        {
+            double dInternalValue = 0.0;
+            dInternalValue = ConvertToInternal(HenGlobal.HenTypes.ConversionUnitsTypes.CP,
+                                               dExternalValue,
+                                               ExternalUnitsObj,
+                                               InternalUnitsObj);
+            return dInternalValue;
+        }
+        #endregion  // ConvertFromExternalCP()
+
+        #endregion  // HEAT CAPACITY FLOW RATE (CP) CONVERSION METHODS
+
+        #region HEAT TRANSFER COEFFICIENT (U) CONVERSION METHODS
+
+        #region ConvertToExternalU()
+        /// <summary>
+        /// Conver the Heat Transfer Coefficient (U) value from INTERNAL Units to EXTERNAL Units.
+        /// </summary>
+        /// <param name="dInternalValue"></param>
+        /// <returns>Heat Transfer Coefficient (U) in EXTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertToExternalU(double dInternalValue)
+        {
+            double dExternalValue = 0.0;
+            dExternalValue = ConvertFromInternal(HenGlobal.HenTypes.ConversionUnitsTypes.U,
+                                                 dInternalValue,
+                                                 ExternalUnitsObj,
+                                                 InternalUnitsObj);
+            return dExternalValue;
+        }
+        #endregion  // ConvertToExternalU()
+
+        #region ConvertFromExternalU()
+        /// <summary>
+        /// Conver the Heat Transfer Coefficient (U) value from EXTERNAL Units to INTERNAL Units.
+        /// </summary>
+        /// <param name="dExternalValue"></param>
+        /// <returns>Heat Transfer Coefficient (U) in INTERNAL Units on Success; 0.0 otherwise</returns>
+        public double ConvertFromExternalU(double dExternalValue)
+        {
+            double dInternalValue = 0.0;
+            dInternalValue = ConvertToInternal(HenGlobal.HenTypes.ConversionUnitsTypes.U,
+                                               dExternalValue,
+                                               ExternalUnitsObj,
+                                               InternalUnitsObj);
+            return dInternalValue;
+        }
+        #endregion  // ConvertToExternalU()
+
+        #endregion  // HEAT TRANSFER COEFFICIENT (U) CONVERSION METHODS
+
+        #endregion  // CONVERSION FIELD METHODS
 
         #region UNITS CONVERSION METHODS
 

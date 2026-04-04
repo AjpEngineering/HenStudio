@@ -53,8 +53,6 @@ namespace HenViewModels
     {
         #region PROPERTIES
         public ProjectRepo ProjectRepoObj { get; set; }
-        public HenProjectUnits ExternalUnitsObj { get; set; }
-        public HenProjectUnits InternalUnitsObj { get; set; }
         #endregion      // PROPERTIES
 
         #region CTOR
@@ -70,40 +68,6 @@ namespace HenViewModels
             InternalUnitsObj = INTERNAL_UnitsObj;
         }
         #endregion  // CTOR
-
-        #region ConvertToExternalU()
-        /// <summary>
-        /// Conver the Heat Transfer Coefficient (U) value from INTERNAL Units to EXTERNAL Units.
-        /// </summary>
-        /// <param name="internalValueU"></param>
-        /// <returns>Heat Transfer Coefficient (U) in EXTERNAL Units on Success; 0.0 otherwise</returns>
-        private double ConvertToExternalU(double internalValueU)
-        {
-            double valueExternalUnits = 0.0;
-            valueExternalUnits = ConvertFromInternal(HenGlobal.HenTypes.ConversionUnitsTypes.U, 
-                                                     internalValueU, 
-                                                     ExternalUnitsObj, 
-                                                     InternalUnitsObj);
-             return valueExternalUnits; 
-        }
-        #endregion  // ConvertToExternalU()
-
-        #region ConvertFromExternalU()
-        /// <summary>
-        /// Conver the Heat Transfer Coefficient (U) value from EXTERNAL Units to INTERNAL Units.
-        /// </summary>
-        /// <param name="externalValueU"></param>
-        /// <returns>Heat Transfer Coefficient (U) in INTERNAL Units on Success; 0.0 otherwise</returns>
-        private double ConvertFromExternalU(double externalValueU)
-        {
-            double valueInternalUnits = 0.0;
-            valueInternalUnits = ConvertToInternal(HenGlobal.HenTypes.ConversionUnitsTypes.U,
-                                                   externalValueU,
-                                                   ExternalUnitsObj,
-                                                   InternalUnitsObj);
-            return valueInternalUnits;
-        }
-        #endregion  // ConvertToExternalU()
 
         #region GetProjects()
         /// <summary>

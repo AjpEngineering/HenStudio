@@ -54,8 +54,6 @@ namespace HenViewModels
     {
         #region PROPERTIES
         public ProfileRepo ProfileRepoObj { get; set; }
-        public HenProjectUnits ExternalUnitsObj { get; set; }
-        public HenProjectUnits InternalUnitsObj { get; set; }
         #endregion      // PROPERTIES
 
         #region CTOR

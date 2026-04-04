@@ -39,6 +39,7 @@ using HenViewModels;
 
 using static HenGlobal.HenProjectUnits;
 
+using System;
 using System.Collections.Generic;
 
 using NUnit.Framework;
@@ -228,6 +229,99 @@ namespace HenStudio.Tests.UnitConversions
             return externalUnits;
         }
         #endregion      // CreateEnglishPressureUnits()
+
+        #region CreateConfiguredViewModel()
+        /// <summary>
+        /// Creates a test view model configured with the supplied external units and default internal units.
+        /// </summary>
+        /// <param name="externalUnits">The external units object for the test case.</param>
+        /// <returns>A configured <see cref="TestViewModel"/> instance.</returns>
+        private static TestViewModel CreateConfiguredViewModel(HenProjectUnits externalUnits)
+        {
+            TestViewModel viewModel = new TestViewModel();
+
+            viewModel.ExternalUnitsObj = externalUnits;
+            viewModel.InternalUnitsObj = new HenProjectUnits();
+
+            return viewModel;
+        }
+        #endregion      // CreateConfiguredViewModel()
+
+        #region ConvertToExternalFieldValue()
+        /// <summary>
+        /// Executes the field-specific internal-to-external wrapper method for the supplied conversion type.
+        /// </summary>
+        /// <param name="viewModel">The configured test view model.</param>
+        /// <param name="conversionType">The conversion type to execute.</param>
+        /// <param name="internalValue">The internal value to convert.</param>
+        /// <returns>The converted external value.</returns>
+        private static double ConvertToExternalFieldValue(TestViewModel viewModel,
+                                                          HenTypes.ConversionUnitsTypes conversionType,
+                                                          double internalValue)
+        {
+            switch (conversionType)
+            {
+                case HenTypes.ConversionUnitsTypes.A:
+                    return viewModel.ConvertToExternalArea(internalValue);
+
+                case HenTypes.ConversionUnitsTypes.TEMP:
+                    return viewModel.ConvertToExternalTemp(internalValue);
+
+                case HenTypes.ConversionUnitsTypes.PRESS:
+                    return viewModel.ConvertToExternalPress(internalValue);
+
+                case HenTypes.ConversionUnitsTypes.HEAT_FLOW:
+                    return viewModel.ConvertToExternalH(internalValue);
+
+                case HenTypes.ConversionUnitsTypes.CP:
+                    return viewModel.ConvertToExternalCP(internalValue);
+
+                case HenTypes.ConversionUnitsTypes.U:
+                    return viewModel.ConvertToExternalU(internalValue);
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(conversionType), conversionType, null);
+            }
+        }
+        #endregion      // ConvertToExternalFieldValue()
+
+        #region ConvertFromExternalFieldValue()
+        /// <summary>
+        /// Executes the field-specific external-to-internal wrapper method for the supplied conversion type.
+        /// </summary>
+        /// <param name="viewModel">The configured test view model.</param>
+        /// <param name="conversionType">The conversion type to execute.</param>
+        /// <param name="externalValue">The external value to convert.</param>
+        /// <returns>The converted internal value.</returns>
+        private static double ConvertFromExternalFieldValue(TestViewModel viewModel,
+                                                            HenTypes.ConversionUnitsTypes conversionType,
+                                                            double externalValue)
+        {
+            switch (conversionType)
+            {
+                case HenTypes.ConversionUnitsTypes.A:
+                    return viewModel.ConvertFromExternalArea(externalValue);
+
+                case HenTypes.ConversionUnitsTypes.TEMP:
+                    return viewModel.ConvertFromExternalTemp(externalValue);
+
+                case HenTypes.ConversionUnitsTypes.PRESS:
+                    return viewModel.ConvertFromExternalPress(externalValue);
+
+                case HenTypes.ConversionUnitsTypes.HEAT_FLOW:
+                    return viewModel.ConvertFromExternalH(externalValue);
+
+                case HenTypes.ConversionUnitsTypes.CP:
+                    return viewModel.ConvertFromExternalCP(externalValue);
+
+                case HenTypes.ConversionUnitsTypes.U:
+                    return viewModel.ConvertFromExternalU(externalValue);
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(conversionType), conversionType, null);
+            }
+        }
+        #endregion      // ConvertFromExternalFieldValue()
 
         #region GetConvertFromInternalCases()
         /// <summary>
@@ -746,6 +840,42 @@ namespace HenStudio.Tests.UnitConversions
             AssertEx.NearlyEqual(testCase.ExpectedValue, result, 0.001, testCase.Name);
         }
         #endregion      // ConvertToInternal_ReturnsExpectedInternalValue()
+
+        #region ConvertToExternalFieldMethods_ReturnExpectedExternalValue()
+        /// <summary>
+        /// Verifies that the field-specific internal-to-external wrapper methods return the expected external unit value.
+        /// </summary>
+        /// <param name="testCase">The conversion test case to execute.</param>
+        [TestCaseSource(nameof(GetConvertFromInternalCases))]
+        public void ConvertToExternalFieldMethods_ReturnExpectedExternalValue(ConversionTestCase testCase)
+        {
+            TestViewModel viewModel = CreateConfiguredViewModel(testCase.ExternalUnits);
+
+            double result = ConvertToExternalFieldValue(viewModel,
+                                                        testCase.ConversionType,
+                                                        testCase.InputValue);
+
+            AssertEx.NearlyEqual(testCase.ExpectedValue, result, 0.001, testCase.Name);
+        }
+        #endregion      // ConvertToExternalFieldMethods_ReturnExpectedExternalValue()
+
+        #region ConvertFromExternalFieldMethods_ReturnExpectedInternalValue()
+        /// <summary>
+        /// Verifies that the field-specific external-to-internal wrapper methods return the expected internal unit value.
+        /// </summary>
+        /// <param name="testCase">The conversion test case to execute.</param>
+        [TestCaseSource(nameof(GetConvertToInternalCases))]
+        public void ConvertFromExternalFieldMethods_ReturnExpectedInternalValue(ConversionTestCase testCase)
+        {
+            TestViewModel viewModel = CreateConfiguredViewModel(testCase.ExternalUnits);
+
+            double result = ConvertFromExternalFieldValue(viewModel,
+                                                          testCase.ConversionType,
+                                                          testCase.InputValue);
+
+            AssertEx.NearlyEqual(testCase.ExpectedValue, result, 0.001, testCase.Name);
+        }
+        #endregion      // ConvertFromExternalFieldMethods_ReturnExpectedInternalValue()
     }
     #endregion      // public class ViewModelBaseUnitConversionTests
 }
