@@ -72,6 +72,13 @@ namespace HenPersistence.Repos
         #endregion      // CTOR
 
         #region METHODS
+
+        #region GetDatabaseTables()
+        /// <summary>
+        /// Retrieves a list of all base tables in the database, including their schema and table names.
+        /// </summary>
+        /// <returns>A list of <see cref="DatabaseTableDto"/> objects representing the schema and name of each base table in the
+        /// database. The list is empty if no base tables are found.</returns>
         public IList<DatabaseTableDto> GetDatabaseTables()
         {
             const string sql = @"SELECT TABLE_SCHEMA,
@@ -111,6 +118,8 @@ namespace HenPersistence.Repos
 
             return tables;
         }
+        #endregion  // GetDatabaseTables()
+
         #endregion      // METHODS
     }
     #endregion      // public class DatabaseTableRepo

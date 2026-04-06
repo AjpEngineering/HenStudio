@@ -33,7 +33,13 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenPersistence.Repos;
+
 using HenRepositories.Dto;
+
+using System;
+
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
 #region namespace HenViewModels
@@ -46,9 +52,58 @@ namespace HenViewModels
     public class SystemViewModel : ViewModelBase
     {
         #region PROPERTIES
-        public ConnectionDataDto ConnectionData { get; set; }
-        public GlobalSettingsDto GlobalSettings { get; set; }
+        public GlobalSettingsRepo GlobalSettingsRepoObj { get; set; }
+        public DatabaseTableRepo DatabaseTableRepoObj { get; set; }
         #endregion      // PROPERTIES
+
+        #region GetGlobalSettings()
+        /// <summary>
+        /// Retrieves a list of all Global Settings Name-Value pairs.
+        /// </summary>
+        /// <returns>A list of <see cref="GlobalSettingsDto"/> objects representing the available Global Settings, 
+        /// or an empty list if no Global Settings found.</returns>
+        public IList<GlobalSettingsDto> GetGlobalSettings()
+        {
+            try
+            {
+                //-------------------------------------------------------------------------------------------
+                //--- No Conversion needed as the DTO is already in the desired format for the view model ---
+                //-------------------------------------------------------------------------------------------
+                return GlobalSettingsRepoObj.GetGlobalSettings();
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving profile: {ex.Message}");
+                return null;
+            }
+        }
+        #endregion  // GetGlobalSettings()
+
+        #region GetDatabaseTables()
+        /// <summary>
+        /// Retrieves a list of all Database Tables.
+        /// </summary>
+        /// <returns>A list of <see cref="DatabaseTableDto"/> objects representing the available Database Tables, 
+        /// or an empty list if no Global Settings found.</returns>
+        public IList<DatabaseTableDto> GetDatabaseTables()
+        {
+            try
+            {
+                //-------------------------------------------------------------------------------------------
+                //--- No Conversion needed as the DTO is already in the desired format for the view model ---
+                //-------------------------------------------------------------------------------------------
+                return DatabaseTableRepoObj.GetDatabaseTables();
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving profile: {ex.Message}");
+                return null;
+            }
+        }
+        #endregion  // GetDatabaseTables()
+
     }
     #endregion      // public class SystemViewModel
 }
