@@ -42,7 +42,7 @@ namespace HenPersistence.Connection
     public static class ConnectionStrings
     {
         #region CONSTANTS
-        public const string HenStudio = "Server=localhost\\SQLEXPRESS2025;Database=HenStudio;Trusted_Connection=True;";
+        public const string HenStudio = "Server=localhost\\HENSTUDIO;Database=HenStudio;Trusted_Connection=True;";
         #endregion      // CONSTANTS
     }
     #endregion      // public static class ConnectionStrings

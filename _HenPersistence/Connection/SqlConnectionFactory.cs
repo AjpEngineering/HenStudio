@@ -35,6 +35,8 @@
 #region REFERENCES
 using HenPersistence.Interfaces;
 
+using HenRepositories.Dto;
+
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -52,6 +54,7 @@ namespace HenPersistence.Connection
         #region PRIVATE FIELDS
         private readonly string _connectionString;
         #endregion      // PRIVATE FIELDS
+        public IDbConnection dbConnection { get; set; }
 
         #region CTOR
         /// <summary>
@@ -70,10 +73,42 @@ namespace HenPersistence.Connection
         #endregion      // CTOR
 
         #region METHODS
+
+        #region CreateConnection()
+        /// <summary>
+        /// Creates and returns a new database connection using the configured connection string.
+        /// </summary>
+        /// <remarks>The caller is responsible for opening and disposing the returned connection. This
+        /// method always returns a new connection instance.</remarks>
+        /// <returns>An <see cref="IDbConnection"/> instance initialized with the current connection string. The connection is
+        /// not opened automatically.</returns>
         public IDbConnection CreateConnection()
         {
-            return new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(_connectionString);
+            return dbConnection;
         }
+        #endregion  // CreateConnection()
+
+        #region CloseConnection()
+        /// <summary>
+        /// Closes the specified database connection if it is not already closed.
+        /// </summary>
+        /// <remarks>If the connection is already closed, this method has no effect.</remarks>
+        /// <param name="connection">The database connection to close. Must not be null.</param>
+        /// <exception cref="ArgumentNullException">Thrown if the connection parameter is null.</exception>
+        public void CloseConnection(IDbConnection connection)
+        {
+            if (connection == null)
+            {
+                throw new ArgumentNullException(nameof(connection));
+            }
+            if (connection.State != ConnectionState.Closed)
+            {
+                connection.Close();
+            }
+        }
+        #endregion  // CloseConnection()
+
         #endregion      // METHODS
     }
     #endregion      // public class SqlConnectionFactory

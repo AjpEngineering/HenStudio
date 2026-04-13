@@ -44,8 +44,17 @@ using AJP_License_File;
 
 using HenGlobal;
 
+using HenPersistence.Connection;
+using HenPersistence.Repos;
+
+using HenRepositories.Dto;
+
 using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -328,8 +337,7 @@ namespace HenStudio
             string strMethod = "FormMain_Load";
             string strMsg = string.Empty;
             HenLogger.WriteSeparatorLine(' ');
-            HenLogger.WriteSection("START OBJECT TREE CONSTRUCTION");
-            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Load Main Form - Create Object Tree");
+            HenLogger.WriteSection("GET HENSTUDIO DATABASE TABLE NAMES");
             try
             {
                 #region VALID XML File Exists Guard - EXIT ON ERROR
@@ -357,16 +365,31 @@ namespace HenStudio
                 }
                 #endregion  // VALID XML File Exists Guard - EXIT ON ERROR
 
-                #region CONSTRUCT INITIAL OBJECT TREE
-                //***** TBD
-                #endregion  // CONSTRUCT INITIAL OBJECT TREE
+                #region LOG DATABASE TABLE NAMES
+                LogDatabaseTables();
+                #endregion  // LOG DATABASE TABLE NAMES
 
-                #region TEST UNIT CONVERSION METHODS
-                //****************
-                //***** TEST *****
-                //****************
-                //HenMethodsObj.TestUnitConversions();
-                #endregion  // TEST UNIT CONVERSION METHODS
+                #region POPULATE CONNECTION STRING CONTROLS
+                PopulateConnectionStringControls();
+                LogConnectionState();
+                #endregion  // POPULATE CONNECTION STRING CONTROLS
+
+                #region RESTORE APPLICATION GLOBAL SETTINGS FROM DB
+                HenLogger.WriteSection("START RESTORE APPLICATION GLOBAL SETTINGS FROM DB");
+
+
+                HenLogger.WriteSeparatorLine(' ');
+                HenLogger.WriteSection("END RESTORE APPLICATION GLOBAL SETTINGS FROM DB");
+                #endregion  // RESTORE APPLICATION GLOBAL SETTINGS FROM DB
+
+                #region POPULATE PROJECT TREE NODES
+                HenLogger.WriteSeparatorLine(' ');
+                HenLogger.WriteSection("START POPULATE PROJECT TREE NODES");
+
+
+                HenLogger.WriteSeparatorLine(' ');
+                HenLogger.WriteSection("END POPULATE PROJECT TREE NODES");
+                #endregion  // POPULATE PROJECT TREE NODES
             }
             catch (Exception ex)
             {
@@ -381,7 +404,6 @@ namespace HenStudio
                 //---------------------------------------------------------------------
                 RemoveAllNodes();
 
-                HenLogger.WriteSection("END OBJECT TREE CONSTRUCTION");
                 HenLogger.WriteSeparatorLine(' ');
                 HenLogger.WriteSection("END CONSTRUCTION SECTION");
             }
@@ -504,6 +526,46 @@ namespace HenStudio
         #endregion  // ValidateLicense()
 
         #endregion  // LICENSE METHODS
+
+        #region POPULATE CONNECTION STRING CONTROLS
+        /// <summary>
+        /// Populates the connection string-related UI controls with the current connection data.
+        /// </summary>
+        /// <remarks>Retrieves connection information from the configured data source and updates the
+        /// corresponding UI fields. If an error occurs during retrieval, the error is logged and the UI fields may not
+        /// be updated.</remarks>
+        private void PopulateConnectionStringControls()
+        {
+            string strMethod = "PopulateConnectionStringControls";
+            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            var connDataRepo = new ConnectionDataRepo(connFactoryObj);
+            var connData = connDataRepo.GetConnectionData();
+            try
+            {
+                textBoxConnDataSourceValue.Text = connData.DataSource;
+                textBoxConnUserIDValue.Text = connData.UserId;
+                textBoxConnWorkstationIDValue.Text = connData.WorkstationId;
+                textBoxConnInitCatalogValue.Text = connData.InitialCatalog;
+                textBoxConnTimeoutValue.Text = connData.Timeout.ToString();
+                textBoxConnPacketSizeValue.Text = (connData.PacketSize.ToString() + " Kb");
+                textBoxConnServerVersionValue.Text = connData.ServerVersion;
+                textBoxConnStateValue.Text = connData.ConnectionState;
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //----------------------------------------------------------------
+                //--- Use Connection Factory Object Method to Close Connection ---
+                //----------------------------------------------------------------
+                connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
+            }
+        }
+        #endregion  // POPULATE CONNECTION STRING CONTROLS
 
         #region UPDATE STATUS BAR LABELS METHODS
 
@@ -1446,6 +1508,98 @@ namespace HenStudio
 
         #region LOG METHODS
 
+        #region LOG CONNECTION STATE
+        private void LogConnectionState()
+        {
+            string strMethod = "LogConnectionState";
+            string strMsg = string.Empty;
+
+            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            var connDataRepo = new ConnectionDataRepo(connFactoryObj);
+            var connData = connDataRepo.GetConnectionData();
+            try
+            {
+                HenLogger.WriteSection("HENSTUDIO DATABASE CONNECTION STATE");
+
+                strMsg = string.Format("  + DATA SOURCE      : {0}", connData.DataSource);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = string.Format("  + USER ID          : {0}", connData.UserId);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = string.Format("  + WORKSTATION ID   : {0}", connData.WorkstationId);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = string.Format("  + INITIAL CATALOG  : {0}", connData.InitialCatalog);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = string.Format("  + TIME OUT         : {0}", connData.Timeout.ToString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = string.Format("  + PACKET SIZE      : {0}", (connData.PacketSize.ToString() + " Kb"));
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = string.Format("  + SERVER VERSION   : {0}", connData.ServerVersion);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                strMsg = string.Format("  + CONNECTION STATE : {0}", connData.ConnectionState);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //----------------------------------------------------------------
+                //--- Use Connection Factory Object Method to Close Connection ---
+                //----------------------------------------------------------------
+                connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
+            }
+        }
+        #endregion  // LOG CONNECTION STATE
+
+        #region LOG DATABASE TABLES
+        /// <summary>
+        /// Logs the names and schemas of all database tables in the current Hen Studio database connection for
+        /// diagnostic or informational purposes.
+        /// </summary>
+        /// <remarks>This method connects to the configured Hen Studio database, retrieves all available
+        /// table names and their schemas, and writes this information to the log. It is typically used for
+        /// troubleshooting or verifying database structure during development or support operations. Any exceptions
+        /// encountered during the process are logged as errors. The database connection is closed automatically when
+        /// the operation completes.</remarks>
+        private void LogDatabaseTables()
+        {
+            string strMethod = "LogDatabaseTables";
+            string strMsg = string.Empty;
+            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Log Database Tables");
+            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            var dbTablesRepo = new DatabaseTableRepo(connFactoryObj);
+            var connDataRepo = new ConnectionDataRepo(connFactoryObj);
+            try
+            {
+                HenLogger.WriteSection("CONNECTING TO DATABASE ... GET TABLE NAMES");
+
+                foreach (var tableName in dbTablesRepo.GetDatabaseTables())
+                {
+                    strMsg = string.Format("  + TABLE: {0,-30} ... SCHEMA: {1}",
+                                           tableName.TableName,
+                                           tableName.SchemaName);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //----------------------------------------------------------------
+                //--- Use Connection Factory Object Method to Close Connection ---
+                //----------------------------------------------------------------
+                connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
+            }
+        }
+        #endregion  // LOG DATABASE TABLES
+
         #region LogLicenseStatus()
         /// <summary>
         /// Log License Status using GLobal Settings
@@ -1670,38 +1824,8 @@ namespace HenStudio
             string strMethod = "buttonConnection_Click";
             try
             {
-                if (HenSettingsObj.CatalogDbConnectedEnum == DbConnected.UNCONNECTED)
-                {
-                    #region NOT CONNECTED
-                    //=========================================
-                    //--- Catalog Database is NOT CONNECTED ---
-                    //=========================================
-
-                    //--------------------------
-                    //--- Attempt to Connect ---
-                    //--------------------------
-                    HandleConnectToDB();
-                }
-                #endregion  // NOT CONNECTED
-
-                else if (HenSettingsObj.CatalogDbConnectedEnum == DbConnected.CONNECTED)
-                {
-                    #region CONNECTED
-                    //=====================================
-                    //--- Catalog Database is CONNECTED ---
-                    //=====================================
-
-                    //-----------------------------
-                    //--- Attempt to Disconnect ---
-                    //-----------------------------
-                    HandleDisconnectFromDB();
-                }
-                #endregion  // CONNECTED
-
-                else
-                {
-                    throw new Exception("INVALID CONNECTION STATE!");
-                }
+                PopulateConnectionStringControls();
+                //LogConnectionState();
             }
             catch (Exception ex)
             {
@@ -1782,7 +1906,6 @@ namespace HenStudio
         #endregion  // AJP HEN STUDIO LOGO CLICK
 
         #endregion  // CATALOG (Projects) Panel
-
     }
     #endregion      // class FormPinch
 }
