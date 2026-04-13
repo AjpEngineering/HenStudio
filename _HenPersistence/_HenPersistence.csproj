@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connection\ConnectionString.cs" />
     <Compile Include="Repos\System\DatabaseTableRepo.cs" />
     <Compile Include="Repos\Project\ProjectRepo.cs" />
     <Compile Include="Repos\Project\HenOptimizerRepo.cs" />
@@ -85,6 +86,3 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
-
-
-
