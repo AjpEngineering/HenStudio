@@ -223,16 +223,13 @@ namespace HenStudio
                 HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.UNKNOWN;
                 #endregion  // LICENSE GLOBAL SETTINGS
 
-                #region STATUS BAR SETTINGS
-                //---------------------------------------
-                //--- Initialize Units Global Setting ---
-                //---------------------------------------
-                HenStudioEnglishUnitsFlag = true;
-                //---------------------------------------
-                //--- Initialize DB Connected Setting ---
-                //---------------------------------------
+                #region DATABASE CONNECTION SETTINGS
+                //----------------------------------------
+                //--- Initialize DB Connection Setting ---
+                //----------------------------------------
                 DbConnectedFlag = false;
-                #endregion  // STATUS BAR SETTINGS
+                HenSettingsObj.DbConnectedEnum = HenTypes.DbConnected.UNCONNECTED;
+                #endregion  // DATABASE CONNECTION SETTINGS
 
                 #endregion  // INITIALIZE PROPERTIES
 
@@ -247,15 +244,6 @@ namespace HenStudio
                 //--------------------------
                 bValidLicenseFile = ValidateLicense(); // Initialize Global Settings in Method - return valid flag
                 #endregion  // License Validation
-
-                #region Initialize Catalog DB Connected Status Bar Label
-                //--------------------------------------------------------
-                //--- Initialize Catalog DB Connected Status Bar Label ---
-                //--------------------------------------------------------
-                //HenSettingsObj.CatalogDbConnectedEnum = HenTypes.DbConnected.CONNECTED;
-                HenSettingsObj.CatalogDbConnectedEnum = HenTypes.DbConnected.UNCONNECTED;
-                UpdateCatalogDbConnectLabel();    // Initialize Catalog Database Connected Status Bar Label
-                #endregion  // Initialize Catalog DB Connected Status Bar Label
 
                 #region Initialize Project Dirty Flag State Status Bar Label
                 //------------------------------------------------------------
@@ -312,8 +300,6 @@ namespace HenStudio
         public void InitializeControls()
         {
             string strMethod = "InitializeControls";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Initializing Controls");
-
             try
             {
                 this.Text = "AJP HEN Studio";
@@ -374,13 +360,9 @@ namespace HenStudio
                 LogConnectionState();
                 #endregion  // POPULATE CONNECTION STRING CONTROLS
 
-                #region RESTORE APPLICATION GLOBAL SETTINGS FROM DB
-                HenLogger.WriteSection("START RESTORE APPLICATION GLOBAL SETTINGS FROM DB");
-
-
-                HenLogger.WriteSeparatorLine(' ');
-                HenLogger.WriteSection("END RESTORE APPLICATION GLOBAL SETTINGS FROM DB");
-                #endregion  // RESTORE APPLICATION GLOBAL SETTINGS FROM DB
+                #region GET APPLICATION GLOBAL SETTINGS FROM DB
+                GetGlobalSettings();
+                #endregion  // GET APPLICATION GLOBAL SETTINGS FROM DB
 
                 #region POPULATE PROJECT TREE NODES
                 HenLogger.WriteSeparatorLine(' ');
@@ -527,7 +509,7 @@ namespace HenStudio
 
         #endregion  // LICENSE METHODS
 
-        #region POPULATE CONNECTION STRING CONTROLS
+        #region PopulateConnectionStringControls()
         /// <summary>
         /// Populates the connection string-related UI controls with the current connection data.
         /// </summary>
@@ -537,11 +519,17 @@ namespace HenStudio
         private void PopulateConnectionStringControls()
         {
             string strMethod = "PopulateConnectionStringControls";
+            //-------------------------------------------------------------------------------------------------
+            //--- Initialize DB Connected Enum to UNCONNECTED before attempting to retrieve connection data ---
+            //-------------------------------------------------------------------------------------------------
+            HenSettingsObj.DbConnectedEnum = DbConnected.UNCONNECTED;   
+
             var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
             var connDataRepo = new ConnectionDataRepo(connFactoryObj);
-            var connData = connDataRepo.GetConnectionData();
             try
             {
+                var connData = connDataRepo.GetConnectionData();
+
                 textBoxConnDataSourceValue.Text = connData.DataSource;
                 textBoxConnUserIDValue.Text = connData.UserId;
                 textBoxConnWorkstationIDValue.Text = connData.WorkstationId;
@@ -550,6 +538,29 @@ namespace HenStudio
                 textBoxConnPacketSizeValue.Text = (connData.PacketSize.ToString() + " Kb");
                 textBoxConnServerVersionValue.Text = connData.ServerVersion;
                 textBoxConnStateValue.Text = connData.ConnectionState;
+
+                //------------------------------------------------------------------------------------------------
+                //--- SET GLOBAL DB CONNECTED FLAG AND ENUM VALUE IN SETTINGS OBJECT BASED ON CONNECTION STATE ---
+                //------------------------------------------------------------------------------------------------
+                if (string.Compare(connData.ConnectionState, "Open",true) == 0)
+                {
+                    //-----------------------------
+                    //--- OPEN Connection State ---
+                    //-----------------------------
+                    HenSettingsObj.DbConnectedEnum = DbConnected.CONNECTED;
+                }
+                else
+                {
+                    //---------------------------------
+                    //--- NOT OPEN Connection State ---
+                    //---------------------------------
+                    HenSettingsObj.DbConnectedEnum = DbConnected.UNCONNECTED;
+                }
+
+                //-----------------------------------------------------------------
+                //--- Update DB Connected Status Bar Label using Global Setting ---
+                //-----------------------------------------------------------------
+                UpdateDbConnectLabel();
             }
             catch (Exception ex)
             {
@@ -561,11 +572,67 @@ namespace HenStudio
             {
                 //----------------------------------------------------------------
                 //--- Use Connection Factory Object Method to Close Connection ---
+                //--- Null Guard for Connection Object in case of Exception    ---
+                //--- during Connection Creation                               ---
                 //----------------------------------------------------------------
-                connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
+                if (connFactoryObj.dbConnection != null)
+                {
+                    connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
+                }
             }
         }
-        #endregion  // POPULATE CONNECTION STRING CONTROLS
+        #endregion  // PopulateConnectionStringControls()
+
+        #region GetGlobalSettings()
+        private void GetGlobalSettings()
+        {
+            string strMethod = "GetGlobalSettings";
+            string strMsg = string.Empty;
+            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            var globalSettingsRepo = new GlobalSettingsRepo(connFactoryObj);
+            try
+            {
+                HenLogger.WriteSection("CONNECTING TO DATABASE ... GET GLOBAL SETTING KEY-VALUE PAIRS");
+
+                var settingsDtos = globalSettingsRepo.GetGlobalSettings();
+                foreach (var nameValuePair in settingsDtos)
+                {
+                    strMsg = string.Format("  + KEY: {0,-40} ... VALUE: {1}",
+                                           nameValuePair.SettingKey,
+                                           nameValuePair.SettingValue);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                    //---------------------------------------------------
+                    //--- Assign Global Settings Based on Setting Key ---
+                    //---------------------------------------------------
+
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //----------------------------------------------------------------
+                //--- Use Connection Factory Object Method to Close Connection ---
+                //--- Null Guard for Connection Object in case of Exception    ---
+                //--- during Connection Creation                               ---
+                //----------------------------------------------------------------
+                if (connFactoryObj.dbConnection != null)
+                {
+                    connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
+                }
+
+                LogGlobalSettings();    // Log Application Global Settings based on data retrieved from DB
+            }
+        }
+        #endregion  // GetGlobalSettings()
 
         #region UPDATE STATUS BAR LABELS METHODS
 
@@ -612,19 +679,19 @@ namespace HenStudio
         }
         #endregion  // UpdateLicenseStatusBarLabel() ... LICENSE
 
-        #region UpdateCatalogDbConnectLabel() ... CAT_DB
+        #region UpdateDbConnectLabel() ... HENSTUDIO DB
         /// <summary>
         /// Update the Projects (Catalog) DB Connected Status Bar Label using Global Setting
         /// </summary>
-        private void UpdateCatalogDbConnectLabel()
+        private void UpdateDbConnectLabel()
         {
-            string strMethod = "UpdateCatalogDbConnectLabel";
+            string strMethod = "UpdateDbConnectLabel";
             string strDbConnected = String.Format(" DISCONNECTED ");
             try
             {
                 this.toolStripStatusLabelCAT_DB.Text = strDbConnected;
 
-                switch (HenSettingsObj.CatalogDbConnectedEnum)
+                switch (HenSettingsObj.DbConnectedEnum)
                 {
                     case HenTypes.DbConnected.UNKNOWN:
                         strDbConnected = String.Format(" UNKNOWN ");
@@ -633,7 +700,7 @@ namespace HenStudio
                         this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.UNKNOWN_32x32;
                         break;
                     case HenTypes.DbConnected.UNCONNECTED:
-                        strDbConnected = String.Format(" CONNECTED ");
+                        strDbConnected = String.Format(" DISCONNECTED ");
                         this.toolStripStatusLabelCAT_DB.BackColor = Color.Red;
                         this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
                         this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.NotValid_32x32;
@@ -645,7 +712,7 @@ namespace HenStudio
                         this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.Valid_32x32;
                         break;
                     default:
-                        throw new Exception("INVALID Catalog DB Connected Enum Value!");
+                        throw new Exception("INVALID HENSTUDIO DB Connected Enum Value!");
                 }
             }
             catch (Exception ex)
@@ -659,7 +726,7 @@ namespace HenStudio
                 this.toolStripStatusLabelCAT_DB.Text = strDbConnected;
             }
         }
-        #endregion  // UpdateCatalogDbConnectLabel() ... CAT_DB
+        #endregion  // UpdateDbConnectLabel() ... HENSTUDIO DB
 
         #region UpdateProjectDirtyFlagLabel() ... PROJ_DIRTY
         /// <summary>
@@ -1308,15 +1375,11 @@ namespace HenStudio
         {
             string strMethod = "HandleDBConnectionState";
             TreeNode rootNode = GetRootNode();
-
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Handle Database Connection Command");
             try
             {
-                //HenMsgDlg.DisplayWarningDlg("Handle Database Connection Command!");
-
-                //----------------------------------------
-                //--- Display Projects (CATALOG) Panel ---
-                //----------------------------------------
+                //---------------------------------------------
+                //--- Display Projects (HENSTUDIO DB) Panel ---
+                //---------------------------------------------
                 rootNode.ImageIndex = 9;
 
                 this.panelSELECTED_PROJECTS.BringToFront();
@@ -1332,6 +1395,7 @@ namespace HenStudio
             }
             finally
             {
+                CheckDbConnection();
             }
         }
         #endregion  // HandleDBConnectionState
@@ -1508,7 +1572,7 @@ namespace HenStudio
 
         #region LOG METHODS
 
-        #region LOG CONNECTION STATE
+        #region LogConnectionState()
         private void LogConnectionState()
         {
             string strMethod = "LogConnectionState";
@@ -1552,9 +1616,9 @@ namespace HenStudio
                 connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
             }
         }
-        #endregion  // LOG CONNECTION STATE
+        #endregion  // LogConnectionState()
 
-        #region LOG DATABASE TABLES
+        #region LogDatabaseTables()
         /// <summary>
         /// Logs the names and schemas of all database tables in the current Hen Studio database connection for
         /// diagnostic or informational purposes.
@@ -1563,7 +1627,8 @@ namespace HenStudio
         /// table names and their schemas, and writes this information to the log. It is typically used for
         /// troubleshooting or verifying database structure during development or support operations. Any exceptions
         /// encountered during the process are logged as errors. The database connection is closed automatically when
-        /// the operation completes.</remarks>
+        /// the operation completes.
+        /// </remarks>
         private void LogDatabaseTables()
         {
             string strMethod = "LogDatabaseTables";
@@ -1598,7 +1663,38 @@ namespace HenStudio
                 connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
             }
         }
-        #endregion  // LOG DATABASE TABLES
+        #endregion  // LogDatabaseTables()
+
+        #region LogGlobalSettings()
+        /// <summary>
+        /// Logs Application Global Settings values.
+        /// </summary>
+        /// <remarks>This method Logs Application Global Settings values based on retrieved DB key-value pairs. 
+        /// It is typically used for troubleshooting or verifying configuration during development or support operations. 
+        /// Any exceptions encountered during the process are logged as errors.
+        /// </remarks>
+        private void LogGlobalSettings()
+        {
+            string strMethod = "LogGlobalSettings";
+            string strMsg = string.Empty;
+            try
+            {
+                HenLogger.WriteSection("LOG APPLICATION GLOBAL SETTINGS ... BASED ON RETRIEVED DB KEY-VALUE PAIRS");
+
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+
+            }
+        }
+        #endregion  // LogGlobalSettings()
 
         #region LogLicenseStatus()
         /// <summary>
@@ -1782,50 +1878,13 @@ namespace HenStudio
 
         #region CATALOG (Projects) Panel
 
-        #region SetConnectButtonText()
-        private void SetConnectButtonText()
-        {
-            string strMethod = "SetConnectButtonText";
-            string strBtnText = string.Empty;
-            try
-            {
-                switch(HenSettingsObj.CatalogDbConnectedEnum)
-                {
-                    case DbConnected.CONNECTED:
-                        strBtnText = "  DISCONNECT FROM DATABASE";
-                        break;
-                    
-                    case DbConnected.UNCONNECTED:
-                        strBtnText = "  CONNECT TO DATABASE";
-                        break;
-                    
-                    default:
-                        strBtnText = "UNKNOWN";
-                        break;
-                }
-                buttonConnection.Text = strBtnText;
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-                UpdateCatalogDbConnectLabel();
-            }
-        }
-        #endregion  // SetConnectButtonText()
-
         #region CLICK CONNECTION BUTTON EVENT
         private void buttonConnection_Click(object sender, EventArgs e)
         {
             string strMethod = "buttonConnection_Click";
             try
             {
-                PopulateConnectionStringControls();
-                //LogConnectionState();
+                CheckDbConnection();
             }
             catch (Exception ex)
             {
@@ -1839,24 +1898,16 @@ namespace HenStudio
         }
         #endregion  // CLICK CONNECTION BUTTON EVENT
 
-        #region HandleConnectToDB()
-        private void HandleConnectToDB()
+        #region CheckDbConnection()
+        private void CheckDbConnection()
         {
-            string strMethod = "HandleConnectToDB";
+            string strMethod = "CheckDbConnection";
             try
             {
-                //-------------------------------
-                //--- CONNECT to the Database ---
-                //-------------------------------
-                HenMsgDlg.DisplayWarningDlg("Handle Connect To Database!");
-
-                HenSettingsObj.CatalogDbConnectedEnum = DbConnected.CONNECTED;      // Successful Connection
-                //HenSettingsObj.CatalogDbConnectedEnum = DbConnected.UNCONNECTED;      // Unsuccessful Connection
-
-                //--------------------------
-                //--- Toggle Button Text ---
-                //--------------------------
-                SetConnectButtonText();
+                //-------------------------------------------
+                //--- Populate Connection String Controls ---
+                //-------------------------------------------
+                PopulateConnectionStringControls();
             }
             catch (Exception ex)
             {
@@ -1866,37 +1917,11 @@ namespace HenStudio
             }
             finally
             {
+                UpdateDbConnectLabel();
+                //LogConnectionState();
             }
         }
-        #endregion  // HandleConnectToDB()
-
-        #region HandleDisconnectFromDB()
-        private void HandleDisconnectFromDB()
-        {
-            string strMethod = "HandleDisconnectFromDB";
-            try
-            {
-                HenMsgDlg.DisplayWarningDlg("Handle Disconnect From Database!");
-
-                HenSettingsObj.CatalogDbConnectedEnum = DbConnected.UNCONNECTED;      // Successful Disconnection
-                //HenSettingsObj.CatalogDbConnectedEnum = DbConnected.CONNECTED;      // Unsuccessful Disconnection
-
-                //--------------------------
-                //--- Toggle Button Text ---
-                //--------------------------
-                SetConnectButtonText();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleDisconnectFromDB()
+        #endregion  // CheckDbConnection()
 
         #region AJP HEN STUDIO LOGO CLICK
         private void pictureBoxProductLogo_Click(object sender, EventArgs e)

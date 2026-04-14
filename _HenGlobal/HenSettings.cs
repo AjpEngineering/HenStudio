@@ -180,13 +180,20 @@ namespace HenGlobal
 
         #region STATUS BAR
 
-        #region CatalogDbConnectedEnum
+        #region DbConnectedEnum
         /// <summary>
-        /// Catalog Database Connected Flag ... [UNKNOWN = -1 | UNCONNECTED = 0 | CONNECTED = 1]
+        /// HENSTUDIO Database Connected Flag ... [UNKNOWN = -1 | UNCONNECTED = 0 | CONNECTED = 1]
         /// Used in Status Bar display
         /// </summary>
-        public HenTypes.DbConnected CatalogDbConnectedEnum { get; set; } // Catalog DB Connected [UNKNOWN | UNCONNECTED | CONNECTED]
-        #endregion  // CatalogDbConnectedEnum
+        public HenTypes.DbConnected DbConnectedEnum { get; set; } // HENSTUDIO DB Connected [UNKNOWN | UNCONNECTED | CONNECTED]
+        #endregion  // DbConnectedEnum
+
+        #region APPLICATION GLOBAL SETTINGS
+
+
+
+        #endregion  // APPLICATION GLOBAL SETTINGS
+
 
         #region ProjectDirtyFlagStateEnum
         /// <summary>

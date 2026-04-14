@@ -382,14 +382,9 @@ namespace HenStudio
                     case ExplorerLevel.CATALOG:
                         //-------------------------------------------------
                         //--- Populate Current Projects (CATALOG) Panel ---
+                        //--- and Display Projects (CATALOG) Panel      ---
                         //-------------------------------------------------
-                        HenMsgDlg.DisplayWarningDlg("***** Populate Current PROJECTS (CATALOG) Panel *****");
-
-
-                        //----------------------------------------
-                        //--- Display Projects (CATALOG) Panel ---
-                        //----------------------------------------
-                        this.panelSELECTED_PROJECTS.BringToFront();
+                        HandleDBConnectionState();
                         break;
                     #endregion  // CATALOG (PROJECTS)
 
