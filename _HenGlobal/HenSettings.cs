@@ -46,6 +46,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using HenRepositories.Dto;
+
 using static HenGlobal.HenTypes;
 #endregion  // REFERENCES
 
@@ -189,11 +191,8 @@ namespace HenGlobal
         #endregion  // DbConnectedEnum
 
         #region APPLICATION GLOBAL SETTINGS
-
-
-
+        public AppGlobalSettingsDto AppGlobalSettingsObj { get; set; }
         #endregion  // APPLICATION GLOBAL SETTINGS
-
 
         #region ProjectDirtyFlagStateEnum
         /// <summary>

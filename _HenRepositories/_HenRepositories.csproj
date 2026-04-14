@@ -49,6 +49,7 @@
     <Compile Include="Dto\Project\HenOptimizerGeneticDto.cs" />
     <Compile Include="Dto\Project\HenOptimizerGreedyDto.cs" />
     <Compile Include="Dto\Project\HenOptimizerMILPDto.cs" />
+    <Compile Include="Dto\System\AppGlobalSettingsDto.cs" />
     <Compile Include="Interfaces\Project\IProjectRepo.cs" />
     <Compile Include="Interfaces\Project\IHenOptimizerRepo.cs" />
     <Compile Include="Interfaces\Project\IHenOptimizerGeneticRepo.cs" />
@@ -103,14 +104,3 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
-
-
-
-
-
-
-
-
-
-
-

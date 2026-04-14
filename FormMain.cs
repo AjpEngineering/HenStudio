@@ -365,7 +365,6 @@ namespace HenStudio
                 #endregion  // GET APPLICATION GLOBAL SETTINGS FROM DB
 
                 #region POPULATE PROJECT TREE NODES
-                HenLogger.WriteSeparatorLine(' ');
                 HenLogger.WriteSection("START POPULATE PROJECT TREE NODES");
 
 
@@ -601,15 +600,13 @@ namespace HenStudio
                                            nameValuePair.SettingKey,
                                            nameValuePair.SettingValue);
                     HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                    //---------------------------------------------------
-                    //--- Assign Global Settings Based on Setting Key ---
-                    //---------------------------------------------------
-
-
-
-
                 }
+
+                //--------------------------------------------------------------------------------------
+                //--- ASSIGN APPLICATION GLOBAL SETTINGS PROPERTIES FROM DB VALUES USING REPO METHOD ---
+                //--------------------------------------------------------------------------------------
+                HenSettingsObj.AppGlobalSettingsObj = globalSettingsRepo.GetAppGlobalSettings();
+                LogAppGlobalSettings();  // Log Application Global Settings based on data retrieved from DB
             }
             catch (Exception ex)
             {
@@ -628,8 +625,6 @@ namespace HenStudio
                 {
                     connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
                 }
-
-                LogGlobalSettings();    // Log Application Global Settings based on data retrieved from DB
             }
         }
         #endregion  // GetGlobalSettings()
@@ -1665,7 +1660,7 @@ namespace HenStudio
         }
         #endregion  // LogDatabaseTables()
 
-        #region LogGlobalSettings()
+        #region LogAppGlobalSettings()
         /// <summary>
         /// Logs Application Global Settings values.
         /// </summary>
@@ -1673,15 +1668,106 @@ namespace HenStudio
         /// It is typically used for troubleshooting or verifying configuration during development or support operations. 
         /// Any exceptions encountered during the process are logged as errors.
         /// </remarks>
-        private void LogGlobalSettings()
+        private void LogAppGlobalSettings()
         {
-            string strMethod = "LogGlobalSettings";
+            string strMethod = "LogAppGlobalSettings";
             string strMsg = string.Empty;
             try
             {
                 HenLogger.WriteSection("LOG APPLICATION GLOBAL SETTINGS ... BASED ON RETRIEVED DB KEY-VALUE PAIRS");
 
+                strMsg = string.Format("  {0,-44} ... {1}", "DatabaseCreatedOn", HenSettingsObj.AppGlobalSettingsObj.DatabaseCreatedOn.ToString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
+                strMsg = string.Format("  {0,-44} ... {1:0.00}", "DefaultApproachTemperature", HenSettingsObj.AppGlobalSettingsObj.DefaultApproachTemperature);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1:0.00}", "DefaultEnglishU", HenSettingsObj.AppGlobalSettingsObj.DefaultEnglishU);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1:0.00}", "DefaultMetricU", HenSettingsObj.AppGlobalSettingsObj.DefaultMetricU);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "DefaultOptimizer", HenSettingsObj.AppGlobalSettingsObj.DefaultOptimizer);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "EnableAreaEstimation", HenSettingsObj.AppGlobalSettingsObj.EnableAreaEstimation.ToString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ExternalMagnitudeUnits", HenSettingsObj.AppGlobalSettingsObj.ExternalMagnitudeUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ExternalPressUnits", HenSettingsObj.AppGlobalSettingsObj.ExternalPressUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ExternalSystemUnits", HenSettingsObj.AppGlobalSettingsObj.ExternalSystemUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ExternalTempUnits", HenSettingsObj.AppGlobalSettingsObj.ExternalTempUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsA", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsA);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsEnergy", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsEnergy);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsHeatCapacityFlowRate", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsHeatCapacityFlowRate);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsMassFlowrate", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsMassFlowrate);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsSpecificHeatCapacity", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsSpecificHeatCapacity);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsU", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsU);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "InternalMagnitudeUnits", HenSettingsObj.AppGlobalSettingsObj.InternalMagnitudeUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "InternalPressUnits", HenSettingsObj.AppGlobalSettingsObj.InternalPressUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "InternalSystemUnits", HenSettingsObj.AppGlobalSettingsObj.InternalSystemUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "InternalTempUnits", HenSettingsObj.AppGlobalSettingsObj.InternalTempUnits);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsA", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsA);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsEnergy", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsEnergy);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsHeatCapacityFlowRate", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsHeatCapacityFlowRate);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsMassFlowrate", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsMassFlowrate);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsSpecificHeatCapacity", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsSpecificHeatCapacity);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsU", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsU);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "LastMigrationApplied", HenSettingsObj.AppGlobalSettingsObj.LastMigrationApplied);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ReportDefaultFont", HenSettingsObj.AppGlobalSettingsObj.ReportDefaultFont);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ReportIncludeAuditSection", HenSettingsObj.AppGlobalSettingsObj.ReportIncludeAuditSection.ToString());
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "ReportUnitsProfile", HenSettingsObj.AppGlobalSettingsObj.ReportUnitsProfile);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                strMsg = string.Format("  {0,-44} ... {1}", "SchemaVersion", HenSettingsObj.AppGlobalSettingsObj.SchemaVersion);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
             }
             catch (Exception ex)
             {
@@ -1691,10 +1777,9 @@ namespace HenStudio
             }
             finally
             {
-
             }
         }
-        #endregion  // LogGlobalSettings()
+        #endregion  // LogAppGlobalSettings()
 
         #region LogLicenseStatus()
         /// <summary>
