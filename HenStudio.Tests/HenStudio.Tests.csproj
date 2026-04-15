@@ -117,45 +117,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection\ConnectionInfoRepoTests.cs" />
-    <Compile Include="Profile\ProfileRepoTests.cs" />
-    <Compile Include="Profile\EconParamRepoTests.cs" />
-    <Compile Include="Profile\ProcessStreamRepoTests.cs" />
-    <Compile Include="Profile\UtilityStreamRepoTests.cs" />
-    <Compile Include="Profile\THDiagramRepoTests.cs" />
-    <Compile Include="Profile\THDiagramPointRepoTests.cs" />
-    <Compile Include="Profile\ProfileViewModelTests.cs" />
-    <Compile Include="Profile\ProfileViewModelTestHelpers.cs" />
-    <Compile Include="Profile\EconParamViewModelTests.cs" />
-    <Compile Include="Profile\ProcessStreamViewModelTests.cs" />
-    <Compile Include="Profile\UtilityStreamViewModelTests.cs" />
-    <Compile Include="Profile\THDiagramViewModelTests.cs" />
-    <Compile Include="Profile\THDiagramPointViewModelTests.cs" />
-    <Compile Include="Project\ProjectRepoTests.cs" />
-    <Compile Include="Project\ProjectViewModelTests.cs" />
-    <Compile Include="Connection\FakeConnectionFactory.cs" />
-    <Compile Include="Connection\FakeSqlConnection.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Helpers\AssertEx.cs" />
-    <Compile Include="Helpers\DtoTestHelper.cs" />
-    <Compile Include="System\SystemDtoTests.cs" />
-    <Compile Include="System\SystemRepoTestFakes.cs" />
-    <Compile Include="System\DatabaseTableRepoTests.cs" />
-    <Compile Include="System\GlobalSettingsRepoTests.cs" />
-    <Compile Include="Project\ProjectDtoTests.cs" />
-    <Compile Include="Profile\ProfileDtoTests.cs" />
-    <Compile Include="Pinch\PinchDtoTests.cs" />
-    <Compile Include="Hen\HenDtoTests.cs" />
-    <Compile Include="UnitConversions\ViewModelBaseUnitConversionTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SmokeTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\HenStudio.csproj">
       <Project>{759cbd9c-52b2-44f0-b3ae-695ad1fc508a}</Project>
       <Name>HenStudio</Name>
@@ -190,9 +151,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Connection\" />
+    <Folder Include="Helpers\" />
     <Folder Include="Hen\" />
     <Folder Include="Pinch\" />
     <Folder Include="Profile\" />
+    <Folder Include="Project\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Shims\" />
+    <Folder Include="System\" />
+    <Folder Include="UnitConversions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

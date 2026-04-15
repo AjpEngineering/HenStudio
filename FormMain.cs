@@ -49,6 +49,8 @@ using HenPersistence.Repos;
 
 using HenRepositories.Dto;
 
+using HenViewModels;
+
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -366,9 +368,8 @@ namespace HenStudio
 
                 #region POPULATE PROJECT TREE NODES
                 HenLogger.WriteSection("START POPULATE PROJECT TREE NODES");
-
-
-                HenLogger.WriteSeparatorLine(' ');
+                RefreshTree();
+                LogTree();
                 HenLogger.WriteSection("END POPULATE PROJECT TREE NODES");
                 #endregion  // POPULATE PROJECT TREE NODES
             }
@@ -380,11 +381,6 @@ namespace HenStudio
             }
             finally
             {
-                //---------------------------------------------------------------------
-                //--- Clear the Sub-PROJECTS (Root) Nodes from Project Explorer Tree --
-                //---------------------------------------------------------------------
-                RemoveAllNodes();
-
                 HenLogger.WriteSeparatorLine(' ');
                 HenLogger.WriteSection("END CONSTRUCTION SECTION");
             }
@@ -587,13 +583,16 @@ namespace HenStudio
         {
             string strMethod = "GetGlobalSettings";
             string strMsg = string.Empty;
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
-            var globalSettingsRepo = new GlobalSettingsRepo(connFactoryObj);
             try
             {
                 HenLogger.WriteSection("CONNECTING TO DATABASE ... GET GLOBAL SETTING KEY-VALUE PAIRS");
 
-                var settingsDtos = globalSettingsRepo.GetGlobalSettings();
+                //-------------------------------------------------------------------------------------------------
+                //--- Create System ViewModel Object to Retrieve Global Settings Data from DB using Repo Method ---
+                //-------------------------------------------------------------------------------------------------
+                var systemViewModelObj = new SystemViewModel();
+
+                var settingsDtos = systemViewModelObj.GetGlobalSettings();
                 foreach (var nameValuePair in settingsDtos)
                 {
                     strMsg = string.Format("  + KEY: {0,-40} ... VALUE: {1}",
@@ -605,7 +604,7 @@ namespace HenStudio
                 //--------------------------------------------------------------------------------------
                 //--- ASSIGN APPLICATION GLOBAL SETTINGS PROPERTIES FROM DB VALUES USING REPO METHOD ---
                 //--------------------------------------------------------------------------------------
-                HenSettingsObj.AppGlobalSettingsObj = globalSettingsRepo.GetAppGlobalSettings();
+                HenSettingsObj.AppGlobalSettingsObj = systemViewModelObj.GetAppGlobalSettings();
                 LogAppGlobalSettings();  // Log Application Global Settings based on data retrieved from DB
             }
             catch (Exception ex)
@@ -616,15 +615,6 @@ namespace HenStudio
             }
             finally
             {
-                //----------------------------------------------------------------
-                //--- Use Connection Factory Object Method to Close Connection ---
-                //--- Null Guard for Connection Object in case of Exception    ---
-                //--- during Connection Creation                               ---
-                //----------------------------------------------------------------
-                if (connFactoryObj.dbConnection != null)
-                {
-                    connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
-                }
             }
         }
         #endregion  // GetGlobalSettings()
@@ -2016,6 +2006,18 @@ namespace HenStudio
         #endregion  // AJP HEN STUDIO LOGO CLICK
 
         #endregion  // CATALOG (Projects) Panel
+
+
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        //----------------------------------------- Project Panel---
+        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+        #region Project Panel
+
+        
+
+        #endregion  // Project Panel
+
     }
     #endregion      // class FormPinch
 }

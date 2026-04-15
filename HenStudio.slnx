@@ -1,7 +1,6 @@
 <Solution Description="AJP HEN Studio">
   <Project Path="AJP_LicenseGenerator/AJP_LicenseGenerator.csproj" Id="c3b9e227-ea4d-4df4-bde8-4f8cdaa4ba73" />
   <Project Path="HenStudio.csproj" Id="759cbd9c-52b2-44f0-b3ae-695ad1fc508a" />
-  <Project Path="HenStudio.Tests/HenStudio.Tests.csproj" Id="3d3f51eb-3cb6-4ef6-96d5-3a64ecac4b1c" />
   <Project Path="_AJP License File/_AJP License File.csproj" Id="146de66e-f297-4664-8f5f-6edcbdfacbed" />
   <Project Path="_HenDomainModel/_HenDomainModel.csproj" Id="50b16387-1a20-4e86-8296-ae58eef37f16" />
   <Project Path="_HenGlobal/_HenGlobal.csproj" Id="c73899c1-09e9-4981-a906-f33c3ae4078a" />

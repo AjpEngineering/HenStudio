@@ -103,7 +103,7 @@ namespace HenStudio
             switch(LevelEnum)
             {
                 case ExplorerLevel.CATALOG:
-                    DisplayName = string.Format("HEN Studio CATALOG");
+                    DisplayName = string.Format("HEN Studio");
                     break;
                 case ExplorerLevel.PROJECT:
                     DisplayName = string.Format("Project: {0}", NodeName);

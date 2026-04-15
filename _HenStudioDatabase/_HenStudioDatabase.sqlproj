@@ -74,7 +74,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\Project\Project.sql" />
     <Build Include="Tables\System\GlobalSettings.sql" />
     <Build Include="Tables\Profile\Profile.sql" />
     <Build Include="Tables\Profile\ProcessStream.sql" />
@@ -98,10 +97,10 @@
     <Build Include="Tables\Project\HenOptimizerGenetic.sql" />
     <Build Include="Tables\Project\HenOptimizerGreedy.sql" />
     <Build Include="Tables\Project\HenOptimizerMILP.sql" />
+    <Build Include="Tables\Project\Project.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql" />
     <None Include="Scripts\PostDeployment\Seed_GlobalSettings.sql" />
   </ItemGroup>
 </Project>
-

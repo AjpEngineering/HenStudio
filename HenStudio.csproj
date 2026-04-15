@@ -182,9 +182,14 @@
       <Project>{42a404ca-256f-47c8-82fd-319c99292c74}</Project>
       <Name>_HenRepositories</Name>
     </ProjectReference>
+    <ProjectReference Include="_HenViewModels\_HenViewModels.csproj">
+      <Project>{58b4795c-8a98-4e0f-a07f-3769bba0079f}</Project>
+      <Name>_HenViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />
+    <Content Include="tmp_open_placeholder.txt" />
     <None Include="Resources\ICON_16x16\AJP_HEN_StudioGraphic_16x16.ico" />
     <None Include="Resources\HEN Studio Graphic...32x32.png" />
     <None Include="Resources\AJP Refinery...1280x720.png" />

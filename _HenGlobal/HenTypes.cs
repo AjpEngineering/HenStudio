@@ -344,8 +344,6 @@ namespace HenGlobal
             }
             finally
             {
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "HenTypes Object CREATED");
-                HenLogger.WriteSeparatorLine('<');
             }
         }
         #endregion      // CTOR

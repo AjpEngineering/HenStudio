@@ -36,7 +36,9 @@
 using HenGlobal;
 
 using HenRepositories.Dto;
+
 using HenPersistence.Repos;
+using HenPersistence.Connection;
 
 using System;
 using System.Collections.Generic;
@@ -55,19 +57,20 @@ namespace HenViewModels
         public ProjectRepo ProjectRepoObj { get; set; }
         #endregion      // PROPERTIES
 
-        #region CTOR
+        #region DEFAULT CTOR
         /// <summary>
         /// Default CTOR
         /// </summary>
-        public ProjectViewModel(ProjectRepo projectRepoObj,
-                                HenProjectUnits EXTERNAL_UnitsObj,
-                                HenProjectUnits INTERNAL_UnitsObj) 
+        public ProjectViewModel()
         {
-            ProjectRepoObj   = projectRepoObj;
-            ExternalUnitsObj = EXTERNAL_UnitsObj;
-            InternalUnitsObj = INTERNAL_UnitsObj;
+            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            var projectRepoObj = new ProjectRepo(connFactoryObj);
+
+            ProjectRepoObj = projectRepoObj;
+            ExternalUnitsObj = new HenProjectUnits();
+            InternalUnitsObj = new HenProjectUnits();
         }
-        #endregion  // CTOR
+        #endregion  // DEFAULT CTOR
 
         #region GetProjects()
         /// <summary>

@@ -43,6 +43,14 @@
 
 using HenGlobal;
 
+using HenPersistence.Connection;
+using HenPersistence.Repos;
+
+using HenRepositories.Dto;
+using HenRepositories.Interfaces;
+
+using HenViewModels;
+
 using HenStudio.Properties;
 
 using System;
@@ -196,7 +204,7 @@ namespace HenStudio
 
         #region RemoveAllNodes()
         /// <summary>
-        /// Remove all Nodes from the Tree and then Add back Root Projects (CATALOG) Node
+        /// Remove all Nodes from the Tree and then Add back Root HEN Studio Node
         /// </summary>
         private void RemoveAllNodes()
         {
@@ -213,7 +221,7 @@ namespace HenStudio
                 //---------------------------
                 //-- Create New ROOT Node ---
                 //---------------------------
-                TreeNode rootNode = new TreeNode("HEN Studio CATALOG");
+                TreeNode rootNode = new TreeNode("HEN Studio");
 
                 //----------------------------------
                 //--- Assign New Node Attributes ---
@@ -223,7 +231,7 @@ namespace HenStudio
                 //-----------------------------------------------
                 //-- Create Tag Object and Assign to New Node ---
                 //-----------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerLevel.CATALOG, "HEN Studio CATALOG");
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerLevel.CATALOG, "HEN Studio");
                 rootNode.Tag = dataTagDisplayObj;
 
                 //---------------------------
@@ -251,6 +259,97 @@ namespace HenStudio
             }
         }
         #endregion  // RemoveAllNodes()
+
+        #region RefreshTree(bool bCollapseAll)
+        /// <summary>
+        /// Clear Tree Nodes and Refresh Tree with Current Projects from Database
+        /// </summary>
+        /// <param name="bCollapseAll">Collapse all nodes if true, otherwise expand all nodes. 
+        /// Default to true (collapse all) to avoid overwhelming user with expanded tree on refresh.
+        /// </param>
+        private void RefreshTree(bool bCollapseAll = true)
+        {
+            string strMethod = "RefreshTree";
+            string strMsg = String.Empty;
+            try
+            {
+                //----------------------------------------------------------------
+                //--- GetProject ViewModel Object to Retrieve Projects from DB ---
+                //----------------------------------------------------------------
+                var ProjectViewModelObj = new ProjectViewModel();
+
+                //-----------------------------------------------
+                //--- Get All Projects from Project ViewModel ---
+                //-----------------------------------------------
+                IList<ProjectDto> projects = ProjectViewModelObj.GetProjects();
+
+                //--------------------------------------------
+                //--- Clear Tree Nodes Adds Back Root Node ---
+                //--------------------------------------------
+                RemoveAllNodes();
+
+                //-------------------------------------------------
+                //--- Get Root Node Created in RemoveAllNodes() ---
+                //--- to Add Project Children Nodes             ---
+                //-------------------------------------------------
+                TreeNode rootNode = GetRootNode();
+
+                //----------------------------------------------
+                //--- Add Project Nodes to Root Node         ---
+                //--- Assign Tag Object with Node Attributes ---
+                //----------------------------------------------
+                string strProjectName = string.Empty;   // Project name from DB
+                string strNodeName = string.Empty;      // Node name with Prefix (e.g., "Project: *") for display in Tree Node
+                foreach (var project in projects)
+                {
+                    //--------------------------------------
+                    //--- Create Project Node Tag Object ---
+                    //--------------------------------------
+                    strProjectName = project.Name;
+                    strNodeName = string.Format("Project: {0}", strProjectName.Trim());
+                    DataTagDisplay DataTagDisplayObj = 
+                        new DataTagDisplay(ExplorerLevel.PROJECT, strProjectName.Trim()) { ProjectID = project.Id };
+
+                    //-------------------------------------------------
+                    //--- Create Project Node and Assign Tag Object ---
+                    //-------------------------------------------------
+                    TreeNode projectNode = new TreeNode(strNodeName) { Tag = DataTagDisplayObj };
+                    rootNode.Nodes.Add(projectNode);
+                }
+
+                //---------------------------------------------------------------
+                //--- Check for at least one Project to add Root Node to Tree ---
+                //--- (otherwise Tree will be Empty with just Root Node)      ---
+                //---------------------------------------------------------------
+                if (projects.Count > 0)
+                {
+                    //--------------------------------------------------------
+                    //--- Add Root Node and Project Children Nodes to Tree ---
+                    //--------------------------------------------------------
+                    treeViewCurrentProjectExplorer.Nodes.Add(rootNode);
+                }
+
+                //------------------------------
+                //--- Collapse | Expand Tree ---
+                //------------------------------
+                if (bCollapseAll) CollapseAllProjectsExplorer();
+                else ExpandAllProjectsExplorer();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+                //----------------------------
+                //--- Select the Root Node ---
+                //----------------------------
+                treeViewCurrentProjectExplorer.SelectedNode = treeViewCurrentProjectExplorer.Nodes[0];
+            }
+        }
+        #endregion  // RefreshTree(bool bCollapseAll)
 
         #region UpdateTreeStatusBar()
         /// <summary>
@@ -354,8 +453,16 @@ namespace HenStudio
             string strMethod = "HandleSelectionChange";
             string strMsg = String.Empty;
             ExplorerLevel level = ExplorerLevel.UNKNOWN;
+
+            //var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            //var ProjectRepoObj = new ProjectRepo(connFactoryObj);
             try
             {
+                //----------------------------------------------------------------
+                //--- GetProject ViewModel Object to Retrieve Projects from DB ---
+                //----------------------------------------------------------------
+                var projectViewModelObj = new ProjectViewModel();
+
                 //--------------------------
                 //--- Get Node and Level ---
                 //--------------------------
@@ -394,6 +501,27 @@ namespace HenStudio
                         //--- Populate Current Project Panel ---
                         //--------------------------------------
                         HenMsgDlg.DisplayWarningDlg("***** Populate Current PROJECT Panel *****");
+
+                        //-----------------------------------------------------------
+                        //--- Get Project Data from DB and Populate Project Panel ---
+                        //-----------------------------------------------------------
+                        TreeNode selNode = treeViewCurrentProjectExplorer.SelectedNode;
+                        
+                        Guid projectID = ((DataTagDisplay)selNode.Tag).ProjectID;
+                        if (projectID == Guid.Empty) throw(new Exception("Invalid Project ID!"));
+
+                        //-----------------------------------------------------------------------------------
+                        //--- Get Project Data from DB using Project ViewModel and Populate Project Panel ---
+                        //-----------------------------------------------------------------------------------
+                        ProjectDto projectDtoObj = projectViewModelObj.GetProjectById(projectID);
+
+                        //------------------------------------------------
+                        //--- Populate Project Panel with Project Data ---
+                        //------------------------------------------------
+                        DefaultProjectSettings settings = new DefaultProjectSettings(projectDtoObj);
+                        //PopulateProjectPanel(settings);
+                        PopulateProjectPanel(projectDtoObj);
+
 
 
                         //-----------------------------
@@ -505,7 +633,7 @@ namespace HenStudio
 
         #endregion  // EXPAND ALL
 
-        #region NEW NODES
+        #region NEW EVENT HANDLERS
 
         #region NEW PROJECT
         /// <summary>
@@ -555,41 +683,9 @@ namespace HenStudio
         }
         #endregion  // NEW HEN
 
-        #endregion  // NEW NODES
+        #endregion  // NEW EVENT HANDLERS
 
-        #region DELETE NODES
-
-        #region DELETE PROJECT NODE
-        private void toolStripMenuItemDeleteProject_Click(object sender, EventArgs e)
-        {
-            HandleDeleteProject();
-        }
-        #endregion  // DELETE PROJECT NODE
-
-        #region DELETE PROFILE NODE
-        private void toolStripMenuItemProfileDelete_Click(object sender, EventArgs e)
-        {
-            HandleDeleteProfile();
-        }
-        #endregion  // DELETE PROFILE NODE
-
-        #region DELETE PINCH NODE
-        private void toolStripMenuItemPinchDelete_Click(object sender, EventArgs e)
-        {
-            HandleDeletePinch();
-        }
-        #endregion  // DELETE PINCH NODE
-
-        #region DELETE HEN NODE
-        private void toolStripMenuItemCurProjHenDelete_Click(object sender, EventArgs e)
-        {
-            HandleDeleteHen();
-        }
-        #endregion  // DELETE HEN NODE
-
-        #endregion  // DELETE NODES
-
-        #region RENAME NODES
+        #region RENAME EVENT HANDLERS
 
         #region RENAME PROJECT
         private void toolStripMenuItemCurProjRename_Click(object sender, EventArgs e)
@@ -620,6 +716,38 @@ namespace HenStudio
         #endregion  // RENAME HEN
 
         #endregion  // RENAME NODES
+
+        #region DELETE EVENT HANDLERS
+
+        #region DELETE PROJECT NODE
+        private void toolStripMenuItemDeleteProject_Click(object sender, EventArgs e)
+        {
+            HandleDeleteProject();
+        }
+        #endregion  // DELETE PROJECT NODE
+
+        #region DELETE PROFILE NODE
+        private void toolStripMenuItemProfileDelete_Click(object sender, EventArgs e)
+        {
+            HandleDeleteProfile();
+        }
+        #endregion  // DELETE PROFILE NODE
+
+        #region DELETE PINCH NODE
+        private void toolStripMenuItemPinchDelete_Click(object sender, EventArgs e)
+        {
+            HandleDeletePinch();
+        }
+        #endregion  // DELETE PINCH NODE
+
+        #region DELETE HEN NODE
+        private void toolStripMenuItemCurProjHenDelete_Click(object sender, EventArgs e)
+        {
+            HandleDeleteHen();
+        }
+        #endregion  // DELETE HEN NODE
+
+        #endregion  // DELETE EVENT HANDLERS
 
         #endregion  // CONTEXT MENU EVENT HANDLERS
 
@@ -681,6 +809,44 @@ namespace HenStudio
         }
         #endregion  // PopulateProjectPanel(DefaultProjectSettings newProjectData)
 
+        #region PopulateProjectPanel(ProjectDto projectDtoObj)
+        /// <summary>
+        /// Populate the Project Panel with New Project Data
+        /// </summary>
+        /// <param name="projectDtoObj"></param>
+        private void PopulateProjectPanel(ProjectDto projectDtoObj)
+        {
+            //this.textBoxProjectGUID.Text = projectDtoObj.Id.ToString();
+            //this.textBoxProjectNameValue.Text = projectDtoObj.Name;
+            //this.textBoxProjectDescriptionValue.Text = projectDtoObj.Description;
+            //this.textBoxDefaultU_Value.Text = projectDtoObj.DefaultHeatTransferCoefficient.ToString();
+            //this.textBoxDefaultHenOpitimizer.Text = projectDtoObj.DefaultHenOptimizer;
+            //this.textBoxDefaultU_Units.Text = "";
+
+            ////--- PROJECT UNITS ---
+
+            //this.textBoxProjectUnitsSystem.Text = projectDtoObj.DefaultSystemUnits;
+            //this.textBoxProjectUnitsMagnitude.Text = projectDtoObj.DefaultMagnitudeUnits;
+            //this.textBoxProjectUnitsTemp.Text = projectDtoObj.DefaultTemperatureUnits;
+            //this.textBoxProjectUnitsPress.Text = projectDtoObj.DefaultPressureUnits;
+
+            //this.textBoxUnitsAreaValue.Text = projectDtoObj.;
+            //this.textBoxUnitsDutyValue.Text = projectDtoObj.ExternalUnitsObj.GetEnthalpyString();
+            //this.textBoxUnitsCPValue.Text = projectDtoObj.ExternalUnitsObj.GetHeatCapacityFlowRateString();
+            //this.textBoxUnitsUValue.Text = projectDtoObj.ExternalUnitsObj.GetHeatTransferCoefficientString();
+
+            ////--- Update Systems Units Image ---
+            //if (newProjectData.ExternalUnitsObj.ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC)
+            //{
+            //    pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
+            //}
+            //else if (newProjectData.ExternalUnitsObj.ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.ENGLISH)
+            //{
+            //    pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
+            //}
+        }
+        #endregion  // PopulateProjectPanel(DefaultProjectSettings newProjectData)
+
         #region HANDLE NEW NODE EVENTS
 
         #region HandleNewProject
@@ -690,42 +856,74 @@ namespace HenStudio
         private void HandleNewProject()
         {
             string strMethod = "HandleNewProject";
-            string strNodeName = string.Empty;      // Node name no Prefix ... From New Dialog Name field
-            string strDisplayName = string.Empty;   // Includes Prefix (e.g., "Project: *")
+            string strDlgName = string.Empty;   // Dialog name no Prefix ... From New Dialog Name field
+            string strNodeName = string.Empty;  // Includes Prefix (e.g., "Project: *")
             int nDisplayNodeID = 0;
-            Guid projectGUID = Guid.Empty;          // DB Project GUID (PK)
+            Guid projectGUID = Guid.Empty;      // DB Project GUID (PK)
             try
             {
+                //----------------------------------------------------------------
+                //--- GetProject ViewModel Object to Retrieve Projects from DB ---
+                //----------------------------------------------------------------
+                var projectViewModelObj = new ProjectViewModel();
+
                 //-------------------------------------
                 //--- Display New Project Data Form ---
                 //-------------------------------------
                 FormSettings dlg = new FormSettings();
                 if (dlg.ShowDialog()!=DialogResult.OK) return;   // User Canceled Dialog
 
-                //*********************************************************************************
-                //***** Scrape Dialog Data and SAVE to DB                                     *****
-                //***** Get DB ProjectID (PK)                                                 *****            
-                //*********************************************************************************
-                HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
-                HenMsgDlg.DisplayWarningDlg("***** Get DB ProjectID (PK) *****");
+                //------------------------------------------------------------------------------
+                //--- Get New Project Name from Dialog and Format Display Name for Tree Node ---
+                //------------------------------------------------------------------------------
+                strDlgName = dlg.NewProjectSettingsObj.NewProjectName;
+                strNodeName = string.Format("Project: {0}", strDlgName.Trim());
 
-                strNodeName = dlg.NewProjectSettingsObj.NewProjectName;      // From New Dialog ... Name Field
-                strDisplayName = string.Format("Project: {0}", strNodeName); // Node name with prefix ("Project: ")
-                projectGUID = new Guid();                                    // Get Database GUID
-                //********************************************************************** TEST *****
+                //------------------------------------------------
+                //--- Assign Project Data to ProjectDto Object ---
+                //------------------------------------------------
+                ProjectDto projectDtoObj = new ProjectDto();
+
+                projectDtoObj.Name = dlg.NewProjectSettingsObj.NewProjectName;
+                projectDtoObj.Description = dlg.NewProjectSettingsObj.NewProjectDescription;
+                projectDtoObj.DefaultHeatTransferCoefficient = dlg.NewProjectSettingsObj.ProjectExchangerU;
+                projectDtoObj.DefaultHenOptimizer = dlg.NewProjectSettingsObj.GetHenOptimizerString();
+                projectDtoObj.DefaultSystemUnits = dlg.NewProjectSettingsObj.ExternalUnitsObj.GetSystemUnitsString();
+                // Persist canonical magnitude token (DB expects 'Base'|'Kilo'|'Mega'), not the UI display string
+                var magEnum = dlg.NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum;
+                // ensure HenGlobal is referenced
+                // (use fully-qualified enum if necessary)
+                string magDbToken;
+                switch (magEnum)
+                {
+                    case HenGlobal.HenProjectUnits.ProjectMagnitude.KILO:
+                        magDbToken = "Kilo";
+                        break;
+                    case HenGlobal.HenProjectUnits.ProjectMagnitude.MEGA:
+                        magDbToken = "Mega";
+                        break;
+                    default:
+                        magDbToken = "Base";
+                        break;
+                }
+                projectDtoObj.DefaultMagnitudeUnits = magDbToken;
+                projectDtoObj.DefaultTemperatureUnits = dlg.NewProjectSettingsObj.ExternalUnitsObj.GetTemperatureString();
+                projectDtoObj.DefaultPressureUnits = dlg.NewProjectSettingsObj.ExternalUnitsObj.GetPressureString();
+
+                projectGUID = projectViewModelObj.AddProject(projectDtoObj); // Get PK (GUID) from DB After Adding New Project
+                projectDtoObj.Id = projectGUID;     // Assign PK (GUID) to ProjectDto Object
 
                 //-------------------------------------------------------
                 //-- Create Node Tag Object and Assign Tag Attributes ---
                 //-------------------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerLevel.PROJECT, 
-                                                                      strNodeName);
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerLevel.PROJECT, strDlgName);
                 dataTagDisplayObj.ProjectID = projectGUID;
 
                 //---------------------------------------------------
                 //--- Get Parent (Root) Node and Add Project Node ---
                 //---------------------------------------------------
                 TreeNode parentNode = GetRootNode();
-                nDisplayNodeID = AddProjectNode(parentNode, strDisplayName, dataTagDisplayObj);
+                nDisplayNodeID = AddProjectNode(parentNode, strNodeName, dataTagDisplayObj);
 
                 //----------------------------------------------------
                 //--- Populate Project Panel with New Project Data ---

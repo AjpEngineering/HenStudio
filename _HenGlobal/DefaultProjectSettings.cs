@@ -45,6 +45,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using HenRepositories.Dto;
+
 #endregion  // REFERENCES
 
 #region namespace HenGlobal
@@ -93,7 +95,7 @@ namespace HenGlobal
 
         #endregion  // PROPERTIES
 
-        #region CTOR
+        #region DEFAULT CTOR
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -118,11 +120,45 @@ namespace HenGlobal
             }
             finally
             {
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "HenTypes Object CREATED");
-                HenLogger.WriteSeparatorLine('<');
             }
         }
-        #endregion      // CTOR
+        #endregion      // DEFAULT CTOR
+
+        #region PARAMETERIZED CTOR
+        /// <summary>
+        /// Parameterized Constructor
+        /// </summary>
+        public DefaultProjectSettings(ProjectDto projectDtoObj)
+        {
+            string strMethod = "CTOR";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating DefaultProjectSettings Object");
+            try
+            {
+                NewProjectGUID = projectDtoObj.Id;
+                NewProjectName = projectDtoObj.Name;
+                NewProjectDescription = projectDtoObj.Description;
+                ProjectExchangerU = projectDtoObj.DefaultHeatTransferCoefficient;
+                HenOptimizerEnum = GetHenOptimizerEnum(projectDtoObj.DefaultHenOptimizer);
+                
+                ExternalUnitsObj = new HenProjectUnits();
+
+
+
+
+                //ExternalUnitsObj.ProjectSystemUnitsEnum = GetHenProjectUnitsEnum(projectDtoObj.DefaultSystemUnits);
+
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion      // PARAMETERIZED CTOR
 
         #region GetHenOptimizerList()
         /// <summary>

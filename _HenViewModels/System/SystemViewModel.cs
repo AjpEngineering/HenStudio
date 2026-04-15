@@ -33,6 +33,7 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenPersistence.Connection;
 using HenPersistence.Repos;
 
 using HenRepositories.Dto;
@@ -55,6 +56,50 @@ namespace HenViewModels
         public GlobalSettingsRepo GlobalSettingsRepoObj { get; set; }
         public DatabaseTableRepo DatabaseTableRepoObj { get; set; }
         #endregion      // PROPERTIES
+
+        #region CTOR
+        /// <summary>
+        /// Initializes a new instance of the SystemViewModel class and sets up repository dependencies required for
+        /// system operations.
+        /// </summary>
+        /// <remarks>This constructor creates and configures repository objects using the default
+        /// connection string for the Hen Studio database. The repositories are initialized and ready for use after
+        /// construction.</remarks>
+        public SystemViewModel() 
+        {
+            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            var ProjectRepoObj = new ProjectRepo(connFactoryObj);
+
+            GlobalSettingsRepoObj = new GlobalSettingsRepo(connFactoryObj);
+            DatabaseTableRepoObj = new DatabaseTableRepo(connFactoryObj);
+        }
+        #endregion  // CTOR
+
+        #region GetAppGlobalSettings()
+        /// <summary>
+        /// Gets application global settings as a strongly-typed <see cref="AppGlobalSettingsDto"/> object 
+        /// by retrieving all global settings from the data store and mapping them to the corresponding 
+        /// properties on the DTO based on their setting keys.
+        /// </summary>
+        /// <returns>Populated <see cref="AppGlobalSettingsDto"/> object.</returns>
+        /// <exception cref="InvalidOperationException">Unrecognized global setting key encountered while mapping application global settings.</exception>
+        public AppGlobalSettingsDto GetAppGlobalSettings()
+        {
+            try
+            {
+                //-------------------------------------------------------------------------------------------
+                //--- No Conversion needed as the DTO is already in the desired format for the view model ---
+                //-------------------------------------------------------------------------------------------
+                return GlobalSettingsRepoObj.GetAppGlobalSettings();
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving profile: {ex.Message}");
+                return null;
+            }
+        }
+        #endregion  // GetAppGlobalSettings()
 
         #region GetGlobalSettings()
         /// <summary>

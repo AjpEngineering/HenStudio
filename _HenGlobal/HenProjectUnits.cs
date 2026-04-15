@@ -63,15 +63,15 @@ namespace HenGlobal
         #region UNITS STRINGS
 
         #region SYSTEM UNITS
-        public const string ENGLISH_UNITS = "English - Imperial";
-        public const string METRIC_UNITS = "Metric - SI";     // <<<--- INTERNAL ---<<<
+        public const string ENGLISH_UNITS = "Imperial";
+        public const string METRIC_UNITS = "SI";     // <<<--- INTERNAL ---<<<
         #endregion  // SYSTEM UNITS
 
         #region MAG - MAGNITUDE UNITS
         //------------------------------------------- MAG - MAGNITUDE UNITS ---
-        public const string MAG_BASE = "Base : 10^0";    // BASE * 10^0
-        public const string MAG_KILO = "Kilo : 10^3";    // BASE * 10^3   // <<<--- INTERNAL ---<<<
-        public const string MAG_MEGA = "Mega : 10^6";    // BASE * 10^6
+        public const string MAG_BASE = "Base";    // BASE * 10^0
+        public const string MAG_KILO = "Kilo";    // BASE * 10^3   // <<<--- INTERNAL ---<<<
+        public const string MAG_MEGA = "Mega";    // BASE * 10^6
         #endregion  // MAG - MAGNITUDE UNITS
 
         #region A - AREA UNITS
@@ -83,10 +83,10 @@ namespace HenGlobal
 
         #region T - TEMPERATURE UNITS
         //---------------------------------------------- ENGLISH TEMPEATURE ---
-        public const string DEG_F = "°F";   // $"\u00B0F";
-        public const string DEG_R = "°R";   // $"\u00B0R";
+        public const string DEG_F = "F";   // $"\u00B0F";
+        public const string DEG_R = "R";   // $"\u00B0R";
         //----------------------------------------------- METRIC TEMPEATURE ---
-        public const string DEG_C = "°C";   // $"\u00B0C";
+        public const string DEG_C = "C";   // $"\u00B0C";
         public const string KELVIN = "K";   // <<<---------------- INTERNAL ---<<<
         #endregion  // T - TEMPERATURE UNITS
 
@@ -186,8 +186,8 @@ namespace HenGlobal
         /// </summary>
         public enum ProjectSystemUnits
         {
-            UNKNOWN = -1,       // UNKNOWN Units
-            ENGLISH = 0,       // ENGLISH-IMPERIAL Units
+            UNKNOWN = -1,     // UNKNOWN Units
+            ENGLISH = 0,      // ENGLISH-IMPERIAL Units
             METRIC = 1        // METRIC-SI Units
         };
         #endregion      // enum ProjectSystemUnits
@@ -332,8 +332,6 @@ namespace HenGlobal
             }
             finally
             {
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "HenTypes Object CREATED");
-                HenLogger.WriteSeparatorLine('<');
             }
         }
         #endregion      // CTOR

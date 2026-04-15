@@ -79,6 +79,10 @@
     <Content Include="AJP Pinch.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\_HenGlobal\_HenGlobal.csproj">
+      <Project>{c73899c1-09e9-4981-a906-f33c3ae4078a}</Project>
+      <Name>_HenGlobal</Name>
+    </ProjectReference>
     <ProjectReference Include="..\_HenRepositories\_HenRepositories.csproj">
       <Project>{42A404CA-256F-47C8-82FD-319C99292C74}</Project>
       <Name>_HenRepositories</Name>

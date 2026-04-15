@@ -95,7 +95,13 @@ namespace HenStudio
             //-------------------------------------------
             //--- Initialize with METRIC System Units ---
             //-------------------------------------------
-            SetDefaultMetricSettings();
+            //SetDefaultMetricSettings();
+            //LoadHenOptimizer();
+
+            //--------------------------------------------
+            //--- Initialize with ENGLISH System Units ---
+            //--------------------------------------------
+            SetDefaultEngslishSettings();
             LoadHenOptimizer();
         }
         #endregion  // CTOR
@@ -855,7 +861,6 @@ namespace HenStudio
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "OK Button Click");
             try
             {
-                HenMsgDlg.DisplayWarningDlg("Handle OK Button Click!");
                 //---------------------------------------------------------------------
                 //--- Scrape Screen and Assign Control Values to New Default Values ---
                 //---------------------------------------------------------------------
