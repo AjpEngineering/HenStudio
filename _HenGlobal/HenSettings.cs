@@ -204,22 +204,6 @@ namespace HenGlobal
 
         #endregion  // STATUS BAR
 
-        #region INTERNAL UNITS
-        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        //-=-=-=-=-=- INTERNAL UNITS PROPERTIES ARE GETTER ONLY -=-=-=-=-=-
-        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        public HenProjectUnits INTERNAL_UnitsObj { get; }  // INTERNAL UNITS Object ... Getter ONLY
-        #endregion  // INTERNAL UNITS
-
-        #region EXTERNAL UNITS
-        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        //-=-=-=-=-=- EXTERNAL UNITS PROPERTIES ARE BOTH GETTER AND SETTER =-=-=-=-=-=
-        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-        public DefaultProjectSettings EXTERNAL_APP_SettingsObj { get; set; }       // EXTERNAL APPLICATION PROJECT Settings Object
-
-        #endregion  // INTERNAL UNITS
-
         #endregion      // PROPERTIES
 
         #region CTOR
@@ -261,16 +245,6 @@ namespace HenGlobal
                 WriteProductDataToLog();    // Write Product  Data to Log
                 #endregion  // LOG LICENSE DATA
 
-                #region INTERNAL UNITS
-                INTERNAL_UnitsObj = new HenProjectUnits();
-                WriteInternalUnitsDataToLog();           // Write INTERNAL Units Data to Log
-                #endregion  // INTERNAL PROJECT SETTINGS
-
-                #region EXTERNAL APPLICATION DEFAULT UNITS
-                EXTERNAL_APP_SettingsObj = new DefaultProjectSettings();
-                WriteExternalAppSettingsDataToLog(); // Write EXTERNAL APPLICATION Settings Data to Log
-                #endregion  // EXTERNAL APPLICATION DEFAULT UNITS
-
                 #region INITIAL PROJECT-PROFILE-PINCH-HEN STATE
                 CurrentProjectName = string.Empty;      // Initially set to Empty
                 CurrentProfileName = string.Empty;      // Initially set to Empty
@@ -297,74 +271,6 @@ namespace HenGlobal
         #endregion      // CTOR
 
         #region WRITE LOG METHODS
-
-        #region WriteInternalUnitsDataToLog()
-        /// <summary>
-        /// Write AJP HEN Studio Internal Units to Log
-        /// </summary>
-        private void WriteInternalUnitsDataToLog()
-        {
-            string strMethod = "WriteInternalUnitsDataToLog()";
-            try
-            {
-                HenLogger.WriteSection("INTERNAL UNITS DATA");
-
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL System                    : " + INTERNAL_UnitsObj.GetSystemUnitsString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Magnitude                 : " + INTERNAL_UnitsObj.GetMagnitudeString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Area                      : " + INTERNAL_UnitsObj.GetAreaString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Temperature               : " + INTERNAL_UnitsObj.GetTemperatureString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Pressure                  : " + INTERNAL_UnitsObj.GetPressureString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Enthalpy                  : " + INTERNAL_UnitsObj.GetEnthalpyString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Heat Capacity Flowrate    : " + INTERNAL_UnitsObj.GetHeatCapacityFlowRateString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  INTERNAL Heat Transfer Coefficient : " + INTERNAL_UnitsObj.GetHeatTransferCoefficientString());
-
-                //HenLogger.WriteSeparatorLine('=');
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // WriteInternalUnitsDataToLog()
-
-        #region WriteExternalAppSettingsDataToLog()
-        /// <summary>
-        /// Write AJP HEN Studio EXTERNAL APPLICATION Settings Data To Log
-        /// </summary>
-        private void WriteExternalAppSettingsDataToLog()
-        {
-            string strMethod = "WriteExternalAppSettingsDataToLog()";
-            try
-            {
-                HenLogger.WriteSection("EXTERNAL APPLICATION PROJECT SETTINGS DATA");
-
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP System                    : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetSystemUnitsString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Magnitude                 : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetMagnitudeString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Area                      : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetAreaString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Temperature               : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetTemperatureString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Pressure                  : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetPressureString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Enthalpy                  : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetEnthalpyString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Heat Capacity Flowrate    : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetHeatCapacityFlowRateString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "  EXTERNAL APP Heat Transfer Coefficient : " + EXTERNAL_APP_SettingsObj.ExternalUnitsObj.GetHeatTransferCoefficientString());
-
-                //HenLogger.WriteSeparatorLine('=');
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // WriteExternalAppSettingsDataToLog()
 
         #region LogCurrentState()
         /// <summary>
