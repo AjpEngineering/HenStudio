@@ -30,7 +30,7 @@ CREATE TABLE [dbo].[Project]
     [Description] NVARCHAR(1024) NULL,
     [DefaultHeatTransferCoefficient] FLOAT NOT NULL DEFAULT 0.0,
     [DefaultHenOptimizer] NVARCHAR(16) NOT NULL DEFAULT N'Genetic',
-    [DefaultSystemUnits] NVARCHAR(16) NOT NULL DEFAULT N'SI',
+    [DefaultSystemUnits] NVARCHAR(24) NOT NULL DEFAULT N'Metric - SI',
     [DefaultMagnitudeUnits] NVARCHAR(16) NOT NULL DEFAULT N'Base',
     [DefaultTemperatureUnits] NVARCHAR(8) NOT NULL DEFAULT N'K',
     [DefaultPressureUnits] NVARCHAR(16) NOT NULL DEFAULT N'Pa',
@@ -38,8 +38,8 @@ CREATE TABLE [dbo].[Project]
     CONSTRAINT [PK_Project] PRIMARY KEY CLUSTERED ([Id]),
 
     CONSTRAINT [CK_Project_DefaultHenOptimizer] CHECK ([DefaultHenOptimizer] IN (N'Genetic', N'Greedy', N'MILP')),
-    CONSTRAINT [CK_Project_DefaultSystemUnits] CHECK ([DefaultSystemUnits] IN (N'SI', N'Imperial')),
+    CONSTRAINT [CK_Project_DefaultSystemUnits] CHECK ([DefaultSystemUnits] IN (N'Metric - SI', N'English - Imperial')),
     CONSTRAINT [CK_Project_DefaultMagnitudeUnits] CHECK ([DefaultMagnitudeUnits] IN (N'Base', N'Kilo', N'Mega')),
-    CONSTRAINT [CK_Project_DefaultTemperatureUnits] CHECK ([DefaultTemperatureUnits] IN (N'C', N'F', N'K', N'R')),
+    CONSTRAINT [CK_Project_DefaultTemperatureUnits] CHECK ([DefaultTemperatureUnits] IN (N'°C', N'°F', N'K', N'°R')),
     CONSTRAINT [CK_Project_DefaultPressureUnits] CHECK ([DefaultPressureUnits] IN (N'Pa', N'bar', N'psia', N'psig', N'psf', N'atm', N'inHg', N'inH2O'))
 );

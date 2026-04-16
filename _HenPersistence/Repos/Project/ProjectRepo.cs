@@ -75,40 +75,40 @@ namespace HenPersistence.Repos
         }
         #endregion      // AddParameter()
 
-        #region NormalizeMagnitude()
-        /// <summary>
-        /// Normalize a magnitude string (possibly a UI/display string) to the canonical DB token.
-        /// </summary>
-        /// <param name="magnitude">The magnitude string to normalize.</param>
-        /// <returns>One of "Base", "Kilo", or "Mega" (defaults to "Base" on unknown).</returns>
-        private static string NormalizeMagnitude(string magnitude)
-        {
-            if (string.IsNullOrWhiteSpace(magnitude)) return "Base";
+        //#region NormalizeMagnitude()
+        ///// <summary>
+        ///// Normalize a magnitude string (possibly a UI/display string) to the canonical DB token.
+        ///// </summary>
+        ///// <param name="magnitude">The magnitude string to normalize.</param>
+        ///// <returns>One of "Base", "Kilo", or "Mega" (defaults to "Base" on unknown).</returns>
+        //private static string NormalizeMagnitude(string magnitude)
+        //{
+        //    if (string.IsNullOrWhiteSpace(magnitude)) return "Base";
 
-            // If already canonical, return as-is
-            if (string.Compare(magnitude, "Base", true) == 0) return "Base";
-            if (string.Compare(magnitude, "Kilo", true) == 0) return "Kilo";
-            if (string.Compare(magnitude, "Mega", true) == 0) return "Mega";
+        //    // If already canonical, return as-is
+        //    if (string.Compare(magnitude, "Base", true) == 0) return "Base";
+        //    if (string.Compare(magnitude, "Kilo", true) == 0) return "Kilo";
+        //    if (string.Compare(magnitude, "Mega", true) == 0) return "Mega";
 
-            // Map known UI/display constants from HenProjectUnits
-            try
-            {
-                if (string.Compare(magnitude, HenGlobal.HenProjectUnits.MAG_BASE, true) == 0) return "Base";
-                if (string.Compare(magnitude, HenGlobal.HenProjectUnits.MAG_KILO, true) == 0) return "Kilo";
-                if (string.Compare(magnitude, HenGlobal.HenProjectUnits.MAG_MEGA, true) == 0) return "Mega";
-            }
-            catch
-            {
-                // Ignore and fall through to default
-            }
+        //    // Map known UI/display constants from HenProjectUnits
+        //    try
+        //    {
+        //        if (string.Compare(magnitude, HenGlobal.HenProjectUnits.MAG_BASE, true) == 0) return "Base";
+        //        if (string.Compare(magnitude, HenGlobal.HenProjectUnits.MAG_KILO, true) == 0) return "Kilo";
+        //        if (string.Compare(magnitude, HenGlobal.HenProjectUnits.MAG_MEGA, true) == 0) return "Mega";
+        //    }
+        //    catch
+        //    {
+        //        // Ignore and fall through to default
+        //    }
 
-            // Fallback: attempt to detect keywords
-            if (magnitude.IndexOf("kilo", StringComparison.OrdinalIgnoreCase) >= 0) return "Kilo";
-            if (magnitude.IndexOf("mega", StringComparison.OrdinalIgnoreCase) >= 0) return "Mega";
+        //    // Fallback: attempt to detect keywords
+        //    if (magnitude.IndexOf("kilo", StringComparison.OrdinalIgnoreCase) >= 0) return "Kilo";
+        //    if (magnitude.IndexOf("mega", StringComparison.OrdinalIgnoreCase) >= 0) return "Mega";
 
-            return "Base";
-        }
-        #endregion // NormalizeMagnitude()
+        //    return "Base";
+        //}
+        //#endregion // NormalizeMagnitude()
 
         #region MapProject()
         /// <summary>
@@ -393,7 +393,8 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@DefaultHenOptimizer", DbType.String, projectDto.DefaultHenOptimizer);
                     AddParameter(command, "@DefaultSystemUnits", DbType.String, projectDto.DefaultSystemUnits);
                     // Ensure magnitude persisted is canonical DB token
-                    AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, NormalizeMagnitude(projectDto.DefaultMagnitudeUnits));
+                    //AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, NormalizeMagnitude(projectDto.DefaultMagnitudeUnits));
+                    AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectDto.DefaultMagnitudeUnits);
                     AddParameter(command, "@DefaultTemperatureUnits", DbType.String, projectDto.DefaultTemperatureUnits);
                     AddParameter(command, "@DefaultPressureUnits", DbType.String, projectDto.DefaultPressureUnits);
 
@@ -441,7 +442,8 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@DefaultHenOptimizer", DbType.String, projectDto.DefaultHenOptimizer);
                     AddParameter(command, "@DefaultSystemUnits", DbType.String, projectDto.DefaultSystemUnits);
                     // Ensure magnitude persisted is canonical DB token
-                    AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, NormalizeMagnitude(projectDto.DefaultMagnitudeUnits));
+                    //AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, NormalizeMagnitude(projectDto.DefaultMagnitudeUnits));
+                    AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectDto.DefaultMagnitudeUnits);
                     AddParameter(command, "@DefaultTemperatureUnits", DbType.String, projectDto.DefaultTemperatureUnits);
                     AddParameter(command, "@DefaultPressureUnits", DbType.String, projectDto.DefaultPressureUnits);
 

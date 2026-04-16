@@ -63,8 +63,8 @@ namespace HenGlobal
         #region UNITS STRINGS
 
         #region SYSTEM UNITS
-        public const string ENGLISH_UNITS = "Imperial";
-        public const string METRIC_UNITS = "SI";     // <<<--- INTERNAL ---<<<
+        public const string ENGLISH_UNITS = "English - Imperial";
+        public const string METRIC_UNITS = "Metric - SI";     // <<<--- INTERNAL ---<<<
         #endregion  // SYSTEM UNITS
 
         #region MAG - MAGNITUDE UNITS
@@ -83,10 +83,10 @@ namespace HenGlobal
 
         #region T - TEMPERATURE UNITS
         //---------------------------------------------- ENGLISH TEMPEATURE ---
-        public const string DEG_F = "F";   // $"\u00B0F";
-        public const string DEG_R = "R";   // $"\u00B0R";
+        public const string DEG_F = "°F";   // $"\u00B0F";
+        public const string DEG_R = "°R";   // $"\u00B0R";
         //----------------------------------------------- METRIC TEMPEATURE ---
-        public const string DEG_C = "C";   // $"\u00B0C";
+        public const string DEG_C = "°C";   // $"\u00B0C";
         public const string KELVIN = "K";   // <<<---------------- INTERNAL ---<<<
         #endregion  // T - TEMPERATURE UNITS
 

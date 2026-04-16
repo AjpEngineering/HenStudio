@@ -108,6 +108,7 @@
       <DependentUpon>FormUserLicenseAgreement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectViewData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAboutPinch.resx">
       <DependentUpon>FormAboutPinch.cs</DependentUpon>
@@ -189,7 +190,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />
-    <Content Include="tmp_open_placeholder.txt" />
     <None Include="Resources\ICON_16x16\AJP_HEN_StudioGraphic_16x16.ico" />
     <None Include="Resources\HEN Studio Graphic...32x32.png" />
     <None Include="Resources\AJP Refinery...1280x720.png" />

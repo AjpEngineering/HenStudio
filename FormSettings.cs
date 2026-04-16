@@ -35,6 +35,8 @@
 #region REFERENCES
 using HenGlobal;
 
+using HenRepositories.Dto;
+
 using HenStudio.Properties;
 
 using System;
@@ -67,6 +69,7 @@ namespace HenStudio
 
         #region PROPERTIES
         public DefaultProjectSettings NewProjectSettingsObj { get; set; } // NEW PROJECT Settings Object
+        public ProjectViewData ProjectViewDataObj { get; set; } // Project (Panel) View Data Object
         #endregion  // PROPERTIES
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -77,32 +80,38 @@ namespace HenStudio
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public FormSettings()
+        public FormSettings(AppGlobalSettingsDto appGlobalSettingsObj)
         {
             //------------------------------------------------
             //--- Initialize New Project Settings Property ---
             //------------------------------------------------
             NewProjectSettingsObj = new DefaultProjectSettings();
+            ProjectViewDataObj = new ProjectViewData();
 
             InitializeComponent();
 
             //----------------------------------
             //--- Initialize Textbox Strings ---
             //----------------------------------
-            this.textBoxProjectNameValue.Text = NewProjectSettingsObj.NewProjectName;
-            this.textBoxProjectDescriptionValue.Text = NewProjectSettingsObj.NewProjectDescription;
+            this.textBoxProjectNameValue.Text = "Enter Project Name";
+            this.textBoxProjectDescriptionValue.Text = "Enter Project Description";
 
-            //-------------------------------------------
-            //--- Initialize with METRIC System Units ---
-            //-------------------------------------------
-            //SetDefaultMetricSettings();
-            //LoadHenOptimizer();
-
-            //--------------------------------------------
-            //--- Initialize with ENGLISH System Units ---
-            //--------------------------------------------
-            SetDefaultEngslishSettings();
-            LoadHenOptimizer();
+            if(string.Compare(appGlobalSettingsObj.ExternalSystemUnits, "English - Imperial", true)==0)
+            {
+                //--------------------------------------------
+                //--- Initialize with ENGLISH System Units ---
+                //--------------------------------------------
+                SetDefaultEngslishSettings();
+                LoadHenOptimizer();
+            }
+            else if (string.Compare(appGlobalSettingsObj.ExternalSystemUnits, "Metric - SI", true) == 0)
+            {
+                //------------------------------------------
+                //---Initialize with METRIC System Units ---
+                //------------------------------------------
+                SetDefaultMetricSettings();
+                LoadHenOptimizer();
+            }
         }
         #endregion  // CTOR
 
@@ -866,33 +875,30 @@ namespace HenStudio
                 //---------------------------------------------------------------------
 
                 #region TEXTBOX STRINGS
-                NewProjectSettingsObj.NewProjectName = this.textBoxProjectNameValue.Text;
-                NewProjectSettingsObj.NewProjectDescription = this.textBoxProjectDescriptionValue.Text;
+                ProjectViewDataObj.Name = this.textBoxProjectNameValue.Text;
+                ProjectViewDataObj.Description = this.textBoxProjectDescriptionValue.Text;
                 #endregion  // TEXTBOX STRINGS
 
                 #region DEFAULT EXCHANGER PARAMETERS
-                NewProjectSettingsObj.ProjectExchangerU = Convert.ToDouble(textBoxDefaultU_Value.Text);
+                ProjectViewDataObj.ProjectU_Value = textBoxDefaultU_Value.Text;
                 #endregion  // DEFAULT EXCHANGER PARAMETERS
 
                 #region DEFAULT HEN OPTIMIZER
-                NewProjectSettingsObj.HenOptimizerEnum = NewProjectSettingsObj.GetHenOptimizerEnum(comboBoxDefaultHenOpitimizer.Text);
+                ProjectViewDataObj.ProjectHenOptimizer = comboBoxDefaultHenOpitimizer.Text;
                 #endregion  // DEFAULT HEN OPTIMIZER
 
                 #region DEFAULT PROJECT UNITS
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = NewProjectSettingsObj.ExternalUnitsObj.GetSystemUnitsEnum(comboBoxUnitsSystem.Text);
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = NewProjectSettingsObj.ExternalUnitsObj.GetMagnitudeEnum(comboBoxUnitsMagnitude.Text);
+                ProjectViewDataObj.ProjectSystem_Units = comboBoxUnitsSystem.Text;
+                ProjectViewDataObj.ProjectMagnitude_Units = comboBoxUnitsMagnitude.Text;
 
-                if(NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum == ProjectSystemUnits.ENGLISH)
-                {
-                    NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishTempEnum = NewProjectSettingsObj.ExternalUnitsObj.GetEnglishTempEnum(comboBoxUnitsTemp.Text);
-                    NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishPressEnum = NewProjectSettingsObj.ExternalUnitsObj.GetEnglishPressEnum(comboBoxUnitsPress.Text);
-                }
-                else if (NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum == ProjectSystemUnits.METRIC)
-                {
-                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricTempEnum = NewProjectSettingsObj.ExternalUnitsObj.GetMetricTempEnum(comboBoxUnitsTemp.Text);
-                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricPressEnum = NewProjectSettingsObj.ExternalUnitsObj.GetMetricPressEnum(comboBoxUnitsPress.Text);
-                }
+                ProjectViewDataObj.ProjectTemperature_Units = comboBoxUnitsTemp.Text;
+                ProjectViewDataObj.ProjectPressure_Units = comboBoxUnitsPress.Text;
                 #endregion  // DEFAULT PROJECT UNITS
+
+                ProjectViewDataObj.ProjectArea_Units = textBoxUnitsAreaValue.Text;
+                ProjectViewDataObj.ProjectDuty_Units = textBoxUnitsDutyValue.Text;
+                ProjectViewDataObj.ProjectCP_Units = textBoxUnitsCPValue.Text;
+                ProjectViewDataObj.ProjectU_Units = textBoxUnitsUValue.Text;
             }
             catch (Exception ex)
             {
