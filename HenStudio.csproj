@@ -95,11 +95,11 @@
     <Compile Include="FormRename.Designer.cs">
       <DependentUpon>FormRename.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSettings.cs">
+    <Compile Include="FormProjectNewModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSettings.Designer.cs">
-      <DependentUpon>FormSettings.cs</DependentUpon>
+    <Compile Include="FormProjectNewModify.Designer.cs">
+      <DependentUpon>FormProjectNewModify.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUserLicenseAgreement.cs">
       <SubType>Form</SubType>
@@ -123,8 +123,8 @@
     <EmbeddedResource Include="FormRename.resx">
       <DependentUpon>FormRename.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSettings.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
+    <EmbeddedResource Include="FormProjectNewModify.resx">
+      <DependentUpon>FormProjectNewModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserLicenseAgreement.resx">
       <DependentUpon>FormUserLicenseAgreement.cs</DependentUpon>

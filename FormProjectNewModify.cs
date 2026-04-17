@@ -60,7 +60,7 @@ namespace HenStudio
     ///  New Project Data Form Class (FormSettings)
     /// </summary>
 
-    public partial class FormSettings : Form
+    public partial class FormProjectNewModify : Form
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio";
@@ -80,7 +80,7 @@ namespace HenStudio
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public FormSettings(AppGlobalSettingsDto appGlobalSettingsObj)
+        public FormProjectNewModify(AppGlobalSettingsDto appGlobalSettingsObj)
         {
             //------------------------------------------------
             //--- Initialize New Project Settings Property ---
