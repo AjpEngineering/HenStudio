@@ -39,6 +39,8 @@ using HenRepositories.Dto;
 
 using HenStudio.Properties;
 
+using HenViewModels;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -68,6 +70,7 @@ namespace HenStudio
         #endregion      // CONSTANTS
 
         #region PROPERTIES
+        public string OrigProjectName { get; set; } // Original Project Name
         public bool NewProjectFlag { get; set; } // NEW PROJECT Flag (true = New Project, false = Modify Project)
         public DefaultProjectSettings NewProjectSettingsObj { get; set; } // NEW PROJECT Settings Object
         public ProjectViewData ProjectViewDataObj { get; set; } // Project (Panel) View Data Object
@@ -83,6 +86,7 @@ namespace HenStudio
         /// </summary>
         public FormProjectNewModify(AppGlobalSettingsDto appGlobalSettingsObj)
         {
+            OrigProjectName = string.Empty;
             NewProjectFlag = true; // NEW Project
 
             //------------------------------------------------
@@ -129,6 +133,8 @@ namespace HenStudio
         /// </summary>
         public FormProjectNewModify(ProjectViewData projectViewDataObj)
         {
+            OrigProjectName = projectViewDataObj.Name;
+
             NewProjectFlag = false; // MODIFY Project
 
             //------------------------------------------------
@@ -305,27 +311,18 @@ namespace HenStudio
             string strMethod = "UpdateTitleText";
             try
             {
+                string strTrimedProjectName = this.textBoxProjectNameValue.Text.Trim();
                 if (NewProjectFlag)
                 {
-                    if(this.textBoxProjectNameValue.Text.Trim().Length == 0)
-                    {
-                        this.Text = "NEW Project Data";
-                    }
-                    else
-                    {
-                        this.Text = string.Format("NEW Project Data : {0}", this.textBoxProjectNameValue.Text);
-                    }
+                    if(strTrimedProjectName.Length == 0)    this.Text = "NEW Project Data";
+                    else this.Text = string.Format("NEW Project Data : {0}", 
+                                                   this.textBoxProjectNameValue.Text);
                 }
                 else
                 {
-                    if (this.textBoxProjectNameValue.Text.Trim().Length == 0)
-                    {
-                        this.Text = "MODIFY Project Data";
-                    }
-                    else
-                    {
-                        this.Text = string.Format("MODIFY Project Data : {0}", this.textBoxProjectNameValue.Text);
-                    }
+                    if (strTrimedProjectName.Length == 0)    this.Text = "MODIFY Project Data";
+                    else this.Text = string.Format("MODIFY Project Data : {0}", 
+                                                   this.textBoxProjectNameValue.Text);
                 }
             }
             catch (Exception ex)
@@ -357,10 +354,14 @@ namespace HenStudio
             try
             {
                 #region PROJECT NAME
+                //------------------------------------------------------------------------------------------------------
+                //--- DON'T TRIM ... Allow Leading and Trailing Spaces in Project Name ... Just Check for Length > 0 ---
+                //------------------------------------------------------------------------------------------------------
+                //this.textBoxProjectNameValue.Text = this.textBoxProjectNameValue.Text.Trim();
+
                 //------------------------------------------
                 //--- Project Name Test for Empty String ---
                 //------------------------------------------
-                this.textBoxProjectNameValue.Text = this.textBoxProjectNameValue.Text.Trim();
                 string strValueProjectName = this.textBoxProjectNameValue.Text;
                 if (strValueProjectName.Length > 0)
                 {
@@ -971,6 +972,15 @@ namespace HenStudio
         #endregion  // COMBO BOX SELECTIOCHANGE HANDLERS
 
         #region OK BUTTON HANDLER
+        /// <summary>
+        /// Handles the Click event of the OK button, updating the project data object with values from the form
+        /// controls.
+        /// </summary>
+        /// <remarks>This method collects user input from the form fields and assigns the values to the
+        /// corresponding properties of the project data object. It is typically used to save or apply user changes when
+        /// the OK button is clicked.</remarks>
+        /// <param name="sender">The source of the event, typically the OK button.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void buttonOK_Click(object sender, EventArgs e)
         {
             string strMethod = "buttonOK_Click";
@@ -1002,10 +1012,56 @@ namespace HenStudio
                 ProjectViewDataObj.ProjectPressure_Units = comboBoxUnitsPress.Text;
                 #endregion  // DEFAULT PROJECT UNITS
 
+                #region DERIVED UNITS
                 ProjectViewDataObj.ProjectArea_Units = textBoxUnitsAreaValue.Text;
                 ProjectViewDataObj.ProjectDuty_Units = textBoxUnitsDutyValue.Text;
                 ProjectViewDataObj.ProjectCP_Units = textBoxUnitsCPValue.Text;
                 ProjectViewDataObj.ProjectU_Units = textBoxUnitsUValue.Text;
+                #endregion  // DERIVED UNITS
+
+                //----------------------------------------------------------------------
+                //--- Check if New Project Creation or Existing Project Modification ---
+                //--- (Based on Original Project Name vs Current Project Name)       ---
+                //----------------------------------------------------------------------
+                if ((NewProjectFlag) ||
+                    ((!NewProjectFlag)&&(ProjectViewDataObj.Name != OrigProjectName)))
+                {
+                    string strProjectName = this.textBoxProjectNameValue.Text.Trim();
+                    //---------------------------------------------------------------------------------------------
+                    //--- Check if Existing Project Data is Present for Project (Should Not Be for New Project) ---
+                    //---------------------------------------------------------------------------------------------
+                    ProjectViewModel projectViewModelObj = new ProjectViewModel();
+                    ProjectDto projectDtoObj = projectViewModelObj.GetProjectByName(strProjectName);
+                    if(projectDtoObj != null)
+                    {
+                        HenLogger.WriteSeparatorLine('*');
+                        HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, String.Format("WARNING: Existing Project Data Found for Project Name: {0}", strProjectName));
+                        HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, "WARNING: This Should Not Occur for New Project Creation");
+                        HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, "WARNING: Check Logic for New vs Modify Project in FormProjectNewModify");
+                        HenLogger.WriteSeparatorLine('*');
+
+                        HenMsgDlg.DisplayErrorDlg(String.Format("ERROR: Existing Project Data Found for Project Name: {0}", strProjectName));
+                        
+                        //-------------------------------------------------------------------------------------------
+                        //--- Exit without Saving Data since Existing Project Data Found for New Project Creation ---
+                        //-------------------------------------------------------------------------------------------
+                        DialogResult = DialogResult.Retry;
+                        return;
+                    }
+
+                    //--------------------------------------
+                    //--- NEW PROJECT: Set Creation Date ---
+                    //--------------------------------------
+                    ProjectViewDataObj.ProjectCreationDate = DateTime.Now;
+                    ProjectViewDataObj.ProjectModificationDate = DateTime.Now;
+                }
+                else
+                {
+                    //---------------------------------------------
+                    //--- MODIFY PROJECT: Set Modification Date ---
+                    //---------------------------------------------
+                    ProjectViewDataObj.ProjectModificationDate = DateTime.Now;
+                }
             }
             catch (Exception ex)
             {
@@ -1020,13 +1076,20 @@ namespace HenStudio
         #endregion  // OK BUTTON HANDLER
 
         #region CANCEL BUTTON HANDLER
+        /// <summary>
+        /// Handles the Click event of the Cancel button by closing the form and returning to the previous screen.
+        /// </summary>
+        /// <param name="sender">The source of the event, typically the Cancel button.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             string strMethod = "buttonCancel_Click";
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Cancel Button Click");
             try
             {
-                //HenMsgDlg.DisplayWarningDlg("Handle Cancel Button Click!");
+                //-------------------------------------------------------------------------------
+                //--- No Action Needeed ... Just Close the Form and Return to Previous Screen ---
+                //-------------------------------------------------------------------------------
             }
             catch (Exception ex)
             {

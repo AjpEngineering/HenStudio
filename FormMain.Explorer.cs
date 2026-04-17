@@ -790,6 +790,12 @@ namespace HenStudio
                 FormProjectNewModify dlg = new FormProjectNewModify(HenSettingsObj.AppGlobalSettingsObj);
                 if (dlg.ShowDialog()!=DialogResult.OK) return;   // User Canceled Dialog
 
+                //-------------------------
+                //--- Update Form Title ---
+                //-------------------------
+                HenSettingsObj.CurrentProjectName = dlg.ProjectViewDataObj.Name;
+                UpdateProjectNameUI();
+
                 //------------------------------------------------------------------------------
                 //--- Get New Project Name from Dialog and Format Display Name for Tree Node ---
                 //------------------------------------------------------------------------------
@@ -1031,159 +1037,7 @@ namespace HenStudio
 
         #endregion  // HANDLE NEW NODE EVENTS
 
-        #region HANDLE DELETE NODE EVENTS
-
-        #region HandleDeleteProject
-        /// <summary>
-        /// Common Delete Project Command Handler. 
-        /// </summary>
-        private void HandleDeleteProject()
-        {
-            string strMethod = "HandleDeleteProject";
-            try
-            {
-                //-----------------------------------------
-                //--- Delete Project Data from Database ---
-                //-----------------------------------------
-                HenMsgDlg.DisplayWarningDlg("Delete PROJECT Data from Database");
-
-                //-----------------------------------------------------------------------------
-                //--- Delete the Selected Project Tree Node and All Sub Nodes from the Tree ---
-                //-----------------------------------------------------------------------------
-                DeleteSelectedNode();
-
-                //------------------------------
-                //--- Set Project Dirty Flag ---
-                //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
-                UpdateProjectDirtyFlagLabel();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleDeleteProject
-
-        #region HandleDeleteProfile
-        /// <summary>
-        /// Common Delete Profile Command Handler. 
-        /// </summary>
-        private void HandleDeleteProfile()
-        {
-            string strMethod = "HandleDeleteProfile";
-            try
-            {
-                //-----------------------------------------
-                //--- Delete Profile Data from Database ---
-                //-----------------------------------------
-                HenMsgDlg.DisplayWarningDlg("Delete PROFILE Data from Database");
-
-                //-----------------------------------------------------------------------------
-                //--- Delete the Selected Profile Tree Node and All Sub Nodes from the Tree ---
-                //-----------------------------------------------------------------------------
-                DeleteSelectedNode();
-
-                //------------------------------
-                //--- Set Project Dirty Flag ---
-                //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
-                UpdateProjectDirtyFlagLabel();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleDeleteProfile
-
-        #region HandleDeletePinch
-        /// <summary>
-        /// Common Delete Pinch Command Handler. 
-        /// </summary>
-        private void HandleDeletePinch()
-        {
-            string strMethod = "HandleDeletePinch";
-            try
-            {
-                //---------------------------------------
-                //--- Delete Pinch Data from Database ---
-                //---------------------------------------
-                HenMsgDlg.DisplayWarningDlg("Delete PINCH Data from Database");
-
-                //---------------------------------------------------------------------------
-                //--- Delete the Selected Pinch Tree Node and All Sub Nodes from the Tree ---
-                //---------------------------------------------------------------------------
-                DeleteSelectedNode();
-
-                //------------------------------
-                //--- Set Project Dirty Flag ---
-                //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
-                UpdateProjectDirtyFlagLabel();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleDeletePinch
-
-        #region HandleDeleteHen
-        /// <summary>
-        /// Common Delete HEN Command Handler. 
-        /// </summary>
-        private void HandleDeleteHen()
-        {
-            string strMethod = "HandleDeleteHen";
-            try
-            {
-                //-------------------------------------
-                //--- Delete HEN Data from Database ---
-                //-------------------------------------
-                HenMsgDlg.DisplayWarningDlg("Delete HEN Data from Database");
-
-                //-------------------------------------------------------
-                //--- Delete the Selected HEN Tree Node from the Tree ---
-                //-------------------------------------------------------
-                DeleteSelectedNode();
-
-                //------------------------------
-                //--- Set Project Dirty Flag ---
-                //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
-                UpdateProjectDirtyFlagLabel();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleDeleteHen
-
-        #endregion  // HANDLE DELETE NODE EVENTS
-
-        #region HANDLE RENAME NODE EVENTS
+        #region HANDLE MODIFY NODE EVENTS
 
         #region HandleModifyProject
         /// <summary>
@@ -1225,6 +1079,12 @@ namespace HenStudio
                 //----------------------------------------
                 FormProjectNewModify dlg = new FormProjectNewModify(projectViewDataObj);
                 if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
+
+                //-------------------------
+                //--- Update Form Title ---
+                //-------------------------
+                HenSettingsObj.CurrentProjectName = dlg.ProjectViewDataObj.Name;
+                UpdateProjectNameUI();
 
                 //------------------------------------------------------------------
                 //--- Get ProjectDto Object from Panel Data (ProjectViewDataObj) ---
@@ -1436,7 +1296,172 @@ namespace HenStudio
         }
         #endregion  // HandleRenameHen
 
-        #endregion  // HANDLE RENAME NODE EVENTS
+        #endregion  // HANDLE MODIFY NODE EVENTS
+
+        #region HANDLE DELETE NODE EVENTS
+
+        #region HandleDeleteProject
+        /// <summary>
+        /// Common Delete Project Command Handler. 
+        /// </summary>
+        private void HandleDeleteProject()
+        {
+            string strMethod = "HandleDeleteProject";
+            TreeNode node;
+            try
+            {
+                node = GetSelectedNode();
+                //-----------------------
+                //--- Null Node Guard ---
+                //-----------------------
+                if (node == null) throw new Exception("Null Project Node Encountered!");
+
+                //---------------------------------------------------------------
+                //--- GetProject ViewModel Object to Retrieve Project from DB ---
+                //---------------------------------------------------------------
+                var projectViewModelObj = new ProjectViewModel();
+
+                //------------------------------------------------------------------------------------------------------
+                //--- Get ProjectID from Selected Node Tag and Retrieve Project Data from DB using Project ViewModel ---
+                //------------------------------------------------------------------------------------------------------
+                Guid projectID = ((DataTagDisplay)treeViewCurrentProjectExplorer.SelectedNode.Tag).ProjectID;
+                projectViewModelObj.DeleteProject(projectID);
+
+                //-----------------------------------------------------------------------------
+                //--- Delete the Selected Project Tree Node and All Sub Nodes from the Tree ---
+                //-----------------------------------------------------------------------------
+                DeleteSelectedNode();
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
+                UpdateProjectDirtyFlagLabel();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleDeleteProject
+
+        #region HandleDeleteProfile
+        /// <summary>
+        /// Common Delete Profile Command Handler. 
+        /// </summary>
+        private void HandleDeleteProfile()
+        {
+            string strMethod = "HandleDeleteProfile";
+            try
+            {
+                //-----------------------------------------
+                //--- Delete Profile Data from Database ---
+                //-----------------------------------------
+                HenMsgDlg.DisplayWarningDlg("Delete PROFILE Data from Database");
+
+                //-----------------------------------------------------------------------------
+                //--- Delete the Selected Profile Tree Node and All Sub Nodes from the Tree ---
+                //-----------------------------------------------------------------------------
+                DeleteSelectedNode();
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
+                UpdateProjectDirtyFlagLabel();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleDeleteProfile
+
+        #region HandleDeletePinch
+        /// <summary>
+        /// Common Delete Pinch Command Handler. 
+        /// </summary>
+        private void HandleDeletePinch()
+        {
+            string strMethod = "HandleDeletePinch";
+            try
+            {
+                //---------------------------------------
+                //--- Delete Pinch Data from Database ---
+                //---------------------------------------
+                HenMsgDlg.DisplayWarningDlg("Delete PINCH Data from Database");
+
+                //---------------------------------------------------------------------------
+                //--- Delete the Selected Pinch Tree Node and All Sub Nodes from the Tree ---
+                //---------------------------------------------------------------------------
+                DeleteSelectedNode();
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
+                UpdateProjectDirtyFlagLabel();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleDeletePinch
+
+        #region HandleDeleteHen
+        /// <summary>
+        /// Common Delete HEN Command Handler. 
+        /// </summary>
+        private void HandleDeleteHen()
+        {
+            string strMethod = "HandleDeleteHen";
+            try
+            {
+                //-------------------------------------
+                //--- Delete HEN Data from Database ---
+                //-------------------------------------
+                HenMsgDlg.DisplayWarningDlg("Delete HEN Data from Database");
+
+                //-------------------------------------------------------
+                //--- Delete the Selected HEN Tree Node from the Tree ---
+                //-------------------------------------------------------
+                DeleteSelectedNode();
+
+                //------------------------------
+                //--- Set Project Dirty Flag ---
+                //------------------------------
+                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
+                UpdateProjectDirtyFlagLabel();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // HandleDeleteHen
+
+        #endregion  // HANDLE DELETE NODE EVENTS
 
         #region ADD NODE METHODS
 
@@ -1476,11 +1501,6 @@ namespace HenStudio
                 //--- Update Current Tree-Panel State ---
                 //---------------------------------------
                 UpdateTreeStatusBar(node);
-
-                //--------------------------------------
-                //--- Populate Current Project Panel ---
-                //--------------------------------------
-                HenMsgDlg.DisplayWarningDlg("***** Populate Current Panel *****");
 
                 //-----------------------------
                 //--- Display Project Panel ---

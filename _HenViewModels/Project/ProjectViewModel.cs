@@ -174,6 +174,15 @@ namespace HenViewModels
                 //--- Retrieve Project Dto from the Database using the Repository Layer ---
                 //-------------------------------------------------------------------------
                 ProjectDto internalProject = ProjectRepoObj.GetProjectByName(projectName);     // Retrieved Project Dto [INTERNAL Units]
+
+                //-----------------------------------------------------------------------
+                //--- Project by Name not Fould ... return null to indicate not found ---
+                //-----------------------------------------------------------------------
+                if (internalProject==null)
+                {
+                    return null; // Return null if the project is not found
+                }
+
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------

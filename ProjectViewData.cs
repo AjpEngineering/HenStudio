@@ -65,6 +65,10 @@ namespace HenStudio
         public string ProjectDuty_Units { get; set; }
         public string ProjectCP_Units { get; set; }
         public string ProjectU_Units { get; set; }
+
+        public DateTime ProjectCreationDate { get; set; }
+        public DateTime ProjectModificationDate { get; set; }
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -86,6 +90,9 @@ namespace HenStudio
             ProjectDuty_Units = string.Empty;
             ProjectCP_Units = string.Empty;
             ProjectU_Units = string.Empty;
+
+            ProjectCreationDate = DateTime.Now;
+            ProjectModificationDate = DateTime.Now;
         }
         #endregion  // CTOR
 
