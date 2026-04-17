@@ -694,14 +694,14 @@ namespace HenStudio
 
         #endregion  // NEW EVENT HANDLERS
 
-        #region RENAME EVENT HANDLERS
+        #region MODIFY EVENT HANDLERS
 
-        #region RENAME PROJECT
+        #region MODIFY PROJECT
         private void toolStripMenuItemCurProjRename_Click(object sender, EventArgs e)
         {
-            HandleRenameProject();
+            HandleModifyProject();
         }
-        #endregion  // RENAME PROJECT
+        #endregion  // MODIFY PROJECT
 
         #region RENAME PROFILE
         private void toolStripMenuItemProfileRename_Click(object sender, EventArgs e)
@@ -1185,14 +1185,13 @@ namespace HenStudio
 
         #region HANDLE RENAME NODE EVENTS
 
-        #region HandleRenameProject
+        #region HandleModifyProject
         /// <summary>
-        /// Common Rename Project Command Handler. Rename User Specified Node.
+        /// Modify Project Command Handler. Modify User Specified Node.
         /// </summary>
-        private void HandleRenameProject()
+        private void HandleModifyProject()
         {
-            string strMethod = "HandleRenameProject";
-            string strRenameFormTitle = "Rename PROJECT ";
+            string strMethod = "HandleModifyProject";
             string strOriginalName = string.Empty;
             string strNewNodeName = string.Empty;
             string strNewDisplayName = string.Empty;
@@ -1205,29 +1204,57 @@ namespace HenStudio
                 //-----------------------
                 if (node == null) throw new Exception("Null Project Node Encountered!");
 
-                //---------------------------------------
-                //--- Rename Project Data in Database ---
-                //---------------------------------------
-                HenMsgDlg.DisplayWarningDlg("RENAME PROJECT Data in Database");
+                //---------------------------------------------------------------
+                //--- GetProject ViewModel Object to Retrieve Project from DB ---
+                //---------------------------------------------------------------
+                var projectViewModelObj = new ProjectViewModel();
+
+                //------------------------------------------------------------------------------------------------------
+                //--- Get ProjectID from Selected Node Tag and Retrieve Project Data from DB using Project ViewModel ---
+                //------------------------------------------------------------------------------------------------------
+                Guid projectID = ((DataTagDisplay)treeViewCurrentProjectExplorer.SelectedNode.Tag).ProjectID;
+                ProjectDto origProjectDtoObj = projectViewModelObj.GetProjectById(projectID);
+
+                //-----------------------------------------------------------------------------------
+                //--- Get ProjectViewData Object from ProjectDto Object to Populate Project Panel ---
+                //-----------------------------------------------------------------------------------
+                ProjectViewData projectViewDataObj = GetProjectViewData(origProjectDtoObj);
+
+                //----------------------------------------
+                //--- Display Modify Project Data Form ---
+                //----------------------------------------
+                FormProjectNewModify dlg = new FormProjectNewModify(projectViewDataObj);
+                if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
+
+                //------------------------------------------------------------------
+                //--- Get ProjectDto Object from Panel Data (ProjectViewDataObj) ---
+                //------------------------------------------------------------------
+                ProjectDto ModProjectDtoObj = GetProjectDtoFromViewData(dlg.ProjectViewDataObj);
+
+                //-----------------------
+                //--- Update Database ---
+                //-----------------------
+                projectViewModelObj.UpdateProject(ModProjectDtoObj);
 
                 //---------------------------------------------
                 //--- Rename the Selected Project Tree Node ---
                 //---------------------------------------------
-                FormRename dlg = new FormRename(strRenameFormTitle, ((DataTagDisplay)node.Tag).NodeName);
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    strNewNodeName = dlg.NewNodeName;
-                    strNewDisplayName = string.Format("Project: {0}", dlg.NewNodeName);
+                strNewNodeName = ModProjectDtoObj.Name;
+                strNewDisplayName = string.Format("Project: {0}", ModProjectDtoObj.Name);
 
-                    node.Text = strNewDisplayName;
-                    ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
-                }
+                node.Text = strNewDisplayName;
+                ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
 
-                //------------------------------
-                //--- Set Project Dirty Flag ---
-                //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
-                UpdateProjectDirtyFlagLabel();
+                //----------------------------------------------------
+                //--- Populate Project Panel with New Project Data ---
+                //----------------------------------------------------
+                PopulateProjectPanel(dlg.ProjectViewDataObj);
+
+                ////------------------------------
+                ////--- Set Project Dirty Flag ---
+                ////------------------------------
+                //HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
+                //UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
@@ -1239,7 +1266,7 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // HandleRenameProject
+        #endregion  // HandleModifyProject
 
         #region HandleRenameProfile
         /// <summary>

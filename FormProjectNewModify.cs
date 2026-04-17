@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//#########################################  F o r m S e t t i n g s . c s  ###########################################
+//#################################  F o r m P r o j e c t N e w M o d i f y . c s  ###################################
 //#####################################################################################################################
-//  FILENAME:  FormSettings.cs
+//  FILENAME:  FormProjectNewModify.cs
 //  NAMESPACE: HenStudio
-//  CLASS(S):  FormSettings
+//  CLASS(S):  FormProjectNewModify
 //  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the New Project Data Form (FormSettings).
+//    This file contains the code for the New and Modify Project Data Form (FormProjectNewModify).
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -55,9 +55,9 @@ using static HenGlobal.HenTypes;
 #region namespace HenStudio
 namespace HenStudio
 {
-    #region partial class FormSettings
+    #region partial class FormProjectNewModify
     /// <summary>
-    ///  New Project Data Form Class (FormSettings)
+    ///  New and Modify Project Data Form Class (FormProjectNewModify)
     /// </summary>
 
     public partial class FormProjectNewModify : Form
@@ -68,20 +68,23 @@ namespace HenStudio
         #endregion      // CONSTANTS
 
         #region PROPERTIES
+        public bool NewProjectFlag { get; set; } // NEW PROJECT Flag (true = New Project, false = Modify Project)
         public DefaultProjectSettings NewProjectSettingsObj { get; set; } // NEW PROJECT Settings Object
         public ProjectViewData ProjectViewDataObj { get; set; } // Project (Panel) View Data Object
         #endregion  // PROPERTIES
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        //------------------------------------------------------------ CTOR ---
+        //----------------------------------------------------------- CTORs ---
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-        #region CTOR
+        #region CTOR ... NEW
         /// <summary>
-        /// Default Constructor
+        /// NEW Parameterized Constructor
         /// </summary>
         public FormProjectNewModify(AppGlobalSettingsDto appGlobalSettingsObj)
         {
+            NewProjectFlag = true; // NEW Project
+
             //------------------------------------------------
             //--- Initialize New Project Settings Property ---
             //------------------------------------------------
@@ -90,10 +93,15 @@ namespace HenStudio
 
             InitializeComponent();
 
+            //-----------------------------------
+            //--- Set Initial Form Title Text ---
+            //-----------------------------------
+            this.Text = string.Format("NEW Project Data : Project_Name");
+
             //----------------------------------
             //--- Initialize Textbox Strings ---
             //----------------------------------
-            this.textBoxProjectNameValue.Text = "Enter Project Name";
+            this.textBoxProjectNameValue.Text = "Project_Name";
             this.textBoxProjectDescriptionValue.Text = "Enter Project Description";
 
             if(string.Compare(appGlobalSettingsObj.ExternalSystemUnits, "English - Imperial", true)==0)
@@ -113,7 +121,52 @@ namespace HenStudio
                 LoadHenOptimizer();
             }
         }
-        #endregion  // CTOR
+        #endregion  // CTOR ... NEW
+
+        #region CTOR ... MODIFY
+        /// <summary>
+        /// MODIFY Parameterized Constructor
+        /// </summary>
+        public FormProjectNewModify(ProjectViewData projectViewDataObj)
+        {
+            NewProjectFlag = false; // MODIFY Project
+
+            //------------------------------------------------
+            //--- Initialize New Project Settings Property ---
+            //------------------------------------------------
+            NewProjectSettingsObj = new DefaultProjectSettings();
+            ProjectViewDataObj = projectViewDataObj;
+
+            InitializeComponent();
+
+            //-----------------------------------
+            //--- Set Initial Form Title Text ---
+            //-----------------------------------
+            this.Text = string.Format("MODIFY Project Data : {0}", projectViewDataObj.Name);
+            //----------------------------------
+            //--- Initialize Textbox Strings ---
+            //----------------------------------
+            this.textBoxProjectNameValue.Text = projectViewDataObj.Name;
+            this.textBoxProjectDescriptionValue.Text = projectViewDataObj.Description;
+
+            if (string.Compare(projectViewDataObj.ProjectSystem_Units, "English - Imperial", true) == 0)
+            {
+                //--------------------------------------------
+                //--- Initialize with ENGLISH System Units ---
+                //--------------------------------------------
+                SetDefaultEngslishSettings();
+                LoadHenOptimizer();
+            }
+            else if (string.Compare(projectViewDataObj.ProjectSystem_Units, "Metric - SI", true) == 0)
+            {
+                //------------------------------------------
+                //---Initialize with METRIC System Units ---
+                //------------------------------------------
+                SetDefaultMetricSettings();
+                LoadHenOptimizer();
+            }
+        }
+        #endregion  // CTOR ... MODIFY
 
         #region PopulateUnitsControls()
         /// <summary>
@@ -241,7 +294,60 @@ namespace HenStudio
         //-------------------------------------------------- EVENT HANDLERS ---
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+        #region UpdateTitleText()
+        /// <summary>
+        /// Updates the window title to reflect the current project state and name.
+        /// </summary>
+        /// <remarks>Sets the title to indicate whether a new project is being created or an existing
+        /// project is being modified, based on the current context.</remarks>
+        private void UpdateTitleText()
+        {
+            string strMethod = "UpdateTitleText";
+            try
+            {
+                if (NewProjectFlag)
+                {
+                    if(this.textBoxProjectNameValue.Text.Trim().Length == 0)
+                    {
+                        this.Text = "NEW Project Data";
+                    }
+                    else
+                    {
+                        this.Text = string.Format("NEW Project Data : {0}", this.textBoxProjectNameValue.Text);
+                    }
+                }
+                else
+                {
+                    if (this.textBoxProjectNameValue.Text.Trim().Length == 0)
+                    {
+                        this.Text = "MODIFY Project Data";
+                    }
+                    else
+                    {
+                        this.Text = string.Format("MODIFY Project Data : {0}", this.textBoxProjectNameValue.Text);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion  // UpdateTitleText()
+
         #region IsFormDataValid()
+        /// <summary>
+        /// Determines whether the current form data is valid based on the project name and exchanger U value fields.
+        /// </summary>
+        /// <remarks>This method updates the visual state of the form controls to indicate validation
+        /// results. The OK button is enabled only when all required fields are valid.</remarks>
+        /// <returns>true if both the project name is not empty and the exchanger U value is a valid, positive number; otherwise,
+        /// false.</returns>
         private bool IsFormDataValid()
         {
             string strMethod = "IsFormDataValid";
@@ -380,6 +486,7 @@ namespace HenStudio
         #region PROJECT NAME TEXTBOX TEXT CHANGED ... Ensure Text is not Blank
         private void textBoxProjectNameValue_TextChanged(object sender, EventArgs e)
         {
+            UpdateTitleText();
             IsFormDataValid();
         }
         #endregion      //PROJECT NAME TEXTBOX TEXT CHANGED ... Ensure Text is not Blank
@@ -934,7 +1041,7 @@ namespace HenStudio
         #endregion  // CANCEL BUTTON HANDLER
 
     }
-    #endregion// partial class FormSettings
+    #endregion// partial class FormProjectNewModify
 
 }
 #endregion      // namespace HenStudio

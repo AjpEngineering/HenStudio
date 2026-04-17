@@ -2256,7 +2256,7 @@ namespace HenStudio
 
         #endregion  // Project Panel
     }
-    #endregion      // class FormPinch
+    #endregion      // class FormMain
 }
 #endregion      // namespace HenStudio
 
