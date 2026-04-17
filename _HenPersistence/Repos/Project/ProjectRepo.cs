@@ -392,8 +392,6 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@DefaultHeatTransferCoefficient", DbType.Double, projectDto.DefaultHeatTransferCoefficient);
                     AddParameter(command, "@DefaultHenOptimizer", DbType.String, projectDto.DefaultHenOptimizer);
                     AddParameter(command, "@DefaultSystemUnits", DbType.String, projectDto.DefaultSystemUnits);
-                    // Ensure magnitude persisted is canonical DB token
-                    //AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, NormalizeMagnitude(projectDto.DefaultMagnitudeUnits));
                     AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectDto.DefaultMagnitudeUnits);
                     AddParameter(command, "@DefaultTemperatureUnits", DbType.String, projectDto.DefaultTemperatureUnits);
                     AddParameter(command, "@DefaultPressureUnits", DbType.String, projectDto.DefaultPressureUnits);

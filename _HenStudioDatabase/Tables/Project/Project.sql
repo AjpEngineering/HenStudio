@@ -41,5 +41,5 @@ CREATE TABLE [dbo].[Project]
     CONSTRAINT [CK_Project_DefaultSystemUnits] CHECK ([DefaultSystemUnits] IN (N'Metric - SI', N'English - Imperial')),
     CONSTRAINT [CK_Project_DefaultMagnitudeUnits] CHECK ([DefaultMagnitudeUnits] IN (N'Base', N'Kilo', N'Mega')),
     CONSTRAINT [CK_Project_DefaultTemperatureUnits] CHECK ([DefaultTemperatureUnits] IN (N'°C', N'°F', N'K', N'°R')),
-    CONSTRAINT [CK_Project_DefaultPressureUnits] CHECK ([DefaultPressureUnits] IN (N'Pa', N'bar', N'psia', N'psig', N'psf', N'atm', N'inHg', N'inH2O'))
+    CONSTRAINT [CK_Project_DefaultPressureUnits] CHECK ([DefaultPressureUnits] IN (N'Pa', N'kPa', N'MPa', N'bar', N'kBar', N'MBar', N'psia', N'psig', N'psf', N'atm', N'inHg', N'inH2O'))
 );

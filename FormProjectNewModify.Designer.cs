@@ -129,7 +129,7 @@
             this.textBoxUDefinition.ReadOnly = true;
             this.textBoxUDefinition.Size = new System.Drawing.Size(251, 18);
             this.textBoxUDefinition.TabIndex = 31;
-            this.textBoxUDefinition.Text = "[ U ... Overall Heat Transfer Coefficient ]";
+            this.textBoxUDefinition.Text = "[ U ... Heat Transfer Coefficient ]";
             // 
             // textBoxUnitsUValue
             // 
@@ -642,7 +642,7 @@
             this.panelDefaultParmeters.Size = new System.Drawing.Size(482, 146);
             this.panelDefaultParmeters.TabIndex = 36;
             // 
-            // FormSettings
+            // FormProjectNewModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -664,7 +664,7 @@
             this.MaximumSize = new System.Drawing.Size(887, 500);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(887, 500);
-            this.Name = "FormSettings";
+            this.Name = "FormProjectNewModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Project Data";
             this.panelProjectUnits.ResumeLayout(false);

@@ -337,7 +337,7 @@ namespace HenStudio
                 }
 
                 //---------------------------------------------------------------
-                //--- Check for at least one Project to add Root Node to Tree ---
+                //--- Check for at least One Project to add Root Node to Tree ---
                 //--- (otherwise Tree will be Empty with just Root Node)      ---
                 //---------------------------------------------------------------
                 if (projects.Count > 0)
@@ -606,214 +606,6 @@ namespace HenStudio
         }
         #endregion  // HandleSelectionChange()
 
-        #region DTO TO-FROM PANEL VIEW DATA ... CONVERSION METHODS
-
-        #region GetProjectViewData()
-        /// <summary>
-        /// Creates a new ProjectViewData instance populated with All Project Panel data 
-        /// based on the specified Project Data Transfer Object values.
-        /// </summary>
-        /// <remarks>The returned ProjectViewData will have its Properties set according to the
-        /// system, magnitude, and temperature units specified in the input ProjectDto. This ensures that all
-        /// unit-related fields are consistent with the project's configuration.</remarks>
-        /// <param name="projectDto">The Project Data Transfer Object containing the source Project information. 
-        /// Cannot be null.</param>
-        /// <returns>A ProjectViewData object containing the mapped project details and unit display values derived from the
-        /// provided project data.</returns>
-        private ProjectViewData GetProjectViewData(ProjectDto projectDto)
-        {
-            //-----------------------------
-            //--- Null ProjectDto Guard ---
-            //-----------------------------
-            if (projectDto == null) throw new ArgumentNullException(nameof(projectDto), 
-                                       "Project Data Transfer Object cannot be null.");
-
-            ProjectViewData projectViewDataObj = new ProjectViewData();
-
-            projectViewDataObj.Id = projectDto.Id;
-            projectViewDataObj.Name = projectDto.Name;
-            projectViewDataObj.Description = projectDto.Description;
-            projectViewDataObj.ProjectU_Value = projectDto.DefaultHeatTransferCoefficient.ToString();
-            projectViewDataObj.ProjectHenOptimizer = projectDto.DefaultHenOptimizer;
-
-            projectViewDataObj.ProjectSystem_Units = projectDto.DefaultSystemUnits;
-            projectViewDataObj.ProjectMagnitude_Units = projectDto.DefaultMagnitudeUnits;
-            projectViewDataObj.ProjectTemperature_Units = projectDto.DefaultTemperatureUnits;
-            projectViewDataObj.ProjectPressure_Units = projectDto.DefaultPressureUnits;
-            
-            #region ENGLISH
-            if(string.Compare(projectDto.DefaultSystemUnits, "English - Imperial", true) ==0)
-            {
-                projectViewDataObj.ProjectArea_Units = "ft2";
-
-                #region BASE
-                if (string.Compare(projectDto.DefaultMagnitudeUnits, "Base", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "Btu/hr";
-
-                    if (string.Compare(projectDto.DefaultTemperatureUnits, "°F", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "BTU/(hr·°F)";
-                        projectViewDataObj.ProjectU_Units = "BTU/(hr·ft2·°F)";
-                    }
-                    else if (string.Compare(projectDto.DefaultTemperatureUnits, "°R", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "BTU/(hr·°R)";
-                        projectViewDataObj.ProjectU_Units = "BTU/(hr·ft2·°R)";
-                    }
-                }
-                #endregion  // BASE
-                
-                #region KILO
-                else if (string.Compare(projectDto.DefaultMagnitudeUnits, "Kilo", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "KBtu/hr";
-
-                    if (string.Compare(projectDto.DefaultTemperatureUnits, "°F", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "KBTU/(hr·°F)";
-                        projectViewDataObj.ProjectU_Units = "KBTU/(hr·ft2·°F)";
-                    }
-                    else if (string.Compare(projectDto.DefaultTemperatureUnits, "°R", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "KBTU/(hr·°R)";
-                        projectViewDataObj.ProjectU_Units = "KBTU/(hr·ft2·°R)";
-                    }
-
-                }
-                #endregion  // KILO
-                
-                #region MEGA
-                else if (string.Compare(projectDto.DefaultMagnitudeUnits, "Mega", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "MMBtu/hr";
-
-                    if (string.Compare(projectDto.DefaultTemperatureUnits, "°F", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "MMBTU/(hr·°F)";
-                        projectViewDataObj.ProjectU_Units = "MMBTU/(hr·ft2·°F)";
-                    }
-                    else if (string.Compare(projectDto.DefaultTemperatureUnits, "°R", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "MMBTU/(hr·°R)";
-                        projectViewDataObj.ProjectU_Units = "MMBTU/(hr·ft2·°R)";
-                    }
-
-                }
-                #endregion  // MEGA
-            }
-            #endregion  // ENGLISH
-
-            #region METRIC
-            else if (string.Compare(projectDto.DefaultSystemUnits, "Metric - SI", true) == 0)
-            {
-                projectViewDataObj.ProjectArea_Units = "m2";
-
-                #region BASE
-                if (string.Compare(projectDto.DefaultMagnitudeUnits, "Base", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "W";
-
-                    if (string.Compare(projectDto.DefaultTemperatureUnits, "K", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "W/(K)";
-                        projectViewDataObj.ProjectU_Units = "W/(m2·K)";
-                    }
-                    else if (string.Compare(projectDto.DefaultTemperatureUnits, "°C", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "W/(°C)";
-                        projectViewDataObj.ProjectU_Units = "W/(m2·°C)";
-                    }
-                }
-                #endregion  // BASE
-
-                #region KILO
-                else if (string.Compare(projectDto.DefaultMagnitudeUnits, "Kilo", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "kW";
-
-                    if (string.Compare(projectDto.DefaultTemperatureUnits, "K", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "kW/(K)";
-                        projectViewDataObj.ProjectU_Units = "kW/(m2·K)";
-                    }
-                    else if (string.Compare(projectDto.DefaultTemperatureUnits, "°C", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "kW/(°C)";
-                        projectViewDataObj.ProjectU_Units = "kW/(m2·°C)";
-                    }
-                }
-                #endregion  // KILO
-
-                #region MEGA
-                else if (string.Compare(projectDto.DefaultMagnitudeUnits, "Mega", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "MW";
-
-                    if (string.Compare(projectDto.DefaultTemperatureUnits, "K", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "MW/(K)";
-                        projectViewDataObj.ProjectU_Units = "MW/(m2·K)";
-                    }
-                    else if (string.Compare(projectDto.DefaultTemperatureUnits, "°C", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "MW/(°C)";
-                        projectViewDataObj.ProjectU_Units = "MW/(m2·°C)";
-                    }
-                }
-                #endregion  // MEGA
-            }
-            #endregion  // METRIC
-
-            return projectViewDataObj;
-        }
-        #endregion  // GetProjectViewData()
-
-        #endregion  // DTO TO-FROM PANEL VIEW DATA ... CONVERSION METHODS
-
-        #region POPULATE PANELS METHODS
-
-        #region PopulateProjectPanel(ProjectViewData projectPanelData)
-        /// <summary>
-        /// Populate the Project Panel with ProjectViewData
-        /// </summary>
-        /// <param name="projectPanelData"></param>
-        private void PopulateProjectPanel(ProjectViewData projectPanelData)
-        {
-            this.textBoxProjectGUID.Text = projectPanelData.Id.ToString();
-            this.textBoxProjectNameValue.Text = projectPanelData.Name;
-            this.textBoxProjectDescriptionValue.Text = projectPanelData.Description;
-
-            this.textBoxDefaultU_Value.Text = projectPanelData.ProjectU_Value.ToString();
-            this.textBoxDefaultHenOpitimizer.Text = projectPanelData.ProjectHenOptimizer;
-            this.textBoxDefaultU_Units.Text = projectPanelData.ProjectU_Units; 
-            //--- PROJECT UNITS ---
-
-            this.textBoxProjectUnitsSystem.Text = projectPanelData.ProjectSystem_Units;
-            this.textBoxProjectUnitsMagnitude.Text = projectPanelData.ProjectMagnitude_Units;
-            this.textBoxProjectUnitsTemp.Text = projectPanelData.ProjectTemperature_Units;
-            this.textBoxProjectUnitsPress.Text = projectPanelData.ProjectPressure_Units;
-
-            this.textBoxUnitsAreaValue.Text = projectPanelData.ProjectArea_Units;
-            this.textBoxUnitsDutyValue.Text = projectPanelData.ProjectDuty_Units;
-            this.textBoxUnitsCPValue.Text = projectPanelData.ProjectCP_Units;
-            this.textBoxUnitsUValue.Text = projectPanelData.ProjectU_Units;
-
-            //--- Update Systems Units Image ---
-            if (string.Compare(projectPanelData.ProjectSystem_Units, "Metric - SI", true) ==0)
-            {
-                pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
-            }
-            else if (string.Compare(projectPanelData.ProjectSystem_Units, "English - Imperial", true) == 0)
-            {
-                pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
-            }
-            else throw new Exception("Invalid System Units!");
-        }
-        #endregion  // PopulateProjectPanel(ProjectViewData projectPanelData)
-
-        #endregion  // POPULATE PANELS METHODS
-
         #region TREE VIEW EVENT HANDLERS
 
         #region SELECTION CHANGED
@@ -1004,24 +796,16 @@ namespace HenStudio
                 strDlgName = dlg.ProjectViewDataObj.Name;
                 strNodeName = string.Format("Project: {0}", strDlgName.Trim());
 
-                //------------------------------------------------
-                //--- Assign Project Data to ProjectDto Object ---
-                //------------------------------------------------
-                ProjectDto projectDtoObj = new ProjectDto();
+                //------------------------------------------------------------------
+                //--- Get ProjectDto Object from Panel Data (ProjectViewDataObj) ---
+                //------------------------------------------------------------------
+                ProjectDto projectDtoObj = GetProjectDtoFromViewData(dlg.ProjectViewDataObj);
 
-                projectDtoObj.Name = dlg.ProjectViewDataObj.Name;
-                projectDtoObj.Description = dlg.ProjectViewDataObj.Description;
-                projectDtoObj.DefaultHeatTransferCoefficient = double.Parse(dlg.ProjectViewDataObj.ProjectU_Value);
-                projectDtoObj.DefaultHenOptimizer = dlg.ProjectViewDataObj.ProjectHenOptimizer;
-
-                projectDtoObj.DefaultSystemUnits = dlg.ProjectViewDataObj.ProjectSystem_Units;
-                projectDtoObj.DefaultMagnitudeUnits = dlg.ProjectViewDataObj.ProjectMagnitude_Units;
-
-                projectDtoObj.DefaultTemperatureUnits = dlg.ProjectViewDataObj.ProjectTemperature_Units;
-                projectDtoObj.DefaultPressureUnits = dlg.ProjectViewDataObj.ProjectPressure_Units;
-
-                projectGUID = projectViewModelObj.AddProject(projectDtoObj); // Get PK (GUID) from DB After Adding New Project
-                projectDtoObj.Id = projectGUID;     // Assign PK (GUID) to ProjectDto Object
+                //----------------------------------------------------------------------------------------
+                //--- Add Project to DB and Get Back Project GUID (PK) and Assign to ProjectDto Object ---
+                //----------------------------------------------------------------------------------------
+                projectGUID = projectViewModelObj.AddProject(projectDtoObj);
+                projectDtoObj.Id = projectGUID;
 
                 //-------------------------------------------------------
                 //-- Create Node Tag Object and Assign Tag Attributes ---
@@ -1044,8 +828,8 @@ namespace HenStudio
                 //------------------------------
                 //--- Set Project Dirty Flag ---
                 //------------------------------
-                HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
-                UpdateProjectDirtyFlagLabel();
+                //HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.DIRTY;
+                //UpdateProjectDirtyFlagLabel();
             }
             catch (Exception ex)
             {
