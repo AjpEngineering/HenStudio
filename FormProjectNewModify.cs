@@ -124,7 +124,7 @@ namespace HenStudio
             this.textBoxProjectNameValue.Text = "Project_Name";
             this.textBoxProjectDescriptionValue.Text = "Enter Project Description";
 
-            this.textBoxF.Text = DEFAULT_F_CORRECTION_FACTOR.ToString();
+            this.textBoxDefaultF_Value.Text = DEFAULT_F_CORRECTION_FACTOR.ToString();
 
             if (string.Compare(appGlobalSettingsObj.ExternalSystemUnits, "English - Imperial", true)==0)
             {

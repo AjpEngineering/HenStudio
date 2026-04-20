@@ -52,6 +52,8 @@
             this.textBoxUnitsSystem = new System.Windows.Forms.TextBox();
             this.buttonOK = new System.Windows.Forms.Button();
             this.panelExchanger = new System.Windows.Forms.Panel();
+            this.textBoxDefaultF_Value = new System.Windows.Forms.TextBox();
+            this.textBoxDefaultF = new System.Windows.Forms.TextBox();
             this.textBoxDefaultU_Value = new System.Windows.Forms.TextBox();
             this.textBoxDefaultU_Units = new System.Windows.Forms.TextBox();
             this.textBoxDefaultU = new System.Windows.Forms.TextBox();
@@ -67,8 +69,6 @@
             this.textBoxProjectDescriptionValue = new System.Windows.Forms.TextBox();
             this.textBoxDefaultLabel = new System.Windows.Forms.TextBox();
             this.panelDefaultParmeters = new System.Windows.Forms.Panel();
-            this.textBoxF = new System.Windows.Forms.TextBox();
-            this.textBoxDefaultF_Value = new System.Windows.Forms.TextBox();
             this.panelProjectUnits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).BeginInit();
             this.panelExchanger.SuspendLayout();
@@ -425,7 +425,7 @@
             // 
             this.panelExchanger.BackColor = System.Drawing.Color.OldLace;
             this.panelExchanger.Controls.Add(this.textBoxDefaultF_Value);
-            this.panelExchanger.Controls.Add(this.textBoxF);
+            this.panelExchanger.Controls.Add(this.textBoxDefaultF);
             this.panelExchanger.Controls.Add(this.textBoxDefaultU_Value);
             this.panelExchanger.Controls.Add(this.textBoxDefaultU_Units);
             this.panelExchanger.Controls.Add(this.textBoxDefaultU);
@@ -434,6 +434,33 @@
             this.panelExchanger.Name = "panelExchanger";
             this.panelExchanger.Size = new System.Drawing.Size(250, 95);
             this.panelExchanger.TabIndex = 17;
+            // 
+            // textBoxDefaultF_Value
+            // 
+            this.textBoxDefaultF_Value.BackColor = System.Drawing.Color.White;
+            this.textBoxDefaultF_Value.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultF_Value.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultF_Value.Location = new System.Drawing.Point(172, 66);
+            this.textBoxDefaultF_Value.Name = "textBoxDefaultF_Value";
+            this.textBoxDefaultF_Value.Size = new System.Drawing.Size(59, 18);
+            this.textBoxDefaultF_Value.TabIndex = 7;
+            this.textBoxDefaultF_Value.Text = "0.85";
+            this.textBoxDefaultF_Value.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxDefaultF_Value.TextChanged += new System.EventHandler(this.textBoxFValue_TextChanged);
+            // 
+            // textBoxDefaultF
+            // 
+            this.textBoxDefaultF.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxDefaultF.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultF.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultF.Location = new System.Drawing.Point(8, 66);
+            this.textBoxDefaultF.Name = "textBoxDefaultF";
+            this.textBoxDefaultF.ReadOnly = true;
+            this.textBoxDefaultF.Size = new System.Drawing.Size(158, 18);
+            this.textBoxDefaultF.TabIndex = 34;
+            this.textBoxDefaultF.TabStop = false;
+            this.textBoxDefaultF.Text = "Correction Factor (F): ";
+            this.textBoxDefaultF.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxDefaultU_Value
             // 
@@ -646,33 +673,6 @@
             this.panelDefaultParmeters.Size = new System.Drawing.Size(482, 146);
             this.panelDefaultParmeters.TabIndex = 36;
             // 
-            // textBoxF
-            // 
-            this.textBoxF.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxF.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxF.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxF.Location = new System.Drawing.Point(8, 66);
-            this.textBoxF.Name = "textBoxF";
-            this.textBoxF.ReadOnly = true;
-            this.textBoxF.Size = new System.Drawing.Size(158, 18);
-            this.textBoxF.TabIndex = 34;
-            this.textBoxF.TabStop = false;
-            this.textBoxF.Text = "Correction Factor (F): ";
-            this.textBoxF.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBoxDefaultF_Value
-            // 
-            this.textBoxDefaultF_Value.BackColor = System.Drawing.Color.White;
-            this.textBoxDefaultF_Value.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDefaultF_Value.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDefaultF_Value.Location = new System.Drawing.Point(172, 66);
-            this.textBoxDefaultF_Value.Name = "textBoxDefaultF_Value";
-            this.textBoxDefaultF_Value.Size = new System.Drawing.Size(59, 18);
-            this.textBoxDefaultF_Value.TabIndex = 7;
-            this.textBoxDefaultF_Value.Text = "0.85";
-            this.textBoxDefaultF_Value.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxDefaultF_Value.TextChanged += new System.EventHandler(this.textBoxFValue_TextChanged);
-            // 
             // FormProjectNewModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -754,6 +754,6 @@
         private System.Windows.Forms.TextBox textBoxDefaultLabel;
         private System.Windows.Forms.Panel panelDefaultParmeters;
         private System.Windows.Forms.TextBox textBoxDefaultF_Value;
-        private System.Windows.Forms.TextBox textBoxF;
+        private System.Windows.Forms.TextBox textBoxDefaultF;
     }
 }
