@@ -30,44 +30,44 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6, new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6, new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Hen: Base Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Hen: MER Design", 7, 8);
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Pinch: Delta T=20", 5, 6, new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
+            treeNode7,
             treeNode9,
-            treeNode10});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode26});
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Pinch: Delta T=10", 5, 6);
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4, new System.Windows.Forms.TreeNode[] {
-            treeNode28});
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode29,
-            treeNode30,
-            treeNode31});
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("HEN Studio CATALOG", 10, 10, new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode33,
-            treeNode34});
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
+            treeNode10,
             treeNode11});
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
-            treeNode13});
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("HEN Studio", 10, 10, new System.Windows.Forms.TreeNode[] {
             treeNode12,
+            treeNode13,
             treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode19});
             this.contextMenuStripHen = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemCurProjHenRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorCurProjHenRename = new System.Windows.Forms.ToolStripSeparator();
@@ -157,6 +157,13 @@
             this.toolStripMenuItemZipCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemZipExpandAll = new System.Windows.Forms.ToolStripMenuItem();
             this.imageListProjectZIP = new System.Windows.Forms.ImageList(this.components);
+            this.panelSELECTED_PROFILE = new System.Windows.Forms.Panel();
+            this.tabControlInputPhase = new System.Windows.Forms.TabControl();
+            this.tabPageStreams = new System.Windows.Forms.TabPage();
+            this.tabPageUtilities = new System.Windows.Forms.TabPage();
+            this.tabPageEconomics = new System.Windows.Forms.TabPage();
+            this.textBoxInputBanner = new System.Windows.Forms.TextBox();
+            this.pictureBoxOpenedProfile = new System.Windows.Forms.PictureBox();
             this.panelSELECTED_PROJECT = new System.Windows.Forms.Panel();
             this.panelDefaultParmeters = new System.Windows.Forms.Panel();
             this.textBoxDefaultLabel = new System.Windows.Forms.TextBox();
@@ -223,13 +230,6 @@
             this.textBoxDbConnectionTitle = new System.Windows.Forms.TextBox();
             this.pictureBoxProjects = new System.Windows.Forms.PictureBox();
             this.textBoxProjectsBanner = new System.Windows.Forms.TextBox();
-            this.panelSELECTED_PROFILE = new System.Windows.Forms.Panel();
-            this.tabControlInputPhase = new System.Windows.Forms.TabControl();
-            this.tabPageStreams = new System.Windows.Forms.TabPage();
-            this.tabPageUtilities = new System.Windows.Forms.TabPage();
-            this.tabPageEconomics = new System.Windows.Forms.TabPage();
-            this.textBoxInputBanner = new System.Windows.Forms.TextBox();
-            this.pictureBoxOpenedProfile = new System.Windows.Forms.PictureBox();
             this.panelSELECTED_HEN = new System.Windows.Forms.Panel();
             this.textBoxHenBanner = new System.Windows.Forms.TextBox();
             this.pictureBoxOpenedHen = new System.Windows.Forms.PictureBox();
@@ -253,6 +253,9 @@
             this.splitContainerProject.Panel2.SuspendLayout();
             this.splitContainerProject.SuspendLayout();
             this.contextMenuStripProjectZip.SuspendLayout();
+            this.panelSELECTED_PROFILE.SuspendLayout();
+            this.tabControlInputPhase.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProfile)).BeginInit();
             this.panelSELECTED_PROJECT.SuspendLayout();
             this.panelDefaultParmeters.SuspendLayout();
             this.panelExchanger.SuspendLayout();
@@ -265,9 +268,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductLogo)).BeginInit();
             this.panelProjectDbFileMetadata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProjects)).BeginInit();
-            this.panelSELECTED_PROFILE.SuspendLayout();
-            this.tabControlInputPhase.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProfile)).BeginInit();
             this.panelSELECTED_HEN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).BeginInit();
             this.panelSELECTED_PINCH.SuspendLayout();
@@ -554,8 +554,8 @@
             this.toolStripSeparator11,
             this.exitAJPHENStudioToolStripMenuItem});
             this.catalogToolStripMenuItem.Name = "catalogToolStripMenuItem";
-            this.catalogToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.catalogToolStripMenuItem.Text = "Catalog";
+            this.catalogToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.catalogToolStripMenuItem.Text = "Projects";
             this.catalogToolStripMenuItem.ToolTipText = "Catalog of Projects";
             // 
             // newProjectToolStripMenuItem
@@ -1060,83 +1060,83 @@
             this.treeViewCurrentProjectExplorer.Location = new System.Drawing.Point(6, 6);
             this.treeViewCurrentProjectExplorer.Margin = new System.Windows.Forms.Padding(6);
             this.treeViewCurrentProjectExplorer.Name = "treeViewCurrentProjectExplorer";
-            treeNode6.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode6.ImageIndex = 7;
-            treeNode6.Name = "NodeProfile_01_Pinch_01_Hen_01";
-            treeNode6.SelectedImageIndex = 8;
-            treeNode6.Text = "Hen: Base Design";
-            treeNode7.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode7.ImageIndex = 7;
-            treeNode7.Name = "NodeProfile_01_Pinch_01_Hen_02";
-            treeNode7.SelectedImageIndex = 8;
-            treeNode7.Text = "Hen: MER Design";
+            treeNode1.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode1.ImageIndex = 7;
+            treeNode1.Name = "NodeProfile_01_Pinch_01_Hen_01";
+            treeNode1.SelectedImageIndex = 8;
+            treeNode1.Text = "Hen: Base Design";
+            treeNode2.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode2.ImageIndex = 7;
+            treeNode2.Name = "NodeProfile_01_Pinch_01_Hen_02";
+            treeNode2.SelectedImageIndex = 8;
+            treeNode2.Text = "Hen: MER Design";
+            treeNode3.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode3.ImageIndex = 5;
+            treeNode3.Name = "NodeProfile_01_Pinch_01";
+            treeNode3.SelectedImageIndex = 6;
+            treeNode3.Text = "Pinch: Delta T=10";
+            treeNode4.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode4.ImageIndex = 7;
+            treeNode4.Name = "NodeProfile_01_Pinch_02_Hen_01";
+            treeNode4.SelectedImageIndex = 8;
+            treeNode4.Text = "Hen: Base Design";
+            treeNode5.ContextMenuStrip = this.contextMenuStripHen;
+            treeNode5.ImageIndex = 7;
+            treeNode5.Name = "NodeProfile_01_Pinch_02_Hen_02";
+            treeNode5.SelectedImageIndex = 8;
+            treeNode5.Text = "Hen: MER Design";
+            treeNode6.ContextMenuStrip = this.contextMenuStripPinch;
+            treeNode6.ImageIndex = 5;
+            treeNode6.Name = "NodeProfile_01_Pinch_02";
+            treeNode6.SelectedImageIndex = 6;
+            treeNode6.Text = "Pinch: Delta T=20";
+            treeNode7.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode7.ImageIndex = 3;
+            treeNode7.Name = "NodeProfile_01";
+            treeNode7.SelectedImageIndex = 4;
+            treeNode7.Text = "Profile: Q1 Setup";
             treeNode8.ContextMenuStrip = this.contextMenuStripPinch;
             treeNode8.ImageIndex = 5;
-            treeNode8.Name = "NodeProfile_01_Pinch_01";
+            treeNode8.Name = "NodeProfile_02_Pinch_01";
             treeNode8.SelectedImageIndex = 6;
             treeNode8.Text = "Pinch: Delta T=10";
-            treeNode9.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode9.ImageIndex = 7;
-            treeNode9.Name = "NodeProfile_01_Pinch_02_Hen_01";
-            treeNode9.SelectedImageIndex = 8;
-            treeNode9.Text = "Hen: Base Design";
-            treeNode10.ContextMenuStrip = this.contextMenuStripHen;
-            treeNode10.ImageIndex = 7;
-            treeNode10.Name = "NodeProfile_01_Pinch_02_Hen_02";
-            treeNode10.SelectedImageIndex = 8;
-            treeNode10.Text = "Hen: MER Design";
-            treeNode26.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode26.ImageIndex = 5;
-            treeNode26.Name = "NodeProfile_01_Pinch_02";
-            treeNode26.SelectedImageIndex = 6;
-            treeNode26.Text = "Pinch: Delta T=20";
-            treeNode27.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode27.ImageIndex = 3;
-            treeNode27.Name = "NodeProfile_01";
-            treeNode27.SelectedImageIndex = 4;
-            treeNode27.Text = "Profile: Q1 Setup";
-            treeNode28.ContextMenuStrip = this.contextMenuStripPinch;
-            treeNode28.ImageIndex = 5;
-            treeNode28.Name = "NodeProfile_02_Pinch_01";
-            treeNode28.SelectedImageIndex = 6;
-            treeNode28.Text = "Pinch: Delta T=10";
-            treeNode29.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode29.ImageIndex = 3;
-            treeNode29.Name = "NodeProfile_02";
-            treeNode29.SelectedImageIndex = 4;
-            treeNode29.Text = "Profile: Q2 Setup";
-            treeNode30.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode30.ImageIndex = 3;
-            treeNode30.Name = "NodeProfile_03";
-            treeNode30.SelectedImageIndex = 4;
-            treeNode30.Text = "Profile: Q3 Setup";
-            treeNode31.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode31.ImageIndex = 3;
-            treeNode31.Name = "NodeProfile_04";
-            treeNode31.SelectedImageIndex = 4;
-            treeNode31.Text = "Profile: Q4 Setup";
-            treeNode32.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode32.ImageIndex = 1;
-            treeNode32.Name = "NodeProject02";
-            treeNode32.SelectedImageIndex = 2;
-            treeNode32.Text = "Project: Deer Park";
-            treeNode33.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode33.ImageIndex = 1;
-            treeNode33.Name = "NodeProject02";
-            treeNode33.SelectedImageIndex = 2;
-            treeNode33.Text = "Project: Convent";
-            treeNode34.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode34.ImageIndex = 1;
-            treeNode34.Name = "NodeProject03";
-            treeNode34.SelectedImageIndex = 2;
-            treeNode34.Text = "Project: Norco";
-            treeNode35.ContextMenuStrip = this.contextMenuStripProjectCatalog;
-            treeNode35.ImageIndex = 10;
-            treeNode35.Name = "NodeRootProjects";
-            treeNode35.SelectedImageIndex = 10;
-            treeNode35.Text = "HEN Studio CATALOG";
+            treeNode9.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode9.ImageIndex = 3;
+            treeNode9.Name = "NodeProfile_02";
+            treeNode9.SelectedImageIndex = 4;
+            treeNode9.Text = "Profile: Q2 Setup";
+            treeNode10.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode10.ImageIndex = 3;
+            treeNode10.Name = "NodeProfile_03";
+            treeNode10.SelectedImageIndex = 4;
+            treeNode10.Text = "Profile: Q3 Setup";
+            treeNode11.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode11.ImageIndex = 3;
+            treeNode11.Name = "NodeProfile_04";
+            treeNode11.SelectedImageIndex = 4;
+            treeNode11.Text = "Profile: Q4 Setup";
+            treeNode12.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode12.ImageIndex = 1;
+            treeNode12.Name = "NodeProject02";
+            treeNode12.SelectedImageIndex = 2;
+            treeNode12.Text = "Project: Deer Park";
+            treeNode13.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode13.ImageIndex = 1;
+            treeNode13.Name = "NodeProject02";
+            treeNode13.SelectedImageIndex = 2;
+            treeNode13.Text = "Project: Convent";
+            treeNode14.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode14.ImageIndex = 1;
+            treeNode14.Name = "NodeProject03";
+            treeNode14.SelectedImageIndex = 2;
+            treeNode14.Text = "Project: Norco";
+            treeNode15.ContextMenuStrip = this.contextMenuStripProjectCatalog;
+            treeNode15.ImageIndex = 10;
+            treeNode15.Name = "NodeRootProjects";
+            treeNode15.SelectedImageIndex = 10;
+            treeNode15.Text = "HEN Studio";
             this.treeViewCurrentProjectExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode35});
+            treeNode15});
             this.treeViewCurrentProjectExplorer.SelectedImageIndex = 9;
             this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(337, 386);
             this.treeViewCurrentProjectExplorer.TabIndex = 1;
@@ -1170,32 +1170,32 @@
             this.treeViewProjectZipExplorer.Location = new System.Drawing.Point(6, 6);
             this.treeViewProjectZipExplorer.Margin = new System.Windows.Forms.Padding(6);
             this.treeViewProjectZipExplorer.Name = "treeViewProjectZipExplorer";
-            treeNode11.ImageKey = "Project_16x16.ico";
-            treeNode11.Name = "NodeZipExport01";
-            treeNode11.SelectedImageKey = "Project_16x16.ico";
-            treeNode11.Text = "Deer Park Analysis - 20260311.zip";
-            treeNode11.ToolTipText = "Zip File";
-            treeNode12.ImageKey = "ExportZIP_16x16.ico";
-            treeNode12.Name = "NodeEXPORT";
-            treeNode12.SelectedImageKey = "ExportZIP_16x16.ico";
-            treeNode12.Text = "EXPORT";
-            treeNode12.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
-            treeNode13.ImageKey = "Project_16x16.ico";
-            treeNode13.Name = "NodeImportZip01";
-            treeNode13.SelectedImageKey = "Project_16x16.ico";
-            treeNode13.Text = "DeerPark Analysis - 20260310";
-            treeNode14.ImageKey = "ImportZIP_16x16.ico";
-            treeNode14.Name = "NodeIMPORT";
-            treeNode14.SelectedImageKey = "ImportZIP_16x16.ico";
-            treeNode14.Text = "IMPORT";
-            treeNode14.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
-            treeNode15.ImageKey = "ZipFolder_16x16.ico";
-            treeNode15.Name = "NodeRoot";
-            treeNode15.SelectedImageKey = "ZipFolder_16x16.ico";
-            treeNode15.Text = "Project ZIP Files";
-            treeNode15.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
+            treeNode16.ImageKey = "Project_16x16.ico";
+            treeNode16.Name = "NodeZipExport01";
+            treeNode16.SelectedImageKey = "Project_16x16.ico";
+            treeNode16.Text = "Deer Park Analysis - 20260311.zip";
+            treeNode16.ToolTipText = "Zip File";
+            treeNode17.ImageKey = "ExportZIP_16x16.ico";
+            treeNode17.Name = "NodeEXPORT";
+            treeNode17.SelectedImageKey = "ExportZIP_16x16.ico";
+            treeNode17.Text = "EXPORT";
+            treeNode17.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
+            treeNode18.ImageKey = "Project_16x16.ico";
+            treeNode18.Name = "NodeImportZip01";
+            treeNode18.SelectedImageKey = "Project_16x16.ico";
+            treeNode18.Text = "DeerPark Analysis - 20260310";
+            treeNode19.ImageKey = "ImportZIP_16x16.ico";
+            treeNode19.Name = "NodeIMPORT";
+            treeNode19.SelectedImageKey = "ImportZIP_16x16.ico";
+            treeNode19.Text = "IMPORT";
+            treeNode19.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
+            treeNode20.ImageKey = "ZipFolder_16x16.ico";
+            treeNode20.Name = "NodeRoot";
+            treeNode20.SelectedImageKey = "ZipFolder_16x16.ico";
+            treeNode20.Text = "Project ZIP Files";
+            treeNode20.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
             this.treeViewProjectZipExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode15});
+            treeNode20});
             this.treeViewProjectZipExplorer.SelectedImageIndex = 0;
             this.treeViewProjectZipExplorer.Size = new System.Drawing.Size(337, 201);
             this.treeViewProjectZipExplorer.TabIndex = 0;
@@ -1232,6 +1232,103 @@
             this.imageListProjectZIP.Images.SetKeyName(1, "ExportZIP_16x16.ico");
             this.imageListProjectZIP.Images.SetKeyName(2, "ImportZIP_16x16.ico");
             this.imageListProjectZIP.Images.SetKeyName(3, "Project_16x16.ico");
+            // 
+            // panelSELECTED_PROFILE
+            // 
+            this.panelSELECTED_PROFILE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSELECTED_PROFILE.BackColor = System.Drawing.Color.Honeydew;
+            this.panelSELECTED_PROFILE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSELECTED_PROFILE.Controls.Add(this.tabControlInputPhase);
+            this.panelSELECTED_PROFILE.Controls.Add(this.textBoxInputBanner);
+            this.panelSELECTED_PROFILE.Controls.Add(this.pictureBoxOpenedProfile);
+            this.panelSELECTED_PROFILE.Location = new System.Drawing.Point(0, 0);
+            this.panelSELECTED_PROFILE.Margin = new System.Windows.Forms.Padding(0);
+            this.panelSELECTED_PROFILE.Name = "panelSELECTED_PROFILE";
+            this.panelSELECTED_PROFILE.Padding = new System.Windows.Forms.Padding(6);
+            this.panelSELECTED_PROFILE.Size = new System.Drawing.Size(908, 611);
+            this.panelSELECTED_PROFILE.TabIndex = 12;
+            // 
+            // tabControlInputPhase
+            // 
+            this.tabControlInputPhase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlInputPhase.Controls.Add(this.tabPageStreams);
+            this.tabControlInputPhase.Controls.Add(this.tabPageUtilities);
+            this.tabControlInputPhase.Controls.Add(this.tabPageEconomics);
+            this.tabControlInputPhase.ImageList = this.imageListInput;
+            this.tabControlInputPhase.Location = new System.Drawing.Point(-3, 45);
+            this.tabControlInputPhase.Margin = new System.Windows.Forms.Padding(0);
+            this.tabControlInputPhase.Name = "tabControlInputPhase";
+            this.tabControlInputPhase.SelectedIndex = 0;
+            this.tabControlInputPhase.ShowToolTips = true;
+            this.tabControlInputPhase.Size = new System.Drawing.Size(909, 568);
+            this.tabControlInputPhase.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.tabControlInputPhase.TabIndex = 0;
+            // 
+            // tabPageStreams
+            // 
+            this.tabPageStreams.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageStreams.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery___1280x720;
+            this.tabPageStreams.ImageIndex = 0;
+            this.tabPageStreams.Location = new System.Drawing.Point(4, 39);
+            this.tabPageStreams.Name = "tabPageStreams";
+            this.tabPageStreams.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageStreams.Size = new System.Drawing.Size(901, 525);
+            this.tabPageStreams.TabIndex = 0;
+            this.tabPageStreams.Text = "PROCESS STREAMS ";
+            this.tabPageStreams.ToolTipText = "Specify Process Streams for Current Input Profile";
+            // 
+            // tabPageUtilities
+            // 
+            this.tabPageUtilities.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageUtilities.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery___1280x720;
+            this.tabPageUtilities.ImageIndex = 1;
+            this.tabPageUtilities.Location = new System.Drawing.Point(4, 39);
+            this.tabPageUtilities.Name = "tabPageUtilities";
+            this.tabPageUtilities.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUtilities.Size = new System.Drawing.Size(901, 525);
+            this.tabPageUtilities.TabIndex = 1;
+            this.tabPageUtilities.Text = "UTILITY STREAMS";
+            this.tabPageUtilities.ToolTipText = "Specify Utility Streams for Current Input Profile";
+            // 
+            // tabPageEconomics
+            // 
+            this.tabPageEconomics.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageEconomics.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery___1280x720;
+            this.tabPageEconomics.ImageIndex = 2;
+            this.tabPageEconomics.Location = new System.Drawing.Point(4, 39);
+            this.tabPageEconomics.Name = "tabPageEconomics";
+            this.tabPageEconomics.Size = new System.Drawing.Size(901, 525);
+            this.tabPageEconomics.TabIndex = 2;
+            this.tabPageEconomics.Text = "ECONOMIC PARAMETERS";
+            this.tabPageEconomics.ToolTipText = "Specify Economic Parameters for Current Input Profile";
+            // 
+            // textBoxInputBanner
+            // 
+            this.textBoxInputBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxInputBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.textBoxInputBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxInputBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxInputBanner.ForeColor = System.Drawing.Color.Yellow;
+            this.textBoxInputBanner.Location = new System.Drawing.Point(51, 4);
+            this.textBoxInputBanner.Name = "textBoxInputBanner";
+            this.textBoxInputBanner.Size = new System.Drawing.Size(834, 33);
+            this.textBoxInputBanner.TabIndex = 1;
+            this.textBoxInputBanner.Text = "INPUT PROFILE";
+            this.textBoxInputBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBoxOpenedProfile
+            // 
+            this.pictureBoxOpenedProfile.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOpenedProfile.Image")));
+            this.pictureBoxOpenedProfile.Location = new System.Drawing.Point(7, 4);
+            this.pictureBoxOpenedProfile.Name = "pictureBoxOpenedProfile";
+            this.pictureBoxOpenedProfile.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxOpenedProfile.TabIndex = 0;
+            this.pictureBoxOpenedProfile.TabStop = false;
             // 
             // panelSELECTED_PROJECT
             // 
@@ -2146,103 +2243,6 @@
             this.textBoxProjectsBanner.Text = "HEN STUDIO CATALOG";
             this.textBoxProjectsBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // panelSELECTED_PROFILE
-            // 
-            this.panelSELECTED_PROFILE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelSELECTED_PROFILE.BackColor = System.Drawing.Color.Honeydew;
-            this.panelSELECTED_PROFILE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSELECTED_PROFILE.Controls.Add(this.tabControlInputPhase);
-            this.panelSELECTED_PROFILE.Controls.Add(this.textBoxInputBanner);
-            this.panelSELECTED_PROFILE.Controls.Add(this.pictureBoxOpenedProfile);
-            this.panelSELECTED_PROFILE.Location = new System.Drawing.Point(0, 0);
-            this.panelSELECTED_PROFILE.Margin = new System.Windows.Forms.Padding(0);
-            this.panelSELECTED_PROFILE.Name = "panelSELECTED_PROFILE";
-            this.panelSELECTED_PROFILE.Padding = new System.Windows.Forms.Padding(6);
-            this.panelSELECTED_PROFILE.Size = new System.Drawing.Size(908, 611);
-            this.panelSELECTED_PROFILE.TabIndex = 12;
-            // 
-            // tabControlInputPhase
-            // 
-            this.tabControlInputPhase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControlInputPhase.Controls.Add(this.tabPageStreams);
-            this.tabControlInputPhase.Controls.Add(this.tabPageUtilities);
-            this.tabControlInputPhase.Controls.Add(this.tabPageEconomics);
-            this.tabControlInputPhase.ImageList = this.imageListInput;
-            this.tabControlInputPhase.Location = new System.Drawing.Point(-3, 45);
-            this.tabControlInputPhase.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControlInputPhase.Name = "tabControlInputPhase";
-            this.tabControlInputPhase.SelectedIndex = 0;
-            this.tabControlInputPhase.ShowToolTips = true;
-            this.tabControlInputPhase.Size = new System.Drawing.Size(909, 568);
-            this.tabControlInputPhase.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
-            this.tabControlInputPhase.TabIndex = 0;
-            // 
-            // tabPageStreams
-            // 
-            this.tabPageStreams.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageStreams.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery___1280x720;
-            this.tabPageStreams.ImageIndex = 0;
-            this.tabPageStreams.Location = new System.Drawing.Point(4, 39);
-            this.tabPageStreams.Name = "tabPageStreams";
-            this.tabPageStreams.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStreams.Size = new System.Drawing.Size(901, 525);
-            this.tabPageStreams.TabIndex = 0;
-            this.tabPageStreams.Text = "PROCESS STREAMS ";
-            this.tabPageStreams.ToolTipText = "Specify Process Streams for Current Input Profile";
-            // 
-            // tabPageUtilities
-            // 
-            this.tabPageUtilities.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageUtilities.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery___1280x720;
-            this.tabPageUtilities.ImageIndex = 1;
-            this.tabPageUtilities.Location = new System.Drawing.Point(4, 39);
-            this.tabPageUtilities.Name = "tabPageUtilities";
-            this.tabPageUtilities.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUtilities.Size = new System.Drawing.Size(901, 525);
-            this.tabPageUtilities.TabIndex = 1;
-            this.tabPageUtilities.Text = "UTILITY STREAMS";
-            this.tabPageUtilities.ToolTipText = "Specify Utility Streams for Current Input Profile";
-            // 
-            // tabPageEconomics
-            // 
-            this.tabPageEconomics.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageEconomics.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery___1280x720;
-            this.tabPageEconomics.ImageIndex = 2;
-            this.tabPageEconomics.Location = new System.Drawing.Point(4, 39);
-            this.tabPageEconomics.Name = "tabPageEconomics";
-            this.tabPageEconomics.Size = new System.Drawing.Size(901, 525);
-            this.tabPageEconomics.TabIndex = 2;
-            this.tabPageEconomics.Text = "ECONOMIC PARAMETERS";
-            this.tabPageEconomics.ToolTipText = "Specify Economic Parameters for Current Input Profile";
-            // 
-            // textBoxInputBanner
-            // 
-            this.textBoxInputBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxInputBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
-            this.textBoxInputBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxInputBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInputBanner.ForeColor = System.Drawing.Color.Yellow;
-            this.textBoxInputBanner.Location = new System.Drawing.Point(51, 4);
-            this.textBoxInputBanner.Name = "textBoxInputBanner";
-            this.textBoxInputBanner.Size = new System.Drawing.Size(834, 33);
-            this.textBoxInputBanner.TabIndex = 1;
-            this.textBoxInputBanner.Text = "INPUT PROFILE";
-            this.textBoxInputBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pictureBoxOpenedProfile
-            // 
-            this.pictureBoxOpenedProfile.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOpenedProfile.Image")));
-            this.pictureBoxOpenedProfile.Location = new System.Drawing.Point(7, 4);
-            this.pictureBoxOpenedProfile.Name = "pictureBoxOpenedProfile";
-            this.pictureBoxOpenedProfile.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxOpenedProfile.TabIndex = 0;
-            this.pictureBoxOpenedProfile.TabStop = false;
-            // 
             // panelSELECTED_HEN
             // 
             this.panelSELECTED_HEN.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -2371,6 +2371,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerProject)).EndInit();
             this.splitContainerProject.ResumeLayout(false);
             this.contextMenuStripProjectZip.ResumeLayout(false);
+            this.panelSELECTED_PROFILE.ResumeLayout(false);
+            this.panelSELECTED_PROFILE.PerformLayout();
+            this.tabControlInputPhase.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProfile)).EndInit();
             this.panelSELECTED_PROJECT.ResumeLayout(false);
             this.panelSELECTED_PROJECT.PerformLayout();
             this.panelDefaultParmeters.ResumeLayout(false);
@@ -2391,10 +2395,6 @@
             this.panelProjectDbFileMetadata.ResumeLayout(false);
             this.panelProjectDbFileMetadata.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProjects)).EndInit();
-            this.panelSELECTED_PROFILE.ResumeLayout(false);
-            this.panelSELECTED_PROFILE.PerformLayout();
-            this.tabControlInputPhase.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProfile)).EndInit();
             this.panelSELECTED_HEN.ResumeLayout(false);
             this.panelSELECTED_HEN.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).EndInit();
