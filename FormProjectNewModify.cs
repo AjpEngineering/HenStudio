@@ -350,6 +350,7 @@ namespace HenStudio
             string strMethod = "IsFormDataValid";
             bool bValidProjectName = false;
             bool bValidU = false;
+            bool bValidF = false;
             bool bValidOverall = false;
             try
             {
@@ -412,11 +413,46 @@ namespace HenStudio
                 }
                 #endregion  // EXCHANGER U
 
+                #region EXCHANGER F
+                //-----------------------------------------------------
+                //--- Exchanger U Value Test for Valid Double Value ---
+                //-----------------------------------------------------
+                string strValueF = this.textBoxDefaultF_Value.Text;
+                double dValueF = 0.85;
+
+                //--- Check for Valid Double Value ---
+                if (Double.TryParse(strValueF, out dValueF))
+                {
+                    //--- VALID Double: Check for Positive Value ---
+                    if (dValueF > 0.0)
+                    {
+                        //--- Positive Double Value ---
+                        textBoxDefaultF_Value.BackColor = Color.White;
+                        textBoxDefaultF_Value.ForeColor = Color.Black;
+                        bValidF = true;
+                    }
+                    else
+                    {
+                        //--- Negative Double Value ---
+                        textBoxDefaultF_Value.BackColor = Color.Orange;
+                        textBoxDefaultF_Value.ForeColor = Color.Black;
+                        bValidF = false;
+                    }
+                }
+                else
+                {
+                    //--- INVALID Double Value ---
+                    textBoxDefaultU_Value.BackColor = Color.Orange;
+                    textBoxDefaultU_Value.ForeColor = Color.Black;
+                    bValidU = false;
+                }
+                #endregion  // EXCHANGER F
+
                 #region OVERALL FORM VALIDITY
                 //-----------------------------------------
                 //--- Overall Valid Input Data for Form ---
                 //-----------------------------------------
-                bValidOverall = (bValidProjectName && bValidU);
+                bValidOverall = (bValidProjectName && bValidU && bValidF);
                 if(bValidOverall)
                 {
                     buttonOK.BackColor = Color.White;
@@ -483,6 +519,13 @@ namespace HenStudio
             IsFormDataValid();
         }
         #endregion  // U TEXTBOX TEXT CHANGED ... Ensure Text is Valid Double Numeric Value
+
+        #region F TEXTBOX TEXT CHANGED ... Ensure Text is Valid Double Numeric Value
+        private void textBoxFValue_TextChanged(object sender, EventArgs e)
+        {
+            IsFormDataValid();
+        }
+        #endregion  // F TEXTBOX TEXT CHANGED ... Ensure Text is Valid Double Numeric Value
 
         #region PROJECT NAME TEXTBOX TEXT CHANGED ... Ensure Text is not Blank
         private void textBoxProjectNameValue_TextChanged(object sender, EventArgs e)
@@ -998,6 +1041,7 @@ namespace HenStudio
 
                 #region DEFAULT EXCHANGER PARAMETERS
                 ProjectViewDataObj.ProjectU_Value = textBoxDefaultU_Value.Text;
+                ProjectViewDataObj.ProjectF_Value = textBoxDefaultF_Value.Text;
                 #endregion  // DEFAULT EXCHANGER PARAMETERS
 
                 #region DEFAULT HEN OPTIMIZER

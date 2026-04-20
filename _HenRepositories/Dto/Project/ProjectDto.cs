@@ -50,6 +50,7 @@ namespace HenRepositories.Dto
         public string Name { get; set; }
         public string Description { get; set; }
         public double DefaultHeatTransferCoefficient { get; set; }
+        public double DefaultCorrectionFactor { get; set; }
         public string DefaultHenOptimizer { get; set; }
         public string DefaultSystemUnits { get; set; }
         public string DefaultMagnitudeUnits { get; set; }

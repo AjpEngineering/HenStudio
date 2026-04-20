@@ -75,41 +75,6 @@ namespace HenPersistence.Repos
         }
         #endregion      // AddParameter()
 
-        //#region NormalizeMagnitude()
-        ///// <summary>
-        ///// Normalize a magnitude string (possibly a UI/display string) to the canonical DB token.
-        ///// </summary>
-        ///// <param name="magnitude">The magnitude string to normalize.</param>
-        ///// <returns>One of "Base", "Kilo", or "Mega" (defaults to "Base" on unknown).</returns>
-        //private static string NormalizeMagnitude(string magnitude)
-        //{
-        //    if (string.IsNullOrWhiteSpace(magnitude)) return "Base";
-
-        //    // If already canonical, return as-is
-        //    if (string.Compare(magnitude, "Base", true) == 0) return "Base";
-        //    if (string.Compare(magnitude, "Kilo", true) == 0) return "Kilo";
-        //    if (string.Compare(magnitude, "Mega", true) == 0) return "Mega";
-
-        //    // Map known UI/display constants from HenProjectUnits
-        //    try
-        //    {
-        //        if (string.Compare(magnitude, HenGlobal.HenProjectUnits.MAG_BASE, true) == 0) return "Base";
-        //        if (string.Compare(magnitude, HenGlobal.HenProjectUnits.MAG_KILO, true) == 0) return "Kilo";
-        //        if (string.Compare(magnitude, HenGlobal.HenProjectUnits.MAG_MEGA, true) == 0) return "Mega";
-        //    }
-        //    catch
-        //    {
-        //        // Ignore and fall through to default
-        //    }
-
-        //    // Fallback: attempt to detect keywords
-        //    if (magnitude.IndexOf("kilo", StringComparison.OrdinalIgnoreCase) >= 0) return "Kilo";
-        //    if (magnitude.IndexOf("mega", StringComparison.OrdinalIgnoreCase) >= 0) return "Mega";
-
-        //    return "Base";
-        //}
-        //#endregion // NormalizeMagnitude()
-
         #region MapProject()
         /// <summary>
         /// Maps a data record from the project query result set to a <see cref="ProjectDto"/> instance.
@@ -119,6 +84,7 @@ namespace HenPersistence.Repos
         /// <param name="nameOrdinal">The ordinal position of the <c>Name</c> column.</param>
         /// <param name="descriptionOrdinal">The ordinal position of the <c>Description</c> column.</param>
         /// <param name="defaultHeatTransferCoefficientOrdinal">The ordinal position of the <c>DefaultHeatTransferCoefficient</c> column.</param>
+        /// <param name="defaultCorrectionFactorOrdinal">The ordinal position of the <c>DefaultCorrectionFactor</c> column.</param>
         /// <param name="defaultHenOptimizerOrdinal">The ordinal position of the <c>DefaultHenOptimizer</c> column.</param>
         /// <param name="defaultSystemUnitsOrdinal">The ordinal position of the <c>DefaultSystemUnits</c> column.</param>
         /// <param name="defaultMagnitudeUnitsOrdinal">The ordinal position of the <c>DefaultMagnitudeUnits</c> column.</param>
@@ -130,6 +96,7 @@ namespace HenPersistence.Repos
                                               int nameOrdinal,
                                               int descriptionOrdinal,
                                               int defaultHeatTransferCoefficientOrdinal,
+                                              int defaultCorrectionFactorOrdinal,
                                               int defaultHenOptimizerOrdinal,
                                               int defaultSystemUnitsOrdinal,
                                               int defaultMagnitudeUnitsOrdinal,
@@ -142,6 +109,7 @@ namespace HenPersistence.Repos
                 Name = record.IsDBNull(nameOrdinal) ? null : record.GetString(nameOrdinal),
                 Description = record.IsDBNull(descriptionOrdinal) ? null : record.GetString(descriptionOrdinal),
                 DefaultHeatTransferCoefficient = record.GetDouble(defaultHeatTransferCoefficientOrdinal),
+                DefaultCorrectionFactor = record.GetDouble(defaultCorrectionFactorOrdinal),
                 DefaultHenOptimizer = record.IsDBNull(defaultHenOptimizerOrdinal) ? null : record.GetString(defaultHenOptimizerOrdinal),
                 DefaultSystemUnits = record.IsDBNull(defaultSystemUnitsOrdinal) ? null : record.GetString(defaultSystemUnitsOrdinal),
                 DefaultMagnitudeUnits = record.IsDBNull(defaultMagnitudeUnitsOrdinal) ? null : record.GetString(defaultMagnitudeUnitsOrdinal),
@@ -182,6 +150,7 @@ namespace HenPersistence.Repos
                                         Name,
                                         Description,
                                         DefaultHeatTransferCoefficient,
+                                        DefaultCorrectionFactor,
                                         DefaultHenOptimizer,
                                         DefaultSystemUnits,
                                         DefaultMagnitudeUnits,
@@ -207,6 +176,7 @@ namespace HenPersistence.Repos
                         int nameOrdinal = reader.GetOrdinal("Name");
                         int descriptionOrdinal = reader.GetOrdinal("Description");
                         int defaultHeatTransferCoefficientOrdinal = reader.GetOrdinal("DefaultHeatTransferCoefficient");
+                        int defaultCorrectionFactorOrdinal = reader.GetOrdinal("DefaultCorrectionFactor");
                         int defaultHenOptimizerOrdinal = reader.GetOrdinal("DefaultHenOptimizer");
                         int defaultSystemUnitsOrdinal = reader.GetOrdinal("DefaultSystemUnits");
                         int defaultMagnitudeUnitsOrdinal = reader.GetOrdinal("DefaultMagnitudeUnits");
@@ -221,6 +191,7 @@ namespace HenPersistence.Repos
                                 nameOrdinal,
                                 descriptionOrdinal,
                                 defaultHeatTransferCoefficientOrdinal,
+                                defaultCorrectionFactorOrdinal,
                                 defaultHenOptimizerOrdinal,
                                 defaultSystemUnitsOrdinal,
                                 defaultMagnitudeUnitsOrdinal,
@@ -247,6 +218,7 @@ namespace HenPersistence.Repos
                                         Name,
                                         Description,
                                         DefaultHeatTransferCoefficient,
+                                        DefaultCorrectionFactor,
                                         DefaultHenOptimizer,
                                         DefaultSystemUnits,
                                         DefaultMagnitudeUnits,
@@ -278,6 +250,7 @@ namespace HenPersistence.Repos
                             reader.GetOrdinal("Name"),
                             reader.GetOrdinal("Description"),
                             reader.GetOrdinal("DefaultHeatTransferCoefficient"),
+                            reader.GetOrdinal("DefaultCorrectionFactor"),
                             reader.GetOrdinal("DefaultHenOptimizer"),
                             reader.GetOrdinal("DefaultSystemUnits"),
                             reader.GetOrdinal("DefaultMagnitudeUnits"),
@@ -306,6 +279,7 @@ namespace HenPersistence.Repos
                                         Name,
                                         Description,
                                         DefaultHeatTransferCoefficient,
+                                        DefaultCorrectionFactor,
                                         DefaultHenOptimizer,
                                         DefaultSystemUnits,
                                         DefaultMagnitudeUnits,
@@ -337,6 +311,7 @@ namespace HenPersistence.Repos
                             reader.GetOrdinal("Name"),
                             reader.GetOrdinal("Description"),
                             reader.GetOrdinal("DefaultHeatTransferCoefficient"),
+                            reader.GetOrdinal("DefaultCorrectionFactor"),
                             reader.GetOrdinal("DefaultHenOptimizer"),
                             reader.GetOrdinal("DefaultSystemUnits"),
                             reader.GetOrdinal("DefaultMagnitudeUnits"),
@@ -365,6 +340,7 @@ namespace HenPersistence.Repos
                                     (Name,
                                      Description,
                                      DefaultHeatTransferCoefficient,
+                                     DefaultCorrectionFactor,
                                      DefaultHenOptimizer,
                                      DefaultSystemUnits,
                                      DefaultMagnitudeUnits,
@@ -375,6 +351,7 @@ namespace HenPersistence.Repos
                                     (@Name,
                                      @Description,
                                      @DefaultHeatTransferCoefficient,
+                                     @DefaultCorrectionFactor,
                                      @DefaultHenOptimizer,
                                      @DefaultSystemUnits,
                                      @DefaultMagnitudeUnits,
@@ -390,6 +367,7 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@Name", DbType.String, projectDto.Name);
                     AddParameter(command, "@Description", DbType.String, projectDto.Description);
                     AddParameter(command, "@DefaultHeatTransferCoefficient", DbType.Double, projectDto.DefaultHeatTransferCoefficient);
+                    AddParameter(command, "@DefaultCorrectionFactor", DbType.Double, projectDto.DefaultCorrectionFactor);
                     AddParameter(command, "@DefaultHenOptimizer", DbType.String, projectDto.DefaultHenOptimizer);
                     AddParameter(command, "@DefaultSystemUnits", DbType.String, projectDto.DefaultSystemUnits);
                     AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectDto.DefaultMagnitudeUnits);
@@ -420,6 +398,7 @@ namespace HenPersistence.Repos
                                  SET Name = @Name,
                                      Description = @Description,
                                      DefaultHeatTransferCoefficient = @DefaultHeatTransferCoefficient,
+                                     DefaultCorrectionFactor = @DefaultCorrectionFactor,
                                      DefaultHenOptimizer = @DefaultHenOptimizer,
                                      DefaultSystemUnits = @DefaultSystemUnits,
                                      DefaultMagnitudeUnits = @DefaultMagnitudeUnits,
@@ -437,10 +416,9 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@Name", DbType.String, projectDto.Name);
                     AddParameter(command, "@Description", DbType.String, projectDto.Description);
                     AddParameter(command, "@DefaultHeatTransferCoefficient", DbType.Double, projectDto.DefaultHeatTransferCoefficient);
+                    AddParameter(command, "@DefaultCorrectionFactor", DbType.Double, projectDto.DefaultCorrectionFactor);
                     AddParameter(command, "@DefaultHenOptimizer", DbType.String, projectDto.DefaultHenOptimizer);
                     AddParameter(command, "@DefaultSystemUnits", DbType.String, projectDto.DefaultSystemUnits);
-                    // Ensure magnitude persisted is canonical DB token
-                    //AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, NormalizeMagnitude(projectDto.DefaultMagnitudeUnits));
                     AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectDto.DefaultMagnitudeUnits);
                     AddParameter(command, "@DefaultTemperatureUnits", DbType.String, projectDto.DefaultTemperatureUnits);
                     AddParameter(command, "@DefaultPressureUnits", DbType.String, projectDto.DefaultPressureUnits);

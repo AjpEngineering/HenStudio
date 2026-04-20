@@ -10,11 +10,12 @@
 --      + Project Name
 --      + Project Description
 --      + Default Exchanger Heat Transfer Coefficient (U)
+--      + Default Exchanger Correction Factor (F)
 --      + Default HEN Optimizer (Genetic|Greedy|MILP)
 --      + Default System Units (SI|Imperial)
 --      + Default Magnitude Units (Base|Kilo|Mega)
 --      + Default Temperature Units (C|F|K|R)
---      + Default Pressure Units (Pa|bar|psia|psig|psf|atm|inHg|inH2O)
+--      + Default Pressure Units (Pa|kPa|MPa|bar|kBar|MBar|psia|psig|psf|atm|inHg|inH2O)
 --
 -- ============================================================================
 --  (c)Copyright 2026 AJP Engineering
@@ -29,6 +30,7 @@ CREATE TABLE [dbo].[Project]
     [Name] NVARCHAR(256) NOT NULL,
     [Description] NVARCHAR(1024) NULL,
     [DefaultHeatTransferCoefficient] FLOAT NOT NULL DEFAULT 0.0,
+    [DefaultCorrectionFactor] FLOAT NOT NULL DEFAULT 0.85,
     [DefaultHenOptimizer] NVARCHAR(16) NOT NULL DEFAULT N'Genetic',
     [DefaultSystemUnits] NVARCHAR(24) NOT NULL DEFAULT N'Metric - SI',
     [DefaultMagnitudeUnits] NVARCHAR(16) NOT NULL DEFAULT N'Base',

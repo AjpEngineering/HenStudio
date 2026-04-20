@@ -95,6 +95,7 @@ namespace HenViewModels
                     externalProject.Name = internalProject.Name;
                     externalProject.Description = internalProject.Description;
                     externalProject.DefaultHeatTransferCoefficient = ConvertToExternalU(internalProject.DefaultHeatTransferCoefficient);
+                    externalProject.DefaultCorrectionFactor = internalProject.DefaultCorrectionFactor;
                     externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
                     externalProject.DefaultSystemUnits = internalProject.DefaultSystemUnits;
                     externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
@@ -141,6 +142,7 @@ namespace HenViewModels
                 externalProject.Name = internalProject.Name;
                 externalProject.Description = internalProject.Description;
                 externalProject.DefaultHeatTransferCoefficient = ConvertToExternalU(internalProject.DefaultHeatTransferCoefficient);
+                externalProject.DefaultCorrectionFactor = internalProject.DefaultCorrectionFactor;
                 externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
                 externalProject.DefaultSystemUnits = internalProject.DefaultSystemUnits;
                 externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
@@ -191,6 +193,7 @@ namespace HenViewModels
                 externalProject.Name = internalProject.Name;
                 externalProject.Description = internalProject.Description;
                 externalProject.DefaultHeatTransferCoefficient = ConvertToExternalU(internalProject.DefaultHeatTransferCoefficient);
+                externalProject.DefaultCorrectionFactor = internalProject.DefaultCorrectionFactor;
                 externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
                 externalProject.DefaultSystemUnits = internalProject.DefaultSystemUnits;
                 externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
@@ -234,6 +237,7 @@ namespace HenViewModels
                 internalProjectDto.Name = externalProjectDto.Name;
                 internalProjectDto.Description = externalProjectDto.Description;
                 internalProjectDto.DefaultHeatTransferCoefficient = ConvertFromExternalU(externalProjectDto.DefaultHeatTransferCoefficient);
+                internalProjectDto.DefaultCorrectionFactor = externalProjectDto.DefaultCorrectionFactor;
                 internalProjectDto.DefaultHenOptimizer = externalProjectDto.DefaultHenOptimizer;
                 internalProjectDto.DefaultSystemUnits = externalProjectDto.DefaultSystemUnits;
                 internalProjectDto.DefaultMagnitudeUnits = externalProjectDto.DefaultMagnitudeUnits;
@@ -279,6 +283,7 @@ namespace HenViewModels
                 internalProjectDto.Name = externalProjectDto.Name;
                 internalProjectDto.Description = externalProjectDto.Description;
                 internalProjectDto.DefaultHeatTransferCoefficient = ConvertFromExternalU(externalProjectDto.DefaultHeatTransferCoefficient);
+                internalProjectDto.DefaultCorrectionFactor = externalProjectDto.DefaultCorrectionFactor;
                 internalProjectDto.DefaultHenOptimizer = externalProjectDto.DefaultHenOptimizer;
                 internalProjectDto.DefaultSystemUnits = externalProjectDto.DefaultSystemUnits;
                 internalProjectDto.DefaultMagnitudeUnits = externalProjectDto.DefaultMagnitudeUnits;

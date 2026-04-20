@@ -67,6 +67,8 @@
             this.textBoxProjectDescriptionValue = new System.Windows.Forms.TextBox();
             this.textBoxDefaultLabel = new System.Windows.Forms.TextBox();
             this.panelDefaultParmeters = new System.Windows.Forms.Panel();
+            this.textBoxF = new System.Windows.Forms.TextBox();
+            this.textBoxDefaultF_Value = new System.Windows.Forms.TextBox();
             this.panelProjectUnits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).BeginInit();
             this.panelExchanger.SuspendLayout();
@@ -422,13 +424,15 @@
             // panelExchanger
             // 
             this.panelExchanger.BackColor = System.Drawing.Color.OldLace;
+            this.panelExchanger.Controls.Add(this.textBoxDefaultF_Value);
+            this.panelExchanger.Controls.Add(this.textBoxF);
             this.panelExchanger.Controls.Add(this.textBoxDefaultU_Value);
             this.panelExchanger.Controls.Add(this.textBoxDefaultU_Units);
             this.panelExchanger.Controls.Add(this.textBoxDefaultU);
             this.panelExchanger.Controls.Add(this.textBoxExchangerDefaults);
             this.panelExchanger.Location = new System.Drawing.Point(17, 42);
             this.panelExchanger.Name = "panelExchanger";
-            this.panelExchanger.Size = new System.Drawing.Size(250, 80);
+            this.panelExchanger.Size = new System.Drawing.Size(250, 95);
             this.panelExchanger.TabIndex = 17;
             // 
             // textBoxDefaultU_Value
@@ -436,7 +440,7 @@
             this.textBoxDefaultU_Value.BackColor = System.Drawing.Color.White;
             this.textBoxDefaultU_Value.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDefaultU_Value.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDefaultU_Value.Location = new System.Drawing.Point(55, 40);
+            this.textBoxDefaultU_Value.Location = new System.Drawing.Point(55, 35);
             this.textBoxDefaultU_Value.Name = "textBoxDefaultU_Value";
             this.textBoxDefaultU_Value.Size = new System.Drawing.Size(76, 18);
             this.textBoxDefaultU_Value.TabIndex = 6;
@@ -449,7 +453,7 @@
             this.textBoxDefaultU_Units.BackColor = System.Drawing.Color.OldLace;
             this.textBoxDefaultU_Units.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDefaultU_Units.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDefaultU_Units.Location = new System.Drawing.Point(137, 40);
+            this.textBoxDefaultU_Units.Location = new System.Drawing.Point(137, 35);
             this.textBoxDefaultU_Units.Name = "textBoxDefaultU_Units";
             this.textBoxDefaultU_Units.ReadOnly = true;
             this.textBoxDefaultU_Units.Size = new System.Drawing.Size(110, 18);
@@ -461,7 +465,7 @@
             this.textBoxDefaultU.BackColor = System.Drawing.Color.OldLace;
             this.textBoxDefaultU.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDefaultU.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDefaultU.Location = new System.Drawing.Point(8, 40);
+            this.textBoxDefaultU.Location = new System.Drawing.Point(8, 35);
             this.textBoxDefaultU.Name = "textBoxDefaultU";
             this.textBoxDefaultU.ReadOnly = true;
             this.textBoxDefaultU.Size = new System.Drawing.Size(37, 18);
@@ -491,7 +495,7 @@
             this.panelDefaultHenOptimizer.Controls.Add(this.textBoxDefaultHenOptimizerTitle);
             this.panelDefaultHenOptimizer.Location = new System.Drawing.Point(278, 43);
             this.panelDefaultHenOptimizer.Name = "panelDefaultHenOptimizer";
-            this.panelDefaultHenOptimizer.Size = new System.Drawing.Size(190, 80);
+            this.panelDefaultHenOptimizer.Size = new System.Drawing.Size(190, 94);
             this.panelDefaultHenOptimizer.TabIndex = 18;
             // 
             // comboBoxDefaultHenOpitimizer
@@ -510,7 +514,7 @@
             this.comboBoxDefaultHenOpitimizer.Name = "comboBoxDefaultHenOpitimizer";
             this.comboBoxDefaultHenOpitimizer.Size = new System.Drawing.Size(160, 25);
             this.comboBoxDefaultHenOpitimizer.Sorted = true;
-            this.comboBoxDefaultHenOpitimizer.TabIndex = 7;
+            this.comboBoxDefaultHenOpitimizer.TabIndex = 8;
             // 
             // textBoxDefaultHenOptimizerTitle
             // 
@@ -642,6 +646,33 @@
             this.panelDefaultParmeters.Size = new System.Drawing.Size(482, 146);
             this.panelDefaultParmeters.TabIndex = 36;
             // 
+            // textBoxF
+            // 
+            this.textBoxF.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxF.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxF.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxF.Location = new System.Drawing.Point(8, 66);
+            this.textBoxF.Name = "textBoxF";
+            this.textBoxF.ReadOnly = true;
+            this.textBoxF.Size = new System.Drawing.Size(158, 18);
+            this.textBoxF.TabIndex = 34;
+            this.textBoxF.TabStop = false;
+            this.textBoxF.Text = "Correction Factor (F): ";
+            this.textBoxF.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxDefaultF_Value
+            // 
+            this.textBoxDefaultF_Value.BackColor = System.Drawing.Color.White;
+            this.textBoxDefaultF_Value.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDefaultF_Value.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultF_Value.Location = new System.Drawing.Point(172, 66);
+            this.textBoxDefaultF_Value.Name = "textBoxDefaultF_Value";
+            this.textBoxDefaultF_Value.Size = new System.Drawing.Size(59, 18);
+            this.textBoxDefaultF_Value.TabIndex = 7;
+            this.textBoxDefaultF_Value.Text = "0.85";
+            this.textBoxDefaultF_Value.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxDefaultF_Value.TextChanged += new System.EventHandler(this.textBoxFValue_TextChanged);
+            // 
             // FormProjectNewModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -722,5 +753,7 @@
         private System.Windows.Forms.TextBox textBoxProjectDescriptionValue;
         private System.Windows.Forms.TextBox textBoxDefaultLabel;
         private System.Windows.Forms.Panel panelDefaultParmeters;
+        private System.Windows.Forms.TextBox textBoxDefaultF_Value;
+        private System.Windows.Forms.TextBox textBoxF;
     }
 }

@@ -2044,6 +2044,7 @@ namespace HenStudio
             projectViewDataObj.Name = projectDto.Name;
             projectViewDataObj.Description = projectDto.Description;
             projectViewDataObj.ProjectU_Value = projectDto.DefaultHeatTransferCoefficient.ToString();
+            projectViewDataObj.ProjectF_Value = projectDto.DefaultCorrectionFactor.ToString();
             projectViewDataObj.ProjectHenOptimizer = projectDto.DefaultHenOptimizer;
 
             projectViewDataObj.ProjectSystem_Units = projectDto.DefaultSystemUnits;
@@ -2201,6 +2202,7 @@ namespace HenStudio
             ProjectDtoObj.Name = projectViewDataObj.Name;
             ProjectDtoObj.Description = projectViewDataObj.Description;
             ProjectDtoObj.DefaultHeatTransferCoefficient = double.Parse(projectViewDataObj.ProjectU_Value);
+            ProjectDtoObj.DefaultCorrectionFactor = double.Parse(projectViewDataObj.ProjectF_Value);
             ProjectDtoObj.DefaultHenOptimizer = projectViewDataObj.ProjectHenOptimizer;
 
             ProjectDtoObj.DefaultSystemUnits = projectViewDataObj.ProjectSystem_Units;
@@ -2227,8 +2229,10 @@ namespace HenStudio
             this.textBoxProjectDescriptionValue.Text = projectPanelData.Description;
 
             this.textBoxDefaultU_Value.Text = projectPanelData.ProjectU_Value.ToString();
+            this.textBoxFValue.Text = projectPanelData.ProjectF_Value.ToString();
             this.textBoxDefaultHenOpitimizer.Text = projectPanelData.ProjectHenOptimizer;
             this.textBoxDefaultU_Units.Text = projectPanelData.ProjectU_Units;
+           
             //--- PROJECT UNITS ---
 
             this.textBoxProjectUnitsSystem.Text = projectPanelData.ProjectSystem_Units;

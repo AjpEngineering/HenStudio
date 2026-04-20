@@ -56,6 +56,7 @@ namespace HenStudio
         public string Name { get; set; }
         public string Description { get; set; }
         public string ProjectU_Value { get; set; }
+        public string ProjectF_Value { get; set; }
         public string ProjectHenOptimizer { get; set; }
         public string ProjectSystem_Units { get; set; }
         public string ProjectMagnitude_Units { get; set; }
@@ -79,6 +80,7 @@ namespace HenStudio
             Description = string.Empty;
 
             ProjectU_Value = "74.0";
+            ProjectF_Value = "0.85";
 
             ProjectHenOptimizer = string.Empty;
 
