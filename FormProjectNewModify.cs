@@ -67,6 +67,22 @@ namespace HenStudio
         #region CONSTANTS
         const string NAMESPACE = "HenStudio";
         const string CLASS = "FormSettings";
+
+        //------------------------------------------------------------------------------------
+        //--- Default Correction Factor (F) for Exchanger Design Calculations (Base Value) ---
+        //------------------------------------------------------------------------------------
+        const double DEFAULT_F_CORRECTION_FACTOR = 0.85;
+
+        //----------------------------------------------------------
+        //--- Default U Values for Exchanger Design Calculations ---
+        //----------------------------------------------------------
+        const double DEFAULT_U_ENGLISH_BASE = 35.22;        //   Btu/(hr·ft²·°F) and   Btu/(hr·ft²·°R)
+        const double DEFAULT_U_ENGLISH_KILO = 0.03522;      //  kBtu/(hr·ft²·°F) and  kBtu/(hr·ft²·°R)
+        const double DEFAULT_U_ENGLISH_MEGA = 0.00003522;   // MMBtu/(hr·ft²·°F) and MMBtu/(hr·ft²·°R)
+
+        const double DEFAULT_U_METRIC_BASE = 200.0;         //  W/(m²·°C)  and  W/(m²·K)
+        const double DEFAULT_U_METRIC_KILO = 0.20;          // kW/(m²·°C)  and kW/(m²·K)
+        const double DEFAULT_U_METRIC_MEGA = 0.00020;       // MW/(m²·°C)  and MW/(m²·K)
         #endregion      // CONSTANTS
 
         #region PROPERTIES
@@ -108,22 +124,47 @@ namespace HenStudio
             this.textBoxProjectNameValue.Text = "Project_Name";
             this.textBoxProjectDescriptionValue.Text = "Enter Project Description";
 
-            if(string.Compare(appGlobalSettingsObj.ExternalSystemUnits, "English - Imperial", true)==0)
+            this.textBoxF.Text = DEFAULT_F_CORRECTION_FACTOR.ToString();
+
+            if (string.Compare(appGlobalSettingsObj.ExternalSystemUnits, "English - Imperial", true)==0)
             {
+                //-----------------------
+                //--- Set Enum Values ---
+                //-----------------------
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishTempEnum = ProjectEnglishTemp.DEG_F;
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishPressEnum = ProjectEnglishPress.PSIA;
+
+                this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_MEGA.ToString();
+
                 //--------------------------------------------
                 //--- Initialize with ENGLISH System Units ---
                 //--------------------------------------------
                 SetDefaultEngslishSettings();
-                LoadHenOptimizer();
             }
             else if (string.Compare(appGlobalSettingsObj.ExternalSystemUnits, "Metric - SI", true) == 0)
             {
+                //-----------------------
+                //--- Set Enum Values ---
+                //-----------------------
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.METRIC;
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.KILO;
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricTempEnum = ProjectMetricTemp.KELVIN;
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricPressEnum = ProjectMetricPress.Pa;
+
+                this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_KILO.ToString();
+
                 //------------------------------------------
                 //---Initialize with METRIC System Units ---
                 //------------------------------------------
                 SetDefaultMetricSettings();
-                LoadHenOptimizer();
             }
+
+            //--------------------------
+            //--- Load HEN Optimizer ---
+            //--------------------------
+            LoadHenOptimizer();
         }
         #endregion  // CTOR ... NEW
 
@@ -149,28 +190,79 @@ namespace HenStudio
             //--- Set Initial Form Title Text ---
             //-----------------------------------
             this.Text = string.Format("MODIFY Project Data : {0}", projectViewDataObj.Name);
+
             //----------------------------------
             //--- Initialize Textbox Strings ---
             //----------------------------------
             this.textBoxProjectNameValue.Text = projectViewDataObj.Name;
             this.textBoxProjectDescriptionValue.Text = projectViewDataObj.Description;
 
+            #region ENGLISH
+
             if (string.Compare(projectViewDataObj.ProjectSystem_Units, "English - Imperial", true) == 0)
             {
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
+
+                #region MAGNITUDE
+                if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Base", true) == 0)
+                {
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.BASE;
+                    this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_BASE.ToString();
+                }
+                else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Kilo", true) == 0)
+                {
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.KILO;
+                    this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_KILO.ToString();
+                }
+                else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Mega", true) == 0)
+                {
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
+                    this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_MEGA.ToString();
+                }
+                #endregion  // MAGNITUDE
+
                 //--------------------------------------------
                 //--- Initialize with ENGLISH System Units ---
                 //--------------------------------------------
                 SetDefaultEngslishSettings();
-                LoadHenOptimizer();
             }
+            #endregion  // ENGLISH
+            
+            #region METRIC
             else if (string.Compare(projectViewDataObj.ProjectSystem_Units, "Metric - SI", true) == 0)
             {
+                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
+
+                #region MAGNITUDE
+
+                if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Base", true) == 0)
+                {
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.BASE;
+                    this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_BASE.ToString();
+                }
+                else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Kilo", true) == 0)
+                {
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.KILO;
+                    this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_KILO.ToString();
+                }
+                else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Mega", true) == 0)
+                {
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
+                    this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_MEGA.ToString();
+                }
+                #endregion  // MAGNITUDE
+
                 //------------------------------------------
                 //---Initialize with METRIC System Units ---
                 //------------------------------------------
                 SetDefaultMetricSettings();
-                LoadHenOptimizer();
             }
+            #endregion  //// METRIC
+
+            //--------------------------
+            //--- Load HEN Optimizer ---
+            //--------------------------
+            LoadHenOptimizer();
         }
         #endregion  // CTOR ... MODIFY
 
@@ -227,14 +319,6 @@ namespace HenStudio
             string strMethod = "SetDefaultEngslishSettings";
             try
             {
-                //-----------------------
-                //--- Set Enum Values ---
-                //-----------------------
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishTempEnum = ProjectEnglishTemp.DEG_F;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishPressEnum = ProjectEnglishPress.PSIA;
-                
                 //----------------------------------------
                 //--- Load Combo Boxes and Select Item ---
                 //----------------------------------------
@@ -266,14 +350,6 @@ namespace HenStudio
             string strMethod = "SetDefaultMetricSettings";
             try
             {
-                //-----------------------
-                //--- Set Enum Values ---
-                //-----------------------
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.METRIC;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.KILO;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricTempEnum = ProjectMetricTemp.KELVIN;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricPressEnum = ProjectMetricPress.Pa;
-
                 //----------------------------------------
                 //--- Load Combo Boxes and Select Item ---
                 //----------------------------------------
@@ -855,6 +931,16 @@ namespace HenStudio
                 #region METRIC
                 if (string.Compare(strSelectedItem, HenProjectUnits.METRIC_UNITS, true) == 0)
                 {
+                    //-----------------------
+                    //--- Set Enum Values ---
+                    //-----------------------
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.METRIC;
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.KILO;
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricTempEnum = ProjectMetricTemp.KELVIN;
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricPressEnum = ProjectMetricPress.Pa;
+
+                    this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_KILO.ToString();
+
                     SetDefaultMetricSettings();
                 }
                 #endregion  // METRIC
@@ -862,6 +948,16 @@ namespace HenStudio
                 #region ENGLISH
                 else if (string.Compare(strSelectedItem, HenProjectUnits.ENGLISH_UNITS, true) == 0)
                 {
+                    //-----------------------
+                    //--- Set Enum Values ---
+                    //-----------------------
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishTempEnum = ProjectEnglishTemp.DEG_F;
+                    NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishPressEnum = ProjectEnglishPress.PSIA;
+                    
+                    this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_MEGA.ToString();
+
                     SetDefaultEngslishSettings();
                 }
                 #endregion  // ENGLISH
@@ -912,6 +1008,41 @@ namespace HenStudio
                     NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
                 }
                 #endregion  // MEGA
+
+                //-------------------------------------------------------------------------------------
+                //--- Populate the Default U Value based on the Selected System Units and Magnitude ---
+                //-------------------------------------------------------------------------------------
+                switch (NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum)
+                {
+                    case ProjectSystemUnits.ENGLISH:
+                        switch (NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum)
+                        {
+                            case ProjectMagnitude.BASE:
+                                this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_BASE.ToString();
+                                break;
+                            case ProjectMagnitude.KILO:
+                                this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_KILO.ToString();
+                                break;
+                            case ProjectMagnitude.MEGA:
+                                this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_MEGA.ToString();
+                                break;
+                        }
+                        break;
+                    case ProjectSystemUnits.METRIC:
+                        switch (NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum)
+                        {
+                            case ProjectMagnitude.BASE:
+                                this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_BASE.ToString();
+                                break;
+                            case ProjectMagnitude.KILO:
+                                this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_KILO.ToString();
+                                break;
+                            case ProjectMagnitude.MEGA:
+                                this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_MEGA.ToString();
+                                break;
+                        }
+                        break;
+                }
 
                 //-----------------------------------
                 //--- Populate the Units Controls ---
