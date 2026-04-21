@@ -35,6 +35,7 @@
 #region REFERENCES
 using HenGlobal;
 
+using HenPersistence.Connection;
 using HenPersistence.Repos;
 
 using HenRepositories.Dto;
@@ -60,13 +61,14 @@ namespace HenViewModels
         /// <summary>
         /// Default CTOR
         /// </summary>
-        public EconParamViewModel(EconParamRepo econParamRepoObj,
-                                  HenProjectUnits EXTERNAL_UnitsObj,
-                                  HenProjectUnits INTERNAL_UnitsObj)
+        public EconParamViewModel()
         {
+            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            var econParamRepoObj = new EconParamRepo(connFactoryObj);
+
             EconParamRepoObj = econParamRepoObj;
-            ExternalUnitsObj = EXTERNAL_UnitsObj;
-            InternalUnitsObj = INTERNAL_UnitsObj;
+            ExternalUnitsObj = new HenProjectUnits();
+            InternalUnitsObj = new HenProjectUnits();
         }
         #endregion  // CTOR
 

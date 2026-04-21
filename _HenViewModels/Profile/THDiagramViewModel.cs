@@ -35,9 +35,11 @@
 #region REFERENCES
 using HenGlobal;
 
+using HenPersistence.Connection;
 using HenPersistence.Repos;
 
 using HenRepositories.Dto;
+using HenRepositories.Interfaces;
 
 using System;
 using System.Collections.Generic;
@@ -60,13 +62,14 @@ namespace HenViewModels
         /// <summary>
         /// Default CTOR
         /// </summary>
-        public THDiagramViewModel(THDiagramRepo thDiagramRepoObj,
-                                  HenProjectUnits EXTERNAL_UnitsObj,
-                                  HenProjectUnits INTERNAL_UnitsObj)
+        public THDiagramViewModel()
         {
+            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            var thDiagramRepoObj = new THDiagramRepo(connFactoryObj);
+
             THDiagramRepoObj = thDiagramRepoObj;
-            ExternalUnitsObj = EXTERNAL_UnitsObj;
-            InternalUnitsObj = INTERNAL_UnitsObj;
+            ExternalUnitsObj = new HenProjectUnits();
+            InternalUnitsObj = new HenProjectUnits();
         }
         #endregion  // CTOR
 

@@ -35,6 +35,7 @@
 #region REFERENCES
 using HenGlobal;
 
+using HenPersistence.Connection;
 using HenPersistence.Repos;
 
 using HenRepositories.Dto;
@@ -60,13 +61,14 @@ namespace HenViewModels
         /// <summary>
         /// Default CTOR
         /// </summary>
-        public ProfileViewModel(ProfileRepo profileRepoObj,
-                                HenProjectUnits EXTERNAL_UnitsObj,
-                                HenProjectUnits INTERNAL_UnitsObj)
+        public ProfileViewModel()
         {
+            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            var profileRepoObj = new ProfileRepo(connFactoryObj);
+
             ProfileRepoObj = profileRepoObj;
-            ExternalUnitsObj = EXTERNAL_UnitsObj;
-            InternalUnitsObj = INTERNAL_UnitsObj;
+            ExternalUnitsObj = new HenProjectUnits();
+            InternalUnitsObj = new HenProjectUnits();
         }
         #endregion  // CTOR
 
