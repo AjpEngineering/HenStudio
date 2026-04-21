@@ -802,7 +802,6 @@
             this.toolStripStatusLabelLICENSE.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabelLICENSE.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelLICENSE.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLICENSE.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabelLICENSE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLICENSE.Image")));
@@ -821,7 +820,6 @@
             this.toolStripStatusLabelCAT_DB.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabelCAT_DB.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelCAT_DB.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelCAT_DB.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabelCAT_DB.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelCAT_DB.Image")));
@@ -837,7 +835,6 @@
             // toolStripStatusLabelProjectDirtyFlag
             // 
             this.toolStripStatusLabelProjectDirtyFlag.BackColor = System.Drawing.Color.Green;
-            this.toolStripStatusLabelProjectDirtyFlag.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelProjectDirtyFlag.DoubleClickEnabled = true;
             this.toolStripStatusLabelProjectDirtyFlag.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelProjectDirtyFlag.ForeColor = System.Drawing.Color.White;
@@ -857,7 +854,6 @@
             this.toolStripStatusLabelLEVEL_PROJECT.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabelLEVEL_PROJECT.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelLEVEL_PROJECT.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.toolStripStatusLabelLEVEL_PROJECT.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROJECT.Image")));
@@ -874,7 +870,6 @@
             this.toolStripStatusLabelLEVEL_PROFILE.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabelLEVEL_PROFILE.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelLEVEL_PROFILE.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_PROFILE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROFILE.Image")));
@@ -891,7 +886,6 @@
             this.toolStripStatusLabelLEVEL_PINCH.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabelLEVEL_PINCH.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelLEVEL_PINCH.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_PINCH.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_PINCH.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PINCH.Image")));
@@ -908,7 +902,6 @@
             this.toolStripStatusLabelLEVEL_HEN.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabelLEVEL_HEN.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelLEVEL_HEN.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_HEN.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_HEN.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_HEN.Image")));
@@ -926,7 +919,6 @@
             this.toolStripStatusLabelAJP_LOGO.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabelAJP_LOGO.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.toolStripStatusLabelAJP_LOGO.DoubleClickEnabled = true;
             this.toolStripStatusLabelAJP_LOGO.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelAJP_LOGO.ForeColor = System.Drawing.Color.Black;
@@ -979,7 +971,6 @@
             // 
             // splitContainerLefCenter
             // 
-            this.splitContainerLefCenter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainerLefCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerLefCenter.Location = new System.Drawing.Point(0, 24);
             this.splitContainerLefCenter.MinimumSize = new System.Drawing.Size(1264, 619);
@@ -1010,7 +1001,6 @@
             // 
             // splitContainerProject
             // 
-            this.splitContainerProject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainerProject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerProject.Location = new System.Drawing.Point(0, 0);
             this.splitContainerProject.Name = "splitContainerProject";
@@ -1125,7 +1115,7 @@
             this.treeViewCurrentProjectExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode15});
             this.treeViewCurrentProjectExplorer.SelectedImageIndex = 9;
-            this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(337, 386);
+            this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(339, 388);
             this.treeViewCurrentProjectExplorer.TabIndex = 1;
             this.treeViewCurrentProjectExplorer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCurrentProjectExplorer_AfterSelect);
             // 
@@ -1151,7 +1141,7 @@
             this.panelReports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelReports.Location = new System.Drawing.Point(6, 6);
             this.panelReports.Name = "panelReports";
-            this.panelReports.Size = new System.Drawing.Size(337, 201);
+            this.panelReports.Size = new System.Drawing.Size(339, 203);
             this.panelReports.TabIndex = 0;
             // 
             // panelSELECTED_PROFILE
@@ -1168,7 +1158,7 @@
             this.panelSELECTED_PROFILE.Margin = new System.Windows.Forms.Padding(0);
             this.panelSELECTED_PROFILE.Name = "panelSELECTED_PROFILE";
             this.panelSELECTED_PROFILE.Padding = new System.Windows.Forms.Padding(6);
-            this.panelSELECTED_PROFILE.Size = new System.Drawing.Size(908, 611);
+            this.panelSELECTED_PROFILE.Size = new System.Drawing.Size(910, 613);
             this.panelSELECTED_PROFILE.TabIndex = 12;
             // 
             // tabControlInputPhase
@@ -1185,7 +1175,7 @@
             this.tabControlInputPhase.Name = "tabControlInputPhase";
             this.tabControlInputPhase.SelectedIndex = 0;
             this.tabControlInputPhase.ShowToolTips = true;
-            this.tabControlInputPhase.Size = new System.Drawing.Size(909, 568);
+            this.tabControlInputPhase.Size = new System.Drawing.Size(911, 570);
             this.tabControlInputPhase.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControlInputPhase.TabIndex = 0;
             // 
@@ -1197,7 +1187,7 @@
             this.tabPageStreams.Location = new System.Drawing.Point(4, 39);
             this.tabPageStreams.Name = "tabPageStreams";
             this.tabPageStreams.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStreams.Size = new System.Drawing.Size(901, 525);
+            this.tabPageStreams.Size = new System.Drawing.Size(903, 527);
             this.tabPageStreams.TabIndex = 0;
             this.tabPageStreams.Text = "PROCESS STREAMS ";
             this.tabPageStreams.ToolTipText = "Specify Process Streams for Current Input Profile";
@@ -1237,7 +1227,7 @@
             this.textBoxInputBanner.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxInputBanner.Location = new System.Drawing.Point(51, 4);
             this.textBoxInputBanner.Name = "textBoxInputBanner";
-            this.textBoxInputBanner.Size = new System.Drawing.Size(851, 33);
+            this.textBoxInputBanner.Size = new System.Drawing.Size(853, 33);
             this.textBoxInputBanner.TabIndex = 1;
             this.textBoxInputBanner.Text = "INPUT PROFILE";
             this.textBoxInputBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1268,7 +1258,7 @@
             this.panelSELECTED_PROJECT.Margin = new System.Windows.Forms.Padding(0);
             this.panelSELECTED_PROJECT.Name = "panelSELECTED_PROJECT";
             this.panelSELECTED_PROJECT.Padding = new System.Windows.Forms.Padding(6);
-            this.panelSELECTED_PROJECT.Size = new System.Drawing.Size(908, 611);
+            this.panelSELECTED_PROJECT.Size = new System.Drawing.Size(910, 613);
             this.panelSELECTED_PROJECT.TabIndex = 2;
             // 
             // panelDefaultParmeters
@@ -1438,7 +1428,7 @@
             this.textBoxProjectBanner.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxProjectBanner.Location = new System.Drawing.Point(48, 4);
             this.textBoxProjectBanner.Name = "textBoxProjectBanner";
-            this.textBoxProjectBanner.Size = new System.Drawing.Size(851, 33);
+            this.textBoxProjectBanner.Size = new System.Drawing.Size(853, 33);
             this.textBoxProjectBanner.TabIndex = 0;
             this.textBoxProjectBanner.Text = "PROJECT";
             this.textBoxProjectBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1467,7 +1457,7 @@
             this.panelProjectUnits.Controls.Add(this.textBoxUnitsMagnitude);
             this.panelProjectUnits.Controls.Add(this.pictureBoxUnitsSystem);
             this.panelProjectUnits.Controls.Add(this.textBoxUnitsSystem);
-            this.panelProjectUnits.Location = new System.Drawing.Point(536, 48);
+            this.panelProjectUnits.Location = new System.Drawing.Point(538, 48);
             this.panelProjectUnits.Name = "panelProjectUnits";
             this.panelProjectUnits.Size = new System.Drawing.Size(352, 349);
             this.panelProjectUnits.TabIndex = 13;
@@ -1757,7 +1747,7 @@
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectDescriptionValue);
             this.panelProjectMetadata.Location = new System.Drawing.Point(10, 49);
             this.panelProjectMetadata.Name = "panelProjectMetadata";
-            this.panelProjectMetadata.Size = new System.Drawing.Size(510, 191);
+            this.panelProjectMetadata.Size = new System.Drawing.Size(512, 191);
             this.panelProjectMetadata.TabIndex = 12;
             // 
             // textBoxProjectID
@@ -1795,7 +1785,7 @@
             this.textBoxProjectNameValue.Location = new System.Drawing.Point(135, 38);
             this.textBoxProjectNameValue.Name = "textBoxProjectNameValue";
             this.textBoxProjectNameValue.ReadOnly = true;
-            this.textBoxProjectNameValue.Size = new System.Drawing.Size(360, 18);
+            this.textBoxProjectNameValue.Size = new System.Drawing.Size(362, 18);
             this.textBoxProjectNameValue.TabIndex = 2;
             this.textBoxProjectNameValue.Text = "Enter Project Name";
             // 
@@ -1822,7 +1812,7 @@
             this.textBoxProjectDescription.Location = new System.Drawing.Point(20, 70);
             this.textBoxProjectDescription.Name = "textBoxProjectDescription";
             this.textBoxProjectDescription.ReadOnly = true;
-            this.textBoxProjectDescription.Size = new System.Drawing.Size(475, 18);
+            this.textBoxProjectDescription.Size = new System.Drawing.Size(477, 18);
             this.textBoxProjectDescription.TabIndex = 3;
             this.textBoxProjectDescription.Text = "  Description";
             this.textBoxProjectDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1838,7 +1828,7 @@
             this.textBoxProjectDescriptionValue.Multiline = true;
             this.textBoxProjectDescriptionValue.Name = "textBoxProjectDescriptionValue";
             this.textBoxProjectDescriptionValue.ReadOnly = true;
-            this.textBoxProjectDescriptionValue.Size = new System.Drawing.Size(481, 85);
+            this.textBoxProjectDescriptionValue.Size = new System.Drawing.Size(483, 85);
             this.textBoxProjectDescriptionValue.TabIndex = 4;
             this.textBoxProjectDescriptionValue.Text = "Enter Project Description";
             // 
@@ -1859,7 +1849,7 @@
             this.panelSELECTED_PROJECTS.Margin = new System.Windows.Forms.Padding(0);
             this.panelSELECTED_PROJECTS.Name = "panelSELECTED_PROJECTS";
             this.panelSELECTED_PROJECTS.Padding = new System.Windows.Forms.Padding(6);
-            this.panelSELECTED_PROJECTS.Size = new System.Drawing.Size(908, 611);
+            this.panelSELECTED_PROJECTS.Size = new System.Drawing.Size(910, 613);
             this.panelSELECTED_PROJECTS.TabIndex = 1;
             // 
             // pictureBoxProductLogo
@@ -1867,7 +1857,7 @@
             this.pictureBoxProductLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxProductLogo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxProductLogo.Image = global::HenStudio.Properties.Resources.AJP_HEN_Studio_with_Graphic;
-            this.pictureBoxProductLogo.Location = new System.Drawing.Point(543, 420);
+            this.pictureBoxProductLogo.Location = new System.Drawing.Point(545, 422);
             this.pictureBoxProductLogo.Name = "pictureBoxProductLogo";
             this.pictureBoxProductLogo.Size = new System.Drawing.Size(353, 180);
             this.pictureBoxProductLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -2159,7 +2149,7 @@
             this.textBoxProjectsBanner.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxProjectsBanner.Location = new System.Drawing.Point(48, 4);
             this.textBoxProjectsBanner.Name = "textBoxProjectsBanner";
-            this.textBoxProjectsBanner.Size = new System.Drawing.Size(851, 33);
+            this.textBoxProjectsBanner.Size = new System.Drawing.Size(853, 33);
             this.textBoxProjectsBanner.TabIndex = 10;
             this.textBoxProjectsBanner.Text = "HEN STUDIO CATALOG";
             this.textBoxProjectsBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2178,7 +2168,7 @@
             this.panelSELECTED_HEN.Margin = new System.Windows.Forms.Padding(0);
             this.panelSELECTED_HEN.Name = "panelSELECTED_HEN";
             this.panelSELECTED_HEN.Padding = new System.Windows.Forms.Padding(6);
-            this.panelSELECTED_HEN.Size = new System.Drawing.Size(908, 611);
+            this.panelSELECTED_HEN.Size = new System.Drawing.Size(910, 613);
             this.panelSELECTED_HEN.TabIndex = 4;
             // 
             // textBoxHenBanner
@@ -2191,7 +2181,7 @@
             this.textBoxHenBanner.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxHenBanner.Location = new System.Drawing.Point(51, 4);
             this.textBoxHenBanner.Name = "textBoxHenBanner";
-            this.textBoxHenBanner.Size = new System.Drawing.Size(851, 33);
+            this.textBoxHenBanner.Size = new System.Drawing.Size(853, 33);
             this.textBoxHenBanner.TabIndex = 3;
             this.textBoxHenBanner.Text = "HEAT EXCHANGER NETWORK (HEN) DESIGN";
             this.textBoxHenBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2219,7 +2209,7 @@
             this.panelSELECTED_PINCH.Margin = new System.Windows.Forms.Padding(0);
             this.panelSELECTED_PINCH.Name = "panelSELECTED_PINCH";
             this.panelSELECTED_PINCH.Padding = new System.Windows.Forms.Padding(6);
-            this.panelSELECTED_PINCH.Size = new System.Drawing.Size(908, 611);
+            this.panelSELECTED_PINCH.Size = new System.Drawing.Size(910, 613);
             this.panelSELECTED_PINCH.TabIndex = 2;
             // 
             // textBoxPinchBanner
@@ -2232,7 +2222,7 @@
             this.textBoxPinchBanner.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxPinchBanner.Location = new System.Drawing.Point(51, 4);
             this.textBoxPinchBanner.Name = "textBoxPinchBanner";
-            this.textBoxPinchBanner.Size = new System.Drawing.Size(851, 33);
+            this.textBoxPinchBanner.Size = new System.Drawing.Size(853, 33);
             this.textBoxPinchBanner.TabIndex = 2;
             this.textBoxPinchBanner.Text = "PINCH STUDY";
             this.textBoxPinchBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
