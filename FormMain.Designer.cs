@@ -1316,7 +1316,7 @@
             this.textBoxInputBanner.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxInputBanner.Location = new System.Drawing.Point(51, 4);
             this.textBoxInputBanner.Name = "textBoxInputBanner";
-            this.textBoxInputBanner.Size = new System.Drawing.Size(834, 33);
+            this.textBoxInputBanner.Size = new System.Drawing.Size(851, 33);
             this.textBoxInputBanner.TabIndex = 1;
             this.textBoxInputBanner.Text = "INPUT PROFILE";
             this.textBoxInputBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1517,7 +1517,7 @@
             this.textBoxProjectBanner.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxProjectBanner.Location = new System.Drawing.Point(48, 4);
             this.textBoxProjectBanner.Name = "textBoxProjectBanner";
-            this.textBoxProjectBanner.Size = new System.Drawing.Size(849, 33);
+            this.textBoxProjectBanner.Size = new System.Drawing.Size(851, 33);
             this.textBoxProjectBanner.TabIndex = 0;
             this.textBoxProjectBanner.Text = "PROJECT";
             this.textBoxProjectBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2238,7 +2238,7 @@
             this.textBoxProjectsBanner.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxProjectsBanner.Location = new System.Drawing.Point(48, 4);
             this.textBoxProjectsBanner.Name = "textBoxProjectsBanner";
-            this.textBoxProjectsBanner.Size = new System.Drawing.Size(849, 33);
+            this.textBoxProjectsBanner.Size = new System.Drawing.Size(851, 33);
             this.textBoxProjectsBanner.TabIndex = 10;
             this.textBoxProjectsBanner.Text = "HEN STUDIO CATALOG";
             this.textBoxProjectsBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2270,7 +2270,7 @@
             this.textBoxHenBanner.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxHenBanner.Location = new System.Drawing.Point(51, 4);
             this.textBoxHenBanner.Name = "textBoxHenBanner";
-            this.textBoxHenBanner.Size = new System.Drawing.Size(834, 33);
+            this.textBoxHenBanner.Size = new System.Drawing.Size(851, 33);
             this.textBoxHenBanner.TabIndex = 3;
             this.textBoxHenBanner.Text = "HEAT EXCHANGER NETWORK (HEN) DESIGN";
             this.textBoxHenBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2311,7 +2311,7 @@
             this.textBoxPinchBanner.ForeColor = System.Drawing.Color.Yellow;
             this.textBoxPinchBanner.Location = new System.Drawing.Point(51, 4);
             this.textBoxPinchBanner.Name = "textBoxPinchBanner";
-            this.textBoxPinchBanner.Size = new System.Drawing.Size(834, 33);
+            this.textBoxPinchBanner.Size = new System.Drawing.Size(851, 33);
             this.textBoxPinchBanner.TabIndex = 2;
             this.textBoxPinchBanner.Text = "PINCH STUDY";
             this.textBoxPinchBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
