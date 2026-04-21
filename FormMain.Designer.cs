@@ -59,15 +59,6 @@
             treeNode12,
             treeNode13,
             treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Deer Park Analysis - 20260311.zip");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("EXPORT", new System.Windows.Forms.TreeNode[] {
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("DeerPark Analysis - 20260310");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("IMPORT", new System.Windows.Forms.TreeNode[] {
-            treeNode18});
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Project ZIP Files", new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode19});
             this.contextMenuStripHen = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemCurProjHenRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorCurProjHenRename = new System.Windows.Forms.ToolStripSeparator();
@@ -152,11 +143,7 @@
             this.splitContainerProject = new System.Windows.Forms.SplitContainer();
             this.treeViewCurrentProjectExplorer = new System.Windows.Forms.TreeView();
             this.imageListProjectTreeViews = new System.Windows.Forms.ImageList(this.components);
-            this.treeViewProjectZipExplorer = new System.Windows.Forms.TreeView();
-            this.contextMenuStripProjectZip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemZipCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemZipExpandAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageListProjectZIP = new System.Windows.Forms.ImageList(this.components);
+            this.panelReports = new System.Windows.Forms.Panel();
             this.panelSELECTED_PROFILE = new System.Windows.Forms.Panel();
             this.tabControlInputPhase = new System.Windows.Forms.TabControl();
             this.tabPageStreams = new System.Windows.Forms.TabPage();
@@ -236,6 +223,7 @@
             this.panelSELECTED_PINCH = new System.Windows.Forms.Panel();
             this.textBoxPinchBanner = new System.Windows.Forms.TextBox();
             this.pictureBoxOpenedPinch = new System.Windows.Forms.PictureBox();
+            this.imageListProjectZIP = new System.Windows.Forms.ImageList(this.components);
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStripHen.SuspendLayout();
             this.contextMenuStripPinch.SuspendLayout();
@@ -252,7 +240,6 @@
             this.splitContainerProject.Panel1.SuspendLayout();
             this.splitContainerProject.Panel2.SuspendLayout();
             this.splitContainerProject.SuspendLayout();
-            this.contextMenuStripProjectZip.SuspendLayout();
             this.panelSELECTED_PROFILE.SuspendLayout();
             this.tabControlInputPhase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProfile)).BeginInit();
@@ -1039,7 +1026,7 @@
             // 
             // splitContainerProject.Panel2
             // 
-            this.splitContainerProject.Panel2.Controls.Add(this.treeViewProjectZipExplorer);
+            this.splitContainerProject.Panel2.Controls.Add(this.panelReports);
             this.splitContainerProject.Panel2.Margin = new System.Windows.Forms.Padding(6);
             this.splitContainerProject.Panel2.Padding = new System.Windows.Forms.Padding(6);
             this.splitContainerProject.Panel2MinSize = 170;
@@ -1157,81 +1144,15 @@
             this.imageListProjectTreeViews.Images.SetKeyName(8, "HENSelected_16x16.ico");
             this.imageListProjectTreeViews.Images.SetKeyName(9, "AJP_HEN_StudioGraphic_16x16.ico");
             // 
-            // treeViewProjectZipExplorer
+            // panelReports
             // 
-            this.treeViewProjectZipExplorer.BackColor = System.Drawing.Color.White;
-            this.treeViewProjectZipExplorer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.treeViewProjectZipExplorer.ContextMenuStrip = this.contextMenuStripProjectZip;
-            this.treeViewProjectZipExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewProjectZipExplorer.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeViewProjectZipExplorer.HideSelection = false;
-            this.treeViewProjectZipExplorer.ImageIndex = 0;
-            this.treeViewProjectZipExplorer.ImageList = this.imageListProjectZIP;
-            this.treeViewProjectZipExplorer.Location = new System.Drawing.Point(6, 6);
-            this.treeViewProjectZipExplorer.Margin = new System.Windows.Forms.Padding(6);
-            this.treeViewProjectZipExplorer.Name = "treeViewProjectZipExplorer";
-            treeNode16.ImageKey = "Project_16x16.ico";
-            treeNode16.Name = "NodeZipExport01";
-            treeNode16.SelectedImageKey = "Project_16x16.ico";
-            treeNode16.Text = "Deer Park Analysis - 20260311.zip";
-            treeNode16.ToolTipText = "Zip File";
-            treeNode17.ImageKey = "ExportZIP_16x16.ico";
-            treeNode17.Name = "NodeEXPORT";
-            treeNode17.SelectedImageKey = "ExportZIP_16x16.ico";
-            treeNode17.Text = "EXPORT";
-            treeNode17.ToolTipText = "Export Folder ... Contains Exported Project Zip files";
-            treeNode18.ImageKey = "Project_16x16.ico";
-            treeNode18.Name = "NodeImportZip01";
-            treeNode18.SelectedImageKey = "Project_16x16.ico";
-            treeNode18.Text = "DeerPark Analysis - 20260310";
-            treeNode19.ImageKey = "ImportZIP_16x16.ico";
-            treeNode19.Name = "NodeIMPORT";
-            treeNode19.SelectedImageKey = "ImportZIP_16x16.ico";
-            treeNode19.Text = "IMPORT";
-            treeNode19.ToolTipText = "Import Folder ... Contains Imported Project Zip files";
-            treeNode20.ImageKey = "ZipFolder_16x16.ico";
-            treeNode20.Name = "NodeRoot";
-            treeNode20.SelectedImageKey = "ZipFolder_16x16.ico";
-            treeNode20.Text = "Project ZIP Files";
-            treeNode20.ToolTipText = "Root Folder of Import and Export Ptoject Zip Files";
-            this.treeViewProjectZipExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode20});
-            this.treeViewProjectZipExplorer.SelectedImageIndex = 0;
-            this.treeViewProjectZipExplorer.Size = new System.Drawing.Size(337, 201);
-            this.treeViewProjectZipExplorer.TabIndex = 0;
-            // 
-            // contextMenuStripProjectZip
-            // 
-            this.contextMenuStripProjectZip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemZipCollapseAll,
-            this.toolStripMenuItemZipExpandAll});
-            this.contextMenuStripProjectZip.Name = "contextMenuStripProjectZip";
-            this.contextMenuStripProjectZip.Size = new System.Drawing.Size(137, 48);
-            // 
-            // toolStripMenuItemZipCollapseAll
-            // 
-            this.toolStripMenuItemZipCollapseAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemZipCollapseAll.Image")));
-            this.toolStripMenuItemZipCollapseAll.Name = "toolStripMenuItemZipCollapseAll";
-            this.toolStripMenuItemZipCollapseAll.Size = new System.Drawing.Size(136, 22);
-            this.toolStripMenuItemZipCollapseAll.Text = "Collapse All";
-            this.toolStripMenuItemZipCollapseAll.Click += new System.EventHandler(this.toolStripMenuItemZipCollapseAll_Click);
-            // 
-            // toolStripMenuItemZipExpandAll
-            // 
-            this.toolStripMenuItemZipExpandAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemZipExpandAll.Image")));
-            this.toolStripMenuItemZipExpandAll.Name = "toolStripMenuItemZipExpandAll";
-            this.toolStripMenuItemZipExpandAll.Size = new System.Drawing.Size(136, 22);
-            this.toolStripMenuItemZipExpandAll.Text = "Expand All";
-            this.toolStripMenuItemZipExpandAll.Click += new System.EventHandler(this.toolStripMenuItemZipExpandAll_Click);
-            // 
-            // imageListProjectZIP
-            // 
-            this.imageListProjectZIP.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListProjectZIP.ImageStream")));
-            this.imageListProjectZIP.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListProjectZIP.Images.SetKeyName(0, "ZipFolder_16x16.ico");
-            this.imageListProjectZIP.Images.SetKeyName(1, "ExportZIP_16x16.ico");
-            this.imageListProjectZIP.Images.SetKeyName(2, "ImportZIP_16x16.ico");
-            this.imageListProjectZIP.Images.SetKeyName(3, "Project_16x16.ico");
+            this.panelReports.BackColor = System.Drawing.Color.LemonChiffon;
+            this.panelReports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelReports.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelReports.Location = new System.Drawing.Point(6, 6);
+            this.panelReports.Name = "panelReports";
+            this.panelReports.Size = new System.Drawing.Size(337, 201);
+            this.panelReports.TabIndex = 0;
             // 
             // panelSELECTED_PROFILE
             // 
@@ -2325,6 +2246,15 @@
             this.pictureBoxOpenedPinch.TabIndex = 3;
             this.pictureBoxOpenedPinch.TabStop = false;
             // 
+            // imageListProjectZIP
+            // 
+            this.imageListProjectZIP.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListProjectZIP.ImageStream")));
+            this.imageListProjectZIP.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListProjectZIP.Images.SetKeyName(0, "ZipFolder_16x16.ico");
+            this.imageListProjectZIP.Images.SetKeyName(1, "ExportZIP_16x16.ico");
+            this.imageListProjectZIP.Images.SetKeyName(2, "ImportZIP_16x16.ico");
+            this.imageListProjectZIP.Images.SetKeyName(3, "Project_16x16.ico");
+            // 
             // imageListProject
             // 
             this.imageListProject.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListProject.ImageStream")));
@@ -2370,7 +2300,6 @@
             this.splitContainerProject.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerProject)).EndInit();
             this.splitContainerProject.ResumeLayout(false);
-            this.contextMenuStripProjectZip.ResumeLayout(false);
             this.panelSELECTED_PROFILE.ResumeLayout(false);
             this.panelSELECTED_PROFILE.PerformLayout();
             this.tabControlInputPhase.ResumeLayout(false);
@@ -2482,7 +2411,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLICENSE;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCAT_DB;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelAJP_LOGO;
-        private System.Windows.Forms.TreeView treeViewProjectZipExplorer;
         private System.Windows.Forms.ImageList imageListProjectZIP;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCollapseAll;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExpandAll;
@@ -2490,9 +2418,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurrProjExpandAll;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurrProjCollapseAll;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparatorCurrProjExpandAll;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripProjectZip;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemZipExpandAll;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemZipCollapseAll;
         private System.Windows.Forms.TextBox textBoxProjectBanner;
         private System.Windows.Forms.TextBox textBoxProjectNameValue;
         private System.Windows.Forms.TextBox textBoxProjectName;
@@ -2577,6 +2502,7 @@
         private System.Windows.Forms.TextBox textBoxProjectUnitsMagnitude;
         private System.Windows.Forms.TextBox textBoxFValue;
         private System.Windows.Forms.TextBox textBoxF;
+        private System.Windows.Forms.Panel panelReports;
     }
 }
 

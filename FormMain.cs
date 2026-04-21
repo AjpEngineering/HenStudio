@@ -1907,49 +1907,6 @@ namespace HenStudio
         #endregion  // METHODS
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        //----------------------------------- Project ZIP Explorer TreeView ---
-        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-        #region PROJECT ZIP (EXPORT | IMPORT) EXPLORER TREE VIEW
-
-        #region Context Menu Handlers
-
-        #region COLLAPSE ALL
-        private void toolStripMenuItemZipCollapseAll_Click(object sender, EventArgs e)
-        {
-            CollapseAllProjectZipExplorer();
-        }
-        #endregion  // COLLAPSE ALL
-
-        #region EXPAND ALL
-
-        private void toolStripMenuItemZipExpandAll_Click(object sender, EventArgs e)
-        {
-            ExpandAllProjectZipExplorer();
-        }
-
-        #endregion  // EXPAND ALL
-
-        #endregion  // Context Menu Handlers
-
-        #region CollapseAllProjectZipExplorer()
-        public void CollapseAllProjectZipExplorer()
-        {
-            this.treeViewProjectZipExplorer.CollapseAll();
-        }
-        #endregion  // CollapseAllProjectZipExplorer()
-
-        #region ExpandAllProjectZipExplorer()
-        public void ExpandAllProjectZipExplorer()
-        {
-            this.treeViewProjectZipExplorer.ExpandAll();
-        }
-
-        #endregion  // ExpandAllProjectZipExplorer()
-
-        #endregion  // PROJECT ZIP (EXPORT | IMPORT) EXPLORER TREE VIEW
-
-        //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         //----------------------------------------- CATALOG (Projects) Panel---
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -2008,7 +1965,6 @@ namespace HenStudio
         #endregion  // AJP HEN STUDIO LOGO CLICK
 
         #endregion  // CATALOG (Projects) Panel
-
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //----------------------------------------- Project Panel---
