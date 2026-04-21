@@ -790,18 +790,15 @@
             this.toolStripStatusLabelLEVEL_PINCH,
             this.toolStripStatusLabelLEVEL_HEN,
             this.toolStripStatusLabelAJP_LOGO});
-            this.statusStripMainDASHBOARD.Location = new System.Drawing.Point(0, 636);
+            this.statusStripMainDASHBOARD.Location = new System.Drawing.Point(0, 640);
             this.statusStripMainDASHBOARD.Margin = new System.Windows.Forms.Padding(3);
             this.statusStripMainDASHBOARD.Name = "statusStripMainDASHBOARD";
-            this.statusStripMainDASHBOARD.Size = new System.Drawing.Size(1264, 45);
+            this.statusStripMainDASHBOARD.Size = new System.Drawing.Size(1264, 41);
             this.statusStripMainDASHBOARD.TabIndex = 6;
             // 
             // toolStripStatusLabelLICENSE
             // 
             this.toolStripStatusLabelLICENSE.BackColor = System.Drawing.Color.Green;
-            this.toolStripStatusLabelLICENSE.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelLICENSE.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLICENSE.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabelLICENSE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLICENSE.Image")));
@@ -809,7 +806,7 @@
             this.toolStripStatusLabelLICENSE.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelLICENSE.Name = "toolStripStatusLabelLICENSE";
             this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(100, 36);
+            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(96, 36);
             this.toolStripStatusLabelLICENSE.Text = "LICENSE ";
             this.toolStripStatusLabelLICENSE.Click += new System.EventHandler(this.toolStripStatusLabelLICENSE_Click);
             this.toolStripStatusLabelLICENSE.DoubleClick += new System.EventHandler(this.toolStripStatusLabelLICENSE_DoubleClick);
@@ -817,9 +814,6 @@
             // toolStripStatusLabelCAT_DB
             // 
             this.toolStripStatusLabelCAT_DB.BackColor = System.Drawing.Color.Red;
-            this.toolStripStatusLabelCAT_DB.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelCAT_DB.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelCAT_DB.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabelCAT_DB.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelCAT_DB.Image")));
@@ -827,7 +821,7 @@
             this.toolStripStatusLabelCAT_DB.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelCAT_DB.Name = "toolStripStatusLabelCAT_DB";
             this.toolStripStatusLabelCAT_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(130, 36);
+            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(126, 36);
             this.toolStripStatusLabelCAT_DB.Text = "CONNECTED";
             this.toolStripStatusLabelCAT_DB.Click += new System.EventHandler(this.toolStripStatusLabelCAT_DB_Click);
             this.toolStripStatusLabelCAT_DB.DoubleClick += new System.EventHandler(this.toolStripStatusLabelCAT_DB_DoubleClick);
@@ -851,9 +845,6 @@
             // toolStripStatusLabelLEVEL_PROJECT
             // 
             this.toolStripStatusLabelLEVEL_PROJECT.BackColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelLEVEL_PROJECT.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelLEVEL_PROJECT.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.toolStripStatusLabelLEVEL_PROJECT.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROJECT.Image")));
@@ -861,15 +852,12 @@
             this.toolStripStatusLabelLEVEL_PROJECT.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelLEVEL_PROJECT.Name = "toolStripStatusLabelLEVEL_PROJECT";
             this.toolStripStatusLabelLEVEL_PROJECT.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_PROJECT.Size = new System.Drawing.Size(131, 36);
+            this.toolStripStatusLabelLEVEL_PROJECT.Size = new System.Drawing.Size(127, 32);
             this.toolStripStatusLabelLEVEL_PROJECT.Text = "PROJECT: ---";
             // 
             // toolStripStatusLabelLEVEL_PROFILE
             // 
             this.toolStripStatusLabelLEVEL_PROFILE.BackColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelLEVEL_PROFILE.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelLEVEL_PROFILE.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_PROFILE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROFILE.Image")));
@@ -877,15 +865,12 @@
             this.toolStripStatusLabelLEVEL_PROFILE.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelLEVEL_PROFILE.Name = "toolStripStatusLabelLEVEL_PROFILE";
             this.toolStripStatusLabelLEVEL_PROFILE.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_PROFILE.Size = new System.Drawing.Size(124, 36);
+            this.toolStripStatusLabelLEVEL_PROFILE.Size = new System.Drawing.Size(120, 32);
             this.toolStripStatusLabelLEVEL_PROFILE.Text = "PROFILE: ---";
             // 
             // toolStripStatusLabelLEVEL_PINCH
             // 
             this.toolStripStatusLabelLEVEL_PINCH.BackColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelLEVEL_PINCH.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelLEVEL_PINCH.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_PINCH.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_PINCH.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PINCH.Image")));
@@ -893,15 +878,12 @@
             this.toolStripStatusLabelLEVEL_PINCH.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelLEVEL_PINCH.Name = "toolStripStatusLabelLEVEL_PINCH";
             this.toolStripStatusLabelLEVEL_PINCH.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_PINCH.Size = new System.Drawing.Size(112, 36);
+            this.toolStripStatusLabelLEVEL_PINCH.Size = new System.Drawing.Size(108, 32);
             this.toolStripStatusLabelLEVEL_PINCH.Text = "PINCH: ---";
             // 
             // toolStripStatusLabelLEVEL_HEN
             // 
             this.toolStripStatusLabelLEVEL_HEN.BackColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelLEVEL_HEN.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelLEVEL_HEN.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLEVEL_HEN.ForeColor = System.Drawing.Color.SlateGray;
             this.toolStripStatusLabelLEVEL_HEN.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_HEN.Image")));
@@ -909,16 +891,13 @@
             this.toolStripStatusLabelLEVEL_HEN.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelLEVEL_HEN.Name = "toolStripStatusLabelLEVEL_HEN";
             this.toolStripStatusLabelLEVEL_HEN.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_HEN.Size = new System.Drawing.Size(90, 36);
+            this.toolStripStatusLabelLEVEL_HEN.Size = new System.Drawing.Size(86, 32);
             this.toolStripStatusLabelLEVEL_HEN.Text = "HEN ---";
             // 
             // toolStripStatusLabelAJP_LOGO
             // 
-            this.toolStripStatusLabelAJP_LOGO.BackColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelAJP_LOGO.BackColor = System.Drawing.Color.LemonChiffon;
             this.toolStripStatusLabelAJP_LOGO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.toolStripStatusLabelAJP_LOGO.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.toolStripStatusLabelAJP_LOGO.DoubleClickEnabled = true;
             this.toolStripStatusLabelAJP_LOGO.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelAJP_LOGO.ForeColor = System.Drawing.Color.Black;
@@ -927,7 +906,7 @@
             this.toolStripStatusLabelAJP_LOGO.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelAJP_LOGO.Name = "toolStripStatusLabelAJP_LOGO";
             this.toolStripStatusLabelAJP_LOGO.Padding = new System.Windows.Forms.Padding(6);
-            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(437, 36);
+            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(430, 32);
             this.toolStripStatusLabelAJP_LOGO.Spring = true;
             this.toolStripStatusLabelAJP_LOGO.Text = "Engineering  ";
             this.toolStripStatusLabelAJP_LOGO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
