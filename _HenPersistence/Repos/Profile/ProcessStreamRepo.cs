@@ -90,7 +90,6 @@ namespace HenPersistence.Repos
                 StreamCategory = record.IsDBNull(record.GetOrdinal("StreamCategory")) ? null : record.GetString(record.GetOrdinal("StreamCategory")),
                 StreamHeat = record.IsDBNull(record.GetOrdinal("StreamHeat")) ? null : record.GetString(record.GetOrdinal("StreamHeat")),
                 StreamId = record.IsDBNull(record.GetOrdinal("StreamId")) ? null : record.GetString(record.GetOrdinal("StreamId")),
-                StreamSegmentId = record.IsDBNull(record.GetOrdinal("StreamSegmentId")) ? null : record.GetString(record.GetOrdinal("StreamSegmentId")),
                 Name = record.IsDBNull(record.GetOrdinal("Name")) ? null : record.GetString(record.GetOrdinal("Name")),
                 StreamType = record.IsDBNull(record.GetOrdinal("StreamType")) ? null : record.GetString(record.GetOrdinal("StreamType")),
                 StreamSubtype = record.IsDBNull(record.GetOrdinal("StreamSubtype")) ? null : record.GetString(record.GetOrdinal("StreamSubtype")),
@@ -99,7 +98,6 @@ namespace HenPersistence.Repos
                 TargetTemperature = record.GetDouble(record.GetOrdinal("TargetTemperature")),
                 TargetPressure = record.GetDouble(record.GetOrdinal("TargetPressure")),
                 HeatCapacityFlowRate = record.GetDouble(record.GetOrdinal("HeatCapacityFlowRate")),
-                HeatTransferCoefficient = record.GetDouble(record.GetOrdinal("HeatTransferCoefficient"))
             };
         }
         #endregion      // MapProcessStream()
@@ -444,7 +442,6 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@StreamCategory", DbType.String, processStreamDto.StreamCategory);
                     AddParameter(command, "@StreamHeat", DbType.String, processStreamDto.StreamHeat);
                     AddParameter(command, "@StreamId", DbType.String, processStreamDto.StreamId);
-                    AddParameter(command, "@StreamSegmentId", DbType.String, processStreamDto.StreamSegmentId);
                     AddParameter(command, "@Name", DbType.String, processStreamDto.Name);
                     AddParameter(command, "@StreamType", DbType.String, processStreamDto.StreamType);
                     AddParameter(command, "@StreamSubtype", DbType.String, processStreamDto.StreamSubtype);
@@ -453,7 +450,6 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@TargetTemperature", DbType.Double, processStreamDto.TargetTemperature);
                     AddParameter(command, "@TargetPressure", DbType.Double, processStreamDto.TargetPressure);
                     AddParameter(command, "@HeatCapacityFlowRate", DbType.Double, processStreamDto.HeatCapacityFlowRate);
-                    AddParameter(command, "@HeatTransferCoefficient", DbType.Double, processStreamDto.HeatTransferCoefficient);
 
                     connection.Open();
                     command.ExecuteNonQuery();

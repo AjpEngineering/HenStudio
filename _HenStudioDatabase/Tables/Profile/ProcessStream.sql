@@ -12,7 +12,6 @@
 --      + Stream Category [Process|Utility]
 -- 	    + Stream Heat [Sensible|Latent]
 --      + Stream ID [e.g., H01]
---      + Stream Segment ID [e.g., H01-1]
 --      + Stream Name [e.g., Naptha Feed]
 --      + Stream Type [Hot|Cold]
 --      + Stream Subtype [Liquid|Vapor|Mixed]
@@ -21,7 +20,6 @@
 --	    + Stream Target Temperature (Internal Units)
 --	    + Stream Target Pressure (Internal Units)
 --	    + Stream Heat Capacity Flow Rate - [CP] (Internal Units)
---	    + Stream Heat Transfer Coefficient - [U] (Internal Units)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
