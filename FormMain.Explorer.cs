@@ -288,16 +288,6 @@ namespace HenStudio
             string strMsg = String.Empty;
             try
             {
-                //----------------------------------------------------------------
-                //--- GetProject ViewModel Object to Retrieve Projects from DB ---
-                //----------------------------------------------------------------
-                var ProjectViewModelObj = new ProjectViewModel();
-
-                //-----------------------------------------------
-                //--- Get All Projects from Project ViewModel ---
-                //-----------------------------------------------
-                IList<ProjectDto> projects = ProjectViewModelObj.GetProjects();
-
                 //--------------------------------------------
                 //--- Clear Tree Nodes Adds Back Root Node ---
                 //--------------------------------------------
@@ -309,39 +299,49 @@ namespace HenStudio
                 //-------------------------------------------------
                 TreeNode rootNode = GetRootNode();
 
-                //----------------------------------------------
-                //--- Add Project Nodes to Root Node         ---
-                //--- Assign Tag Object with Node Attributes ---
-                //----------------------------------------------
-                string strProjectName = string.Empty;   // Project name from DB
-                string strNodeName = string.Empty;      // Node name with Prefix (e.g., "Project: *") for display in Tree Node
-                foreach (var project in projects)
-                {
-                    //--------------------------------------
-                    //--- Create Project Node Tag Object ---
-                    //--------------------------------------
-                    strProjectName = project.Name;
-                    strNodeName = string.Format("Project: {0}", strProjectName.Trim());
-                    DataTagDisplay DataTagDisplayObj = 
-                        new DataTagDisplay(ExplorerLevel.PROJECT, strProjectName.Trim()) { ProjectID = project.Id };
+                //----------------------------------------------------------------
+                //--- GetProject ViewModel Object to Retrieve Projects from DB ---
+                //----------------------------------------------------------------
+                var ProjectViewModelObj = new ProjectViewModel();
 
-                    //-----------------------------------------------------------------
-                    //--- Create Project Node and Assign Tag Object, and Set Images ---
-                    //-----------------------------------------------------------------
-                    TreeNode projectNode = new TreeNode(strNodeName) { Tag = DataTagDisplayObj };
-                    
-                    projectNode.ImageIndex = 1;
-                    projectNode.SelectedImageIndex = 2;
-
-                    rootNode.Nodes.Add(projectNode);
-                }
+                //-----------------------------------------------
+                //--- Get All Projects from Project ViewModel ---
+                //-----------------------------------------------
+                IList<ProjectDto> projects = ProjectViewModelObj.GetProjects();
 
                 //---------------------------------------------------------------
                 //--- Check for at least One Project to add Root Node to Tree ---
                 //--- (otherwise Tree will be Empty with just Root Node)      ---
                 //---------------------------------------------------------------
-                if (projects.Count > 0)
+                if (projects != null)
                 {
+                    //----------------------------------------------
+                    //--- Add Project Nodes to Root Node         ---
+                    //--- Assign Tag Object with Node Attributes ---
+                    //----------------------------------------------
+                    string strProjectName = string.Empty;   // Project name from DB
+                    string strNodeName = string.Empty;      // Node name with Prefix (e.g., "Project: *") for display in Tree Node
+                    foreach (var project in projects)
+                    {
+                        //--------------------------------------
+                        //--- Create Project Node Tag Object ---
+                        //--------------------------------------
+                        strProjectName = project.Name;
+                        strNodeName = string.Format("Project: {0}", strProjectName.Trim());
+                        DataTagDisplay DataTagDisplayObj = 
+                            new DataTagDisplay(ExplorerLevel.PROJECT, strProjectName.Trim()) { ProjectID = project.Id };
+
+                        //-----------------------------------------------------------------
+                        //--- Create Project Node and Assign Tag Object, and Set Images ---
+                        //-----------------------------------------------------------------
+                        TreeNode projectNode = new TreeNode(strNodeName) { Tag = DataTagDisplayObj };
+                    
+                        projectNode.ImageIndex = 1;
+                        projectNode.SelectedImageIndex = 2;
+
+                        rootNode.Nodes.Add(projectNode);
+                    }
+
                     //--------------------------------------------------------
                     //--- Add Root Node and Project Children Nodes to Tree ---
                     //--------------------------------------------------------
