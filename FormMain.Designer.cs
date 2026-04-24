@@ -129,7 +129,6 @@
             this.statusStripMainDASHBOARD = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelLICENSE = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelCAT_DB = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelProjectDirtyFlag = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelLEVEL_PROJECT = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelLEVEL_PROFILE = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelLEVEL_PINCH = new System.Windows.Forms.ToolStripStatusLabel();
@@ -784,7 +783,6 @@
             this.statusStripMainDASHBOARD.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelLICENSE,
             this.toolStripStatusLabelCAT_DB,
-            this.toolStripStatusLabelProjectDirtyFlag,
             this.toolStripStatusLabelLEVEL_PROJECT,
             this.toolStripStatusLabelLEVEL_PROFILE,
             this.toolStripStatusLabelLEVEL_PINCH,
@@ -806,7 +804,7 @@
             this.toolStripStatusLabelLICENSE.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelLICENSE.Name = "toolStripStatusLabelLICENSE";
             this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(96, 36);
+            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(96, 32);
             this.toolStripStatusLabelLICENSE.Text = "LICENSE ";
             this.toolStripStatusLabelLICENSE.Click += new System.EventHandler(this.toolStripStatusLabelLICENSE_Click);
             this.toolStripStatusLabelLICENSE.DoubleClick += new System.EventHandler(this.toolStripStatusLabelLICENSE_DoubleClick);
@@ -821,26 +819,10 @@
             this.toolStripStatusLabelCAT_DB.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelCAT_DB.Name = "toolStripStatusLabelCAT_DB";
             this.toolStripStatusLabelCAT_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(126, 36);
+            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(126, 32);
             this.toolStripStatusLabelCAT_DB.Text = "CONNECTED";
             this.toolStripStatusLabelCAT_DB.Click += new System.EventHandler(this.toolStripStatusLabelCAT_DB_Click);
             this.toolStripStatusLabelCAT_DB.DoubleClick += new System.EventHandler(this.toolStripStatusLabelCAT_DB_DoubleClick);
-            // 
-            // toolStripStatusLabelProjectDirtyFlag
-            // 
-            this.toolStripStatusLabelProjectDirtyFlag.BackColor = System.Drawing.Color.Green;
-            this.toolStripStatusLabelProjectDirtyFlag.DoubleClickEnabled = true;
-            this.toolStripStatusLabelProjectDirtyFlag.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelProjectDirtyFlag.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelProjectDirtyFlag.Image = global::HenStudio.Properties.Resources.Valid_32x32;
-            this.toolStripStatusLabelProjectDirtyFlag.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolStripStatusLabelProjectDirtyFlag.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
-            this.toolStripStatusLabelProjectDirtyFlag.Name = "toolStripStatusLabelProjectDirtyFlag";
-            this.toolStripStatusLabelProjectDirtyFlag.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelProjectDirtyFlag.Size = new System.Drawing.Size(101, 36);
-            this.toolStripStatusLabelProjectDirtyFlag.Text = "UPDATED";
-            this.toolStripStatusLabelProjectDirtyFlag.Click += new System.EventHandler(this.toolStripStatusLabelProjectDirtyFlag_Click);
-            this.toolStripStatusLabelProjectDirtyFlag.DoubleClick += new System.EventHandler(this.toolStripStatusLabelProjectDirtyFlag_DoubleClick);
             // 
             // toolStripStatusLabelLEVEL_PROJECT
             // 
@@ -906,7 +888,7 @@
             this.toolStripStatusLabelAJP_LOGO.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelAJP_LOGO.Name = "toolStripStatusLabelAJP_LOGO";
             this.toolStripStatusLabelAJP_LOGO.Padding = new System.Windows.Forms.Padding(6);
-            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(430, 32);
+            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(534, 32);
             this.toolStripStatusLabelAJP_LOGO.Spring = true;
             this.toolStripStatusLabelAJP_LOGO.Text = "Engineering  ";
             this.toolStripStatusLabelAJP_LOGO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1179,7 +1161,7 @@
             this.tabPageUtilities.Location = new System.Drawing.Point(4, 39);
             this.tabPageUtilities.Name = "tabPageUtilities";
             this.tabPageUtilities.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUtilities.Size = new System.Drawing.Size(901, 525);
+            this.tabPageUtilities.Size = new System.Drawing.Size(903, 527);
             this.tabPageUtilities.TabIndex = 1;
             this.tabPageUtilities.Text = "UTILITY STREAMS";
             this.tabPageUtilities.ToolTipText = "Specify Utility Streams for Current Input Profile";
@@ -1191,7 +1173,7 @@
             this.tabPageEconomics.ImageIndex = 2;
             this.tabPageEconomics.Location = new System.Drawing.Point(4, 39);
             this.tabPageEconomics.Name = "tabPageEconomics";
-            this.tabPageEconomics.Size = new System.Drawing.Size(901, 525);
+            this.tabPageEconomics.Size = new System.Drawing.Size(903, 527);
             this.tabPageEconomics.TabIndex = 2;
             this.tabPageEconomics.Text = "ECONOMIC PARAMETERS";
             this.tabPageEconomics.ToolTipText = "Specify Economic Parameters for Current Input Profile";
@@ -2440,7 +2422,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelProjectDirtyFlag;
         private System.Windows.Forms.TextBox textBoxConnInitCatalogValue;
         private System.Windows.Forms.TextBox textBoxConnInitCatalog;
         private System.Windows.Forms.TextBox textBoxConnWorkstationIDValue;

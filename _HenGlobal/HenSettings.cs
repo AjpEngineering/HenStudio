@@ -194,14 +194,6 @@ namespace HenGlobal
         public AppGlobalSettingsDto AppGlobalSettingsObj { get; set; }
         #endregion  // APPLICATION GLOBAL SETTINGS
 
-        #region ProjectDirtyFlagStateEnum
-        /// <summary>
-        /// Project Dirty Flag State [ UNKNOWN = -1 | UPDATE = 0 | UPDATED = 1 ]
-        /// Used in Status Bar display
-        /// </summary>
-        public HenTypes.ProjectDirtyFlagState ProjectDirtyFlagStateEnum { get; set; } // Project Dirty Flag State [ UNKNOWN = -1 | UPDATE = 0 | UPDATED = 1 ]
-        #endregion  // ProjectDirtyFlagStateEnum
-
         #endregion  // STATUS BAR
 
         #endregion      // PROPERTIES

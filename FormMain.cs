@@ -249,15 +249,6 @@ namespace HenStudio
                 bValidLicenseFile = ValidateLicense(); // Initialize Global Settings in Method - return valid flag
                 #endregion  // License Validation
 
-                #region Initialize Project Dirty Flag State Status Bar Label
-                //------------------------------------------------------------
-                //--- Initialize Project Dirty Flag State Status Bar Label ---
-                //------------------------------------------------------------
-                //HenSettingsObj.ProjectDirtyFlagStateEnum = HenTypes.ProjectDirtyFlagState.DIRTY;
-                HenSettingsObj.ProjectDirtyFlagStateEnum = HenTypes.ProjectDirtyFlagState.CLEAN;
-                UpdateProjectDirtyFlagLabel();    // Initialize Project Dirty Flag State Status Bar Label
-                #endregion  // Initialize Project Dirty Flag State Status Bar Label
-
                 #region Initialize Catalog-Project Level Status Bar Label
                 //---------------------------------------------------------
                 //--- Initialize Catalog-Project Level Status Bar Label ---
@@ -715,51 +706,6 @@ namespace HenStudio
         }
         #endregion  // UpdateDbConnectLabel() ... HENSTUDIO DB
 
-        #region UpdateProjectDirtyFlagLabel() ... PROJ_DIRTY
-        /// <summary>
-        /// Update the Projects Dirty Flag State Status Bar Label using Global Setting
-        /// </summary>
-        private void UpdateProjectDirtyFlagLabel()
-        {
-            string strMethod = "UpdateProjectDirtyFlagLabel";
-            try
-            {
-                switch (HenSettingsObj.ProjectDirtyFlagStateEnum)
-                {
-                    case HenTypes.ProjectDirtyFlagState.UNKNOWN:
-                        this.toolStripStatusLabelProjectDirtyFlag.Text = "UNKNOWN";
-                        this.toolStripStatusLabelProjectDirtyFlag.BackColor = Color.Orange;
-                        this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
-                        this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.UNKNOWN_32x32;
-                        break;
-                    case HenTypes.ProjectDirtyFlagState.DIRTY:
-                        this.toolStripStatusLabelProjectDirtyFlag.Text = "SYNCHED";
-                        this.toolStripStatusLabelProjectDirtyFlag.BackColor = Color.Red;
-                        this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
-                        this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.NotValid_32x32;
-                        break;
-                    case HenTypes.ProjectDirtyFlagState.CLEAN:
-                        this.toolStripStatusLabelProjectDirtyFlag.Text = "SYNCHED";
-                        this.toolStripStatusLabelProjectDirtyFlag.BackColor = Color.Green;
-                        this.toolStripStatusLabelProjectDirtyFlag.ForeColor = Color.White;
-                        this.toolStripStatusLabelProjectDirtyFlag.Image = HenStudio.Properties.Resources.Valid_32x32;
-                        break;
-                    default:
-                        throw new Exception("INVALID Project Dirty Flag State Enum Value!");
-                }
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // UpdateProjectDirtyFlagLabel() ... PROJ_DIRTY
-
         #region UpdateProjectLevelStatusBarLabel() ... [LEVEL_PROJECT, LEVEL_PROFILE, LEVEL_PINCH, LEVEL_HEN]
         /// <summary>
         /// Update the Catalog-Project Level Status Bar Label using Global Setting
@@ -1032,22 +978,6 @@ namespace HenStudio
             HandleDBConnectionState();
         }
         #endregion  // DB CONNECTION DOUBLE CLICK
-
-        #region PROJECT DIRTY FLAG CLICK
-        private void toolStripStatusLabelProjectDirtyFlag_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("PROJECT DIRTY FLAG CLICK EVENT");
-            HandleProjectDirtyFlagState();
-        }
-        #endregion  // PROJECT DIRTY FLAG CLICK
-
-        #region PROJECT DIRTY FLAG DOUBLE CLICK
-        private void toolStripStatusLabelProjectDirtyFlag_DoubleClick(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("PROJECT DIRTY FLAG DOUBLE CLICK EVENT");
-            HandleProjectDirtyFlagState();
-        }
-        #endregion  // PROJECT DIRTY FLAG DOUBLE CLICK
 
         #region AJP LOGO CLICK
         private void toolStripStatusLabelAJP_LOGO_Click(object sender, EventArgs e)
@@ -1386,51 +1316,6 @@ namespace HenStudio
             }
         }
         #endregion  // HandleDBConnectionState
-
-        #region HandleProjectDirtyFlagState
-        /// <summary>
-        /// Common Project Dirty Flag State Handler
-        /// </summary>
-        private void HandleProjectDirtyFlagState()
-        {
-            string strMethod = "HandleProjectDirtyFlagState";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Handle Dirty Flag");
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("Handle Project Dirty Falg State Command!");
-                switch(HenSettingsObj.ProjectDirtyFlagStateEnum)
-                {
-                    case ProjectDirtyFlagState.DIRTY:
-                        //---------------------------
-                        //--- Update the Database ---
-                        //---------------------------
-                        HenMsgDlg.DisplayWarningDlg("Update the Database!");
-                        //-------------------------------------------------------
-                        //--- Change Dirty Flag State & Update the Status Bar ---
-                        //-------------------------------------------------------
-                        HenSettingsObj.ProjectDirtyFlagStateEnum = ProjectDirtyFlagState.CLEAN;
-                        UpdateProjectDirtyFlagLabel();
-                        break;
-                    case ProjectDirtyFlagState.CLEAN:
-                        //-----------------------------------------------
-                        //--- Alreadly CLEAN (Updated) ... Do Nothing ---
-                        //-----------------------------------------------
-                        break;
-                    default:
-                        throw new Exception("UNKNOWN Dirty Flag Status Encountered!");                        
-                }
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleProjectDirtyFlagState
 
         #region HandleAJPContactInfo
         /// <summary>
@@ -2227,8 +2112,6 @@ namespace HenStudio
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
         #region Profile Panel
-
-
 
         #endregion  // Profile Panel
 
