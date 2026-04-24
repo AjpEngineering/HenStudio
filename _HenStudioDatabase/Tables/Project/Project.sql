@@ -36,6 +36,8 @@ CREATE TABLE [dbo].[Project]
     [DefaultMagnitudeUnits] NVARCHAR(16) NOT NULL DEFAULT N'Base',
     [DefaultTemperatureUnits] NVARCHAR(8) NOT NULL DEFAULT N'K',
     [DefaultPressureUnits] NVARCHAR(16) NOT NULL DEFAULT N'Pa',
+    [CreationDate] DATETIME NOT NULL DEFAULT GETDATE(),
+    [ModifiedDate] DATETIME NOT NULL DEFAULT GETDATE(),
 
     CONSTRAINT [PK_Project] PRIMARY KEY CLUSTERED ([Id]),
 
