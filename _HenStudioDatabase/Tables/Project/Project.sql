@@ -16,6 +16,8 @@
 --      + Default Magnitude Units (Base|Kilo|Mega)
 --      + Default Temperature Units (C|F|K|R)
 --      + Default Pressure Units (Pa|kPa|MPa|bar|kBar|MBar|psia|psig|psf|atm|inHg|inH2O) 
+--      + Creation Date 
+--      + Last Modifed Date
 --
 -- ============================================================================
 --  (c)Copyright 2026 AJP Engineering
