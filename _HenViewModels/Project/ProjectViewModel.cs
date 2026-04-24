@@ -101,8 +101,12 @@ namespace HenViewModels
                     externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
                     externalProject.DefaultTemperatureUnits = internalProject.DefaultTemperatureUnits;
                     externalProject.DefaultPressureUnits = internalProject.DefaultPressureUnits;
+                    externalProject.CreationDate = internalProject.CreationDate;
+                    externalProject.ModifiedDate = internalProject.ModifiedDate;
                     externalProjects.Add(externalProject);
                 }
+                externalProject.CreationDate = internalProject.CreationDate;
+                externalProject.ModifiedDate = internalProject.ModifiedDate;
             }
             catch (Exception ex)
             {
@@ -199,6 +203,10 @@ namespace HenViewModels
                 externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
                 externalProject.DefaultTemperatureUnits = internalProject.DefaultTemperatureUnits;
                 externalProject.DefaultPressureUnits = internalProject.DefaultPressureUnits;
+                externalProject.CreationDate = internalProject.CreationDate;
+                externalProject.ModifiedDate = internalProject.ModifiedDate;
+                externalProject.CreationDate = internalProject.CreationDate;
+                externalProject.ModifiedDate = internalProject.ModifiedDate;
                 return externalProject;
 
             }
@@ -243,6 +251,8 @@ namespace HenViewModels
                 internalProjectDto.DefaultMagnitudeUnits = externalProjectDto.DefaultMagnitudeUnits;
                 internalProjectDto.DefaultTemperatureUnits = externalProjectDto.DefaultTemperatureUnits;
                 internalProjectDto.DefaultPressureUnits = externalProjectDto.DefaultPressureUnits;
+                internalProjectDto.CreationDate = externalProjectDto.CreationDate;
+                internalProjectDto.ModifiedDate = externalProjectDto.ModifiedDate;
                 //----------------------------------------------------------------------------
                 //--- Add INTERNAL Project Dto to the Database using the Repository Layer  ---
                 //--- Returns the Project ID (PK) from the Project Table database addition ---
@@ -289,6 +299,8 @@ namespace HenViewModels
                 internalProjectDto.DefaultMagnitudeUnits = externalProjectDto.DefaultMagnitudeUnits;
                 internalProjectDto.DefaultTemperatureUnits = externalProjectDto.DefaultTemperatureUnits;
                 internalProjectDto.DefaultPressureUnits = externalProjectDto.DefaultPressureUnits;
+                internalProjectDto.CreationDate = externalProjectDto.CreationDate;
+                internalProjectDto.ModifiedDate = externalProjectDto.ModifiedDate;
                 //------------------------------------------------------------------------------
                 //--- UPDATE INTERNAL Project Dto to the Database using the Repository Layer ---
                 //------------------------------------------------------------------------------
