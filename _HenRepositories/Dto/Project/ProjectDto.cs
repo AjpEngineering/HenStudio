@@ -56,6 +56,8 @@ namespace HenRepositories.Dto
         public string DefaultMagnitudeUnits { get; set; }
         public string DefaultTemperatureUnits { get; set; }
         public string DefaultPressureUnits { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
         #endregion      // PROPERTIES
     }
     #endregion      // public class ProjectDto
