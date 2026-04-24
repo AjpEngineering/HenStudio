@@ -51,7 +51,6 @@ namespace HenRepositories.Dto
         public string StreamCategory { get; set; }
         public string StreamHeat { get; set; }
         public string StreamId { get; set; }
-        public string StreamSegmentId { get; set; }
         public string Name { get; set; }
         public string StreamType { get; set; }
         public string StreamSubtype { get; set; }
@@ -60,7 +59,6 @@ namespace HenRepositories.Dto
         public double TargetTemperature { get; set; }
         public double TargetPressure { get; set; }
         public double HeatCapacityFlowRate { get; set; }
-        public double HeatTransferCoefficient { get; set; }
         #endregion      // PROPERTIES
     }
     #endregion      // public class ProcessStreamDto

@@ -49,7 +49,6 @@ CREATE TABLE [dbo].[ProcessStream]
 	[StreamCategory]                   NVARCHAR(16)     NOT NULL DEFAULT N'Process',
 	[StreamHeat]                       NVARCHAR(16)     NOT NULL DEFAULT N'Sensible',
 	[StreamId]                         NVARCHAR(16)     NOT NULL,
-	[StreamSegmentId]                  NVARCHAR(16)     NOT NULL,
 	[Name]                             NVARCHAR(256)    NOT NULL,
 	[StreamType]                       NVARCHAR(8)      NOT NULL DEFAULT N'Hot',
 	[StreamSubtype]                    NVARCHAR(8)      NOT NULL DEFAULT N'Liquid',
@@ -58,7 +57,6 @@ CREATE TABLE [dbo].[ProcessStream]
 	[TargetTemperature]                FLOAT            NOT NULL DEFAULT 0.0,
 	[TargetPressure]                   FLOAT            NOT NULL DEFAULT 0.0,
 	[HeatCapacityFlowRate]             FLOAT            NOT NULL DEFAULT 0.0,
-	[HeatTransferCoefficient]          FLOAT            NOT NULL DEFAULT 0.0,
 
 	CONSTRAINT [PK_ProcessStream] PRIMARY KEY CLUSTERED ([Id]),
 	CONSTRAINT [FK_ProcessStream_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id]),

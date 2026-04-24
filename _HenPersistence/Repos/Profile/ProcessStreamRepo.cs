@@ -136,7 +136,6 @@ namespace HenPersistence.Repos
                                         StreamCategory,
                                         StreamHeat,
                                         StreamId,
-                                        StreamSegmentId,
                                         Name,
                                         StreamType,
                                         StreamSubtype,
@@ -145,7 +144,6 @@ namespace HenPersistence.Repos
                                         TargetTemperature,
                                         TargetPressure,
                                         HeatCapacityFlowRate,
-                                        HeatTransferCoefficient
                                  FROM dbo.ProcessStream
                                  ORDER BY StreamId;";
 
@@ -353,7 +351,6 @@ namespace HenPersistence.Repos
                                      StreamCategory,
                                      StreamHeat,
                                      StreamId,
-                                     StreamSegmentId,
                                      Name,
                                      StreamType,
                                      StreamSubtype,
@@ -362,7 +359,7 @@ namespace HenPersistence.Repos
                                      TargetTemperature,
                                      TargetPressure,
                                      HeatCapacityFlowRate,
-                                     HeatTransferCoefficient)
+                                     )
                                  OUTPUT INSERTED.Id
                                  VALUES
                                     (@ProfileId,
@@ -390,7 +387,6 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@StreamCategory", DbType.String, processStreamDto.StreamCategory);
                     AddParameter(command, "@StreamHeat", DbType.String, processStreamDto.StreamHeat);
                     AddParameter(command, "@StreamId", DbType.String, processStreamDto.StreamId);
-                    AddParameter(command, "@StreamSegmentId", DbType.String, processStreamDto.StreamSegmentId);
                     AddParameter(command, "@Name", DbType.String, processStreamDto.Name);
                     AddParameter(command, "@StreamType", DbType.String, processStreamDto.StreamType);
                     AddParameter(command, "@StreamSubtype", DbType.String, processStreamDto.StreamSubtype);
@@ -399,7 +395,6 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@TargetTemperature", DbType.Double, processStreamDto.TargetTemperature);
                     AddParameter(command, "@TargetPressure", DbType.Double, processStreamDto.TargetPressure);
                     AddParameter(command, "@HeatCapacityFlowRate", DbType.Double, processStreamDto.HeatCapacityFlowRate);
-                    AddParameter(command, "@HeatTransferCoefficient", DbType.Double, processStreamDto.HeatTransferCoefficient);
 
                     connection.Open();
 

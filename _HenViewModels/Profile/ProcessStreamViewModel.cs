@@ -93,7 +93,6 @@ namespace HenViewModels
             externalProcessStream.StreamCategory = internalProcessStream.StreamCategory;
             externalProcessStream.StreamHeat = internalProcessStream.StreamHeat;
             externalProcessStream.StreamId = internalProcessStream.StreamId;
-            externalProcessStream.StreamSegmentId = internalProcessStream.StreamSegmentId;
             externalProcessStream.Name = internalProcessStream.Name;
             externalProcessStream.StreamType = internalProcessStream.StreamType;
             externalProcessStream.StreamSubtype = internalProcessStream.StreamSubtype;
@@ -102,7 +101,6 @@ namespace HenViewModels
             externalProcessStream.TargetTemperature = ConvertToExternalTemp(internalProcessStream.TargetTemperature);
             externalProcessStream.TargetPressure = ConvertToExternalPress(internalProcessStream.TargetPressure);
             externalProcessStream.HeatCapacityFlowRate = ConvertToExternalCP(internalProcessStream.HeatCapacityFlowRate);
-            externalProcessStream.HeatTransferCoefficient = ConvertToExternalU(internalProcessStream.HeatTransferCoefficient);
             return externalProcessStream;
         }
         #endregion  // ConvertToExternalProcessStream(ProcessStreamDto internalProcessStream)
@@ -126,7 +124,6 @@ namespace HenViewModels
             internalProcessStream.StreamCategory = externalProcessStream.StreamCategory;
             internalProcessStream.StreamHeat = externalProcessStream.StreamHeat;
             internalProcessStream.StreamId = externalProcessStream.StreamId;
-            internalProcessStream.StreamSegmentId = externalProcessStream.StreamSegmentId;
             internalProcessStream.Name = externalProcessStream.Name;
             internalProcessStream.StreamType = externalProcessStream.StreamType;
             internalProcessStream.StreamSubtype = externalProcessStream.StreamSubtype;
@@ -135,7 +132,6 @@ namespace HenViewModels
             internalProcessStream.TargetTemperature = ConvertFromExternalTemp(externalProcessStream.TargetTemperature);
             internalProcessStream.TargetPressure = ConvertFromExternalPress(externalProcessStream.TargetPressure);
             internalProcessStream.HeatCapacityFlowRate = ConvertFromExternalCP(externalProcessStream.HeatCapacityFlowRate);
-            internalProcessStream.HeatTransferCoefficient = ConvertFromExternalU(externalProcessStream.HeatTransferCoefficient);
             return internalProcessStream;
         }
         #endregion  // ConvertFromExternalProcessStream(ProcessStreamDto externalProcessStream)
