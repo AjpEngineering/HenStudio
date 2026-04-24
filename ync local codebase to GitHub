@@ -1,0 +1,230 @@
+* [33m6ba7729[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m refactor: remove StreamSegmentId and HeatTransferCoefficient fields from models
+* [33m3614e4f[m Refactor ViewModel classes ... Default CTOR
+* [33mcff2db1[m Minor UI Refactor
+* [33mdead2e6[m Minor refactor
+* [33mc8343cd[m Refactor ... replace Zip with Reports ... panel remove Zip tree and context menu
+* [33m2750e6e[m Minor refactor on Banner lengths
+* [33md2743a0[m Minor Refactor
+* [33md1bd2fd[m Refactor UI ... Background Refinery on all panels
+* [33m2d227e2[m Refactor Correction Factor
+* [33m6c88935[m Refactor Heat Transfer New and Modify Form
+* [33m587b8a5[m Added Correction Factor F
+* [33mea88404[m Refactor UI
+* [33m11fbaa6[m Refactor ... Init, New and Modify Project threads
+* [33m03ef562[m Rerfactor ... Init Project, New Project
+* [33m094a112[m Refacter Refresh
+* [33md67130a[m Refactor Project threads ... Fix AI introduced errors
+* [33m8f025a7[m Removed Unit Testing ... Copilot lost my Proejct.sql ... took a while to get back
+* [33mb12a677[m Refactor INTERNAL and EXTERNAL Units ... now in AppGlobalSettingsObj (AppGlobalSettingsDto)
+* [33mfa85ac4[m Refactored for Application Global Setrtings
+* [33mf57e347[m Refactored Global Settings DB and UI
+* [33mcd59b6d[m Refactored
+* [33m03983a7[m Added ConnectionString.cs
+* [33m878f3fe[m Added System ViewModel methods
+* [33m0933754[m Finished Profile and Profile subtype NUnit tests
+* [33m65e6315[m Implemented Profile subtype Repos
+* [33m4c77e1f[m Extended NUnits tests
+* [33m81304ef[m Renamed THDiagramPointID to THDiagramPoint across entire solution
+* [33mef498a7[m Add Profile code
+* [33m6c95e2f[m Refactore ProjectViewModel with NUnit tests
+* [33m2df5991[m Moved Unit Conversion methods from _HenMethod to _HenViewModels (base Class)
+* [33mccc69b0[m Minor refactor
+* [33m57da824[m Fleshed out Project Repo methods ... add NUnit tests
+* [33mcb0e4f8[m Fleshed out Project stubbed ProjectRepo methods
+* [33m54f1181[m Added NUnit Tests for Connection Info and Connection
+* [33mab7b880[m Restructured _HenPersistence and _HenRespositories projects ... added sub folders
+* [33m06b80e7[m Added Global Setting Table
+* [33m05150e2[m Integrated Database Connection Factory into top level Repo tables
+* [33m3682b26[m Add Dtatabase Connection factory
+* [33m8406f35[m Added Hen optimizer and subtables Dtos, Interfaces, and Concrete Repo classes
+* [33m6fe1ad2[m Created all Dtos, Interfactes and concrete Repors for all the Top-level and sublevel tables
+* [33md9b29f9[m Dto classes, Repo Interface files and Concrete stubbed Repo classes for top-level tables (Projec, Profile, oinch and Hen)
+* [33m13bc1e8[m All tables designed (sql files)
+* [33mbcb5272[m Defined the top-level tables ... Project, Profile, Pinch and Hen ... sql files
+* [33mca25cd5[m Added _HenStudioDatabase project
+* [33m1f33f3f[m Updated Application Components list...  was ArrayList ... now List<string>.  Update write to log method
+* [33m477d3c7[m Moved back
+* [33m606ea3d[m Move DefaultProjectSettings and HenProjectUnits to HenStudio
+* [33m2026eda[m Update Assemblies
+* [33ma433643[m Refactored Assemblies now match architecture UI->ViewModels->Domain->Repositories->Persistence->DB
+* [33me937ff8[m Rename Assembly _HenDatabase to _HenPersistence
+* [33mdf14dc0[m Change HEN Optimizer background color
+* [33mc676e34[m Rename TargetsEngine to PinchEngine
+* [33mbe5cfe8[m Minor Refactor
+* [33me5ecb25[m Completed New Project form and populating the Project Panel with OK results
+* [33m1034f6c[m Started Project Panel Refactor
+* [33ma75a97b[m Completed New Project Data Form (FromSettings)
+* [33mb16442e[m Refactor: added handlers
+* [33m86696eb[m Refactor Convertion ... now uses HenProjectUnit class along with HenMethods
+* [33m0d10339[m Refactored HenMethods to use HeProjectUnits class
+* [33me26e26e[m Started Application Settings default values classes and logic
+* [33m86b2987[m Completed Catalog Panel controls. Cleaned up threads of execution
+* [33mb6fe21c[m Update Catalog logic
+* [33m183d632[m Added DB Connection Status Bar Handlers
+* [33m785fe94[m Added Project Dirty Flag Status Bar Handlers
+* [33mf8f9d38[m Added Project Dirty Flag Status Bar Labwel
+* [33mbdb401f[m Added Rename Tree Node functionality. Still needs to fuse with data handling.
+* [33m1d464a0[m Added Delete Tree Events and Handlers. Need to integrate with Data Layer
+* [33mf60893d[m Added Log Tree Methods (recursive)
+* [33m156ef58[m Refactor: Handle Selection Change
+* [33mba516a5[m Refactor: Add Project, Profile, Pinch and Hen tree nodes, select correct Panel and update Status bar. Also dynamically update title and set threads of execution for event handling
+* [33m9710260[m Started Tree Opertaions Refactor
+* [33ma5899ec[m Minor refactor
+* [33m03c691c[m Added New Project Form and handlers to display
+* [33maf12f27[m Refactor: Added Collapse and Expand All Tree view context menu handling
+* [33m8f8b4fa[m Refactor: Update UI. Removed extra Tab Controls. Panel management will be through selected Tree Nodes
+* [33mc26968d[m Refactore Poject Tree Views
+* [33m87e42f9[m Minor Refactor
+* [33mbccbc25[m Refactered FileSystem Class ... new Single SQL Server 2025 EXPRESS Architecture
+* [33m1161f3c[m Refactored Status Bar Items - UI
+* [33mf646568[m Added Setting Form
+* [33md6a56f4[m Refactor: Project Panel Controls
+* [33m069c62e[m Updated UI
+* [33m86bdd14[m Refactor Status Bar and FileSystem class
+* [33m92f8a29[m Refactor: Update Dashboard Status bar methods
+* [33m6225e96[m Refactor: Status Bar DashBoard
+* [33m6c86491[m Update UI
+* [33m2d14ac8[m UI Refactor
+* [33m1073618[m Refactor UI
+* [33m61758b7[m Refactore UI
+* [33ma55f04b[m Added Analysis Tab Control and the InputProfile Tab Control
+* [33m444b753[m Minor FormMain refactor
+* [33m88a5f04[m Minor refactor
+* [33m9768268[m Added Project Setting menu item. Added Current HEN Analysis Status in status bar
+* [33m4ab7dac[m Minor Refactor - Mover Units Status Bar element to the left - just after License
+* [33m246ceb1[m Created Panel - Splitter UI Architecture
+* [33maf7c7c5[m Refactor new DB Connected status bar item
+* [33me49dbfa[m Major Refactor ... Remove old UI
+* [33mbbe5271[m Minor Refactor
+* [33m72d5c2d[m Updated License logic now for AJP HEN Studio  ... from AJP Pinch
+* [33m8ada54a[m Refactor to all Hen Studion references. Changed Assemblys to match new Architecture: UI->ViewMode->Domain->Persistence->Database
+* [33m26b243c[m Majore Refactor ... Rebrand as AJP HEN Studio 1.0.1.0 from AJP Pinch 4.0.1.0. Removed all Data Classes - new Arch. Start rename of Assemblies
+* [33m350efe3[m Added Pressure Conversions with tests
+* [33md3131ca[m Removed InputUtilities and renamed InputExchanger to HenExchanger Data. Renamed XML to JSON
+* [33m23ad9d7[m Removed _PinchFigures abd _PinchReports components (Assemblies or DLLS)
+* [33mbd7ab64[m Minor refactor
+* [33m6f0ba02[m Minor Refactor
+* [33mc29bcb3[m Completed TestUnitConversions method. Refactored for correct conversion factors In CP
+* [33m1ebcaf6[m Refactor Conversion methods. Added Test for equality with double values method. Started Test method.
+* [33mbd883ff[m Initial frame of ConvertFromInternal() method
+* [33m7c7a773[m Added Converssion method and supporting Type, Settings items
+* [33mfc6bc9c[m ManifestData refactor ... added stubbed Zip and Extract methods
+* [33m68447a1[m Added HenDataMgr and HenDesignData classes. Updated ManifestData class.
+* [33mb68fe42[m More Properties refactor
+* [33mb380076[m More Property Refactor
+* [33mc025aa9[m Property Refactor for AJP_License_File
+* [33m7a0a5be[m Properties Refactor ... All Classes
+* [33m04e5276[m Added TargetsOptimizeData Class
+* [33m555c75f[m Added TargetsIntervalData Class
+* [33mcdddad5[m Added TargetsCompositeData Class
+* [33m177a227[m Added TargetsCalculateData Class
+* [33m2433012[m Added InputStreamsTableData and InputStreamsRowData Classes
+* [33mb7f1bb2[m Added InputStreamsData Class
+* [33m897c5e0[m Added InputValidationData Class
+* [33m60802e0[m Added InputExchangerData Class
+* [33me52cd0c[m Added InputCostData Class
+* [33mc8c2863[m Added InputUtilitiesData Class
+* [33m16b5143[m Added InputProjectData class
+* [33m4802076[m Added ABC_XmlFileData class. Added ManifestData class. Added InputdataMgr class. Added TargetsDataMgr class.
+* [33mb3622c1[m Embedded *.pdb into exe and dll components (assemblies) In VS 2026: Project Properties → Build → Advanced → Debugging Information → Embedded
+* [33mb55d773[m Rename InputDataMgr and TargetsDataMgr classes
+* [33m567a7a0[m Refactored Pinch FileSystem class. Will need furhter refactoring when working on Installation and exe and data locations. Works for Deployed Development env.
+* [33m5ca483d[m Added User License Agreement Form and all alunch points.
+* [33mcf083b9[m Minor Refactor
+* [33m948a7af[m Update ScoreCard Laucnh Form logic
+* [33mdc2f77a[m Added guard on License Status ... if not VALID then display ScoreCard, else launch app
+* [33md8720ec[m Removed extraneous code
+* [33m9bd70dc[m Fixed CheckRunTimeKey and CheckRunTimeHash methods .. was recalculating hash values for xml file instead o just checking the license hash values
+* [33m5b287ad[m Added ScoreCard Menu and Control bar buttons
+* [33m68cb575[m Added StatusBar to FormScoreCard
+* [33mae0ca2b[m Added Days Remaining Logic
+* [33m79dfd6f[m Handle Bad License File condidtions
+* [33m9d80c81[m Handle Missing XML License File
+* [33m9ca4f03[m Completed License Logic on Constructor Thread
+* [33m336ec81[m Refactor LicenseMgr
+* [33m24db5e5[m Added ScoreCardTableData and ScoreCardRowData classes
+* [33m4384c8d[m Moved FormScoreCard from Pinch namespace to AJP_LICENSE_FILE namespace. Added appropriate resource images.
+* [33m12969ad[m Update FormLicenseScoreCard
+* [33m41966a8[m Created FormScoreCard
+* [33mf6145f5[m Refactor License logic
+* [33m5efb480[m Updated Hash settings and calculation requirements
+* [33me352145[m Instrumented AJP_LicenseGenerator code with new LicenseGenLogger code
+* [33mb74e15f[m Added LicenseGenLogger
+* [33m7888a46[m Minor cleanup refactor
+* [33macab1ef[m Minor Refactor
+* [33m0c0341c[m Added FormMoveLicenseFile
+* [33m64a4c75[m Refactor AJP_LicenseGeneratror classes
+* [33meb5a872[m Removed unneeded License Folder.  Moved LicenseKeyMgr class out of folder
+* [33m634f84c[m Updating License files
+* [33mda5fbc8[m Update FormMain for AJP_LicenseGenerator ... Pinch 4.0
+* [33m582ab95[m Added AJP_LicenseGenerator exe Project to Pinch Solution. Shares _AJP License File DLL with Pinch exe
+* [33m124990a[m Added Units, Input and Targets Status Bar Label UI and framed with test sections the constructor sequence
+* [33mca4adf7[m Replace Local Image files with Resource images for Menu bar and Toolbar items
+* [33m45a29eb[m General refactoring
+* [33mc5ad4b3[m Created Status Bar license Label Logic.  Initial placement in constructor sequence.  Test Code and MsgDialog with limited LOG entries. Added Images to Resource for Pinch
+* [33m4fcd5cc[m Removed static methods from PinchTypes ... now in PinchMethods (static)
+* [33m8829a5a[m Refctor PinchTypes class into PinchTypes, PinchSettings and PinchMethods (static) classes
+* [33m390c888[m Sized Layered Panels
+* [33m59e0f28[m Remove FormLicense ... now using FormLicenseFile
+* [33m1a27349[m Finished License Viewer
+* [33m4b092f4[m Updated Form License File
+* [33m658a6ca[m Update namespace
+* [33m4c5f268[m Add AJP License File
+* [33mb11b2a4[m Added _AJP License File project
+* [33m3f87357[m Update Enums Units
+* [33m4fa2f83[m Minor Comments formatting
+* [33m750d8f7[m Updated background colors on logo buttons
+* [33me34d98c[m Added License Viewer Forma dn the Business Crd Viewer Form
+* [33m32ba7b4[m On intitialization, assigned Panels (INPUT, TARGETS, & HEN) Location and Size
+* [33m8c0c9ed[m Updated images
+* [33m22000ce[m Added New Utilities Image
+* [33m5bd90e0[m General refactor cleanup
+* [33m8e9447d[m Added all images
+* [33m4322551[m Major updates to UI
+* [33m34a249d[m Minor cleanup
+* [33m35282f6[m Handle panel displays
+* [33mdc3e89b[m Building FomrMain UI.  Fusing Contol Panels to PanelTablemGR Object
+* [33mf788dfe[m Added Selected State logic
+* [33mf333905[m Started frameing Table and List Lookup methods
+* [33m2fcf7e5[m Added Current Index state Properties for Panel Table Manager with associated Log methods
+* [33m51c03f8[m Update Log formatting
+* [33m0447f3f[m Update PanelTableRow and PanelTableMgr classes.  Populate and log methods
+* [33m2e76e62[m Added Name constants
+* [33m17ece27[m Create PanelTableMgr and PanelTableRow classes
+* [33meca1b50[m Minor cleanup
+* [33mbb7702c[m Finished initial FormAboutPinch class and associated PinchTypes class
+* [33mcac0b3b[m Updated PinchTypes
+* [33mcdaf285[m Frame FormAbout class and UI
+* [33m851665c[m Framed the Main Tabbed Control nad associated Panels..  Behavion working
+* [33m3ffa2df[m Added comments
+* [33me1e7010[m Frame TargetsEngine Class
+* [33mfb5a177[m Update Log Header (Typo)
+* [33m96e521f[m Stubbed Form Event Handlers
+* [33m13c7918[m Added menu itme images
+* [33mc228e4c[m Handle Exit Application events and log flush
+* [33mfcb50e8[m Correct Log Layout - Format
+* [33m059a48a[m FormMain cleanup
+* [33m5abd1c1[m Added Color and Font specs for AJP
+* [33me81563d[m Removed unnecessary constant
+* [33m682e9f5[m Clear Log File on Launch
+* [33md9226ba[m Connected Logger ... App.config settings
+* [33mc0f3be2[m Frame Main Form class
+* [33mbe43de5[m Added Enumeration
+* [33mb578a6f[m Frame Report Manager class
+* [33m400c8cd[m Frame Hen Engine class
+* [33mbb5eafc[m Frame Figures Manager class
+* [33m4752cb2[m Framed DataMgr classes
+* [33m6c9e0b8[m Added TargetsResultsDataMgr class
+* [33m9e770cb[m Added initial PinchData component
+* [33m592c3eb[m Add initial PinchReports component
+* [33m4771dab[m Added initial PinchFigures component
+* [33ma19732e[m Add Initial PinchHen Compnent
+* [33m0e0899a[m Update Build Output Location settings
+* [33m8892100[m Update Namespace references
+* [33mf0ccab0[m Add Initial PinchGlobal
+* [33mfba9ffd[m Add Initial PinchTargets
+* [33m4f1b028[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Updated Assembly Info
+* [33m6cff423[m Test
+* [33mea6b409[m Framing PinchGlobal component ... added PinchTypes class, PinchLogger class, and PinchMsgDlgs class.
+* [33m6b9510b[m Add project files.
+* [33m9f0b2f1[m Add .gitattributes and .gitignore.
