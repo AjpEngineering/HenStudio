@@ -90,6 +90,8 @@ namespace HenPersistence.Repos
         /// <param name="defaultMagnitudeUnitsOrdinal">The ordinal position of the <c>DefaultMagnitudeUnits</c> column.</param>
         /// <param name="defaultTemperatureUnitsOrdinal">The ordinal position of the <c>DefaultTemperatureUnits</c> column.</param>
         /// <param name="defaultPressureUnitsOrdinal">The ordinal position of the <c>DefaultPressureUnits</c> column.</param>
+        /// <param name="creationDateOrdinal">The ordinal position of the <c>CreationDate</c> column.</param>
+        /// <param name="modifiedDateOrdinal">The ordinal position of the <c>ModifiedDate</c> column.</param>
         /// <returns>A <see cref="ProjectDto"/> populated from the supplied data record.</returns>
         private static ProjectDto MapProject( IDataRecord record,
                                               int idOrdinal,
@@ -155,7 +157,9 @@ namespace HenPersistence.Repos
                                         DefaultSystemUnits,
                                         DefaultMagnitudeUnits,
                                         DefaultTemperatureUnits,
-                                        DefaultPressureUnits
+                                        DefaultPressureUnits,
+                                        CreationDate,
+                                        ModifiedDate
                                  FROM dbo.Project
                                  ORDER BY Name;";
 
@@ -183,7 +187,8 @@ namespace HenPersistence.Repos
                         int defaultTemperatureUnitsOrdinal = reader.GetOrdinal("DefaultTemperatureUnits");
                         int defaultPressureUnitsOrdinal = reader.GetOrdinal("DefaultPressureUnits");
 
-                        while (reader.Read())
+                        int creationDateOrdinal = reader.GetOrdinal("CreationDate");
+                        int modifiedDateOrdinal = reader.GetOrdinal("ModifiedDate");
                         {
                             projects.Add(MapProject(
                                 reader,
@@ -223,7 +228,9 @@ namespace HenPersistence.Repos
                                         DefaultSystemUnits,
                                         DefaultMagnitudeUnits,
                                         DefaultTemperatureUnits,
-                                        DefaultPressureUnits
+                                        DefaultPressureUnits,
+                                        CreationDate,
+                                        ModifiedDate
                                  FROM dbo.Project
                                  WHERE Id = @Id;";
 
@@ -284,7 +291,9 @@ namespace HenPersistence.Repos
                                         DefaultSystemUnits,
                                         DefaultMagnitudeUnits,
                                         DefaultTemperatureUnits,
-                                        DefaultPressureUnits
+                                        DefaultPressureUnits,
+                                        CreationDate,
+                                        ModifiedDate
                                  FROM dbo.Project
                                  WHERE Name = @Name;";
 
@@ -345,7 +354,9 @@ namespace HenPersistence.Repos
                                      DefaultSystemUnits,
                                      DefaultMagnitudeUnits,
                                      DefaultTemperatureUnits,
-                                     DefaultPressureUnits)
+                                     DefaultPressureUnits,
+                                     CreationDate,
+                                     ModifiedDate)
                                  OUTPUT INSERTED.Id
                                  VALUES
                                     (@Name,
@@ -373,6 +384,9 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectDto.DefaultMagnitudeUnits);
                     AddParameter(command, "@DefaultTemperatureUnits", DbType.String, projectDto.DefaultTemperatureUnits);
                     AddParameter(command, "@DefaultPressureUnits", DbType.String, projectDto.DefaultPressureUnits);
+                    AddParameter(command, "@ModifiedDate", DbType.DateTime, DateTime.Now);
+                    AddParameter(command, "@CreationDate", DbType.DateTime, projectDto.CreationDate);
+                    AddParameter(command, "@ModifiedDate", DbType.DateTime, projectDto.ModifiedDate);
 
                     connection.Open();
 
@@ -403,7 +417,8 @@ namespace HenPersistence.Repos
                                      DefaultSystemUnits = @DefaultSystemUnits,
                                      DefaultMagnitudeUnits = @DefaultMagnitudeUnits,
                                      DefaultTemperatureUnits = @DefaultTemperatureUnits,
-                                     DefaultPressureUnits = @DefaultPressureUnits
+                                     DefaultPressureUnits = @DefaultPressureUnits,
+                                     ModifiedDate = @ModifiedDate
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
