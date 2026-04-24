@@ -377,7 +377,9 @@ namespace HenPersistence.Repos
                                      @DefaultSystemUnits,
                                      @DefaultMagnitudeUnits,
                                      @DefaultTemperatureUnits,
-                                     @DefaultPressureUnits);";
+                                     @DefaultPressureUnits,
+                                     @CreationDate,
+                                     @ModifiedDate);";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -394,8 +396,8 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectDto.DefaultMagnitudeUnits);
                     AddParameter(command, "@DefaultTemperatureUnits", DbType.String, projectDto.DefaultTemperatureUnits);
                     AddParameter(command, "@DefaultPressureUnits", DbType.String, projectDto.DefaultPressureUnits);
-                    AddParameter(command, "@ModifiedDate", DbType.DateTime, DateTime.Now);
                     AddParameter(command, "@CreationDate", DbType.DateTime, DateTime.Now);
+                    AddParameter(command, "@ModifiedDate", DbType.DateTime, DateTime.Now);
 
                     connection.Open();
 
