@@ -2008,6 +2008,9 @@ namespace HenStudio
             projectViewDataObj.ProjectTemperature_Units = projectDto.DefaultTemperatureUnits;
             projectViewDataObj.ProjectPressure_Units = projectDto.DefaultPressureUnits;
 
+            projectViewDataObj.ProjectCreationDate = projectDto.CreationDate;
+            projectViewDataObj.ProjectModificationDate = projectDto.ModifiedDate;
+
             #region ENGLISH
             if (string.Compare(projectDto.DefaultSystemUnits, "English - Imperial", true) == 0)
             {
@@ -2165,6 +2168,9 @@ namespace HenStudio
             ProjectDtoObj.DefaultMagnitudeUnits = projectViewDataObj.ProjectMagnitude_Units;
             ProjectDtoObj.DefaultTemperatureUnits = projectViewDataObj.ProjectTemperature_Units;
             ProjectDtoObj.DefaultPressureUnits = projectViewDataObj.ProjectPressure_Units;
+
+            ProjectDtoObj.CreationDate = projectViewDataObj.ProjectCreationDate;
+            ProjectDtoObj.ModifiedDate = projectViewDataObj.ProjectModificationDate;
 
             return ProjectDtoObj;
         }
