@@ -888,7 +888,7 @@
             this.toolStripStatusLabelAJP_LOGO.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelAJP_LOGO.Name = "toolStripStatusLabelAJP_LOGO";
             this.toolStripStatusLabelAJP_LOGO.Padding = new System.Windows.Forms.Padding(6);
-            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(534, 32);
+            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(565, 32);
             this.toolStripStatusLabelAJP_LOGO.Spring = true;
             this.toolStripStatusLabelAJP_LOGO.Text = "Engineering  ";
             this.toolStripStatusLabelAJP_LOGO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
