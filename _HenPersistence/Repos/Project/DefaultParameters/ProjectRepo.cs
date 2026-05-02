@@ -212,7 +212,7 @@ namespace HenPersistence.Repos
                     }
                 }
             }
-
+            
             return projects;
         }
         #endregion      // GetProjects()

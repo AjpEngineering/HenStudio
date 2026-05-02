@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//########################################  I E c o n P a r a m R e p o . c s  ########################################
+//##########################  I S h e l l A n d T u b e C a p i t a l C o s t R e p o . c s  ##########################
 //#####################################################################################################################
-//  FILENAME:  IEconParamRepo.cs
+//  FILENAME:  IShellAndTubeCapitalCostRepo.cs
 //  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IEconParamRepo
+//  INTERFACE: IShellAndTubeCapitalCostRepo
 //  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the EconParam Profile sub table.
+//    This file contains the repo interface for the Shell And Tube Capital Cost Project-Cost Parameters sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -42,23 +42,22 @@ using System.Collections.Generic;
 #region namespace HenRepositories.Interfaces
 namespace HenRepositories.Interfaces
 {
-    #region public interface IEconParamRepo
+    #region public interface IShellAndTubeCapitalCostRepo
     /// <summary>
-    /// EconParam Repo Interface
+    /// Shell and Tube Capital Cost Repo Interface
     /// </summary>
-    public interface IEconParamRepo
+    public interface IShellAndTubeCapitalCostRepo
     {
         #region METHODS
-        IList<EconParamDto> GetEconParams();
-        IList<EconParamDto> GetEconParamsByProfileId(Guid profileId);
-        EconParamDto GetEconParamById(Guid econParamId);
-        EconParamDto GetEconParamByName(Guid profileId, string capitalCostIndexName);
-        Guid AddEconParam(EconParamDto econParamDto);
-        void UpdateEconParam(EconParamDto econParamDto);
-        void DeleteEconParam(Guid econParamId);
+        IList<ShellAndTubeCapitalCostDto> GetShellAndTubeCapitalCost();
+        IList<ShellAndTubeCapitalCostDto> GetShellAndTubeCapitalCostByProjectId(Guid projectId);
+        ShellAndTubeCapitalCostDto GetShellAndTubeCapitalCostById(Guid shellAndTubeCapitalCostId);
+        Guid AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDto);
+        void UpdateShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDto);
+        void DeleteShellAndTubeCapitalCost(Guid shellAndTubeCapitalCostId);
         #endregion      // METHODS
     }
-    #endregion      // public interface IEconParamRepo
+    #endregion      // public interface IShellAndTubeCapitalCostRepo
 }
 #endregion      // namespace HenRepositories.Interfaces
 

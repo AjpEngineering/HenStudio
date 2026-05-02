@@ -44,41 +44,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dto\Project\ProjectDto.cs" />
-    <Compile Include="Dto\Project\HenOptimizerDto.cs" />
-    <Compile Include="Dto\Project\HenOptimizerGeneticDto.cs" />
-    <Compile Include="Dto\Project\HenOptimizerGreedyDto.cs" />
-    <Compile Include="Dto\Project\HenOptimizerMILPDto.cs" />
+    <Compile Include="Dto\Project\CostParameters\TotalAnnualizedCostDto.cs" />
+    <Compile Include="Dto\Project\CostParameters\UtilityCostDto.cs" />
+    <Compile Include="Dto\Project\CostParameters\FiredHeatedCapitalCostDto.cs" />
+    <Compile Include="Dto\Project\CostParameters\ShellAndTubeCapitalCostDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\ProjectDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\Optimizer\HenOptimizerDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\Optimizer\HenOptimizerGeneticDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\Optimizer\HenOptimizerGreedyDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\Optimizer\HenOptimizerMILPDto.cs" />
     <Compile Include="Dto\System\AppGlobalSettingsDto.cs" />
-    <Compile Include="Interfaces\Project\IProjectRepo.cs" />
-    <Compile Include="Interfaces\Project\IHenOptimizerRepo.cs" />
-    <Compile Include="Interfaces\Project\IHenOptimizerGeneticRepo.cs" />
-    <Compile Include="Interfaces\Project\IHenOptimizerGreedyRepo.cs" />
-    <Compile Include="Interfaces\Project\IHenOptimizerMILPRepo.cs" />
+    <Compile Include="Interfaces\Project\CostParameters\ITotalAnnualizedCostRepo.cs" />
+    <Compile Include="Interfaces\Project\CostParameters\IUtilityCostRepo.cs" />
+    <Compile Include="Interfaces\Project\CostParameters\IFiredHeaterCapitalCostRepo.cs" />
+    <Compile Include="Interfaces\Project\CostParameters\IShellAndTubeCapitalCostRepo.cs" />
+    <Compile Include="Interfaces\Project\DefaultParameters\IProjectRepo.cs" />
+    <Compile Include="Interfaces\Project\DefaultParameters\Optimizer\IHenOptimizerRepo.cs" />
+    <Compile Include="Interfaces\Project\DefaultParameters\Optimizer\IHenOptimizerGeneticRepo.cs" />
+    <Compile Include="Interfaces\Project\DefaultParameters\Optimizer\IHenOptimizerGreedyRepo.cs" />
+    <Compile Include="Interfaces\Project\DefaultParameters\Optimizer\IHenOptimizerMILPRepo.cs" />
     <Compile Include="Dto\Profile\ProfileDto.cs" />
-    <Compile Include="Dto\Profile\EconParamDto.cs" />
+    <Compile Include="Dto\Project\CostParameters\CostMetadataDto.cs" />
     <Compile Include="Dto\Profile\ProcessStreamDto.cs" />
-    <Compile Include="Dto\Profile\THDiagramDto.cs" />
-    <Compile Include="Dto\Profile\THDiagramPointDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\THDiagramDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\THDiagramPointDto.cs" />
     <Compile Include="Dto\Profile\UtilityStreamDto.cs" />
     <Compile Include="Interfaces\Profile\IProfileRepo.cs" />
-    <Compile Include="Interfaces\Profile\IEconParamRepo.cs" />
+    <Compile Include="Interfaces\Project\CostParameters\ICostMetadataRepo.cs" />
     <Compile Include="Interfaces\Profile\IProcessStreamRepo.cs" />
-    <Compile Include="Interfaces\Profile\ITHDiagramRepo.cs" />
-    <Compile Include="Interfaces\Profile\ITHDiagramPointRepo.cs" />
+    <Compile Include="Interfaces\Pinch\Plots\ITHDiagramRepo.cs" />
+    <Compile Include="Interfaces\Pinch\Plots\ITHDiagramPointRepo.cs" />
     <Compile Include="Interfaces\Profile\IUtilityStreamRepo.cs" />
     <Compile Include="Dto\Pinch\PinchDto.cs" />
     <Compile Include="Dto\Pinch\TargetsDto.cs" />
-    <Compile Include="Dto\Pinch\CompositeCurveDto.cs" />
-    <Compile Include="Dto\Pinch\CompositeCurvePointIDDto.cs" />
-    <Compile Include="Dto\Pinch\GrandCompositeCurveDto.cs" />
-    <Compile Include="Dto\Pinch\GrandCompositeCurvePointIDDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\CompositeCurveDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\CompositeCurvePointIDDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\GrandCompositeCurveDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\GrandCompositeCurvePointIDDto.cs" />
     <Compile Include="Interfaces\Pinch\IPinchRepo.cs" />
     <Compile Include="Interfaces\Pinch\ITargetsRepo.cs" />
-    <Compile Include="Interfaces\Pinch\ICompositeCurveRepo.cs" />
-    <Compile Include="Interfaces\Pinch\ICompositeCurvePointIDRepo.cs" />
-    <Compile Include="Interfaces\Pinch\IGrandCompositeCurveRepo.cs" />
-    <Compile Include="Interfaces\Pinch\IGrandCompositeCurvePointIDRepo.cs" />
+    <Compile Include="Interfaces\Pinch\Plots\ICompositeCurveRepo.cs" />
+    <Compile Include="Interfaces\Pinch\Plots\ICompositeCurvePointIDRepo.cs" />
+    <Compile Include="Interfaces\Pinch\Plots\IGrandCompositeCurveRepo.cs" />
+    <Compile Include="Interfaces\Pinch\Plots\IGrandCompositeCurvePointIDRepo.cs" />
     <Compile Include="Dto\Hen\HenDto.cs" />
     <Compile Include="Dto\Hen\ExchangerDto.cs" />
     <Compile Include="Dto\Hen\GridDiagramDto.cs" />
@@ -102,5 +110,6 @@
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

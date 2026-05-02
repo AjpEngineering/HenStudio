@@ -45,13 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewModelBase.cs" />
-    <Compile Include="Project\ProjectViewModel.cs" />
+    <Compile Include="Project\DefaultParameters\ProjectViewModel.cs" />
     <Compile Include="Profile\ProfileViewModel.cs" />
-    <Compile Include="Profile\EconParamViewModel.cs" />
+    <Compile Include="Project\CostParameters\CostMetadataViewModel.cs" />
     <Compile Include="Profile\ProcessStreamViewModel.cs" />
     <Compile Include="Profile\UtilityStreamViewModel.cs" />
-    <Compile Include="Profile\THDiagramViewModel.cs" />
-    <Compile Include="Profile\THDiagramPointViewModel.cs" />
+    <Compile Include="Pinch\Plots\THDiagramViewModel.cs" />
+    <Compile Include="Pinch\Plots\THDiagramPointViewModel.cs" />
     <Compile Include="Pinch\PinchViewModel.cs" />
     <Compile Include="Hen\HenViewModel.cs" />
     <Compile Include="System\SystemViewModel.cs" />
@@ -73,6 +73,9 @@
       <Project>{42A404CA-256F-47C8-82FD-319C99292C74}</Project>
       <Name>_HenRepositories</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Project\DefaultParameters\Optimizer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

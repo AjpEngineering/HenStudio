@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//##########################################  E c o n P a r a m D t o . c s  ##########################################
+//#############################  F i r e d H e a t e r C a p i t a l C o s t D t o . c s  #############################
 //#####################################################################################################################
-//  FILENAME:  EconParamDto.cs
+//  FILENAME:  FiredHeaterCapitalCostDto.cs
 //  NAMESPACE: HenRepositories.Dto
-//  CLASS(S):  EconParamDto
+//  CLASS(S):  FiredHeaterCapitalCostDto
 //  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the EconParam Profile sub table.
+//    This file contains the DTO class for the Fired Heater Capital Cost Project-Cost Parameters sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -39,25 +39,24 @@ using System;
 #region namespace HenRepositories.Dto
 namespace HenRepositories.Dto
 {
-    #region public class EconParamDto
+    #region public class FiredHeaterCapitalCostDto
     /// <summary>
-    /// EconParam DTO Class
+    /// Fired Heater Capital Cost DTO Class
     /// </summary>
-    public class EconParamDto
+    public class FiredHeaterCapitalCostDto
     {
         #region PROPERTIES
         public Guid Id { get; set; }
         public Guid ProfileId { get; set; }
-        public string CapitalCostIndexName { get; set; }
-        public double CapitalCostIndexC1 { get; set; }
-        public double CapitalCostIndexC2 { get; set; }
-        public double CapitalCostIndexC3 { get; set; }
-        public string CapitalCostIndexConfiguration { get; set; }
-        public double RateOfReturn { get; set; }
-        public int ProjectLifetime { get; set; }
+        public double ParameterAlpha_Metric { get; set; }
+        public double ParameterAlpha_English { get; set; }
+        public double ParameterBeta { get; set; }
+        public double Efficiency { get; set; }
+        public string DutyUnits_Metric { get; set; }
+        public string DutyUnits_English { get; set; }
         #endregion      // PROPERTIES
     }
-    #endregion      // public class EconParamDto
+    #endregion      // public class ShellAndTubeCapitalCostDto
 }
 #endregion      // namespace HenRepositories.Dto
 

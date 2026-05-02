@@ -69,6 +69,7 @@
     <Folder Include="Tables\Project\CostParameters" />
     <Folder Include="Tables\Project\DefaultParameters" />
     <Folder Include="Tables\Project\DefaultParameters\Optimizer" />
+    <Folder Include="Tables\Pinch\Plots" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -81,14 +82,8 @@
     <Build Include="Tables\Profile\Profile.sql" />
     <Build Include="Tables\Profile\ProcessStream.sql" />
     <Build Include="Tables\Profile\UtilityStream.sql" />
-    <Build Include="Tables\Profile\THDiagram.sql" />
-    <Build Include="Tables\Profile\THDiagramPoint.sql" />
     <Build Include="Tables\Pinch\Pinch.sql" />
     <Build Include="Tables\Pinch\Targets.sql" />
-    <Build Include="Tables\Pinch\CompositeCurve.sql" />
-    <Build Include="Tables\Pinch\CompositeCurvePointID.sql" />
-    <Build Include="Tables\Pinch\GrandCompositeCurve.sql" />
-    <Build Include="Tables\Pinch\GrandCompositeCurvePointID.sql" />
     <Build Include="Tables\Hen\Hen.sql" />
     <Build Include="Tables\Hen\GridDiagram.sql" />
     <Build Include="Tables\Hen\GridDiagramPointID.sql" />
@@ -105,6 +100,12 @@
     <Build Include="Tables\Project\DefaultParameters\Optimizer\HenOptimizerGenetic.sql" />
     <Build Include="Tables\Project\DefaultParameters\Optimizer\HenOptimizerGreedy.sql" />
     <Build Include="Tables\Project\DefaultParameters\Optimizer\HenOptimizerMILP.sql" />
+    <Build Include="Tables\Pinch\Plots\CompositeCurve.sql" />
+    <Build Include="Tables\Pinch\Plots\CompositeCurvePointID.sql" />
+    <Build Include="Tables\Pinch\Plots\GrandCompositeCurve.sql" />
+    <Build Include="Tables\Pinch\Plots\GrandCompositeCurvePointID.sql" />
+    <Build Include="Tables\Pinch\Plots\THDiagram.sql" />
+    <Build Include="Tables\Pinch\Plots\THDiagramPoint.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql" />
