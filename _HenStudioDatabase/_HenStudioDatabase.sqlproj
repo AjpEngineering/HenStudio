@@ -66,6 +66,8 @@
     <Folder Include="Tables\System" />
     <Folder Include="Scripts" />
     <Folder Include="Scripts\PostDeployment" />
+    <Folder Include="Tables\Project\CostParameters" />
+    <Folder Include="Tables\Project\DefaultParameters" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -78,7 +80,6 @@
     <Build Include="Tables\Profile\Profile.sql" />
     <Build Include="Tables\Profile\ProcessStream.sql" />
     <Build Include="Tables\Profile\UtilityStream.sql" />
-    <Build Include="Tables\Profile\EconParam.sql" />
     <Build Include="Tables\Profile\THDiagram.sql" />
     <Build Include="Tables\Profile\THDiagramPoint.sql" />
     <Build Include="Tables\Pinch\Pinch.sql" />
@@ -93,11 +94,16 @@
     <Build Include="Tables\Hen\Exchanger.sql" />
     <Build Include="Tables\Hen\HeatReleaseCurve.sql" />
     <Build Include="Tables\Hen\HeatReleaseCurvePointID.sql" />
-    <Build Include="Tables\Project\HenOptimizer.sql" />
-    <Build Include="Tables\Project\HenOptimizerGenetic.sql" />
-    <Build Include="Tables\Project\HenOptimizerGreedy.sql" />
-    <Build Include="Tables\Project\HenOptimizerMILP.sql" />
-    <Build Include="Tables\Project\Project.sql" />
+    <Build Include="Tables\Project\CostParameters\CostMetaData.sql" />
+    <Build Include="Tables\Project\DefaultParameters\Project.sql" />
+    <Build Include="Tables\Project\DefaultParameters\HenOptimizerMILP.sql" />
+    <Build Include="Tables\Project\DefaultParameters\HenOptimizerGreedy.sql" />
+    <Build Include="Tables\Project\DefaultParameters\HenOptimizerGenetic.sql" />
+    <Build Include="Tables\Project\DefaultParameters\HenOptimizer.sql" />
+    <Build Include="Tables\Project\CostParameters\ShellAndTubeCapitalCost.sql" />
+    <Build Include="Tables\Project\CostParameters\FiredHeaterCapitalCost.sql" />
+    <Build Include="Tables\Project\CostParameters\UtilityCost.sql" />
+    <Build Include="Tables\Project\CostParameters\TotalAnnualizedCost.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql" />

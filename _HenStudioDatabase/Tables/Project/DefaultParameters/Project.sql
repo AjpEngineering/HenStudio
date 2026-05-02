@@ -4,7 +4,7 @@
 -- ============================================================================
 --
 --  Description:
---    Root entity for HEN Studio. Contains zero or more Profile entities.
+--    Root entity for HEN Studio. Contains zero or more Profile-Default Params entities.
 --    Project includes fields for ...
 --      + PK (GUID)
 --      + Project Name
