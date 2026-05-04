@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//############################################  P r o j e c t D t o . c s  ############################################
+//################################  I E x c h a n g e r P a r a m s R e p o R e p o . c s  ############################
 //#####################################################################################################################
-//  FILENAME:  ProjectDto.cs
-//  NAMESPACE: HenRepositories.Dto
-//  CLASS(S):  ProjectDto
+//  FILENAME:  IExchangerParamsRepo.cs
+//  NAMESPACE: HenRepositories.Interfaces
+//  INTERFACE: IExchangerParamsRepo
 //  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the Project top-level table.
+//    This file contains the repository interface for the Exchanger Params top-level table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,30 +33,32 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenRepositories.Dto;
+
 using System;
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenRepositories.Interfaces
+namespace HenRepositories.Interfaces
 {
-    #region public class ProjectDto
+    #region public interface IExchangerParamsRepo
     /// <summary>
-    /// Project DTO Class
+    /// Exchanger Params Repo Interface
     /// </summary>
-    public class ProjectDto
+    public interface IExchangerParamsRepo
     {
-        #region PROPERTIES
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string DefaultHenOptimizer { get; set; }
-        public DateTime CreationDate { get; set; }
-        public DateTime ModifiedDate { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        ExchangerParamsDto GetExchangerParamsById(Guid exchangeParamsId);
+        ExchangerParamsDto GetExchangerParamsByProjectId(Guid projectId);
+        Guid AddExchangerParams(ExchangerParamsDto exchangerParamsDto);
+        void UpdateExchangerParams(ExchangerParamsDto exchangerParamsDto);
+        void DeleteExchangerParams(Guid exchangerParamsId);
+        #endregion      // METHODS
     }
-    #endregion      // public class ProjectDto
+    #endregion      // public interface IExchangerParamsRepo
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenRepositories.Interfaces
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -45,12 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection\ConnectionString.cs" />
+    <Compile Include="Repos\Project\DefaultParameters\ExchangerParams\ExchangerParamsRepo.cs" />
+    <Compile Include="Repos\Project\DefaultParameters\ProjectUnits\ProjectUnitsRepo.cs" />
     <Compile Include="Repos\System\DatabaseTableRepo.cs" />
     <Compile Include="Repos\Project\DefaultParameters\ProjectRepo.cs" />
-    <Compile Include="Repos\Project\DefaultParameters\Optimizer\HenOptimizerRepo.cs" />
-    <Compile Include="Repos\Project\DefaultParameters\Optimizer\HenOptimizerGeneticRepo.cs" />
-    <Compile Include="Repos\Project\DefaultParameters\Optimizer\HenOptimizerGreedyRepo.cs" />
-    <Compile Include="Repos\Project\DefaultParameters\Optimizer\HenOptimizerMILPRepo.cs" />
+    <Compile Include="Repos\Project\DefaultParameters\OptimizerParams\HenOptimizerRepo.cs" />
+    <Compile Include="Repos\Project\DefaultParameters\OptimizerParams\HenOptimizerGeneticRepo.cs" />
+    <Compile Include="Repos\Project\DefaultParameters\OptimizerParams\HenOptimizerGreedyRepo.cs" />
+    <Compile Include="Repos\Project\DefaultParameters\OptimizerParams\HenOptimizerMILPRepo.cs" />
     <Compile Include="Repos\Profile\ProfileRepo.cs" />
     <Compile Include="Repos\Project\CostParameters\CostMetadataRepo.cs" />
     <Compile Include="Repos\Profile\ProcessStreamRepo.cs" />
@@ -88,5 +90,6 @@
       <Name>_HenRepositories</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

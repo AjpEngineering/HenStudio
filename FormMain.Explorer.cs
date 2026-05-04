@@ -479,6 +479,8 @@ namespace HenStudio
                 //--- GetProject ViewModel Object to Retrieve Projects from DB ---
                 //----------------------------------------------------------------
                 var projectViewModelObj = new ProjectViewModel();
+                var projectUnitsViewModelObj = new ProjectUnitsViewModel();
+                var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
 
                 //--------------------------
                 //--- Get Node and Level ---
@@ -526,11 +528,15 @@ namespace HenStudio
                         //--- Get Project Data from DB using Project ViewModel and Populate Project Panel ---
                         //-----------------------------------------------------------------------------------
                         ProjectDto projectDtoObj = projectViewModelObj.GetProjectById(projectID);
+                        ProjectUnitsDto projectUnitsDto = projectUnitsViewModelObj.GetProjectUnitsByProjectId(projectID);
+                        ExchangerParamsDto exchangerParamsDto = exchangerParamsViewModelObj.GetExchangerParamsByProjectId(projectID);
 
                         //------------------------------------------------
                         //--- Populate Project Panel with Project Data ---
                         //------------------------------------------------
-                        ProjectViewData projectViewDataObj = GetProjectViewData(projectDtoObj);
+                        ProjectViewData projectViewDataObj = GetProjectViewData(projectDtoObj,
+                                                                                exchangerParamsDto,
+                                                                                projectUnitsDto);
                         PopulateProjectPanel(projectViewDataObj);
 
                         //-----------------------------
@@ -779,10 +785,12 @@ namespace HenStudio
             Guid projectGUID = Guid.Empty;      // DB Project GUID (PK)
             try
             {
-                //----------------------------------------------------------------
-                //--- GetProject ViewModel Object to Retrieve Projects from DB ---
-                //----------------------------------------------------------------
+                //-----------------------------------------------------------------
+                //--- Get Project ViewModel Object to Retrieve Projects from DB ---
+                //-----------------------------------------------------------------
                 var projectViewModelObj = new ProjectViewModel();
+                var projectUnitsViewModelObj = new ProjectUnitsViewModel();
+                var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
 
                 //-------------------------------------
                 //--- Display New Project Data Form ---
@@ -805,13 +813,14 @@ namespace HenStudio
                 //------------------------------------------------------------------
                 //--- Get ProjectDto Object from Panel Data (ProjectViewDataObj) ---
                 //------------------------------------------------------------------
-                ProjectDto projectDtoObj = GetProjectDtoFromViewData(dlg.ProjectViewDataObj);
+                //ProjectUnitsDto projectDtoObj = GetProjectDtoFromViewData(dlg.ProjectViewDataObj);
+                //ProjectUnitsDto projectDtoObj = GetProjectDtoFromViewData(dlg.ProjectViewDataObj);
 
                 //----------------------------------------------------------------------------------------
                 //--- Add Project to DB and Get Back Project GUID (PK) and Assign to ProjectDto Object ---
                 //----------------------------------------------------------------------------------------
-                projectGUID = projectViewModelObj.AddProject(projectDtoObj);
-                projectDtoObj.Id = projectGUID;
+                //projectGUID = projectViewModelObj.AddProject(projectDtoObj);
+                //projectDtoObj.Id = projectGUID;
 
                 //-------------------------------------------------------
                 //-- Create Node Tag Object and Assign Tag Attributes ---
@@ -1044,45 +1053,48 @@ namespace HenStudio
                 //--- GetProject ViewModel Object to Retrieve Project from DB ---
                 //---------------------------------------------------------------
                 var projectViewModelObj = new ProjectViewModel();
+                var projectUnitsViewModelObj = new ProjectUnitsViewModel();
+                var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
+
 
                 //------------------------------------------------------------------------------------------------------
                 //--- Get ProjectID from Selected Node Tag and Retrieve Project Data from DB using Project ViewModel ---
                 //------------------------------------------------------------------------------------------------------
-                Guid projectID = ((DataTagDisplay)treeViewCurrentProjectExplorer.SelectedNode.Tag).ProjectID;
-                ProjectDto origProjectDtoObj = projectViewModelObj.GetProjectById(projectID);
+                //Guid projectID = ((DataTagDisplay)treeViewCurrentProjectExplorer.SelectedNode.Tag).ProjectID;
+                //ProjectUnitsDto origProjectDtoObj = projectViewModelObj.GetProjectById(projectID);
 
                 //-----------------------------------------------------------------------------------
                 //--- Get ProjectViewData Object from ProjectDto Object to Populate Project Panel ---
                 //-----------------------------------------------------------------------------------
-                ProjectViewData projectViewDataObj = GetProjectViewData(origProjectDtoObj);
+                //ProjectViewData projectViewDataObj = GetProjectViewData(origProjectDtoObj);
 
                 //----------------------------------------
                 //--- Display Modify Project Data Form ---
                 //----------------------------------------
-                FormProjectNewModify dlg = new FormProjectNewModify(projectViewDataObj);
-                if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
+                //FormProjectNewModify dlg = new FormProjectNewModify(projectViewDataObj);
+                //if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
 
                 //-------------------------
                 //--- Update Form Title ---
                 //-------------------------
-                HenSettingsObj.CurrentProjectName = dlg.ProjectViewDataObj.Name;
-                UpdateProjectNameUI();
+                //HenSettingsObj.CurrentProjectName = dlg.ProjectViewDataObj.Name;
+                //UpdateProjectNameUI();
 
                 //------------------------------------------------------------------
                 //--- Get ProjectDto Object from Panel Data (ProjectViewDataObj) ---
                 //------------------------------------------------------------------
-                ProjectDto ModProjectDtoObj = GetProjectDtoFromViewData(dlg.ProjectViewDataObj);
+                //ProjectDto ModProjectDtoObj = GetProjectDtoFromViewData(dlg.ProjectViewDataObj);
 
                 //-----------------------
                 //--- Update Database ---
                 //-----------------------
-                projectViewModelObj.UpdateProject(ModProjectDtoObj);
+                //projectViewModelObj.UpdateProject(ModProjectDtoObj);
 
                 //---------------------------------------------
                 //--- Rename the Selected Project Tree Node ---
                 //---------------------------------------------
-                strNewNodeName = ModProjectDtoObj.Name;
-                strNewDisplayName = string.Format("Project: {0}", ModProjectDtoObj.Name);
+                //strNewNodeName = ModProjectDtoObj.Name;
+                //strNewDisplayName = string.Format("Project: {0}", ModProjectDtoObj.Name);
 
                 node.Text = strNewDisplayName;
                 ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
@@ -1090,7 +1102,7 @@ namespace HenStudio
                 //----------------------------------------------------
                 //--- Populate Project Panel with New Project Data ---
                 //----------------------------------------------------
-                PopulateProjectPanel(dlg.ProjectViewDataObj);
+                //PopulateProjectPanel(dlg.ProjectViewDataObj);
 
                 ////------------------------------
                 ////--- Set Project Dirty Flag ---

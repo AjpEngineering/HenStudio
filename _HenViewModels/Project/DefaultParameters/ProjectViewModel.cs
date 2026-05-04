@@ -94,13 +94,7 @@ namespace HenViewModels
                     externalProject.Id = internalProject.Id;
                     externalProject.Name = internalProject.Name;
                     externalProject.Description = internalProject.Description;
-                    externalProject.DefaultHeatTransferCoefficient = ConvertToExternalU(internalProject.DefaultHeatTransferCoefficient);
-                    externalProject.DefaultCorrectionFactor = internalProject.DefaultCorrectionFactor;
                     externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
-                    externalProject.DefaultSystemUnits = internalProject.DefaultSystemUnits;
-                    externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
-                    externalProject.DefaultTemperatureUnits = internalProject.DefaultTemperatureUnits;
-                    externalProject.DefaultPressureUnits = internalProject.DefaultPressureUnits;
                     externalProject.CreationDate = internalProject.CreationDate;
                     externalProject.ModifiedDate = internalProject.ModifiedDate;
                     externalProjects.Add(externalProject);
@@ -122,7 +116,7 @@ namespace HenViewModels
         /// The project retrieved from the Database is in INTERNAL Units, 
         /// database access performed by the repository layer, 
         /// the fields of the project are converted to EXTERNAL Units, which are the units used in the user interface,
-        /// the resulting Project Dto is returned as a <see cref="ProjectDto"/> object.
+        /// the resulting Project Dto is returned as a <see cref="ProjectUnitsDto"/> object.
         /// </summary>
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="ProjectDto"/> representing the Project with the specified identifier. 
@@ -143,13 +137,7 @@ namespace HenViewModels
                 externalProject.Id = internalProject.Id;
                 externalProject.Name = internalProject.Name;
                 externalProject.Description = internalProject.Description;
-                externalProject.DefaultHeatTransferCoefficient = ConvertToExternalU(internalProject.DefaultHeatTransferCoefficient);
-                externalProject.DefaultCorrectionFactor = internalProject.DefaultCorrectionFactor;
                 externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
-                externalProject.DefaultSystemUnits = internalProject.DefaultSystemUnits;
-                externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
-                externalProject.DefaultTemperatureUnits = internalProject.DefaultTemperatureUnits;
-                externalProject.DefaultPressureUnits = internalProject.DefaultPressureUnits;
                 externalProject.CreationDate = internalProject.CreationDate;
                 externalProject.ModifiedDate = internalProject.ModifiedDate;
             }
@@ -196,13 +184,7 @@ namespace HenViewModels
                 externalProject.Id = internalProject.Id;
                 externalProject.Name = internalProject.Name;
                 externalProject.Description = internalProject.Description;
-                externalProject.DefaultHeatTransferCoefficient = ConvertToExternalU(internalProject.DefaultHeatTransferCoefficient);
-                externalProject.DefaultCorrectionFactor = internalProject.DefaultCorrectionFactor;
                 externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
-                externalProject.DefaultSystemUnits = internalProject.DefaultSystemUnits;
-                externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
-                externalProject.DefaultTemperatureUnits = internalProject.DefaultTemperatureUnits;
-                externalProject.DefaultPressureUnits = internalProject.DefaultPressureUnits;
                 externalProject.CreationDate = internalProject.CreationDate;
                 externalProject.ModifiedDate = internalProject.ModifiedDate;
                 return externalProject;
@@ -242,13 +224,7 @@ namespace HenViewModels
                 internalProjectDto.Id = externalProjectDto.Id;
                 internalProjectDto.Name = externalProjectDto.Name;
                 internalProjectDto.Description = externalProjectDto.Description;
-                internalProjectDto.DefaultHeatTransferCoefficient = ConvertFromExternalU(externalProjectDto.DefaultHeatTransferCoefficient);
-                internalProjectDto.DefaultCorrectionFactor = externalProjectDto.DefaultCorrectionFactor;
                 internalProjectDto.DefaultHenOptimizer = externalProjectDto.DefaultHenOptimizer;
-                internalProjectDto.DefaultSystemUnits = externalProjectDto.DefaultSystemUnits;
-                internalProjectDto.DefaultMagnitudeUnits = externalProjectDto.DefaultMagnitudeUnits;
-                internalProjectDto.DefaultTemperatureUnits = externalProjectDto.DefaultTemperatureUnits;
-                internalProjectDto.DefaultPressureUnits = externalProjectDto.DefaultPressureUnits;
                 internalProjectDto.CreationDate = externalProjectDto.CreationDate;
                 internalProjectDto.ModifiedDate = externalProjectDto.ModifiedDate;
                 //----------------------------------------------------------------------------
@@ -290,13 +266,7 @@ namespace HenViewModels
                 internalProjectDto.Id = externalProjectDto.Id;
                 internalProjectDto.Name = externalProjectDto.Name;
                 internalProjectDto.Description = externalProjectDto.Description;
-                internalProjectDto.DefaultHeatTransferCoefficient = ConvertFromExternalU(externalProjectDto.DefaultHeatTransferCoefficient);
-                internalProjectDto.DefaultCorrectionFactor = externalProjectDto.DefaultCorrectionFactor;
                 internalProjectDto.DefaultHenOptimizer = externalProjectDto.DefaultHenOptimizer;
-                internalProjectDto.DefaultSystemUnits = externalProjectDto.DefaultSystemUnits;
-                internalProjectDto.DefaultMagnitudeUnits = externalProjectDto.DefaultMagnitudeUnits;
-                internalProjectDto.DefaultTemperatureUnits = externalProjectDto.DefaultTemperatureUnits;
-                internalProjectDto.DefaultPressureUnits = externalProjectDto.DefaultPressureUnits;
                 internalProjectDto.CreationDate = externalProjectDto.CreationDate;
                 internalProjectDto.ModifiedDate = externalProjectDto.ModifiedDate;
                 //------------------------------------------------------------------------------

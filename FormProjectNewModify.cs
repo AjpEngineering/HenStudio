@@ -1205,18 +1205,22 @@ namespace HenStudio
                     //---------------------------------------------------------------------------------------------
                     //--- Check if Existing Project Data is Present for Project (Should Not Be for New Project) ---
                     //---------------------------------------------------------------------------------------------
-                    ProjectViewModel projectViewModelObj = new ProjectViewModel();
-                    ProjectDto projectDtoObj = projectViewModelObj.GetProjectByName(strProjectName);
-                    if(projectDtoObj != null)
-                    {
-                        HenLogger.WriteSeparatorLine('*');
-                        HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, String.Format("WARNING: Existing Project Data Found for Project Name: {0}", strProjectName));
-                        HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, "WARNING: This Should Not Occur for New Project Creation");
-                        HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, "WARNING: Check Logic for New vs Modify Project in FormProjectNewModify");
-                        HenLogger.WriteSeparatorLine('*');
+                    var projectViewModelObj = new ProjectViewModel();
+                    var projectUnitsViewModelObj = new ProjectUnitsViewModel();
+                    var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
 
-                        HenMsgDlg.DisplayErrorDlg(String.Format("ERROR: Existing Project Data Found for Project Name: {0}", strProjectName));
-                        
+
+                    //ProjectUnitsDto projectDtoObj = projectViewModelObj.GetProjectByName(strProjectName);
+                    //if(projectDtoObj != null)
+                    {
+                        //    HenLogger.WriteSeparatorLine('*');
+                        //    HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, String.Format("WARNING: Existing Project Data Found for Project Name: {0}", strProjectName));
+                        //    HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, "WARNING: This Should Not Occur for New Project Creation");
+                        //    HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, "WARNING: Check Logic for New vs Modify Project in FormProjectNewModify");
+                        //    HenLogger.WriteSeparatorLine('*');
+
+                        //    HenMsgDlg.DisplayErrorDlg(String.Format("ERROR: Existing Project Data Found for Project Name: {0}", strProjectName));
+
                         //-------------------------------------------------------------------------------------------
                         //--- Exit without Saving Data since Existing Project Data Found for New Project Creation ---
                         //-------------------------------------------------------------------------------------------
@@ -1227,8 +1231,8 @@ namespace HenStudio
                     //--------------------------------------
                     //--- NEW PROJECT: Set Creation Date ---
                     //--------------------------------------
-                    ProjectViewDataObj.ProjectCreationDate = DateTime.Now;
-                    ProjectViewDataObj.ProjectModificationDate = DateTime.Now;
+                    //ProjectViewDataObj.ProjectCreationDate = DateTime.Now;
+                    //ProjectViewDataObj.ProjectModificationDate = DateTime.Now;
                 }
                 else
                 {

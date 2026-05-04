@@ -128,7 +128,7 @@ namespace HenGlobal
         /// <summary>
         /// Parameterized Constructor
         /// </summary>
-        public DefaultProjectSettings(ProjectDto projectDtoObj)
+        public DefaultProjectSettings(ProjectDto projectDtoObj, ExchangerParamsDto exchangerParamsDtoObj)
         {
             string strMethod = "CTOR";
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating DefaultProjectSettings Object");
@@ -137,7 +137,7 @@ namespace HenGlobal
                 NewProjectGUID = projectDtoObj.Id;
                 NewProjectName = projectDtoObj.Name;
                 NewProjectDescription = projectDtoObj.Description;
-                ProjectExchangerU = projectDtoObj.DefaultHeatTransferCoefficient;
+                ProjectExchangerU = exchangerParamsDtoObj.DefaultHeatTransferCoefficient;
                 HenOptimizerEnum = GetHenOptimizerEnum(projectDtoObj.DefaultHenOptimizer);
                 
                 ExternalUnitsObj = new HenProjectUnits();

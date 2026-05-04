@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Project\DefaultParameters\ExchangerParams\ExchangerParamsViewModel.cs" />
+    <Compile Include="Project\DefaultParameters\ProjectUnits\ProjectUnitsViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="Project\DefaultParameters\ProjectViewModel.cs" />
     <Compile Include="Profile\ProfileViewModel.cs" />
@@ -75,7 +77,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Project\DefaultParameters\Optimizer\" />
+    <Folder Include="Project\DefaultParameters\OptimizerParams\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//############################################  P r o j e c t D t o . c s  ############################################
+//#######################################  I P r o j e c t U n i t s R e p o . c s  ###################################
 //#####################################################################################################################
-//  FILENAME:  ProjectDto.cs
-//  NAMESPACE: HenRepositories.Dto
-//  CLASS(S):  ProjectDto
+//  FILENAME:  IProjectUnitsRepo.cs
+//  NAMESPACE: HenRepositories.Interfaces
+//  INTERFACE: IProjectUnitsRepo
 //  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the Project top-level table.
+//    This file contains the repository interface for the Project Units table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,30 +33,32 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenRepositories.Dto;
+
 using System;
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenRepositories.Interfaces
+namespace HenRepositories.Interfaces
 {
-    #region public class ProjectDto
+    #region public interface IProjectUnitsRepo
     /// <summary>
-    /// Project DTO Class
+    /// Project Units Repo Interface
     /// </summary>
-    public class ProjectDto
+    public interface IProjectUnitsRepo
     {
-        #region PROPERTIES
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string DefaultHenOptimizer { get; set; }
-        public DateTime CreationDate { get; set; }
-        public DateTime ModifiedDate { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        ProjectUnitsDto GetProjectUnitsById(Guid projectUnitsId);
+        ProjectUnitsDto GetProjectUnitsByProjectId(Guid projectId);
+        Guid AddProjectUnits(ProjectUnitsDto projectUnitsDto);
+        void UpdateProjectUnits(ProjectUnitsDto projectUnitsDto);
+        void DeleteProjectUnits(Guid projectUnitsId);
+        #endregion      // METHODS
     }
-    #endregion      // public class ProjectDto
+    #endregion      // public interface IProjectUnitsRepo
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenRepositories.Interfaces
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

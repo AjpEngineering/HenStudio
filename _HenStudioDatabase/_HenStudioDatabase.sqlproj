@@ -68,8 +68,13 @@
     <Folder Include="Scripts\PostDeployment" />
     <Folder Include="Tables\Project\CostParameters" />
     <Folder Include="Tables\Project\DefaultParameters" />
-    <Folder Include="Tables\Project\DefaultParameters\Optimizer" />
+    <Folder Include="Tables\Project\DefaultParameters\OptimizerParams" />
     <Folder Include="Tables\Pinch\Plots" />
+    <Folder Include="Tables\Hen\Grid" />
+    <Folder Include="Tables\Hen\ExchangerProfile" />
+    <Folder Include="Tables\Profile\Streams" />
+    <Folder Include="Tables\Project\DefaultParameters\ProjectUnits" />
+    <Folder Include="Tables\Project\DefaultParameters\ExchangerParams" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -80,32 +85,34 @@
   <ItemGroup>
     <Build Include="Tables\System\GlobalSettings.sql" />
     <Build Include="Tables\Profile\Profile.sql" />
-    <Build Include="Tables\Profile\ProcessStream.sql" />
-    <Build Include="Tables\Profile\UtilityStream.sql" />
     <Build Include="Tables\Pinch\Pinch.sql" />
     <Build Include="Tables\Pinch\Targets.sql" />
     <Build Include="Tables\Hen\Hen.sql" />
-    <Build Include="Tables\Hen\GridDiagram.sql" />
-    <Build Include="Tables\Hen\GridDiagramPointID.sql" />
-    <Build Include="Tables\Hen\Exchanger.sql" />
-    <Build Include="Tables\Hen\HeatReleaseCurve.sql" />
-    <Build Include="Tables\Hen\HeatReleaseCurvePointID.sql" />
     <Build Include="Tables\Project\CostParameters\CostMetaData.sql" />
     <Build Include="Tables\Project\DefaultParameters\Project.sql" />
     <Build Include="Tables\Project\CostParameters\ShellAndTubeCapitalCost.sql" />
     <Build Include="Tables\Project\CostParameters\FiredHeaterCapitalCost.sql" />
     <Build Include="Tables\Project\CostParameters\UtilityCost.sql" />
     <Build Include="Tables\Project\CostParameters\TotalAnnualizedCost.sql" />
-    <Build Include="Tables\Project\DefaultParameters\Optimizer\HenOptimizer.sql" />
-    <Build Include="Tables\Project\DefaultParameters\Optimizer\HenOptimizerGenetic.sql" />
-    <Build Include="Tables\Project\DefaultParameters\Optimizer\HenOptimizerGreedy.sql" />
-    <Build Include="Tables\Project\DefaultParameters\Optimizer\HenOptimizerMILP.sql" />
+    <Build Include="Tables\Project\DefaultParameters\OptimizerParams\HenOptimizer.sql" />
+    <Build Include="Tables\Project\DefaultParameters\OptimizerParams\HenOptimizerGenetic.sql" />
+    <Build Include="Tables\Project\DefaultParameters\OptimizerParams\HenOptimizerGreedy.sql" />
+    <Build Include="Tables\Project\DefaultParameters\OptimizerParams\HenOptimizerMILP.sql" />
     <Build Include="Tables\Pinch\Plots\CompositeCurve.sql" />
     <Build Include="Tables\Pinch\Plots\CompositeCurvePointID.sql" />
     <Build Include="Tables\Pinch\Plots\GrandCompositeCurve.sql" />
     <Build Include="Tables\Pinch\Plots\GrandCompositeCurvePointID.sql" />
     <Build Include="Tables\Pinch\Plots\THDiagram.sql" />
     <Build Include="Tables\Pinch\Plots\THDiagramPoint.sql" />
+    <Build Include="Tables\Hen\Grid\GridDiagram.sql" />
+    <Build Include="Tables\Hen\Grid\GridDiagramPointID.sql" />
+    <Build Include="Tables\Hen\ExchangerProfile\Exchanger.sql" />
+    <Build Include="Tables\Hen\ExchangerProfile\HeatReleaseCurve.sql" />
+    <Build Include="Tables\Hen\ExchangerProfile\HeatReleaseCurvePointID.sql" />
+    <Build Include="Tables\Profile\Streams\ProcessStream.sql" />
+    <Build Include="Tables\Profile\Streams\UtilityStream.sql" />
+    <Build Include="Tables\Project\DefaultParameters\ProjectUnits\ProjectUnits.sql" />
+    <Build Include="Tables\Project\DefaultParameters\ExchangerParams\ExchangerParams.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql" />

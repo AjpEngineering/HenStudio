@@ -37,7 +37,7 @@
 -- ================================================================================
 CREATE TABLE [dbo].[HenOptimizer]
 (
-   [Id]                          UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+    [Id]                          UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
 	[ProjectId]                   UNIQUEIDENTIFIER NOT NULL,
 	[Name]                        NVARCHAR(256)    NOT NULL,
 	[Description]                 NVARCHAR(1024)   NULL,

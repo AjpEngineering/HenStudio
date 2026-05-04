@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//############################################  P r o j e c t D t o . c s  ############################################
+//#######################################  P r o j e c t U n i t s D t o . c s  #######################################
 //#####################################################################################################################
-//  FILENAME:  ProjectDto.cs
+//  FILENAME:  ProjectUnitsDto.cs
 //  NAMESPACE: HenRepositories.Dto
-//  CLASS(S):  ProjectDto
+//  CLASS(S):  ProjectUnitsDto
 //  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the Project top-level table.
+//    This file contains the DTO class for the Project Units top-level table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -39,22 +39,22 @@ using System;
 #region namespace HenRepositories.Dto
 namespace HenRepositories.Dto
 {
-    #region public class ProjectDto
+    #region public class ProjectUnitsDto
     /// <summary>
-    /// Project DTO Class
+    /// Project Units DTO Class
     /// </summary>
-    public class ProjectDto
+    public class ProjectUnitsDto
     {
         #region PROPERTIES
         public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string DefaultHenOptimizer { get; set; }
-        public DateTime CreationDate { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public Guid ProjectId { get; set; }
+        public string DefaultSystemUnits { get; set; }
+        public string DefaultMagnitudeUnits { get; set; }
+        public string DefaultTemperatureUnits { get; set; }
+        public string DefaultPressureUnits { get; set; }
         #endregion      // PROPERTIES
     }
-    #endregion      // public class ProjectDto
+    #endregion      // public class ProjectUnitsDto
 }
 #endregion      // namespace HenRepositories.Dto
 

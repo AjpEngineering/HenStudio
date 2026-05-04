@@ -83,27 +83,15 @@ namespace HenPersistence.Repos
         /// <param name="idOrdinal">The ordinal position of the <c>Id</c> column.</param>
         /// <param name="nameOrdinal">The ordinal position of the <c>Name</c> column.</param>
         /// <param name="descriptionOrdinal">The ordinal position of the <c>Description</c> column.</param>
-        /// <param name="defaultHeatTransferCoefficientOrdinal">The ordinal position of the <c>DefaultHeatTransferCoefficient</c> column.</param>
-        /// <param name="defaultCorrectionFactorOrdinal">The ordinal position of the <c>DefaultCorrectionFactor</c> column.</param>
         /// <param name="defaultHenOptimizerOrdinal">The ordinal position of the <c>DefaultHenOptimizer</c> column.</param>
-        /// <param name="defaultSystemUnitsOrdinal">The ordinal position of the <c>DefaultSystemUnits</c> column.</param>
-        /// <param name="defaultMagnitudeUnitsOrdinal">The ordinal position of the <c>DefaultMagnitudeUnits</c> column.</param>
-        /// <param name="defaultTemperatureUnitsOrdinal">The ordinal position of the <c>DefaultTemperatureUnits</c> column.</param>
-        /// <param name="defaultPressureUnitsOrdinal">The ordinal position of the <c>DefaultPressureUnits</c> column.</param>
         /// <param name="creationDateOrdinal">The ordinal position of the <c>CreationDate</c> column.</param>
         /// <param name="modifiedDateOrdinal">The ordinal position of the <c>ModifiedDate</c> column.</param>
-        /// <returns>A <see cref="ProjectDto"/> populated from the supplied data record.</returns>
+        /// <returns>A <see cref="ProjectUnitsDto"/> populated from the supplied data record.</returns>
         private static ProjectDto MapProject( IDataRecord record,
                                               int idOrdinal,
                                               int nameOrdinal,
                                               int descriptionOrdinal,
-                                              int defaultHeatTransferCoefficientOrdinal,
-                                              int defaultCorrectionFactorOrdinal,
                                               int defaultHenOptimizerOrdinal,
-                                              int defaultSystemUnitsOrdinal,
-                                              int defaultMagnitudeUnitsOrdinal,
-                                              int defaultTemperatureUnitsOrdinal,
-                                              int defaultPressureUnitsOrdinal,
                                               int creationDateOrdinal,
                                               int modifiedDateOrdinal)
         {
@@ -112,13 +100,7 @@ namespace HenPersistence.Repos
                 Id = record.GetGuid(idOrdinal),
                 Name = record.IsDBNull(nameOrdinal) ? null : record.GetString(nameOrdinal),
                 Description = record.IsDBNull(descriptionOrdinal) ? null : record.GetString(descriptionOrdinal),
-                DefaultHeatTransferCoefficient = record.GetDouble(defaultHeatTransferCoefficientOrdinal),
-                DefaultCorrectionFactor = record.GetDouble(defaultCorrectionFactorOrdinal),
                 DefaultHenOptimizer = record.IsDBNull(defaultHenOptimizerOrdinal) ? null : record.GetString(defaultHenOptimizerOrdinal),
-                DefaultSystemUnits = record.IsDBNull(defaultSystemUnitsOrdinal) ? null : record.GetString(defaultSystemUnitsOrdinal),
-                DefaultMagnitudeUnits = record.IsDBNull(defaultMagnitudeUnitsOrdinal) ? null : record.GetString(defaultMagnitudeUnitsOrdinal),
-                DefaultTemperatureUnits = record.IsDBNull(defaultTemperatureUnitsOrdinal) ? null : record.GetString(defaultTemperatureUnitsOrdinal),
-                DefaultPressureUnits = record.IsDBNull(defaultPressureUnitsOrdinal) ? null : record.GetString(defaultPressureUnitsOrdinal),
                 CreationDate = record.GetDateTime(creationDateOrdinal),
                 ModifiedDate = record.GetDateTime(modifiedDateOrdinal),
             };
@@ -155,13 +137,7 @@ namespace HenPersistence.Repos
             const string sql = @"SELECT Id,
                                         Name,
                                         Description,
-                                        DefaultHeatTransferCoefficient,
-                                        DefaultCorrectionFactor,
                                         DefaultHenOptimizer,
-                                        DefaultSystemUnits,
-                                        DefaultMagnitudeUnits,
-                                        DefaultTemperatureUnits,
-                                        DefaultPressureUnits,
                                         CreationDate,
                                         ModifiedDate
                                  FROM dbo.Project
@@ -183,13 +159,7 @@ namespace HenPersistence.Repos
                         int idOrdinal = reader.GetOrdinal("Id");
                         int nameOrdinal = reader.GetOrdinal("Name");
                         int descriptionOrdinal = reader.GetOrdinal("Description");
-                        int defaultHeatTransferCoefficientOrdinal = reader.GetOrdinal("DefaultHeatTransferCoefficient");
-                        int defaultCorrectionFactorOrdinal = reader.GetOrdinal("DefaultCorrectionFactor");
                         int defaultHenOptimizerOrdinal = reader.GetOrdinal("DefaultHenOptimizer");
-                        int defaultSystemUnitsOrdinal = reader.GetOrdinal("DefaultSystemUnits");
-                        int defaultMagnitudeUnitsOrdinal = reader.GetOrdinal("DefaultMagnitudeUnits");
-                        int defaultTemperatureUnitsOrdinal = reader.GetOrdinal("DefaultTemperatureUnits");
-                        int defaultPressureUnitsOrdinal = reader.GetOrdinal("DefaultPressureUnits");
 
                         int creationDateOrdinal = reader.GetOrdinal("CreationDate");
                         int modifiedDateOrdinal = reader.GetOrdinal("ModifiedDate");
@@ -199,13 +169,7 @@ namespace HenPersistence.Repos
                                 idOrdinal,
                                 nameOrdinal,
                                 descriptionOrdinal,
-                                defaultHeatTransferCoefficientOrdinal,
-                                defaultCorrectionFactorOrdinal,
                                 defaultHenOptimizerOrdinal,
-                                defaultSystemUnitsOrdinal,
-                                defaultMagnitudeUnitsOrdinal,
-                                defaultTemperatureUnitsOrdinal,
-                                defaultPressureUnitsOrdinal,
                                 creationDateOrdinal,
                                 modifiedDateOrdinal));
                         }
@@ -228,13 +192,7 @@ namespace HenPersistence.Repos
             const string sql = @"SELECT Id,
                                         Name,
                                         Description,
-                                        DefaultHeatTransferCoefficient,
-                                        DefaultCorrectionFactor,
                                         DefaultHenOptimizer,
-                                        DefaultSystemUnits,
-                                        DefaultMagnitudeUnits,
-                                        DefaultTemperatureUnits,
-                                        DefaultPressureUnits,
                                         CreationDate,
                                         ModifiedDate
                                  FROM dbo.Project
@@ -262,13 +220,7 @@ namespace HenPersistence.Repos
                             reader.GetOrdinal("Id"),
                             reader.GetOrdinal("Name"),
                             reader.GetOrdinal("Description"),
-                            reader.GetOrdinal("DefaultHeatTransferCoefficient"),
-                            reader.GetOrdinal("DefaultCorrectionFactor"),
                             reader.GetOrdinal("DefaultHenOptimizer"),
-                            reader.GetOrdinal("DefaultSystemUnits"),
-                            reader.GetOrdinal("DefaultMagnitudeUnits"),
-                            reader.GetOrdinal("DefaultTemperatureUnits"),
-                            reader.GetOrdinal("DefaultPressureUnits"),
                             reader.GetOrdinal("CreationDate"),
                             reader.GetOrdinal("ModifiedDate"));
                     }
@@ -293,13 +245,7 @@ namespace HenPersistence.Repos
             const string sql = @"SELECT Id,
                                         Name,
                                         Description,
-                                        DefaultHeatTransferCoefficient,
-                                        DefaultCorrectionFactor,
                                         DefaultHenOptimizer,
-                                        DefaultSystemUnits,
-                                        DefaultMagnitudeUnits,
-                                        DefaultTemperatureUnits,
-                                        DefaultPressureUnits,
                                         CreationDate,
                                         ModifiedDate
                                  FROM dbo.Project
@@ -327,13 +273,7 @@ namespace HenPersistence.Repos
                             reader.GetOrdinal("Id"),
                             reader.GetOrdinal("Name"),
                             reader.GetOrdinal("Description"),
-                            reader.GetOrdinal("DefaultHeatTransferCoefficient"),
-                            reader.GetOrdinal("DefaultCorrectionFactor"),
                             reader.GetOrdinal("DefaultHenOptimizer"),
-                            reader.GetOrdinal("DefaultSystemUnits"),
-                            reader.GetOrdinal("DefaultMagnitudeUnits"),
-                            reader.GetOrdinal("DefaultTemperatureUnits"),
-                            reader.GetOrdinal("DefaultPressureUnits"),
                             reader.GetOrdinal("CreationDate"),
                             reader.GetOrdinal("ModifiedDate"));
                     }
@@ -358,26 +298,14 @@ namespace HenPersistence.Repos
             const string sql = @"INSERT INTO dbo.Project
                                     (Name,
                                      Description,
-                                     DefaultHeatTransferCoefficient,
-                                     DefaultCorrectionFactor,
                                      DefaultHenOptimizer,
-                                     DefaultSystemUnits,
-                                     DefaultMagnitudeUnits,
-                                     DefaultTemperatureUnits,
-                                     DefaultPressureUnits,
                                      CreationDate,
                                      ModifiedDate)
                                  OUTPUT INSERTED.Id
                                  VALUES
                                     (@Name,
                                      @Description,
-                                     @DefaultHeatTransferCoefficient,
-                                     @DefaultCorrectionFactor,
                                      @DefaultHenOptimizer,
-                                     @DefaultSystemUnits,
-                                     @DefaultMagnitudeUnits,
-                                     @DefaultTemperatureUnits,
-                                     @DefaultPressureUnits,
                                      @CreationDate,
                                      @ModifiedDate);";
 
@@ -389,13 +317,7 @@ namespace HenPersistence.Repos
                     command.CommandType = CommandType.Text;
                     AddParameter(command, "@Name", DbType.String, projectDto.Name);
                     AddParameter(command, "@Description", DbType.String, projectDto.Description);
-                    AddParameter(command, "@DefaultHeatTransferCoefficient", DbType.Double, projectDto.DefaultHeatTransferCoefficient);
-                    AddParameter(command, "@DefaultCorrectionFactor", DbType.Double, projectDto.DefaultCorrectionFactor);
                     AddParameter(command, "@DefaultHenOptimizer", DbType.String, projectDto.DefaultHenOptimizer);
-                    AddParameter(command, "@DefaultSystemUnits", DbType.String, projectDto.DefaultSystemUnits);
-                    AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectDto.DefaultMagnitudeUnits);
-                    AddParameter(command, "@DefaultTemperatureUnits", DbType.String, projectDto.DefaultTemperatureUnits);
-                    AddParameter(command, "@DefaultPressureUnits", DbType.String, projectDto.DefaultPressureUnits);
                     AddParameter(command, "@CreationDate", DbType.DateTime, DateTime.Now);
                     AddParameter(command, "@ModifiedDate", DbType.DateTime, DateTime.Now);
 
@@ -422,13 +344,7 @@ namespace HenPersistence.Repos
             const string sql = @"UPDATE dbo.Project
                                  SET Name = @Name,
                                      Description = @Description,
-                                     DefaultHeatTransferCoefficient = @DefaultHeatTransferCoefficient,
-                                     DefaultCorrectionFactor = @DefaultCorrectionFactor,
                                      DefaultHenOptimizer = @DefaultHenOptimizer,
-                                     DefaultSystemUnits = @DefaultSystemUnits,
-                                     DefaultMagnitudeUnits = @DefaultMagnitudeUnits,
-                                     DefaultTemperatureUnits = @DefaultTemperatureUnits,
-                                     DefaultPressureUnits = @DefaultPressureUnits,
                                      ModifiedDate = @ModifiedDate
                                  WHERE Id = @Id;";
 
@@ -441,13 +357,7 @@ namespace HenPersistence.Repos
                     AddParameter(command, "@Id", DbType.Guid, projectDto.Id);
                     AddParameter(command, "@Name", DbType.String, projectDto.Name);
                     AddParameter(command, "@Description", DbType.String, projectDto.Description);
-                    AddParameter(command, "@DefaultHeatTransferCoefficient", DbType.Double, projectDto.DefaultHeatTransferCoefficient);
-                    AddParameter(command, "@DefaultCorrectionFactor", DbType.Double, projectDto.DefaultCorrectionFactor);
                     AddParameter(command, "@DefaultHenOptimizer", DbType.String, projectDto.DefaultHenOptimizer);
-                    AddParameter(command, "@DefaultSystemUnits", DbType.String, projectDto.DefaultSystemUnits);
-                    AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectDto.DefaultMagnitudeUnits);
-                    AddParameter(command, "@DefaultTemperatureUnits", DbType.String, projectDto.DefaultTemperatureUnits);
-                    AddParameter(command, "@DefaultPressureUnits", DbType.String, projectDto.DefaultPressureUnits);
                     AddParameter(command, "@ModifiedDate", DbType.DateTime, DateTime.Now);
 
                     connection.Open();

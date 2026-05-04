@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//############################################  P r o j e c t D t o . c s  ############################################
+//######################################  E x c h a n g e r P a r a m s D t o.c s  ####################################
 //#####################################################################################################################
-//  FILENAME:  ProjectDto.cs
+//  FILENAME:  ExchangerParamsDto.cs
 //  NAMESPACE: HenRepositories.Dto
-//  CLASS(S):  ProjectDto
+//  CLASS(S):  ExchangerParamsDto
 //  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the Project top-level table.
+//    This file contains the DTO class for the Exchanger Params top-level table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -39,22 +39,20 @@ using System;
 #region namespace HenRepositories.Dto
 namespace HenRepositories.Dto
 {
-    #region public class ProjectDto
+    #region public class ExchangerParamsDto
     /// <summary>
-    /// Project DTO Class
+    /// Exchanger Params DTO Class
     /// </summary>
-    public class ProjectDto
+    public class ExchangerParamsDto
     {
         #region PROPERTIES
         public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string DefaultHenOptimizer { get; set; }
-        public DateTime CreationDate { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public Guid ProjectId { get; set; }
+        public double DefaultHeatTransferCoefficient { get; set; }
+        public double DefaultCorrectionFactor { get; set; }
         #endregion      // PROPERTIES
     }
-    #endregion      // public class ProjectDto
+    #endregion      // public class ExchangerParamsDto
 }
 #endregion      // namespace HenRepositories.Dto
 
