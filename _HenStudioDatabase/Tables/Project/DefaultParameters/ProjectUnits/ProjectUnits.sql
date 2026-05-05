@@ -5,6 +5,9 @@
 --
 --  Description:
 --    Contains zero or more Project Units parameters.
+--    Parent entity is Project. Leaf entity.
+--    ProjectUnits contains default units for the project used by Pinch & Hen engines.
+--    
 --    ProjectUnits includes fields for ...
 --      + PK (GUID)
 --      + Project ID (FK) GUID
@@ -22,12 +25,12 @@
 -- ============================================================================
 CREATE TABLE [dbo].[ProjectUnits]
 (
-    [Id] UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
-    [ProjectId] UNIQUEIDENTIFIER NOT NULL,
-    [DefaultSystemUnits] NVARCHAR(24) NOT NULL DEFAULT N'Metric - SI',
-    [DefaultMagnitudeUnits] NVARCHAR(16) NOT NULL DEFAULT N'Base',
-    [DefaultTemperatureUnits] NVARCHAR(8) NOT NULL DEFAULT N'K',
-    [DefaultPressureUnits] NVARCHAR(16) NOT NULL DEFAULT N'Pa',
+    [Id]                      UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+    [ProjectId]               UNIQUEIDENTIFIER NOT NULL,
+    [DefaultSystemUnits]      NVARCHAR(24) NOT NULL DEFAULT N'Metric - SI',
+    [DefaultMagnitudeUnits]   NVARCHAR(16) NOT NULL DEFAULT N'Base',
+    [DefaultTemperatureUnits] NVARCHAR(8)  NOT NULL DEFAULT N'K',
+    [DefaultPressureUnits]    NVARCHAR(16) NOT NULL DEFAULT N'Pa',
 
     CONSTRAINT [PK_ProjectUnits] PRIMARY KEY CLUSTERED ([Id]),
 	CONSTRAINT [FK_ProjectUnits_Project] FOREIGN KEY ([ProjectId]) REFERENCES [dbo].[Project]([Id]),

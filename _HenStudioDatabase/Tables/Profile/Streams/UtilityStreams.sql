@@ -1,12 +1,13 @@
 ﻿-- --------------------------------------------------------------------------------
---  Table: UtilityStream
---  File : UtilityStream.sql
+--  Table: UtilityStreams
+--  File : UtilityStreams.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
---    Utility Stream entity for HEN Studio. 
+--    Utility Streams entity for HEN Studio. 
 --    Parent entity is Profile. Leaf entity.
---    UtilityStream contains utility stream data used for Pinch & Hen engines.
---    UtilityStream includes fields for ...
+--    UtilityStreams contains utility stream data used for Pinch & Hen engines.
+--    
+--    UtilityStreams includes fields for ...
 --      + PK (GUID)
 --      + FK to Profile (GUID)
 --      + Stream Category [Process|Utility]
@@ -38,7 +39,7 @@
 --    01/01/26 .. AJP Engineering .. Version 1.0
 -- ================================================================================
 
-CREATE TABLE [dbo].[UtilityStream]
+CREATE TABLE [dbo].[UtilityStreams]
 (
     [Id]                    UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
 	[ProfileId]             UNIQUEIDENTIFIER NOT NULL,
@@ -52,9 +53,9 @@ CREATE TABLE [dbo].[UtilityStream]
 	[TargetPressure]        FLOAT            NOT NULL DEFAULT 0.0,
 	[EnthalpyFlowRate]      FLOAT            NOT NULL DEFAULT 0.0,
 
-	CONSTRAINT [PK_UtilityStream] PRIMARY KEY CLUSTERED ([Id]),
-	CONSTRAINT [FK_UtilityStream_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id]),
-	CONSTRAINT [CK_UtilityStream_StreamCategory] CHECK ([StreamCategory] IN (N'Process', N'Utility')),
-	CONSTRAINT [CK_UtilityStream_StreamHeat] CHECK ([StreamHeat] IN (N'Sensible', N'Latent')),
-	CONSTRAINT [CK_UtilityStream_StreamType] CHECK ([StreamType] IN (N'Refrig', N'Cold Water', N'LP Steam', N'MP Steam', N'HP Steam'))
+	CONSTRAINT [PK_UtilityStreams] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_UtilityStreams_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id]),
+	CONSTRAINT [CK_UtilityStreams_StreamCategory] CHECK ([StreamCategory] IN (N'Process', N'Utility')),
+	CONSTRAINT [CK_UtilityStreams_StreamHeat] CHECK ([StreamHeat] IN (N'Sensible', N'Latent')),
+	CONSTRAINT [CK_UtilityStreams_StreamType] CHECK ([StreamType] IN (N'Refrig', N'Cold Water', N'LP Steam', N'MP Steam', N'HP Steam'))
 )

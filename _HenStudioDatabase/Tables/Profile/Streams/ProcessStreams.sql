@@ -1,12 +1,13 @@
 ﻿-- --------------------------------------------------------------------------------
---  Table: ProcessStream
---  File : ProcessStream.sql
+--  Table: ProcessStreams
+--  File : ProcessStreams.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
---    Process Stream entity for HEN Studio. 
+--    Process Streams entity for HEN Studio. 
 --    Parent entity is Profile. Leaf entity.
---    Process Stream contains process stream data used for Pinch & Hen engines.
---    ProcessStream includes fields for ...
+--    Process Streams contains process stream data used for Pinch & Hen engines.
+--    
+--    ProcessStreams includes fields for ...
 --      + PK (GUID)
 --      + FK to Profile (GUID)
 --      + Stream Category [Process|Utility]
@@ -40,7 +41,7 @@
 --    01/01/26 .. AJP Engineering .. Version 1.0
 -- ================================================================================
 
-CREATE TABLE [dbo].[ProcessStream]
+CREATE TABLE [dbo].[ProcessStreams]
 (
     [Id]                               UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
 	[ProfileId]                        UNIQUEIDENTIFIER NOT NULL,
@@ -56,10 +57,10 @@ CREATE TABLE [dbo].[ProcessStream]
 	[TargetPressure]                   FLOAT            NOT NULL DEFAULT 0.0,
 	[HeatCapacityFlowRate]             FLOAT            NOT NULL DEFAULT 0.0,
 
-	CONSTRAINT [PK_ProcessStream] PRIMARY KEY CLUSTERED ([Id]),
-	CONSTRAINT [FK_ProcessStream_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id]),
-	CONSTRAINT [CK_ProcessStream_StreamCategory] CHECK ([StreamCategory] IN (N'Process', N'Utility')),
-	CONSTRAINT [CK_ProcessStream_StreamHeat] CHECK ([StreamHeat] IN (N'Sensible', N'Latent')),
-	CONSTRAINT [CK_ProcessStream_StreamType] CHECK ([StreamType] IN (N'Hot', N'Cold')),
-	CONSTRAINT [CK_ProcessStream_StreamSubtype] CHECK ([StreamSubtype] IN (N'Liquid', N'Vapor', N'Mixed'))
+	CONSTRAINT [PK_ProcessStreams] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_ProcessStreams_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id]),
+	CONSTRAINT [CK_ProcessStreams_StreamCategory] CHECK ([StreamCategory] IN (N'Process', N'Utility')),
+	CONSTRAINT [CK_ProcessStreams_StreamHeat] CHECK ([StreamHeat] IN (N'Sensible', N'Latent')),
+	CONSTRAINT [CK_ProcessStreams_StreamType] CHECK ([StreamType] IN (N'Hot', N'Cold')),
+	CONSTRAINT [CK_ProcessStreams_StreamSubtype] CHECK ([StreamSubtype] IN (N'Liquid', N'Vapor', N'Mixed'))
 )

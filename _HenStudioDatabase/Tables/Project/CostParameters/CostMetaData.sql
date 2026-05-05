@@ -6,6 +6,7 @@
 --    Cost Metadata entity for HEN Studio. 
 --    Parent entity is Project. Leaf entity.
 --    CostMetaData contains Cost Metadata data used by Pinch & Hen engines.
+--    
 --    Conceptual Cost Configuration Metadata includes ...
 --      Cost Index Base Year (i.e., year of capital cost index) ... [2026]
 --      Cost Index Name (e.g., CEPCI, ICIS, etc.) ................ [CEPCI]
@@ -16,11 +17,11 @@
 --    CostMetaData includes fields for ...
 --      + Id [PK] (GUID)
 --      + Project Id [FK] to Project (GUID)
---      + Cost Index Base Year (Year)
---      + Cost Index Name (e.g., CEPCI, ICIS, etc.)
---  	+ Cost Index Value (e.g., for CEPCI = 750)
---      + Cost Currency (e.g., USD, EUR, etc.)
---	    + Cost Index Installed Cost Factor (e.g., 3.0)
+--      + Cost Index Base Year              (2026)
+--      + Cost Index Name                   (e.g., CEPCI)
+--  	+ Cost Index Value                  (e.g.,   820)
+--      + Cost Currency                     (e.g.,   USD)
+--	    + Cost Index Installed Cost Factor  (e.g.,   3.0)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -47,7 +48,7 @@ CREATE TABLE [dbo].[CostMetadata]
 	[ProjectId]                 UNIQUEIDENTIFIER NOT NULL,
 	[CostIndexBaseYear]         NVARCHAR(4)      NOT NULL DEFAULT N'2026',
 	[CostIndexName]				NVARCHAR(8)      NOT NULL DEFAULT N'CEPCI',
-	[CostIndexValue]			FLOAT            NOT NULL DEFAULT 750.0,
+	[CostIndexValue]			FLOAT            NOT NULL DEFAULT 820.0,
 	[CostIndexCurrency]		    NVARCHAR(4)      NOT NULL DEFAULT N'USD',
     [CostIndexInstalledCost]	FLOAT            NOT NULL DEFAULT 3.0,
 

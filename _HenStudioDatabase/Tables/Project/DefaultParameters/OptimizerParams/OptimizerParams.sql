@@ -1,21 +1,21 @@
 ﻿-- --------------------------------------------------------------------------------
---  Table: HenOptimizer
---  File : HenOptimizer.sql
+--  Table: OptimizerParams
+--  File : OptimizerParams.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
---    Hen Optimizer entity for HEN Studio. Parent table.
---    HenOptimizer includes fields for ...
+--    Optimizer parameters for HEN Studio. Parent table.
+--    OptimizerParams includes fields for ...
 --      + PK (GUID)
 --      + FK to Project (GUID)
 --      + Optimizer Name
 --      + Optimizer Description
 --      + Optimizer Type [Genetic|Greedy|MILP]
---      + Default HEN Optimizer Objective [Total Annual Cost|Total Energy Consumption]
---      + Default Max Number of HEN Optimizer Iterations
---      + Default HEN Optimizer Convergence Tolerance
---      + Genetic specific fields in HenOptimizerGenetic
---      + Greedy specific fields in HenOptimizerGreedy
---      + MILP specific fields in HenOptimizerMILP
+--      + Default Optimizer Objective [Total Annual Cost|Total Energy Consumption]
+--      + Default Max Number of Optimizer Iterations
+--      + Default Optimizer Convergence Tolerance
+--      + Genetic specific fields in OptimizerGeneticParams
+--      + Greedy specific fields in OptimizerGreedyParams
+--      + MILP specific fields in OptimizerMILP_Params
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -35,7 +35,7 @@
 --  HISTORY:
 --    01/01/26 .. AJP Engineering .. Version 1.0
 -- ================================================================================
-CREATE TABLE [dbo].[HenOptimizer]
+CREATE TABLE [dbo].[OptimizerParams]
 (
     [Id]                          UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
 	[ProjectId]                   UNIQUEIDENTIFIER NOT NULL,
@@ -46,8 +46,8 @@ CREATE TABLE [dbo].[HenOptimizer]
 	[DefaultMaxIterations]        INT              NOT NULL DEFAULT 1000,
 	[DefaultConvergenceTolerance] FLOAT            NOT NULL DEFAULT 0.001,
 
-	CONSTRAINT [PK_HenOptimizer] PRIMARY KEY CLUSTERED ([Id]),
-	CONSTRAINT [FK_HenOptimizer_Project] FOREIGN KEY ([ProjectId]) REFERENCES [dbo].[Project]([Id]),
-	CONSTRAINT [CK_HenOptimizer_OptimizerType] CHECK ([OptimizerType] IN (N'Genetic', N'Greedy', N'MILP')),
-	CONSTRAINT [CK_HenOptimizer_DefaultObjective] CHECK ([DefaultObjective] IN (N'Total Annual Cost', N'Total Energy Consumption'))
+	CONSTRAINT [PK_OptimizerParams] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_OptimizerParams_Project] FOREIGN KEY ([ProjectId]) REFERENCES [dbo].[Project]([Id]),
+	CONSTRAINT [CK_OptimizerParams_OptimizerType] CHECK ([OptimizerType] IN (N'Genetic', N'Greedy', N'MILP')),
+	CONSTRAINT [CK_OptimizerParams_DefaultObjective] CHECK ([DefaultObjective] IN (N'Total Annual Cost', N'Total Energy Consumption'))
 )

@@ -7,6 +7,7 @@
 --    Parent entity is Project. Leaf entity.
 --    ShellAndTubeCapitalCost contains Shell & Tube Exchanger capital cost parameter
 --    data used by Pinch & Hen engines.
+--    
 --    Conceptual Cost Configuration Shell & Tube Exchanger capital cost includes ...
 --      Shell & Tube Capital Cost a Parameter ... [10000.00]
 --      Shell & Tube Capital Cost b Parameter ..... [800.00 | 170.73]

@@ -1,12 +1,12 @@
 -- --------------------------------------------------------------------------------
---  Table: HenOptimizerGenetic
---  File : HenOptimizerGenetic.sql
+--  Table: OptimizerGeneticParams
+--  File : OptimizerGeneticParams.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Genetic Optimizer subtype entity for HEN Studio.
---    Parent entity is HenOptimizer. Leaf table.
---    HenOptimizerGenetic includes fields for ...
---      + PK/FK to HenOptimizer (GUID)
+--    Parent entity is OptimizerParams. Leaf table.
+--    OptimizerGeneticParams includes fields for ...
+--      + PK/FK to OptimizerParams (GUID)
 --      + Genetic specific optimizer fields (TBD)
 -- ================================================================================
 -- 
@@ -28,10 +28,10 @@
 --    01/01/26 .. AJP Engineering .. Version 1.0
 -- ================================================================================
 
-CREATE TABLE [dbo].[HenOptimizerGenetic]
+CREATE TABLE [dbo].[OptimizerGeneticParams]
 (
-	[HenOptimizerId] UNIQUEIDENTIFIER NOT NULL,
+	[OptimizerParamsId] UNIQUEIDENTIFIER NOT NULL,
 
-	CONSTRAINT [PK_HenOptimizerGenetic] PRIMARY KEY CLUSTERED ([HenOptimizerId]),
-	CONSTRAINT [FK_HenOptimizerGenetic_HenOptimizer] FOREIGN KEY ([HenOptimizerId]) REFERENCES [dbo].[HenOptimizer]([Id])
+	CONSTRAINT [PK_OptimizerGeneticParams] PRIMARY KEY CLUSTERED ([OptimizerParamsId]),
+	CONSTRAINT [FK_OptimizerGeneticParams_OptimizerParams] FOREIGN KEY ([OptimizerParamsId]) REFERENCES [dbo].[OptimizerParams]([Id])
 )

@@ -9,8 +9,6 @@
 --      + PK (GUID)
 --      + Project Name
 --      + Project Description
---      + Default Exchanger Heat Transfer Coefficient (U)
---      + Default Exchanger Correction Factor (F)
 --      + Default HEN Optimizer (Genetic|Greedy|MILP)
 --      + Creation Date 
 --      + Last Modifed Date

@@ -7,6 +7,7 @@
 --    Parent entity is Project. Leaf entity.
 --    UtilityCost contains utility cost values
 --    data used by Pinch & Hen engines.
+--    
 --    Conceptual Cost Configuration Utility Cost includes ...
 --      Utility HP Steam Cost ........ [40.94 | 12.00]
 --      Utility MP Steam Cost ........ [34.12 | 10.00]

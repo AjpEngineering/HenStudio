@@ -5,6 +5,10 @@
 --
 --  Description:
 --    Root entity for HEN Studio.
+--	  ExchangerParams includes default parameters for heat exchanger 
+--    design calculations.
+--	  Parent entity is Project. Leaf entity.
+--   
 --    ExchangerParams includes fields for ...
 --      + PK (GUID)
 --      + Project ID (FK) GUID

@@ -1,13 +1,13 @@
 -- --------------------------------------------------------------------------------
---  Table: HenOptimizerGreedy
---  File : HenOptimizerGreedy.sql
+--  Table: OptimizerMILP_Params
+--  File : OptimizerMILP_Params.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
---    Greedy Optimizer subtype entity for HEN Studio.
---    Parent entity is HenOptimizer. Leaf table.
---    HenOptimizerGreedy includes fields for ...
---      + PK/FK to HenOptimizer (GUID)
---      + Greedy specific optimizer fields (TBD)
+--    MILP Optimizer subtype entity for HEN Studio.
+--    Parent entity is OptimizerParams. Leaf table.
+--    OptimizerMILP_Params includes fields for ...
+--      + PK/FK to OptimizerParams (GUID)
+--      + MILP specific optimizer fields (TBD)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -28,10 +28,10 @@
 --    01/01/26 .. AJP Engineering .. Version 1.0
 -- ================================================================================
 
-CREATE TABLE [dbo].[HenOptimizerGreedy]
+CREATE TABLE [dbo].[OptimizerMILP_Params]
 (
-	[HenOptimizerId] UNIQUEIDENTIFIER NOT NULL,
+	[OptimizerParamsId] UNIQUEIDENTIFIER NOT NULL,
 
-	CONSTRAINT [PK_HenOptimizerGreedy] PRIMARY KEY CLUSTERED ([HenOptimizerId]),
-	CONSTRAINT [FK_HenOptimizerGreedy_HenOptimizer] FOREIGN KEY ([HenOptimizerId]) REFERENCES [dbo].[HenOptimizer]([Id])
+	CONSTRAINT [PK_OptimizerMILP_Params] PRIMARY KEY CLUSTERED ([OptimizerParamsId]),
+	CONSTRAINT [FK_OptimizerMILP_Params_OptimizerParams] FOREIGN KEY ([OptimizerParamsId]) REFERENCES [dbo].[OptimizerParams]([Id])
 )

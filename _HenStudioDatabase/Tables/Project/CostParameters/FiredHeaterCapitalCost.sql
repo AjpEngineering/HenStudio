@@ -7,6 +7,7 @@
 --    Parent entity is Project. Leaf entity.
 --    FiredHeaterCapitalCost contains Fired Heater capital cost parameter
 --    data used by Pinch & Hen engines.
+--    
 --    Conceptual Cost Configuration Fired Heater capital cost includes ...
 --      Fired Heater Capital Cost alpha Parameter ... [200000.00 | 74924.31]
 --      Fired Heater Capital Cost beta Parameter .................... [0.80]
@@ -16,10 +17,10 @@
 --    FiredHeaterCapitalCost includes fields for ...
 --      + Id         [PK] (GUID)
 --      + Project Id [FK] to Project (GUID)
---      + Parameter alpha Metric   (e.g., 200000.00)
---      + Parameter alpha English  (e.g.,  74924.31)
---      + Parameter beta		   (e.g.,      0.80)
---      + Parameter Efficiency     (e.g.,      0.85)
+--      + Parameter  alpha Metric  (e.g., 200000.00)
+--      + Parameter  alpha English (e.g.,  74924.31)
+--      + Parameter  beta		   (e.g.,      0.80)
+--      + Parameter  Efficiency    (e.g.,      0.85)
 --      + Duty Units Metric        (e.g.,       MWh)
 --      + Duty Units English       (e.g.,     MMBtu)
 -- ================================================================================

@@ -7,6 +7,7 @@
 --    Parent entity is Project. Leaf entity.
 --    TotalAnnualizedCost contains total annualized cost parameters including
 --    Capital Recover Factor (CRF) parameters used by Pinch & Hen engines.
+--    
 --    Conceptual Cost Configuration Total Annualized Cost includes ...
 --      TAC CRF Interest Rate ......... [ 0.10]
 --      TAC CRF Life Years ............ [10.00]
