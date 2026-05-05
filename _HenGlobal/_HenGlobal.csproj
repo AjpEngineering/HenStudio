@@ -60,9 +60,9 @@
     <Content Include="AJP Pinch.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\_HenRepositories\_HenRepositories.csproj">
+    <ProjectReference Include="..\_HenRepositories\_HenModel.csproj">
       <Project>{42a404ca-256f-47c8-82fd-319c99292c74}</Project>
-      <Name>_HenRepositories</Name>
+      <Name>_HenModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

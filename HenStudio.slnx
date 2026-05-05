@@ -4,8 +4,7 @@
   <Project Path="_AJP License File/_AJP License File.csproj" Id="146de66e-f297-4664-8f5f-6edcbdfacbed" />
   <Project Path="_HenDomainModel/_HenDomainModel.csproj" Id="50b16387-1a20-4e86-8296-ae58eef37f16" />
   <Project Path="_HenGlobal/_HenGlobal.csproj" Id="c73899c1-09e9-4981-a906-f33c3ae4078a" />
-  <Project Path="_HenPersistence/_HenPersistence.csproj" Id="eb33e6f8-aa86-4be8-8d1c-b1b9b92435ad" />
-  <Project Path="_HenRepositories/_HenRepositories.csproj" Id="42a404ca-256f-47c8-82fd-319c99292c74" />
+  <Project Path="_HenRepositories/_HenModel.csproj" Id="42a404ca-256f-47c8-82fd-319c99292c74" />
   <Project Path="_HenStudioDatabase/_HenStudioDatabase.sqlproj" Id="6d436111-d440-474c-ae5e-84cc10d29e47">
     <Build />
     <Deploy />

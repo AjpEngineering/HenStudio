@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42A404CA-256F-47C8-82FD-319C99292C74}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HenModel</RootNamespace>
+    <AssemblyName>_HenModel</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\AJP HEN Studio\_REVISION 1.0\DEPLOY\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\AJP HEN Studio\_REVISION 1.0\DEPLOY\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AJP Pinch.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connection\ConnectionString.cs" />
+    <Compile Include="Connection\Interface\IDbConnectionFactory.cs" />
+    <Compile Include="Connection\SqlConnectionFactory.cs" />
+    <Compile Include="Dto\Project\CostParameters\TotalAnnualizedCostDto.cs" />
+    <Compile Include="Dto\Project\CostParameters\UtilityCostDto.cs" />
+    <Compile Include="Dto\Project\CostParameters\FiredHeatedCapitalCostDto.cs" />
+    <Compile Include="Dto\Project\CostParameters\ShellAndTubeCapitalCostDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\ExchangerParams\ExchangerParamsDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\ProjectDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\HenOptimizerDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\HenOptimizerGeneticDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\HenOptimizerGreedyDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\HenOptimizerMILPDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\ProjectUnits\ProjectUnitsDto.cs" />
+    <Compile Include="Dto\System\AppGlobalSettingsDto.cs" />
+    <Compile Include="RepoInterfaces\Project\CostParameters\ITotalAnnualizedCostRepo.cs" />
+    <Compile Include="RepoInterfaces\Project\CostParameters\IUtilityCostRepo.cs" />
+    <Compile Include="RepoInterfaces\Project\CostParameters\IFiredHeaterCapitalCostRepo.cs" />
+    <Compile Include="RepoInterfaces\Project\CostParameters\IShellAndTubeCapitalCostRepo.cs" />
+    <Compile Include="RepoInterfaces\Project\DefaultParameters\ExchangerParams\IExchangerParamsRepo.cs" />
+    <Compile Include="RepoInterfaces\Project\DefaultParameters\IProjectRepo.cs" />
+    <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IHenOptimizerRepo.cs" />
+    <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IHenOptimizerGeneticRepo.cs" />
+    <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IHenOptimizerGreedyRepo.cs" />
+    <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IHenOptimizerMILPRepo.cs" />
+    <Compile Include="Dto\Profile\ProfileDto.cs" />
+    <Compile Include="Dto\Project\CostParameters\CostMetadataDto.cs" />
+    <Compile Include="Dto\Profile\ProcessStreamDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\THDiagramDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\THDiagramPointDto.cs" />
+    <Compile Include="Dto\Profile\UtilityStreamDto.cs" />
+    <Compile Include="RepoInterfaces\Profile\IProfileRepo.cs" />
+    <Compile Include="RepoInterfaces\Project\CostParameters\ICostMetadataRepo.cs" />
+    <Compile Include="RepoInterfaces\Profile\IProcessStreamRepo.cs" />
+    <Compile Include="RepoInterfaces\Pinch\Plots\ITHDiagramRepo.cs" />
+    <Compile Include="RepoInterfaces\Pinch\Plots\ITHDiagramPointRepo.cs" />
+    <Compile Include="RepoInterfaces\Profile\IUtilityStreamRepo.cs" />
+    <Compile Include="Dto\Pinch\PinchDto.cs" />
+    <Compile Include="Dto\Pinch\TargetsDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\CompositeCurveDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\CompositeCurvePointIDDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\GrandCompositeCurveDto.cs" />
+    <Compile Include="Dto\Pinch\Plots\GrandCompositeCurvePointIDDto.cs" />
+    <Compile Include="RepoInterfaces\Pinch\IPinchRepo.cs" />
+    <Compile Include="RepoInterfaces\Pinch\ITargetsRepo.cs" />
+    <Compile Include="RepoInterfaces\Pinch\Plots\ICompositeCurveRepo.cs" />
+    <Compile Include="RepoInterfaces\Pinch\Plots\ICompositeCurvePointIDRepo.cs" />
+    <Compile Include="RepoInterfaces\Pinch\Plots\IGrandCompositeCurveRepo.cs" />
+    <Compile Include="RepoInterfaces\Pinch\Plots\IGrandCompositeCurvePointIDRepo.cs" />
+    <Compile Include="Dto\Hen\HenDto.cs" />
+    <Compile Include="Dto\Hen\ExchangerDto.cs" />
+    <Compile Include="Dto\Hen\GridDiagramDto.cs" />
+    <Compile Include="Dto\Hen\GridDiagramPointIDDto.cs" />
+    <Compile Include="Dto\Hen\HeatReleaseCurveDto.cs" />
+    <Compile Include="Dto\Hen\HeatReleaseCurvePointIDDto.cs" />
+    <Compile Include="RepoInterfaces\Hen\IHenRepo.cs" />
+    <Compile Include="RepoInterfaces\Hen\IExchangerRepo.cs" />
+    <Compile Include="RepoInterfaces\Hen\IGridDiagramRepo.cs" />
+    <Compile Include="RepoInterfaces\Hen\IGridDiagramPointIDRepo.cs" />
+    <Compile Include="RepoInterfaces\Hen\IHeatReleaseCurveRepo.cs" />
+    <Compile Include="RepoInterfaces\Hen\IHeatReleaseCurvePointIDRepo.cs" />
+    <Compile Include="Dto\System\DatabaseTableDto.cs" />
+    <Compile Include="Dto\System\GlobalSettingsDto.cs" />
+    <Compile Include="RepoInterfaces\Project\DefaultParameters\ProjectUnits\IProjectUnitsRepo.cs" />
+    <Compile Include="RepoInterfaces\System\IDatabaseTableRepo.cs" />
+    <Compile Include="RepoInterfaces\System\IGlobalSettingsRepo.cs" />
+    <Compile Include="Dto\System\ConnectionDataDto.cs" />
+    <Compile Include="RepoInterfaces\System\IConnectionDataRepo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReposImplementations\Hen\ExchangerRepo.cs" />
+    <Compile Include="ReposImplementations\Hen\GridDiagramPointIDRepo.cs" />
+    <Compile Include="ReposImplementations\Hen\GridDiagramRepo.cs" />
+    <Compile Include="ReposImplementations\Hen\HeatReleaseCurvePointIDRepo.cs" />
+    <Compile Include="ReposImplementations\Hen\HeatReleaseCurveRepo.cs" />
+    <Compile Include="ReposImplementations\Hen\HenRepo.cs" />
+    <Compile Include="ReposImplementations\Pinch\PinchRepo.cs" />
+    <Compile Include="ReposImplementations\Pinch\Plots\CompositeCurvePointIDRepo.cs" />
+    <Compile Include="ReposImplementations\Pinch\Plots\CompositeCurveRepo.cs" />
+    <Compile Include="ReposImplementations\Pinch\Plots\GrandCompositeCurvePointIDRepo.cs" />
+    <Compile Include="ReposImplementations\Pinch\Plots\GrandCompositeCurveRepo.cs" />
+    <Compile Include="ReposImplementations\Pinch\Plots\THDiagramPointRepo.cs" />
+    <Compile Include="ReposImplementations\Pinch\Plots\THDiagramRepo.cs" />
+    <Compile Include="ReposImplementations\Pinch\TargetsRepo.cs" />
+    <Compile Include="ReposImplementations\Profile\ProcessStreamRepo.cs" />
+    <Compile Include="ReposImplementations\Profile\ProfileRepo.cs" />
+    <Compile Include="ReposImplementations\Profile\UtilityStreamRepo.cs" />
+    <Compile Include="ReposImplementations\Project\CostParameters\CostMetadataRepo.cs" />
+    <Compile Include="ReposImplementations\Project\DefaultParameters\ExchangerParams\ExchangerParamsRepo.cs" />
+    <Compile Include="ReposImplementations\Project\DefaultParameters\OptimizerParams\HenOptimizerGeneticRepo.cs" />
+    <Compile Include="ReposImplementations\Project\DefaultParameters\OptimizerParams\HenOptimizerGreedyRepo.cs" />
+    <Compile Include="ReposImplementations\Project\DefaultParameters\OptimizerParams\HenOptimizerMILPRepo.cs" />
+    <Compile Include="ReposImplementations\Project\DefaultParameters\OptimizerParams\HenOptimizerRepo.cs" />
+    <Compile Include="ReposImplementations\Project\DefaultParameters\ProjectRepo.cs" />
+    <Compile Include="ReposImplementations\Project\DefaultParameters\ProjectUnits\ProjectUnitsRepo.cs" />
+    <Compile Include="ReposImplementations\System\ConnectionDataRepo.cs" />
+    <Compile Include="ReposImplementations\System\DatabaseTableRepo.cs" />
+    <Compile Include="ReposImplementations\System\GlobalSettingsRepo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AJP Pinch.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

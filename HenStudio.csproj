@@ -175,13 +175,9 @@
       <Project>{c73899c1-09e9-4981-a906-f33c3ae4078a}</Project>
       <Name>_HenGlobal</Name>
     </ProjectReference>
-    <ProjectReference Include="_HenPersistence\_HenPersistence.csproj">
-      <Project>{eb33e6f8-aa86-4be8-8d1c-b1b9b92435ad}</Project>
-      <Name>_HenPersistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="_HenRepositories\_HenRepositories.csproj">
+    <ProjectReference Include="_HenRepositories\_HenModel.csproj">
       <Project>{42a404ca-256f-47c8-82fd-319c99292c74}</Project>
-      <Name>_HenRepositories</Name>
+      <Name>_HenModel</Name>
     </ProjectReference>
     <ProjectReference Include="_HenViewModels\_HenViewModel.csproj">
       <Project>{58b4795c-8a98-4e0f-a07f-3769bba0079f}</Project>

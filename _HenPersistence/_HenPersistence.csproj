@@ -44,37 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection\ConnectionString.cs" />
-    <Compile Include="Repos\Project\DefaultParameters\ExchangerParams\ExchangerParamsRepo.cs" />
-    <Compile Include="Repos\Project\DefaultParameters\ProjectUnits\ProjectUnitsRepo.cs" />
-    <Compile Include="Repos\System\DatabaseTableRepo.cs" />
-    <Compile Include="Repos\Project\DefaultParameters\ProjectRepo.cs" />
-    <Compile Include="Repos\Project\DefaultParameters\OptimizerParams\HenOptimizerRepo.cs" />
-    <Compile Include="Repos\Project\DefaultParameters\OptimizerParams\HenOptimizerGeneticRepo.cs" />
-    <Compile Include="Repos\Project\DefaultParameters\OptimizerParams\HenOptimizerGreedyRepo.cs" />
-    <Compile Include="Repos\Project\DefaultParameters\OptimizerParams\HenOptimizerMILPRepo.cs" />
-    <Compile Include="Repos\Profile\ProfileRepo.cs" />
-    <Compile Include="Repos\Project\CostParameters\CostMetadataRepo.cs" />
-    <Compile Include="Repos\Profile\ProcessStreamRepo.cs" />
-    <Compile Include="Repos\Pinch\Plots\THDiagramRepo.cs" />
-    <Compile Include="Repos\Pinch\Plots\THDiagramPointRepo.cs" />
-    <Compile Include="Repos\Profile\UtilityStreamRepo.cs" />
-    <Compile Include="Repos\Pinch\PinchRepo.cs" />
-    <Compile Include="Repos\Pinch\TargetsRepo.cs" />
-    <Compile Include="Repos\Pinch\Plots\CompositeCurveRepo.cs" />
-    <Compile Include="Repos\Pinch\Plots\CompositeCurvePointIDRepo.cs" />
-    <Compile Include="Repos\Pinch\Plots\GrandCompositeCurveRepo.cs" />
-    <Compile Include="Repos\Pinch\Plots\GrandCompositeCurvePointIDRepo.cs" />
-    <Compile Include="Repos\Hen\HenRepo.cs" />
-    <Compile Include="Repos\Hen\ExchangerRepo.cs" />
-    <Compile Include="Repos\Hen\GridDiagramRepo.cs" />
-    <Compile Include="Repos\Hen\GridDiagramPointIDRepo.cs" />
-    <Compile Include="Repos\Hen\HeatReleaseCurveRepo.cs" />
-    <Compile Include="Repos\Hen\HeatReleaseCurvePointIDRepo.cs" />
-    <Compile Include="Repos\System\GlobalSettingsRepo.cs" />
-    <Compile Include="Interfaces\IDbConnectionFactory.cs" />
-    <Compile Include="Connection\SqlConnectionFactory.cs" />
-    <Compile Include="Repos\System\ConnectionDataRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
