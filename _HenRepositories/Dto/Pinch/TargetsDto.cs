@@ -3,9 +3,9 @@
 //############################################  T a r g e t s D t o . c s  ############################################
 //#####################################################################################################################
 //  FILENAME:  TargetsDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Pinch
 //  CLASS(S):  TargetsDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Targets Pinch sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Pinch
+namespace HenModel.Dto.Pinch
 {
     #region public class TargetsDto
     /// <summary>
@@ -57,7 +57,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class TargetsDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Pinch
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

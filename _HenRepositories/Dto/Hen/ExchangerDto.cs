@@ -3,9 +3,9 @@
 //##########################################  E x c h a n g e r D t o . c s  ##########################################
 //#####################################################################################################################
 //  FILENAME:  ExchangerDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Hen
 //  CLASS(S):  ExchangerDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Exchanger Hen sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespaceHenModel.Dto.Hen
+namespace HenModel.Dto.Hen
 {
     #region public class ExchangerDto
     /// <summary>
@@ -73,7 +73,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class ExchangerDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Hen
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

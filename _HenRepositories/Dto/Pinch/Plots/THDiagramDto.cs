@@ -3,9 +3,9 @@
 //##########################################  T H D i a g r a m D t o . c s  ##########################################
 //#####################################################################################################################
 //  FILENAME:  THDiagramDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Pinch.Plots
 //  CLASS(S):  THDiagramDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the THDiagram Profile sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Pinch.Plots
+namespace HenModel.Dto.Pinch.Plots
 {
     #region public class THDiagramDto
     /// <summary>
@@ -56,7 +56,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class THDiagramDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Pinch.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

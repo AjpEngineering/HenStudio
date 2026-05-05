@@ -3,9 +3,9 @@
 //#################################  G r i d D i a g r a m P o i n t I D D t o . c s  ################################
 //#####################################################################################################################
 //  FILENAME:  GridDiagramPointIDDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Hen
 //  CLASS(S):  GridDiagramPointIDDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the GridDiagramPointID Hen sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Hen
+namespace HenModel.Dto.Hen
 {
     #region public class GridDiagramPointIDDto
     /// <summary>
@@ -56,7 +56,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class GridDiagramPointIDDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Hen
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

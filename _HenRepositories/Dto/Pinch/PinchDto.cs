@@ -3,9 +3,9 @@
 //##############################################  P i n c h D t o . c s  ##############################################
 //#####################################################################################################################
 //  FILENAME:  PinchDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Pinch
 //  CLASS(S):  PinchDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Pinch top-level table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Pinch
+namespace HenModel.Dto.Pinch
 {
     #region public class PinchDto
     /// <summary>
@@ -55,7 +55,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class PinchDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Pinch
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

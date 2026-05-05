@@ -3,9 +3,9 @@
 //#####################################  H e a t R e l e a s e C u r v e D t o . c s  #################################
 //#####################################################################################################################
 //  FILENAME:  HeatReleaseCurveDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Hen
 //  CLASS(S):  HeatReleaseCurveDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the HeatReleaseCurve Hen sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Hen
+namespace HenModel.Dto.Hen
 {
     #region public class HeatReleaseCurveDto
     /// <summary>
@@ -55,7 +55,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class HeatReleaseCurveDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Hen
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

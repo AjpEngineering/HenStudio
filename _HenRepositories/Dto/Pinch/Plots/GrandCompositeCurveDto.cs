@@ -3,9 +3,9 @@
 //###############################  G r a n d C o m p o s i t e C u r v e D t o . c s  #################################
 //#####################################################################################################################
 //  FILENAME:  GrandCompositeCurveDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Pinch.Plots
 //  CLASS(S):  GrandCompositeCurveDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the GrandCompositeCurve Pinch sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Pinch.Plots
+namespace HenModel.Dto.Pinch.Plots
 {
     #region public class GrandCompositeCurveDto
     /// <summary>
@@ -56,7 +56,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class GrandCompositeCurveDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Pinch.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

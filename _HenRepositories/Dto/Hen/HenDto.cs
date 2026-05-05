@@ -3,9 +3,9 @@
 //################################################  H e n D t o . c s  ################################################
 //#####################################################################################################################
 //  FILENAME:  HenDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Hen
 //  CLASS(S):  HenDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Hen top-level table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Hen
+namespace HenModel.Dto.Hen
 {
     #region public class HenDto
     /// <summary>
@@ -54,7 +54,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class HenDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Hen
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
