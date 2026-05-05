@@ -3,9 +3,9 @@
 //######################################  D a t a b a s e T a b l e D t o . c s  ######################################
 //#####################################################################################################################
 //  FILENAME:  DatabaseTableDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.System
 //  CLASS(S):  DatabaseTableDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for database table name query results.
@@ -32,8 +32,8 @@
 //#####################################################################################################################
 #endregion      // HEADER
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.System
+namespace HenModel.Dto.System
 {
     #region public class DatabaseTableDto
     /// <summary>
@@ -48,7 +48,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class DatabaseTableDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.System
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -3,9 +3,9 @@
 //######################################  D a t a b a s e T a b l e R e p o . c s  ####################################
 //#####################################################################################################################
 //  FILENAME:  DatabaseTableRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.RepoImplementations.System
 //  CLASS(S):  DatabaseTableRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation for database table name queries.
@@ -33,17 +33,19 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.Dto.System;
+using HenModel.RepoInterfaces.System;
 
 using System;
 using System.Collections.Generic;
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.System
+namespace HenModel.RepoImplementations.System
 {
     #region public class DatabaseTableRepo
     /// <summary>
@@ -124,7 +126,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class DatabaseTableRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.System
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

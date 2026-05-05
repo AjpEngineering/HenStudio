@@ -3,9 +3,9 @@
 //###################################  S q l C o n n e c t i o n F a c t o r y . c s  #################################
 //#####################################################################################################################
 //  FILENAME:  SqlConnectionFactory.cs
-//  NAMESPACE: HenPersistence.Connection
+//  NAMESPACE: HenModel.Connection
 //  CLASS(S):  SqlConnectionFactory
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the SQL Server connection factory class for the persistence layer.
@@ -33,17 +33,15 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-
-using HenRepositories.Dto;
+using HenModel.Connection.Interface;
 
 using System;
 using System.Data;
 using System.Data.SqlClient;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Connection
-namespace HenPersistence.Connection
+#region namespace HenModel.Connection
+namespace HenModel.Connection
 {
     #region public class SqlConnectionFactory
     /// <summary>

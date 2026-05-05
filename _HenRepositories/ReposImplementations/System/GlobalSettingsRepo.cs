@@ -3,9 +3,9 @@
 //######################################  G l o b a l S e t t i n g s R e p o . c s  ##################################
 //#####################################################################################################################
 //  FILENAME:  GlobalSettingsRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.RepoImplementations.System
 //  CLASS(S):  GlobalSettingsRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the GlobalSettings table.
@@ -33,11 +33,11 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Connection;
-using HenPersistence.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
 
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Dto.System;
+using HenModel.RepoInterfaces.System;
 
 using System;
 using System.Collections.Generic;
@@ -46,8 +46,8 @@ using System.Security.Claims;
 using System.Xml.Linq;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.System
+namespace HenModel.RepoImplementations.System
 {
     #region public class GlobalSettingsRepo
     /// <summary>
@@ -346,7 +346,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class GlobalSettingsRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.System
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

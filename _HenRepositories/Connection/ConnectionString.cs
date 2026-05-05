@@ -3,9 +3,9 @@
 //######################################  C o n n e c t i o n S t r i n g . c s  ######################################
 //#####################################################################################################################
 //  FILENAME:  ConnectionString.cs
-//  NAMESPACE: HenPersistence.Connection
+//  NAMESPACE: HenModel.Connection
 //  CLASS(S):  ConnectionStrings
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the database connection string constants for the persistence layer.
@@ -32,8 +32,8 @@
 //#####################################################################################################################
 #endregion      // HEADER
 
-#region namespace HenPersistence.Connection
-namespace HenPersistence.Connection
+#region namespace HenModel.Connection
+namespace HenModel.Connection
 {
     #region public static class ConnectionStrings
     /// <summary>
@@ -47,7 +47,7 @@ namespace HenPersistence.Connection
     }
     #endregion      // public static class ConnectionStrings
 }
-#endregion      // namespace HenPersistence.Connection
+#endregion      // namespace HenModel.Connection
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

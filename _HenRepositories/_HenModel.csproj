@@ -136,7 +136,7 @@
     <Compile Include="ReposImplementations\Project\DefaultParameters\OptimizerParams\HenOptimizerGreedyRepo.cs" />
     <Compile Include="ReposImplementations\Project\DefaultParameters\OptimizerParams\HenOptimizerMILPRepo.cs" />
     <Compile Include="ReposImplementations\Project\DefaultParameters\OptimizerParams\HenOptimizerRepo.cs" />
-    <Compile Include="ReposImplementations\Project\DefaultParameters\ProjectRepo.cs" />
+    <Compile Include="ReposImplementations\Project\ProjectRepo.cs" />
     <Compile Include="ReposImplementations\Project\DefaultParameters\ProjectUnits\ProjectUnitsRepo.cs" />
     <Compile Include="ReposImplementations\System\ConnectionDataRepo.cs" />
     <Compile Include="ReposImplementations\System\DatabaseTableRepo.cs" />

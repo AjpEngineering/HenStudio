@@ -3,9 +3,9 @@
 //######################################  C o n n e c t i o n D a t a D t o . c s  ####################################
 //#####################################################################################################################
 //  FILENAME:  ConnectionDataDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.System
 //  CLASS(S):  ConnectionDataDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for database connection metadata query results.
@@ -32,8 +32,8 @@
 //#####################################################################################################################
 #endregion      // HEADER
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.System
+namespace HenModel.Dto.System
 {
     #region public class ConnectionDataDto
     /// <summary>
@@ -54,7 +54,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class ConnectionDataDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.System
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

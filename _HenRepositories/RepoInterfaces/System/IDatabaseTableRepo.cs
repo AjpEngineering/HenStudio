@@ -3,9 +3,9 @@
 //####################################  I D a t a b a s e T a b l e R e p o . c s  ####################################
 //#####################################################################################################################
 //  FILENAME:  IDatabaseTableRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterfaces.System
 //  INTERFACE: IDatabaseTableRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repo interface for database table name queries.
@@ -33,13 +33,13 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.System;
 
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.System
+namespace HenModel.RepoInterfaces.System
 {
     #region public interface IDatabaseTableRepo
     /// <summary>
@@ -53,7 +53,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface IDatabaseTableRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.System
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

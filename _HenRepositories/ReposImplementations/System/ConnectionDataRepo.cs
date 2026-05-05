@@ -3,9 +3,9 @@
 //######################################  C o n n e c t i o n D a t a R e p o . c s  ##################################
 //#####################################################################################################################
 //  FILENAME:  ConnectionDataRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.RepoImplementations.System
 //  CLASS(S):  ConnectionDataRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation for database connection metadata queries.
@@ -33,9 +33,11 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.Dto.System;
+using HenModel.RepoInterfaces.System;
 
 using System;
 using System.Data;
@@ -43,8 +45,8 @@ using System.Data.Common;
 using System.Data.SqlClient;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.System
+namespace HenModel.RepoImplementations.System
 {
     #region public class ConnectionDataRepo
     /// <summary>
@@ -174,7 +176,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class ConnectionDataRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.System
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

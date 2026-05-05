@@ -3,9 +3,9 @@
 //####################################  I C o n n e c t i o n D a t a R e p o . c s  ##################################
 //#####################################################################################################################
 //  FILENAME:  IConnectionDataRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterfaces.System
 //  INTERFACE: IConnectionDataRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repo interface for database connection metadata queries.
@@ -33,11 +33,11 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.System
+namespace HenModel.RepoInterfaces.System
 {
     #region public interface IConnectionDataRepo
     /// <summary>
@@ -51,7 +51,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface IConnectionDataRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.System
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

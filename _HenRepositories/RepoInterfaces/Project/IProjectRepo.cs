@@ -3,9 +3,9 @@
 //############################################  I P r o j e c t R e p o . c s  ########################################
 //#####################################################################################################################
 //  FILENAME:  IProjectRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterfaces.Project
 //  INTERFACE: IProjectRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repository interface for the Project top-level table.

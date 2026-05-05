@@ -3,9 +3,9 @@
 //############################################  P r o j e c t R e p o . c s  ##########################################
 //#####################################################################################################################
 //  FILENAME:  ProjectRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.ReposImplementations.Project
 //  CLASS(S):  ProjectRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the Project top-level table.
@@ -33,17 +33,18 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+using HenModel.Dto.Project;
+using HenModel.RepoInterfaces.Project;
 
 using System;
 using System.Collections.Generic;
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.ReposImplementations.Project
+namespace HenModel.ReposImplementations.Project
 {
     #region public class ProjectRepo
     /// <summary>
@@ -396,7 +397,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class ProjectRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.ReposImplementations.Project
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

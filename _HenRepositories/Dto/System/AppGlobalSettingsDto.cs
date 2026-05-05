@@ -3,9 +3,9 @@
 //##################################  A p p G l o b a l S e t t i n g s D t o . c s  ##################################
 //#####################################################################################################################
 //  FILENAME:  AppGlobalSettingsDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.System
 //  CLASS(S):  AppGlobalSettingsDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Application Global Settings object.
@@ -40,8 +40,8 @@ using System.Text;
 using System.Threading.Tasks;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.System
+namespace HenModel.Dto.System
 {
     #region public class AppGlobalSettingsDto
     /// <summary>
@@ -85,7 +85,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class AppGlobalSettingsDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.System
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

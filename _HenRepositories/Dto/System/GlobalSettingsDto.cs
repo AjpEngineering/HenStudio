@@ -3,12 +3,12 @@
 //#####################################  G l o b a l S e t t i n g s D t o . c s  #####################################
 //#####################################################################################################################
 //  FILENAME:  GlobalSettingsDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.System
 //  CLASS(S):  GlobalSettingsDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the GlobalSettings table.
+//    This file contains the DTO class for the Application Global Settings table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.System
+namespace HenModel.Dto.System
 {
     #region public class GlobalSettingsDto
     /// <summary>
@@ -55,7 +55,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class GlobalSettingsDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.System
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

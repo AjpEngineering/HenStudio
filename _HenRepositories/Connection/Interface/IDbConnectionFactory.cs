@@ -3,9 +3,9 @@
 //###################################  I D b C o n n e c t i o n F a c t o r y . c s  #################################
 //#####################################################################################################################
 //  FILENAME:  IDbConnectionFactory.cs
-//  NAMESPACE: HenPersistence.Interfaces
+//  NAMESPACE: HenModel.Connection.Interface
 //  INTERFACE: IDbConnectionFactory
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the database connection factory interface for the persistence layer.
@@ -36,8 +36,8 @@
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Interfaces
-namespace HenPersistence.Interfaces
+#region namespace HenModel.Connection.Interface
+namespace HenModel.Connection.Interface
 {
     #region public interface IDbConnectionFactory
     /// <summary>
@@ -51,7 +51,7 @@ namespace HenPersistence.Interfaces
     }
     #endregion      // public interface IDbConnectionFactory
 }
-#endregion      // namespace HenPersistence.Interfaces
+#endregion      // namespace HenModel.Connection.Interface
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
