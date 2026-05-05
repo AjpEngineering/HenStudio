@@ -89,7 +89,6 @@
     <Build Include="Tables\Pinch\Targets.sql" />
     <Build Include="Tables\Hen\Hen.sql" />
     <Build Include="Tables\Project\CostParameters\CostMetaData.sql" />
-    <Build Include="Tables\Project\DefaultParameters\Project.sql" />
     <Build Include="Tables\Project\CostParameters\ShellAndTubeCapitalCost.sql" />
     <Build Include="Tables\Project\CostParameters\FiredHeaterCapitalCost.sql" />
     <Build Include="Tables\Project\CostParameters\UtilityCost.sql" />
@@ -113,6 +112,7 @@
     <Build Include="Tables\Profile\Streams\UtilityStream.sql" />
     <Build Include="Tables\Project\DefaultParameters\ProjectUnits\ProjectUnits.sql" />
     <Build Include="Tables\Project\DefaultParameters\ExchangerParams\ExchangerParams.sql" />
+    <Build Include="Tables\Project\Project.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql" />
