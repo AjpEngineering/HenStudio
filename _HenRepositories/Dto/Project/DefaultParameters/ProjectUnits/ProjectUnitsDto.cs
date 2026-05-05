@@ -3,9 +3,9 @@
 //#######################################  P r o j e c t U n i t s D t o . c s  #######################################
 //#####################################################################################################################
 //  FILENAME:  ProjectUnitsDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Project.DefaultParameters.ProjectUnits
 //  CLASS(S):  ProjectUnitsDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Project Units top-level table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Project.DefaultParameters.ProjectUnits
+namespace HenModel.Dto.Project.DefaultParameters.ProjectUnits
 {
     #region public class ProjectUnitsDto
     /// <summary>
@@ -56,7 +56,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class ProjectUnitsDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Project.DefaultParameters.ProjectUnits
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

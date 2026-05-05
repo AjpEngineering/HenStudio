@@ -3,9 +3,9 @@
 //##############################  H e n O p t i m i z e r G e n e t i c D t o . c s  ##################################
 //#####################################################################################################################
 //  FILENAME:  HenOptimizerGeneticDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Project.DefaultParameters.OptimizerParams
 //  CLASS(S):  HenOptimizerGeneticDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the HenOptimizerGenetic Project sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
+namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 {
     #region public class HenOptimizerGeneticDto
     /// <summary>
@@ -51,7 +51,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class HenOptimizerGeneticDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

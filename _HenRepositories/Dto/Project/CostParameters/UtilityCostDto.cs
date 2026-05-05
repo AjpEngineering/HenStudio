@@ -3,9 +3,9 @@
 //########################################  U t i l i t y C o s t D t o . c s  ########################################
 //#####################################################################################################################
 //  FILENAME:  UtilityCostDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Project.CostParameters
 //  CLASS(S):  UtilityCostDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Utility Cost Project-Cost Parameters sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Project.CostParameters
+namespace HenModel.Dto.Project.CostParameters
 {
     #region public class UtilityCostDto
     /// <summary>
@@ -66,7 +66,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class UtilityCostDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

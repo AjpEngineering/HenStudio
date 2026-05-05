@@ -52,7 +52,7 @@
     <Compile Include="Dto\Project\CostParameters\FiredHeatedCapitalCostDto.cs" />
     <Compile Include="Dto\Project\CostParameters\ShellAndTubeCapitalCostDto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\ExchangerParams\ExchangerParamsDto.cs" />
-    <Compile Include="Dto\Project\DefaultParameters\ProjectDto.cs" />
+    <Compile Include="Dto\Project\ProjectDto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\HenOptimizerDto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\HenOptimizerGeneticDto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\HenOptimizerGreedyDto.cs" />

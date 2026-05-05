@@ -3,9 +3,9 @@
 //#######################################  P r o c e s s S t r e a m D t o . c s  #####################################
 //#####################################################################################################################
 //  FILENAME:  ProcessStreamDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Profile
 //  CLASS(S):  ProcessStreamDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the ProcessStream Profile sub table.
@@ -36,12 +36,12 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Profile
+namespace HenModel.Dto.Profile
 {
     #region public class ProcessStreamDto
     /// <summary>
-    /// ProcessStream DTO Class
+    /// Process Stream DTO Class
     /// </summary>
     public class ProcessStreamDto
     {
@@ -63,7 +63,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class ProcessStreamDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Profile
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

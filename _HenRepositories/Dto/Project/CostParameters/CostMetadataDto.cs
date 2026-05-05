@@ -3,9 +3,9 @@
 //#######################################  C o s t M e t a d a t a D t o . c s  #######################################
 //#####################################################################################################################
 //  FILENAME:  CostMetadataDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Project.CostParameters
 //  CLASS(S):  CostMetadataDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the CostMetadataDto Project-Cost Params sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Project.CostParameters
+namespace HenModel.Dto.Project.CostParameters
 {
     #region public class CostMetadataDto
     /// <summary>
@@ -57,7 +57,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class CostMetadataDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

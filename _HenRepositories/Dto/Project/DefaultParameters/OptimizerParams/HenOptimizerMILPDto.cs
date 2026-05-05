@@ -3,9 +3,9 @@
 //################################  H e n O p t i m i z e r M I L P D t o . c s  #####################################
 //#####################################################################################################################
 //  FILENAME:  HenOptimizerMILPDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Project.DefaultParameters.OptimizerParams
 //  CLASS(S):  HenOptimizerMILPDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the HenOptimizerMILP Project sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
+namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 {
     #region public class HenOptimizerMILPDto
     /// <summary>
@@ -51,7 +51,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class HenOptimizerMILPDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -3,9 +3,9 @@
 //######################################  E x c h a n g e r P a r a m s D t o.c s  ####################################
 //#####################################################################################################################
 //  FILENAME:  ExchangerParamsDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Project.DefaultParameters.ExchangerParams
 //  CLASS(S):  ExchangerParamsDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Exchanger Params top-level table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Project.DefaultParameters.ExchangerParams
+namespace HenModel.Dto.Project.DefaultParameters.ExchangerParams
 {
     #region public class ExchangerParamsDto
     /// <summary>
@@ -54,7 +54,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class ExchangerParamsDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Project.DefaultParameters.ExchangerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

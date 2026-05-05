@@ -3,9 +3,9 @@
 //###############################  H e n O p t i m i z e r G r e e d y D t o . c s  ###################################
 //#####################################################################################################################
 //  FILENAME:  HenOptimizerGreedyDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HHenModel.Dto.Project.DefaultParameters.OptimizerParams
 //  CLASS(S):  HenOptimizerGreedyDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the HenOptimizerGreedy Project sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
+namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 {
     #region public class HenOptimizerGreedyDto
     /// <summary>
@@ -51,7 +51,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class HenOptimizerGreedyDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

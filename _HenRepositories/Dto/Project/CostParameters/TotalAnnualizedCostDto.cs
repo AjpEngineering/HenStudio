@@ -3,9 +3,9 @@
 //################################  T o t a l A n n u a l i z e d C o s t D t o . c s  ################################
 //#####################################################################################################################
 //  FILENAME:  TotalAnnualizedCostDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Project.CostParameters
 //  CLASS(S):  TotalAnnualizedCostDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Total Annualized Cost (TAC) Project-Cost Parameters sub table.
@@ -36,12 +36,12 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Project.CostParameters
+namespace HenModel.Dto.Project.CostParameters
 {
     #region public class TotalAnnualizedCostDto
     /// <summary>
-    /// Utility Cost DTO Class
+    /// Total Annualized Cost DTO Class
     /// </summary>
     public class TotalAnnualizedCostDto
     {
@@ -56,7 +56,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class TotalAnnualizedCostDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

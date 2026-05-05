@@ -3,9 +3,9 @@
 //############################################  P r o f i l e D t o . c s  ############################################
 //#####################################################################################################################
 //  FILENAME:  ProfileDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Profile
 //  CLASS(S):  ProfileDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Profile top-level table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Profile
+namespace HenModel.Dto.Profile
 {
     #region public class ProfileDto
     /// <summary>
@@ -54,7 +54,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class ProfileDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Profile
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

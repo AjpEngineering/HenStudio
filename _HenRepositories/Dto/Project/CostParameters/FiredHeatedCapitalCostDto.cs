@@ -3,9 +3,9 @@
 //#############################  F i r e d H e a t e r C a p i t a l C o s t D t o . c s  #############################
 //#####################################################################################################################
 //  FILENAME:  FiredHeaterCapitalCostDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Project.CostParameters
 //  CLASS(S):  FiredHeaterCapitalCostDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Fired Heater Capital Cost Project-Cost Parameters sub table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Project.CostParameters
+namespace HenModel.Dto.Project.CostParameters
 {
     #region public class FiredHeaterCapitalCostDto
     /// <summary>
@@ -56,9 +56,9 @@ namespace HenRepositories.Dto
         public string DutyUnits_English { get; set; }
         #endregion      // PROPERTIES
     }
-    #endregion      // public class ShellAndTubeCapitalCostDto
+    #endregion      // public class FiredHeaterCapitalCostDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

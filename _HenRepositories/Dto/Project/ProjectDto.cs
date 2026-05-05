@@ -3,9 +3,9 @@
 //############################################  P r o j e c t D t o . c s  ############################################
 //#####################################################################################################################
 //  FILENAME:  ProjectDto.cs
-//  NAMESPACE: HenRepositories.Dto
+//  NAMESPACE: HenModel.Dto.Project
 //  CLASS(S):  ProjectDto
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the DTO class for the Project top-level table.
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Dto
-namespace HenRepositories.Dto
+#region namespace HenModel.Dto.Project
+namespace HenModel.Dto.Project
 {
     #region public class ProjectDto
     /// <summary>
@@ -56,7 +56,7 @@ namespace HenRepositories.Dto
     }
     #endregion      // public class ProjectDto
 }
-#endregion      // namespace HenRepositories.Dto
+#endregion      // namespace HenModel.Dto.Project
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
