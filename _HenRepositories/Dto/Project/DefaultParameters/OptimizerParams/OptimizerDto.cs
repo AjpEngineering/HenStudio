@@ -1,10 +1,10 @@
 #region HEADER
 //#####################################################################################################################
-//########################################  H e n O p t i m i z e r D t o . c s  ######################################
+//###########################################  O p t i m i z e r D t o . c s  #########################################
 //#####################################################################################################################
-//  FILENAME:  HenOptimizerDto.cs
+//  FILENAME:  OptimizerDto.cs
 //  NAMESPACE: HenModel.Dto.Project.DefaultParameters.OptimizerParams
-//  CLASS(S):  HenOptimizerDto
+//  CLASS(S):  OptimizerDto
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
@@ -39,11 +39,11 @@ using System;
 #region namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 {
-    #region public class HenOptimizerDto
+    #region public class OptimizerDto
     /// <summary>
-    /// HenOptimizer DTO Class
+    /// Optimizer DTO Class
     /// </summary>
-    public class HenOptimizerDto
+    public class OptimizerDto
     {
         #region PROPERTIES
         public Guid Id { get; set; }
@@ -56,7 +56,7 @@ namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
         public double DefaultConvergenceTolerance { get; set; }
         #endregion      // PROPERTIES
     }
-    #endregion      // public class HenOptimizerDto
+    #endregion      // public class OptimizerDto
 }
 #endregion      // namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 

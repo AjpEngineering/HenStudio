@@ -3,9 +3,9 @@
 //########################################  I E c o n P a r a m R e p o . c s  ########################################
 //#####################################################################################################################
 //  FILENAME:  IEconParamRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterfaces.Project.CostParameters
 //  INTERFACE: IEconParamRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repo interface for the EconParam Profile sub table.
@@ -33,14 +33,14 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Project.CostParameters;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.Project.CostParameters
+namespace HenModel.RepoInterfaces.Project.CostParameters
 {
     #region public interface ICostMetadataRepo
     /// <summary>
@@ -59,7 +59,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface ICostMetadataRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

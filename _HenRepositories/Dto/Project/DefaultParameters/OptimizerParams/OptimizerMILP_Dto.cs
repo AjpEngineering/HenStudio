@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//##############################  H e n O p t i m i z e r G e n e t i c D t o . c s  ##################################
+//##################################  O p t i m i z e r M I L P _ D t o . c s  ########################################
 //#####################################################################################################################
-//  FILENAME:  HenOptimizerGeneticDto.cs
+//  FILENAME:  OptimizerMILP_Dto.cs
 //  NAMESPACE: HenModel.Dto.Project.DefaultParameters.OptimizerParams
-//  CLASS(S):  HenOptimizerGeneticDto
+//  CLASS(S):  OptimizerMILP_Dto
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the HenOptimizerGenetic Project sub table.
+//    This file contains the DTO class for the Optimizer MILP Project sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -39,17 +39,17 @@ using System;
 #region namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 {
-    #region public class HenOptimizerGeneticDto
+    #region public class OptimizerMILP_Dto
     /// <summary>
-    /// HenOptimizerGenetic DTO Class
+    /// Optimizer MILP DTO Class
     /// </summary>
-    public class HenOptimizerGeneticDto
+    public class OptimizerMILP_Dto
     {
         #region PROPERTIES
         public Guid HenOptimizerId { get; set; }
         #endregion      // PROPERTIES
     }
-    #endregion      // public class HenOptimizerGeneticDto
+    #endregion      // public class OptimizerMILP_Dto
 }
 #endregion      // namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 

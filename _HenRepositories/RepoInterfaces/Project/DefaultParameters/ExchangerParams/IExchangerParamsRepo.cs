@@ -3,9 +3,9 @@
 //################################  I E x c h a n g e r P a r a m s R e p o R e p o . c s  ############################
 //#####################################################################################################################
 //  FILENAME:  IExchangerParamsRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterfaces.Project.DefaultParameters.ExchangerParams
 //  INTERFACE: IExchangerParamsRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repository interface for the Exchanger Params top-level table.
@@ -33,14 +33,14 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.Project.DefaultParameters.ExchangerParams
+namespace HenModel.RepoInterfaces.Project.DefaultParameters.ExchangerParams
 {
     #region public interface IExchangerParamsRepo
     /// <summary>
@@ -58,7 +58,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface IExchangerParamsRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.Project.DefaultParameters.ExchangerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

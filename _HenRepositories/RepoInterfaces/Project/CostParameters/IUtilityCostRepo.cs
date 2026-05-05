@@ -3,9 +3,9 @@
 //##########################################  I U t i l i t y C o s t R e p o . c s  ##################################
 //#####################################################################################################################
 //  FILENAME:  IUtilityCostRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterfaces.Project.CostParameters
 //  INTERFACE: IUtilityCostRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repo interface for the Utility Cost Project-Cost Parameters sub table.
@@ -33,14 +33,14 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Project.CostParameters;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.Project.CostParameters
+namespace HenModel.RepoInterfaces.Project.CostParameters
 {
     #region public interface IUtilityCostRepo
     /// <summary>
@@ -59,7 +59,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface IUtilityCostRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

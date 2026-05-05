@@ -3,12 +3,12 @@
 //###################################  I P r o c e s s S t r e a m R e p o . c s  #####################################
 //#####################################################################################################################
 //  FILENAME:  IProcessStreamRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterfaces.Profile
 //  INTERFACE: IProcessStreamRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the ProcessStream Profile sub table.
+//    This file contains the repo interface for the Process Stream Profile sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,18 +33,18 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Profile;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.Profile
+namespace HenModel.RepoInterfaces.Profile
 {
     #region public interface IProcessStreamRepo
     /// <summary>
-    /// ProcessStream Repo Interface
+    /// Process Stream Repo Interface
     /// </summary>
     public interface IProcessStreamRepo
     {
@@ -60,7 +60,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface IProcessStreamRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.Profile
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

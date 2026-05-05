@@ -3,9 +3,9 @@
 //##################################  I T o t a l A n n u a l i z e d C o s t R e p o . c s  ##########################
 //#####################################################################################################################
 //  FILENAME:  ITotalAnnualizedCostRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IUtilityCostRepo
-//  COMPONENT: ITotalAnnualizedCostRepo.dll
+//  NAMESPACE: HenModel.RepoInterfaces.Project.CostParameters
+//  INTERFACE: ITotalAnnualizedCostRepo
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repo interface for the Total Annualized Cost (TAC) Project-Cost Parameters sub table.
@@ -33,14 +33,14 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Project.CostParameters;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.Project.CostParameters
+namespace HenModel.RepoInterfaces.Project.CostParameters
 {
     #region public interface ITotalAnnualizedCostRepo
     /// <summary>
@@ -59,7 +59,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface ITotalAnnualizedCostRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

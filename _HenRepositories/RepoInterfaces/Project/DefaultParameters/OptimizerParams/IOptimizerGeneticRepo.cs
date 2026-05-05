@@ -1,13 +1,13 @@
 #region HEADER
 //###############################  I H e n O p t i m i z e r G e n e t i c R e p o . c s  #############################
 //#####################################################################################################################
-//  FILENAME:  IHenOptimizerGeneticRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IHenOptimizerGeneticRepo
-//  COMPONENT: _HenRepositories.dll
+//  FILENAME:  IOptimizerGeneticRepo.cs
+//  NAMESPACE: HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
+//  INTERFACE: IOptimizerGeneticRepo
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the HenOptimizerGenetic Project sub table.
+//    This file contains the repo interface for the Optimizer Genetic Project sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -32,32 +32,32 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
+namespace HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
 {
-    #region public interface IHenOptimizerGeneticRepo
+    #region public interface IOptimizerGeneticRepo
     /// <summary>
     /// HenOptimizerGenetic Repo Interface
     /// </summary>
-    public interface IHenOptimizerGeneticRepo
+    public interface IOptimizerGeneticRepo
     {
         #region METHODS
-        IList<HenOptimizerGeneticDto> GetHenOptimizerGenetics();
-        HenOptimizerGeneticDto GetHenOptimizerGeneticByHenOptimizerId(Guid henOptimizerId);
-        Guid AddHenOptimizerGenetic(HenOptimizerGeneticDto henOptimizerGeneticDto);
-        void UpdateHenOptimizerGenetic(HenOptimizerGeneticDto henOptimizerGeneticDto);
-        void DeleteHenOptimizerGenetic(Guid henOptimizerId);
+        IList<OptimizerGeneticDto> GetOptimizerGenetics();
+        OptimizerGeneticDto GetOptimizerGeneticByOptimizerId(Guid optimizerId);
+        Guid AddOptimizerGenetic(OptimizerGeneticDto optimizerGeneticDto);
+        void UpdateOptimizerGenetic(OptimizerGeneticDto optimizerGeneticDto);
+        void DeleteOptimizerGenetic(Guid optimizerId);
         #endregion      // METHODS
     }
-    #endregion      // public interface IHenOptimizerGeneticRepo
+    #endregion      // public interface IOptimizerGeneticRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

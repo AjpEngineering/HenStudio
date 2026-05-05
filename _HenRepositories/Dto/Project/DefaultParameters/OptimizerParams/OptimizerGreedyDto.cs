@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//####################################  I H e n O p t i m i z e r R e p o . c s  ######################################
+//##################################  O p t i m i z e r G r e e d y D t o . c s  ######################################
 //#####################################################################################################################
-//  FILENAME:  IHenOptimizerRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IHenOptimizerRepo
-//  COMPONENT: _HenRepositories.dll
+//  FILENAME:  OptimizerGreedy_Dto.cs
+//  NAMESPACE: HenModel.Dto.Project.DefaultParameters.OptimizerParams
+//  CLASS(S):  OptimizerGreedy_Dto
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the HenOptimizer Project sub table.
+//    This file contains the DTO class for the Optimizer Greedy Project sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,34 +33,25 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
-
 using System;
-using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
+namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 {
-    #region public interface IHenOptimizerRepo
+    #region public class OptimizerGreedyDto
     /// <summary>
-    /// HenOptimizer Repo Interface
+    /// Optimizer Greedy DTO Class
     /// </summary>
-    public interface IHenOptimizerRepo
+    public class OptimizerGreedyDto
     {
-        #region METHODS
-        IList<HenOptimizerDto> GetHenOptimizers();
-        IList<HenOptimizerDto> GetHenOptimizersByProjectId(Guid projectId);
-        HenOptimizerDto GetHenOptimizerById(Guid henOptimizerId);
-        HenOptimizerDto GetHenOptimizerByName(Guid projectId, string name);
-        Guid AddHenOptimizer(HenOptimizerDto henOptimizerDto);
-        void UpdateHenOptimizer(HenOptimizerDto henOptimizerDto);
-        void DeleteHenOptimizer(Guid henOptimizerId);
-        #endregion      // METHODS
+        #region PROPERTIES
+        public Guid HenOptimizerId { get; set; }
+        #endregion      // PROPERTIES
     }
-    #endregion      // public interface IHenOptimizerRepo
+    #endregion      // public class OptimizerGreedyDto
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

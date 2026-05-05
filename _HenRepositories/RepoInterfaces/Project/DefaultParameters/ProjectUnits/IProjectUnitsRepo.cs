@@ -3,9 +3,9 @@
 //#######################################  I P r o j e c t U n i t s R e p o . c s  ###################################
 //#####################################################################################################################
 //  FILENAME:  IProjectUnitsRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterfaces.Project.DefaultParameters.ProjectUnits
 //  INTERFACE: IProjectUnitsRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repository interface for the Project Units table.
@@ -33,14 +33,14 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.Project.DefaultParameters.ProjectUnits
+namespace HenModel.RepoInterfaces.Project.DefaultParameters.ProjectUnits
 {
     #region public interface IProjectUnitsRepo
     /// <summary>
@@ -58,7 +58,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface IProjectUnitsRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.Project.DefaultParameters.ProjectUnits
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

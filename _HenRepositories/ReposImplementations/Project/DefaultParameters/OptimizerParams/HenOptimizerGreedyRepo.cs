@@ -47,7 +47,7 @@ namespace HenPersistence.Repos
     /// <summary>
     /// HenOptimizerGreedy Repo Class
     /// </summary>
-    public class HenOptimizerGreedyRepo : IHenOptimizerGreedyRepo
+    public class HenOptimizerGreedyRepo : IOptimizerGreedyRepo
     {
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;

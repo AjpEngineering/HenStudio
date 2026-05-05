@@ -47,7 +47,7 @@ namespace HenPersistence.Repos
     /// <summary>
     /// HenOptimizerGenetic Repo Class
     /// </summary>
-    public class HenOptimizerGeneticRepo : IHenOptimizerGeneticRepo
+    public class HenOptimizerGeneticRepo : IOptimizerGeneticRepo
     {
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;

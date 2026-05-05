@@ -1,13 +1,13 @@
 #region HEADER
-//##################################  I H e n O p t i m i z e r M I L P R e p o . c s  ###############################
+//##################################  I O p t i m i z e r M I L P _ R e p o . c s  ###############################
 //#####################################################################################################################
-//  FILENAME:  IHenOptimizerMILPRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IHenOptimizerMILPRepo
-//  COMPONENT: _HenRepositories.dll
+//  FILENAME:  IOptimizerMILP_Repo.cs
+//  NAMESPACE: HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
+//  INTERFACE: IOptimizerMILP_Repo
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the HenOptimizerMILP Project sub table.
+//    This file contains the repo interface for the Optimizer MILP Project sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -32,32 +32,32 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
+namespace HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
 {
-    #region public interface IHenOptimizerMILPRepo
+    #region public interface IOptimizerMILP_Repo
     /// <summary>
-    /// HenOptimizerMILP Repo Interface
+    /// Optimizer MILP Repo Interface
     /// </summary>
-    public interface IHenOptimizerMILPRepo
+    public interface IOptimizerMILP_Repo
     {
         #region METHODS
-        IList<HenOptimizerMILPDto> GetHenOptimizerMILPs();
-        HenOptimizerMILPDto GetHenOptimizerMILPByHenOptimizerId(Guid henOptimizerId);
-        Guid AddHenOptimizerMILP(HenOptimizerMILPDto henOptimizerMilpDto);
-        void UpdateHenOptimizerMILP(HenOptimizerMILPDto henOptimizerMilpDto);
+        IList<OptimizerMILP_Dto> GetHenOptimizerMILPs();
+        OptimizerMILP_Dto GetHenOptimizerMILPByHenOptimizerId(Guid henOptimizerId);
+        Guid AddHenOptimizerMILP(OptimizerMILP_Dto henOptimizerMilpDto);
+        void UpdateHenOptimizerMILP(OptimizerMILP_Dto henOptimizerMilpDto);
         void DeleteHenOptimizerMILP(Guid henOptimizerId);
         #endregion      // METHODS
     }
-    #endregion      // public interface IHenOptimizerMILPRepo
+    #endregion      // public interface IOptimizerMILP_Repo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
