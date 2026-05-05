@@ -7,8 +7,8 @@
     <ProjectGuid>{58B4795C-8A98-4E0F-A07F-3769BBA0079F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HenViewModels</RootNamespace>
-    <AssemblyName>_HenViewModels</AssemblyName>
+    <RootNamespace>HenViewModel</RootNamespace>
+    <AssemblyName>_HenViewModel</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

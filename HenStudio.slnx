@@ -10,5 +10,5 @@
     <Build />
     <Deploy />
   </Project>
-  <Project Path="_HenViewModels/_HenViewModels.csproj" Id="58b4795c-8a98-4e0f-a07f-3769bba0079f" />
+  <Project Path="_HenViewModels/_HenViewModel.csproj" Id="58b4795c-8a98-4e0f-a07f-3769bba0079f" />
 </Solution>

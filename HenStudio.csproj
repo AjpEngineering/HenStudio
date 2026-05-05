@@ -183,9 +183,9 @@
       <Project>{42a404ca-256f-47c8-82fd-319c99292c74}</Project>
       <Name>_HenRepositories</Name>
     </ProjectReference>
-    <ProjectReference Include="_HenViewModels\_HenViewModels.csproj">
+    <ProjectReference Include="_HenViewModels\_HenViewModel.csproj">
       <Project>{58b4795c-8a98-4e0f-a07f-3769bba0079f}</Project>
-      <Name>_HenViewModels</Name>
+      <Name>_HenViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
