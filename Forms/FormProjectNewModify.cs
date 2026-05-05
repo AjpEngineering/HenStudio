@@ -89,7 +89,7 @@ namespace HenStudio
         public string OrigProjectName { get; set; } // Original Project Name
         public bool NewProjectFlag { get; set; } // NEW PROJECT Flag (true = New Project, false = Modify Project)
         public DefaultProjectSettings NewProjectSettingsObj { get; set; } // NEW PROJECT Settings Object
-        public ProjectViewData ProjectViewDataObj { get; set; } // Project (Panel) View Data Object
+        public ProjectPanelData ProjectViewDataObj { get; set; } // Project (Panel) View Data Object
         #endregion  // PROPERTIES
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -109,7 +109,7 @@ namespace HenStudio
             //--- Initialize New Project Settings Property ---
             //------------------------------------------------
             NewProjectSettingsObj = new DefaultProjectSettings();
-            ProjectViewDataObj = new ProjectViewData();
+            ProjectViewDataObj = new ProjectPanelData();
 
             InitializeComponent();
 
@@ -172,7 +172,7 @@ namespace HenStudio
         /// <summary>
         /// MODIFY Parameterized Constructor
         /// </summary>
-        public FormProjectNewModify(ProjectViewData projectViewDataObj)
+        public FormProjectNewModify(ProjectPanelData projectViewDataObj)
         {
             OrigProjectName = projectViewDataObj.Name;
 

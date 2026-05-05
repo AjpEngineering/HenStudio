@@ -108,7 +108,7 @@
       <DependentUpon>FormUserLicenseAgreement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Data\PanelData\ProjectViewData.cs" />
+    <Compile Include="Data\PanelData\ProjectPanelData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FormAboutPinch.resx">
       <DependentUpon>FormAboutPinch.cs</DependentUpon>

@@ -534,7 +534,7 @@ namespace HenStudio
                         //------------------------------------------------
                         //--- Populate Project Panel with Project Data ---
                         //------------------------------------------------
-                        ProjectViewData projectViewDataObj = GetProjectViewData(projectDtoObj,
+                        ProjectPanelData projectViewDataObj = GetProjectViewData(projectDtoObj,
                                                                                 exchangerParamsDto,
                                                                                 projectUnitsDto);
                         PopulateProjectPanel(projectViewDataObj);

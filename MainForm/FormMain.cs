@@ -1871,7 +1871,7 @@ namespace HenStudio
         /// Cannot be null.</param>
         /// <returns>A ProjectViewData object containing the mapped project details and unit display values derived from the
         /// provided project data.</returns>
-        private ProjectViewData GetProjectViewData(ProjectDto projectDto, 
+        private ProjectPanelData GetProjectViewData(ProjectDto projectDto, 
                                                    ExchangerParamsDto exchangerParamsDto,
                                                    ProjectUnitsDto projectUnitsDto)
         {
@@ -1881,7 +1881,7 @@ namespace HenStudio
             if (projectDto == null) throw new ArgumentNullException(nameof(projectDto),
                                        "Project Data Transfer Object cannot be null.");
 
-            ProjectViewData projectViewDataObj = new ProjectViewData();
+            ProjectPanelData projectViewDataObj = new ProjectPanelData();
 
             projectViewDataObj.Id = projectDto.Id;
             projectViewDataObj.Name = projectDto.Name;
@@ -2036,7 +2036,7 @@ namespace HenStudio
         /// <param name="ExchangerParamsDtoObj">Exchanger Parameters Data Transfer Object</param>
         /// <param name="ProjectUnitsDtoObj">Project Units Data Transfer Object</param>
         /// <exception cref="ArgumentNullException"></exception>
-        private void GetDtosFromViewData(in  ProjectViewData projectViewDataObj,
+        private void GetDtosFromViewData(in  ProjectPanelData projectViewDataObj,
                                          out ProjectDto ProjectDtoObj,
                                          out ExchangerParamsDto ExchangerParamsDtoObj,
                                          out ProjectUnitsDto ProjectUnitsDtoObj)                                                     
@@ -2079,7 +2079,7 @@ namespace HenStudio
         /// Populate the Project Panel with ProjectViewData
         /// </summary>
         /// <param name="projectPanelData"></param>
-        private void PopulateProjectPanel(ProjectViewData projectPanelData)
+        private void PopulateProjectPanel(ProjectPanelData projectPanelData)
         {
             this.textBoxProjectGUID.Text = projectPanelData.Id.ToString();
             this.textBoxProjectNameValue.Text = projectPanelData.Name;

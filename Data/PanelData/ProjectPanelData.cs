@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//######################################  P r o j e c t V i e w D a t a . c s  ########################################
+//######################################  P r o j e c t P a n e l D a t a . c s  ########################################
 //#####################################################################################################################
-//  FILENAME:  ProjectViewData.cs
+//  FILENAME:  ProjectPanelData.cs
 //  NAMESPACE: HenStudio
-//  CLASS(S):  ProjectViewData
+//  CLASS(S):  ProjectPanelData
 //  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Project View Data object - data needed for Project Panel.
+//    This file contains the code for the Project Panel Data object - data needed for Project Panel.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -43,12 +43,12 @@ using System.Threading.Tasks;
 #region namespace HenStudio
 namespace HenStudio
 {
-    #region public class ProjectViewData
-    public class ProjectViewData
+    #region public class ProjectPanelData
+    public class ProjectPanelData
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio";
-        const string CLASS = "ProjectViewData";
+        const string CLASS = "ProjectPanelData";
         #endregion      // CONSTANTS
 
         #region PROPERTIES
@@ -73,7 +73,7 @@ namespace HenStudio
         #endregion  // PROPERTIES
 
         #region CTOR
-        public ProjectViewData()
+        public ProjectPanelData()
         {
             Id = new Guid();
             Name = string.Empty; 
@@ -99,7 +99,7 @@ namespace HenStudio
         #endregion  // CTOR
 
     }
-    #endregion      // public class ProjectViewData
+    #endregion      // public class ProjectPanelData
 }
 #endregion  // namespace HenStudio
 

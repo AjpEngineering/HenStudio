@@ -47,8 +47,8 @@ using static HenGlobal.HenTypes;
 #region namespace HenStudio
 namespace HenStudio
 {
-    #region internal class DataTagDisplay
-    internal class DataTagDisplay
+    #region class DataTagDisplay
+    class DataTagDisplay
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio";
@@ -126,7 +126,7 @@ namespace HenStudio
         #endregion  // CTOR
 
     }
-    #endregion  // internal class DataTagDisplay
+    #endregion  // class DataTagDisplay
 }
 #endregion  // namespace HenStudio
 

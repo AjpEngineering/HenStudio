@@ -226,9 +226,8 @@ namespace HenGlobal
                 AJP_HEN_COMPONENTS.Add("_AJP License File.dll");
                 AJP_HEN_COMPONENTS.Add("_HenDomainModel.dll");
                 AJP_HEN_COMPONENTS.Add("_HenGlobal.dll");
-                AJP_HEN_COMPONENTS.Add("_HenPersistence.dll");
-                AJP_HEN_COMPONENTS.Add("_HenRepositories.dll");
-                AJP_HEN_COMPONENTS.Add("_HenViewModels.dll");
+                AJP_HEN_COMPONENTS.Add("_HenModel.dll");
+                AJP_HEN_COMPONENTS.Add("_HenViewModel.dll");
                 #endregion  // HEN COMPONENTS (ASSEMBLIES)
 
                 #region LOG LICENSE DATA
