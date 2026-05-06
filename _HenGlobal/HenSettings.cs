@@ -234,12 +234,13 @@ namespace HenGlobal
                 #region HEN COMPONENTS (ASSEMBLIES)
                 AJP_HEN_COMPONENTS = new List<string>();
                 AJP_HEN_COMPONENTS.Clear();
-                AJP_HEN_COMPONENTS.Add("HenStudio.exe");
                 AJP_HEN_COMPONENTS.Add("_AJP License File.dll");
                 AJP_HEN_COMPONENTS.Add("_HenDomainModel.dll");
                 AJP_HEN_COMPONENTS.Add("_HenGlobal.dll");
                 AJP_HEN_COMPONENTS.Add("_HenModel.dll");
+                AJP_HEN_COMPONENTS.Add("_HenStudioDatabase.dll");
                 AJP_HEN_COMPONENTS.Add("_HenViewModel.dll");
+                AJP_HEN_COMPONENTS.Add("HenStudio.exe");
                 #endregion  // HEN COMPONENTS (ASSEMBLIES)
 
                 #region LOG LICENSE DATA
