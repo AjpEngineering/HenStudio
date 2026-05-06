@@ -3,9 +3,9 @@
 //##########################################  T H D i a g r a m R e p o . c s  ########################################
 //#####################################################################################################################
 //  FILENAME:  THDiagramRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.RepoImplementations.Pinch.Plots
 //  CLASS(S):  THDiagramRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the THDiagram Profile sub table.
@@ -33,17 +33,19 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterfaces.Pinch.Plots;
+using HenModel.Dto.Pinch.Plots;
 
 using System;
 using System.Collections.Generic;
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.Pinch.Plots
+namespace HenModel.RepoImplementations.Pinch.Plots
 {
     #region public class THDiagramRepo
     /// <summary>
@@ -406,7 +408,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class THDiagramRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.Pinch.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

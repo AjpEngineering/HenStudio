@@ -3,9 +3,9 @@
 //#############################  C o m p o s i t e C u r v e P o i n t I D R e p o . c s  #############################
 //#####################################################################################################################
 //  FILENAME:  CompositeCurvePointIDRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.RepoImplementations.Pinch.Plots
 //  CLASS(S):  CompositeCurvePointIDRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the CompositeCurvePointID Pinch sub table.
@@ -33,16 +33,18 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterfaces.Pinch.Plots;
+using HenModel.Dto.Pinch.Plots;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.Pinch.Plots
+namespace HenModel.RepoImplementations.Pinch.Plots
 {
     #region public class CompositeCurvePointIDRepo
     /// <summary>
@@ -109,7 +111,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class CompositeCurvePointIDRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.Pinch.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

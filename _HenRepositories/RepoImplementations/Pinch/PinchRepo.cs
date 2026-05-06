@@ -3,9 +3,9 @@
 //##############################################  P i n c h R e p o . c s  ############################################
 //#####################################################################################################################
 //  FILENAME:  PinchRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.RepoImplementations.Pinch
 //  CLASS(S):  PinchRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the Pinch top-level table.
@@ -33,16 +33,18 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterfaces.Pinch;
+using HenModel.Dto.Pinch;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.Pinch
+namespace HenModel.RepoImplementations.Pinch
 {
     #region public class PinchRepo
     /// <summary>
@@ -109,7 +111,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class PinchRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.Pinch
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
