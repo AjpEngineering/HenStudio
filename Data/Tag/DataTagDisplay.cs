@@ -44,8 +44,8 @@ using static HenGlobal.HenTypes;
 
 #endregion  // REFERENCES
 
-#region namespace HenStudio
-namespace HenStudio
+#region namespace HenStudio.Data.Tag
+namespace HenStudio.Data.Tag
 {
     #region class DataTagDisplay
     class DataTagDisplay
@@ -128,7 +128,7 @@ namespace HenStudio
     }
     #endregion  // class DataTagDisplay
 }
-#endregion  // namespace HenStudio
+#endregion  // namespace HenStudio.Data.Tag
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

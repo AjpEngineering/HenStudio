@@ -3,7 +3,7 @@
 //######################################  P r o j e c t P a n e l D a t a . c s  ########################################
 //#####################################################################################################################
 //  FILENAME:  ProjectPanelData.cs
-//  NAMESPACE: HenStudio
+//  NAMESPACE: HenStudio.Data.Project
 //  CLASS(S):  ProjectPanelData
 //  COMPONENT: HenStudio.exe
 //=====================================================================================================================
@@ -40,8 +40,8 @@ using System.Text;
 using System.Threading.Tasks;
 #endregion  // REFERENCES
 
-#region namespace HenStudio
-namespace HenStudio
+#region namespace HenStudio.Data.Project
+namespace HenStudio.Data.Project
 {
     #region public class ProjectPanelData
     public class ProjectPanelData
@@ -101,7 +101,7 @@ namespace HenStudio
     }
     #endregion      // public class ProjectPanelData
 }
-#endregion  // namespace HenStudio
+#endregion  // namespace HenStudio.Data.Project
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

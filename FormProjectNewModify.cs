@@ -33,6 +33,8 @@
 #endregion      // HEADER
 
 #region REFERENCES
+
+#region AJP HEN NAMESPACES
 using HenGlobal;
 
 using HenModel.Dto.System;
@@ -48,6 +50,10 @@ using HenViewModel.Project.DefaultParameters.OptimizerParams;
 using HenViewModel.Project.DefaultParameters.ProjectUnits;
 
 using HenStudio.Properties;
+using HenStudio.Data.Project;
+using HenStudio.Data.Tag;
+
+#endregion  // AJP HEN NAMESPACES
 
 using System;
 using System.Collections;
@@ -97,7 +103,7 @@ namespace HenStudio
         public string OrigProjectName { get; set; } // Original Project Name
         public bool NewProjectFlag { get; set; } // NEW PROJECT Flag (true = New Project, false = Modify Project)
         public DefaultProjectSettings NewProjectSettingsObj { get; set; } // NEW PROJECT Settings Object
-        public ProjectPanelData ProjectViewDataObj { get; set; } // Project (Panel) View Data Object
+        public ProjectPanelData ProjectPanelDataObj { get; set; } // Project Panel Data Object
         #endregion  // PROPERTIES
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -117,7 +123,7 @@ namespace HenStudio
             //--- Initialize New Project Settings Property ---
             //------------------------------------------------
             NewProjectSettingsObj = new DefaultProjectSettings();
-            ProjectViewDataObj = new ProjectPanelData();
+            ProjectPanelDataObj = new ProjectPanelData();
 
             InitializeComponent();
 
@@ -190,7 +196,7 @@ namespace HenStudio
             //--- Initialize New Project Settings Property ---
             //------------------------------------------------
             NewProjectSettingsObj = new DefaultProjectSettings();
-            ProjectViewDataObj = projectViewDataObj;
+            ProjectPanelDataObj = projectViewDataObj;
 
             InitializeComponent();
 
@@ -1174,32 +1180,32 @@ namespace HenStudio
                 //---------------------------------------------------------------------
 
                 #region TEXTBOX STRINGS
-                ProjectViewDataObj.Name = this.textBoxProjectNameValue.Text;
-                ProjectViewDataObj.Description = this.textBoxProjectDescriptionValue.Text;
+                ProjectPanelDataObj.Name = this.textBoxProjectNameValue.Text;
+                ProjectPanelDataObj.Description = this.textBoxProjectDescriptionValue.Text;
                 #endregion  // TEXTBOX STRINGS
 
                 #region DEFAULT EXCHANGER PARAMETERS
-                ProjectViewDataObj.ProjectU_Value = textBoxDefaultU_Value.Text;
-                ProjectViewDataObj.ProjectF_Value = textBoxDefaultF_Value.Text;
+                ProjectPanelDataObj.ProjectU_Value = textBoxDefaultU_Value.Text;
+                ProjectPanelDataObj.ProjectF_Value = textBoxDefaultF_Value.Text;
                 #endregion  // DEFAULT EXCHANGER PARAMETERS
 
                 #region DEFAULT HEN OPTIMIZER
-                ProjectViewDataObj.ProjectHenOptimizer = comboBoxDefaultHenOpitimizer.Text;
+                ProjectPanelDataObj.ProjectHenOptimizer = comboBoxDefaultHenOpitimizer.Text;
                 #endregion  // DEFAULT HEN OPTIMIZER
 
                 #region DEFAULT PROJECT UNITS
-                ProjectViewDataObj.ProjectSystem_Units = comboBoxUnitsSystem.Text;
-                ProjectViewDataObj.ProjectMagnitude_Units = comboBoxUnitsMagnitude.Text;
+                ProjectPanelDataObj.ProjectSystem_Units = comboBoxUnitsSystem.Text;
+                ProjectPanelDataObj.ProjectMagnitude_Units = comboBoxUnitsMagnitude.Text;
 
-                ProjectViewDataObj.ProjectTemperature_Units = comboBoxUnitsTemp.Text;
-                ProjectViewDataObj.ProjectPressure_Units = comboBoxUnitsPress.Text;
+                ProjectPanelDataObj.ProjectTemperature_Units = comboBoxUnitsTemp.Text;
+                ProjectPanelDataObj.ProjectPressure_Units = comboBoxUnitsPress.Text;
                 #endregion  // DEFAULT PROJECT UNITS
 
                 #region DERIVED UNITS
-                ProjectViewDataObj.ProjectArea_Units = textBoxUnitsAreaValue.Text;
-                ProjectViewDataObj.ProjectDuty_Units = textBoxUnitsDutyValue.Text;
-                ProjectViewDataObj.ProjectCP_Units = textBoxUnitsCPValue.Text;
-                ProjectViewDataObj.ProjectU_Units = textBoxUnitsUValue.Text;
+                ProjectPanelDataObj.ProjectArea_Units = textBoxUnitsAreaValue.Text;
+                ProjectPanelDataObj.ProjectDuty_Units = textBoxUnitsDutyValue.Text;
+                ProjectPanelDataObj.ProjectCP_Units = textBoxUnitsCPValue.Text;
+                ProjectPanelDataObj.ProjectU_Units = textBoxUnitsUValue.Text;
                 #endregion  // DERIVED UNITS
 
                 //----------------------------------------------------------------------
@@ -1207,7 +1213,7 @@ namespace HenStudio
                 //--- (Based on Original Project Name vs Current Project Name)       ---
                 //----------------------------------------------------------------------
                 if ((NewProjectFlag) ||
-                    ((!NewProjectFlag)&&(ProjectViewDataObj.Name != OrigProjectName)))
+                    ((!NewProjectFlag)&&(ProjectPanelDataObj.Name != OrigProjectName)))
                 {
                     string strProjectName = this.textBoxProjectNameValue.Text.Trim();
                     //---------------------------------------------------------------------------------------------
@@ -1247,7 +1253,7 @@ namespace HenStudio
                     //---------------------------------------------
                     //--- MODIFY PROJECT: Set Modification Date ---
                     //---------------------------------------------
-                    ProjectViewDataObj.ProjectModificationDate = DateTime.Now;
+                    ProjectPanelDataObj.ProjectModificationDate = DateTime.Now;
                 }
             }
             catch (Exception ex)

@@ -92,6 +92,8 @@ using HenViewModel.Hen;
 //using HenViewModel.Hen.Plots;
 
 using HenStudio.Properties;
+using HenStudio.Data.Project;
+using HenStudio.Data.Tag;
 
 #endregion  // AJP HEN NAMESPACES
 
@@ -1911,7 +1913,7 @@ namespace HenStudio
         /// unit-related fields are consistent with the project's configuration.</remarks>
         /// <param name="projectDto">The Project Data Transfer Object containing the source Project information. 
         /// Cannot be null.</param>
-        /// <returns>A ProjectViewData object containing the mapped project details and unit display values derived from the
+        /// <returns>A ProjectPanelData object containing the mapped project details and unit display values derived from the
         /// provided project data.</returns>
         private ProjectPanelData GetProjectViewData(ProjectDto projectDto, 
                                                    ExchangerParamsDto exchangerParamsDto,

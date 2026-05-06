@@ -68,65 +68,65 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Tag\DataTagDisplay.cs" />
-    <Compile Include="Forms\FormAboutPinch.cs">
+    <Compile Include="FormAboutPinch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormAboutPinch.Designer.cs">
+    <Compile Include="FormAboutPinch.Designer.cs">
       <DependentUpon>FormAboutPinch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormBusinessCard.cs">
+    <Compile Include="FormBusinessCard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormBusinessCard.Designer.cs">
+    <Compile Include="FormBusinessCard.Designer.cs">
       <DependentUpon>FormBusinessCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm\FormMain.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm\FormMain.Designer.cs">
+    <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm\FormMain.Explorer.cs">
+    <Compile Include="FormMain.Explorer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormRename.cs">
+    <Compile Include="FormRename.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormRename.Designer.cs">
+    <Compile Include="FormRename.Designer.cs">
       <DependentUpon>FormRename.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormProjectNewModify.cs">
+    <Compile Include="FormProjectNewModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormProjectNewModify.Designer.cs">
+    <Compile Include="FormProjectNewModify.Designer.cs">
       <DependentUpon>FormProjectNewModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormUserLicenseAgreement.cs">
+    <Compile Include="FormUserLicenseAgreement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormUserLicenseAgreement.Designer.cs">
+    <Compile Include="FormUserLicenseAgreement.Designer.cs">
       <DependentUpon>FormUserLicenseAgreement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Data\Project\ProjectPanelData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\FormAboutPinch.resx">
+    <EmbeddedResource Include="FormAboutPinch.resx">
       <DependentUpon>FormAboutPinch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormBusinessCard.resx">
+    <EmbeddedResource Include="FormBusinessCard.resx">
       <DependentUpon>FormBusinessCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm\FormMain.resx">
+    <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormRename.resx">
+    <EmbeddedResource Include="FormRename.resx">
       <DependentUpon>FormRename.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormProjectNewModify.resx">
+    <EmbeddedResource Include="FormProjectNewModify.resx">
       <DependentUpon>FormProjectNewModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormUserLicenseAgreement.resx">
+    <EmbeddedResource Include="FormUserLicenseAgreement.resx">
       <DependentUpon>FormUserLicenseAgreement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

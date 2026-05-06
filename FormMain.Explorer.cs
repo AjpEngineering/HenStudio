@@ -90,6 +90,8 @@ using HenViewModel.Hen;
 //using HenViewModel.Hen.Plots;
 
 using HenStudio.Properties;
+using HenStudio.Data.Project;
+using HenStudio.Data.Tag;
 
 #endregion  // AJP HEN NAMESPACES
 
@@ -841,20 +843,20 @@ namespace HenStudio
                 //-------------------------
                 //--- Update Form Title ---
                 //-------------------------
-                HenSettingsObj.CurrentProjectName = dlg.ProjectViewDataObj.Name;
+                HenSettingsObj.CurrentProjectName = dlg.ProjectPanelDataObj.Name;
                 UpdateProjectNameUI();
 
                 //------------------------------------------------------------------------------
                 //--- Get New Project Name from Dialog and Format Display Name for Tree Node ---
                 //------------------------------------------------------------------------------
-                strDlgName = dlg.ProjectViewDataObj.Name;
+                strDlgName = dlg.ProjectPanelDataObj.Name;
                 strNodeName = string.Format("Project: {0}", strDlgName.Trim());
 
-                //------------------------------------------------------------------
-                //--- Get ProjectDto Object from Panel Data (ProjectViewDataObj) ---
-                //------------------------------------------------------------------
-                //ProjectUnitsDto projectDtoObj = GetProjectDtoFromViewData(dlg.ProjectViewDataObj);
-                //ProjectUnitsDto projectDtoObj = GetProjectDtoFromViewData(dlg.ProjectViewDataObj);
+                //-------------------------------------------------------------------
+                //--- Get ProjectDto Object from Panel Data (ProjectPanelDataObj) ---
+                //-------------------------------------------------------------------
+                //ProjectUnitsDto projectDtoObj = GetProjectDtoFromViewData(dlg.ProjectPanelDataObj);
+                //ProjectUnitsDto projectDtoObj = GetProjectDtoFromViewData(dlg.ProjectPanelDataObj);
 
                 //----------------------------------------------------------------------------------------
                 //--- Add Project to DB and Get Back Project GUID (PK) and Assign to ProjectDto Object ---
@@ -877,8 +879,8 @@ namespace HenStudio
                 //----------------------------------------------------
                 //--- Populate Project Panel with New Project Data ---
                 //----------------------------------------------------
-                dlg.ProjectViewDataObj.Id = projectGUID;     // Assign DATABASE GUID
-                PopulateProjectPanel(dlg.ProjectViewDataObj);
+                dlg.ProjectPanelDataObj.Id = projectGUID;     // Assign DATABASE GUID
+                PopulateProjectPanel(dlg.ProjectPanelDataObj);
 
                 //------------------------------
                 //--- Set Project Dirty Flag ---
