@@ -72,7 +72,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
         #endregion      // CTOR
 
         #region METHODS
-        public IList<OptimizerGreedyDto> GetHenOptimizerGreedys()
+        public IList<OptimizerGreedyDto> GetOptimizerGreedys()
         {
             throw new NotImplementedException();
         }

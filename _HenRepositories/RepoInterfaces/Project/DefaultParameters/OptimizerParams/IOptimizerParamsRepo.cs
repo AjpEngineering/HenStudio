@@ -49,13 +49,13 @@ namespace HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
     public interface IOptimizerParamsRepo
     {
         #region METHODS
-        IList<OptimizerParamsDto> GetHenOptimizers();
-        IList<OptimizerParamsDto> GetHenOptimizersByProjectId(Guid projectId);
-        OptimizerParamsDto GetHenOptimizerById(Guid henOptimizerId);
-        OptimizerParamsDto GetHenOptimizerByName(Guid projectId, string name);
-        Guid AddHenOptimizer(OptimizerParamsDto henOptimizerDto);
-        void UpdateHenOptimizer(OptimizerParamsDto henOptimizerDto);
-        void DeleteHenOptimizer(Guid henOptimizerId);
+        IList<OptimizerParamsDto> GetOptimizerParams();
+        IList<OptimizerParamsDto> GetOptimizerParamsByProjectId(Guid projectId);
+        OptimizerParamsDto GetOptimizerParamById(Guid optimizerParamId);
+        OptimizerParamsDto GetOptimizerParamByName(Guid projectId, string name);
+        Guid AddOptimizerParam(OptimizerParamsDto optimizerParamDto);
+        void UpdateOptimizerParam(OptimizerParamsDto optimizerParamDto);
+        void DeleteOptimizerParam(Guid optimizerParamId);
         #endregion      // METHODS
     }
     #endregion      // public interface IOptimizerParamsRepo
