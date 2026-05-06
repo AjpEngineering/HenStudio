@@ -41,17 +41,57 @@
 
 #region REFERENCES
 
+#region AJP HEN NAMESPACES
 using HenGlobal;
 
-using HenPersistence.Connection;
-using HenPersistence.Repos;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
 
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Dto;
+using HenModel.Dto.System;
 
-using HenViewModels;
+using HenModel.Dto.Project;
+using HenModel.Dto.Project.CostParameters;
+using HenModel.Dto.Project.DefaultParameters;
+using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
+using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
+
+using HenModel.Dto.Profile;
+
+using HenModel.Dto.Pinch;
+using HenModel.Dto.Pinch.Plots;
+
+using HenModel.Dto.Hen;
+using HenModel.Dto.Hen.Plots;
+
+using HenModel.RepoImplementations.System;
+using HenModel.RepoImplementations.Project;
+using HenModel.RepoImplementations.Profile;
+using HenModel.RepoImplementations.Pinch;
+using HenModel.RepoImplementations.Hen;
+
+using HenViewModel;
+using HenViewModel.System;
+
+using HenViewModel.Project;
+using HenViewModel.Project.CostParameters;
+using HenViewModel.Project.DefaultParameters;
+using HenViewModel.Project.DefaultParameters.ExchangerParams;
+using HenViewModel.Project.DefaultParameters.OptimizerParams;
+using HenViewModel.Project.DefaultParameters.ProjectUnits;
+
+using HenViewModel.Profile;
+
+using HenViewModel.Pinch;
+using HenViewModel.Pinch.Plots;
+
+using HenViewModel.Hen;
+//using HenViewModel.Hen.Plots;
 
 using HenStudio.Properties;
+
+#endregion  // AJP HEN NAMESPACES
 
 using System;
 using System.Collections.Generic;
