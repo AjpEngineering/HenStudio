@@ -3,9 +3,9 @@
 //######################################  P r o j e c t V i e w M o d e l . c s  ######################################
 //#####################################################################################################################
 //  FILENAME:  ProjectViewModel.cs
-//  NAMESPACE: HenViewModels
+//  NAMESPACE: HenViewModel
 //  CLASS(S):  ProjectViewModel
-//  COMPONENT: _HenViewModels.dll
+//  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the view model class for the Project top-level DTO.
@@ -35,17 +35,16 @@
 #region REFERENCES
 using HenGlobal;
 
-using HenRepositories.Dto;
-
-using HenPersistence.Repos;
-using HenPersistence.Connection;
+using HenModel.Connection;
+using HenModel.Dto.Project;
+using HenModel.RepoImplementations.Project;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModels
-namespace HenViewModels
+#region namespace HenViewModel
+namespace HenViewModel
 {
     #region public class ProjectViewModel
     /// <summary>
@@ -308,7 +307,7 @@ namespace HenViewModels
     #endregion      // public class ProjectViewModel
 
 }
-#endregion      // namespace HenViewModels
+#endregion      // namespace HenViewModel
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

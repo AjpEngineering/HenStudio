@@ -78,32 +78,32 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
             throw new NotImplementedException();
         }
 
-        public IList<OptimizerParamsDto> GetOptimizerParamsByProjectId(Guid projectId)
+        public OptimizerParamsDto GetOptimizerParamsByProjectId(Guid projectId)
         {
             throw new NotImplementedException();
         }
 
-        public OptimizerParamsDto GetOptimizerParamById(Guid optimizerParamId)
+        public OptimizerParamsDto GetOptimizerParamsById(Guid optimizerParamId)
         {
             throw new NotImplementedException();
         }
 
-        public OptimizerParamsDto GetOptimizerParamByName(Guid projectId, string name)
+        public OptimizerParamsDto GetOptimizerParamsByName(Guid projectId, string name)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddOptimizerParam(OptimizerParamsDto optimizerParamDto)
+        public Guid AddOptimizerParams(OptimizerParamsDto optimizerParamsDto)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateOptimizerParam(OptimizerParamsDto optimizerParamDto)
+        public void UpdateOptimizerParams(OptimizerParamsDto optimizerParamsDto)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteOptimizerParam(Guid optimizerParamId)
+        public void DeleteOptimizerParams(Guid optimizerParamsId)
         {
             throw new NotImplementedException();
         }

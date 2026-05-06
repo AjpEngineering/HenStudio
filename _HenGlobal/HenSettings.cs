@@ -46,7 +46,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using HenRepositories.Dto;
+using HenModel.Dto;
+using HenModel.Dto.Hen;
+using HenModel.Dto.Pinch;
+using HenModel.Dto.Profile;
+
+using HenModel.Dto.Project;
+using HenModel.Dto.Project.CostParameters;
+using HenModel.Dto.Project.DefaultParameters;
+using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
+using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
+
+using HenModel.Dto.System;
 
 using static HenGlobal.HenTypes;
 #endregion  // REFERENCES

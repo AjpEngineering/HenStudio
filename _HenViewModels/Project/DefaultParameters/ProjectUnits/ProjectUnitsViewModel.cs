@@ -3,9 +3,9 @@
 //#################################  P r o j e c t U n i t s V i e w M o d e l . c s  #################################
 //#####################################################################################################################
 //  FILENAME:  ProjectUnitsViewModel.cs
-//  NAMESPACE: HenViewModels
+//  NAMESPACE: HenViewModel.Project.DefaultParameters.ProjectUnits
 //  CLASS(S):  ProjectUnitsViewModel
-//  COMPONENT: _HenViewModels.dll
+//  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the view model class for the Project Units DTO.
@@ -35,23 +35,22 @@
 #region REFERENCES
 using HenGlobal;
 
-using HenRepositories.Dto;
-
-using HenPersistence.Repos;
-using HenPersistence.Connection;
+using HenModel.Connection;
+using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
+using HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModels
-namespace HenViewModels
+#region namespace HenViewModel.Project.DefaultParameters.ProjectUnits
+namespace HenViewModel.Project.DefaultParameters.ProjectUnits
 {
     #region public class ProjectUnitsViewModel
     /// <summary>
-    /// Project view model class.
+    /// Project Units View Model class.
     /// </summary>
-    public class ProjectUnitsViewModel : ViewModelBase
+    public class OptimizerParamsViewModel : ViewModelBase
     {
         #region PROPERTIES
         public ProjectUnitsRepo ProjectUnitsRepoObj { get; set; }
@@ -61,7 +60,7 @@ namespace HenViewModels
         /// <summary>
         /// Default CTOR
         /// </summary>
-        public ProjectUnitsViewModel()
+        public OptimizerParamsViewModel()
         {
             var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
             var projectUnitsRepoObj = new ProjectUnitsRepo(connFactoryObj);
@@ -85,23 +84,23 @@ namespace HenViewModels
         /// Returns null if no Project is found.</returns>
         public ProjectUnitsDto GetProjectUnitsByProjectId(Guid projectId)
         {
-            ProjectUnitsDto externalProject = new ProjectUnitsDto();
+            ProjectUnitsDto externalProjectUnitsDto = new ProjectUnitsDto();
             try
             {
                 //-------------------------------------------------------------------------
                 //--- Retrieve Project Dto from the Database using the Repository layer ---
                 //-------------------------------------------------------------------------
-                ProjectUnitsDto internalProject = ProjectUnitsRepoObj.GetProjectUnitsByProjectId(projectId);     // Retrieved Project Dto [INTERNAL Units]
+                ProjectUnitsDto internalProjectUnits = ProjectUnitsRepoObj.GetProjectUnitsByProjectId(projectId);     // Retrieved Project Dto [INTERNAL Units]
 
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalProject.Id = internalProject.Id;
-                externalProject.ProjectId = internalProject.ProjectId;
-                externalProject.DefaultSystemUnits = internalProject.DefaultSystemUnits;
-                externalProject.DefaultMagnitudeUnits = internalProject.DefaultMagnitudeUnits;
-                externalProject.DefaultTemperatureUnits = internalProject.DefaultTemperatureUnits;
-                externalProject.DefaultPressureUnits = internalProject.DefaultPressureUnits;
+                externalProjectUnitsDto.Id = internalProjectUnits.Id;
+                externalProjectUnitsDto.ProjectId = internalProjectUnits.ProjectId;
+                externalProjectUnitsDto.DefaultSystemUnits = internalProjectUnits.DefaultSystemUnits;
+                externalProjectUnitsDto.DefaultMagnitudeUnits = internalProjectUnits.DefaultMagnitudeUnits;
+                externalProjectUnitsDto.DefaultTemperatureUnits = internalProjectUnits.DefaultTemperatureUnits;
+                externalProjectUnitsDto.DefaultPressureUnits = internalProjectUnits.DefaultPressureUnits;
             }
             catch (Exception ex)
             {
@@ -110,7 +109,7 @@ namespace HenViewModels
                 return null; // Return null if an error occurs
             }
 
-            return externalProject;
+            return externalProjectUnitsDto;
         }
         #endregion  // GetProjectUnitsByProjectId(Guid projectId)
 
@@ -223,7 +222,7 @@ namespace HenViewModels
     #endregion      // public class ProjectUnitsViewModel
 
 }
-#endregion      // namespace HenViewModels
+#endregion      // namespace HenViewModel.Project.DefaultParameters.ProjectUnits
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

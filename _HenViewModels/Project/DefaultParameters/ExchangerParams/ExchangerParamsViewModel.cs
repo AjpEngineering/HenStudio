@@ -3,7 +3,7 @@
 //#####################  E x c h a n g e r P a r a m s V i e w M o d e l V i e w M o d e l . c s  #####################
 //#####################################################################################################################
 //  FILENAME:  ExchangerParamsViewModel.cs
-//  NAMESPACE: HenViewModels
+//  NAMESPACE: HenViewModel.Project.DefaultParameters.ExchangerParams
 //  CLASS(S):  ExchangerParamsViewModel
 //  COMPONENT: _HenViewModels.dll
 //=====================================================================================================================
@@ -35,17 +35,17 @@
 #region REFERENCES
 using HenGlobal;
 
-using HenRepositories.Dto;
 
-using HenPersistence.Repos;
-using HenPersistence.Connection;
+using HenModel.Connection;
+using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
+using HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModels
-namespace HenViewModels
+#region namespace HenViewModel.Project.DefaultParameters.ExchangerParams
+namespace HenViewModel.Project.DefaultParameters.ExchangerParams
 {
     #region public class ExchangerParamsViewModel
     /// <summary>
@@ -227,7 +227,7 @@ namespace HenViewModels
     #endregion      // public class ExchangerParamsViewModel
 
 }
-#endregion      // namespace HenViewModels
+#endregion      // namespace HenViewModel.Project.DefaultParameters.ExchangerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

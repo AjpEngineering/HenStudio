@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Project\DefaultParameters\ExchangerParams\ExchangerParamsViewModel.cs" />
+    <Compile Include="Project\DefaultParameters\OptimizerParams\OptimizerParamsViewModel.cs" />
     <Compile Include="Project\DefaultParameters\ProjectUnits\ProjectUnitsViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="Project\DefaultParameters\ProjectViewModel.cs" />
@@ -72,8 +73,6 @@
       <Name>_HenModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Project\DefaultParameters\OptimizerParams\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,7 +3,7 @@
 //############################################  P r o j e c t R e p o . c s  ##########################################
 //#####################################################################################################################
 //  FILENAME:  ProjectRepo.cs
-//  NAMESPACE: HenModel.ReposImplementations.Project
+//  NAMESPACE: HenModel.RepoImplementations.Project
 //  CLASS(S):  ProjectRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -43,8 +43,8 @@ using System.Collections.Generic;
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenModel.ReposImplementations.Project
-namespace HenModel.ReposImplementations.Project
+#region namespace HenModel.RepoImplementations.Project
+namespace HenModel.RepoImplementations.Project
 {
     #region public class ProjectRepo
     /// <summary>
@@ -397,7 +397,7 @@ namespace HenModel.ReposImplementations.Project
     }
     #endregion      // public class ProjectRepo
 }
-#endregion      // namespace HenModel.ReposImplementations.Project
+#endregion      // namespace HenModel.RepoImplementations.Project
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

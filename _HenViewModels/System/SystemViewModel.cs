@@ -3,9 +3,9 @@
 //########################################  S y s t e m V i e w M o d e l . c s  ######################################
 //#####################################################################################################################
 //  FILENAME:  SystemViewModel.cs
-//  NAMESPACE: HenViewModels
+//  NAMESPACE: HenViewModel
 //  CLASS(S):  SystemViewModel
-//  COMPONENT: _HenViewModels.dll
+//  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the view model class for the system DTO objects.
@@ -33,18 +33,15 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Connection;
-using HenPersistence.Repos;
-
-using HenRepositories.Dto;
+using HenModel.Connection;
+using HenModel.Dto.System;
 
 using System;
-
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModels
-namespace HenViewModels
+#region namespace HenViewModel
+namespace HenViewModel
 {
     #region public class SystemViewModel
     /// <summary>
@@ -152,7 +149,7 @@ namespace HenViewModels
     }
     #endregion      // public class SystemViewModel
 }
-#endregion      // namespace HenViewModels
+#endregion      // namespace HenViewModel
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

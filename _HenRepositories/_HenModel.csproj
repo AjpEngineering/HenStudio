@@ -65,7 +65,7 @@
     <Compile Include="RepoInterfaces\Project\CostParameters\IShellAndTubeCapitalCostRepo.cs" />
     <Compile Include="RepoInterfaces\Project\DefaultParameters\ExchangerParams\IExchangerParamsRepo.cs" />
     <Compile Include="RepoInterfaces\Project\IProjectRepo.cs" />
-    <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IOptimizerParamsRepo.cs" />
+    <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IOptimizerParamRepo.cs" />
     <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IOptimizerGeneticRepo.cs" />
     <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IOptimizerGreedyRepo.cs" />
     <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IOptimizerMILP_Repo.cs" />

@@ -3,9 +3,9 @@
 //########################################  V i e w M o d e l B a s e . c s  ##########################################
 //#####################################################################################################################
 //  FILENAME:  ViewModelBase.cs
-//  NAMESPACE: HenViewModels
+//  NAMESPACE: HenViewModel
 //  CLASS(S):  ViewModelBase
-//  COMPONENT: _HenViewModels.dll
+//  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the base class for HEN Studio view model classes.
@@ -42,8 +42,8 @@ using System.Collections.Generic;
 #endregion      // REFERENCES
 
 
-#region namespace HenViewModels
-namespace HenViewModels
+#region namespace HenViewModel
+namespace HenViewModel
 {
     #region public abstract class ViewModelBase
     /// <summary>
@@ -1208,7 +1208,7 @@ namespace HenViewModels
     }
     #endregion      // public abstract class ViewModelBase
 }
-#endregion      // namespace HenViewModels
+#endregion      // namespace HenViewModel
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

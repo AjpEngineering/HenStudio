@@ -33,7 +33,11 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Hen;
+using HenModel.Dto.Hen.Plots;
+
+//using HenModel.RepoImplementations.Hen;
+
 #endregion      // REFERENCES
 
 #region namespace HenViewModels
@@ -47,6 +51,7 @@ namespace HenViewModels
     {
         #region PROPERTIES
         public HenDto Hen { get; set; }
+        public ExchangerDto Exchanger { get; set; }
         #endregion      // PROPERTIES
     }
     #endregion      // public class HenViewModel
