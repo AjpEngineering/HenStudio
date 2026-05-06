@@ -40,7 +40,7 @@ using System.Collections.Generic;
 #endregion      // REFERENCES
 
 #region namespace HenModel.RepoInterfaces.Pinch.Plots
-namespace HHenModel.RepoInterfaces.Pinch.Plots
+namespace HenModel.RepoInterfaces.Pinch.Plots
 {
     #region public interface IGrandCompositeCurvePointIDRepo
     /// <summary>
