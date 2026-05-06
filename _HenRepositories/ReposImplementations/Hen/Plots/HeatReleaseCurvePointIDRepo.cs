@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//##########################  I H e a t R e l e a s e C u r v e P o i n t I D R e p o . c s  ##########################
+//###########################  H e a t R e l e a s e C u r v e P o i n t I D R e p o . c s  ###########################
 //#####################################################################################################################
-//  FILENAME:  IHeatReleaseCurvePointIDRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IHeatReleaseCurvePointIDRepo
-//  COMPONENT: _HenRepositories.dll
+//  FILENAME:  HeatReleaseCurvePointIDRepo.cs
+//  NAMESPACE: HenModel.ReposImplementaions.Hen.Plots
+//  CLASS(S):  HeatReleaseCurvePointIDRepo
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the HeatReleaseCurvePointID Hen sub table.
+//    This file contains the concrete repo implementation stub for the HeatReleaseCurvePointID Hen sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,34 +33,85 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterface.Hen.Plots;
+using HenModel.Dto.Hen.Plots;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.ReposImplementaions.Hen.Plots
+namespace HenModel.ReposImplementaions.Hen.Plots
 {
-    #region public interface IHeatReleaseCurvePointIDRepo
+    #region public class HeatReleaseCurvePointIDRepo
     /// <summary>
-    /// HeatReleaseCurvePointID Repo Interface
+    /// HeatReleaseCurvePointID Repo Class
     /// </summary>
-    public interface IHeatReleaseCurvePointIDRepo
+    public class HeatReleaseCurvePointIDRepo : IHeatReleaseCurvePointIDRepo
     {
+        #region PRIVATE FIELDS
+        private readonly IDbConnectionFactory _connectionFactory;
+        #endregion      // PRIVATE FIELDS
+
+        #region CTOR
+        /// <summary>
+        /// Parameterized Constructor
+        /// </summary>
+        /// <param name="connectionFactory">Database connection factory.</param>
+        public HeatReleaseCurvePointIDRepo(IDbConnectionFactory connectionFactory)
+        {
+            if (connectionFactory == null)
+            {
+                throw new ArgumentNullException(nameof(connectionFactory));
+            }
+
+            _connectionFactory = connectionFactory;
+        }
+        #endregion      // CTOR
+
         #region METHODS
-        IList<HeatReleaseCurvePointIDDto> GetHeatReleaseCurvePointIDs();
-        IList<HeatReleaseCurvePointIDDto> GetHeatReleaseCurvePointIDsByHeatReleaseCurveId(Guid heatReleaseCurveId);
-        HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDById(Guid heatReleaseCurvePointId);
-        HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDByPointSequence(Guid heatReleaseCurveId, int pointSequence);
-        Guid AddHeatReleaseCurvePointID(HeatReleaseCurvePointIDDto heatReleaseCurvePointIdDto);
-        void UpdateHeatReleaseCurvePointID(HeatReleaseCurvePointIDDto heatReleaseCurvePointIdDto);
-        void DeleteHeatReleaseCurvePointID(Guid heatReleaseCurvePointId);
+        public IList<HeatReleaseCurvePointIDDto> GetHeatReleaseCurvePointIDs()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<HeatReleaseCurvePointIDDto> GetHeatReleaseCurvePointIDsByHeatReleaseCurveId(Guid heatReleaseCurveId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDById(Guid heatReleaseCurvePointId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDByPointSequence(Guid heatReleaseCurveId, int pointSequence)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Guid AddHeatReleaseCurvePointID(HeatReleaseCurvePointIDDto heatReleaseCurvePointIdDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateHeatReleaseCurvePointID(HeatReleaseCurvePointIDDto heatReleaseCurvePointIdDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteHeatReleaseCurvePointID(Guid heatReleaseCurvePointId)
+        {
+            throw new NotImplementedException();
+        }
         #endregion      // METHODS
     }
-    #endregion      // public interface IHeatReleaseCurvePointIDRepo
+    #endregion      // public class HeatReleaseCurvePointIDRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.ReposImplementaions.Hen.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -3,9 +3,9 @@
 //########################################  I T H D i a g r a m R e p o . c s  ########################################
 //#####################################################################################################################
 //  FILENAME:  ITHDiagramRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterfaces.Pinch.Plots
 //  INTERFACE: ITHDiagramRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repo interface for the THDiagram Profile sub table.
@@ -33,14 +33,14 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Pinch.Plots;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.Pinch.Plots
+namespace HenModel.RepoInterfaces.Pinch.Plots
 {
     #region public interface ITHDiagramRepo
     /// <summary>
@@ -60,7 +60,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface ITHDiagramRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.Pinch.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

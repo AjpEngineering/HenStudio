@@ -3,9 +3,9 @@
 //##############################################  I H e n R e p o . c s  ##############################################
 //#####################################################################################################################
 //  FILENAME:  IHenRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterface.Hen
 //  INTERFACE: IHenRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repository interface for the Hen top-level table.
@@ -33,14 +33,14 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Hen;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterface.Hen
+namespace HenModel.RepoInterface.Hen
 {
     #region public interface IHenRepo
     /// <summary>
@@ -60,7 +60,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface IHenRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterface.Hen
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

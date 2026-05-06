@@ -3,7 +3,7 @@
 //#################################  G r i d D i a g r a m P o i n t I D D t o . c s  ################################
 //#####################################################################################################################
 //  FILENAME:  GridDiagramPointIDDto.cs
-//  NAMESPACE: HenModel.Dto.Hen
+//  NAMESPACE: HenModel.Dto.Hen.Plots
 //  CLASS(S):  GridDiagramPointIDDto
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Hen
-namespace HenModel.Dto.Hen
+#region namespace HenModel.Dto.Hen.Plots
+namespace HenModel.Dto.Hen.Plots
 {
     #region public class GridDiagramPointIDDto
     /// <summary>
@@ -56,7 +56,7 @@ namespace HenModel.Dto.Hen
     }
     #endregion      // public class GridDiagramPointIDDto
 }
-#endregion      // namespace HenModel.Dto.Hen
+#endregion      // namespace HenModel.Dto.Hen.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

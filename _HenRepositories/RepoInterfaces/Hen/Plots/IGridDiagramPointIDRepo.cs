@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//################################  I H e a t R e l e a s e C u r v e R e p o . c s  ##################################
+//###############################  I G r i d D i a g r a m P o i n t I D R e p o . c s  ###############################
 //#####################################################################################################################
-//  FILENAME:  IHeatReleaseCurveRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IHeatReleaseCurveRepo
-//  COMPONENT: _HenRepositories.dll
+//  FILENAME:  IGridDiagramPointIDRepo.cs
+//  NAMESPACE: HenModel.RepoInterface.Hen.Plots
+//  INTERFACE: IGridDiagramPointIDRepo
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the HeatReleaseCurve Hen sub table.
+//    This file contains the repo interface for the GridDiagramPointID Hen sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,34 +33,34 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Hen.Plots;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterface.Hen.Plots
+namespace HenModel.RepoInterface.Hen.Plots
 {
-    #region public interface IHeatReleaseCurveRepo
+    #region public interface IGridDiagramPointIDRepo
     /// <summary>
-    /// HeatReleaseCurve Repo Interface
+    /// GridDiagramPointID Repo Interface
     /// </summary>
-    public interface IHeatReleaseCurveRepo
+    public interface IGridDiagramPointIDRepo
     {
         #region METHODS
-        IList<HeatReleaseCurveDto> GetHeatReleaseCurves();
-        IList<HeatReleaseCurveDto> GetHeatReleaseCurvesByExchangerId(Guid exchangerId);
-        HeatReleaseCurveDto GetHeatReleaseCurveById(Guid heatReleaseCurveId);
-        HeatReleaseCurveDto GetHeatReleaseCurveByTitle(Guid exchangerId, string title);
-        Guid AddHeatReleaseCurve(HeatReleaseCurveDto heatReleaseCurveDto);
-        void UpdateHeatReleaseCurve(HeatReleaseCurveDto heatReleaseCurveDto);
-        void DeleteHeatReleaseCurve(Guid heatReleaseCurveId);
+        IList<GridDiagramPointIDDto> GetGridDiagramPointIDs();
+        IList<GridDiagramPointIDDto> GetGridDiagramPointIDsByGridDiagramId(Guid gridDiagramId);
+        GridDiagramPointIDDto GetGridDiagramPointIDById(Guid gridDiagramPointId);
+        GridDiagramPointIDDto GetGridDiagramPointIDByPointSequence(Guid gridDiagramId, int pointSequence);
+        Guid AddGridDiagramPointID(GridDiagramPointIDDto gridDiagramPointIdDto);
+        void UpdateGridDiagramPointID(GridDiagramPointIDDto gridDiagramPointIdDto);
+        void DeleteGridDiagramPointID(Guid gridDiagramPointId);
         #endregion      // METHODS
     }
-    #endregion      // public interface IHeatReleaseCurveRepo
+    #endregion      // public interface IGridDiagramPointIDRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterface.Hen.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

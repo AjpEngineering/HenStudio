@@ -36,7 +36,7 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespaceHenModel.Dto.Hen
+#region namespace HenModel.Dto.Hen
 namespace HenModel.Dto.Hen
 {
     #region public class ExchangerDto

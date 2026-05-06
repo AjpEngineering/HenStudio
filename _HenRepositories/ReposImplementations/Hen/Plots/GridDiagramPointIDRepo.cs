@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//###############################  I G r i d D i a g r a m P o i n t I D R e p o . c s  ###############################
+//###############################  G r i d D i a g r a m P o i n t I D R e p o . c s  #################################
 //#####################################################################################################################
-//  FILENAME:  IGridDiagramPointIDRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
-//  INTERFACE: IGridDiagramPointIDRepo
-//  COMPONENT: _HenRepositories.dll
+//  FILENAME:  GridDiagramPointIDRepo.cs
+//  NAMESPACE: HenModel.ReposImplementaions.Hen.Plots
+//  CLASS(S):  GridDiagramPointIDRepo
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the GridDiagramPointID Hen sub table.
+//    This file contains the concrete repo implementation stub for the GridDiagramPointID Hen sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,34 +33,85 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterface.Hen.Plots;
+using HenModel.Dto.Hen.Plots;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.ReposImplementaions.Hen.Plots
+namespace HenModel.ReposImplementaions.Hen.Plots
 {
-    #region public interface IGridDiagramPointIDRepo
+    #region public class GridDiagramPointIDRepo
     /// <summary>
-    /// GridDiagramPointID Repo Interface
+    /// GridDiagramPointID Repo Class
     /// </summary>
-    public interface IGridDiagramPointIDRepo
+    public class GridDiagramPointIDRepo : IGridDiagramPointIDRepo
     {
+        #region PRIVATE FIELDS
+        private readonly IDbConnectionFactory _connectionFactory;
+        #endregion      // PRIVATE FIELDS
+
+        #region CTOR
+        /// <summary>
+        /// Parameterized Constructor
+        /// </summary>
+        /// <param name="connectionFactory">Database connection factory.</param>
+        public GridDiagramPointIDRepo(IDbConnectionFactory connectionFactory)
+        {
+            if (connectionFactory == null)
+            {
+                throw new ArgumentNullException(nameof(connectionFactory));
+            }
+
+            _connectionFactory = connectionFactory;
+        }
+        #endregion      // CTOR
+
         #region METHODS
-        IList<GridDiagramPointIDDto> GetGridDiagramPointIDs();
-        IList<GridDiagramPointIDDto> GetGridDiagramPointIDsByGridDiagramId(Guid gridDiagramId);
-        GridDiagramPointIDDto GetGridDiagramPointIDById(Guid gridDiagramPointId);
-        GridDiagramPointIDDto GetGridDiagramPointIDByPointSequence(Guid gridDiagramId, int pointSequence);
-        Guid AddGridDiagramPointID(GridDiagramPointIDDto gridDiagramPointIdDto);
-        void UpdateGridDiagramPointID(GridDiagramPointIDDto gridDiagramPointIdDto);
-        void DeleteGridDiagramPointID(Guid gridDiagramPointId);
+        public IList<GridDiagramPointIDDto> GetGridDiagramPointIDs()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<GridDiagramPointIDDto> GetGridDiagramPointIDsByGridDiagramId(Guid gridDiagramId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GridDiagramPointIDDto GetGridDiagramPointIDById(Guid gridDiagramPointId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GridDiagramPointIDDto GetGridDiagramPointIDByPointSequence(Guid gridDiagramId, int pointSequence)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Guid AddGridDiagramPointID(GridDiagramPointIDDto gridDiagramPointIdDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateGridDiagramPointID(GridDiagramPointIDDto gridDiagramPointIdDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteGridDiagramPointID(Guid gridDiagramPointId)
+        {
+            throw new NotImplementedException();
+        }
         #endregion      // METHODS
     }
-    #endregion      // public interface IGridDiagramPointIDRepo
+    #endregion      // public class GridDiagramPointIDRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.ReposImplementaions.Hen.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

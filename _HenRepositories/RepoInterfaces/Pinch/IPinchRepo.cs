@@ -3,9 +3,9 @@
 //##############################################  I P i n c h R e p o . c s  ###########################################
 //#####################################################################################################################
 //  FILENAME:  IPinchRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterfaces.Pinch
 //  INTERFACE: IPinchRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repository interface for the Pinch top-level table.
@@ -33,14 +33,14 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Pinch;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.Pinch
+namespace HenModel.RepoInterfaces.Pinch
 {
     #region public interface IPinchRepo
     /// <summary>
@@ -60,7 +60,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface IPinchRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.Pinch
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

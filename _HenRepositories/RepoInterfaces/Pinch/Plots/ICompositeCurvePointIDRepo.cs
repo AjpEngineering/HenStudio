@@ -3,9 +3,9 @@
 //###########################  I C o m p o s i t e C u r v e P o i n t I D R e p o . c s  #############################
 //#####################################################################################################################
 //  FILENAME:  ICompositeCurvePointIDRepo.cs
-//  NAMESPACE: HenRepositories.Interfaces
+//  NAMESPACE: HenModel.RepoInterfaces.Pinch.Plots
 //  INTERFACE: ICompositeCurvePointIDRepo
-//  COMPONENT: _HenRepositories.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the repo interface for the CompositeCurvePointID Pinch sub table.
@@ -33,14 +33,14 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+using HenModel.Dto.Pinch.Plots;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenRepositories.Interfaces
-namespace HenRepositories.Interfaces
+#region namespace HenModel.RepoInterfaces.Pinch.Plots
+namespace HenModel.RepoInterfaces.Pinch.Plots
 {
     #region public interface ICompositeCurvePointIDRepo
     /// <summary>
@@ -60,7 +60,7 @@ namespace HenRepositories.Interfaces
     }
     #endregion      // public interface ICompositeCurvePointIDRepo
 }
-#endregion      // namespace HenRepositories.Interfaces
+#endregion      // namespace HenModel.RepoInterfaces.Pinch.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

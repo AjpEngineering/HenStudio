@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//#########################################  G r i d D i a g r a m D t o . c s  #######################################
+//#####################################  H e a t R e l e a s e C u r v e D t o . c s  #################################
 //#####################################################################################################################
-//  FILENAME:  GridDiagramDto.cs
-//  NAMESPACE: HenModel.Dto.Hen
-//  CLASS(S):  GridDiagramDto
+//  FILENAME:  HeatReleaseCurveDto.cs
+//  NAMESPACE: HenModel.Dto.Hen.Plots
+//  CLASS(S):  HeatReleaseCurveDto
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the GridDiagram Hen sub table.
+//    This file contains the DTO class for the HeatReleaseCurve Hen sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -36,24 +36,26 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Hen
-namespace HenModel.Dto.Hen
+#region namespace HenModel.Dto.Hen.Plots
+namespace HenModel.Dto.Hen.Plots
 {
-    #region public class GridDiagramDto
+    #region public class HeatReleaseCurveDto
     /// <summary>
-    /// GridDiagram DTO Class
+    /// HeatReleaseCurve DTO Class
     /// </summary>
-    public class GridDiagramDto
+    public class HeatReleaseCurveDto
     {
         #region PROPERTIES
         public Guid Id { get; set; }
-        public Guid HenId { get; set; }
+        public Guid ExchangerId { get; set; }
         public string Title { get; set; }
+        public string XAxisLabel { get; set; }
+        public string YAxisLabel { get; set; }
         #endregion      // PROPERTIES
     }
-    #endregion      // public class GridDiagramDto
+    #endregion      // public class HeatReleaseCurveDto
 }
-#endregion      // namespace HenModel.Dto.Hen
+#endregion      // namespace HenModel.Dto.Hen.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

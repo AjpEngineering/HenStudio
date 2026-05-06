@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//########################################  G r i d D i a g r a m R e p o . c s  ######################################
+//################################  I H e a t R e l e a s e C u r v e R e p o . c s  ##################################
 //#####################################################################################################################
-//  FILENAME:  GridDiagramRepo.cs
-//  NAMESPACE: HenPersistence.Repos
-//  CLASS(S):  GridDiagramRepo
-//  COMPONENT: _HenPersistence.dll
+//  FILENAME:  IHeatReleaseCurveRepo.cs
+//  NAMESPACE: HenModel.RepoInterfaces.Hen.Plots
+//  INTERFACE: IHeatReleaseCurveRepo
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the GridDiagram Hen sub table.
+//    This file contains the repo interface for the HeatReleaseCurve Hen sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,83 +33,34 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Dto.Hen.Plots;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoInterface.Hen.Plots
+namespace HenModel.RepoInterface.Hen.Plots
 {
-    #region public class GridDiagramRepo
+    #region public interface IHeatReleaseCurveRepo
     /// <summary>
-    /// GridDiagram Repo Class
+    /// HeatReleaseCurve Repo Interface
     /// </summary>
-    public class GridDiagramRepo : IGridDiagramRepo
+    public interface IHeatReleaseCurveRepo
     {
-        #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
-        #endregion      // PRIVATE FIELDS
-
-        #region CTOR
-        /// <summary>
-        /// Parameterized Constructor
-        /// </summary>
-        /// <param name="connectionFactory">Database connection factory.</param>
-        public GridDiagramRepo(IDbConnectionFactory connectionFactory)
-        {
-            if (connectionFactory == null)
-            {
-                throw new ArgumentNullException(nameof(connectionFactory));
-            }
-
-            _connectionFactory = connectionFactory;
-        }
-        #endregion      // CTOR
-
         #region METHODS
-        public IList<GridDiagramDto> GetGridDiagrams()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<GridDiagramDto> GetGridDiagramsByHenId(Guid henId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GridDiagramDto GetGridDiagramById(Guid gridDiagramId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GridDiagramDto GetGridDiagramByTitle(Guid henId, string title)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Guid AddGridDiagram(GridDiagramDto gridDiagramDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateGridDiagram(GridDiagramDto gridDiagramDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteGridDiagram(Guid gridDiagramId)
-        {
-            throw new NotImplementedException();
-        }
+        IList<HeatReleaseCurveDto> GetHeatReleaseCurves();
+        IList<HeatReleaseCurveDto> GetHeatReleaseCurvesByExchangerId(Guid exchangerId);
+        HeatReleaseCurveDto GetHeatReleaseCurveById(Guid heatReleaseCurveId);
+        HeatReleaseCurveDto GetHeatReleaseCurveByTitle(Guid exchangerId, string title);
+        Guid AddHeatReleaseCurve(HeatReleaseCurveDto heatReleaseCurveDto);
+        void UpdateHeatReleaseCurve(HeatReleaseCurveDto heatReleaseCurveDto);
+        void DeleteHeatReleaseCurve(Guid heatReleaseCurveId);
         #endregion      // METHODS
     }
-    #endregion      // public class GridDiagramRepo
+    #endregion      // public interface IHeatReleaseCurveRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoInterface.Hen.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

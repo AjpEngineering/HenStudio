@@ -3,9 +3,9 @@
 //############################################  T a r g e t s R e p o . c s  ##########################################
 //#####################################################################################################################
 //  FILENAME:  TargetsRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.ReposImplementaions.Pinch.Plots
 //  CLASS(S):  TargetsRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the Targets Pinch sub table.
@@ -33,16 +33,18 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterface.Pinch;
+using HenModel.Dto.Pinch;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.ReposImplementaions.Pinch.Plots
+namespace HenModel.ReposImplementaions.Pinch.Plots
 {
     #region public class TargetsRepo
     /// <summary>
@@ -104,7 +106,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class TargetsRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.ReposImplementaions.Pinch.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

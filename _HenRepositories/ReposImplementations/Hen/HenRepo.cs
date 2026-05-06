@@ -3,9 +3,9 @@
 //################################################  H e n R e p o . c s  ##############################################
 //#####################################################################################################################
 //  FILENAME:  HenRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.ReposImplementaions.Hen
 //  CLASS(S):  HenRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the Hen top-level table.
@@ -33,16 +33,18 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterface.Hen;
+using HenModel.Dto.Hen;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.ReposImplementaions.Hen
+namespace HenModel.ReposImplementaions.Hen
 {
     #region public class HenRepo
     /// <summary>
@@ -109,7 +111,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class HenRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.ReposImplementaions.Hen
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

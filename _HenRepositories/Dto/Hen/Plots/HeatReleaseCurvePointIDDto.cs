@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//###############################  G r i d D i a g r a m P o i n t I D R e p o . c s  #################################
+//#############################  H e a t R e l e a s e C u r v e P o i n t I D D t o . c s  ###########################
 //#####################################################################################################################
-//  FILENAME:  GridDiagramPointIDRepo.cs
-//  NAMESPACE: HenPersistence.Repos
-//  CLASS(S):  GridDiagramPointIDRepo
-//  COMPONENT: _HenPersistence.dll
+//  FILENAME:  HeatReleaseCurvePointIDDto.cs
+//  NAMESPACE: HenModel.Dto.Hen.Plots
+//  CLASS(S):  HeatReleaseCurvePointIDDto
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the GridDiagramPointID Hen sub table.
+//    This file contains the DTO class for the HeatReleaseCurvePointID Hen sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,83 +33,29 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
-
 using System;
-using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.Dto.Hen.Plots
+namespace HenModel.Dto.Hen.Plots
 {
-    #region public class GridDiagramPointIDRepo
+    #region public class HeatReleaseCurvePointIDDto
     /// <summary>
-    /// GridDiagramPointID Repo Class
+    /// HeatReleaseCurvePointID DTO Class
     /// </summary>
-    public class GridDiagramPointIDRepo : IGridDiagramPointIDRepo
+    public class HeatReleaseCurvePointIDDto
     {
-        #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
-        #endregion      // PRIVATE FIELDS
-
-        #region CTOR
-        /// <summary>
-        /// Parameterized Constructor
-        /// </summary>
-        /// <param name="connectionFactory">Database connection factory.</param>
-        public GridDiagramPointIDRepo(IDbConnectionFactory connectionFactory)
-        {
-            if (connectionFactory == null)
-            {
-                throw new ArgumentNullException(nameof(connectionFactory));
-            }
-
-            _connectionFactory = connectionFactory;
-        }
-        #endregion      // CTOR
-
-        #region METHODS
-        public IList<GridDiagramPointIDDto> GetGridDiagramPointIDs()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<GridDiagramPointIDDto> GetGridDiagramPointIDsByGridDiagramId(Guid gridDiagramId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GridDiagramPointIDDto GetGridDiagramPointIDById(Guid gridDiagramPointId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GridDiagramPointIDDto GetGridDiagramPointIDByPointSequence(Guid gridDiagramId, int pointSequence)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Guid AddGridDiagramPointID(GridDiagramPointIDDto gridDiagramPointIdDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateGridDiagramPointID(GridDiagramPointIDDto gridDiagramPointIdDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteGridDiagramPointID(Guid gridDiagramPointId)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion      // METHODS
+        #region PROPERTIES
+        public Guid Id { get; set; }
+        public Guid HeatReleaseCurveId { get; set; }
+        public int PointSequence { get; set; }
+        public double DutyValue { get; set; }
+        public double TemperatureValue { get; set; }
+        #endregion      // PROPERTIES
     }
-    #endregion      // public class GridDiagramPointIDRepo
+    #endregion      // public class HeatReleaseCurvePointIDDto
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.Dto.Hen.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
