@@ -67,7 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DataTagDisplay.cs" />
+    <Compile Include="Data\Tag\DataTagDisplay.cs" />
     <Compile Include="Forms\FormAboutPinch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,7 +108,7 @@
       <DependentUpon>FormUserLicenseAgreement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Data\PanelData\ProjectPanelData.cs" />
+    <Compile Include="Data\Project\ProjectPanelData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FormAboutPinch.resx">
       <DependentUpon>FormAboutPinch.cs</DependentUpon>
@@ -153,7 +153,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Data\Connection\" />
+    <Folder Include="Data\Hen\Plots\" />
+    <Folder Include="Data\Pinch\Plots\" />
+    <Folder Include="Data\Profile\" />
+    <Folder Include="Data\Project\CostParameters\" />
+    <Folder Include="Data\Project\DefaultParameters\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
