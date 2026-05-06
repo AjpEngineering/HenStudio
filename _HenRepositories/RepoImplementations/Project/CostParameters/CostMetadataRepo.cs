@@ -3,9 +3,9 @@
 //#######################################  C o s t M e t a d a t a R e p o . c s  #####################################
 //#####################################################################################################################
 //  FILENAME:  CostMetadataRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.RepoImplementations.Project.CostParameters
 //  CLASS(S):  CostMetadataRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the Cost Metadata Project-Cost Parameters sub table.
@@ -33,17 +33,19 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterfaces.Project.CostParameters;
+using HenModel.Dto.Project.CostParameters;
 
 using System;
 using System.Collections.Generic;
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.Project.CostParameters
+namespace HenModel.RepoImplementations.Project.CostParameters
 {
     #region public class CostMetadataRepo
     /// <summary>
@@ -365,7 +367,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class CostMetadataRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

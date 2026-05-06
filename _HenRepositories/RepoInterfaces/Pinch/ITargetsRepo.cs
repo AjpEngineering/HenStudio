@@ -40,7 +40,7 @@ using System.Collections.Generic;
 #endregion      // REFERENCES
 
 #region namespace HenModel.RepoInterfaces.Pinch
-namespace HenHenModel.RepoInterfaces.Pinch
+namespace HenModel.RepoInterfaces.Pinch
 {
     #region public interface ITargetsRepo
     /// <summary>

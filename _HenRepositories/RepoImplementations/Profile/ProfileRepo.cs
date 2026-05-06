@@ -3,9 +3,9 @@
 //############################################  P r o f i l e R e p o . c s  ##########################################
 //#####################################################################################################################
 //  FILENAME:  ProfileRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.RepoImplementations.Profile
 //  CLASS(S):  ProfileRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the Profile top-level table.
@@ -33,17 +33,19 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterfaces.Profile;
+using HenModel.Dto.Profile;
 
 using System;
 using System.Collections.Generic;
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.Profile
+namespace HenModel.RepoImplementations.Profile
 {
     #region public class ProfileRepo
     /// <summary>
@@ -422,7 +424,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class ProfileRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.Profile
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
