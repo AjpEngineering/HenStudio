@@ -37,7 +37,7 @@ using System;
 #endregion      // REFERENCES
 
 #region namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
-namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
+namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams 
 {
     #region public class OptimizerGeneticDto
     /// <summary>

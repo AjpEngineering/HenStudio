@@ -3,9 +3,9 @@
 //################################  E x c h a n g e r P a r a m s R e p o R e p o . c s  ##############################
 //#####################################################################################################################
 //  FILENAME:  ExchangerParamsRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE:  HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
 //  CLASS(S):  ExchangerParamsRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation for the Exchanger Params table.
@@ -33,17 +33,19 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterfaces.Project.DefaultParameters.ExchangerParams;
+using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 
 using System;
 using System.Collections.Generic;
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
+namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
 {
     #region public class ExchangerParamsRepo
     /// <summary>
@@ -314,7 +316,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class ExchangerParamsRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace  HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

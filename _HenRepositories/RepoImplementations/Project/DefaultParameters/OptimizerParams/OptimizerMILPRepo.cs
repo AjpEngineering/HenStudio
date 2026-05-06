@@ -2,9 +2,9 @@
 //###################################  H e n O p t i m i z e r M I L P R e p o . c s  ################################
 //#####################################################################################################################
 //  FILENAME:  HenOptimizerMILPRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
 //  CLASS(S):  HenOptimizerMILPRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the HenOptimizerMILP Project sub table.
@@ -32,16 +32,18 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
+namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
 {
     #region public class HenOptimizerMILPRepo
     /// <summary>
@@ -98,7 +100,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class HenOptimizerMILPRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

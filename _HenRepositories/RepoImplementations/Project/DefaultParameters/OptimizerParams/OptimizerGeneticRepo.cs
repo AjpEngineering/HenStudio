@@ -1,10 +1,11 @@
 #region HEADER
-//###############################  H e n O p t i m i z e r G e n e t i c R e p o . c s  ###############################
 //#####################################################################################################################
-//  FILENAME:  HenOptimizerGeneticRepo.cs
-//  NAMESPACE: HenPersistence.Repos
-//  CLASS(S):  HenOptimizerGeneticRepo
-//  COMPONENT: _HenPersistence.dll
+//##################################  O p t i m i z e r G e n e t i c R e p o . c s  ##################################
+//#####################################################################################################################
+//  FILENAME:  OptimizerGeneticRepo.cs
+//  NAMESPACE: HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
+//  CLASS(S):  OptimizerGeneticRepo
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the HenOptimizerGenetic Project sub table.
@@ -32,20 +33,22 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
+namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
 {
-    #region public class HenOptimizerGeneticRepo
+    #region public class OptimizerGeneticRepo
     /// <summary>
-    /// HenOptimizerGenetic Repo Class
+    /// OptimizerGenetic Repo Class
     /// </summary>
     public class OptimizerGeneticRepo : IOptimizerGeneticRepo
     {
@@ -70,27 +73,27 @@ namespace HenPersistence.Repos
         #endregion      // CTOR
 
         #region METHODS
-        public IList<HenOptimizerGeneticDto> GetHenOptimizerGenetics()
+        public IList<OptimizerGeneticDto> GetOptimizerGenetics()
         {
             throw new NotImplementedException();
         }
 
-        public HenOptimizerGeneticDto GetHenOptimizerGeneticByHenOptimizerId(Guid henOptimizerId)
+        public OptimizerGeneticDto GetOptimizerGeneticByOptimizerId(Guid henOptimizerId)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddHenOptimizerGenetic(HenOptimizerGeneticDto henOptimizerGeneticDto)
+        public Guid AddOptimizerGenetic(OptimizerGeneticDto optimizerGeneticDto)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateHenOptimizerGenetic(HenOptimizerGeneticDto henOptimizerGeneticDto)
+        public void UpdateOptimizerGenetic(OptimizerGeneticDto optimizerGeneticDto)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteHenOptimizerGenetic(Guid henOptimizerId)
+        public void DeleteOptimizerGenetic(Guid henOptimizerId)
         {
             throw new NotImplementedException();
         }
@@ -98,7 +101,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class HenOptimizerGeneticRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
