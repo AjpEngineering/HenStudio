@@ -1,13 +1,14 @@
 #region HEADER
-//#################################  H e n O p t i m i z e r G r e e d y R e p o . c s  ###############################
 //#####################################################################################################################
-//  FILENAME:  HenOptimizerGreedyRepo.cs
-//  NAMESPACE: HenPersistence.Repos
-//  CLASS(S):  HenOptimizerGreedyRepo
-//  COMPONENT: _HenPersistence.dll
+//###########################################  O p t i m i z e r D t o . c s  #########################################
+//#####################################################################################################################
+//  FILENAME:  OptimizerParamsDto.cs
+//  NAMESPACE: HenModel.Dto.Project.DefaultParameters.OptimizerParams
+//  CLASS(S):  OptimizerParamsDto
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the HenOptimizerGreedy Project sub table.
+//    This file contains the DTO class for the OptimizerParams Project sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -32,73 +33,32 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
-
 using System;
-using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
+namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 {
-    #region public class HenOptimizerGreedyRepo
+    #region public class OptimizerParamsDto
     /// <summary>
-    /// HenOptimizerGreedy Repo Class
+    /// Optimizer DTO Class
     /// </summary>
-    public class HenOptimizerGreedyRepo : IOptimizerGreedyRepo
+    public class OptimizerParamsDto
     {
-        #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
-        #endregion      // PRIVATE FIELDS
-
-        #region CTOR
-        /// <summary>
-        /// Parameterized Constructor
-        /// </summary>
-        /// <param name="connectionFactory">Database connection factory.</param>
-        public HenOptimizerGreedyRepo(IDbConnectionFactory connectionFactory)
-        {
-            if (connectionFactory == null)
-            {
-                throw new ArgumentNullException(nameof(connectionFactory));
-            }
-
-            _connectionFactory = connectionFactory;
-        }
-        #endregion      // CTOR
-
-        #region METHODS
-        public IList<HenOptimizerGreedyDto> GetHenOptimizerGreedys()
-        {
-            throw new NotImplementedException();
-        }
-
-        public HenOptimizerGreedyDto GetHenOptimizerGreedyByHenOptimizerId(Guid henOptimizerId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Guid AddHenOptimizerGreedy(HenOptimizerGreedyDto henOptimizerGreedyDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateHenOptimizerGreedy(HenOptimizerGreedyDto henOptimizerGreedyDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteHenOptimizerGreedy(Guid henOptimizerId)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion      // METHODS
+        #region PROPERTIES
+        public Guid Id { get; set; }
+        public Guid ProjectId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string OptimizerType { get; set; }
+        public string DefaultObjective { get; set; }
+        public int DefaultMaxIterations { get; set; }
+        public double DefaultConvergenceTolerance { get; set; }
+        #endregion      // PROPERTIES
     }
-    #endregion      // public class HenOptimizerGreedyRepo
+    #endregion      // public class OptimizerParamsDto
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

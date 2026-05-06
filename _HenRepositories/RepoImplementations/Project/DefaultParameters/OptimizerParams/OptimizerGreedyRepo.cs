@@ -1,14 +1,13 @@
 #region HEADER
+//#################################  H e n O p t i m i z e r G r e e d y R e p o . c s  ###############################
 //#####################################################################################################################
-//######################################  H e n O p t i m i z e r R e p o . c s  ######################################
-//#####################################################################################################################
-//  FILENAME:  HenOptimizerRepo.cs
+//  FILENAME:  HenOptimizerGreedyRepo.cs
 //  NAMESPACE: HenPersistence.Repos
-//  CLASS(S):  HenOptimizerRepo
+//  CLASS(S):  HenOptimizerGreedyRepo
 //  COMPONENT: _HenPersistence.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the HenOptimizer Project sub table.
+//    This file contains the concrete repo implementation stub for the HenOptimizerGreedy Project sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -44,11 +43,11 @@ using System.Collections.Generic;
 #region namespace HenPersistence.Repos
 namespace HenPersistence.Repos
 {
-    #region public class HenOptimizerRepo
+    #region public class HenOptimizerGreedyRepo
     /// <summary>
-    /// HenOptimizer Repo Class
+    /// HenOptimizerGreedy Repo Class
     /// </summary>
-    public class HenOptimizerRepo : IHenOptimizerRepo
+    public class OptimizerGreedyRepo : IOptimizerGreedyRepo
     {
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;
@@ -59,7 +58,7 @@ namespace HenPersistence.Repos
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public HenOptimizerRepo(IDbConnectionFactory connectionFactory)
+        public OptimizerGreedyRepo(IDbConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {
@@ -71,43 +70,33 @@ namespace HenPersistence.Repos
         #endregion      // CTOR
 
         #region METHODS
-        public IList<HenOptimizerDto> GetHenOptimizers()
+        public IList<HenOptimizerGreedyDto> GetHenOptimizerGreedys()
         {
             throw new NotImplementedException();
         }
 
-        public IList<HenOptimizerDto> GetHenOptimizersByProjectId(Guid projectId)
+        public HenOptimizerGreedyDto GetHenOptimizerGreedyByHenOptimizerId(Guid henOptimizerId)
         {
             throw new NotImplementedException();
         }
 
-        public HenOptimizerDto GetHenOptimizerById(Guid henOptimizerId)
+        public Guid AddHenOptimizerGreedy(HenOptimizerGreedyDto henOptimizerGreedyDto)
         {
             throw new NotImplementedException();
         }
 
-        public HenOptimizerDto GetHenOptimizerByName(Guid projectId, string name)
+        public void UpdateHenOptimizerGreedy(HenOptimizerGreedyDto henOptimizerGreedyDto)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddHenOptimizer(HenOptimizerDto henOptimizerDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateHenOptimizer(HenOptimizerDto henOptimizerDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteHenOptimizer(Guid henOptimizerId)
+        public void DeleteHenOptimizerGreedy(Guid henOptimizerId)
         {
             throw new NotImplementedException();
         }
         #endregion      // METHODS
     }
-    #endregion      // public class HenOptimizerRepo
+    #endregion      // public class HenOptimizerGreedyRepo
 }
 #endregion      // namespace HenPersistence.Repos
 

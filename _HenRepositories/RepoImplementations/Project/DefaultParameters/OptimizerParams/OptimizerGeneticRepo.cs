@@ -47,7 +47,7 @@ namespace HenPersistence.Repos
     /// <summary>
     /// HenOptimizerGenetic Repo Class
     /// </summary>
-    public class HenOptimizerGeneticRepo : IOptimizerGeneticRepo
+    public class OptimizerGeneticRepo : IOptimizerGeneticRepo
     {
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;
@@ -58,7 +58,7 @@ namespace HenPersistence.Repos
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public HenOptimizerGeneticRepo(IDbConnectionFactory connectionFactory)
+        public OptimizerGeneticRepo(IDbConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {

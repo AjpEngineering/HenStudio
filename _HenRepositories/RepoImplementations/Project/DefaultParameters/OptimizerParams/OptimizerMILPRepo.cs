@@ -1,14 +1,13 @@
 #region HEADER
+//###################################  H e n O p t i m i z e r M I L P R e p o . c s  ################################
 //#####################################################################################################################
-//###########################################  O p t i m i z e r D t o . c s  #########################################
-//#####################################################################################################################
-//  FILENAME:  OptimizerDto.cs
-//  NAMESPACE: HenModel.Dto.Project.DefaultParameters.OptimizerParams
-//  CLASS(S):  OptimizerDto
-//  COMPONENT: _HenModel.dll
+//  FILENAME:  HenOptimizerMILPRepo.cs
+//  NAMESPACE: HenPersistence.Repos
+//  CLASS(S):  HenOptimizerMILPRepo
+//  COMPONENT: _HenPersistence.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the HenOptimizer Project sub table.
+//    This file contains the concrete repo implementation stub for the HenOptimizerMILP Project sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,32 +32,73 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenPersistence.Interfaces;
+using HenRepositories.Dto;
+using HenRepositories.Interfaces;
+
 using System;
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
-namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
+#region namespace HenPersistence.Repos
+namespace HenPersistence.Repos
 {
-    #region public class OptimizerDto
+    #region public class HenOptimizerMILPRepo
     /// <summary>
-    /// Optimizer DTO Class
+    /// HenOptimizerMILP Repo Class
     /// </summary>
-    public class OptimizerDto
+    public class OptimizerMILPRepo : IOptimizerMILP_Repo
     {
-        #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string OptimizerType { get; set; }
-        public string DefaultObjective { get; set; }
-        public int DefaultMaxIterations { get; set; }
-        public double DefaultConvergenceTolerance { get; set; }
-        #endregion      // PROPERTIES
+        #region PRIVATE FIELDS
+        private readonly IDbConnectionFactory _connectionFactory;
+        #endregion      // PRIVATE FIELDS
+
+        #region CTOR
+        /// <summary>
+        /// Parameterized Constructor
+        /// </summary>
+        /// <param name="connectionFactory">Database connection factory.</param>
+        public OptimizerMILPRepo(IDbConnectionFactory connectionFactory)
+        {
+            if (connectionFactory == null)
+            {
+                throw new ArgumentNullException(nameof(connectionFactory));
+            }
+
+            _connectionFactory = connectionFactory;
+        }
+        #endregion      // CTOR
+
+        #region METHODS
+        public IList<HenOptimizerMILPDto> GetHenOptimizerMILPs()
+        {
+            throw new NotImplementedException();
+        }
+
+        public HenOptimizerMILPDto GetHenOptimizerMILPByHenOptimizerId(Guid henOptimizerId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Guid AddHenOptimizerMILP(HenOptimizerMILPDto henOptimizerMilpDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateHenOptimizerMILP(HenOptimizerMILPDto henOptimizerMilpDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteHenOptimizerMILP(Guid henOptimizerId)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion      // METHODS
     }
-    #endregion      // public class OptimizerDto
+    #endregion      // public class HenOptimizerMILPRepo
 }
-#endregion      // namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
+#endregion      // namespace HenPersistence.Repos
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

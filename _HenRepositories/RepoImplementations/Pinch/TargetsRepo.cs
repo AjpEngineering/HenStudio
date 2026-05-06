@@ -1,13 +1,14 @@
 #region HEADER
-//###################################  H e n O p t i m i z e r M I L P R e p o . c s  ################################
 //#####################################################################################################################
-//  FILENAME:  HenOptimizerMILPRepo.cs
-//  NAMESPACE: HenPersistence.Repos
-//  CLASS(S):  HenOptimizerMILPRepo
-//  COMPONENT: _HenPersistence.dll
+//############################################  T a r g e t s R e p o . c s  ##########################################
+//#####################################################################################################################
+//  FILENAME:  TargetsRepo.cs
+//  NAMESPACE: HenModel.RepoImplementations.Pinch.Plots
+//  CLASS(S):  TargetsRepo
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the HenOptimizerMILP Project sub table.
+//    This file contains the concrete repo implementation stub for the Targets Pinch sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -32,22 +33,24 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterfaces.Pinch;
+using HenModel.Dto.Pinch;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.Pinch
+namespace HenModel.RepoImplementations.Pinch
 {
-    #region public class HenOptimizerMILPRepo
+    #region public class TargetsRepo
     /// <summary>
-    /// HenOptimizerMILP Repo Class
+    /// Targets Repo Class
     /// </summary>
-    public class HenOptimizerMILPRepo : IOptimizerMILP_Repo
+    public class TargetsRepo : ITargetsRepo
     {
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;
@@ -58,7 +61,7 @@ namespace HenPersistence.Repos
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public HenOptimizerMILPRepo(IDbConnectionFactory connectionFactory)
+        public TargetsRepo(IDbConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {
@@ -70,35 +73,40 @@ namespace HenPersistence.Repos
         #endregion      // CTOR
 
         #region METHODS
-        public IList<HenOptimizerMILPDto> GetHenOptimizerMILPs()
+        public IList<TargetsDto> GetTargets()
         {
             throw new NotImplementedException();
         }
 
-        public HenOptimizerMILPDto GetHenOptimizerMILPByHenOptimizerId(Guid henOptimizerId)
+        public IList<TargetsDto> GetTargetsByPinchId(Guid pinchId)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddHenOptimizerMILP(HenOptimizerMILPDto henOptimizerMilpDto)
+        public TargetsDto GetTargetsById(Guid targetsId)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateHenOptimizerMILP(HenOptimizerMILPDto henOptimizerMilpDto)
+        public Guid AddTargets(TargetsDto targetsDto)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteHenOptimizerMILP(Guid henOptimizerId)
+        public void UpdateTargets(TargetsDto targetsDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteTargets(Guid targetsId)
         {
             throw new NotImplementedException();
         }
         #endregion      // METHODS
     }
-    #endregion      // public class HenOptimizerMILPRepo
+    #endregion      // public class TargetsRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.Pinch.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

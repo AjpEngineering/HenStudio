@@ -3,9 +3,9 @@
 //#######################################  P r o j e c t U n i t s R e p o . c s  #####################################
 //#####################################################################################################################
 //  FILENAME:  ProjectUnitsRepo.cs
-//  NAMESPACE: HenPersistence.Repos
+//  NAMESPACE: HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
 //  CLASS(S):  ProjectUnitsRepo
-//  COMPONENT: _HenPersistence.dll
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the concrete repo implementation stub for the Project Units table.
@@ -33,17 +33,19 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenPersistence.Interfaces;
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Connection;
+using HenModel.Connection.Interface;
+
+using HenModel.RepoInterfaces.Project.DefaultParameters.ProjectUnits;
+using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
 using System;
 using System.Collections.Generic;
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenPersistence.Repos
-namespace HenPersistence.Repos
+#region namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
+namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
 {
     #region public class ProjectUnitsRepo
     /// <summary>
@@ -339,7 +341,7 @@ namespace HenPersistence.Repos
     }
     #endregion      // public class ProjectUnitsRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

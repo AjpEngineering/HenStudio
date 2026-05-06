@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//############################################  T a r g e t s R e p o . c s  ##########################################
+//######################################  H e n O p t i m i z e r R e p o . c s  ######################################
 //#####################################################################################################################
-//  FILENAME:  TargetsRepo.cs
-//  NAMESPACE: HenModel.ReposImplementaions.Pinch.Plots
-//  CLASS(S):  TargetsRepo
+//  FILENAME:  OptimizerRepo.cs
+//  NAMESPACE: HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
+//  CLASS(S):  OptimizerRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the Targets Pinch sub table.
+//    This file contains the concrete repo implementation stub for the Optimizer Project sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -36,21 +36,21 @@
 using HenModel.Connection;
 using HenModel.Connection.Interface;
 
-using HenModel.RepoInterface.Pinch;
-using HenModel.Dto.Pinch;
+using HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.ReposImplementaions.Pinch.Plots
-namespace HenModel.ReposImplementaions.Pinch.Plots
+#region namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
+namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
 {
-    #region public class TargetsRepo
+    #region public class OptimizerParamsRepo
     /// <summary>
-    /// Targets Repo Class
+    /// Optimizer Params Repo Class
     /// </summary>
-    public class TargetsRepo : ITargetsRepo
+    public class OptimizerParamsRepo : IOptimizerParamsRepo
     {
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;
@@ -61,7 +61,7 @@ namespace HenModel.ReposImplementaions.Pinch.Plots
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public TargetsRepo(IDbConnectionFactory connectionFactory)
+        public OptimizerParamsRepo(IDbConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {
@@ -73,40 +73,45 @@ namespace HenModel.ReposImplementaions.Pinch.Plots
         #endregion      // CTOR
 
         #region METHODS
-        public IList<TargetsDto> GetTargets()
+        public IList<HenOptimizerDto> GetHenOptimizers()
         {
             throw new NotImplementedException();
         }
 
-        public IList<TargetsDto> GetTargetsByPinchId(Guid pinchId)
+        public IList<HenOptimizerDto> GetHenOptimizersByProjectId(Guid projectId)
         {
             throw new NotImplementedException();
         }
 
-        public TargetsDto GetTargetsById(Guid targetsId)
+        public HenOptimizerDto GetHenOptimizerById(Guid henOptimizerId)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddTargets(TargetsDto targetsDto)
+        public HenOptimizerDto GetHenOptimizerByName(Guid projectId, string name)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateTargets(TargetsDto targetsDto)
+        public Guid AddHenOptimizer(HenOptimizerDto henOptimizerDto)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteTargets(Guid targetsId)
+        public void UpdateHenOptimizer(HenOptimizerDto henOptimizerDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteHenOptimizer(Guid henOptimizerId)
         {
             throw new NotImplementedException();
         }
         #endregion      // METHODS
     }
-    #endregion      // public class TargetsRepo
+    #endregion      // public class OptimizerRepo
 }
-#endregion      // namespace HenModel.ReposImplementaions.Pinch.Plots
+#endregion      // namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
