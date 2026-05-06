@@ -3,7 +3,7 @@
 //###############################  G r i d D i a g r a m P o i n t I D R e p o . c s  #################################
 //#####################################################################################################################
 //  FILENAME:  GridDiagramPointIDRepo.cs
-//  NAMESPACE: HenModel.ReposImplementaions.Hen.Plots
+//  NAMESPACE: HenModel.RepoImplementations.Hen.Plots
 //  CLASS(S):  GridDiagramPointIDRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -43,8 +43,8 @@ using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.ReposImplementaions.Hen.Plots
-namespace HenModel.ReposImplementaions.Hen.Plots
+#region namespace HenModel.RepoImplementations.Hen.Plots
+namespace HenModel.RepoImplementations.Hen.Plots
 {
     #region public class GridDiagramPointIDRepo
     /// <summary>
@@ -111,7 +111,7 @@ namespace HenModel.ReposImplementaions.Hen.Plots
     }
     #endregion      // public class GridDiagramPointIDRepo
 }
-#endregion      // namespace HenModel.ReposImplementaions.Hen.Plots
+#endregion      // namespace HenModel.RepoImplementations.Hen.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

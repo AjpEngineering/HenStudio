@@ -3,7 +3,7 @@
 //###################################  H e a t R e l e a s e C u r v e R e p o . c s  ################################
 //#####################################################################################################################
 //  FILENAME:  HeatReleaseCurveRepo.cs
-//  NAMESPACE: HenModel.ReposImplementaions.Hen.Plots
+//  NAMESPACE: HenModel.RepoImplementations.Hen.Plots
 //  CLASS(S):  HeatReleaseCurveRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -43,8 +43,8 @@ using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.ReposImplementaions.Hen.Plots
-namespace HenModel.ReposImplementaions.Hen.Plots
+#region namespace HenModel.RepoImplementations.Hen.Plots
+namespace HenModel.RepoImplementations.Hen.Plots
 {
     #region public class HeatReleaseCurveRepo
     /// <summary>
@@ -111,7 +111,7 @@ namespace HenModel.ReposImplementaions.Hen.Plots
     }
     #endregion      // public class HeatReleaseCurveRepo
 }
-#endregion      // namespace HenModel.ReposImplementaions.Hen.Plots
+#endregion      // namespace HenModel.RepoImplementations.Hen.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

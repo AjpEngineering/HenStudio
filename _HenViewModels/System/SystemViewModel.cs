@@ -35,6 +35,9 @@
 #region REFERENCES
 using HenModel.Connection;
 using HenModel.Dto.System;
+using HenModel.Dto.Project;
+using HenModel.RepoImplementations.System;
+using HenModel.RepoImplementations.Project;
 
 using System;
 using System.Collections.Generic;

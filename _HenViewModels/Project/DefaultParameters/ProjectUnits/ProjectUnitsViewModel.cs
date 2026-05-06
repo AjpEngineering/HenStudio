@@ -50,7 +50,7 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
     /// <summary>
     /// Project Units View Model class.
     /// </summary>
-    public class OptimizerParamsViewModel : ViewModelBase
+    public class ProjectUnitsViewModel : ViewModelBase
     {
         #region PROPERTIES
         public ProjectUnitsRepo ProjectUnitsRepoObj { get; set; }
@@ -60,7 +60,7 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
         /// <summary>
         /// Default CTOR
         /// </summary>
-        public OptimizerParamsViewModel()
+        public ProjectUnitsViewModel()
         {
             var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
             var projectUnitsRepoObj = new ProjectUnitsRepo(connFactoryObj);

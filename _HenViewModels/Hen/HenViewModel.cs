@@ -33,8 +33,12 @@
 #endregion      // HEADER
 
 #region REFERENCES
+
+using HenModel.Connection;
 using HenModel.Dto.Hen;
 using HenModel.Dto.Hen.Plots;
+using HenModel.RepoImplementations.Hen;
+using HenModel.RepoImplementations.Hen.Plots;
 
 //using HenModel.RepoImplementations.Hen;
 

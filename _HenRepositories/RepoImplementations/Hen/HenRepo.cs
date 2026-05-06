@@ -3,7 +3,7 @@
 //################################################  H e n R e p o . c s  ##############################################
 //#####################################################################################################################
 //  FILENAME:  HenRepo.cs
-//  NAMESPACE: HenModel.ReposImplementaions.Hen
+//  NAMESPACE: HenModel.RepoImplementations.Hen
 //  CLASS(S):  HenRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -43,8 +43,8 @@ using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.ReposImplementaions.Hen
-namespace HenModel.ReposImplementaions.Hen
+#region namespace HenModel.RepoImplementations.Hen
+namespace HenModel.RepoImplementations.Hen
 {
     #region public class HenRepo
     /// <summary>
@@ -111,7 +111,7 @@ namespace HenModel.ReposImplementaions.Hen
     }
     #endregion      // public class HenRepo
 }
-#endregion      // namespace HenModel.ReposImplementaions.Hen
+#endregion      // namespace HenModel.RepoImplementations.Hen
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -3,7 +3,7 @@
 //########################################  G r i d D i a g r a m R e p o . c s  ######################################
 //#####################################################################################################################
 //  FILENAME:  GridDiagramRepo.cs
-//  NAMESPACE: HenModel.ReposImplementaions.Hen.Plots
+//  NAMESPACE: HenModel.RepoImplementations.Hen.Plots
 //  CLASS(S):  GridDiagramRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -43,8 +43,8 @@ using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.ReposImplementaions.Hen.Plots
-namespace HenModel.ReposImplementaions.Hen.Plots
+#region namespace HenModel.RepoImplementations.Hen.Plots
+namespace HenModel.RepoImplementations.Hen.Plots
 {
     #region public class GridDiagramRepo
     /// <summary>
@@ -111,7 +111,7 @@ namespace HenModel.ReposImplementaions.Hen.Plots
     }
     #endregion      // public class GridDiagramRepo
 }
-#endregion      // namespace HenPersistence.Repos
+#endregion      // namespace HenModel.RepoImplementations.Hen.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

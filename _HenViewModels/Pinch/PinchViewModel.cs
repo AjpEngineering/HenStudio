@@ -3,7 +3,7 @@
 //########################################  P i n c h V i e w M o d e l . c s  ########################################
 //#####################################################################################################################
 //  FILENAME:  PinchViewModel.cs
-//  NAMESPACE: HenViewModel
+//  NAMESPACE: HenViewModel.Pinch
 //  CLASS(S):  PinchViewModel
 //  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
@@ -33,11 +33,16 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenRepositories.Dto;
+
+using HenModel.Connection;
+using HenModel.RepoImplementations.Pinch;
+
+using HenModel.Dto.Pinch;
+
 #endregion      // REFERENCES
 
-#region namespace HenViewModel
-namespace HenViewModel
+#region namespace HenViewModel.Pinch
+namespace HenViewModel.Pinch
 {
     #region public class PinchViewModel
     /// <summary>
@@ -51,7 +56,7 @@ namespace HenViewModel
     }
     #endregion      // public class PinchViewModel
 }
-#endregion      // namespace HenViewModel
+#endregion      // namespace HenViewModel.Pinch
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

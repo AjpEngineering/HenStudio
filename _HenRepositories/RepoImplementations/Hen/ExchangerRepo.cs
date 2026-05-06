@@ -3,7 +3,7 @@
 //##########################################  E x c h a n g e r R e p o . c s  ########################################
 //#####################################################################################################################
 //  FILENAME:  ExchangerRepo.cs
-//  NAMESPACE: HenModel.ReposImplementaions.Hen
+//  NAMESPACE: HenModel.RepoImplementations.Hen
 //  CLASS(S):  ExchangerRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -43,8 +43,8 @@ using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.ReposImplementaions.Hen
-namespace HenModel.ReposImplementaions.Hen
+#region namespace HenModel.RepoImplementattions.Hen
+namespace HenModel.RepoImplementations.Hen
 {
     #region public class ExchangerRepo
     /// <summary>
@@ -111,7 +111,7 @@ namespace HenModel.ReposImplementaions.Hen
     }
     #endregion      // public class ExchangerRepo
 }
-#endregion      // namespace HenModel.ReposImplementaions.Hen
+#endregion      // namespace HenModel.RepoImplementations.Hen
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

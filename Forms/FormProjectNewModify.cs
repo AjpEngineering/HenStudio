@@ -35,11 +35,19 @@
 #region REFERENCES
 using HenGlobal;
 
-using HenRepositories.Dto;
+using HenModel.Dto.System;
+using HenModel.Dto.Project;
+using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
+using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
+
+using HenViewModel.System;
+using HenViewModel.Project;
+using HenViewModel.Project.DefaultParameters.ExchangerParams;
+using HenViewModel.Project.DefaultParameters.OptimizerParams;
+using HenViewModel.Project.DefaultParameters.ProjectUnits;
 
 using HenStudio.Properties;
-
-using HenViewModels;
 
 using System;
 using System.Collections;

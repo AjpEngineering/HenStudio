@@ -35,11 +35,10 @@
 #region REFERENCES
 using HenGlobal;
 
-using HenPersistence.Connection;
-using HenPersistence.Repos;
+using HenModel.Connection;
+using HenModel.RepoImplementations.Pinch.Plots;
 
-using HenRepositories.Dto;
-using HenRepositories.Interfaces;
+using HenModel.Dto.Pinch.Plots;
 
 using System;
 using System.Collections.Generic;
