@@ -48,11 +48,11 @@ namespace HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
     public interface IOptimizerMILP_Repo
     {
         #region METHODS
-        IList<OptimizerMILP_Dto> GetHenOptimizerMILPs();
-        OptimizerMILP_Dto GetHenOptimizerMILPByHenOptimizerId(Guid henOptimizerId);
-        Guid AddHenOptimizerMILP(OptimizerMILP_Dto henOptimizerMilpDto);
-        void UpdateHenOptimizerMILP(OptimizerMILP_Dto henOptimizerMilpDto);
-        void DeleteHenOptimizerMILP(Guid henOptimizerId);
+        IList<OptimizerMILP_Dto> GetOptimizerMILPs();
+        OptimizerMILP_Dto GetOptimizerMILPByOptimizerId(Guid optimizerId);
+        Guid AddOptimizerMILP(OptimizerMILP_Dto optimizerMilpDto);
+        void UpdateOptimizerMILP(OptimizerMILP_Dto optimizerMilpDto);
+        void DeleteOptimizerMILP(Guid optimizerMilpId);
         #endregion      // METHODS
     }
     #endregion      // public interface IOptimizerMILP_Repo

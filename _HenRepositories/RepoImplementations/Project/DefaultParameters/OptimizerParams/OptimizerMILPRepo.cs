@@ -72,27 +72,27 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
         #endregion      // CTOR
 
         #region METHODS
-        public IList<HenOptimizerMILPDto> GetHenOptimizerMILPs()
+        public IList<OptimizerMILP_Dto> GetOptimizerMILPs()
         {
             throw new NotImplementedException();
         }
 
-        public HenOptimizerMILPDto GetHenOptimizerMILPByHenOptimizerId(Guid henOptimizerId)
+        public OptimizerMILP_Dto GetOptimizerMILPByOptimizerId(Guid optimizerId)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddHenOptimizerMILP(HenOptimizerMILPDto henOptimizerMilpDto)
+        public Guid AddOptimizerMILP(OptimizerMILP_Dto optimizerMilpDto)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateHenOptimizerMILP(HenOptimizerMILPDto henOptimizerMilpDto)
+        public void UpdateOptimizerMILP(OptimizerMILP_Dto optimizerMilpDto)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteHenOptimizerMILP(Guid henOptimizerId)
+        public void DeleteOptimizerMILP(Guid optimizerMilpId)
         {
             throw new NotImplementedException();
         }

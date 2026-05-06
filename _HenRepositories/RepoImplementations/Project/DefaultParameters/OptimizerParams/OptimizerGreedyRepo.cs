@@ -72,27 +72,27 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
         #endregion      // CTOR
 
         #region METHODS
-        public IList<HenOptimizerGreedyDto> GetHenOptimizerGreedys()
+        public IList<OptimizerGreedyDto> GetHenOptimizerGreedys()
         {
             throw new NotImplementedException();
         }
 
-        public HenOptimizerGreedyDto GetHenOptimizerGreedyByHenOptimizerId(Guid henOptimizerId)
+        public OptimizerGreedyDto GetOptimizerGreedyByOptimizerId(Guid henOptimizerId)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddHenOptimizerGreedy(HenOptimizerGreedyDto henOptimizerGreedyDto)
+        public Guid AddOptimizerGreedy(OptimizerGreedyDto optimizerGreedyDto)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateHenOptimizerGreedy(HenOptimizerGreedyDto henOptimizerGreedyDto)
+        public void UpdateOptimizerGreedy(OptimizerGreedyDto optimizerGreedyDto)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteHenOptimizerGreedy(Guid henOptimizerId)
+        public void DeleteOptimizerGreedy(Guid optimizerGreedyId)
         {
             throw new NotImplementedException();
         }
