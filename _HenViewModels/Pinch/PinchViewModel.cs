@@ -3,9 +3,9 @@
 //########################################  P i n c h V i e w M o d e l . c s  ########################################
 //#####################################################################################################################
 //  FILENAME:  PinchViewModel.cs
-//  NAMESPACE: HenViewModels
+//  NAMESPACE: HenViewModel
 //  CLASS(S):  PinchViewModel
-//  COMPONENT: _HenViewModels.dll
+//  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the view model class for the Pinch top-level DTO.
@@ -36,8 +36,8 @@
 using HenRepositories.Dto;
 #endregion      // REFERENCES
 
-#region namespace HenViewModels
-namespace HenViewModels
+#region namespace HenViewModel
+namespace HenViewModel
 {
     #region public class PinchViewModel
     /// <summary>
@@ -51,7 +51,7 @@ namespace HenViewModels
     }
     #endregion      // public class PinchViewModel
 }
-#endregion      // namespace HenViewModels
+#endregion      // namespace HenViewModel
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -3,7 +3,7 @@
 //######################################  P r o j e c t V i e w M o d e l . c s  ######################################
 //#####################################################################################################################
 //  FILENAME:  ProjectViewModel.cs
-//  NAMESPACE: HenViewModel
+//  NAMESPACE: HenViewModel.Project
 //  CLASS(S):  ProjectViewModel
 //  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
@@ -43,8 +43,8 @@ using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModel
-namespace HenViewModel
+#region namespace HenViewModel.Project
+namespace HenViewModel.Project
 {
     #region public class ProjectViewModel
     /// <summary>
@@ -307,7 +307,7 @@ namespace HenViewModel
     #endregion      // public class ProjectViewModel
 
 }
-#endregion      // namespace HenViewModel
+#endregion      // namespace HenViewModel.Project
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

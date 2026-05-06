@@ -2,10 +2,10 @@
 //#####################################################################################################################
 //##################################  C o s t M e t a D a t a V i e w M o d e l . c s  ################################
 //#####################################################################################################################
-//  FILENAME:  CostMetaDataViewModel.cs
-//  NAMESPACE: HenViewModels
-//  CLASS(S):  CostMetaDataViewModel
-//  COMPONENT: _HenViewModels.dll
+//  FILENAME:  CostMetadataViewModel.cs
+//  NAMESPACE: HenViewModel.Project.CostParameters
+//  CLASS(S):  CostMetadataViewModel
+//  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the view model class for the Cost Metadata Project-Cost Parameters View Model.
@@ -35,17 +35,16 @@
 #region REFERENCES
 using HenGlobal;
 
-using HenPersistence.Connection;
-using HenPersistence.Repos;
-
-using HenRepositories.Dto;
+using HenModel.Connection;
+using HenModel.Dto.Project.CostParameters;
+using HenModel.RepoImplementations.Project.CostParameters;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModels
-namespace HenViewModels
+#region namespace HenViewModel.Project.CostParameters
+namespace HenViewModel.Project.CostParameters
 {
     #region public class CostMetadataViewModel
     /// <summary>
@@ -191,7 +190,7 @@ namespace HenViewModels
     }
     #endregion      // public class CostMetadataViewModel
 }
-#endregion      // namespace HenViewModels
+#endregion      // namespace HenViewModel.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

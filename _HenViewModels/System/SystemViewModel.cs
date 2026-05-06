@@ -3,7 +3,7 @@
 //########################################  S y s t e m V i e w M o d e l . c s  ######################################
 //#####################################################################################################################
 //  FILENAME:  SystemViewModel.cs
-//  NAMESPACE: HenViewModel
+//  NAMESPACE: HenViewModel.System
 //  CLASS(S):  SystemViewModel
 //  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
@@ -40,8 +40,8 @@ using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModel
-namespace HenViewModel
+#region namespace HenViewModel.System
+namespace HenViewModel.System
 {
     #region public class SystemViewModel
     /// <summary>
@@ -149,7 +149,7 @@ namespace HenViewModel
     }
     #endregion      // public class SystemViewModel
 }
-#endregion      // namespace HenViewModel
+#endregion      // namespace HenViewModel.System
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

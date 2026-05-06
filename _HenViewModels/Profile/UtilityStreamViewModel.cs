@@ -3,9 +3,9 @@
 //###################################  U t i l i t y S t r e a m V i e w M o d e l . c s  #############################
 //#####################################################################################################################
 //  FILENAME:  UtilityStreamViewModel.cs
-//  NAMESPACE: HenViewModels
+//  NAMESPACE: HenViewModel.Profile
 //  CLASS(S):  UtilityStreamViewModel
-//  COMPONENT: _HenViewModels.dll
+//  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the view model class for the UtilityStream Profile DTO.
@@ -35,17 +35,16 @@
 #region REFERENCES
 using HenGlobal;
 
-using HenPersistence.Connection;
-using HenPersistence.Repos;
-
-using HenRepositories.Dto;
+using HenModel.Connection;
+using HenModel.RepoImplementations.Profile;
+using HenModel.Dto.Profile;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModels
-namespace HenViewModels
+#region namespace HenViewModel.Profile
+namespace HenViewModel.Profile
 {
     #region public class UtilityStreamViewModel
     /// <summary>
@@ -287,7 +286,7 @@ namespace HenViewModels
     }
     #endregion      // public class UtilityStreamViewModel
 }
-#endregion      // namespace HenViewModels
+#endregion      // namespace HenViewModel.Profile
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

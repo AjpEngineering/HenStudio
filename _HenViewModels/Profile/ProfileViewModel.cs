@@ -3,9 +3,9 @@
 //######################################  P r o f i l e V i e w M o d e l . c s  ######################################
 //#####################################################################################################################
 //  FILENAME:  ProfileViewModel.cs
-//  NAMESPACE: HenViewModels
+//  NAMESPACE: HenViewModel.Profile
 //  CLASS(S):  ProfileViewModel
-//  COMPONENT: _HenViewModels.dll
+//  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the view model class for the Profile top-level DTO.
@@ -35,17 +35,16 @@
 #region REFERENCES
 using HenGlobal;
 
-using HenPersistence.Connection;
-using HenPersistence.Repos;
-
-using HenRepositories.Dto;
+using HenModel.Connection;
+using HenModel.RepoImplementations.Profile;
+using HenModel.Dto.Profile;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModels
-namespace HenViewModels
+#region namespace HenViewModel.Profile
+namespace HenViewModel.Profile
 {
     #region public class ProfileViewModel
     /// <summary>
@@ -219,7 +218,7 @@ namespace HenViewModels
     }
     #endregion      // public class ProfileViewModel
 }
-#endregion      // namespace HenViewModels
+#endregion      // namespace HenViewModel.Profile
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -48,7 +48,7 @@
     <Compile Include="Project\DefaultParameters\OptimizerParams\OptimizerParamsViewModel.cs" />
     <Compile Include="Project\DefaultParameters\ProjectUnits\ProjectUnitsViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
-    <Compile Include="Project\DefaultParameters\ProjectViewModel.cs" />
+    <Compile Include="Project\ProjectViewModel.cs" />
     <Compile Include="Profile\ProfileViewModel.cs" />
     <Compile Include="Project\CostParameters\CostMetadataViewModel.cs" />
     <Compile Include="Profile\ProcessStreamViewModel.cs" />

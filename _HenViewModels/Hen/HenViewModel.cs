@@ -3,9 +3,9 @@
 //############################################  H e n V i e w M o d e l . c s  ########################################
 //#####################################################################################################################
 //  FILENAME:  HenViewModel.cs
-//  NAMESPACE: HenViewModels
+//  NAMESPACE: HenViewModel.Hen
 //  CLASS(S):  HenViewModel
-//  COMPONENT: _HenViewModels.dll
+//  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the view model class for the Hen top-level DTO.
@@ -40,8 +40,8 @@ using HenModel.Dto.Hen.Plots;
 
 #endregion      // REFERENCES
 
-#region namespace HenViewModels
-namespace HenViewModels
+#region namespace HenViewModel.Hen  
+namespace HenViewModel.Hen
 {
     #region public class HenViewModel
     /// <summary>
@@ -56,7 +56,7 @@ namespace HenViewModels
     }
     #endregion      // public class HenViewModel
 }
-#endregion      // namespace HenViewModels
+#endregion      // namespace HenViewModel.Hen
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

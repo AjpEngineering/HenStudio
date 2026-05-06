@@ -3,9 +3,9 @@
 //####################################  T H D i a g r a m P o i n t V i e w M o d e l . c s  ##########################
 //#####################################################################################################################
 //  FILENAME:  THDiagramPointViewModel.cs
-//  NAMESPACE: HenViewModels
+//  NAMESPACE: HenViewModel.Pinch.Plots
 //  CLASS(S):  THDiagramPointViewModel
-//  COMPONENT: _HenViewModels.dll
+//  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the view model class for the THDiagramPoint Profile DTO.
@@ -44,8 +44,8 @@ using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModels
-namespace HenViewModels
+#region namespace HenViewModel.Pinch.Plots
+namespace HenViewModel.Pinch.Plots
 {
     #region public class THDiagramPointViewModel
     /// <summary>
@@ -211,7 +211,7 @@ namespace HenViewModels
     }
     #endregion      // public class THDiagramPointViewModel
 }
-#endregion      // namespace HenViewModels
+#endregion      // namespace HenViewModel.Pinch.Plots
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
