@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//############################  S h e l l A n d T u b e C a p i t a l C o s t D t o . c s  ############################
+//#######################  I S h e l l A n d T u b e C a p i t a l C o s t P a n e l D a t a . c s  ###################
 //#####################################################################################################################
-//  FILENAME:  ShellAndTubeCapitalCostDto.cs
-//  NAMESPACE: HenModel.Dto.Project.CostParameters
-//  CLASS(S):  ShellAndTubeCapitalCostDto
-//  COMPONENT: _HenModel.dll
+//  FILENAME:  IShellAndTubeCapitalCostPanelData.cs
+//  NAMESPACE: HenStudio.Data.Project.CostParameters
+//  INTERFACE: IShellAndTubeCapitalCostPanelData
+//  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the Shell And Tube Capital Cost Project-Cost Parameters sub table.
+//    This file contains the Shell and Tube Capital Cost Panel interface for the Cost parameters.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,33 +33,29 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenModel.Dto.Project.CostParameters;
+
 using System;
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Project.CostParameters
-namespace HenModel.Dto.Project.CostParameters
+#region namespace HenStudio.Data.Project.CostParameters
+namespace HenStudio.Data.Project.CostParameters
 {
-    #region public class ShellAndTubeCapitalCostDto
+    #region public interface IFiredHeaterCapitalCostPanelData
     /// <summary>
-    /// Shell And Tube Capital Cost DTO Class
+    /// Shell and Tube Capital Cost Panel Interface
     /// </summary>
-    public class ShellAndTubeCapitalCostDto
+    public interface IShellAndTubeCapitalCostPanelData
     {
-        #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public double ParameterA { get; set; }
-        public double ParameterB_Metric { get; set; }
-        public double ParameterB_English { get; set; }
-        public double ParameterN { get; set; }
-        public double MaterialFactor { get; set; }
-        public string AreaUnits_Metric { get; set; }
-        public string AreaUnits_English { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        ShellAndTubeCapitalCostPanelData ConvertToPanelData(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDto);
+        ShellAndTubeCapitalCostDto ConvertFromPanelData();
+        #endregion      // METHODS
     }
-    #endregion      // public class ShellAndTubeCapitalCostDto
+    #endregion      // public interface IShellAndTubeCapitalCostPanelData
 }
-#endregion      // namespace HenModel.Dto.Project.CostParameters
+#endregion      // namespace HenStudio.Data.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
