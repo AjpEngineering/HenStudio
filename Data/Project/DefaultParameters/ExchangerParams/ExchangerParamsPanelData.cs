@@ -124,10 +124,10 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
 
         #region ConvertToPanelData(ExchangerParamsDto exchangerParamsDto)
         /// <summary>
-        /// Creates a new ProjectUnitsPanelData instance by copying values from the specified ProjectUnitsDto object.
+        /// Creates a new ExchangerParamsPanelData instance by copying values from the specified ExchangerParamsDto object.
         /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from ProjectUnitsDto to
-        /// ProjectUnitsPanelData. All relevant fields are transferred directly. If projectUnitsDto is null,
+        /// <remarks>This method performs a property-by-property mapping from ExchangerParamsDto to
+        /// ExchangerParamsPanelData. All relevant fields are transferred directly. If exchangerParamsDto is null,
         /// a NullReferenceException may occur.</remarks>
         /// <param name="exchangerParamsDto">The ExchangerParamsDto object containing the source values to copy. Cannot be null.</param>
         /// <returns>An ExchangerParamsPanelData instance populated with values from the provided ExchangerParamsDto object.</returns>

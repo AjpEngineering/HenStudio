@@ -67,6 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Project\CostParameters\ICostMetadataPanelData.cs" />
+    <Compile Include="Data\Project\CostParameters\CostMetadataPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ExchangerParams\IExchangerParamsPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ExchangerParams\ExchangerParamsPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerParamsPanelData.cs" />
@@ -165,7 +167,6 @@
     <Folder Include="Data\Hen\Plots\" />
     <Folder Include="Data\Pinch\Plots\" />
     <Folder Include="Data\Profile\" />
-    <Folder Include="Data\Project\CostParameters\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

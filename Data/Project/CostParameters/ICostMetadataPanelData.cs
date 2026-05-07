@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//#######################################  C o s t M e t a d a t a D t o . c s  #######################################
+//##################################  I C o s t M e t a d a t a P a n e l D a t a . c s  ##############################
 //#####################################################################################################################
-//  FILENAME:  CostMetadataDto.cs
-//  NAMESPACE: HenModel.Dto.Project.CostParameters
-//  CLASS(S):  CostMetadataDto
-//  COMPONENT: _HenModel.dll
+//  FILENAME:  ICostMetadataPanelData.cs
+//  NAMESPACE: HenStudio.Data.Project.CostParameters
+//  INTERFACE: ICostMetadataPanelData
+//  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the CostMetadataDto Project-Cost Params sub table.
+//    This file contains the Cost Metadata Panel interface for the Cost parameters.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,31 +33,29 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenModel.Dto.Project.CostParameters;
+
 using System;
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Project.CostParameters
-namespace HenModel.Dto.Project.CostParameters
+#region namespace HenStudio.Data.Project.CostParameters
+namespace HenStudio.Data.Project.CostParameters
 {
-    #region public class CostMetadataDto
+    #region public interface ICostMetadataPanelData
     /// <summary>
-    /// Cost Metadata DTO Class
+    /// Cost Metadata Panel Interface
     /// </summary>
-    public class CostMetadataDto
+    public interface ICostMetadataPanelData
     {
-        #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public string CostIndexBaseYear { get; set; }
-        public string CostIndexName { get; set; }
-        public double CostIndexValue { get; set; }
-        public string CostIndexCurrency { get; set; }
-        public double CostIndexInstalledCost { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        CostMetadataPanelData ConvertToPanelData(CostMetadataDto costMetadataDto);
+        CostMetadataDto ConvertFromPanelData();
+        #endregion      // METHODS
     }
-    #endregion      // public class CostMetadataDto
+    #endregion      // public interface ICostMetadataPanelData
 }
-#endregion      // namespace HenModel.Dto.Project.CostParameters
+#endregion      // namespace HenStudio.Data.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
