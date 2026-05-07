@@ -137,16 +137,15 @@ namespace HenStudio.Data.Project
         }
         #endregion  // ConvertToPanelData(ProjectDto projectDto)
 
-        #region ConvertFromPanelData(ProjectPanelData projectPanelDataObj)
+        #region ConvertFromPanelData()
         /// <summary>
-        /// Creates a new ProjectDto instance by copying values from the specified ProjectPanelData object.
+        /// Creates a new ProjectDto instance by copying values from the current ProjectPanelData object.
         /// </summary>
         /// <remarks>This method performs a property-by-property mapping from ProjectPanelData to
-        /// ProjectDto. All relevant fields are transferred directly. If projectPanelDataObj is null, a
+        /// ProjectDto. All relevant fields are transferred directly.</remarks>
         /// NullReferenceException may occur.</remarks>
-        /// <param name="projectPanelDataObj">The ProjectPanelData object containing the source values to copy. Cannot be null.</param>
         /// <returns>A ProjectDto instance populated with values from the provided ProjectPanelData object.</returns>
-        public ProjectDto ConvertFromPanelData(ProjectPanelData projectPanelDataObj)
+        public ProjectDto ConvertFromPanelData()
         {
             ProjectDtoObj = new ProjectDto();
             ProjectDtoObj.Id = this.Id;
@@ -157,7 +156,7 @@ namespace HenStudio.Data.Project
             ProjectDtoObj.ModifiedDate = this.ModifiedDate;
             return ProjectDtoObj;
         }
-        #endregion  // ConvertFromPanelData(ProjectPanelData projectPanelDataObj)   
+        #endregion  // ConvertFromPanelData()   
 
         #endregion  // IMPLEMENTATION of IProjectPanelData
     }

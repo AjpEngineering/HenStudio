@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//#######################################  I P r o j e c t P a n e l D a t a . c s  ###################################
+//##################################  I P r o j e c t U n i t s P a n e l D a t a . c s  ##############################
 //#####################################################################################################################
-//  FILENAME:  IProjectPanelData.cs
-//  NAMESPACE: HenStudio.Data.Project
-//  INTERFACE: IProjectPanelData
+//  FILENAME:  IProjectUnitsPanelData.cs
+//  NAMESPACE: HenStudio.Data.Project.DefaultParameters.ProjectUnits
+//  INTERFACE: IProjectUnitsPanelData
 //  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the Project Panel interface for the Project top-level table.
+//    This file contains the Project Units Panel interface for the Project units parameters.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,31 +33,30 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.Project;
-using HenStudio.Data.Project;
+using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
+using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenStudio.Data.Project
-namespace HenStudio.Data.Project
+#region namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
+namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
 {
-    #region public interface IProjectPanelData
+    #region public interface IProjectUnitsPanelData
     /// <summary>
-    /// Project Panel Interface
+    /// Project Units Panel Interface
     /// </summary>
-    public interface IProjectPanelData
+    public interface IProjectUnitsPanelData
     {
         #region METHODS
-        ProjectPanelData ConvertToPanelData(ProjectDto projectDto);
-        ProjectDto ConvertFromPanelData();
+        ProjectUnitsPanelData ConvertToPanelData(ProjectUnitsDto projectUnitsDto);
+        ProjectUnitsDto ConvertFromPanelData();
         #endregion      // METHODS
     }
-    #endregion      // public interface IProjectPanelData
+    #endregion      // public interface IProjectUnitsPanelData
 }
-#endregion      // namespace HenStudio.Data.Project
-
+#endregion      // namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
 //=====================================================================================================================
