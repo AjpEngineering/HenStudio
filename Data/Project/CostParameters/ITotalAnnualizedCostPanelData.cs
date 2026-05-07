@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//################################  T o t a l A n n u a l i z e d C o s t D t o . c s  ################################
+//########################  I T o t a l A n n u a l i z e d C o s t P a n e l D a t a . c s  ####################
 //#####################################################################################################################
-//  FILENAME:  TotalAnnualizedCostDto.cs
-//  NAMESPACE: HenModel.Dto.Project.CostParameters
-//  CLASS(S):  TotalAnnualizedCostDto
-//  COMPONENT: _HenModel.dll
+//  FILENAME:  ITotalAnnualizedCostPanelData.cs
+//  NAMESPACE: HenStudio.Data.Project.CostParameters
+//  INTERFACE: ITotalAnnualizedCostPanelData
+//  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the Total Annualized Cost (TAC) Project-Cost Parameters sub table.
+//    This file contains the Total Annualized Cost Panel interface for the Cost parameters.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,30 +33,29 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenModel.Dto.Project.CostParameters;
+
 using System;
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Project.CostParameters
-namespace HenModel.Dto.Project.CostParameters
+#region namespace HenStudio.Data.Project.CostParameters
+namespace HenStudio.Data.Project.CostParameters
 {
-    #region public class TotalAnnualizedCostDto
+    #region public interface ITotalAnnualizedCostPanelData
     /// <summary>
-    /// Total Annualized Cost DTO Class
+    /// Total Annualized Cost Panel Interface
     /// </summary>
-    public class TotalAnnualizedCostDto
+    public interface ITotalAnnualizedCostPanelData
     {
-        #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public double TAC_InterestRate { get; set; }
-        public double TAC_LifeYears { get; set; }
-        public double TAC_MaintenanceFraction { get; set; }
-        public double TAC_OperatingHours { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        TotalAnnualizedCostPanelData ConvertToPanelData(TotalAnnualizedCostDto totalAnnualizedCostDto);
+        TotalAnnualizedCostDto ConvertFromPanelData();
+        #endregion      // METHODS
     }
-    #endregion      // public class TotalAnnualizedCostDto
+    #endregion      // public interface ITotalAnnualizedCostPanelData
 }
-#endregion      // namespace HenModel.Dto.Project.CostParameters
+#endregion      // namespace HenStudio.Data.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
