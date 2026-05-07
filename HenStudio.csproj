@@ -67,6 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Project\CostParameters\FiredHeaterCapitalCostPanelData.cs" />
+    <Compile Include="Data\Project\CostParameters\IFiredHeaterCapitalCostPanelData.cs" />
     <Compile Include="Data\Project\CostParameters\ICostMetadataPanelData.cs" />
     <Compile Include="Data\Project\CostParameters\CostMetadataPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ExchangerParams\IExchangerParamsPanelData.cs" />

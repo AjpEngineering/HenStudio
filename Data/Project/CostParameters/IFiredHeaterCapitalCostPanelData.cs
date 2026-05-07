@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//#############################  F i r e d H e a t e r C a p i t a l C o s t D t o . c s  #############################
+//########################  I F i r e d H e a t e r C a p i t a l C o s t P a n e l D a t a . c s  ####################
 //#####################################################################################################################
-//  FILENAME:  FiredHeaterCapitalCostDto.cs
-//  NAMESPACE: HenModel.Dto.Project.CostParameters
-//  CLASS(S):  FiredHeaterCapitalCostDto
-//  COMPONENT: _HenModel.dll
+//  FILENAME:  IFiredHeaterCapitalCostPanelData.cs
+//  NAMESPACE: HenStudio.Data.Project.CostParameters
+//  INTERFACE: IFiredHeaterCapitalCostPanelData
+//  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the Fired Heater Capital Cost Project-Cost Parameters sub table.
+//    This file contains the Fired Heater Capital Cost Panel interface for the Cost parameters.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,32 +33,29 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenModel.Dto.Project.CostParameters;
+
 using System;
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Project.CostParameters
-namespace HenModel.Dto.Project.CostParameters
+#region namespace HenStudio.Data.Project.CostParameters
+namespace HenStudio.Data.Project.CostParameters
 {
-    #region public class FiredHeaterCapitalCostDto
+    #region public interface IFiredHeaterCapitalCostPanelData
     /// <summary>
-    /// Fired Heater Capital Cost DTO Class
+    /// Fired Heater Capital Cost Panel Interface
     /// </summary>
-    public class FiredHeaterCapitalCostDto
+    public interface IFiredHeaterCapitalCostPanelData
     {
-        #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public double ParameterAlpha_Metric { get; set; }
-        public double ParameterAlpha_English { get; set; }
-        public double ParameterBeta { get; set; }
-        public double Efficiency { get; set; }
-        public string DutyUnits_Metric { get; set; }
-        public string DutyUnits_English { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        FiredHeaterCapitalCostPanelData ConvertToPanelData(FiredHeaterCapitalCostDto firedHeaterCapitalCostDto);
+        FiredHeaterCapitalCostDto ConvertFromPanelData();
+        #endregion      // METHODS
     }
-    #endregion      // public class FiredHeaterCapitalCostDto
+    #endregion      // public interface IFiredHeaterCapitalCostPanelData
 }
-#endregion      // namespace HenModel.Dto.Project.CostParameters
+#endregion      // namespace HenStudio.Data.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
