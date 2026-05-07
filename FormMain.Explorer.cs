@@ -576,10 +576,14 @@ namespace HenStudio
                         //------------------------------------------------
                         //--- Populate Project Panel with Project Data ---
                         //------------------------------------------------
-                        ProjectPanelData projectViewDataObj = GetProjectViewData(projectDtoObj,
-                                                                                exchangerParamsDto,
-                                                                                projectUnitsDto);
-                        PopulateProjectPanel(projectViewDataObj);
+                        //ProjectPanelData projectPanelDataObj = GetProjectViewData(projectDtoObj,
+                        //                                                        exchangerParamsDto,
+                        //                                                        projectUnitsDto);
+                        ProjectPanelData projectPanelDataObj = new ProjectPanelData();
+                        projectPanelDataObj = projectPanelDataObj.ConvertToPanelData(projectDtoObj);
+
+
+                        PopulateProjectPanel(projectPanelDataObj);
 
                         //-----------------------------
                         //--- Display Project Panel ---

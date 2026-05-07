@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Project\IProjectPanelData.cs" />
     <Compile Include="Data\Tag\DataTagDisplay.cs" />
     <Compile Include="FormAboutPinch.cs">
       <SubType>Form</SubType>
@@ -159,7 +160,9 @@
     <Folder Include="Data\Pinch\Plots\" />
     <Folder Include="Data\Profile\" />
     <Folder Include="Data\Project\CostParameters\" />
-    <Folder Include="Data\Project\DefaultParameters\" />
+    <Folder Include="Data\Project\DefaultParameters\ExchangerParams\" />
+    <Folder Include="Data\Project\DefaultParameters\OptimizerParams\" />
+    <Folder Include="Data\Project\DefaultParameters\ProjectUnits\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

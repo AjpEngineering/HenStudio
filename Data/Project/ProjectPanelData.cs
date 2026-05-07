@@ -33,6 +33,8 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenModel.Dto.Project;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,60 +46,120 @@ using System.Threading.Tasks;
 namespace HenStudio.Data.Project
 {
     #region public class ProjectPanelData
-    public class ProjectPanelData
+    public class ProjectPanelData : IProjectPanelData
     {
         #region CONSTANTS
-        const string NAMESPACE = "HenStudio";
+        const string NAMESPACE = "HenStudio.Data.Project";
         const string CLASS = "ProjectPanelData";
         #endregion      // CONSTANTS
 
         #region PROPERTIES
+        public ProjectDto ProjectDtoObj { get; set; }
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string ProjectU_Value { get; set; }
-        public string ProjectF_Value { get; set; }
-        public string ProjectHenOptimizer { get; set; }
-        public string ProjectSystem_Units { get; set; }
-        public string ProjectMagnitude_Units { get; set; }
-        public string ProjectTemperature_Units { get; set; }
-        public string ProjectPressure_Units { get; set; }
-        public string ProjectArea_Units { get; set; }
-        public string ProjectDuty_Units { get; set; }
-        public string ProjectCP_Units { get; set; }
-        public string ProjectU_Units { get; set; }
-
-        public DateTime ProjectCreationDate { get; set; }
-        public DateTime ProjectModificationDate { get; set; }
-
+        public string DefaultHenOptimizer { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
         public ProjectPanelData()
         {
+            ProjectDtoObj = new ProjectDto();
             Id = new Guid();
             Name = string.Empty; 
             Description = string.Empty;
-
-            ProjectU_Value = "74.0";
-            ProjectF_Value = "0.85";
-
-            ProjectHenOptimizer = string.Empty;
-
-            ProjectSystem_Units = string.Empty;
-            ProjectMagnitude_Units = string.Empty;
-            ProjectTemperature_Units = string.Empty;
-            ProjectPressure_Units = string.Empty;
-            ProjectArea_Units = string.Empty;
-            ProjectDuty_Units = string.Empty;
-            ProjectCP_Units = string.Empty;
-            ProjectU_Units = string.Empty;
-
-            ProjectCreationDate = DateTime.Now;
-            ProjectModificationDate = DateTime.Now;
+            DefaultHenOptimizer = string.Empty;
+            CreationDate = DateTime.Now;
+            ModifiedDate = DateTime.Now;
         }
         #endregion  // CTOR
 
+        #region STRING CONVERSION METHODS
+
+        #region GetProjectId()
+        /// <summary>
+        /// Gets the unique identifier of the project as a string.
+        /// </summary>
+        /// <returns>A string representation of the project's unique identifier.</returns>
+        public string GetProjectId()
+        { 
+            return Id.ToString(); 
+        }
+        #endregion  // GetProjectId()
+        
+        #region GetProjectCreationDate()
+        /// <summary>
+        /// Gets the creation date of the project as a formatted string.
+        /// </summary>
+        /// <returns>A string representation of the project's creation date.</returns>
+        public string GetProjectCreationDate()
+        {
+            return CreationDate.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+        #endregion  // GetProjectCreationDate()
+        
+        #region GetProjectModifiedDate()
+        /// <summary>
+        /// Gets the modification date of the project as a formatted string.
+        /// </summary>
+        /// <returns>A string representation of the project's modification date.</returns>
+        public string GetProjectModifiedDate()
+        {
+            return ModifiedDate.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+        #endregion  // GetProjectModifiedDate()
+
+        #endregion  // STRING CONVERSION METHODS
+
+        #region IMPLEMENTATION of IProjectPanelData METHODS
+
+        #region ConvertToPanelData(ProjectDto projectDto)
+        /// <summary>
+        /// Creates a new ProjectPanelData instance by copying values from the specified ProjectDto object.
+        /// </summary>
+        /// <remarks>This method performs a property-by-property mapping from ProjectDto to
+        /// ProjectPanelData. All relevant fields are transferred directly. If projectDto is null, a
+        /// NullReferenceException may occur.</remarks>
+        /// <param name="projectDto">The ProjectDto object containing the source values to copy. Cannot be null.</param>
+        /// <returns>A ProjectPanelData instance populated with values from the provided ProjectDto object.</returns>
+        public ProjectPanelData ConvertToPanelData(ProjectDto projectDto)
+        {
+            ProjectDtoObj = projectDto;
+            this.Id = projectDto.Id;
+            this.Name = projectDto.Name;
+            this.Description = projectDto.Description;
+            this.DefaultHenOptimizer = projectDto.DefaultHenOptimizer;
+            this.CreationDate = projectDto.CreationDate;
+            this.ModifiedDate = projectDto.ModifiedDate;
+            return this;
+        }
+        #endregion  // ConvertToPanelData(ProjectDto projectDto)
+
+        #region ConvertFromPanelData(ProjectPanelData projectPanelDataObj)
+        /// <summary>
+        /// Creates a new ProjectDto instance by copying values from the specified ProjectPanelData object.
+        /// </summary>
+        /// <remarks>This method performs a property-by-property mapping from ProjectPanelData to
+        /// ProjectDto. All relevant fields are transferred directly. If projectPanelDataObj is null, a
+        /// NullReferenceException may occur.</remarks>
+        /// <param name="projectPanelDataObj">The ProjectPanelData object containing the source values to copy. Cannot be null.</param>
+        /// <returns>A ProjectDto instance populated with values from the provided ProjectPanelData object.</returns>
+        public ProjectDto ConvertFromPanelData(ProjectPanelData projectPanelDataObj)
+        {
+            ProjectDtoObj = new ProjectDto();
+            ProjectDtoObj.Id = this.Id;
+            ProjectDtoObj.Name = this.Name;
+            ProjectDtoObj.Description = this.Description;
+            ProjectDtoObj.DefaultHenOptimizer = this.DefaultHenOptimizer;
+            ProjectDtoObj.CreationDate = this.CreationDate;
+            ProjectDtoObj.ModifiedDate = this.ModifiedDate;
+            return ProjectDtoObj;
+        }
+        #endregion  // ConvertFromPanelData(ProjectPanelData projectPanelDataObj)   
+
+        #endregion  // IMPLEMENTATION of IProjectPanelData
     }
     #endregion      // public class ProjectPanelData
 }
