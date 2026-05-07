@@ -67,6 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Profile\IProfilePanelData.cs" />
+    <Compile Include="Data\Profile\ProfilePanelData.cs" />
     <Compile Include="Data\Project\CostParameters\TotalAnnualizedCostPanelData.cs" />
     <Compile Include="Data\Project\CostParameters\ITotalAnnualizedCostPanelData.cs" />
     <Compile Include="Data\Project\CostParameters\UtilityCostPanelData.cs" />
@@ -174,7 +176,6 @@
     <Folder Include="Data\Connection\" />
     <Folder Include="Data\Hen\Plots\" />
     <Folder Include="Data\Pinch\Plots\" />
-    <Folder Include="Data\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
