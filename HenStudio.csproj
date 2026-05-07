@@ -67,6 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Project\CostParameters\UtilityCostPanelData.cs" />
+    <Compile Include="Data\Project\CostParameters\IUtilityCostPanelData.cs" />
     <Compile Include="Data\Project\CostParameters\ShellAndTubeCapitalCostPanelData.cs" />
     <Compile Include="Data\Project\CostParameters\FiredHeaterCapitalCostPanelData.cs" />
     <Compile Include="Data\Project\CostParameters\IShellAndTubeCapitalCostPanelData.cs" />

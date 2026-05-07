@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//########################################  U t i l i t y C o s t D t o . c s  ########################################
+//###################################  I U t i l i t y C o s t P a n e l D a t a . c s  ###############################
 //#####################################################################################################################
-//  FILENAME:  UtilityCostDto.cs
-//  NAMESPACE: HenModel.Dto.Project.CostParameters
-//  CLASS(S):  UtilityCostDto
-//  COMPONENT: _HenModel.dll
+//  FILENAME:  IUtilityCostPanelData.cs
+//  NAMESPACE: HenStudio.Data.Project.CostParameters
+//  INTERFACE: IUtilityCostPanelData
+//  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the Utility Cost Project-Cost Parameters sub table.
+//    This file contains the Utility Cost Panel interface for the Cost parameters.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,40 +33,29 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenModel.Dto.Project.CostParameters;
+
 using System;
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Project.CostParameters
-namespace HenModel.Dto.Project.CostParameters
+#region namespace HenStudio.Data.Project.CostParameters
+namespace HenStudio.Data.Project.CostParameters
 {
-    #region public class UtilityCostDto
+    #region public interface IUtilityCostPanelData
     /// <summary>
-    /// Utility Cost DTO Class
+    /// Utility Cost Panel Interface
     /// </summary>
-    public class UtilityCostDto
+    public interface IUtilityCostPanelData
     {
-        #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public double HP_SteamCost_Metric { get; set; }
-        public double MP_SteamCost_Metric { get; set; }
-        public double LP_SteamCost_Metric { get; set; }
-        public double CoolingWaterCost_Metric { get; set; }
-        public double ChilledWaterCost_Metric { get; set; }
-        public double FuelGasCost_Metric { get; set; }
-        public double HP_SteamCost_English { get; set; }
-        public double MP_SteamCost_English { get; set; }
-        public double LP_SteamCost_English { get; set; }
-        public double CoolingWaterCost_English { get; set; }
-        public double ChilledWaterCost_English { get; set; }
-        public double FuelGasCost_English { get; set; }
-        public string DutyUnits_Metric { get; set; }
-        public string DutyUnits_English { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        UtilityCostPanelData ConvertToPanelData(UtilityCostDto utilityCostDto);
+        UtilityCostDto ConvertFromPanelData();
+        #endregion      // METHODS
     }
-    #endregion      // public class UtilityCostDto
+    #endregion      // public interface IUtilityCostPanelData
 }
-#endregion      // namespace HenModel.Dto.Project.CostParameters
+#endregion      // namespace HenStudio.Data.Project.CostParameters
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
