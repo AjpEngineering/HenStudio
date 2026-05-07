@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//################################  P r o j e c t U n i t s P a n e l D a t a . c s  ##################################
+//#############################  E x c h a n g e r P a r a m s P a n e l D a t a . c s  ###############################
 //#####################################################################################################################
-//  FILENAME:  ProjectUnitsPanelData.cs
-//  NAMESPACE: HenStudio.Data.Project.DefaultParameters.ProjectUnits
-//  CLASS(S):  ProjectUnitsPanelData
+//  FILENAME:  ExchangerParamsPanelData.cs
+//  NAMESPACE: HenStudio.Data.Project.DefaultParameters.ExchangerParams
+//  CLASS(S):  ExchangerParamsPanelData
 //  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Project Units Panel Data object - data needed for Project Units Panel.
+//    This file contains the code for the Exchanger Params Panel Data object - data needed for Exchanger Params Panel.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,7 +33,7 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
+using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 
 using System;
 using System.Collections.Generic;
@@ -42,41 +42,33 @@ using System.Text;
 using System.Threading.Tasks;
 #endregion  // REFERENCES
 
-#region namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
-namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
+#region namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
+namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
 {
-    #region public class ProjectUnitsPanelData
-    public class ProjectUnitsPanelData : IProjectUnitsPanelData
+    #region public class ExchangerParamsPanelData
+    public class ExchangerParamsPanelData : IExchangerParamsPanelData
     {
         #region CONSTANTS
-        const string NAMESPACE = "HenStudio.Data.Project.DefaultParameters.ProjectUnits";
-        const string CLASS = "ProjectUnitsPanelData";
+        const string NAMESPACE = "HenStudio.Data.Project.DefaultParameters.ExchangerParams";
+        const string CLASS = "ExchangerParamsPanelData";
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public ProjectUnitsDto ProjectUnitsDtoObj { get; set; }
+        public ExchangerParamsDto ExchangerParamsDtoObj { get; set; }
         public Guid Id { get; set; }
         public Guid ProjectId { get; set; }
-        public string DefaultSystemUnits { get; set; }
-        public string DefaultMagnitudeUnits { get; set; }
-        public string DefaultTemperatureUnits { get; set; }
-        public string DefaultPressureUnits { get; set; }
+        public double DefaultHeatTransferCoefficient { get; set; }
+        public double DefaultCorrectionFactor { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
-        /// <summary>
-        /// Default constructor for ProjectUnitsPanelData. 
-        /// Initializes all properties to their default values.
-        /// </summary>
-        public ProjectUnitsPanelData()
+        public ExchangerParamsPanelData()
         {
-            ProjectUnitsDtoObj = new ProjectUnitsDto();
+            ExchangerParamsDtoObj = new ExchangerParamsDto();
             Id = new Guid();
             ProjectId = new Guid();
-            DefaultSystemUnits = string.Empty;
-            DefaultMagnitudeUnits = string.Empty;
-            DefaultTemperatureUnits = string.Empty;
-            DefaultPressureUnits = string.Empty;
+            DefaultHeatTransferCoefficient = 0.0;
+            DefaultCorrectionFactor = 0.0;
         }
         #endregion  // CTOR
 
@@ -104,57 +96,75 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         }
         #endregion  // GetProjectId()
 
+        #region GetDefaultHeatTransferCoefficient()
+        /// <summary>
+        /// Gets the default heat transfer coefficient as a string.
+        /// </summary>
+        /// <returns>A string representation of the default heat transfer coefficient.</returns>
+        public string GetDefaultHeatTransferCoefficient()
+        {
+            return DefaultHeatTransferCoefficient.ToString();
+        }
+        #endregion  // GetDefaultHeatTransferCoefficient()
+
+        #region GetDefaultCorrectionFactor()
+        /// <summary>
+        /// Gets the default correction factor as a string.
+        /// </summary>
+        /// <returns>A string representation of the default correction factor.</returns>
+        public string GetDefaultCorrectionFactor()
+        {
+            return DefaultCorrectionFactor.ToString();
+        }
+        #endregion  // GetDefaultCorrectionFactor()
+
         #endregion  // STRING CONVERSION METHODS
 
-        #region IMPLEMENTATION of IProjectUnitsPanelData METHODS
+        #region IMPLEMENTATION of IExchangerParamsPanelData METHODS
 
-        #region ConvertToPanelData(ProjectUnitsDto projectUnitsDto)
+        #region ConvertToPanelData(ExchangerParamsDto exchangerParamsDto)
         /// <summary>
         /// Creates a new ProjectUnitsPanelData instance by copying values from the specified ProjectUnitsDto object.
         /// </summary>
         /// <remarks>This method performs a property-by-property mapping from ProjectUnitsDto to
         /// ProjectUnitsPanelData. All relevant fields are transferred directly. If projectUnitsDto is null,
         /// a NullReferenceException may occur.</remarks>
-        /// <param name="projectUnitsDto">The ProjectUnitsDto object containing the source values to copy. Cannot be null.</param>
-        /// <returns>A ProjectUnitsPanelData instance populated with values from the provided ProjectUnitsDto object.</returns>
-        public ProjectUnitsPanelData ConvertToPanelData(ProjectUnitsDto projectUnitsDto)
+        /// <param name="exchangerParamsDto">The ExchangerParamsDto object containing the source values to copy. Cannot be null.</param>
+        /// <returns>An ExchangerParamsPanelData instance populated with values from the provided ExchangerParamsDto object.</returns>
+        public ExchangerParamsPanelData ConvertToPanelData(ExchangerParamsDto exchangerParamsDto)
         {
-            ProjectUnitsDtoObj = projectUnitsDto;
-            this.Id = projectUnitsDto.Id;
-            this.ProjectId = projectUnitsDto.ProjectId;
-            this.DefaultSystemUnits = projectUnitsDto.DefaultSystemUnits;
-            this.DefaultMagnitudeUnits = projectUnitsDto.DefaultMagnitudeUnits;
-            this.DefaultTemperatureUnits = projectUnitsDto.DefaultTemperatureUnits;
-            this.DefaultPressureUnits = projectUnitsDto.DefaultPressureUnits;
+            ExchangerParamsDtoObj = exchangerParamsDto;
+            this.Id = exchangerParamsDto.Id;
+            this.ProjectId = exchangerParamsDto.ProjectId;
+            this.DefaultHeatTransferCoefficient = exchangerParamsDto.DefaultHeatTransferCoefficient;
+            this.DefaultCorrectionFactor = exchangerParamsDto.DefaultCorrectionFactor;
             return this;
         }
-        #endregion  // ConvertToPanelData(ProjectUnitsDto projectUnitsDto)
+        #endregion  // ConvertToPanelData(ExchangerParamsDto exchangerParamsDto)
 
         #region ConvertFromPanelData()
         /// <summary>
         /// Creates a new ProjectUnitsDto instance by copying values from the current ProjectUnitsPanelData object.
         /// </summary>
         /// <remarks>This method performs a property-by-property mapping from ProjectUnitsPanelData to
-        /// ProjectUnitsDto. All relevant fields are transferred directly.</remarks>
-        /// <returns>A ProjectUnitsDto instance populated with values from the current ProjectUnitsPanelData object.</returns>
-        public ProjectUnitsDto ConvertFromPanelData()
+        /// ExchangerParamsDto. All relevant fields are transferred directly.</remarks>
+        /// <returns>An ExchangerParamsDto instance populated with values from the current ExchangerParamsPanelData object.</returns>
+        public ExchangerParamsDto ConvertFromPanelData()
         {
-            ProjectUnitsDtoObj = new ProjectUnitsDto();
-            ProjectUnitsDtoObj.Id = this.Id;
-            ProjectUnitsDtoObj.ProjectId = this.ProjectId;
-            ProjectUnitsDtoObj.DefaultSystemUnits = this.DefaultSystemUnits;
-            ProjectUnitsDtoObj.DefaultMagnitudeUnits = this.DefaultMagnitudeUnits;
-            ProjectUnitsDtoObj.DefaultTemperatureUnits = this.DefaultTemperatureUnits;
-            ProjectUnitsDtoObj.DefaultPressureUnits = this.DefaultPressureUnits;
-            return ProjectUnitsDtoObj;
+            ExchangerParamsDtoObj = new ExchangerParamsDto();
+            ExchangerParamsDtoObj.Id = this.Id;
+            ExchangerParamsDtoObj.ProjectId = this.ProjectId;
+            ExchangerParamsDtoObj.DefaultHeatTransferCoefficient = this.DefaultHeatTransferCoefficient;
+            ExchangerParamsDtoObj.DefaultCorrectionFactor = this.DefaultCorrectionFactor;
+            return ExchangerParamsDtoObj;
         }
         #endregion  // ConvertFromPanelData()   
 
-        #endregion  // IMPLEMENTATION of IProjectUnitsPanelData
+        #endregion  // IMPLEMENTATION of IExchangerParamsPanelData
     }
-    #endregion      // public class ProjectUnitsPanelData
+    #endregion      // public class ExchangerParamsPanelData
 }
-#endregion  // namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
+#endregion  // namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

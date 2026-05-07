@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//##################################  I P r o j e c t U n i t s P a n e l D a t a . c s  ##############################
+//###############################  I O p t i m i z e r P a r a m s P a n e l D a t a . c s  ###########################
 //#####################################################################################################################
-//  FILENAME:  IProjectUnitsPanelData.cs
-//  NAMESPACE: HenStudio.Data.Project.DefaultParameters.ProjectUnits
-//  INTERFACE: IProjectUnitsPanelData
+//  FILENAME:  IOptimizerParamsPanelData.cs
+//  NAMESPACE: HenStudio.Data.Project.DefaultParameters.OptimizerParams
+//  INTERFACE: IOptimizerParamsPanelData
 //  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the Project Units Panel interface for the Project units parameters.
+//    This file contains the Optimizer Params Panel interface for the Optimizer parameters.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,30 +33,30 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
-using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
+using HenStudio.Data.Project.DefaultParameters.OptimizerParams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
-namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
+#region namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
+namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
 {
-    #region public interface IProjectUnitsPanelData
+    #region public interface IOptimizerParamsPanelData
     /// <summary>
-    /// Project Units Panel Interface
+    /// Exchanger Params Panel Interface
     /// </summary>
-    public interface IProjectUnitsPanelData
+    public interface IOptimizerParamsPanelData
     {
         #region METHODS
-        ProjectUnitsPanelData ConvertToPanelData(ProjectUnitsDto projectUnitsDto);
-        ProjectUnitsDto ConvertFromPanelData();
+        OptimizerParamsPanelData ConvertToPanelData(OptimizerParamsDto optimizerParamsDto);
+        OptimizerParamsDto ConvertFromPanelData();
         #endregion      // METHODS
     }
-    #endregion      // public interface IProjectUnitsPanelData
+    #endregion      // public interface IOptimizerParamsPanelData
 }
-#endregion      // namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
+#endregion      // namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//##################################  I P r o j e c t U n i t s P a n e l D a t a . c s  ##############################
+//###############################  I E x c h a n g e r P a r a m s P a n e l D a t a . c s  ###########################
 //#####################################################################################################################
-//  FILENAME:  IProjectUnitsPanelData.cs
-//  NAMESPACE: HenStudio.Data.Project.DefaultParameters.ProjectUnits
-//  INTERFACE: IProjectUnitsPanelData
+//  FILENAME:  IExchangerParamsPanelData.cs
+//  NAMESPACE: HenStudio.Data.Project.DefaultParameters.ExchangerParams
+//  INTERFACE: IExchangerParamsPanelData
 //  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the Project Units Panel interface for the Project units parameters.
+//    This file contains the Exchanger Params Panel interface for the Exchanger parameters.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,30 +33,30 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
-using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
+using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
+using HenStudio.Data.Project.DefaultParameters.ExchangerParams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
-namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
+#region namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
+namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
 {
-    #region public interface IProjectUnitsPanelData
+    #region public interface IExchangerParamsPanelData
     /// <summary>
-    /// Project Units Panel Interface
+    /// Exchanger Params Panel Interface
     /// </summary>
-    public interface IProjectUnitsPanelData
+    public interface IExchangerParamsPanelData
     {
         #region METHODS
-        ProjectUnitsPanelData ConvertToPanelData(ProjectUnitsDto projectUnitsDto);
-        ProjectUnitsDto ConvertFromPanelData();
+        ExchangerParamsPanelData ConvertToPanelData(ExchangerParamsDto exchangerParamsDto);
+        ExchangerParamsDto ConvertFromPanelData();
         #endregion      // METHODS
     }
-    #endregion      // public interface IProjectUnitsPanelData
+    #endregion      // public interface IExchangerParamsPanelData
 }
-#endregion      // namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
+#endregion      // namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

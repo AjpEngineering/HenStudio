@@ -64,6 +64,12 @@ namespace HenStudio.Data.Project
         #endregion  // PROPERTIES
 
         #region CTOR
+        /// <summary>
+        /// Initializes a new instance of the ProjectPanelData class with default values for all properties.
+        /// </summary>
+        /// <remarks>All string properties are initialized to empty strings, date properties are set to
+        /// the current date and time, and the ProjectDtoObj property is initialized with a new ProjectDto instance.
+        /// This constructor ensures that the object is in a valid default state upon creation.</remarks>
         public ProjectPanelData()
         {
             ProjectDtoObj = new ProjectDto();

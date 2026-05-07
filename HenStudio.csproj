@@ -67,6 +67,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Project\DefaultParameters\ExchangerParams\IExchangerParamsPanelData.cs" />
+    <Compile Include="Data\Project\DefaultParameters\ExchangerParams\ExchangerParamsPanelData.cs" />
+    <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerParamsPanelData.cs" />
+    <Compile Include="Data\Project\DefaultParameters\OptimizerParams\IOptimizerParamsPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ProjectUnits\IProjectUnitsPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ProjectUnits\ProjectUnitsPanelData.cs" />
     <Compile Include="Data\Project\IProjectPanelData.cs" />
@@ -162,8 +166,6 @@
     <Folder Include="Data\Pinch\Plots\" />
     <Folder Include="Data\Profile\" />
     <Folder Include="Data\Project\CostParameters\" />
-    <Folder Include="Data\Project\DefaultParameters\ExchangerParams\" />
-    <Folder Include="Data\Project\DefaultParameters\OptimizerParams\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
