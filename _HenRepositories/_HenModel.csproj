@@ -134,7 +134,7 @@
     <Compile Include="RepoImplementations\Project\DefaultParameters\ExchangerParams\ExchangerParamsRepo.cs" />
     <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerGeneticRepo.cs" />
     <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerGreedyRepo.cs" />
-    <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerMILPRepo.cs" />
+    <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerMILP_Repo.cs" />
     <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerParamsRepo.cs" />
     <Compile Include="RepoImplementations\Project\ProjectRepo.cs" />
     <Compile Include="RepoImplementations\Project\DefaultParameters\ProjectUnits\ProjectUnitsRepo.cs" />

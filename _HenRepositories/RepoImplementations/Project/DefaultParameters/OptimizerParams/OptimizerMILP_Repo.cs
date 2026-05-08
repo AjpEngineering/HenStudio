@@ -1,13 +1,13 @@
 #region HEADER
-//###################################  H e n O p t i m i z e r M I L P R e p o . c s  ################################
+//###################################  O p t i m i z e r M I L P _ R e p o . c s  ################################
 //#####################################################################################################################
-//  FILENAME:  HenOptimizerMILPRepo.cs
+//  FILENAME:  OptimizerMILP_Repo.cs
 //  NAMESPACE: HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
-//  CLASS(S):  HenOptimizerMILPRepo
+//  CLASS(S):  OptimizerMILP_Repo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the HenOptimizerMILP Project sub table.
+//    This file contains the concrete repo implementation stub for the Optimizer MILP Project sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -45,11 +45,11 @@ using System.Collections.Generic;
 #region namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
 namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
 {
-    #region public class HenOptimizerMILPRepo
+    #region public class OptimizerMILP_Repo
     /// <summary>
-    /// HenOptimizerMILP Repo Class
+    /// Optimizer MILP Repo Class
     /// </summary>
-    public class OptimizerMILPRepo : IOptimizerMILP_Repo
+    public class OptimizerMILP_Repo : IOptimizerMILP_Repo
     {
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;
@@ -60,7 +60,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public OptimizerMILPRepo(IDbConnectionFactory connectionFactory)
+        public OptimizerMILP_Repo(IDbConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {
