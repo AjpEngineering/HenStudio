@@ -88,7 +88,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
             return new CostMetadataDto
             {
                 Id = record.GetGuid(record.GetOrdinal("Id")),
-                ProfileId = record.GetGuid(record.GetOrdinal("ProfileId")),
+                ProjectId = record.GetGuid(record.GetOrdinal("ProjectId")),
                 CostIndexBaseYear = record.IsDBNull(record.GetOrdinal("CostIndexBaseYear")) ? null : record.GetString(record.GetOrdinal("CostIndexBaseYear")),
                 CostIndexName = record.IsDBNull(record.GetOrdinal("CostIndexName")) ? null : record.GetString(record.GetOrdinal("CostIndexName")),
                 CostIndexValue = record.GetDouble(record.GetOrdinal("CostIndexValue")),
@@ -281,7 +281,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProfileId", DbType.Guid, costMetadataDto.ProfileId);
+                    AddParameter(command, "@ProjectId", DbType.Guid, costMetadataDto.ProjectId);
                     AddParameter(command, "@CostIndexBaseYear", DbType.String, costMetadataDto.CostIndexBaseYear);
                     AddParameter(command, "@CostIndexName", DbType.String, costMetadataDto.CostIndexName);
                     AddParameter(command, "@CostIndexValue", DbType.Double, costMetadataDto.CostIndexValue);
@@ -324,7 +324,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
                     AddParameter(command, "@Id", DbType.Guid, costMetadataDto.Id);
-                    AddParameter(command, "@ProfileId", DbType.Guid, costMetadataDto.ProfileId);
+                    AddParameter(command, "@ProjectId", DbType.Guid, costMetadataDto.ProjectId);
                     AddParameter(command, "@CostIndexBaseYear", DbType.String, costMetadataDto.CostIndexBaseYear);
                     AddParameter(command, "@CostIndexName", DbType.String, costMetadataDto.CostIndexName);
                     AddParameter(command, "@CostIndexValue", DbType.Double, costMetadataDto.CostIndexValue);

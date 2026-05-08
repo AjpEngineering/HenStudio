@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//#################################  O p t i m i z e r G e n e t i c D t o . c s  #####################################
+//##############################  I O p t i m i z e r M I L P P a n e l D a t a . c s  ##########################
 //#####################################################################################################################
-//  FILENAME:  OptimizerGeneticDto.cs
-//  NAMESPACE: HenModel.Dto.Project.DefaultParameters.OptimizerParams
-//  CLASS(S):  OptimizerGeneticDto
-//  COMPONENT: _HenModel.dll
+//  FILENAME:  IOptimizerMILP_PanelData.cs
+//  NAMESPACE: HenStudio.Data.Project.DefaultParameters.OptimizerParams
+//  INTERFACE: IOptimizerMILP_PanelData
+//  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the HenOptimizerGenetic Project sub table.
+//    This file contains the Optimizer MILP Params Panel interface for the Optimizer MILP parameters.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,26 +33,29 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
+
 using System;
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
-namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams 
+#region namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
+namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
 {
-    #region public class OptimizerGeneticDto
+    #region public interface IOptimizerMILP_PanelData
     /// <summary>
-    /// Optimizer Genetic DTO Class
+    /// Optimizer MILP Params Panel Interface
     /// </summary>
-    public class OptimizerGeneticDto
+    public interface IOptimizerMILP_PanelData
     {
-        #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid HenOptimizerParamsId { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        OptimizerMILP_PanelData ConvertToPanelData(OptimizerMILP_Dto optimizerMILP_Dto);
+        OptimizerMILP_Dto ConvertFromPanelData();
+        #endregion      // METHODS
     }
-    #endregion      // public class OptimizerGeneticDto
+    #endregion      // public interface IOptimizerMILP_PanelData
 }
-#endregion      // namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
+#endregion      // namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

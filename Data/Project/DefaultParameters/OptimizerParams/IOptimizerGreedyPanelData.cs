@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//#################################  O p t i m i z e r G e n e t i c D t o . c s  #####################################
+//##############################  I O p t i m i z e r G r e e d y P a n e l D a t a . c s  ##########################
 //#####################################################################################################################
-//  FILENAME:  OptimizerGeneticDto.cs
-//  NAMESPACE: HenModel.Dto.Project.DefaultParameters.OptimizerParams
-//  CLASS(S):  OptimizerGeneticDto
-//  COMPONENT: _HenModel.dll
+//  FILENAME:  IOptimizerGreedyPanelData.cs
+//  NAMESPACE: HenStudio.Data.Project.DefaultParameters.OptimizerParams
+//  INTERFACE: IOptimizerGreedyPanelData
+//  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the HenOptimizerGenetic Project sub table.
+//    This file contains the Optimizer Greedy Params Panel interface for the Optimizer Greedy parameters.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,26 +33,29 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
+
 using System;
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
-namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams 
+#region namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
+namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
 {
-    #region public class OptimizerGeneticDto
+    #region public interface IOptimizerGreedyPanelData
     /// <summary>
-    /// Optimizer Genetic DTO Class
+    /// Optimizer Greedy Params Panel Interface
     /// </summary>
-    public class OptimizerGeneticDto
+    public interface IOptimizerGreedyPanelData
     {
-        #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid HenOptimizerParamsId { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        OptimizerGreedyPanelData ConvertToPanelData(OptimizerGreedyDto optimizerGreedyDto);
+        OptimizerGreedyDto ConvertFromPanelData();
+        #endregion      // METHODS
     }
-    #endregion      // public class OptimizerGeneticDto
+    #endregion      // public interface IOptimizerGreedyPanelData
 }
-#endregion      // namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
+#endregion      // namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
