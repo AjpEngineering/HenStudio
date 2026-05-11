@@ -77,13 +77,13 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         }
         #endregion      // AddParameter()
 
-        #region MapEconParam()
+        #region MapCostMetadata()
         /// <summary>
-        /// Maps a data record from the economic parameters query result set to an <see cref="CostMetadataDto"/> instance.
+        /// Maps a data record from the Cost Metadata query result set to an <see cref="CostMetadataDto"/> instance.
         /// </summary>
-        /// <param name="record">The data record containing the economic parameter column values.</param>
+        /// <param name="record">The data record containing the cost metadata column values.</param>
         /// <returns>An <see cref="CostMetadataDto"/> populated from the supplied data record.</returns>
-        private static CostMetadataDto MapEconParam(IDataRecord record)
+        private static CostMetadataDto MapCostMetadata(IDataRecord record)
         {
             return new CostMetadataDto
             {
@@ -96,7 +96,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 CostIndexInstalledCost = record.GetDouble(record.GetOrdinal("CostIndexInstalledCost")),
             };
         }
-        #endregion      // MapEconParam()
+        #endregion      // MapCostMetadata()
 
         #endregion      // PRIVATE METHODS
 
@@ -118,137 +118,9 @@ namespace HenModel.RepoImplementations.Project.CostParameters
 
         #region METHODS
 
-        #region GetCostMetadata()
+        #region AddCostMetadata() ... CREATE
         /// <summary>
-        /// Retrieves all cost metadata from the data store.
-        /// </summary>
-        /// <returns>A list of <see cref="CostMetadataDto"/> objects representing all cost metadata. The list is empty if no cost metadata are found.</returns>
-        public IList<CostMetadataDto> GetCostMetadata()
-        {
-            const string sql = @"SELECT Id,
-                                        ProjectId,
-                                        CostIndexBaseYear,
-                                        CostIndexName,
-                                        CostIndexValue,
-                                        CostIndexCurrency,
-                                        CostIndexInstalledCost
-                                 FROM dbo.CostMetadata
-                                 ORDER BY CostIndexName;";
-
-            List<CostMetadataDto> econParams = new List<CostMetadataDto>();
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            econParams.Add(MapEconParam(reader));
-                        }
-                    }
-                }
-            }
-
-            return econParams;
-        }
-        #endregion      // GetCostMetadata()
-
-        #region GetCostMetadataByProjectId()
-        /// <summary>
-        /// Retrieves all cost metadata for the specified project from the data store.
-        /// </summary>
-        /// <param name="projectId">The unique identifier of the project whose cost metadata are to be retrieved.</param>
-        /// <returns>A list of <see cref="CostMetadataDto"/> objects representing the matching cost metadata. The list is empty if no cost metadata are found.</returns>
-        public IList<CostMetadataDto> GetCostMetadataByProjectId(Guid projectId)
-        {
-            const string sql = @"SELECT Id,
-                                        ProjectId,
-                                        CostIndexBaseYear,
-                                        CostIndexName,
-                                        CostIndexValue,
-                                        CostIndexCurrency,
-                                        CostIndexInstalledCost
-                                 FROM dbo.CostMetadata
-                                 WHERE ProjectId = @ProjectId
-                                 ORDER BY CostIndexName;";
-
-            List<CostMetadataDto> costMetadata = new List<CostMetadataDto>();
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            costMetadata.Add(MapEconParam(reader));
-                        }
-                    }
-                }
-            }
-
-            return costMetadata;
-        }
-        #endregion      // GetCostMetadataByProjectId()
-
-        #region GetCostMetadataById()
-        /// <summary>
-        /// Retrieves a cost metadata entry from the data store by its identifier.
-        /// </summary>
-        /// <param name="costMetadataId">The unique identifier of the cost metadata entry to retrieve.</param>
-        /// <returns>An <see cref="CostMetadataDto"/> object representing the requested cost metadata entry, or <c>null</c> if no matching entry is found.</returns>
-        public CostMetadataDto GetCostMetadataById(Guid costMetadataId)
-        {
-            const string sql = @"SELECT Id,
-                                        ProjectId,
-                                        CostIndexBaseYear,
-                                        CostIndexName,
-                                        CostIndexValue,
-                                        CostIndexCurrency,
-                                        CostIndexInstalledCost
-                                 FROM dbo.CostMetadata
-                                 WHERE Id = @Id;";
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, costMetadataId);
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        if (!reader.Read())
-                        {
-                            return null;
-                        }
-
-                        return MapEconParam(reader);
-                    }
-                }
-            }
-        }
-        #endregion      // GetCostMetadataById()
-
-        #region AddCostMetadata()
-        /// <summary>
-        /// Adds a new cost metadata entry to the data store.
+        /// Adds (CREATE) a new cost metadata entry to the data store.
         /// </summary>
         /// <param name="costMetadataDto">The cost metadata data to insert.</param>
         /// <returns>The unique identifier of the inserted cost metadata entry.</returns>
@@ -294,11 +166,137 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 }
             }
         }
-        #endregion      // AddEconParam()
+        #endregion      // AddEconParam() ... CREATE
 
-        #region UpdateEconParam()
+        #region GetCostMetadata() ... READ
         /// <summary>
-        /// Updates an existing economic parameter in the data store.
+        /// Retrieves (READ)all cost metadata from the data store.
+        /// </summary>
+        /// <returns>A list of <see cref="CostMetadataDto"/> objects representing all cost metadata. The list is empty if no cost metadata are found.</returns>
+        public IList<CostMetadataDto> GetCostMetadata()
+        {
+            const string sql = @"SELECT Id,
+                                        ProjectId,
+                                        CostIndexBaseYear,
+                                        CostIndexName,
+                                        CostIndexValue,
+                                        CostIndexCurrency,
+                                        CostIndexInstalledCost
+                                 FROM dbo.CostMetadata
+                                 ORDER BY CostIndexName;";
+
+            List<CostMetadataDto> econParams = new List<CostMetadataDto>();
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            econParams.Add(MapCostMetadata(reader));
+                        }
+                    }
+                }
+            }
+
+            return econParams;
+        }
+        #endregion      // GetCostMetadata() ... READ
+
+        #region GetCostMetadataById() ... READ
+        /// <summary>
+        /// Retrieves (READ) a cost metadata entry from the data store by its identifier.
+        /// </summary>
+        /// <param name="costMetadataId">The unique identifier of the cost metadata entry to retrieve.</param>
+        /// <returns>An <see cref="CostMetadataDto"/> object representing the requested cost metadata entry, or <c>null</c> if no matching entry is found.</returns>
+        public CostMetadataDto GetCostMetadataById(Guid costMetadataId)
+        {
+            const string sql = @"SELECT Id,
+                                        ProjectId,
+                                        CostIndexBaseYear,
+                                        CostIndexName,
+                                        CostIndexValue,
+                                        CostIndexCurrency,
+                                        CostIndexInstalledCost
+                                 FROM dbo.CostMetadata
+                                 WHERE Id = @Id;";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@Id", DbType.Guid, costMetadataId);
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                        {
+                            return null;
+                        }
+
+                        return MapCostMetadata(reader);
+                    }
+                }
+            }
+        }
+        #endregion      // GetCostMetadataById() ... READ
+
+        #region GetCostMetadataByProjectId() ... READ
+        /// <summary>
+        /// Retrieves (READ) all cost metadata for the specified project from the data store.
+        /// </summary>
+        /// <param name="projectId">The unique identifier of the project whose cost metadata are to be retrieved.</param>
+        /// <returns>A list of <see cref="CostMetadataDto"/> objects representing the matching cost metadata. The list is empty if no cost metadata are found.</returns>
+        public CostMetadataDto GetCostMetadataByProjectId(Guid projectId)
+        {
+            const string sql = @"SELECT Id,
+                                        ProjectId,
+                                        CostIndexBaseYear,
+                                        CostIndexName,
+                                        CostIndexValue,
+                                        CostIndexCurrency,
+                                        CostIndexInstalledCost
+                                 FROM dbo.CostMetadata
+                                 WHERE ProjectId = @ProjectId;";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                        {
+                            return null;
+                        }
+
+                        return MapCostMetadata(reader);
+                    }
+                }
+            }
+        }
+        #endregion      // GetCostMetadataByProjectId() ... READ
+
+        #region UpdateCostMetadata() ... UPDATE
+        /// <summary>
+        /// Updates (UPDATE) an existing cost metadata entry in the data store.
         /// </summary>
         /// <param name="costMetadataDto">The cost metadata data to update.</param>
         public void UpdateCostMetadata(CostMetadataDto costMetadataDto)
@@ -336,11 +334,11 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 }
             }
         }
-        #endregion      // UpdateCostMetadata()
+        #endregion      // UpdateCostMetadata() ... UPDATE
 
-        #region DeleteCostMetadata()
+        #region DeleteCostMetadata() ... DELETE
         /// <summary>
-        /// Deletes a cost metadata entry from the data store by its identifier.
+        /// Deletes (DELETE) a cost metadata entry from the data store by its identifier.
         /// </summary>
         /// <param name="costMetadataId">The unique identifier of the cost metadata entry to delete.</param>
         public void DeleteCostMetadata(Guid costMetadataId)
@@ -361,7 +359,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 }
             }
         }
-        #endregion      // DeleteCostMetadata()
+        #endregion      // DeleteCostMetadata() ... UPDATE
 
         #endregion      // METHODS
     }

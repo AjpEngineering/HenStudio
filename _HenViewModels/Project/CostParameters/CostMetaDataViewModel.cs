@@ -96,7 +96,7 @@ namespace HenViewModel.Project.CostParameters
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose cost metadata are to be retrieved.</param>
         /// <returns>A list of <see cref="CostMetadataDto"/> objects representing the matching cost metadata, or an empty list if none are found.</returns>
-        public IList<CostMetadataDto> GetCostMetadataByProjectId(Guid projectId)
+        public CostMetadataDto GetCostMetadataByProjectId(Guid projectId)
         {
             try
             {

@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//########################################  I E c o n P a r a m R e p o . c s  ########################################
+//#####################################  I C o s t M e t a d a t a R e p o . c s  #####################################
 //#####################################################################################################################
-//  FILENAME:  IEconParamRepo.cs
+//  FILENAME:  ICostMetadataRepo.cs
 //  NAMESPACE: HenModel.RepoInterfaces.Project.CostParameters
-//  INTERFACE: IEconParamRepo
+//  INTERFACE: ICostMetadataRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the EconParam Profile sub table.
+//    This file contains the repo interface for the CostMetadata Profile sub table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -49,10 +49,10 @@ namespace HenModel.RepoInterfaces.Project.CostParameters
     public interface ICostMetadataRepo
     {
         #region METHODS
-        IList<CostMetadataDto> GetCostMetadata();
-        IList<CostMetadataDto> GetCostMetadataByProjectId(Guid projectId);
-        CostMetadataDto GetCostMetadataById(Guid costMetadataId);
         Guid AddCostMetadata(CostMetadataDto costMetadataDto);
+        IList<CostMetadataDto> GetCostMetadata();
+        CostMetadataDto GetCostMetadataById(Guid costMetadataId);
+        CostMetadataDto GetCostMetadataByProjectId(Guid projectId);
         void UpdateCostMetadata(CostMetadataDto costMetadataDto);
         void DeleteCostMetadata(Guid costMetadataId);
         #endregion      // METHODS
