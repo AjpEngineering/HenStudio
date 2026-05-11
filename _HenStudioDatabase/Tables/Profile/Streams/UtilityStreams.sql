@@ -57,5 +57,5 @@ CREATE TABLE [dbo].[UtilityStreams]
 	CONSTRAINT [FK_UtilityStreams_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id]),
 	CONSTRAINT [CK_UtilityStreams_StreamCategory] CHECK ([StreamCategory] IN (N'Process', N'Utility')),
 	CONSTRAINT [CK_UtilityStreams_StreamHeat] CHECK ([StreamHeat] IN (N'Sensible', N'Latent')),
-	CONSTRAINT [CK_UtilityStreams_StreamType] CHECK ([StreamType] IN (N'Refrig', N'Cold Water', N'LP Steam', N'MP Steam', N'HP Steam'))
+	CONSTRAINT [CK_UtilityStreams_StreamType] CHECK ([StreamType] IN (N'Chilled Water', N'Cold Water', N'Fuel Gas', N'LP Steam', N'MP Steam', N'HP Steam'))
 )
