@@ -123,11 +123,53 @@ namespace HenModel.RepoImplementations.Profile
 
         #region METHODS
 
+        #region AddProfile()
+        /// <summary>
+        /// Adds a new profile to the data store.
+        /// </summary>
+        /// <param name="profileDto">The profile data to insert.</param>
+        /// <returns>The unique identifier of the inserted profile.</returns>
+        public Guid AddProfile(ProfileDto profileDto)
+        {
+            if (profileDto == null)
+            {
+                throw new ArgumentNullException(nameof(profileDto));
+            }
+
+            const string sql = @"INSERT INTO dbo.Profile
+                                    (ProjectId,
+                                     Name,
+                                     Description)
+                                 OUTPUT INSERTED.Id
+                                 VALUES
+                                    (@ProjectId,
+                                     @Name,
+                                     @Description);";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@ProjectId", DbType.Guid, profileDto.ProjectId);
+                    AddParameter(command, "@Name", DbType.String, profileDto.Name);
+                    AddParameter(command, "@Description", DbType.String, profileDto.Description);
+
+                    connection.Open();
+
+                    return (Guid)command.ExecuteScalar();
+                }
+            }
+        }
+        #endregion      // AddProfile()
+
         #region GetProfiles()
         /// <summary>
         /// Retrieves all profiles from the data store.
         /// </summary>
-        /// <returns>A list of <see cref="ProfileDto"/> objects representing all profiles. The list is empty if no profiles are found.</returns>
+        /// <returns>A list of <see cref="ProfileDto"/> objects representing all profiles. 
+        /// The list is empty if no profiles are found.</returns>
         public IList<ProfileDto> GetProfiles()
         {
             const string sql = @"SELECT Id,
@@ -176,7 +218,8 @@ namespace HenModel.RepoImplementations.Profile
         /// Retrieves all profiles for the specified project from the data store.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose profiles are to be retrieved.</param>
-        /// <returns>A list of <see cref="ProfileDto"/> objects representing the matching profiles. The list is empty if no profiles are found.</returns>
+        /// <returns>A list of <see cref="ProfileDto"/> objects representing the matching profiles. 
+        /// The list is empty if no profiles are found.</returns>
         public IList<ProfileDto> GetProfilesByProjectId(Guid projectId)
         {
             const string sql = @"SELECT Id,
@@ -227,7 +270,8 @@ namespace HenModel.RepoImplementations.Profile
         /// Retrieves a profile from the data store by its identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile to retrieve.</param>
-        /// <returns>A <see cref="ProfileDto"/> object representing the requested profile, or <c>null</c> if no matching profile is found.</returns>
+        /// <returns>A <see cref="ProfileDto"/> object representing the requested profile, 
+        /// or <c>null</c> if no matching profile is found.</returns>
         public ProfileDto GetProfileById(Guid profileId)
         {
             const string sql = @"SELECT Id,
@@ -272,7 +316,8 @@ namespace HenModel.RepoImplementations.Profile
         /// </summary>
         /// <param name="projectId">The unique identifier of the project that owns the profile.</param>
         /// <param name="profileName">The profile name to retrieve.</param>
-        /// <returns>A <see cref="ProfileDto"/> object representing the requested profile, or <c>null</c> if no matching profile is found.</returns>
+        /// <returns>A <see cref="ProfileDto"/> object representing the requested profile, 
+        /// or <c>null</c> if no matching profile is found.</returns>
         public ProfileDto GetProfileByName(Guid projectId, string profileName)
         {
             if (String.IsNullOrWhiteSpace(profileName))
@@ -317,47 +362,6 @@ namespace HenModel.RepoImplementations.Profile
             }
         }
         #endregion      // GetProfileByName()
-
-        #region AddProfile()
-        /// <summary>
-        /// Adds a new profile to the data store.
-        /// </summary>
-        /// <param name="profileDto">The profile data to insert.</param>
-        /// <returns>The unique identifier of the inserted profile.</returns>
-        public Guid AddProfile(ProfileDto profileDto)
-        {
-            if (profileDto == null)
-            {
-                throw new ArgumentNullException(nameof(profileDto));
-            }
-
-            const string sql = @"INSERT INTO dbo.Profile
-                                    (ProjectId,
-                                     Name,
-                                     Description)
-                                 OUTPUT INSERTED.Id
-                                 VALUES
-                                    (@ProjectId,
-                                     @Name,
-                                     @Description);";
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, profileDto.ProjectId);
-                    AddParameter(command, "@Name", DbType.String, profileDto.Name);
-                    AddParameter(command, "@Description", DbType.String, profileDto.Description);
-
-                    connection.Open();
-
-                    return (Guid)command.ExecuteScalar();
-                }
-            }
-        }
-        #endregion      // AddProfile()
 
         #region UpdateProfile()
         /// <summary>

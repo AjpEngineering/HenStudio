@@ -49,11 +49,11 @@ namespace HenModel.RepoInterfaces.Profile
     public interface IUtilityStreamRepo
     {
         #region METHODS
+        Guid AddUtilityStream(UtilityStreamDto utilityStreamDto);
         IList<UtilityStreamDto> GetUtilityStreams();
         IList<UtilityStreamDto> GetUtilityStreamsByProfileId(Guid profileId);
         UtilityStreamDto GetUtilityStreamById(Guid utilityStreamId);
         UtilityStreamDto GetUtilityStreamByStreamId(Guid profileId, string streamId);
-        Guid AddUtilityStream(UtilityStreamDto utilityStreamDto);
         void UpdateUtilityStream(UtilityStreamDto utilityStreamDto);
         void DeleteUtilityStream(Guid utilityStreamId);
         #endregion      // METHODS

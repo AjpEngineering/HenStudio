@@ -71,9 +71,52 @@ namespace HenViewModel.Project
         }
         #endregion  // DEFAULT CTOR
 
-        #region GetProjects()
+        #region AddProject(ProjectDto externalProjectDto) ... CREATE
         /// <summary>
-        /// Retrieves a list of all Projects in EXTERNAL Units.
+        /// Adds (CREATE) a new project to the database using the specified project data transfer object.
+        /// </summary>
+        /// <remarks>The method converts the provided project data from external to internal units before
+        /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
+        /// an empty GUID.</remarks>
+        /// <param name="externalProjectDto">The project data to add. The object must contain all required project fields in external units. Cannot be
+        /// null.</param>
+        /// <returns>A GUID representing the unique identifier of the newly added project.</returns>
+        public Guid AddProject(ProjectDto externalProjectDto)
+        {
+            Guid projectID = new Guid();
+            try
+            {
+                //----------------------------------------------------------------
+                //--- Project Dto [INTERNAL Units] to be Added to the Database ---
+                //----------------------------------------------------------------
+                ProjectDto internalProjectDto = new ProjectDto();
+                //-------------------------------------------------
+                //--- Convert EXTERNAL Fields to INTERNAL Units ---
+                //-------------------------------------------------
+                internalProjectDto.Id = externalProjectDto.Id;
+                internalProjectDto.Name = externalProjectDto.Name;
+                internalProjectDto.Description = externalProjectDto.Description;
+                internalProjectDto.DefaultHenOptimizer = externalProjectDto.DefaultHenOptimizer;
+                internalProjectDto.CreationDate = externalProjectDto.CreationDate;
+                internalProjectDto.ModifiedDate = externalProjectDto.ModifiedDate;
+                //------------------------------------------------------------------------------
+                //--- Add INTERNAL Project Dto to the Database using the ProjectRepo Object  ---
+                //--- Returns the Project ID (PK) from the Project Table database addition   ---
+                //------------------------------------------------------------------------------
+                projectID = ProjectRepoObj.AddProject(internalProjectDto);
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving project: {ex.Message}");
+            }
+            return projectID; // Return Project ID (PK) from the Project Table database addition
+        }
+        #endregion  // AddProject(ProjectDto externalProjectDto) ... CREATE
+
+        #region GetProjects() ... READ
+        /// <summary>
+        /// Retrieves (READ) a list of all Projects in EXTERNAL Units.
         /// Database access is performed by the repository layer, and the results are returned as a 
         /// list of <see cref="ProjectDto"/> objects in INTERNAL Units.
         /// </summary>
@@ -84,7 +127,11 @@ namespace HenViewModel.Project
             List<ProjectDto> externalProjects = new List<ProjectDto>(); // List of Project Dtos [EXTERNAL Units]
             try
             {
-                foreach (ProjectDto internalProject in ProjectRepoObj.GetProjects())   // List of Project Dtos [INTERNAL Units]
+                //-----------------------------------------------------------------------------
+                //--- Use ProjectRepo Object to Retrieve List of Projects from the Database ---
+                //--- Retrieved List of Project Dtos [INTERNAL Units] from the Database     ---
+                //-----------------------------------------------------------------------------
+                foreach (ProjectDto internalProject in ProjectRepoObj.GetProjects())
                 {
                     ProjectDto externalProject = new ProjectDto();
                     //-------------------------------------------------
@@ -107,11 +154,11 @@ namespace HenViewModel.Project
             }
             return externalProjects;
         }
-        #endregion  // GetProjects()
+        #endregion  // GetProjects() ... READ
 
-        #region GetProjectById(Guid projectId)
+        #region GetProjectById(Guid projectId) ... READ
         /// <summary>
-        /// Retrieves the Project Dto associated with the specified unique identifier.
+        /// Retrieves (READ) the Project Dto associated with the specified unique identifier.
         /// The project retrieved from the Database is in INTERNAL Units, 
         /// database access performed by the repository layer, 
         /// the fields of the project are converted to EXTERNAL Units, which are the units used in the user interface,
@@ -125,10 +172,11 @@ namespace HenViewModel.Project
             ProjectDto externalProject = new ProjectDto();
             try
             {
-                //-------------------------------------------------------------------------
-                //--- Retrieve Project Dto from the Database using the Repository layer ---
-                //-------------------------------------------------------------------------
-                ProjectDto internalProject = ProjectRepoObj.GetProjectById(projectId);     // Retrieved Project Dto [INTERNAL Units]
+                //---------------------------------------------------------------------------
+                //--- Retrieve Project Dto from the Database using the ProjectRepo Object ---
+                //--- Retrieved Project Dto [INTERNAL Units]                              ---
+                //---------------------------------------------------------------------------
+                ProjectDto internalProject = ProjectRepoObj.GetProjectById(projectId);
 
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
@@ -149,11 +197,11 @@ namespace HenViewModel.Project
 
             return externalProject;
         }
-        #endregion  // GetProjectById(Guid projectId)
+        #endregion  // GetProjectById(Guid projectId) ... READ
 
-        #region GetProjectByName(string projectName)
+        #region GetProjectByName(string projectName) ... READ
         /// <summary>
-        /// Retrieves a Project by its name and returns its details as a data transfer object.
+        /// Retrieves (READ) a Project by its name and returns its details as a data transfer object.
         /// </summary>
         /// <remarks>The returned ProjectDto contains project information with fields converted to
         /// EXTERNAL units where applicable. If an error occurs during retrieval, the method returns null.</remarks>
@@ -163,13 +211,14 @@ namespace HenViewModel.Project
         {
             try
             {
-                //-------------------------------------------------------------------------
-                //--- Retrieve Project Dto from the Database using the Repository Layer ---
-                //-------------------------------------------------------------------------
-                ProjectDto internalProject = ProjectRepoObj.GetProjectByName(projectName);     // Retrieved Project Dto [INTERNAL Units]
+                //---------------------------------------------------------------------------
+                //--- Retrieve Project Dto from the Database using the ProjectRepo Object ---
+                //--- Retrieved Project Dto [INTERNAL Units]                              ---
+                //---------------------------------------------------------------------------
+                ProjectDto internalProject = ProjectRepoObj.GetProjectByName(projectName);
 
                 //-----------------------------------------------------------------------
-                //--- Project by Name not Fould ... return null to indicate not found ---
+                //--- Project by Name NOT Found ... return null to indicate not found ---
                 //-----------------------------------------------------------------------
                 if (internalProject==null)
                 {
@@ -196,54 +245,11 @@ namespace HenViewModel.Project
                 return null; // Return null if an error occurs
             }
         }
-        #endregion  // GetProjectByName(string projectName)
+        #endregion  // GetProjectByName(string projectName) ... READ
 
-        #region AddProject(ProjectDto externalProjectDto)
+        #region UpdateProject(ProjectDto externalProjectDto) ... UPDATE
         /// <summary>
-        /// Adds a new project to the database using the specified project data transfer object.
-        /// </summary>
-        /// <remarks>The method converts the provided project data from external to internal units before
-        /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
-        /// an empty GUID.</remarks>
-        /// <param name="externalProjectDto">The project data to add. The object must contain all required project fields in external units. Cannot be
-        /// null.</param>
-        /// <returns>A GUID representing the unique identifier of the newly added project.</returns>
-        public Guid AddProject(ProjectDto externalProjectDto)
-        {
-            Guid projectID = new Guid();
-            try
-            {
-                //----------------------------------------------------------------
-                //--- Project Dto [INTERNAL Units] to be Added to the Database ---
-                //----------------------------------------------------------------
-                ProjectDto internalProjectDto = new ProjectDto();
-                //-------------------------------------------------
-                //--- Convert EXTERNAL Fields to INTERNAL Units ---
-                //-------------------------------------------------
-                internalProjectDto.Id = externalProjectDto.Id;
-                internalProjectDto.Name = externalProjectDto.Name;
-                internalProjectDto.Description = externalProjectDto.Description;
-                internalProjectDto.DefaultHenOptimizer = externalProjectDto.DefaultHenOptimizer;
-                internalProjectDto.CreationDate = externalProjectDto.CreationDate;
-                internalProjectDto.ModifiedDate = externalProjectDto.ModifiedDate;
-                //----------------------------------------------------------------------------
-                //--- Add INTERNAL Project Dto to the Database using the Repository Layer  ---
-                //--- Returns the Project ID (PK) from the Project Table database addition ---
-                //----------------------------------------------------------------------------
-                projectID = ProjectRepoObj.AddProject(internalProjectDto);
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions (e.g., log the error, rethrow, or return null)
-                Console.WriteLine($"Error retrieving project: {ex.Message}");
-            }
-            return projectID; // Return Project ID (PK) from the Project Table database addition
-        }
-        #endregion  // AddProject(ProjectDto externalProjectDto)
-
-        #region UpdateProject(ProjectDto externalProjectDto)
-        /// <summary>
-        /// Updates an existing project in the database using the specified project data transfer object (DTO) 
+        /// Updates (UPDATE) an existing project in the database using the specified project data transfer object (DTO) 
         /// with external units.
         /// </summary>
         /// <remarks>This method converts the provided project data from external units to the internal
@@ -268,9 +274,9 @@ namespace HenViewModel.Project
                 internalProjectDto.DefaultHenOptimizer = externalProjectDto.DefaultHenOptimizer;
                 internalProjectDto.CreationDate = externalProjectDto.CreationDate;
                 internalProjectDto.ModifiedDate = externalProjectDto.ModifiedDate;
-                //------------------------------------------------------------------------------
-                //--- UPDATE INTERNAL Project Dto to the Database using the Repository Layer ---
-                //------------------------------------------------------------------------------
+                //--------------------------------------------------------------------------------
+                //--- UPDATE INTERNAL Project Dto to the Database using the ProjectRepo Object ---
+                //--------------------------------------------------------------------------------
                 ProjectRepoObj.UpdateProject(internalProjectDto);
             }
             catch (Exception ex)
@@ -279,20 +285,20 @@ namespace HenViewModel.Project
                 Console.WriteLine($"Error retrieving project: {ex.Message}");
             }
         }
-        #endregion  // UpdateProject(ProjectDto projectDto)
+        #endregion  // UpdateProject(ProjectDto projectDto) ... UPDATE
 
-        #region DeleteProject(Guid projectId)
+        #region DeleteProject(Guid projectId) ... DELETE
         /// <summary>
-        /// Deletes the project with the specified unique identifier.
+        /// Deletes (DELETE) the project with the specified unique identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project to delete.</param>
         public void DeleteProject(Guid projectId)
         {
             try
             {
-                //-------------------------------------------------------------------
-                //--- DELETE Project from the Database using the Repository Layer ---
-                //-------------------------------------------------------------------
+                //--------------------------------------------------------------------
+                //--- DELETE Project from the Database using the ProjectRep Object ---
+                //--------------------------------------------------------------------
                 ProjectRepoObj.DeleteProject(projectId);
             }
             catch (Exception ex)
@@ -301,7 +307,7 @@ namespace HenViewModel.Project
                 Console.WriteLine($"Error retrieving project: {ex.Message}");
             }
         }
-        #endregion  // DeleteProject(Guid projectId)
+        #endregion  // DeleteProject(Guid projectId) ... DELETE
 
     }
     #endregion      // public class ProjectViewModel

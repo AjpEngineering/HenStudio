@@ -122,204 +122,9 @@ namespace HenModel.RepoImplementations.Profile
 
         #region METHODS
 
-        #region GetUtilityStreams()
+        #region AddUtilityStream() ... CREATE
         /// <summary>
-        /// Retrieves all utility streams from the data store.
-        /// </summary>
-        /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing all utility streams. The list is empty if no utility streams are found.</returns>
-        public IList<UtilityStreamDto> GetUtilityStreams()
-        {
-            const string sql = @"SELECT Id,
-                                        ProfileId,
-                                        StreamCategory,
-                                        StreamHeat,
-                                        StreamId,
-                                        Name,
-                                        StreamType,
-                                        IsothermalTemperature,
-                                        SupplyPressure,
-                                        TargetPressure,
-                                        EnthalpyFlowRate
-                                 FROM dbo.UtilityStream
-                                 ORDER BY StreamId;";
-
-            List<UtilityStreamDto> utilityStreams = new List<UtilityStreamDto>();
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            utilityStreams.Add(MapUtilityStream(reader));
-                        }
-                    }
-                }
-            }
-
-            return utilityStreams;
-        }
-        #endregion      // GetUtilityStreams()
-
-        #region GetUtilityStreamsByProfileId()
-        /// <summary>
-        /// Retrieves all utility streams for the specified profile from the data store.
-        /// </summary>
-        /// <param name="profileId">The unique identifier of the profile whose utility streams are to be retrieved.</param>
-        /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing the matching utility streams. The list is empty if no utility streams are found.</returns>
-        public IList<UtilityStreamDto> GetUtilityStreamsByProfileId(Guid profileId)
-        {
-            const string sql = @"SELECT Id,
-                                        ProfileId,
-                                        StreamCategory,
-                                        StreamHeat,
-                                        StreamId,
-                                        Name,
-                                        StreamType,
-                                        IsothermalTemperature,
-                                        SupplyPressure,
-                                        TargetPressure,
-                                        EnthalpyFlowRate
-                                 FROM dbo.UtilityStream
-                                 WHERE ProfileId = @ProfileId
-                                 ORDER BY StreamId;";
-
-            List<UtilityStreamDto> utilityStreams = new List<UtilityStreamDto>();
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            utilityStreams.Add(MapUtilityStream(reader));
-                        }
-                    }
-                }
-            }
-
-            return utilityStreams;
-        }
-        #endregion      // GetUtilityStreamsByProfileId()
-
-        #region GetUtilityStreamById()
-        /// <summary>
-        /// Retrieves a utility stream from the data store by its identifier.
-        /// </summary>
-        /// <param name="utilityStreamId">The unique identifier of the utility stream to retrieve.</param>
-        /// <returns>A <see cref="UtilityStreamDto"/> object representing the requested utility stream, or <c>null</c> if no matching utility stream is found.</returns>
-        public UtilityStreamDto GetUtilityStreamById(Guid utilityStreamId)
-        {
-            const string sql = @"SELECT Id,
-                                        ProfileId,
-                                        StreamCategory,
-                                        StreamHeat,
-                                        StreamId,
-                                        Name,
-                                        StreamType,
-                                        IsothermalTemperature,
-                                        SupplyPressure,
-                                        TargetPressure,
-                                        EnthalpyFlowRate
-                                 FROM dbo.UtilityStream
-                                 WHERE Id = @Id;";
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, utilityStreamId);
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        if (!reader.Read())
-                        {
-                            return null;
-                        }
-
-                        return MapUtilityStream(reader);
-                    }
-                }
-            }
-        }
-        #endregion      // GetUtilityStreamById()
-
-        #region GetUtilityStreamByStreamId()
-        /// <summary>
-        /// Retrieves a utility stream from the data store by its profile identifier and stream identifier.
-        /// </summary>
-        /// <param name="profileId">The unique identifier of the profile that owns the utility stream.</param>
-        /// <param name="streamId">The stream identifier to retrieve.</param>
-        /// <returns>A <see cref="UtilityStreamDto"/> object representing the requested utility stream, or <c>null</c> if no matching utility stream is found.</returns>
-        public UtilityStreamDto GetUtilityStreamByStreamId(Guid profileId, string streamId)
-        {
-            if (String.IsNullOrWhiteSpace(streamId))
-            {
-                throw new ArgumentException("Stream ID cannot be null or whitespace.", nameof(streamId));
-            }
-
-            const string sql = @"SELECT Id,
-                                        ProfileId,
-                                        StreamCategory,
-                                        StreamHeat,
-                                        StreamId,
-                                        Name,
-                                        StreamType,
-                                        IsothermalTemperature,
-                                        SupplyPressure,
-                                        TargetPressure,
-                                        EnthalpyFlowRate
-                                 FROM dbo.UtilityStream
-                                 WHERE ProfileId = @ProfileId
-                                   AND StreamId = @StreamId;";
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
-                    AddParameter(command, "@StreamId", DbType.String, streamId);
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        if (!reader.Read())
-                        {
-                            return null;
-                        }
-
-                        return MapUtilityStream(reader);
-                    }
-                }
-            }
-        }
-        #endregion      // GetUtilityStreamByStreamId()
-
-        #region AddUtilityStream()
-        /// <summary>
-        /// Adds a new utility stream to the data store.
+        /// Adds (CREATE) a new utility stream to the data store.
         /// </summary>
         /// <param name="utilityStreamDto">The utility stream data to insert.</param>
         /// <returns>The unique identifier of the inserted utility stream.</returns>
@@ -377,11 +182,206 @@ namespace HenModel.RepoImplementations.Profile
                 }
             }
         }
-        #endregion      // AddUtilityStream()
+        #endregion      // AddUtilityStream() ... CREATE
 
-        #region UpdateUtilityStream()
+        #region GetUtilityStreams() ... READ
         /// <summary>
-        /// Updates an existing utility stream in the data store.
+        /// Retrieves (READ) all utility streams from the data store.
+        /// </summary>
+        /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing all utility streams. The list is empty if no utility streams are found.</returns>
+        public IList<UtilityStreamDto> GetUtilityStreams()
+        {
+            const string sql = @"SELECT Id,
+                                        ProfileId,
+                                        StreamCategory,
+                                        StreamHeat,
+                                        StreamId,
+                                        Name,
+                                        StreamType,
+                                        IsothermalTemperature,
+                                        SupplyPressure,
+                                        TargetPressure,
+                                        EnthalpyFlowRate
+                                 FROM dbo.UtilityStream
+                                 ORDER BY StreamId;";
+
+            List<UtilityStreamDto> utilityStreams = new List<UtilityStreamDto>();
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            utilityStreams.Add(MapUtilityStream(reader));
+                        }
+                    }
+                }
+            }
+
+            return utilityStreams;
+        }
+        #endregion      // GetUtilityStreams() ... READ
+
+        #region GetUtilityStreamsByProfileId() ... READ
+        /// <summary>
+        /// Retrieves (READ) all utility streams for the specified profile from the data store.
+        /// </summary>
+        /// <param name="profileId">The unique identifier of the profile whose utility streams are to be retrieved.</param>
+        /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing the matching utility streams. The list is empty if no utility streams are found.</returns>
+        public IList<UtilityStreamDto> GetUtilityStreamsByProfileId(Guid profileId)
+        {
+            const string sql = @"SELECT Id,
+                                        ProfileId,
+                                        StreamCategory,
+                                        StreamHeat,
+                                        StreamId,
+                                        Name,
+                                        StreamType,
+                                        IsothermalTemperature,
+                                        SupplyPressure,
+                                        TargetPressure,
+                                        EnthalpyFlowRate
+                                 FROM dbo.UtilityStream
+                                 WHERE ProfileId = @ProfileId
+                                 ORDER BY StreamId;";
+
+            List<UtilityStreamDto> utilityStreams = new List<UtilityStreamDto>();
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            utilityStreams.Add(MapUtilityStream(reader));
+                        }
+                    }
+                }
+            }
+
+            return utilityStreams;
+        }
+        #endregion      // GetUtilityStreamsByProfileId() ... READ
+
+        #region GetUtilityStreamById() ... READ
+        /// <summary>
+        /// Retrieves (READ) a utility stream from the data store by its identifier.
+        /// </summary>
+        /// <param name="utilityStreamId">The unique identifier of the utility stream to retrieve.</param>
+        /// <returns>A <see cref="UtilityStreamDto"/> object representing the requested utility stream, or <c>null</c> if no matching utility stream is found.</returns>
+        public UtilityStreamDto GetUtilityStreamById(Guid utilityStreamId)
+        {
+            const string sql = @"SELECT Id,
+                                        ProfileId,
+                                        StreamCategory,
+                                        StreamHeat,
+                                        StreamId,
+                                        Name,
+                                        StreamType,
+                                        IsothermalTemperature,
+                                        SupplyPressure,
+                                        TargetPressure,
+                                        EnthalpyFlowRate
+                                 FROM dbo.UtilityStream
+                                 WHERE Id = @Id;";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@Id", DbType.Guid, utilityStreamId);
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                        {
+                            return null;
+                        }
+
+                        return MapUtilityStream(reader);
+                    }
+                }
+            }
+        }
+        #endregion      // GetUtilityStreamById() ... READ
+
+        #region GetUtilityStreamByStreamId() ... READ
+        /// <summary>
+        /// Retrieves (READ) a utility stream from the data store by its profile identifier and stream identifier.
+        /// </summary>
+        /// <param name="profileId">The unique identifier of the profile that owns the utility stream.</param>
+        /// <param name="streamId">The stream identifier to retrieve.</param>
+        /// <returns>A <see cref="UtilityStreamDto"/> object representing the requested utility stream, or <c>null</c> if no matching utility stream is found.</returns>
+        public UtilityStreamDto GetUtilityStreamByStreamId(Guid profileId, string streamId)
+        {
+            if (String.IsNullOrWhiteSpace(streamId))
+            {
+                throw new ArgumentException("Stream ID cannot be null or whitespace.", nameof(streamId));
+            }
+
+            const string sql = @"SELECT Id,
+                                        ProfileId,
+                                        StreamCategory,
+                                        StreamHeat,
+                                        StreamId,
+                                        Name,
+                                        StreamType,
+                                        IsothermalTemperature,
+                                        SupplyPressure,
+                                        TargetPressure,
+                                        EnthalpyFlowRate
+                                 FROM dbo.UtilityStream
+                                 WHERE ProfileId = @ProfileId
+                                   AND StreamId = @StreamId;";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
+                    AddParameter(command, "@StreamId", DbType.String, streamId);
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                        {
+                            return null;
+                        }
+
+                        return MapUtilityStream(reader);
+                    }
+                }
+            }
+        }
+        #endregion      // GetUtilityStreamByStreamId() ... READ
+
+        #region UpdateUtilityStream() ... UPDATE
+        /// <summary>
+        /// Updates (UPDATE) an existing utility stream in the data store.
         /// </summary>
         /// <param name="utilityStreamDto">The utility stream data to update.</param>
         public void UpdateUtilityStream(UtilityStreamDto utilityStreamDto)
@@ -427,11 +427,11 @@ namespace HenModel.RepoImplementations.Profile
                 }
             }
         }
-        #endregion      // UpdateUtilityStream()
+        #endregion      // UpdateUtilityStream() ... UPDATE
 
-        #region DeleteUtilityStream()
+        #region DeleteUtilityStream() ... DELETE
         /// <summary>
-        /// Deletes a utility stream from the data store by its identifier.
+        /// Deletes (DELETE) a utility stream from the data store by its identifier.
         /// </summary>
         /// <param name="utilityStreamId">The unique identifier of the utility stream to delete.</param>
         public void DeleteUtilityStream(Guid utilityStreamId)
@@ -452,7 +452,7 @@ namespace HenModel.RepoImplementations.Profile
                 }
             }
         }
-        #endregion      // DeleteUtilityStream()
+        #endregion      // DeleteUtilityStream() ... DELETE
 
         #endregion      // METHODS
     }

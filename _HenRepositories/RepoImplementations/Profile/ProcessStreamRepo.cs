@@ -124,218 +124,9 @@ namespace HenModel.RepoImplementations.Profile
 
         #region METHODS
 
-        #region GetProcessStreams()
+        #region AddProcessStream() ... CREATE
         /// <summary>
-        /// Retrieves all process streams from the data store.
-        /// </summary>
-        /// <returns>A list of <see cref="ProcessStreamDto"/> objects representing all process streams. The list is empty if no process streams are found.</returns>
-        public IList<ProcessStreamDto> GetProcessStreams()
-        {
-            const string sql = @"SELECT Id,
-                                        ProfileId,
-                                        StreamCategory,
-                                        StreamHeat,
-                                        StreamId,
-                                        Name,
-                                        StreamType,
-                                        StreamSubtype,
-                                        SupplyTemperature,
-                                        SupplyPressure,
-                                        TargetTemperature,
-                                        TargetPressure,
-                                        HeatCapacityFlowRate,
-                                 FROM dbo.ProcessStream
-                                 ORDER BY StreamId;";
-
-            List<ProcessStreamDto> processStreams = new List<ProcessStreamDto>();
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            processStreams.Add(MapProcessStream(reader));
-                        }
-                    }
-                }
-            }
-
-            return processStreams;
-        }
-        #endregion      // GetProcessStreams()
-
-        #region GetProcessStreamsByProfileId()
-        /// <summary>
-        /// Retrieves all process streams for the specified profile from the data store.
-        /// </summary>
-        /// <param name="profileId">The unique identifier of the profile whose process streams are to be retrieved.</param>
-        /// <returns>A list of <see cref="ProcessStreamDto"/> objects representing the matching process streams. The list is empty if no process streams are found.</returns>
-        public IList<ProcessStreamDto> GetProcessStreamsByProfileId(Guid profileId)
-        {
-            const string sql = @"SELECT Id,
-                                        ProfileId,
-                                        StreamCategory,
-                                        StreamHeat,
-                                        StreamId,
-                                        StreamSegmentId,
-                                        Name,
-                                        StreamType,
-                                        StreamSubtype,
-                                        SupplyTemperature,
-                                        SupplyPressure,
-                                        TargetTemperature,
-                                        TargetPressure,
-                                        HeatCapacityFlowRate,
-                                        HeatTransferCoefficient
-                                 FROM dbo.ProcessStream
-                                 WHERE ProfileId = @ProfileId
-                                 ORDER BY StreamId;";
-
-            List<ProcessStreamDto> processStreams = new List<ProcessStreamDto>();
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            processStreams.Add(MapProcessStream(reader));
-                        }
-                    }
-                }
-            }
-
-            return processStreams;
-        }
-        #endregion      // GetProcessStreamsByProfileId()
-
-        #region GetProcessStreamById()
-        /// <summary>
-        /// Retrieves a process stream from the data store by its identifier.
-        /// </summary>
-        /// <param name="processStreamId">The unique identifier of the process stream to retrieve.</param>
-        /// <returns>A <see cref="ProcessStreamDto"/> object representing the requested process stream, or <c>null</c> if no matching process stream is found.</returns>
-        public ProcessStreamDto GetProcessStreamById(Guid processStreamId)
-        {
-            const string sql = @"SELECT Id,
-                                        ProfileId,
-                                        StreamCategory,
-                                        StreamHeat,
-                                        StreamId,
-                                        StreamSegmentId,
-                                        Name,
-                                        StreamType,
-                                        StreamSubtype,
-                                        SupplyTemperature,
-                                        SupplyPressure,
-                                        TargetTemperature,
-                                        TargetPressure,
-                                        HeatCapacityFlowRate,
-                                        HeatTransferCoefficient
-                                 FROM dbo.ProcessStream
-                                 WHERE Id = @Id;";
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, processStreamId);
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        if (!reader.Read())
-                        {
-                            return null;
-                        }
-
-                        return MapProcessStream(reader);
-                    }
-                }
-            }
-        }
-        #endregion      // GetProcessStreamById()
-
-        #region GetProcessStreamByStreamId()
-        /// <summary>
-        /// Retrieves a process stream from the data store by its profile identifier and stream identifier.
-        /// </summary>
-        /// <param name="profileId">The unique identifier of the profile that owns the process stream.</param>
-        /// <param name="streamId">The stream identifier to retrieve.</param>
-        /// <returns>A <see cref="ProcessStreamDto"/> object representing the requested process stream, or <c>null</c> if no matching process stream is found.</returns>
-        public ProcessStreamDto GetProcessStreamByStreamId(Guid profileId, string streamId)
-        {
-            if (String.IsNullOrWhiteSpace(streamId))
-            {
-                throw new ArgumentException("Stream ID cannot be null or whitespace.", nameof(streamId));
-            }
-
-            const string sql = @"SELECT Id,
-                                        ProfileId,
-                                        StreamCategory,
-                                        StreamHeat,
-                                        StreamId,
-                                        StreamSegmentId,
-                                        Name,
-                                        StreamType,
-                                        StreamSubtype,
-                                        SupplyTemperature,
-                                        SupplyPressure,
-                                        TargetTemperature,
-                                        TargetPressure,
-                                        HeatCapacityFlowRate,
-                                        HeatTransferCoefficient
-                                 FROM dbo.ProcessStream
-                                 WHERE ProfileId = @ProfileId
-                                   AND StreamId = @StreamId;";
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
-                    AddParameter(command, "@StreamId", DbType.String, streamId);
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        if (!reader.Read())
-                        {
-                            return null;
-                        }
-
-                        return MapProcessStream(reader);
-                    }
-                }
-            }
-        }
-        #endregion      // GetProcessStreamByStreamId()
-
-        #region AddProcessStream()
-        /// <summary>
-        /// Adds a new process stream to the data store.
+        /// Adds (CREATE) a new process stream to the data store.
         /// </summary>
         /// <param name="processStreamDto">The process stream data to insert.</param>
         /// <returns>The unique identifier of the inserted process stream.</returns>
@@ -402,11 +193,224 @@ namespace HenModel.RepoImplementations.Profile
                 }
             }
         }
-        #endregion      // AddProcessStream()
+        #endregion      // AddProcessStream() ... CREATE
 
-        #region UpdateProcessStream()
+        #region GetProcessStreams() ... READ
         /// <summary>
-        /// Updates an existing process stream in the data store.
+        /// Retrieves (READ) all process streams from the data store.
+        /// </summary>
+        /// <returns>A list of <see cref="ProcessStreamDto"/> objects representing all process streams. 
+        /// The list is empty if no process streams are found.</returns>
+        public IList<ProcessStreamDto> GetProcessStreams()
+        {
+            const string sql = @"SELECT Id,
+                                        ProfileId,
+                                        StreamCategory,
+                                        StreamHeat,
+                                        StreamId,
+                                        Name,
+                                        StreamType,
+                                        StreamSubtype,
+                                        SupplyTemperature,
+                                        SupplyPressure,
+                                        TargetTemperature,
+                                        TargetPressure,
+                                        HeatCapacityFlowRate,
+                                 FROM dbo.ProcessStream
+                                 ORDER BY StreamId;";
+
+            List<ProcessStreamDto> processStreams = new List<ProcessStreamDto>();
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            processStreams.Add(MapProcessStream(reader));
+                        }
+                    }
+                }
+            }
+
+            return processStreams;
+        }
+        #endregion      // GetProcessStreams() ... READ
+
+        #region GetProcessStreamsByProfileId() ... READ
+        /// <summary>
+        /// Retrieves (READ) all process streams for the specified profile from the data store.
+        /// </summary>
+        /// <param name="profileId">The unique identifier of the profile whose process streams are to be retrieved.</param>
+        /// <returns>A list of <see cref="ProcessStreamDto"/> objects representing the matching process streams. 
+        /// The list is empty if no process streams are found.</returns>
+        public IList<ProcessStreamDto> GetProcessStreamsByProfileId(Guid profileId)
+        {
+            const string sql = @"SELECT Id,
+                                        ProfileId,
+                                        StreamCategory,
+                                        StreamHeat,
+                                        StreamId,
+                                        StreamSegmentId,
+                                        Name,
+                                        StreamType,
+                                        StreamSubtype,
+                                        SupplyTemperature,
+                                        SupplyPressure,
+                                        TargetTemperature,
+                                        TargetPressure,
+                                        HeatCapacityFlowRate,
+                                        HeatTransferCoefficient
+                                 FROM dbo.ProcessStream
+                                 WHERE ProfileId = @ProfileId
+                                 ORDER BY StreamId;";
+
+            List<ProcessStreamDto> processStreams = new List<ProcessStreamDto>();
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            processStreams.Add(MapProcessStream(reader));
+                        }
+                    }
+                }
+            }
+
+            return processStreams;
+        }
+        #endregion      // GetProcessStreamsByProfileId() ... READ
+
+        #region GetProcessStreamById() ... READ
+        /// <summary>
+        /// Retrieves (READ) a process stream from the data store by its identifier.
+        /// </summary>
+        /// <param name="processStreamId">The unique identifier of the process stream to retrieve.</param>
+        /// <returns>A <see cref="ProcessStreamDto"/> object representing the requested process stream, 
+        /// or <c>null</c> if no matching process stream is found.</returns>
+        public ProcessStreamDto GetProcessStreamById(Guid processStreamId)
+        {
+            const string sql = @"SELECT Id,
+                                        ProfileId,
+                                        StreamCategory,
+                                        StreamHeat,
+                                        StreamId,
+                                        StreamSegmentId,
+                                        Name,
+                                        StreamType,
+                                        StreamSubtype,
+                                        SupplyTemperature,
+                                        SupplyPressure,
+                                        TargetTemperature,
+                                        TargetPressure,
+                                        HeatCapacityFlowRate,
+                                        HeatTransferCoefficient
+                                 FROM dbo.ProcessStream
+                                 WHERE Id = @Id;";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@Id", DbType.Guid, processStreamId);
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                        {
+                            return null;
+                        }
+
+                        return MapProcessStream(reader);
+                    }
+                }
+            }
+        }
+        #endregion      // GetProcessStreamById() ... READ
+
+        #region GetProcessStreamByStreamId() ... READ
+        /// <summary>
+        /// Retrieves (READ) a process stream from the data store by its profile identifier and stream identifier.
+        /// </summary>
+        /// <param name="profileId">The unique identifier of the profile that owns the process stream.</param>
+        /// <param name="streamId">The stream identifier to retrieve.</param>
+        /// <returns>A <see cref="ProcessStreamDto"/> object representing the requested process stream, 
+        /// or <c>null</c> if no matching process stream is found.</returns>
+        public ProcessStreamDto GetProcessStreamByStreamId(Guid profileId, string streamId)
+        {
+            if (String.IsNullOrWhiteSpace(streamId))
+            {
+                throw new ArgumentException("Stream ID cannot be null or whitespace.", nameof(streamId));
+            }
+
+            const string sql = @"SELECT Id,
+                                        ProfileId,
+                                        StreamCategory,
+                                        StreamHeat,
+                                        StreamId,
+                                        StreamSegmentId,
+                                        Name,
+                                        StreamType,
+                                        StreamSubtype,
+                                        SupplyTemperature,
+                                        SupplyPressure,
+                                        TargetTemperature,
+                                        TargetPressure,
+                                        HeatCapacityFlowRate,
+                                        HeatTransferCoefficient
+                                 FROM dbo.ProcessStream
+                                 WHERE ProfileId = @ProfileId
+                                   AND StreamId = @StreamId;";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
+                    AddParameter(command, "@StreamId", DbType.String, streamId);
+
+                    connection.Open();
+
+                    using (IDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                        {
+                            return null;
+                        }
+
+                        return MapProcessStream(reader);
+                    }
+                }
+            }
+        }
+        #endregion      // GetProcessStreamByStreamId() ... READ
+
+        #region UpdateProcessStream() ... UPDATE
+        /// <summary>
+        /// Updates (UPDATE) an existing process stream in the data store.
         /// </summary>
         /// <param name="processStreamDto">The process stream data to update.</param>
         public void UpdateProcessStream(ProcessStreamDto processStreamDto)
@@ -458,11 +462,11 @@ namespace HenModel.RepoImplementations.Profile
                 }
             }
         }
-        #endregion      // UpdateProcessStream()
+        #endregion      // UpdateProcessStream() ... UPDATE
 
-        #region DeleteProcessStream()
+        #region DeleteProcessStream() .... DELETE
         /// <summary>
-        /// Deletes a process stream from the data store by its identifier.
+        /// Deletes (DELETE) a process stream from the data store by its identifier.
         /// </summary>
         /// <param name="processStreamId">The unique identifier of the process stream to delete.</param>
         public void DeleteProcessStream(Guid processStreamId)
@@ -483,7 +487,7 @@ namespace HenModel.RepoImplementations.Profile
                 }
             }
         }
-        #endregion      // DeleteProcessStream()
+        #endregion      // DeleteProcessStream() .... DELETE
 
         #endregion      // METHODS
     }
