@@ -57,7 +57,7 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         #region PROPERTIES
         public OptimizerGreedyDto OptimizerGreedyDtoObj { get; set; }
         public Guid Id { get; set; }
-        public Guid HenOptimizerParamsId { get; set; }
+        public Guid OptimizerParamsId { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -69,7 +69,7 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         {
             OptimizerGreedyDtoObj = new OptimizerGreedyDto();
             Id = new Guid();
-            HenOptimizerParamsId = new Guid();
+            OptimizerParamsId = new Guid();
         }
         #endregion  // CTOR
 
@@ -91,9 +91,9 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         /// Gets the unique identifier of the HenOptimizerParams as a string.
         /// </summary>
         /// <returns>A string representation of the HenOptimizerParams' unique identifier.</returns>
-        public string GetHenOptimizerParamsId()
+        public string GetOptimizerParamsId()
         {
-            return HenOptimizerParamsId.ToString();
+            return OptimizerParamsId.ToString();
         }
         #endregion  // GetHenOptimizerParamsId()
 
@@ -114,7 +114,7 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         {
             OptimizerGreedyDtoObj = optimizerGreedyDto;
             this.Id = optimizerGreedyDto.Id;
-            this.HenOptimizerParamsId = optimizerGreedyDto.HenOptimizerParamsId;
+            this.OptimizerParamsId = optimizerGreedyDto.OptimizerParamsId;
             return this;
         }
         #endregion  // ConvertToPanelData(OptimizerGreedyDto optimizerGreedyDto)
@@ -130,7 +130,7 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         {
             OptimizerGreedyDtoObj = new OptimizerGreedyDto();
             OptimizerGreedyDtoObj.Id = this.Id;
-            OptimizerGreedyDtoObj.HenOptimizerParamsId = this.HenOptimizerParamsId;
+            OptimizerGreedyDtoObj.OptimizerParamsId = this.OptimizerParamsId;
             return OptimizerGreedyDtoObj;
         }
         #endregion  // ConvertFromPanelData()   

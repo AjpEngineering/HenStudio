@@ -57,7 +57,7 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         #region PROPERTIES
         public OptimizerMILP_Dto OptimizerMILP_DtoObj { get; set; }
         public Guid Id { get; set; }
-        public Guid HenOptimizerParamsId { get; set; }
+        public Guid OptimizerParamsId { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -69,7 +69,7 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         {
             OptimizerMILP_DtoObj = new OptimizerMILP_Dto();
             Id = new Guid();
-            HenOptimizerParamsId = new Guid();
+            OptimizerParamsId = new Guid();
         }
         #endregion  // CTOR
 
@@ -91,9 +91,9 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         /// Gets the unique identifier of the HenOptimizerParams as a string.
         /// </summary>
         /// <returns>A string representation of the HenOptimizerParams' unique identifier.</returns>
-        public string GetHenOptimizerParamsId()
+        public string GetOptimizerParamsId()
         {
-            return HenOptimizerParamsId.ToString();
+            return OptimizerParamsId.ToString();
         }
         #endregion  // GetHenOptimizerParamsId()
 
@@ -114,7 +114,7 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         {
             OptimizerMILP_DtoObj = optimizerMILP_Dto;
             this.Id = optimizerMILP_Dto.Id;
-            this.HenOptimizerParamsId = optimizerMILP_Dto.HenOptimizerParamsId;
+            this.OptimizerParamsId = optimizerMILP_Dto.OptimizerParamsId;
             return this;
         }
         #endregion  // ConvertToPanelData(OptimizerMILP_Dto optimizerMILP_Dto)
@@ -130,7 +130,7 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         {
             OptimizerMILP_DtoObj = new OptimizerMILP_Dto();
             OptimizerMILP_DtoObj.Id = this.Id;
-            OptimizerMILP_DtoObj.HenOptimizerParamsId = this.HenOptimizerParamsId;
+            OptimizerMILP_DtoObj.OptimizerParamsId = this.OptimizerParamsId;
             return OptimizerMILP_DtoObj;
         }
         #endregion  // ConvertFromPanelData()   

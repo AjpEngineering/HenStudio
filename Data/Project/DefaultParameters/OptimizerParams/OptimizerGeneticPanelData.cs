@@ -114,7 +114,7 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         {
             OptimizerGeneticDtoObj = optimizerGeneticDto;
             this.Id = optimizerGeneticDto.Id;
-            this.HenOptimizerParamsId = optimizerGeneticDto.HenOptimizerParamsId;
+            this.HenOptimizerParamsId = optimizerGeneticDto.OptimizerParamsId;
             return this;
         }
         #endregion  // ConvertToPanelData(OptimizerGeneticDto optimizerGeneticDto)
@@ -130,7 +130,7 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         {
             OptimizerGeneticDtoObj = new OptimizerGeneticDto();
             OptimizerGeneticDtoObj.Id = this.Id;
-            OptimizerGeneticDtoObj.HenOptimizerParamsId = this.HenOptimizerParamsId;
+            OptimizerGeneticDtoObj.OptimizerParamsId = this.HenOptimizerParamsId;
             return OptimizerGeneticDtoObj;
         }
         #endregion  // ConvertFromPanelData()   
