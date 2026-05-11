@@ -8,7 +8,7 @@
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the HenOptimizerGenetic Project sub table.
+//    This file contains the DTO class for the Optimizer Genetic Parameters object.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -47,7 +47,9 @@ namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
     {
         #region PROPERTIES
         public Guid Id { get; set; }
-        public Guid HenOptimizerParamsId { get; set; }
+        public Guid OptimizerParamsId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         #endregion      // PROPERTIES
     }
     #endregion      // public class OptimizerGeneticDto

@@ -33,6 +33,8 @@ CREATE TABLE [dbo].[OptimizerMILP_Params]
 (
 	[Id]                UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
 	[OptimizerParamsId] UNIQUEIDENTIFIER NOT NULL,
+	[Name]              NVARCHAR(256)    NOT NULL,
+	[Description]       NVARCHAR(1024)   NULL,
 
 	CONSTRAINT [PK_OptimizerMILP_Params] PRIMARY KEY CLUSTERED ([Id]),
 	CONSTRAINT [FK_OptimizerMILP_Params_OptimizerParams] FOREIGN KEY ([OptimizerParamsId]) REFERENCES [dbo].[OptimizerParams]([Id])

@@ -8,7 +8,7 @@
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the Optimizer MILP Project sub table.
+//    This file contains the repo interface for the Optimizer MILP Parameters object.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -49,9 +49,10 @@ namespace HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
     public interface IOptimizerMILP_Repo
     {
         #region METHODS
-        IList<OptimizerMILP_Dto> GetOptimizerMILPs();
-        OptimizerMILP_Dto GetOptimizerMILPByOptimizerId(Guid optimizerId);
         Guid AddOptimizerMILP(OptimizerMILP_Dto optimizerMilpDto);
+        IList<OptimizerMILP_Dto> GetOptimizerMILPs();
+        OptimizerMILP_Dto GetOptimizerMILP_ById(Guid optimizerMILP_Id);
+        OptimizerMILP_Dto GetOptimizerMILP_ByOptimizerParamsId(Guid optimizerParamsId);
         void UpdateOptimizerMILP(OptimizerMILP_Dto optimizerMilpDto);
         void DeleteOptimizerMILP(Guid optimizerMilpId);
         #endregion      // METHODS

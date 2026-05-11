@@ -48,9 +48,10 @@ namespace HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
     public interface IOptimizerGreedyRepo
     {
         #region METHODS
-        IList<OptimizerGreedyDto> GetOptimizerGreedys();
-        OptimizerGreedyDto GetOptimizerGreedyByOptimizerId(Guid optimizerId);
         Guid AddOptimizerGreedy(OptimizerGreedyDto optimizerGreedyDto);
+        IList<OptimizerGreedyDto> GetOptimizerGreedys();
+        OptimizerGreedyDto GetOptimizerGreedyById(Guid optimizerGreedyId);
+        OptimizerGreedyDto GetOptimizerGreedyByOptimizerParamsId(Guid optimizerParamsId);
         void UpdateOptimizerGreedy(OptimizerGreedyDto optimizerGreedyDto);
         void DeleteOptimizerGreedy(Guid optimizerGreedyId);
         #endregion      // METHODS

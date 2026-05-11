@@ -1,6 +1,6 @@
 #region HEADER
 //#####################################################################################################################
-//###############################  I H e n O p t i m i z e r G e n e t i c R e p o . c s  #############################
+//##################################  I O p t i m i z e r G e n e t i c R e p o . c s  ################################
 //#####################################################################################################################
 //  FILENAME:  IOptimizerGeneticRepo.cs
 //  NAMESPACE: HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
@@ -8,7 +8,7 @@
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the Optimizer Genetic Project sub table.
+//    This file contains the repo interface for the Optimizer Genetic Parameters object.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -49,11 +49,12 @@ namespace HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams
     public interface IOptimizerGeneticRepo
     {
         #region METHODS
-        IList<OptimizerGeneticDto> GetOptimizerGenetics();
-        OptimizerGeneticDto GetOptimizerGeneticByOptimizerId(Guid optimizerId);
         Guid AddOptimizerGenetic(OptimizerGeneticDto optimizerGeneticDto);
+        IList<OptimizerGeneticDto> GetOptimizerGenetics();
+        OptimizerGeneticDto GetOptimizerGeneticById(Guid optimizerGeneticId);
+        OptimizerGeneticDto GetOptimizerGeneticByOptimizerParamsId(Guid optimizerParamsId);
         void UpdateOptimizerGenetic(OptimizerGeneticDto optimizerGeneticDto);
-        void DeleteOptimizerGenetic(Guid optimizerId);
+        void DeleteOptimizerGenetic(Guid optimizerGeneticId);
         #endregion      // METHODS
     }
     #endregion      // public interface IOptimizerGeneticRepo

@@ -129,9 +129,56 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
 
         #region METHODS
 
-        #region GetProjectUnitsById()
+        #region AddProjectUnits() ... CREATE
         /// <summary>
-        /// Retrieves a project from the data store by its identifier.
+        /// Adds (CREATE) a new project units to the data store.
+        /// </summary>
+        /// <param name="projectUnitsDto">The project units data to insert.</param>
+        /// <returns>The unique identifier of the inserted project units.</returns>
+        public Guid AddProjectUnits(ProjectUnitsDto projectUnitsDto)
+        {
+            if (projectUnitsDto == null)
+            {
+                throw new ArgumentNullException(nameof(projectUnitsDto));
+            }
+
+            const string sql = @"INSERT INTO dbo.ProjectUnits
+                                    (ProjectId,
+                                     DefaultSystemUnits,
+                                     DefaultMagnitudeUnits,
+                                     DefaultTemperatureUnits,
+                                     DefaultPressureUnits)
+                                 OUTPUT INSERTED.Id
+                                 VALUES
+                                    (@ProjectId,
+                                     @DefaultSystemUnits,
+                                     @DefaultMagnitudeUnits,
+                                     @DefaultTemperatureUnits,
+                                     @DefaultPressureUnits);";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@ProjectId   ", DbType.String, projectUnitsDto.ProjectId);
+                    AddParameter(command, "@DefaultSystemUnits", DbType.String, projectUnitsDto.DefaultSystemUnits);
+                    AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectUnitsDto.DefaultMagnitudeUnits);
+                    AddParameter(command, "@DefaultTemperatureUnits", DbType.String, projectUnitsDto.DefaultTemperatureUnits);
+                    AddParameter(command, "@DefaultPressureUnits", DbType.String, projectUnitsDto.DefaultPressureUnits);
+
+                    connection.Open();
+
+                    return (Guid)command.ExecuteScalar();
+                }
+            }
+        }
+        #endregion      // AddProjectUnits() ... CREATE
+
+        #region GetProjectUnitsById() ... READ
+        /// <summary>
+        /// Retrieves (READ) a project units from the data store by its identifier.
         /// </summary>
         /// <param name="projectUnitsId">The unique identifier of the project units to retrieve.</param>
         /// <returns>A <see cref="ProjectUnitsDto"/> object representing the requested project units, or <c>null</c> if no matching project units is found.</returns>
@@ -175,9 +222,9 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                 }
             }
         }
-        #endregion      // GetProjectUnitsById()
+        #endregion      // GetProjectUnitsById() ... READ
 
-        #region GetProjectUnitsByProjectId()
+        #region GetProjectUnitsByProjectId() ... READ
         /// <summary>
         /// Retrieves a project from the data store by its identifier.
         /// </summary>
@@ -223,58 +270,11 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                 }
             }
         }
-        #endregion      // GetProjectByProjectId()
+        #endregion      // GetProjectUnitsByProjectId() ... READ
 
-        #region AddProjectUnits()
+        #region UpdateProjectUnits() ... UPDATE
         /// <summary>
-        /// Adds a new project units to the data store.
-        /// </summary>
-        /// <param name="projectUnitsDto">The project units data to insert.</param>
-        /// <returns>The unique identifier of the inserted project units.</returns>
-        public Guid AddProjectUnits(ProjectUnitsDto projectUnitsDto)
-        {
-            if (projectUnitsDto == null)
-            {
-                throw new ArgumentNullException(nameof(projectUnitsDto));
-            }
-
-            const string sql = @"INSERT INTO dbo.ProjectUnits
-                                    (ProjectId,
-                                     DefaultSystemUnits,
-                                     DefaultMagnitudeUnits,
-                                     DefaultTemperatureUnits,
-                                     DefaultPressureUnits)
-                                 OUTPUT INSERTED.Id
-                                 VALUES
-                                    (@ProjectId,
-                                     @DefaultSystemUnits,
-                                     @DefaultMagnitudeUnits,
-                                     @DefaultTemperatureUnits,
-                                     @DefaultPressureUnits);";
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId   ", DbType.String, projectUnitsDto.ProjectId);
-                    AddParameter(command, "@DefaultSystemUnits", DbType.String, projectUnitsDto.DefaultSystemUnits);
-                    AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectUnitsDto.DefaultMagnitudeUnits);
-                    AddParameter(command, "@DefaultTemperatureUnits", DbType.String, projectUnitsDto.DefaultTemperatureUnits);
-                    AddParameter(command, "@DefaultPressureUnits", DbType.String, projectUnitsDto.DefaultPressureUnits);
-
-                    connection.Open();
-
-                    return (Guid)command.ExecuteScalar();
-                }
-            }
-        }
-        #endregion      // AddProjectUnits()
-
-        #region UpdateProjectUnits()
-        /// <summary>
-        /// Updates an existing project units in the data store.
+        /// Updates (UPDATE) an existing project units in the data store.
         /// </summary>
         /// <param name="projectUnitsDto">The project units data to update.</param>
         public void UpdateProjectUnits(ProjectUnitsDto projectUnitsDto)
@@ -310,11 +310,11 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                 }
             }
         }
-        #endregion      // UpdateProjectUnits()
+        #endregion      // UpdateProjectUnits()  ... UPDATE
 
-        #region DeleteProjectUnits()
+        #region DeleteProjectUnits() ... DELETE
         /// <summary>
-        /// Deletes a project units from the data store by its identifier.
+        /// Deletes (DELETE) a project units from the data store by its identifier.
         /// </summary>
         /// <param name="projectUnitsId">The unique identifier of the project units to delete.</param>
         public void DeleteProjectUnits(Guid projectUnitsId)
@@ -335,7 +335,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                 }
             }
         }
-        #endregion      // DeleteProjectUnits()
+        #endregion      // DeleteProjectUnits() ... DELETE
 
         #endregion      // METHODS
     }

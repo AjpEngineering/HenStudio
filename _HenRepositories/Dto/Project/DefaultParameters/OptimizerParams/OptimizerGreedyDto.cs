@@ -47,7 +47,9 @@ namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
     {
         #region PROPERTIES
         public Guid Id { get; set; }
-        public Guid HenOptimizerParamsId { get; set; }
+        public Guid OptimizerParamsId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         #endregion      // PROPERTIES
     }
     #endregion      // public class OptimizerGreedyDto

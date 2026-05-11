@@ -128,9 +128,56 @@ namespace HenModel.RepoImplementations.Project
 
         #region METHODS
 
-        #region GetProjects()
+        #region AddProject() ... CREATE
         /// <summary>
-        /// Retrieves all projects from the data store.
+        /// Adds (CREATE) a new project to the data store.
+        /// </summary>
+        /// <param name="projectDto">The project data to insert.</param>
+        /// <returns>The unique identifier of the inserted project.</returns>
+        public Guid AddProject(ProjectDto projectDto)
+        {
+            if (projectDto == null)
+            {
+                throw new ArgumentNullException(nameof(projectDto));
+            }
+
+            const string sql = @"INSERT INTO dbo.Project
+                                    (Name,
+                                     Description,
+                                     DefaultHenOptimizer,
+                                     CreationDate,
+                                     ModifiedDate)
+                                 OUTPUT INSERTED.Id
+                                 VALUES
+                                    (@Name,
+                                     @Description,
+                                     @DefaultHenOptimizer,
+                                     @CreationDate,
+                                     @ModifiedDate);";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@Name", DbType.String, projectDto.Name);
+                    AddParameter(command, "@Description", DbType.String, projectDto.Description);
+                    AddParameter(command, "@DefaultHenOptimizer", DbType.String, projectDto.DefaultHenOptimizer);
+                    AddParameter(command, "@CreationDate", DbType.DateTime, DateTime.Now);
+                    AddParameter(command, "@ModifiedDate", DbType.DateTime, DateTime.Now);
+
+                    connection.Open();
+
+                    return (Guid)command.ExecuteScalar();
+                }
+            }
+        }
+        #endregion      // AddProject() ... CREATE
+
+        #region GetProjects() ... READ
+        /// <summary>
+        /// Retrieves (READ) all projects from the data store.
         /// </summary>
         /// <returns>A list of <see cref="ProjectDto"/> objects representing all projects. The list is empty if no projects are found.</returns>
         public IList<ProjectDto> GetProjects()
@@ -180,11 +227,11 @@ namespace HenModel.RepoImplementations.Project
             
             return projects;
         }
-        #endregion      // GetProjects()
+        #endregion      // GetProjects() ... READ
 
-        #region GetProjectById()
+        #region GetProjectById() ... READ
         /// <summary>
-        /// Retrieves a project from the data store by its identifier.
+        /// Retrieves (READ) a project from the data store by its identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project to retrieve.</param>
         /// <returns>A <see cref="ProjectDto"/> object representing the requested project, or <c>null</c> if no matching project is found.</returns>
@@ -228,11 +275,11 @@ namespace HenModel.RepoImplementations.Project
                 }
             }
         }
-        #endregion      // GetProjectById()
+        #endregion      // GetProjectById() ... READ
 
-        #region GetProjectByName()
+        #region GetProjectByName() ... READ
         /// <summary>
-        /// Retrieves a project from the data store by its name.
+        /// Retrieves (READ) a project from the data store by its name.
         /// </summary>
         /// <param name="projectName">The project name to retrieve.</param>
         /// <returns>A <see cref="ProjectDto"/> object representing the requested project, or <c>null</c> if no matching project is found.</returns>
@@ -281,58 +328,11 @@ namespace HenModel.RepoImplementations.Project
                 }
             }
         }
-        #endregion      // GetProjectByName()
+        #endregion      // GetProjectByName() ... READ
 
-        #region AddProject()
+        #region UpdateProject() ... UPDATE
         /// <summary>
-        /// Adds a new project to the data store.
-        /// </summary>
-        /// <param name="projectDto">The project data to insert.</param>
-        /// <returns>The unique identifier of the inserted project.</returns>
-        public Guid AddProject(ProjectDto projectDto)
-        {
-            if (projectDto == null)
-            {
-                throw new ArgumentNullException(nameof(projectDto));
-            }
-
-            const string sql = @"INSERT INTO dbo.Project
-                                    (Name,
-                                     Description,
-                                     DefaultHenOptimizer,
-                                     CreationDate,
-                                     ModifiedDate)
-                                 OUTPUT INSERTED.Id
-                                 VALUES
-                                    (@Name,
-                                     @Description,
-                                     @DefaultHenOptimizer,
-                                     @CreationDate,
-                                     @ModifiedDate);";
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Name", DbType.String, projectDto.Name);
-                    AddParameter(command, "@Description", DbType.String, projectDto.Description);
-                    AddParameter(command, "@DefaultHenOptimizer", DbType.String, projectDto.DefaultHenOptimizer);
-                    AddParameter(command, "@CreationDate", DbType.DateTime, DateTime.Now);
-                    AddParameter(command, "@ModifiedDate", DbType.DateTime, DateTime.Now);
-
-                    connection.Open();
-
-                    return (Guid)command.ExecuteScalar();
-                }
-            }
-        }
-        #endregion      // AddProject()
-
-        #region UpdateProject()
-        /// <summary>
-        /// Updates an existing project in the data store.
+        /// Updates (UPDATE) an existing project in the data store.
         /// </summary>
         /// <param name="projectDto">The project data to update.</param>
         public void UpdateProject(ProjectDto projectDto)
@@ -366,11 +366,11 @@ namespace HenModel.RepoImplementations.Project
                 }
             }
         }
-        #endregion      // UpdateProject()
+        #endregion      // UpdateProject() ... UPDATE
 
-        #region DeleteProject()
+        #region DeleteProject() ... DELETE
         /// <summary>
-        /// Deletes a project from the data store by its identifier.
+        /// Deletes (DELETE) a project from the data store by its identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project to delete.</param>
         public void DeleteProject(Guid projectId)
@@ -391,7 +391,7 @@ namespace HenModel.RepoImplementations.Project
                 }
             }
         }
-        #endregion      // DeleteProject()
+        #endregion      // DeleteProject() ... DELETE
 
         #endregion      // METHODS
     }
