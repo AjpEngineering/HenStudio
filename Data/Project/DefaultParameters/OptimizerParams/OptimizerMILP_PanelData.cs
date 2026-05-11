@@ -88,14 +88,14 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
 
         #region GetHenOptimizerParamsId()
         /// <summary>
-        /// Gets the unique identifier of the HenOptimizerParams as a string.
+        /// Gets the unique identifier of the OptimizerParams as a string.
         /// </summary>
-        /// <returns>A string representation of the HenOptimizerParams' unique identifier.</returns>
+        /// <returns>A string representation of the OptimizerParams unique identifier.</returns>
         public string GetOptimizerParamsId()
         {
             return OptimizerParamsId.ToString();
         }
-        #endregion  // GetHenOptimizerParamsId()
+        #endregion  // GetOptimizerParamsId()
 
         #endregion  // STRING CONVERSION METHODS
 
