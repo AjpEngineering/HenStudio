@@ -6,7 +6,8 @@
 --    Genetic Optimizer subtype entity for HEN Studio.
 --    Parent entity is OptimizerParams. Leaf table.
 --    OptimizerGeneticParams includes fields for ...
---      + PK/FK to OptimizerParams (GUID)
+--      + PK to OptimizerGeneticParams (GUID)
+--      + FK to OptimizerParams (GUID)
 --      + Genetic specific optimizer fields (TBD)
 -- ================================================================================
 -- 
@@ -30,8 +31,9 @@
 
 CREATE TABLE [dbo].[OptimizerGeneticParams]
 (
+	[Id]                UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
 	[OptimizerParamsId] UNIQUEIDENTIFIER NOT NULL,
 
-	CONSTRAINT [PK_OptimizerGeneticParams] PRIMARY KEY CLUSTERED ([OptimizerParamsId]),
+	CONSTRAINT [PK_OptimizerGeneticParams] PRIMARY KEY CLUSTERED ([Id]),
 	CONSTRAINT [FK_OptimizerGeneticParams_OptimizerParams] FOREIGN KEY ([OptimizerParamsId]) REFERENCES [dbo].[OptimizerParams]([Id])
 )

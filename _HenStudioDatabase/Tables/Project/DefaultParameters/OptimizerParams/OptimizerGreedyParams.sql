@@ -6,7 +6,8 @@
 --    Greedy Optimizer subtype entity for HEN Studio.
 --    Parent entity is OptimizerParams. Leaf table.
 --    OptimizerGreedy_Params includes fields for ...
---      + PK/FK to OptimizerParams (GUID)
+--      + PK to OptimizerGreedyParams (GUID)
+--      + FK to OptimizerParams (GUID)
 --      + Greedy specific optimizer fields (TBD)
 -- ================================================================================
 -- 
@@ -30,8 +31,9 @@
 
 CREATE TABLE [dbo].[OptimizerGreedyParams]
 (
+	[Id]                UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
 	[OptimizerParamsId] UNIQUEIDENTIFIER NOT NULL,
 
-	CONSTRAINT [PK_OptimizerGreedyParams] PRIMARY KEY CLUSTERED ([OptimizerParamsId]),
+	CONSTRAINT [PK_OptimizerGreedyParams] PRIMARY KEY CLUSTERED ([Id]),
 	CONSTRAINT [FK_OptimizerGreedyParams_OptimizerParams] FOREIGN KEY ([OptimizerParamsId]) REFERENCES [dbo].[OptimizerParams]([Id])
 )

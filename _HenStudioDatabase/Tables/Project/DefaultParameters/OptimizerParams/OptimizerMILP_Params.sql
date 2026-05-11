@@ -6,7 +6,8 @@
 --    MILP Optimizer subtype entity for HEN Studio.
 --    Parent entity is OptimizerParams. Leaf table.
 --    OptimizerMILP_Params includes fields for ...
---      + PK/FK to OptimizerParams (GUID)
+--      + PK to OptimizerMILP_Params (GUID)
+--      + FK to OptimizerParams (GUID)
 --      + MILP specific optimizer fields (TBD)
 -- ================================================================================
 -- 
@@ -30,8 +31,9 @@
 
 CREATE TABLE [dbo].[OptimizerMILP_Params]
 (
+	[Id]                UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
 	[OptimizerParamsId] UNIQUEIDENTIFIER NOT NULL,
 
-	CONSTRAINT [PK_OptimizerMILP_Params] PRIMARY KEY CLUSTERED ([OptimizerParamsId]),
+	CONSTRAINT [PK_OptimizerMILP_Params] PRIMARY KEY CLUSTERED ([Id]),
 	CONSTRAINT [FK_OptimizerMILP_Params_OptimizerParams] FOREIGN KEY ([OptimizerParamsId]) REFERENCES [dbo].[OptimizerParams]([Id])
 )
