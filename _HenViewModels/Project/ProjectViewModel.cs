@@ -78,8 +78,8 @@ namespace HenViewModel.Project
         /// <remarks>The method converts the provided project data from external to internal units before
         /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
         /// an empty GUID.</remarks>
-        /// <param name="externalProjectDto">The project data to add. The object must contain all required project fields in external units. Cannot be
-        /// null.</param>
+        /// <param name="externalProjectDto">The project data to add. The object must contain all required project fields 
+        /// in external units. Cannot be null.</param>
         /// <returns>A GUID representing the unique identifier of the newly added project.</returns>
         public Guid AddProject(ProjectDto externalProjectDto)
         {
