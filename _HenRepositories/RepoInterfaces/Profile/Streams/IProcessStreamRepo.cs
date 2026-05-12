@@ -33,7 +33,7 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.Profile;
+using HenModel.Dto.Profile.Streams;
 
 using System;
 using System.Collections.Generic;

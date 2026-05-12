@@ -3,7 +3,7 @@
 //###################################  P r o c e s s S t r e a m V i e w M o d e l . c s  #############################
 //#####################################################################################################################
 //  FILENAME:  ProcessStreamViewModel.cs
-//  NAMESPACE: HenViewModel
+//  NAMESPACE: HenViewModel.Profile.Streams
 //  CLASS(S):  ProcessStreamViewModel
 //  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
@@ -38,14 +38,14 @@ using HenGlobal;
 using HenModel.Connection;
 using HenModel.RepoImplementations.Profile.Streams;
 using HenModel.RepoInterfaces.Profile.Streams;
-using HenModel.Dto.Profile;
+using HenModel.Dto.Profile.Streams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModel.Profile
-namespace HenViewModel.Profile
+#region namespace HenViewModel.Profile.Streams
+namespace HenViewModel.Profile.Streams
 {
     #region public class ProcessStreamViewModel
     /// <summary>
@@ -291,7 +291,7 @@ namespace HenViewModel.Profile
     }
     #endregion      // public class ProcessStreamViewModel
 }
-#endregion      // namespace HenViewModel.Profile
+#endregion      // namespace HenViewModel.Profile.Streams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -25,11 +25,11 @@ CREATE TABLE [dbo].[Project]
     [Id] UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
     [Name] NVARCHAR(256) NOT NULL,
     [Description] NVARCHAR(1024) NULL,
-    [DefaultHenOptimizer] NVARCHAR(16) NOT NULL DEFAULT N'Genetic',
+    [DefaultOptimizer] NVARCHAR(16) NOT NULL DEFAULT N'Genetic',
     [CreationDate] DATETIME NOT NULL DEFAULT GETDATE(),
     [ModifiedDate] DATETIME NOT NULL DEFAULT GETDATE(),
 
     CONSTRAINT [PK_Project] PRIMARY KEY CLUSTERED ([Id]),
 
-    CONSTRAINT [CK_Project_DefaultHenOptimizer] CHECK ([DefaultHenOptimizer] IN (N'Genetic', N'Greedy', N'MILP'))
+    CONSTRAINT [CK_Project_DefaultOptimizer] CHECK ([DefaultOptimizer] IN (N'Genetic', N'Greedy', N'MILP'))
 );

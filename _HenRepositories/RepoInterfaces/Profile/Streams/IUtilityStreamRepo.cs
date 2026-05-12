@@ -3,7 +3,7 @@
 //###################################  I U t i l i t y S t r e a m R e p o . c s  #####################################
 //#####################################################################################################################
 //  FILENAME:  IUtilityStreamRepo.cs
-//  NAMESPACE: HenModel.RepoInterfaces.Profile
+//  NAMESPACE: HenModel.RepoInterfaces.Profile.Streams
 //  INTERFACE: IUtilityStreamRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -33,7 +33,7 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.Profile;
+using HenModel.Dto.Profile.Streams;
 
 using System;
 using System.Collections.Generic;

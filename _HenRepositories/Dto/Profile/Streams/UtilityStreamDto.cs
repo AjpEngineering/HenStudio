@@ -3,7 +3,7 @@
 //#######################################  U t i l i t y S t r e a m D t o . c s  #####################################
 //#####################################################################################################################
 //  FILENAME:  UtilityStreamDto.cs
-//  NAMESPACE: HenModel.Dto.Profile
+//  NAMESPACE: HenModel.Dto.Profile.Streams
 //  CLASS(S):  UtilityStreamDto
 //  COMPONENT: _HenRepositories.dll
 //=====================================================================================================================
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Profile
-namespace HenModel.Dto.Profile
+#region namespace HenModel.Dto.Profile.Streams
+namespace HenModel.Dto.Profile.Streams
 {
     #region public class UtilityStreamDto
     /// <summary>
@@ -61,7 +61,7 @@ namespace HenModel.Dto.Profile
     }
     #endregion      // public class UtilityStreamDto
 }
-#endregion      // namespace HenModel.Dto.Profile
+#endregion      // namespace HenModel.Dto.Profile.Streams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -3,7 +3,7 @@
 //#######################################  P r o c e s s S t r e a m D t o . c s  #####################################
 //#####################################################################################################################
 //  FILENAME:  ProcessStreamDto.cs
-//  NAMESPACE: HenModel.Dto.Profile
+//  NAMESPACE: HenModel.Dto.Profile.Streams
 //  CLASS(S):  ProcessStreamDto
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -36,8 +36,8 @@
 using System;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.Profile
-namespace HenModel.Dto.Profile
+#region namespace HenModel.Dto.Profile.Streams
+namespace HenModel.Dto.Profile.Streams
 {
     #region public class ProcessStreamDto
     /// <summary>
@@ -63,7 +63,7 @@ namespace HenModel.Dto.Profile
     }
     #endregion      // public class ProcessStreamDto
 }
-#endregion      // namespace HenModel.Dto.Profile
+#endregion      // namespace HenModel.Dto.Profile.Streams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

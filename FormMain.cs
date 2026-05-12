@@ -84,6 +84,7 @@ using HenViewModel.Project.DefaultParameters.OptimizerParams;
 using HenViewModel.Project.DefaultParameters.ProjectUnits;
 
 using HenViewModel.Profile;
+using HenViewModel.Profile.Streams;
 
 using HenViewModel.Pinch;
 using HenViewModel.Pinch.Plots;
@@ -1932,7 +1933,7 @@ namespace HenStudio
             projectViewDataObj.Description = projectDto.Description;
             projectViewDataObj.ProjectU_Value = exchangerParamsDto.DefaultHeatTransferCoefficient.ToString();
             projectViewDataObj.ProjectF_Value = exchangerParamsDto.DefaultCorrectionFactor.ToString();
-            projectViewDataObj.ProjectHenOptimizer = projectDto.DefaultHenOptimizer;
+            projectViewDataObj.ProjectOptimizer = projectDto.DefaultOptimizer;
 
             projectViewDataObj.ProjectSystem_Units = projectUnitsDto.DefaultSystemUnits;
             projectViewDataObj.ProjectMagnitude_Units = projectUnitsDto.DefaultMagnitudeUnits;

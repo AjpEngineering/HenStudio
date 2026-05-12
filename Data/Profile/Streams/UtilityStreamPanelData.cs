@@ -1,14 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//################################  P r o c e s s S t r e a m P a n e l D a t a . c s  ################################
+//################################  U t i l i t y S t r e a m P a n e l D a t a . c s  ################################
 //#####################################################################################################################
-//  FILENAME:  ProcessStreamPanelData.cs
-//  NAMESPACE: HenStudio.Data.Profile
-//  CLASS(S):  ProcessStreamPanelData
+//  FILENAME:  UtilityStreamPanelData.cs
+//  NAMESPACE: HenStudio.Data.Profile.Streams
+//  CLASS(S):  UtilityStreamPanelData
 //  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Process Stream Panel Data object - data needed for Process Stream Panel.
+//    This file contains the code for the Utility Stream Panel Data object - data needed for Utility Stream Panel.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,7 +33,7 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.Profile;
+using HenModel.Dto.Profile.Streams;
 
 using System;
 using System.Collections.Generic;
@@ -42,19 +42,19 @@ using System.Text;
 using System.Threading.Tasks;
 #endregion  // REFERENCES
 
-#region namespace HenStudio.Data.Profile
-namespace HenStudio.Data.Profile
+#region namespace HenStudio.Data.Profile.Streams
+namespace HenStudio.Data.Profile.Streams
 {
-    #region public class ProcessStreamPanelData
-    public class ProcessStreamPanelData : IProcessStreamPanelData
+    #region public class UtilityStreamPanelData
+    public class UtilityStreamPanelData : IUtilityStreamPanelData
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio.Data.Profile";
-        const string CLASS = "ProcessStreamPanelData";
+        const string CLASS = "UtilityStreamPanelData";
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public ProcessStreamDto ProcessStreamDtoObj { get; set; }
+        public UtilityStreamDto UtilityStreamDtoObj { get; set; }
         public Guid Id { get; set; }
         public Guid ProfileId { get; set; }
         public string StreamCategory { get; set; }
@@ -62,24 +62,22 @@ namespace HenStudio.Data.Profile
         public string StreamId { get; set; }
         public string Name { get; set; }
         public string StreamType { get; set; }
-        public string StreamSubtype { get; set; }
-        public double SupplyTemperature { get; set; }
+        public double IsothermalTemperature { get; set; }
         public double SupplyPressure { get; set; }
-        public double TargetTemperature { get; set; }
         public double TargetPressure { get; set; }
-        public double HeatCapacityFlowRate { get; set; }
+        public double EnthalpyFlowRate { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
         /// <summary>
-        /// Initializes a new instance of the ProcessStreamPanelData class with default values for all properties.
+        /// Initializes a new instance of the UtilityStreamPanelData class with default values for all properties.
         /// </summary>
         /// <remarks>All string properties are initialized to empty strings, date properties are set to
-        /// the current date and time, and the ProcessStreamDtoObj property is initialized with a new ProcessStreamDto instance.
+        /// the current date and time, and the UtilityStreamDtoObj property is initialized with a new UtilityStreamDto instance.
         /// This constructor ensures that the object is in a valid default state upon creation.</remarks>
-        public ProcessStreamPanelData()
+        public UtilityStreamPanelData()
         {
-            ProcessStreamDtoObj = new ProcessStreamDto();
+            UtilityStreamDtoObj = new UtilityStreamDto();
             Id = new Guid();
             ProfileId = new Guid();
             StreamCategory = string.Empty;
@@ -87,12 +85,10 @@ namespace HenStudio.Data.Profile
             StreamId = string.Empty;
             Name = string.Empty;
             StreamType = string.Empty;
-            StreamSubtype = string.Empty;
-            SupplyTemperature = 0.0;
+            IsothermalTemperature = 0.0;
             SupplyPressure = 0.0;
-            TargetTemperature = 0.0;
             TargetPressure = 0.0;
-            HeatCapacityFlowRate = 0.0;
+            EnthalpyFlowRate = 0.0;
         }
         #endregion  // CTOR
 
@@ -120,17 +116,17 @@ namespace HenStudio.Data.Profile
         }
         #endregion  // GetProfileId()
 
-        #region GetSupplyTemperature()
+        #region GetIsothermalTemperature()
         /// <summary>
-        /// Gets the supply temperature as a string.
+        /// Gets the isothermal temperature as a string.
         /// </summary>
-        /// <returns>A string representation of the supply temperature.</returns>
-        public string GetSupplyTemperature()
+        /// <returns>A string representation of the isothermal temperature.</returns>
+        public string GetIsothermalTemperature()
         {
-            return SupplyTemperature.ToString();
+            return IsothermalTemperature.ToString();
         }
-        #endregion  // GetSupplyTemperature()
-
+        #endregion  // GetIsothermalTemperature()
+        
         #region GetSupplyPressure()
         /// <summary>
         /// Gets the supply pressure as a string.
@@ -141,17 +137,6 @@ namespace HenStudio.Data.Profile
             return SupplyPressure.ToString();
         }
         #endregion  // GetSupplyPressure()
-
-        #region GetTargetTemperature()
-        /// <summary>
-        /// Gets the target temperature as a string.
-        /// </summary>
-        /// <returns>A string representation of the target temperature.</returns>
-        public string GetTargetTemperature()
-        {
-            return TargetTemperature.ToString();
-        }
-        #endregion  // GetTargetTemperature()
 
         #region GetTargetPressure()
         /// <summary>
@@ -164,49 +149,47 @@ namespace HenStudio.Data.Profile
         }
         #endregion  // GetTargetPressure()
 
-        #region GetHeatCapacityFlowRate()
+        #region GetEnthalpyFlowRate()
         /// <summary>
-        /// Gets the heat capacity flow rate as a string.
+        /// Gets the enthalpy flow rate as a string.
         /// </summary>
-        /// <returns>A string representation of the heat capacity flow rate.</returns>
-        public string GetHeatCapacityFlowRate()
+        /// <returns>A string representation of the enthalpy flow rate.</returns>
+        public string GetEnthalpyFlowRate()
         {
-            return HeatCapacityFlowRate.ToString();
+            return EnthalpyFlowRate.ToString();
         }
-        #endregion  // GetHeatCapacityFlowRate()
+        #endregion  // GetEnthalpyFlowRate()
 
         #endregion  // STRING CONVERSION METHODS
 
-        #region IMPLEMENTATION of IProcessStreamPanelData METHODS
+        #region IMPLEMENTATION of IUtilityStreamPanelData METHODS
 
-        #region ConvertToPanelData(ProcessStreamDto processStreamDto)
+        #region ConvertToPanelData(UtilityStreamDto utilityStreamDto)
         /// <summary>
-        /// Creates a new ProcessStreamPanelData instance by copying values from the specified ProcessStreamDto object.
+        /// Creates a new UtilityStreamPanelData instance by copying values from the specified UtilityStreamDto object.
         /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from ProcessStreamDto to
-        /// ProcessStreamPanelData. All relevant fields are transferred directly. If processStreamDto is null, a
+        /// <remarks>This method performs a property-by-property mapping from UtilityStreamDto to
+        /// UtilityStreamPanelData. All relevant fields are transferred directly. If utilityStreamDto is null, a
         /// NullReferenceException may occur.</remarks>
-        /// <param name="processStreamDto">The ProcessStreamDto object containing the source values to copy. Cannot be null.</param>
-        /// <returns>A ProcessStreamPanelData instance populated with values from the provided ProcessStreamDto object.</returns>
-        public ProcessStreamPanelData ConvertToPanelData(ProcessStreamDto processStreamDto)
+        /// <param name="utilityStreamDto">The UtilityStreamDto object containing the source values to copy. Cannot be null.</param>
+        /// <returns>A UtilityStreamPanelData instance populated with values from the provided UtilityStreamDto object.</returns>
+        public UtilityStreamPanelData ConvertToPanelData(UtilityStreamDto utilityStreamDto)
         {
-            ProcessStreamDtoObj = processStreamDto;
-            this.Id = processStreamDto.Id;
-            this.ProfileId = processStreamDto.ProfileId;
-            this.StreamCategory = processStreamDto.StreamCategory;
-            this.StreamHeat = processStreamDto.StreamHeat;
-            this.StreamId = processStreamDto.StreamId;
-            this.Name = processStreamDto.Name;
-            this.StreamType = processStreamDto.StreamType;
-            this.StreamSubtype = processStreamDto.StreamSubtype;
-            this.SupplyTemperature = processStreamDto.SupplyTemperature;
-            this.SupplyPressure = processStreamDto.SupplyPressure;
-            this.TargetTemperature = processStreamDto.TargetTemperature;
-            this.TargetPressure = processStreamDto.TargetPressure;
-            this.HeatCapacityFlowRate = processStreamDto.HeatCapacityFlowRate;
+            UtilityStreamDtoObj = utilityStreamDto;
+            this.Id = utilityStreamDto.Id;
+            this.ProfileId = utilityStreamDto.ProfileId;
+            this.StreamCategory = utilityStreamDto.StreamCategory;
+            this.StreamHeat = utilityStreamDto.StreamHeat;
+            this.StreamId = utilityStreamDto.StreamId;
+            this.Name = utilityStreamDto.Name;
+            this.StreamType = utilityStreamDto.StreamType;
+            this.IsothermalTemperature = utilityStreamDto.IsothermalTemperature;
+            this.SupplyPressure = utilityStreamDto.SupplyPressure;
+            this.TargetPressure = utilityStreamDto.TargetPressure;
+            this.EnthalpyFlowRate = utilityStreamDto.EnthalpyFlowRate;
             return this;
         }
-        #endregion  // ConvertToPanelData(ProcessStreamDto processStreamDto)
+        #endregion  // ConvertToPanelData(UtilityStreamDto utilityStreamDto)
 
         #region ConvertFromPanelData()
         /// <summary>
@@ -216,31 +199,29 @@ namespace HenStudio.Data.Profile
         /// ProcessStreamDto. All relevant fields are transferred directly.</remarks>
         /// NullReferenceException may occur.</remarks>
         /// <returns>A ProcessStreamDto instance populated with values from the provided ProcessStreamPanelData object.</returns>
-        public ProcessStreamDto ConvertFromPanelData()
+        public UtilityStreamDto ConvertFromPanelData()
         {
-            ProcessStreamDtoObj = new ProcessStreamDto();
-            ProcessStreamDtoObj.Id = this.Id;
-            ProcessStreamDtoObj.ProfileId = this.ProfileId;
-            ProcessStreamDtoObj.StreamCategory = this.StreamCategory;
-            ProcessStreamDtoObj.StreamHeat = this.StreamHeat;
-            ProcessStreamDtoObj.StreamId = this.StreamId;
-            ProcessStreamDtoObj.Name = this.Name;
-            ProcessStreamDtoObj.StreamType = this.StreamType;
-            ProcessStreamDtoObj.StreamSubtype = this.StreamSubtype;
-            ProcessStreamDtoObj.SupplyTemperature = this.SupplyTemperature;
-            ProcessStreamDtoObj.SupplyPressure = this.SupplyPressure;
-            ProcessStreamDtoObj.TargetTemperature = this.TargetTemperature;
-            ProcessStreamDtoObj.TargetPressure = this.TargetPressure;
-            ProcessStreamDtoObj.HeatCapacityFlowRate = this.HeatCapacityFlowRate;
-            return ProcessStreamDtoObj;
+            UtilityStreamDtoObj = new UtilityStreamDto();
+            UtilityStreamDtoObj.Id = this.Id;
+            UtilityStreamDtoObj.ProfileId = this.ProfileId;
+            UtilityStreamDtoObj.StreamCategory = this.StreamCategory;
+            UtilityStreamDtoObj.StreamHeat = this.StreamHeat;
+            UtilityStreamDtoObj.StreamId = this.StreamId;
+            UtilityStreamDtoObj.Name = this.Name;
+            UtilityStreamDtoObj.StreamType = this.StreamType;
+            UtilityStreamDtoObj.IsothermalTemperature = this.IsothermalTemperature;
+            UtilityStreamDtoObj.SupplyPressure = this.SupplyPressure;
+            UtilityStreamDtoObj.TargetPressure = this.TargetPressure;
+            UtilityStreamDtoObj.EnthalpyFlowRate = this.EnthalpyFlowRate;
+            return UtilityStreamDtoObj;
         }
         #endregion  // ConvertFromPanelData()   
 
-        #endregion  // IMPLEMENTATION of IProcessStreamPanelData METHODS
+        #endregion  // IMPLEMENTATION of IUtilityStreamPanelData METHODS
     }
-    #endregion      // public class ProcessStreamPanelData
+    #endregion      // public class UtilityStreamPanelData
 }
-#endregion  // namespace HenStudio.Data.Profile
+#endregion  // namespace HenStudio.Data.Profile.Streams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

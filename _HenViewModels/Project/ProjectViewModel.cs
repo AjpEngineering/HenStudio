@@ -96,7 +96,7 @@ namespace HenViewModel.Project
                 internalProjectDto.Id = externalProjectDto.Id;
                 internalProjectDto.Name = externalProjectDto.Name;
                 internalProjectDto.Description = externalProjectDto.Description;
-                internalProjectDto.DefaultHenOptimizer = externalProjectDto.DefaultHenOptimizer;
+                internalProjectDto.DefaultOptimizer = externalProjectDto.DefaultOptimizer;
                 internalProjectDto.CreationDate = externalProjectDto.CreationDate;
                 internalProjectDto.ModifiedDate = externalProjectDto.ModifiedDate;
                 //------------------------------------------------------------------------------
@@ -140,7 +140,7 @@ namespace HenViewModel.Project
                     externalProject.Id = internalProject.Id;
                     externalProject.Name = internalProject.Name;
                     externalProject.Description = internalProject.Description;
-                    externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
+                    externalProject.DefaultOptimizer = internalProject.DefaultOptimizer;
                     externalProject.CreationDate = internalProject.CreationDate;
                     externalProject.ModifiedDate = internalProject.ModifiedDate;
                     externalProjects.Add(externalProject);
@@ -184,7 +184,7 @@ namespace HenViewModel.Project
                 externalProject.Id = internalProject.Id;
                 externalProject.Name = internalProject.Name;
                 externalProject.Description = internalProject.Description;
-                externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
+                externalProject.DefaultOptimizer = internalProject.DefaultOptimizer;
                 externalProject.CreationDate = internalProject.CreationDate;
                 externalProject.ModifiedDate = internalProject.ModifiedDate;
             }
@@ -232,7 +232,7 @@ namespace HenViewModel.Project
                 externalProject.Id = internalProject.Id;
                 externalProject.Name = internalProject.Name;
                 externalProject.Description = internalProject.Description;
-                externalProject.DefaultHenOptimizer = internalProject.DefaultHenOptimizer;
+                externalProject.DefaultOptimizer = internalProject.DefaultOptimizer;
                 externalProject.CreationDate = internalProject.CreationDate;
                 externalProject.ModifiedDate = internalProject.ModifiedDate;
                 return externalProject;
@@ -271,7 +271,7 @@ namespace HenViewModel.Project
                 internalProjectDto.Id = externalProjectDto.Id;
                 internalProjectDto.Name = externalProjectDto.Name;
                 internalProjectDto.Description = externalProjectDto.Description;
-                internalProjectDto.DefaultHenOptimizer = externalProjectDto.DefaultHenOptimizer;
+                internalProjectDto.DefaultOptimizer = externalProjectDto.DefaultOptimizer;
                 internalProjectDto.CreationDate = externalProjectDto.CreationDate;
                 internalProjectDto.ModifiedDate = externalProjectDto.ModifiedDate;
                 //--------------------------------------------------------------------------------

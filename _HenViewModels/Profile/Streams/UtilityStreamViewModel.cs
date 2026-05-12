@@ -3,7 +3,7 @@
 //###################################  U t i l i t y S t r e a m V i e w M o d e l . c s  #############################
 //#####################################################################################################################
 //  FILENAME:  UtilityStreamViewModel.cs
-//  NAMESPACE: HenViewModel.Profile
+//  NAMESPACE: HenViewModel.Profile.Streams
 //  CLASS(S):  UtilityStreamViewModel
 //  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
@@ -39,14 +39,14 @@ using HenModel.Connection;
 using HenModel.RepoImplementations.Profile.Streams;
 using HenModel.RepoInterfaces.Profile.Streams;
 using HenModel.Dto.Profile;
-//using HenModel.Dto.Profile.Streams;
+using HenModel.Dto.Profile.Streams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModel.Profile
-namespace HenViewModel.Profile
+#region namespace HenViewModel.Profile.Streams
+namespace HenViewModel.Profile.Streams
 {
     #region public class UtilityStreamViewModel
     /// <summary>
@@ -288,7 +288,7 @@ namespace HenViewModel.Profile
     }
     #endregion      // public class UtilityStreamViewModel
 }
-#endregion      // namespace HenViewModel.Profile
+#endregion      // namespace HenViewModel.Profile.Streams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

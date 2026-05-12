@@ -58,7 +58,7 @@ namespace HenStudio.Data.Project
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string DefaultHenOptimizer { get; set; }
+        public string DefaultOptimizer { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime ModifiedDate { get; set; }
         #endregion  // PROPERTIES
@@ -76,7 +76,7 @@ namespace HenStudio.Data.Project
             Id = new Guid();
             Name = string.Empty; 
             Description = string.Empty;
-            DefaultHenOptimizer = string.Empty;
+            DefaultOptimizer = string.Empty;
             CreationDate = DateTime.Now;
             ModifiedDate = DateTime.Now;
         }
@@ -136,7 +136,7 @@ namespace HenStudio.Data.Project
             this.Id = projectDto.Id;
             this.Name = projectDto.Name;
             this.Description = projectDto.Description;
-            this.DefaultHenOptimizer = projectDto.DefaultHenOptimizer;
+            this.DefaultOptimizer = projectDto.DefaultOptimizer;
             this.CreationDate = projectDto.CreationDate;
             this.ModifiedDate = projectDto.ModifiedDate;
             return this;
@@ -157,7 +157,7 @@ namespace HenStudio.Data.Project
             ProjectDtoObj.Id = this.Id;
             ProjectDtoObj.Name = this.Name;
             ProjectDtoObj.Description = this.Description;
-            ProjectDtoObj.DefaultHenOptimizer = this.DefaultHenOptimizer;
+            ProjectDtoObj.DefaultOptimizer = this.DefaultOptimizer;
             ProjectDtoObj.CreationDate = this.CreationDate;
             ProjectDtoObj.ModifiedDate = this.ModifiedDate;
             return ProjectDtoObj;

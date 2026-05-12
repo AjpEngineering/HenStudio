@@ -81,18 +81,18 @@ namespace HenGlobal
 
         #endregion      // CONSTANTS
 
-        #region enum HenOptimizer
+        #region enum Optimizer
         /// <summary>
         /// ENUMERATION: AJP HEN Studio Optimizer [ UNKNOWN | GENETIC | GREEDY | MILP ]
         /// </summary>
-        public enum HenOptimizer
+        public enum Optimizer
         {
             UNKNOWN = -1,   // UNKNOWN Optimizer
             GENETIC = 0,    // GENETIC Optimizer
             GREEDY = 1,     // GREEDY Optimizer
             MILP = 2        // Mixed-Integer Linear Program Optimizer
         };
-        #endregion      // enum HenOptimizer
+        #endregion      // enum Optimizer
 
         #region PROPERTIES
         public Guid NewProjectGUID { get; set; } // New Project GUID
@@ -101,8 +101,8 @@ namespace HenGlobal
 
         public HenProjectUnits ExternalUnitsObj { get; set; } // EXTERNAL Units Object
 
-        public double ProjectExchangerU { get; set; }                   // PROJECT Exchanger Heat Transfer Coefficient (U)
-        public HenOptimizer HenOptimizerEnum { get; set; }       // PROJECT HEN Optimizer Enumeration
+        public double ProjectExchangerU { get; set; }      // PROJECT Exchanger Heat Transfer Coefficient (U)
+        public Optimizer OptimizerEnum { get; set; }       // PROJECT Optimizer Enumeration
 
         #endregion  // PROPERTIES
 
@@ -121,7 +121,7 @@ namespace HenGlobal
                 NewProjectDescription = "Enter Project Description";
                 ExternalUnitsObj = new HenProjectUnits();
                 ProjectExchangerU = 74.0;
-                HenOptimizerEnum = HenOptimizer.GENETIC;
+                OptimizerEnum = Optimizer.GENETIC;
             }
             catch (Exception ex)
             {
@@ -149,7 +149,7 @@ namespace HenGlobal
                 NewProjectName = projectDtoObj.Name;
                 NewProjectDescription = projectDtoObj.Description;
                 ProjectExchangerU = exchangerParamsDtoObj.DefaultHeatTransferCoefficient;
-                HenOptimizerEnum = GetHenOptimizerEnum(projectDtoObj.DefaultHenOptimizer);
+                OptimizerEnum = GetOptimizerEnum(projectDtoObj.DefaultOptimizer);
                 
                 ExternalUnitsObj = new HenProjectUnits();
 
@@ -171,12 +171,12 @@ namespace HenGlobal
         }
         #endregion      // PARAMETERIZED CTOR
 
-        #region GetHenOptimizerList()
+        #region GetOptimizerList()
         /// <summary>
         /// Get the List of Stings used for the HEN Optimizer List Combo Box Dropdowns
         /// </summary>
-        /// <returns>List of HEN Optimizer strings for Combo Box</returns>
-        public List<string> GetHenOptimizerList()
+        /// <returns>List of Optimizer strings for Combo Box</returns>
+        public List<string> GetOptimizerList()
         {
             List<string> lst = new List<string>();
 
@@ -186,35 +186,35 @@ namespace HenGlobal
             lst.Add(MILP);
             return lst;
         }
-        #endregion  // GetHenOptimizerList()
+        #endregion  // GetOptimizerList()
 
-        #region GetHenOptimizerString()
+        #region GetOptimizerString()
         /// <summary>
         /// Get Hen Optimizer String
         /// </summary>
-        /// <returns>Hen Optimizer String</returns>
-        public string GetHenOptimizerString()
+        /// <returns>Optimizer String</returns>
+        public string GetOptimizerString()
         {
             string strMethod = "GetHenOptimizerString";
             string strUnitsString = String.Empty;
             try
             {
                 #region GENETIC
-                if (HenOptimizerEnum == HenOptimizer.GENETIC)
+                if (OptimizerEnum == Optimizer.GENETIC)
                 {
                     strUnitsString = GENETIC;
                 }
                 #endregion  // GENETIC
 
                 #region GREEDY
-                else if (HenOptimizerEnum == HenOptimizer.GREEDY)
+                else if (OptimizerEnum == Optimizer.GREEDY)
                 {
                     strUnitsString = GREEDY;
                 }
                 #endregion  // GREEDY
 
                 #region MILP
-                else if (HenOptimizerEnum == HenOptimizer.MILP)
+                else if (OptimizerEnum == Optimizer.MILP)
                 {
                     strUnitsString = MILP;
                 }
@@ -239,23 +239,23 @@ namespace HenGlobal
             }
             return strUnitsString;
         }
-        #endregion  // GetHenOptimizerString()
+        #endregion  // GetOptimizerString()
 
-        #region GetHenOptimizerEnum()
+        #region GetOptimizerEnum()
         /// <summary>
-        /// Get the HEN Optimizer Enum Given HEN Optimizer String
+        /// Get the Optimizer Enum Given Optimizer String
         /// </summary>
-        /// <param name="strHenOptimizer">System Units String</param>
-        /// <returns>HEN Optimizer Enum value</returns>
-        public HenOptimizer GetHenOptimizerEnum(string strHenOptimizer)
+        /// <param name="strOptimizer">Optimizer String</param>
+        /// <returns>Optimizer Enum value</returns>
+        public Optimizer GetOptimizerEnum(string strOptimizer)
         {
-            string strMethod = "GetHenOptimizerEnum";
-            HenOptimizer henOptimizerEnum = HenOptimizer.UNKNOWN;
+            string strMethod = "GetOptimizerEnum";
+            Optimizer optimizerEnum = Optimizer.UNKNOWN;
             try
             {
-                if (string.Compare(strHenOptimizer, GENETIC, true) == 0) henOptimizerEnum = HenOptimizer.GENETIC;
-                else if (string.Compare(strHenOptimizer, GREEDY, true) == 0) henOptimizerEnum = HenOptimizer.GREEDY;
-                else if (string.Compare(strHenOptimizer, MILP, true) == 0) henOptimizerEnum = HenOptimizer.MILP;
+                if (string.Compare(strOptimizer, GENETIC, true) == 0) optimizerEnum = Optimizer.GENETIC;
+                else if (string.Compare(strOptimizer, GREEDY, true) == 0) optimizerEnum = Optimizer.GREEDY;
+                else if (string.Compare(strOptimizer, MILP, true) == 0) optimizerEnum = Optimizer.MILP;
             }
             catch (Exception ex)
             {
@@ -266,9 +266,9 @@ namespace HenGlobal
             finally
             {
             }
-            return henOptimizerEnum;
+            return optimizerEnum;
         }
-        #endregion  // GetHenOptimizerEnum()
+        #endregion  // GetOptimizerEnum()
 
     }
     #endregion      // public class DefaultProjectSettings

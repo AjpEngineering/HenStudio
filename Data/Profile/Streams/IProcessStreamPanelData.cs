@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//#################################  I U t i l i t y S t r e a m P a n e l D a t a . c s  #############################
+//#################################  I P r o c e s s S t r e a m P a n e l D a t a . c s  #############################
 //#####################################################################################################################
-//  FILENAME:  IUtilityStreamPanelData.cs
+//  FILENAME:  IProcessStreamPanelData.cs
 //  NAMESPACE: HenStudio.Data.Profile
-//  INTERFACE: IUtilityStreamPanelData
+//  INTERFACE: IProcessStreamPanelData
 //  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the Utility Stream Panel interface for the Utility Stream top-level table.
+//    This file contains the Process Stream Panel interface for the Process Stream top-level table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,27 +33,27 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.Profile;
+using HenModel.Dto.Profile.Streams;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenStudio.Data.Profile
-namespace HenStudio.Data.Profile
+#region namespace HenStudio.Data.Profile.Streams
+namespace HenStudio.Data.Profile.Streams
 {
-    #region public interface IUtilityStreamPanelData
+    #region public interface IProcessStreamPanelData
     /// <summary>
-    /// Utility Stream Panel Interface
+    /// Process Stream Panel Interface
     /// </summary>
-    public interface IUtilityStreamPanelData
+    public interface IProcessStreamPanelData
     {
         #region METHODS
-        UtilityStreamPanelData ConvertToPanelData(UtilityStreamDto profileDto);
-        UtilityStreamDto ConvertFromPanelData();
+        ProcessStreamPanelData ConvertToPanelData(ProcessStreamDto profileDto);
+        ProcessStreamDto ConvertFromPanelData();
         #endregion      // METHODS
     }
-    #endregion      // public interface IUtilityStreamPanelData
+    #endregion      // public interface IProcessStreamPanelData
 }
 #endregion      // namespace HenStudio.Data.Profile
 

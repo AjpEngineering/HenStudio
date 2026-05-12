@@ -36,8 +36,11 @@
 using HenModel.Connection;
 using HenModel.Connection.Interface;
 
+using HenModel.RepoInterfaces.Profile;
 using HenModel.RepoInterfaces.Profile.Streams;
+
 using HenModel.Dto.Profile;
+using HenModel.Dto.Profile.Streams;
 
 using System;
 using System.Collections.Generic;

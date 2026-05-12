@@ -67,11 +67,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Profile\IUtilityStreamPanelData.cs" />
-    <Compile Include="Data\Profile\IProcessStreamPanelData.cs" />
+    <Compile Include="Data\Profile\Streams\IUtilityStreamPanelData.cs" />
+    <Compile Include="Data\Profile\Streams\IProcessStreamPanelData.cs" />
     <Compile Include="Data\Profile\IProfilePanelData.cs" />
-    <Compile Include="Data\Profile\UtilityStreamPanelData.cs" />
-    <Compile Include="Data\Profile\ProcessStreamPanelData.cs" />
+    <Compile Include="Data\Profile\Streams\UtilityStreamPanelData.cs" />
+    <Compile Include="Data\Profile\Streams\ProcessStreamPanelData.cs" />
     <Compile Include="Data\Profile\ProfilePanelData.cs" />
     <Compile Include="Data\Project\CostParameters\TotalAnnualizedCostPanelData.cs" />
     <Compile Include="Data\Project\CostParameters\ITotalAnnualizedCostPanelData.cs" />

@@ -84,7 +84,7 @@ namespace HenModel.RepoImplementations.Project
         /// <param name="idOrdinal">The ordinal position of the <c>Id</c> column.</param>
         /// <param name="nameOrdinal">The ordinal position of the <c>Name</c> column.</param>
         /// <param name="descriptionOrdinal">The ordinal position of the <c>Description</c> column.</param>
-        /// <param name="defaultHenOptimizerOrdinal">The ordinal position of the <c>DefaultHenOptimizer</c> column.</param>
+        /// <param name="defaultOptimizerOrdinal">The ordinal position of the <c>DefaultOptimizer</c> column.</param>
         /// <param name="creationDateOrdinal">The ordinal position of the <c>CreationDate</c> column.</param>
         /// <param name="modifiedDateOrdinal">The ordinal position of the <c>ModifiedDate</c> column.</param>
         /// <returns>A <see cref="ProjectUnitsDto"/> populated from the supplied data record.</returns>
@@ -92,7 +92,7 @@ namespace HenModel.RepoImplementations.Project
                                               int idOrdinal,
                                               int nameOrdinal,
                                               int descriptionOrdinal,
-                                              int defaultHenOptimizerOrdinal,
+                                              int defaultOptimizerOrdinal,
                                               int creationDateOrdinal,
                                               int modifiedDateOrdinal)
         {
@@ -101,7 +101,7 @@ namespace HenModel.RepoImplementations.Project
                 Id = record.GetGuid(idOrdinal),
                 Name = record.IsDBNull(nameOrdinal) ? null : record.GetString(nameOrdinal),
                 Description = record.IsDBNull(descriptionOrdinal) ? null : record.GetString(descriptionOrdinal),
-                DefaultHenOptimizer = record.IsDBNull(defaultHenOptimizerOrdinal) ? null : record.GetString(defaultHenOptimizerOrdinal),
+                DefaultOptimizer = record.IsDBNull(defaultOptimizerOrdinal) ? null : record.GetString(defaultOptimizerOrdinal),
                 CreationDate = record.GetDateTime(creationDateOrdinal),
                 ModifiedDate = record.GetDateTime(modifiedDateOrdinal),
             };
@@ -144,7 +144,7 @@ namespace HenModel.RepoImplementations.Project
             const string sql = @"INSERT INTO dbo.Project
                                     (Name,
                                      Description,
-                                     DefaultHenOptimizer,
+                                     DefaultOptimizer,
                                      CreationDate,
                                      ModifiedDate)
                                  OUTPUT INSERTED.Id
@@ -163,7 +163,7 @@ namespace HenModel.RepoImplementations.Project
                     command.CommandType = CommandType.Text;
                     AddParameter(command, "@Name", DbType.String, projectDto.Name);
                     AddParameter(command, "@Description", DbType.String, projectDto.Description);
-                    AddParameter(command, "@DefaultHenOptimizer", DbType.String, projectDto.DefaultHenOptimizer);
+                    AddParameter(command, "@DefaultOptimizer", DbType.String, projectDto.DefaultOptimizer);
                     AddParameter(command, "@CreationDate", DbType.DateTime, DateTime.Now);
                     AddParameter(command, "@ModifiedDate", DbType.DateTime, DateTime.Now);
 
@@ -185,7 +185,7 @@ namespace HenModel.RepoImplementations.Project
             const string sql = @"SELECT Id,
                                         Name,
                                         Description,
-                                        DefaultHenOptimizer,
+                                        DefaultOptimizer,
                                         CreationDate,
                                         ModifiedDate
                                  FROM dbo.Project
@@ -207,7 +207,7 @@ namespace HenModel.RepoImplementations.Project
                         int idOrdinal = reader.GetOrdinal("Id");
                         int nameOrdinal = reader.GetOrdinal("Name");
                         int descriptionOrdinal = reader.GetOrdinal("Description");
-                        int defaultHenOptimizerOrdinal = reader.GetOrdinal("DefaultHenOptimizer");
+                        int defaultOptimizerOrdinal = reader.GetOrdinal("DefaultOptimizer");
 
                         int creationDateOrdinal = reader.GetOrdinal("CreationDate");
                         int modifiedDateOrdinal = reader.GetOrdinal("ModifiedDate");
@@ -217,7 +217,7 @@ namespace HenModel.RepoImplementations.Project
                                 idOrdinal,
                                 nameOrdinal,
                                 descriptionOrdinal,
-                                defaultHenOptimizerOrdinal,
+                                defaultOptimizerOrdinal,
                                 creationDateOrdinal,
                                 modifiedDateOrdinal));
                         }
@@ -240,7 +240,7 @@ namespace HenModel.RepoImplementations.Project
             const string sql = @"SELECT Id,
                                         Name,
                                         Description,
-                                        DefaultHenOptimizer,
+                                        DefaultOptimizer,
                                         CreationDate,
                                         ModifiedDate
                                  FROM dbo.Project
@@ -268,7 +268,7 @@ namespace HenModel.RepoImplementations.Project
                             reader.GetOrdinal("Id"),
                             reader.GetOrdinal("Name"),
                             reader.GetOrdinal("Description"),
-                            reader.GetOrdinal("DefaultHenOptimizer"),
+                            reader.GetOrdinal("DefaultOptimizer"),
                             reader.GetOrdinal("CreationDate"),
                             reader.GetOrdinal("ModifiedDate"));
                     }
@@ -293,7 +293,7 @@ namespace HenModel.RepoImplementations.Project
             const string sql = @"SELECT Id,
                                         Name,
                                         Description,
-                                        DefaultHenOptimizer,
+                                        DefaultOptimizer,
                                         CreationDate,
                                         ModifiedDate
                                  FROM dbo.Project
@@ -321,7 +321,7 @@ namespace HenModel.RepoImplementations.Project
                             reader.GetOrdinal("Id"),
                             reader.GetOrdinal("Name"),
                             reader.GetOrdinal("Description"),
-                            reader.GetOrdinal("DefaultHenOptimizer"),
+                            reader.GetOrdinal("DefaultOptimizer"),
                             reader.GetOrdinal("CreationDate"),
                             reader.GetOrdinal("ModifiedDate"));
                     }
@@ -345,7 +345,7 @@ namespace HenModel.RepoImplementations.Project
             const string sql = @"UPDATE dbo.Project
                                  SET Name = @Name,
                                      Description = @Description,
-                                     DefaultHenOptimizer = @DefaultHenOptimizer,
+                                     DefaultOptimizer = @DefaultOptimizer,
                                      ModifiedDate = @ModifiedDate
                                  WHERE Id = @Id;";
 
@@ -358,7 +358,7 @@ namespace HenModel.RepoImplementations.Project
                     AddParameter(command, "@Id", DbType.Guid, projectDto.Id);
                     AddParameter(command, "@Name", DbType.String, projectDto.Name);
                     AddParameter(command, "@Description", DbType.String, projectDto.Description);
-                    AddParameter(command, "@DefaultHenOptimizer", DbType.String, projectDto.DefaultHenOptimizer);
+                    AddParameter(command, "@DefaultOptimizer", DbType.String, projectDto.DefaultOptimizer);
                     AddParameter(command, "@ModifiedDate", DbType.DateTime, DateTime.Now);
 
                     connection.Open();
