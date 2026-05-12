@@ -37,6 +37,7 @@ using HenGlobal;
 
 using HenModel.Connection;
 using HenModel.Dto.Project.CostParameters;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.RepoImplementations.Project.CostParameters;
 
 using System;
@@ -71,68 +72,11 @@ namespace HenViewModel.Project.CostParameters
         }
         #endregion  // CTOR
 
-        #region GetCostMetadata()
-        /// <summary>
-        /// Retrieves a list of all CostMetadata.
-        /// </summary>
-        /// <returns>A list of <see cref="CostMetadataDto"/> objects representing the available cost metadata, or an empty list if none are found.</returns>
-        public IList<CostMetadataDto> GetCostMetadata()
-        {
-            try
-            {
-                return CostMetadataRepoObj.GetCostMetadata();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error retrieving cost metadata: {ex.Message}");
-                return null;
-            }
-        }
-        #endregion  // GetCostMetadata()
+        #region COST METADATA CRUD METHODS
 
-        #region GetCostMetadataByProjectId(Guid projectId)
+        #region AddCostMetadata(CostMetadataDto costMetadataDto) ... CREATE
         /// <summary>
-        /// Retrieves a list of all CostMetadata associated with the specified project identifier.
-        /// </summary>
-        /// <param name="projectId">The unique identifier of the project whose cost metadata are to be retrieved.</param>
-        /// <returns>A list of <see cref="CostMetadataDto"/> objects representing the matching cost metadata, or an empty list if none are found.</returns>
-        public CostMetadataDto GetCostMetadataByProjectId(Guid projectId)
-        {
-            try
-            {
-                return CostMetadataRepoObj.GetCostMetadataByProjectId(projectId);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error retrieving cost metadata: {ex.Message}");
-                return null;
-            }
-        }
-        #endregion  // GetCostMetadataByProjectId(Guid projectId)
-
-        #region GetCostMetadataById(Guid costMetadataId)
-        /// <summary>
-        /// Retrieves the CostMetadata DTO associated with the specified unique identifier.
-        /// </summary>
-        /// <param name="costMetadataId">The unique identifier of the CostMetadata to retrieve.</param>
-        /// <returns>An <see cref="CostMetadataDto"/> representing the CostMetadata with the specified identifier. Returns null if none is found.</returns>
-        public CostMetadataDto GetCostMetadataById(Guid costMetadataId)
-        {
-            try
-            {
-                return CostMetadataRepoObj.GetCostMetadataById(costMetadataId);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error retrieving cost metadata: {ex.Message}");
-                return null;
-            }
-        }
-        #endregion  // GetCostMetadataById(Guid costMetadataId)
-
-        #region AddEconParam(EconParamDto econParamDto)
-        /// <summary>
-        /// Adds a new economic parameter to the database using the specified DTO.
+        /// Adds (CREATE) a new cost metadata to the database using the specified DTO.
         /// </summary>
         /// <param name="costMetadataDto">The cost metadata data to add.</param>
         /// <returns>A GUID representing the unique identifier of the newly added cost metadata.</returns>
@@ -141,7 +85,25 @@ namespace HenViewModel.Project.CostParameters
             Guid costMetadataId = new Guid();
             try
             {
-                costMetadataId = CostMetadataRepoObj.AddCostMetadata(costMetadataDto);
+                //------------------------------------------------------------------------
+                //--- CostMetadataDto Dto [INTERNAL Units] to be Added to the Database ---
+                //------------------------------------------------------------------------
+                CostMetadataDto internalCostMetadataDto = new CostMetadataDto();
+                //-------------------------------------------------
+                //--- Convert EXTERNAL Fields to INTERNAL Units ---
+                //-------------------------------------------------
+                internalCostMetadataDto.Id = costMetadataDto.Id;
+                internalCostMetadataDto.ProjectId = costMetadataDto.ProjectId;
+                internalCostMetadataDto.CostIndexBaseYear = costMetadataDto.CostIndexBaseYear;
+                internalCostMetadataDto.CostIndexName = costMetadataDto.CostIndexName;
+                internalCostMetadataDto.CostIndexValue = costMetadataDto.CostIndexValue;
+                internalCostMetadataDto.CostIndexCurrency = costMetadataDto.CostIndexCurrency;
+                internalCostMetadataDto.CostIndexInstalledCost = costMetadataDto.CostIndexInstalledCost;
+                //---------------------------------------------------------------------------------------------
+                //--- Add INTERNAL CostMetadata Dto to the Database using the CostMetadataRepo Object ---
+                //--- Returns the CostMetadata ID (PK) from the CostMetadata Table database addition  ---
+                //---------------------------------------------------------------------------------------------
+                costMetadataId = CostMetadataRepoObj.AddCostMetadata(internalCostMetadataDto);
             }
             catch (Exception ex)
             {
@@ -149,35 +111,108 @@ namespace HenViewModel.Project.CostParameters
             }
             return costMetadataId;
         }
-        #endregion  // AddCostMetadata(CostMetadataDto costMetadataDto)
-        
-        #region UpdateCostMetadata(CostMetadataDto costMetadataDto)
+        #endregion  // AddCostMetadata(CostMetadataDto costMetadataDto) ... CREATE
+
+        #region GetCostMetadataByProjectId(Guid projectId) ... READ
         /// <summary>
-        /// Updates an existing cost metadata in the database using the specified DTO.
+        /// Retrieves (READ) the CostMetadata Dto associated with the specified unique identifier.
+        /// The CostMetadata retrieved from the Database is in INTERNAL Units, 
+        /// database access performed by the repository layer, 
+        /// the fields of the CostMetadata are converted to EXTERNAL Units, which are the units used in the user interface,
+        /// the resulting CostMetadata Dto is returned as a <see cref="CostMetadataDto"/> object.
         /// </summary>
-        /// <param name="costMetadataDto">The cost metadata DTO containing updated information.</param>
-        public void UpdateCostMetadata(CostMetadataDto costMetadataDto)
+        /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
+        /// <returns>A <see cref="CostMetadataDto"/> representing the CostMetadata with the specified identifier. 
+        /// Returns null if no CostMetadata is found.</returns>
+        public CostMetadataDto GetCostMetadataByProjectId(Guid projectId)
+        {
+            CostMetadataDto externalCostMetadataDto = new CostMetadataDto();
+            try
+            {
+                //----------------------------------------------------------------
+                //--- Retrieve CostMetadata Dto from the Database.             ---
+                //--- The retrieved CostMetadata Dto is in INTERNAL Units,     ---
+                //--- database access performed by the CostMetadataRepo Object ---
+                //----------------------------------------------------------------
+                CostMetadataDto internalCostMetadata =
+                    CostMetadataRepoObj.GetCostMetadataByProjectId(projectId);
+
+                //-------------------------------------------------
+                //--- Convert INTERNAL Fields to EXTERNAL Units ---
+                //-------------------------------------------------
+                externalCostMetadataDto.Id = internalCostMetadata.Id;
+                externalCostMetadataDto.ProjectId = internalCostMetadata.ProjectId;
+                externalCostMetadataDto.CostIndexBaseYear = internalCostMetadata.CostIndexBaseYear;
+                externalCostMetadataDto.CostIndexName = internalCostMetadata.CostIndexName;
+                externalCostMetadataDto.CostIndexValue = internalCostMetadata.CostIndexValue;
+                externalCostMetadataDto.CostIndexCurrency = internalCostMetadata.CostIndexCurrency;
+                externalCostMetadataDto.CostIndexInstalledCost = internalCostMetadata.CostIndexInstalledCost;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving cost metadata: {ex.Message}");
+                return null;
+            }
+
+            return externalCostMetadataDto;
+        }
+        #endregion  // GetCostMetadataByProjectId(Guid projectId) ... READ
+
+        #region UpdateCostMetadata(CostMetadataDto externalCostMetadataDto) ... UPDATE
+        /// <summary>
+        /// Updates (UPDATE) an existing cost metadata in the database using the specified cost metadata data transfer object (DTO) 
+        /// with external units.
+        /// </summary>
+        /// <remarks>This method converts the provided cost metadata data from external units to the internal
+        /// units required by the database before updating the cost metadata. If the specified cost metadata does not exist,
+        /// the behavior depends on the repository implementation.</remarks>
+        /// <param name="externalCostMetadataDto">The cost metadata data transfer object containing updated cost metadata 
+        /// information in external units. Cannot be null.</param>
+        public void UpdateCostMetadata(CostMetadataDto externalCostMetadataDto)
         {
             try
             {
-                CostMetadataRepoObj.UpdateCostMetadata(costMetadataDto);
+                //----------------------------------------------------------------------
+                //--- Cost Metadata Dto [INTERNAL Units] to be Added to the Database ---
+                //----------------------------------------------------------------------
+                CostMetadataDto internalCostMetadataDto = new CostMetadataDto();
+                //-------------------------------------------------
+                //--- Convert EXTERNAL Fields to INTERNAL Units ---
+                //-------------------------------------------------
+                internalCostMetadataDto.Id = externalCostMetadataDto.Id;
+                internalCostMetadataDto.ProjectId = externalCostMetadataDto.ProjectId;
+                internalCostMetadataDto.CostIndexBaseYear = externalCostMetadataDto.CostIndexBaseYear;
+                internalCostMetadataDto.CostIndexName = externalCostMetadataDto.CostIndexName;
+                internalCostMetadataDto.CostIndexValue = externalCostMetadataDto.CostIndexValue;
+                internalCostMetadataDto.CostIndexCurrency = externalCostMetadataDto.CostIndexCurrency;
+                internalCostMetadataDto.CostIndexInstalledCost = externalCostMetadataDto.CostIndexInstalledCost;
+                //---------------------------------------------------------
+                //--- UPDATE INTERNAL Cost Metadata Dto to the Database ---
+                //--- The Cost Metadata to be updated is identified by  ---
+                //--- the Id field of the provided Cost Metadata Dto    ---
+                //---------------------------------------------------------
+                CostMetadataRepoObj.UpdateCostMetadata(internalCostMetadataDto);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error updating cost metadata: {ex.Message}");
             }
         }
-        #endregion  // UpdateCostMetadata(CostMetadataDto costMetadataDto)
+        #endregion  // UpdateCostMetadata(CostMetadataDto costMetadataDto) ... UPDATE
 
-        #region DeleteCostMetadata(Guid costMetadataId)
+        #region DeleteCostMetadata(Guid costMetadataId) ... DELETE
         /// <summary>
-        /// Deletes the cost metadata with the specified unique identifier.
+        /// Deletes (DELETE) the cost metadata with the specified unique identifier.
         /// </summary>
         /// <param name="costMetadataId">The unique identifier of the cost metadata to delete.</param>
         public void DeleteCostMetadata(Guid costMetadataId)
         {
             try
             {
+                //-----------------------------------------------------------------------------------------
+                //--- DELETE Cost Metadata from the Database using the CostMetadataRepo Object          ---
+                //--- The Cost Metadata to be deleted is identified by the provided costMetadataId (PK) ---
+                //-----------------------------------------------------------------------------------------
                 CostMetadataRepoObj.DeleteCostMetadata(costMetadataId);
             }
             catch (Exception ex)
@@ -185,7 +220,9 @@ namespace HenViewModel.Project.CostParameters
                 Console.WriteLine($"Error deleting cost metadata: {ex.Message}");
             }
         }
-        #endregion  // DeleteCostMetadata(Guid costMetadataId)
+        #endregion  // DeleteCostMetadata(Guid costMetadataId) ... DELETE
+
+        #endregion  // COST METADATA CRUD METHODS
 
     }
     #endregion      // public class CostMetadataViewModel

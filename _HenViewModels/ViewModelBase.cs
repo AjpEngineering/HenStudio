@@ -94,7 +94,7 @@ namespace HenViewModel
         }
         #endregion  // public static CheckForEquality()
 
-        #region CONVERSION FIELD METHODS
+        #region CONVERSION FIELD PUBLIC METHODS
 
         #region AREA (A) CONVERSION METHODS
 
@@ -304,7 +304,7 @@ namespace HenViewModel
             return dExternalValue;
         }
         #endregion  // ConvertToExternalU()
-
+        
         #region ConvertFromExternalU()
         /// <summary>
         /// Conver the Heat Transfer Coefficient (U) value from EXTERNAL Units to INTERNAL Units.
@@ -324,9 +324,9 @@ namespace HenViewModel
 
         #endregion  // HEAT TRANSFER COEFFICIENT (U) CONVERSION METHODS
 
-        #endregion  // CONVERSION FIELD METHODS
+        #endregion  // CONVERSION FIELD PUBLIC METHODS
 
-        #region UNITS CONVERSION METHODS
+        #region UNITS CONVERSION PRIVATE METHODS
 
         #region ConvertToInternal()
         /// <summary>
@@ -1204,7 +1204,7 @@ namespace HenViewModel
         }
         #endregion  // ConvertFromInternal()
 
-        #endregion  // UNITS CONVERSION METHODS    
+        #endregion  // UNITS CONVERSION PRIVATE METHODS    
     }
     #endregion      // public abstract class ViewModelBase
 }

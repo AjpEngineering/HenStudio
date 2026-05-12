@@ -70,67 +70,27 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
             InternalUnitsObj = new HenProjectUnits();
         }
         #endregion  // DEFAULT CTOR
+        
+        #region PROJECT UNITS CRUD METHODS
 
-        #region GetProjectUnitsByProjectId(Guid projectId)
+        #region AddProjectUnits(ProjectUnitsDto externalProjectUnitsDto) ... CREATE
         /// <summary>
-        /// Retrieves the Project Dto associated with the specified unique identifier.
-        /// The project retrieved from the Database is in INTERNAL Units, 
-        /// database access performed by the repository layer, 
-        /// the fields of the project are converted to EXTERNAL Units, which are the units used in the user interface,
-        /// the resulting Project Dto is returned as a <see cref="ProjectUnitsDto"/> object.
-        /// </summary>
-        /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
-        /// <returns>A <see cref="ProjectUnitsDto"/> representing the Project with the specified identifier. 
-        /// Returns null if no Project is found.</returns>
-        public ProjectUnitsDto GetProjectUnitsByProjectId(Guid projectId)
-        {
-            ProjectUnitsDto externalProjectUnitsDto = new ProjectUnitsDto();
-            try
-            {
-                //-------------------------------------------------------------------------
-                //--- Retrieve Project Dto from the Database using the Repository layer ---
-                //-------------------------------------------------------------------------
-                ProjectUnitsDto internalProjectUnits = ProjectUnitsRepoObj.GetProjectUnitsByProjectId(projectId);     // Retrieved Project Dto [INTERNAL Units]
-
-                //-------------------------------------------------
-                //--- Convert INTERNAL Fields to EXTERNAL Units ---
-                //-------------------------------------------------
-                externalProjectUnitsDto.Id = internalProjectUnits.Id;
-                externalProjectUnitsDto.ProjectId = internalProjectUnits.ProjectId;
-                externalProjectUnitsDto.DefaultSystemUnits = internalProjectUnits.DefaultSystemUnits;
-                externalProjectUnitsDto.DefaultMagnitudeUnits = internalProjectUnits.DefaultMagnitudeUnits;
-                externalProjectUnitsDto.DefaultTemperatureUnits = internalProjectUnits.DefaultTemperatureUnits;
-                externalProjectUnitsDto.DefaultPressureUnits = internalProjectUnits.DefaultPressureUnits;
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions (e.g., log the error, rethrow, or return null)
-                Console.WriteLine($"Error retrieving project units: {ex.Message}");
-                return null; // Return null if an error occurs
-            }
-
-            return externalProjectUnitsDto;
-        }
-        #endregion  // GetProjectUnitsByProjectId(Guid projectId)
-
-        #region AddProjectUnits(ProjectUnitsDto externalProjectUnitsDto)
-        /// <summary>
-        /// Adds a new project units to the database using the specified project data transfer object.
+        /// Adds (CREATE) a new project units to the database using the specified project data transfer object.
         /// </summary>
         /// <remarks>The method converts the provided project data from external to internal units before
         /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
         /// an empty GUID.</remarks>
-        /// <param name="externalProjectUnitsDto">The project units data to add. The object must contain all required project units fields in external units. Cannot be
-        /// null.</param>
+        /// <param name="externalProjectUnitsDto">The project units data to add. The object must contain all 
+        /// required project units fields in external units. Cannot be null.</param>
         /// <returns>A GUID representing the unique identifier of the newly added project.</returns>
         public Guid AddProjectUnits(ProjectUnitsDto externalProjectUnitsDto)
         {
             Guid projectUnitsID = new Guid();
             try
             {
-                //----------------------------------------------------------------
-                //--- Project Dto [INTERNAL Units] to be Added to the Database ---
-                //----------------------------------------------------------------
+                //---------------------------------------------------------------------
+                //--- ProjectUnits Dto [INTERNAL Units] to be Added to the Database ---
+                //---------------------------------------------------------------------
                 ProjectUnitsDto internalProjectUnitsDto = new ProjectUnitsDto();
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
@@ -154,11 +114,54 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
             }
             return projectUnitsID; // Return Project ID (PK) from the Project Table database addition
         }
-        #endregion  // AddProject(ProjectDto externalProjectDto)
+        #endregion  // AddProject(ProjectDto externalProjectDto) ... CREATE
 
-        #region UpdateProjectUnits(ProjectUnitsDto externalProjectUnitsDto)
+        #region GetProjectUnitsByProjectId(Guid projectId) ... READ
         /// <summary>
-        /// Updates an existing project in the database using the specified project data transfer object (DTO) 
+        /// Retrieves (READ) the Project Dto associated with the specified unique identifier.
+        /// The project retrieved from the Database is in INTERNAL Units, 
+        /// database access performed by the repository layer, 
+        /// the fields of the project are converted to EXTERNAL Units, which are the units used in the user interface,
+        /// the resulting Project Dto is returned as a <see cref="ProjectUnitsDto"/> object.
+        /// </summary>
+        /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
+        /// <returns>A <see cref="ProjectUnitsDto"/> representing the Project with the specified identifier. 
+        /// Returns null if no Project is found.</returns>
+        public ProjectUnitsDto GetProjectUnitsByProjectId(Guid projectId)
+        {
+            ProjectUnitsDto externalProjectUnitsDto = new ProjectUnitsDto();
+            try
+            {
+                //------------------------------------------------------------------------------------------------
+                //--- Retrieve Project Dto from the Database using the Repository layer                        ---
+                //--- The retrieved Project Dto is in INTERNAL Units, which are the units used in the database ---
+                //------------------------------------------------------------------------------------------------
+                ProjectUnitsDto internalProjectUnits = ProjectUnitsRepoObj.GetProjectUnitsByProjectId(projectId);
+
+                //-------------------------------------------------
+                //--- Convert INTERNAL Fields to EXTERNAL Units ---
+                //-------------------------------------------------
+                externalProjectUnitsDto.Id = internalProjectUnits.Id;
+                externalProjectUnitsDto.ProjectId = internalProjectUnits.ProjectId;
+                externalProjectUnitsDto.DefaultSystemUnits = internalProjectUnits.DefaultSystemUnits;
+                externalProjectUnitsDto.DefaultMagnitudeUnits = internalProjectUnits.DefaultMagnitudeUnits;
+                externalProjectUnitsDto.DefaultTemperatureUnits = internalProjectUnits.DefaultTemperatureUnits;
+                externalProjectUnitsDto.DefaultPressureUnits = internalProjectUnits.DefaultPressureUnits;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving project units: {ex.Message}");
+                return null; // Return null if an error occurs
+            }
+
+            return externalProjectUnitsDto;
+        }
+        #endregion  // GetProjectUnitsByProjectId(Guid projectId) ... READ
+
+        #region UpdateProjectUnits(ProjectUnitsDto externalProjectUnitsDto) ... UPDATE
+        /// <summary>
+        /// Updates (UPDATE) an existing project in the database using the specified project data transfer object (DTO) 
         /// with external units.
         /// </summary>
         /// <remarks>This method converts the provided project data from external units to the internal
@@ -183,9 +186,9 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
                 internalProjectUnitsDto.DefaultMagnitudeUnits = externalProjectUnitsDto.DefaultMagnitudeUnits;
                 internalProjectUnitsDto.DefaultTemperatureUnits = externalProjectUnitsDto.DefaultTemperatureUnits;
                 internalProjectUnitsDto.DefaultPressureUnits = externalProjectUnitsDto.DefaultPressureUnits;
-                //------------------------------------------------------------------------------
-                //--- UPDATE INTERNAL Project Dto to the Database using the Repository Layer ---
-                //------------------------------------------------------------------------------
+                //-------------------------------------------------------------------------------------
+                //--- UPDATE INTERNAL Project Dto to the Database using the ProjectUnitsRepo Object ---
+                //-------------------------------------------------------------------------------------
                 ProjectUnitsRepoObj.UpdateProjectUnits(internalProjectUnitsDto);
             }
             catch (Exception ex)
@@ -194,20 +197,20 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
                 Console.WriteLine($"Error updating project units: {ex.Message}");
             }
         }
-        #endregion  // UpdateProjectUnits(ProjectDto projectDto)
+        #endregion  // UpdateProjectUnits(ProjectDto projectDto) ... UPDATE
 
-        #region DeleteProjectUnits(Guid projectUnitsId)
+        #region DeleteProjectUnits(Guid projectUnitsId) ... DELETE
         /// <summary>
-        /// Deletes the project units with the specified unique identifier.
+        /// Deletes (DELETE) the project units with the specified unique identifier.
         /// </summary>
         /// <param name="projectUnitsId">The unique identifier of the project units to delete.</param>
         public void DeleteProjectUnits(Guid projectUnitsId)
         {
             try
             {
-                //-------------------------------------------------------------------
-                //--- DELETE Project Units from the Database using the Repository Layer ---
-                //-------------------------------------------------------------------
+                //--------------------------------------------------------------------------------
+                //--- DELETE Project Units from the Database using the ProjectUnitsRepo Object ---
+                //--------------------------------------------------------------------------------
                 ProjectUnitsRepoObj.DeleteProjectUnits(projectUnitsId);
             }
             catch (Exception ex)
@@ -216,8 +219,9 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
                 Console.WriteLine($"Error deleting project units: {ex.Message}");
             }
         }
-        #endregion  // DeleteProjectUnits(Guid projectUnitsId)
+        #endregion  // DeleteProjectUnits(Guid projectUnitsId) ... DELETE
 
+        #endregion  // PROJECT UNITS CRUD METHODS
     }
     #endregion      // public class ProjectUnitsViewModel
 

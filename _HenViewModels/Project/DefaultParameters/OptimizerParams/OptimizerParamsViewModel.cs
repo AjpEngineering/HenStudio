@@ -71,9 +71,56 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         }
         #endregion  // DEFAULT CTOR
 
-        #region GetOptimizerParamByProjectId(Guid projectId)
+        #region OPTIMIZER PARAMS CRUD METHODS
+
+        #region AddOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto) ... CREATE
         /// <summary>
-        /// Retrieves the OptimizerParams Dto associated with the specified unique identifier.
+        /// Adds (CREATE) a new optimizer params to the database using the specified optimizer params data transfer object.
+        /// </summary>
+        /// <remarks>The method converts the provided project data from external to internal units before
+        /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
+        /// an empty GUID.</remarks>
+        /// <param name="externalOptimizerParamsDto">The optimizer params data to add. The object must contain 
+        /// all required optimizer params fields in external units. Cannot be null.</param>
+        /// <returns>A GUID representing the unique identifier of the newly added optimizer params.</returns>
+        public Guid AddOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto)
+        {
+            Guid optimizerParamsID = new Guid();
+            try
+            {
+                //------------------------------------------------------------------------
+                //--- OptimizerParams Dto [INTERNAL Units] to be Added to the Database ---
+                //------------------------------------------------------------------------
+                OptimizerParamsDto internalOptimizerParamsDto = new OptimizerParamsDto();
+                //-------------------------------------------------
+                //--- Convert EXTERNAL Fields to INTERNAL Units ---
+                //-------------------------------------------------
+                internalOptimizerParamsDto.Id = externalOptimizerParamsDto.Id;
+                internalOptimizerParamsDto.ProjectId = externalOptimizerParamsDto.ProjectId;
+                internalOptimizerParamsDto.Name = externalOptimizerParamsDto.Name;
+                internalOptimizerParamsDto.Description = externalOptimizerParamsDto.Description;
+                internalOptimizerParamsDto.OptimizerType = externalOptimizerParamsDto.OptimizerType;
+                internalOptimizerParamsDto.DefaultObjective = externalOptimizerParamsDto.DefaultObjective;
+                internalOptimizerParamsDto.DefaultMaxIterations = externalOptimizerParamsDto.DefaultMaxIterations;
+                internalOptimizerParamsDto.DefaultConvergenceTolerance = externalOptimizerParamsDto.DefaultConvergenceTolerance;
+                //---------------------------------------------------------------------------------------------
+                //--- Add INTERNAL OptimizerParams Dto to the Database using the OptimizerParamsRepo Object ---
+                //--- Returns the OptimizerParams ID (PK) from the OptimizerParams Table database addition  ---
+                //---------------------------------------------------------------------------------------------
+                optimizerParamsID = OptimizerParamsRepoObj.AddOptimizerParams(internalOptimizerParamsDto);
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving optimizer params: {ex.Message}");
+            }
+            return optimizerParamsID; // Return Optimizer Params ID (PK) from the Optimizer Params Table database addition
+        }
+        #endregion  // AddOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto) ... CREATE
+
+        #region GetOptimizerParamByProjectId(Guid projectId) ... READ
+        /// <summary>
+        /// Retrieves (READ) the OptimizerParams Dto associated with the specified unique identifier.
         /// The OptimizerParams retrieved from the Database is in INTERNAL Units, 
         /// database access performed by the repository layer, 
         /// the fields of the OptimizerParams are converted to EXTERNAL Units, which are the units used in the user interface,
@@ -87,11 +134,13 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
             OptimizerParamsDto externalOptimizerParamsDto = new OptimizerParamsDto();
             try
             {
-                //---------------------------------------------------------------------------------
-                //--- Retrieve OptimizerParams Dto from the Database using the Repository layer ---
-                //---------------------------------------------------------------------------------
+                //-------------------------------------------------------------------
+                //--- Retrieve OptimizerParams Dto from the Database.             ---
+                //--- The retrieved OptimizerParams Dto is in INTERNAL Units,     ---
+                //--- database access performed by the OptimizerParamsRepo Object ---
+                //-------------------------------------------------------------------
                 OptimizerParamsDto internalOptimizerParams = 
-                    OptimizerParamsRepoObj.GetOptimizerParamsByProjectId(projectId);     // Retrieved OptimizerParams Dto [INTERNAL Units]
+                    OptimizerParamsRepoObj.GetOptimizerParamsByProjectId(projectId);
 
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
@@ -114,56 +163,11 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
 
             return externalOptimizerParamsDto;
         }
-        #endregion  // GetOptimizerParamByProjectId(Guid projectId)
+        #endregion  // GetOptimizerParamByProjectId(Guid projectId) ... READ
 
-        #region AddOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto)
+        #region UpdateOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto) ... UPDATE
         /// <summary>
-        /// Adds a new project units to the database using the specified project data transfer object.
-        /// </summary>
-        /// <remarks>The method converts the provided project data from external to internal units before
-        /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
-        /// an empty GUID.</remarks>
-        /// <param name="externalOptimizerParamsDto">The optimizer params data to add. The object must contain all required optimizer params fields in external units. Cannot be
-        /// null.</param>
-        /// <returns>A GUID representing the unique identifier of the newly added optimizer params.</returns>
-        public Guid AddOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto)
-        {
-            Guid optimizerParamsID = new Guid();
-            try
-            {
-                //----------------------------------------------------------------
-                //--- Project Dto [INTERNAL Units] to be Added to the Database ---
-                //----------------------------------------------------------------
-                OptimizerParamsDto internalOptimizerParamsDto = new OptimizerParamsDto();
-                //-------------------------------------------------
-                //--- Convert EXTERNAL Fields to INTERNAL Units ---
-                //-------------------------------------------------
-                internalOptimizerParamsDto.Id = externalOptimizerParamsDto.Id;
-                internalOptimizerParamsDto.ProjectId = externalOptimizerParamsDto.ProjectId;
-                internalOptimizerParamsDto.Name = externalOptimizerParamsDto.Name;
-                internalOptimizerParamsDto.Description = externalOptimizerParamsDto.Description;
-                internalOptimizerParamsDto.OptimizerType = externalOptimizerParamsDto.OptimizerType;
-                internalOptimizerParamsDto.DefaultObjective = externalOptimizerParamsDto.DefaultObjective;
-                internalOptimizerParamsDto.DefaultMaxIterations = externalOptimizerParamsDto.DefaultMaxIterations;
-                internalOptimizerParamsDto.DefaultConvergenceTolerance = externalOptimizerParamsDto.DefaultConvergenceTolerance;
-                //----------------------------------------------------------------------------
-                //--- Add INTERNAL OptimizerParams Dto to the Database using the Repository Layer  ---
-                //--- Returns the OptimizerParams ID (PK) from the OptimizerParams Table database addition ---
-                //----------------------------------------------------------------------------
-                optimizerParamsID = OptimizerParamsRepoObj.AddOptimizerParams(internalOptimizerParamsDto);
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions (e.g., log the error, rethrow, or return null)
-                Console.WriteLine($"Error retrieving optimizer params: {ex.Message}");
-            }
-            return optimizerParamsID; // Return Optimizer Params ID (PK) from the Optimizer Params Table database addition
-        }
-        #endregion  // AddOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto)
-        
-        #region UpdateOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto)
-        /// <summary>
-        /// Updates an existing optimizer params in the database using the specified optimizer params data transfer object (DTO) 
+        /// Updates (UPDATE) an existing optimizer params in the database using the specified optimizer params data transfer object (DTO) 
         /// with external units.
         /// </summary>
         /// <remarks>This method converts the provided optimizer params data from external units to the internal
@@ -190,9 +194,11 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 internalOptimizerParamDto.DefaultObjective = externalOptimizerParamDto.DefaultObjective;
                 internalOptimizerParamDto.DefaultMaxIterations = externalOptimizerParamDto.DefaultMaxIterations;
                 internalOptimizerParamDto.DefaultConvergenceTolerance = externalOptimizerParamDto.DefaultConvergenceTolerance;
-                //------------------------------------------------------------------------------
-                //--- UPDATE INTERNAL Optimizer Params Dto to the Database using the Repository Layer ---
-                //------------------------------------------------------------------------------
+                //------------------------------------------------------------
+                //--- UPDATE INTERNAL Optimizer Params Dto to the Database ---
+                //--- The Optimizer Params to be updated is identified by  ---
+                //--- the Id field of the provided Optimizer Params Dto    ---
+                //------------------------------------------------------------
                 OptimizerParamsRepoObj.UpdateOptimizerParams(internalOptimizerParamDto);
             }
             catch (Exception ex)
@@ -201,20 +207,21 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 Console.WriteLine($"Error updating optimizer params: {ex.Message}");
             }
         }
-        #endregion  // UpdateOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto)
+        #endregion  // UpdateOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto) ... UPDATE
 
-        #region DeleteOptimizerParams(Guid optimizerParamsId)
+        #region DeleteOptimizerParams(Guid optimizerParamsId) ... DELETE
         /// <summary>
-        /// Deletes the optimizer params with the specified unique identifier.
+        /// Deletes (DELETE) the optimizer params with the specified unique identifier.
         /// </summary>
         /// <param name="optimizerParamsId">The unique identifier of the optimizer params to delete.</param>
         public void DeleteOptimizerParams(Guid optimizerParamsId)
         {
             try
             {
-                //-------------------------------------------------------------------
-                //--- DELETE Optimizer Params from the Database using the Repository Layer ---
-                //-------------------------------------------------------------------
+                //-----------------------------------------------------------------------------------------------
+                //--- DELETE Optimizer Params from the Database using the OptimizerRepo Object                ---
+                //--- The Optimizer Params to be deleted is identified by the provided optimizerParamsId (PK) ---
+                //-----------------------------------------------------------------------------------------------
                 OptimizerParamsRepoObj.DeleteOptimizerParams(optimizerParamsId);
             }
             catch (Exception ex)
@@ -223,7 +230,9 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 Console.WriteLine($"Error deleting optimizer params: {ex.Message}");
             }
         }
-        #endregion  // DeleteOptimizerParams(Guid optimizerParamsId)
+        #endregion  // DeleteOptimizerParams(Guid optimizerParamsId) ... DELETE
+
+        #endregion  // OPTIMIZER PARAMS CRUD METHODS
 
     }
     #endregion      // public class OptimizerParamsViewModel

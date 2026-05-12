@@ -71,6 +71,8 @@ namespace HenViewModel.Project
         }
         #endregion  // DEFAULT CTOR
 
+        #region PROJECT CRUD METHODS
+
         #region AddProject(ProjectDto externalProjectDto) ... CREATE
         /// <summary>
         /// Adds (CREATE) a new project to the database using the specified project data transfer object.
@@ -308,6 +310,8 @@ namespace HenViewModel.Project
             }
         }
         #endregion  // DeleteProject(Guid projectId) ... DELETE
+
+        #endregion  // PROJECT CRUD METHODS
 
     }
     #endregion      // public class ProjectViewModel
