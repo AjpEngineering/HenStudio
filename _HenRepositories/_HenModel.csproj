@@ -75,10 +75,10 @@
     <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IOptimizerMILP_Repo.cs" />
     <Compile Include="Dto\Profile\ProfileDto.cs" />
     <Compile Include="Dto\Project\CostParameters\CostMetadataDto.cs" />
-    <Compile Include="Dto\Profile\ProcessStreamDto.cs" />
+    <Compile Include="Dto\Profile\Streams\ProcessStreamDto.cs" />
     <Compile Include="Dto\Pinch\Plots\THDiagramDto.cs" />
     <Compile Include="Dto\Pinch\Plots\THDiagramPointDto.cs" />
-    <Compile Include="Dto\Profile\UtilityStreamDto.cs" />
+    <Compile Include="Dto\Profile\Streams\UtilityStreamDto.cs" />
     <Compile Include="RepoInterfaces\Profile\IProfileRepo.cs" />
     <Compile Include="RepoInterfaces\Project\CostParameters\ICostMetadataRepo.cs" />
     <Compile Include="RepoInterfaces\Profile\Streams\IProcessStreamRepo.cs" />

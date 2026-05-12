@@ -36,7 +36,8 @@
 using HenGlobal;
 
 using HenModel.Connection;
-using HenModel.RepoImplementations.Profile;
+using HenModel.RepoImplementations.Profile.Streams;
+using HenModel.RepoInterfaces.Profile.Streams;
 using HenModel.Dto.Profile;
 
 using System;
