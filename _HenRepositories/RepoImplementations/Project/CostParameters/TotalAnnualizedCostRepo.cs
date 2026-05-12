@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//#######################################  C o s t M e t a d a t a R e p o . c s  #####################################
+//################################  T o t a l A n n u a l i z e d C o s t R e p o . c s  ##############################
 //#####################################################################################################################
-//  FILENAME:  CostMetadataRepo.cs
+//  FILENAME:  TotalAnnualizedCostRepo.cs
 //  NAMESPACE: HenModel.RepoImplementations.Project.CostParameters
-//  CLASS(S):  CostMetadataRepo
+//  CLASS(S):  TotalAnnualizedCostRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation stub for the Cost Metadata Project-Cost Parameters sub table.
+//    This file contains the concrete repo implementation for the Total Annualized Cost Parameters Object.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -47,11 +47,11 @@ using System.Data;
 #region namespace HenModel.RepoImplementations.Project.CostParameters
 namespace HenModel.RepoImplementations.Project.CostParameters
 {
-    #region public class CostMetadataRepo
+    #region public class TotalAnnualizedCostRepo
     /// <summary>
-    /// EconParam Repo Class
+    /// Total Annualized Cost Repo Class
     /// </summary>
-    public class CostMetadataRepo : ICostMetadataRepo
+    public class TotalAnnualizedCostRepo : ITotalAnnualizedCostRepo
     {
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;
@@ -77,26 +77,25 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         }
         #endregion      // AddParameter()
 
-        #region MapCostMetadata()
+        #region MapTotalAnnualizedCost()
         /// <summary>
-        /// Maps a data record from the Cost Metadata query result set to an <see cref="CostMetadataDto"/> instance.
+        /// Maps a data record from the Total Annualized Cost query result set to an <see cref="TotalAnnualizedCostDto  "/> instance.
         /// </summary>
-        /// <param name="record">The data record containing the cost metadata column values.</param>
-        /// <returns>An <see cref="CostMetadataDto"/> populated from the supplied data record.</returns>
-        private static CostMetadataDto MapCostMetadata(IDataRecord record)
+        /// <param name="record">The data record containing the total annualized cost column values.</param>
+        /// <returns>An <see cref="TotalAnnualizedCostDto"/> populated from the supplied data record.</returns>
+        private static TotalAnnualizedCostDto MapTotalAnnualizedCost(IDataRecord record)
         {
-            return new CostMetadataDto
+            return new TotalAnnualizedCostDto
             {
                 Id = record.GetGuid(record.GetOrdinal("Id")),
                 ProjectId = record.GetGuid(record.GetOrdinal("ProjectId")),
-                CostIndexBaseYear = record.IsDBNull(record.GetOrdinal("CostIndexBaseYear")) ? null : record.GetString(record.GetOrdinal("CostIndexBaseYear")),
-                CostIndexName = record.IsDBNull(record.GetOrdinal("CostIndexName")) ? null : record.GetString(record.GetOrdinal("CostIndexName")),
-                CostIndexValue = record.GetDouble(record.GetOrdinal("CostIndexValue")),
-                CostIndexCurrency = record.IsDBNull(record.GetOrdinal("CostIndexCurrency")) ? null : record.GetString(record.GetOrdinal("CostIndexCurrency")),
-                CostIndexInstalledCost = record.GetDouble(record.GetOrdinal("CostIndexInstalledCost")),
+                TAC_InterestRate = record.GetDouble(record.GetOrdinal("TAC_InterestRate")),
+                TAC_LifeYears= record.GetDouble(record.GetOrdinal("TAC_LifeYears")),
+                TAC_MaintenanceFraction = record.GetDouble(record.GetOrdinal("TAC_MaintenanceFraction")),
+                TAC_OperatingHours = record.GetDouble(record.GetOrdinal("TAC_OperatingHours")),
             };
         }
-        #endregion      // MapCostMetadata()
+        #endregion      // MapTotalAnnualizedCost()
 
         #endregion      // PRIVATE METHODS
 
@@ -105,7 +104,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public CostMetadataRepo(IDbConnectionFactory connectionFactory)
+        public TotalAnnualizedCostRepo(IDbConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {
@@ -118,34 +117,32 @@ namespace HenModel.RepoImplementations.Project.CostParameters
 
         #region METHODS
 
-        #region AddCostMetadata() ... CREATE
+        #region AddTotalAnnualizedCost() ... CREATE
         /// <summary>
-        /// Adds (CREATE) a new cost metadata entry to the data store.
+        /// Adds (CREATE) a new total annualized cost (TAC) entry to the data store.
         /// </summary>
-        /// <param name="costMetadataDto">The cost metadata data to insert.</param>
-        /// <returns>The unique identifier of the inserted cost metadata entry.</returns>
-        public Guid AddCostMetadata(CostMetadataDto costMetadataDto)
+        /// <param name="totalAnnualizedCostDto">The total annualized cost data to insert.</param>
+        /// <returns>The unique identifier of the inserted total annualized cost entry.</returns>
+        public Guid AddTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto)
         {
-            if (costMetadataDto == null)
+            if (totalAnnualizedCostDto == null)
             {
-                throw new ArgumentNullException(nameof(costMetadataDto));
+                throw new ArgumentNullException(nameof(totalAnnualizedCostDto));
             }
 
-            const string sql = @"INSERT INTO dbo.CostMetadata
-                                    (ProfileId,
-                                     CostIndexBaseYear,
-                                     CostIndexName,
-                                     CostIndexValue,
-                                     CostIndexCurrency,
-                                     CostIndexInstalledCost)
+            const string sql = @"INSERT INTO dbo.TotalAnnualizedCost
+                                    (ProjectId,
+                                     TAC_InterestRate,
+                                     TAC_LifeYears,
+                                     TAC_MaintenanceFraction,
+                                     TAC_OperatingHours)
                                  OUTPUT INSERTED.Id
                                  VALUES
-                                    (@ProfileId,
-                                     @CostIndexBaseYear,
-                                     @CostIndexName,
-                                     @CostIndexValue,
-                                     @CostIndexCurrency,
-                                     @CostIndexInstalledCost);";
+                                    (@ProjectId,
+                                     @TAC_InterestRate,
+                                     @TAC_LifeYears,
+                                     @TAC_MaintenanceFraction,
+                                     @TAC_OperatingHours);";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -153,12 +150,11 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, costMetadataDto.ProjectId);
-                    AddParameter(command, "@CostIndexBaseYear", DbType.String, costMetadataDto.CostIndexBaseYear);
-                    AddParameter(command, "@CostIndexName", DbType.String, costMetadataDto.CostIndexName);
-                    AddParameter(command, "@CostIndexValue", DbType.Double, costMetadataDto.CostIndexValue);
-                    AddParameter(command, "@CostIndexCurrency", DbType.String, costMetadataDto.CostIndexCurrency);
-                    AddParameter(command, "@CostIndexInstalledCost", DbType.Double, costMetadataDto.CostIndexInstalledCost);
+                    AddParameter(command, "@ProjectId", DbType.Guid, totalAnnualizedCostDto.ProjectId);
+                    AddParameter(command, "@TAC_InterestRate", DbType.Double, totalAnnualizedCostDto.TAC_InterestRate);
+                    AddParameter(command, "@TAC_LifeYears", DbType.Double, totalAnnualizedCostDto.TAC_LifeYears);
+                    AddParameter(command, "@TAC_MaintenanceFraction", DbType.Double, totalAnnualizedCostDto.TAC_MaintenanceFraction);
+                    AddParameter(command, "@TAC_OperatingHours", DbType.Double, totalAnnualizedCostDto.TAC_OperatingHours);
 
                     connection.Open();
 
@@ -166,27 +162,26 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 }
             }
         }
-        #endregion      // AddCostMetadata() ... CREATE
+        #endregion      // AddTotalAnnualizedCost() ... CREATE
 
-        #region GetCostMetadata() ... READ
+        #region GetTotalAnnualizedCost() ... READ
         /// <summary>
-        /// Retrieves (READ)all cost metadata from the data store.
+        /// Retrieves (READ) all total annualized cost (TAC) entries from the data store.
         /// </summary>
-        /// <returns>A list of <see cref="CostMetadataDto"/> objects representing all cost metadata. 
-        /// The list is empty if no cost metadata are found.</returns>
-        public IList<CostMetadataDto> GetCostMetadata()
+        /// <returns>A list of <see cref="TotalAnnualizedCostDto"/> objects representing all total annualized cost entries. 
+        /// The list is empty if no total annualized cost entries are found.</returns>
+        public IList<TotalAnnualizedCostDto> GetTotalAnnualizedCost()
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
-                                        CostIndexBaseYear,
-                                        CostIndexName,
-                                        CostIndexValue,
-                                        CostIndexCurrency,
-                                        CostIndexInstalledCost
-                                 FROM dbo.CostMetadata
-                                 ORDER BY CostIndexName;";
+                                        TAC_InterestRate,
+                                        TAC_LifeYears,
+                                        TAC_MaintenanceFraction,
+                                        TAC_OperatingHours
+                                 FROM dbo.TotalAnnualizedCost
+                                 ORDER BY ProjectId;";
 
-            List<CostMetadataDto> costMetadataList = new List<CostMetadataDto>();
+            List<TotalAnnualizedCostDto> totalAnnualizedCostList = new List<TotalAnnualizedCostDto>();
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -201,32 +196,32 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                     {
                         while (reader.Read())
                         {
-                            costMetadataList.Add(MapCostMetadata(reader));
+                            totalAnnualizedCostList.Add(MapTotalAnnualizedCost(reader));
                         }
                     }
                 }
             }
 
-            return costMetadataList;
+            return totalAnnualizedCostList;
         }
-        #endregion      // GetCostMetadata() ... READ
+        #endregion      // GetTotalAnnualizedCost() ... READ
 
-        #region GetCostMetadataById() ... READ
+        #region GetTotalAnnualizedCostById() ... READ
         /// <summary>
-        /// Retrieves (READ) a cost metadata entry from the data store by its identifier.
+        /// Retrieves (READ) a total annualized cost entry from the data store by its identifier.
         /// </summary>
-        /// <param name="costMetadataId">The unique identifier of the cost metadata entry to retrieve.</param>
-        /// <returns>An <see cref="CostMetadataDto"/> object representing the requested cost metadata entry, or <c>null</c> if no matching entry is found.</returns>
-        public CostMetadataDto GetCostMetadataById(Guid costMetadataId)
+        /// <param name="totalAnnualizedCostId">The unique identifier of the total annualized cost entry to retrieve.</param>
+        /// <returns>An <see cref="TotalAnnualizedCostDto"/> object representing the requested total annualized cost entry, 
+        /// or <c>null</c> if no matching entry is found.</returns>
+        public TotalAnnualizedCostDto GetTotalAnnualizedCostById(Guid totalAnnualizedCostId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
-                                        CostIndexBaseYear,
-                                        CostIndexName,
-                                        CostIndexValue,
-                                        CostIndexCurrency,
-                                        CostIndexInstalledCost
-                                 FROM dbo.CostMetadata
+                                        TAC_InterestRate,
+                                        TAC_LifeYears,
+                                        TAC_MaintenanceFraction,
+                                        TAC_OperatingHours
+                                 FROM dbo.TotalAnnualizedCost
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -235,7 +230,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, costMetadataId);
+                    AddParameter(command, "@Id", DbType.Guid, totalAnnualizedCostId);
 
                     connection.Open();
 
@@ -246,29 +241,29 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                             return null;
                         }
 
-                        return MapCostMetadata(reader);
+                        return MapTotalAnnualizedCost(reader);
                     }
                 }
             }
         }
-        #endregion      // GetCostMetadataById() ... READ
+        #endregion      // GetTotalAnnualizedCostById() ... READ
 
-        #region GetCostMetadataByProjectId() ... READ
+        #region GetTotalAnnualizedCostByProjectId() ... READ
         /// <summary>
-        /// Retrieves (READ) all cost metadata for the specified project from the data store.
+        /// Retrieves (READ) a total annualized cost entry from the data store by its identifier.
         /// </summary>
-        /// <param name="projectId">The unique identifier of the project whose cost metadata are to be retrieved.</param>
-        /// <returns>A list of <see cref="CostMetadataDto"/> objects representing the matching cost metadata. The list is empty if no cost metadata are found.</returns>
-        public CostMetadataDto GetCostMetadataByProjectId(Guid projectId)
+        /// <param name="totalAnnualizedCostId">The unique identifier of the total annualized cost entry to retrieve.</param>
+        /// <returns>An <see cref="TotalAnnualizedCostDto"/> object representing the requested total annualized cost entry, 
+        /// or <c>null</c> if no matching entry is found.</returns>
+        public TotalAnnualizedCostDto GetTotalAnnualizedCostByProjectId(Guid projectId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
-                                        CostIndexBaseYear,
-                                        CostIndexName,
-                                        CostIndexValue,
-                                        CostIndexCurrency,
-                                        CostIndexInstalledCost
-                                 FROM dbo.CostMetadata
+                                        TAC_InterestRate,
+                                        TAC_LifeYears,
+                                        TAC_MaintenanceFraction,
+                                        TAC_OperatingHours
+                                 FROM dbo.TotalAnnualizedCost
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -277,7 +272,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjecId", DbType.Guid, projectId);
 
                     connection.Open();
 
@@ -288,32 +283,30 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                             return null;
                         }
 
-                        return MapCostMetadata(reader);
+                        return MapTotalAnnualizedCost(reader);
                     }
                 }
             }
         }
-        #endregion      // GetCostMetadataByProjectId() ... READ
+        #endregion      // GetTotalAnnualizedCostByProjectId() ... READ
 
-        #region UpdateCostMetadata() ... UPDATE
+        #region UpdateTotalAnnualizedCost() ... UPDATE
         /// <summary>
         /// Updates (UPDATE) an existing cost metadata entry in the data store.
         /// </summary>
         /// <param name="costMetadataDto">The cost metadata data to update.</param>
-        public void UpdateCostMetadata(CostMetadataDto costMetadataDto)
+        public void UpdateTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto)
         {
-            if (costMetadataDto == null)
+            if (totalAnnualizedCostDto == null)
             {
-                throw new ArgumentNullException(nameof(costMetadataDto));
+                throw new ArgumentNullException(nameof(totalAnnualizedCostDto));
             }
 
-            const string sql = @"UPDATE dbo.CostMetadata
-                                 SET ProfileId = @ProfileId,
-                                     CostIndexBaseYear = @CostIndexBaseYear,
-                                     CostIndexName = @CostIndexName,
-                                     CostIndexValue = @CostIndexValue,
-                                     CostIndexCurrency = @CostIndexCurrency,
-                                     CostIndexInstalledCost = @CostIndexInstalledCost,
+            const string sql = @"UPDATE dbo.TotalAnnualizedCost
+                                 SET TAC_InterestRate = @TAC_InterestRate,
+                                     TAC_LifeYears = @TAC_LifeYears,
+                                     TAC_MaintenanceFraction = @TAC_MaintenanceFraction,
+                                     TAC_OperatingHours = @TAC_OperatingHours
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -322,29 +315,27 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, costMetadataDto.Id);
-                    AddParameter(command, "@ProjectId", DbType.Guid, costMetadataDto.ProjectId);
-                    AddParameter(command, "@CostIndexBaseYear", DbType.String, costMetadataDto.CostIndexBaseYear);
-                    AddParameter(command, "@CostIndexName", DbType.String, costMetadataDto.CostIndexName);
-                    AddParameter(command, "@CostIndexValue", DbType.Double, costMetadataDto.CostIndexValue);
-                    AddParameter(command, "@CostIndexCurrency", DbType.String, costMetadataDto.CostIndexCurrency);
-                    AddParameter(command, "@CostIndexInstalledCost", DbType.Double, costMetadataDto.CostIndexInstalledCost);
+                    AddParameter(command, "@Id", DbType.Guid, totalAnnualizedCostDto.Id);
+                    AddParameter(command, "@TAC_InterestRate", DbType.Double, totalAnnualizedCostDto.TAC_InterestRate);
+                    AddParameter(command, "@TAC_LifeYears", DbType.Double, totalAnnualizedCostDto.TAC_LifeYears);
+                    AddParameter(command, "@TAC_MaintenanceFraction", DbType.Double, totalAnnualizedCostDto.TAC_MaintenanceFraction);
+                    AddParameter(command, "@TAC_OperatingHours", DbType.Double, totalAnnualizedCostDto.TAC_OperatingHours);
 
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
             }
         }
-        #endregion      // UpdateCostMetadata() ... UPDATE
+        #endregion      // UpdateTotalAnnualizedCost() ... UPDATE
 
-        #region DeleteCostMetadata() ... DELETE
+        #region DeleteTotalAnnualizedCost() ... DELETE
         /// <summary>
-        /// Deletes (DELETE) a cost metadata entry from the data store by its identifier.
+        /// Deletes (DELETE) a total annualized cost (TAC) entry from the data store by its identifier.
         /// </summary>
-        /// <param name="costMetadataId">The unique identifier of the cost metadata entry to delete.</param>
-        public void DeleteCostMetadata(Guid costMetadataId)
+        /// <param name="totalAnnualizedCostId">The unique identifier of the total annualized cost (TAC) entry to delete.</param>
+        public void DeleteTotalAnnualizedCost(Guid totalAnnualizedCostId)
         {
-            const string sql = @"DELETE FROM dbo.CostMetadata
+            const string sql = @"DELETE FROM dbo.TotalAnnualizedCost
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -353,18 +344,18 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, costMetadataId);
+                    AddParameter(command, "@Id", DbType.Guid, totalAnnualizedCostId);
 
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
             }
         }
-        #endregion      // DeleteCostMetadata() ... UPDATE
+        #endregion      // DeleteTotalAnnualizedCost() ... DELETE
 
         #endregion      // METHODS
     }
-    #endregion      // public class CostMetadataRepo
+    #endregion      // public class TotalAnnualizedCostRepo
 }
 #endregion      // namespace HenModel.RepoImplementations.Project.CostParameters
 

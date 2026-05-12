@@ -49,10 +49,10 @@ namespace HenModel.RepoInterfaces.Project.CostParameters
     public interface IFiredHeaterCapitalCostRepo
     {
         #region METHODS
-        IList<FiredHeaterCapitalCostDto> GetFiredHeaterCapitalCost();
-        IList<FiredHeaterCapitalCostDto> GetFiredHeaterCapitalCostByProjectId(Guid projectId);
-        FiredHeaterCapitalCostDto GetFiredHeaterCapitalCostById(Guid firedHeaterCapitalCostId);
         Guid AddFiredHeaterCapitalCost(FiredHeaterCapitalCostDto firedHeaterCapitalCostDto);
+        IList<FiredHeaterCapitalCostDto> GetFiredHeaterCapitalCost();
+        FiredHeaterCapitalCostDto GetFiredHeaterCapitalCostById(Guid firedHeaterCapitalCostId);
+        FiredHeaterCapitalCostDto GetFiredHeaterCapitalCostByProjectId(Guid projectId);
         void UpdateFiredHeaterCapitalCost(FiredHeaterCapitalCostDto firedHeaterCapitalCostDto);
         void DeleteFiredHeaterCapitalCost(Guid firedHeaterCapitalCostId);
         #endregion      // METHODS

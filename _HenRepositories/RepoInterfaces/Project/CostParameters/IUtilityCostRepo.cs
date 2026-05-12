@@ -49,10 +49,10 @@ namespace HenModel.RepoInterfaces.Project.CostParameters
     public interface IUtilityCostRepo
     {
         #region METHODS
-        IList<UtilityCostDto> GetUtilityCost();
-        IList<UtilityCostDto> GetUtilityCostByProjectId(Guid projectId);
-        UtilityCostDto GetUtilityCostById(Guid utilityCostId);
         Guid AddUtilityCost(UtilityCostDto utilityCostDto);
+        IList<UtilityCostDto> GetUtilityCost();
+        UtilityCostDto GetUtilityCostById(Guid utilityCostId);
+        UtilityCostDto GetUtilityCostByProjectId(Guid projectId);
         void UpdateUtilityCost(UtilityCostDto utilityCostDto);
         void DeleteUtilityCost(Guid utilityCostId);
         #endregion      // METHODS

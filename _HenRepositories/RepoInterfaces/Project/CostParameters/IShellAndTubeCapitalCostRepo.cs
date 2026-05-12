@@ -49,10 +49,10 @@ namespace HenModel.RepoInterfaces.Project.CostParameters
     public interface IShellAndTubeCapitalCostRepo
     {
         #region METHODS
-        IList<ShellAndTubeCapitalCostDto> GetShellAndTubeCapitalCost();
-        IList<ShellAndTubeCapitalCostDto> GetShellAndTubeCapitalCostByProjectId(Guid projectId);
-        ShellAndTubeCapitalCostDto GetShellAndTubeCapitalCostById(Guid shellAndTubeCapitalCostId);
         Guid AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDto);
+        IList<ShellAndTubeCapitalCostDto> GetShellAndTubeCapitalCost();
+        ShellAndTubeCapitalCostDto GetShellAndTubeCapitalCostById(Guid shellAndTubeCapitalCostId);
+        ShellAndTubeCapitalCostDto GetShellAndTubeCapitalCostByProjectId(Guid projectId);
         void UpdateShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDto);
         void DeleteShellAndTubeCapitalCost(Guid shellAndTubeCapitalCostId);
         #endregion      // METHODS
