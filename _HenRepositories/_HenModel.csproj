@@ -81,10 +81,10 @@
     <Compile Include="Dto\Profile\UtilityStreamDto.cs" />
     <Compile Include="RepoInterfaces\Profile\IProfileRepo.cs" />
     <Compile Include="RepoInterfaces\Project\CostParameters\ICostMetadataRepo.cs" />
-    <Compile Include="RepoInterfaces\Profile\IProcessStreamRepo.cs" />
+    <Compile Include="RepoInterfaces\Profile\Streams\IProcessStreamRepo.cs" />
     <Compile Include="RepoInterfaces\Pinch\Plots\ITHDiagramRepo.cs" />
     <Compile Include="RepoInterfaces\Pinch\Plots\ITHDiagramPointRepo.cs" />
-    <Compile Include="RepoInterfaces\Profile\IUtilityStreamRepo.cs" />
+    <Compile Include="RepoInterfaces\Profile\Streams\IUtilityStreamRepo.cs" />
     <Compile Include="Dto\Pinch\PinchDto.cs" />
     <Compile Include="Dto\Pinch\TargetsDto.cs" />
     <Compile Include="Dto\Pinch\Plots\CompositeCurveDto.cs" />
@@ -131,9 +131,9 @@
     <Compile Include="RepoImplementations\Pinch\Plots\THDiagramPointRepo.cs" />
     <Compile Include="RepoImplementations\Pinch\Plots\THDiagramRepo.cs" />
     <Compile Include="RepoImplementations\Pinch\TargetsRepo.cs" />
-    <Compile Include="RepoImplementations\Profile\ProcessStreamRepo.cs" />
+    <Compile Include="RepoImplementations\Profile\Streams\ProcessStreamRepo.cs" />
     <Compile Include="RepoImplementations\Profile\ProfileRepo.cs" />
-    <Compile Include="RepoImplementations\Profile\UtilityStreamRepo.cs" />
+    <Compile Include="RepoImplementations\Profile\Streams\UtilityStreamRepo.cs" />
     <Compile Include="RepoImplementations\Project\CostParameters\CostMetadataRepo.cs" />
     <Compile Include="RepoImplementations\Project\DefaultParameters\ExchangerParams\ExchangerParamsRepo.cs" />
     <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerGeneticRepo.cs" />

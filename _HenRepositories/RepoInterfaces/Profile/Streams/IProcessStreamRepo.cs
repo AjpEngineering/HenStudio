@@ -3,7 +3,7 @@
 //###################################  I P r o c e s s S t r e a m R e p o . c s  #####################################
 //#####################################################################################################################
 //  FILENAME:  IProcessStreamRepo.cs
-//  NAMESPACE: HenModel.RepoInterfaces.Profile
+//  NAMESPACE: HenModel.RepoInterfaces.Profile.Streams
 //  INTERFACE: IProcessStreamRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -39,8 +39,8 @@ using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.RepoInterfaces.Profile
-namespace HenModel.RepoInterfaces.Profile
+#region namespace HenModel.RepoInterfaces.Profile.Streams
+namespace HenModel.RepoInterfaces.Profile.Streams
 {
     #region public interface IProcessStreamRepo
     /// <summary>
@@ -60,7 +60,7 @@ namespace HenModel.RepoInterfaces.Profile
     }
     #endregion      // public interface IProcessStreamRepo
 }
-#endregion      // namespace HenModel.RepoInterfaces.Profile
+#endregion      // namespace HenModel.RepoInterfaces.Profile.Streams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

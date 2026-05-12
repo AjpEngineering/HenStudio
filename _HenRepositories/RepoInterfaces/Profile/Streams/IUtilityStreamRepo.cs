@@ -39,8 +39,8 @@ using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.RepoInterfaces.Profile
-namespace HenModel.RepoInterfaces.Profile
+#region namespace HenModel.RepoInterfaces.Profile.Streams
+namespace HenModel.RepoInterfaces.Profile.Streams
 {
     #region public interface IUtilityStreamRepo
     /// <summary>
@@ -60,7 +60,7 @@ namespace HenModel.RepoInterfaces.Profile
     }
     #endregion      // public interface IUtilityStreamRepo
 }
-#endregion      // namespace HenModel.RepoInterfaces.Profile
+#endregion      // namespace HenModel.RepoInterfaces.Profile.Streams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -3,7 +3,7 @@
 //#####################################  P r o c e s s S t r e a m R e p o . c s  #####################################
 //#####################################################################################################################
 //  FILENAME:  ProcessStreamRepo.cs
-//  NAMESPACE: HenModel.RepoImplementations.Profile
+//  NAMESPACE: HenModel.RepoImplementations.Profile.Streams
 //  CLASS(S):  ProcessStreamRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -36,7 +36,7 @@
 using HenModel.Connection;
 using HenModel.Connection.Interface;
 
-using HenModel.RepoInterfaces.Profile;
+using HenModel.RepoInterfaces.Profile.Streams;
 using HenModel.Dto.Profile;
 
 using System;
@@ -44,8 +44,8 @@ using System.Collections.Generic;
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenModel.RepoImplementations.Profile
-namespace HenModel.RepoImplementations.Profile
+#region namespace HenModel.RepoImplementations.Profile.Streams
+namespace HenModel.RepoImplementations.Profile.Streams
 {
     #region public class ProcessStreamRepo
     /// <summary>

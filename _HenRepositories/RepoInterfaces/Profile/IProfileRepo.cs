@@ -49,7 +49,7 @@ namespace HenModel.RepoInterfaces.Profile
     public interface IProfileRepo
     {
         #region METHODS
-        Guid AddProfile(ProfileDto profileDto);
+        Guid AddProfile(ProfileDto profileDto); 
         IList<ProfileDto> GetProfiles();
         IList<ProfileDto> GetProfilesByProjectId(Guid projectId);
         ProfileDto GetProfileById(Guid profileId);

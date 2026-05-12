@@ -36,7 +36,7 @@
 using HenModel.Connection;
 using HenModel.Connection.Interface;
 
-using HenModel.RepoInterfaces.Profile;
+using HenModel.RepoInterfaces.Profile.Streams;
 using HenModel.Dto.Profile;
 
 using System;
@@ -44,8 +44,8 @@ using System.Collections.Generic;
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenModel.RepoImplementations.Profile
-namespace HenModel.RepoImplementations.Profile
+#region namespace HenModel.RepoImplementations.Profile.Streams
+namespace HenModel.RepoImplementations.Profile.Streams
 {
     #region public class UtilityStreamRepo
     /// <summary>
@@ -458,7 +458,7 @@ namespace HenModel.RepoImplementations.Profile
     }
     #endregion      // public class UtilityStreamRepo
 }
-#endregion      // namespace HenModel.RepoImplementations.Profile
+#endregion      // namespace HenModel.RepoImplementations.Profile.Streams
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

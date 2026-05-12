@@ -51,8 +51,8 @@
     <Compile Include="Project\ProjectViewModel.cs" />
     <Compile Include="Profile\ProfileViewModel.cs" />
     <Compile Include="Project\CostParameters\CostMetadataViewModel.cs" />
-    <Compile Include="Profile\ProcessStreamViewModel.cs" />
-    <Compile Include="Profile\UtilityStreamViewModel.cs" />
+    <Compile Include="Profile\Streams\ProcessStreamViewModel.cs" />
+    <Compile Include="Profile\Streams\UtilityStreamViewModel.cs" />
     <Compile Include="Pinch\Plots\THDiagramViewModel.cs" />
     <Compile Include="Pinch\Plots\THDiagramPointViewModel.cs" />
     <Compile Include="Pinch\PinchViewModel.cs" />
