@@ -343,7 +343,7 @@ namespace HenViewModel
         /// <param name="EXTERNAL_UnitsObj">EXTERNAL Units object</param>
         /// <param name="INTERNAL_UnitsObj">INTERNAL Units object</param>
         /// <returns>Converted internal value now in internal units</returns>
-        public double ConvertToInternal(HenTypes.ConversionUnitsTypes enumConType,
+        private double ConvertToInternal(HenTypes.ConversionUnitsTypes enumConType,
                                         double dExternalValue,
                                         HenProjectUnits EXTERNAL_UnitsObj,
                                         HenProjectUnits INTERNAL_UnitsObj)
@@ -781,7 +781,7 @@ namespace HenViewModel
         /// <param name="INTERNAL_UnitsObj">INTERNAL Units object</param>
         /// <param name="EXTERNAL_UnitsObj">EXTERNAL Units object</param>
         /// <returns>Converted external value now in external units</returns>
-        public double ConvertFromInternal(HenTypes.ConversionUnitsTypes enumConType,
+        private double ConvertFromInternal(HenTypes.ConversionUnitsTypes enumConType,
                                           double dInternalValue,
                                           HenProjectUnits EXTERNAL_UnitsObj,
                                           HenProjectUnits INTERNAL_UnitsObj)
