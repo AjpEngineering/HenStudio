@@ -135,9 +135,33 @@ namespace HenViewModel.Profile.Streams
 
         #endregion      // PRIVATE METHODS
 
-        #region GetUtilityStreams()
+        #region UTILITY STREAM CRUD METHODS
+
+        #region AddUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... CREATE
         /// <summary>
-        /// Retrieves a list of all UtilityStreams in external units.
+        /// Adds (CREATE) a new utility stream to the database using the specified DTO in external units.
+        /// </summary>
+        /// <param name="externalUtilityStreamDto">The utility stream data to add in external units.</param>
+        /// <returns>A GUID representing the unique identifier of the newly added utility stream.</returns>
+        public Guid AddUtilityStream(UtilityStreamDto externalUtilityStreamDto)
+        {
+            Guid utilityStreamId = new Guid();
+            try
+            {
+                UtilityStreamDto internalUtilityStreamDto = ConvertFromExternalUtilityStream(externalUtilityStreamDto);
+                utilityStreamId = UtilityStreamRepoObj.AddUtilityStream(internalUtilityStreamDto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving utility stream: {ex.Message}");
+            }
+            return utilityStreamId;
+        }
+        #endregion  // AddUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... CREATE
+
+        #region GetUtilityStreams() ... READ
+        /// <summary>
+        /// Retrieves (READ) a list of all UtilityStreams in external units.
         /// </summary>
         /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing the available utility streams, or an empty list if none are found.</returns>
         public IList<UtilityStreamDto> GetUtilityStreams()
@@ -157,11 +181,11 @@ namespace HenViewModel.Profile.Streams
             }
             return externalUtilityStreams;
         }
-        #endregion  // GetUtilityStreams()
+        #endregion  // GetUtilityStreams() ... READ
 
-        #region GetUtilityStreamsByProfileId(Guid profileId)
+        #region GetUtilityStreamsByProfileId(Guid profileId) ... READ
         /// <summary>
-        /// Retrieves a list of all UtilityStreams associated with the specified profile identifier in external units.
+        /// Retrieves (READ) a list of all UtilityStreams associated with the specified profile identifier in external units.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile whose utility streams are to be retrieved.</param>
         /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing the matching utility streams, or an empty list if none are found.</returns>
@@ -182,11 +206,11 @@ namespace HenViewModel.Profile.Streams
             }
             return externalUtilityStreams;
         }
-        #endregion  // GetUtilityStreamsByProfileId(Guid profileId)
+        #endregion  // GetUtilityStreamsByProfileId(Guid profileId) ... READ
 
-        #region GetUtilityStreamById(Guid utilityStreamId)
+        #region GetUtilityStreamById(Guid utilityStreamId) ... READ
         /// <summary>
-        /// Retrieves the UtilityStream DTO associated with the specified unique identifier.
+        /// Retrieves (READ) the UtilityStream DTO associated with the specified unique identifier.
         /// </summary>
         /// <param name="utilityStreamId">The unique identifier of the utility stream to retrieve.</param>
         /// <returns>A <see cref="UtilityStreamDto"/> representing the utility stream with the specified identifier. Returns null if none is found.</returns>
@@ -203,11 +227,11 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetUtilityStreamById(Guid utilityStreamId)
+        #endregion  // GetUtilityStreamById(Guid utilityStreamId) ... READ
 
-        #region GetUtilityStreamByStreamId(Guid profileId, string streamId)
+        #region GetUtilityStreamByStreamId(Guid profileId, string streamId) ... READ
         /// <summary>
-        /// Retrieves a utility stream by its profile identifier and stream identifier.
+        /// Retrieves (READ) a utility stream by its profile identifier and stream identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile that owns the utility stream.</param>
         /// <param name="streamId">The stream identifier of the utility stream to retrieve.</param>
@@ -225,33 +249,11 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetUtilityStreamByStreamId(Guid profileId, string streamId)
+        #endregion  // GetUtilityStreamByStreamId(Guid profileId, string streamId) ... READ
 
-        #region AddUtilityStream(UtilityStreamDto externalUtilityStreamDto)
+        #region UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... UPDATE
         /// <summary>
-        /// Adds a new utility stream to the database using the specified DTO in external units.
-        /// </summary>
-        /// <param name="externalUtilityStreamDto">The utility stream data to add in external units.</param>
-        /// <returns>A GUID representing the unique identifier of the newly added utility stream.</returns>
-        public Guid AddUtilityStream(UtilityStreamDto externalUtilityStreamDto)
-        {
-            Guid utilityStreamId = new Guid();
-            try
-            {
-                UtilityStreamDto internalUtilityStreamDto = ConvertFromExternalUtilityStream(externalUtilityStreamDto);
-                utilityStreamId = UtilityStreamRepoObj.AddUtilityStream(internalUtilityStreamDto);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error retrieving utility stream: {ex.Message}");
-            }
-            return utilityStreamId;
-        }
-        #endregion  // AddUtilityStream(UtilityStreamDto externalUtilityStreamDto)
-
-        #region UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto)
-        /// <summary>
-        /// Updates an existing utility stream in the database using the specified DTO in external units.
+        /// Updates (UPDATE) an existing utility stream in the database using the specified DTO in external units.
         /// </summary>
         /// <param name="externalUtilityStreamDto">The utility stream DTO containing updated information in external units.</param>
         public void UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto)
@@ -266,11 +268,11 @@ namespace HenViewModel.Profile.Streams
                 Console.WriteLine($"Error retrieving utility stream: {ex.Message}");
             }
         }
-        #endregion  // UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto)
+        #endregion  // UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... UPDATE
 
-        #region DeleteUtilityStream(Guid utilityStreamId)
+        #region DeleteUtilityStream(Guid utilityStreamId) ... DELETE
         /// <summary>
-        /// Deletes the utility stream with the specified unique identifier.
+        /// Deletes (DELETE) the utility stream with the specified unique identifier.
         /// </summary>
         /// <param name="utilityStreamId">The unique identifier of the utility stream to delete.</param>
         public void DeleteUtilityStream(Guid utilityStreamId)
@@ -284,7 +286,10 @@ namespace HenViewModel.Profile.Streams
                 Console.WriteLine($"Error retrieving utility stream: {ex.Message}");
             }
         }
-        #endregion  // DeleteUtilityStream(Guid utilityStreamId)
+        #endregion  // DeleteUtilityStream(Guid utilityStreamId) ... DELETE
+
+        #endregion  // UTILITY STREAM CRUD METHODS
+
     }
     #endregion      // public class UtilityStreamViewModel
 }

@@ -49,7 +49,7 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
 {
     #region public class ExchangerParamsViewModel
     /// <summary>
-    /// Project view model class.
+    /// Exchanger Params view model class.
     /// </summary>
     public class ExchangerParamsViewModel : ViewModelBase
     {
@@ -102,10 +102,10 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
                                             ConvertFromExternalU(externalExchangerParamsDto.DefaultHeatTransferCoefficient);
                 internalExchangerParamsDto.DefaultCorrectionFactor = externalExchangerParamsDto.DefaultCorrectionFactor;
 
-                //--------------------------------------------------------------------------------------
-                //--- Add INTERNAL Project Dto to the Database using the ExchangerParamsRepo Object  ---
-                //--- Returns the Project ID (PK) from the Project Table database addition           ---
-                //--------------------------------------------------------------------------------------
+                //----------------------------------------------------------------------------------------------
+                //--- Add INTERNAL ExchangerParams Dto to the Database using the ExchangerParamsRepo Object  ---
+                //--- Returns the Exchanger Params ID (PK) from the Exchanger Params Table database addition ---
+                //----------------------------------------------------------------------------------------------
                 exchangerParamsID = ExchangerParamsRepoObj.AddExchangerParams(internalExchangerParamsDto);
             }
             catch (Exception ex)

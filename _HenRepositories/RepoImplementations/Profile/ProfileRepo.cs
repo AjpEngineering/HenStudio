@@ -121,11 +121,11 @@ namespace HenModel.RepoImplementations.Profile
         }
         #endregion      // CTOR
 
-        #region METHODS
+        #region PROFILE CRUD METHODS
 
-        #region AddProfile()
+        #region AddProfile() ... CREATE
         /// <summary>
-        /// Adds a new profile to the data store.
+        /// Adds (CREATE) a new profile to the data store.
         /// </summary>
         /// <param name="profileDto">The profile data to insert.</param>
         /// <returns>The unique identifier of the inserted profile.</returns>
@@ -162,11 +162,11 @@ namespace HenModel.RepoImplementations.Profile
                 }
             }
         }
-        #endregion      // AddProfile()
+        #endregion      // AddProfile() ... CREATE
 
-        #region GetProfiles()
+        #region GetProfiles() ... READ
         /// <summary>
-        /// Retrieves all profiles from the data store.
+        /// Retrieves (READ) all profiles from the data store.
         /// </summary>
         /// <returns>A list of <see cref="ProfileDto"/> objects representing all profiles. 
         /// The list is empty if no profiles are found.</returns>
@@ -211,11 +211,11 @@ namespace HenModel.RepoImplementations.Profile
             }
             return profiles;
         }
-        #endregion      // GetProfiles()
+        #endregion      // GetProfiles() ... READ
 
-        #region GetProfilesByProjectId()
+        #region GetProfilesByProjectId() ... READ
         /// <summary>
-        /// Retrieves all profiles for the specified project from the data store.
+        /// Retrieves (READ) all profiles for the specified project from the data store.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose profiles are to be retrieved.</param>
         /// <returns>A list of <see cref="ProfileDto"/> objects representing the matching profiles. 
@@ -263,11 +263,11 @@ namespace HenModel.RepoImplementations.Profile
             }
             return profiles;
         }
-        #endregion      // GetProfilesByProjectId()
+        #endregion      // GetProfilesByProjectId() ... READ
 
-        #region GetProfileById()
+        #region GetProfileById() ... READ
         /// <summary>
-        /// Retrieves a profile from the data store by its identifier.
+        /// Retrieves (READ) a profile from the data store by its identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile to retrieve.</param>
         /// <returns>A <see cref="ProfileDto"/> object representing the requested profile, 
@@ -308,11 +308,11 @@ namespace HenModel.RepoImplementations.Profile
                 }
             }
         }
-        #endregion      // GetProfileById()
+        #endregion      // GetProfileById() ... READ
 
-        #region GetProfileByName()
+        #region GetProfileByName() ... READ
         /// <summary>
-        /// Retrieves a profile from the data store by its project identifier and name.
+        /// Retrieves (READ) a profile from the data store by its project identifier and name.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project that owns the profile.</param>
         /// <param name="profileName">The profile name to retrieve.</param>
@@ -361,11 +361,11 @@ namespace HenModel.RepoImplementations.Profile
                 }
             }
         }
-        #endregion      // GetProfileByName()
+        #endregion      // GetProfileByName() ... READ
 
-        #region UpdateProfile()
+        #region UpdateProfile() ... UPDATE
         /// <summary>
-        /// Updates an existing profile in the data store.
+        /// Updates (UPDATE) an existing profile in the data store.
         /// </summary>
         /// <param name="profileDto">The profile data to update.</param>
         public void UpdateProfile(ProfileDto profileDto)
@@ -397,11 +397,11 @@ namespace HenModel.RepoImplementations.Profile
                 }
             }
         }
-        #endregion      // UpdateProfile()
+        #endregion      // UpdateProfile() ... UPDATE
 
-        #region DeleteProfile()
+        #region DeleteProfile() ... DELETE
         /// <summary>
-        /// Deletes a profile from the data store by its identifier.
+        /// Deletes (DELETE) a profile from the data store by its identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile to delete.</param>
         public void DeleteProfile(Guid profileId)
@@ -422,9 +422,9 @@ namespace HenModel.RepoImplementations.Profile
                 }
             }
         }
-        #endregion      // DeleteProfile()
+        #endregion      // DeleteProfile() ... DELETE
 
-        #endregion      // METHODS
+        #endregion      // PROFILE CRUD METHODS
     }
     #endregion      // public class ProfileRepo
 }

@@ -125,7 +125,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
         }
         #endregion      // CTOR
 
-        #region METHODS
+        #region PROCESS STREAM CRUD METHODS
 
         #region AddProcessStream() ... CREATE
         /// <summary>
@@ -492,7 +492,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
         }
         #endregion      // DeleteProcessStream() .... DELETE
 
-        #endregion      // METHODS
+        #endregion      // PROCESS STREAM CRUD METHODS
     }
     #endregion      // public class ProcessStreamRepo
 }

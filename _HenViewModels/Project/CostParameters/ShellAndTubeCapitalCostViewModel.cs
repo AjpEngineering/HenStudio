@@ -8,7 +8,7 @@
 //  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the view model class for the Shell and Tube Capital Cost Project-Cost Parameters View Model.
+//    This file contains the view model class for the Shell and Tube Capital Cost Parameters View Model.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -78,9 +78,9 @@ namespace HenViewModel.Project.CostParameters
         /// <summary>
         /// Adds (CREATE) a new shell and tube capital cost to the database using the specified DTO.
         /// </summary>
-        /// <param name="shellAndTubeCapitalCostDto">The shell and tube capital cost data to add.</param>
+        /// <param name="externalShellAndTubeCapitalCostDto">The shell and tube capital cost data to add.</param>
         /// <returns>A GUID representing the unique identifier of the newly added shell and tube capital cost.</returns>
-        public Guid AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDto)
+        public Guid AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto externalShellAndTubeCapitalCostDto)
         {
             Guid shellAndTubeCapitalCostId = new Guid();
             try
@@ -92,15 +92,16 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalShellAndTubeCapitalCostDto.Id = shellAndTubeCapitalCostDto.Id;
-                internalShellAndTubeCapitalCostDto.ProjectId = shellAndTubeCapitalCostDto.ProjectId;
-                internalShellAndTubeCapitalCostDto.ParameterA = shellAndTubeCapitalCostDto.ParameterA;
-                internalShellAndTubeCapitalCostDto.ParameterB_Metric = shellAndTubeCapitalCostDto.ParameterB_Metric;
-                internalShellAndTubeCapitalCostDto.ParameterB_English = shellAndTubeCapitalCostDto.ParameterB_English;
-                internalShellAndTubeCapitalCostDto.ParameterN = shellAndTubeCapitalCostDto.ParameterN;
-                internalShellAndTubeCapitalCostDto.MaterialFactor = shellAndTubeCapitalCostDto.MaterialFactor;
-                internalShellAndTubeCapitalCostDto.AreaUnits_Metric = shellAndTubeCapitalCostDto.AreaUnits_Metric;
-                internalShellAndTubeCapitalCostDto.AreaUnits_English = shellAndTubeCapitalCostDto.AreaUnits_English;
+                internalShellAndTubeCapitalCostDto.Id        = externalShellAndTubeCapitalCostDto.Id;
+                internalShellAndTubeCapitalCostDto.ProjectId = externalShellAndTubeCapitalCostDto.ProjectId;
+
+                internalShellAndTubeCapitalCostDto.ParameterA         = externalShellAndTubeCapitalCostDto.ParameterA;
+                internalShellAndTubeCapitalCostDto.ParameterB_Metric  = externalShellAndTubeCapitalCostDto.ParameterB_Metric;
+                internalShellAndTubeCapitalCostDto.ParameterB_English = externalShellAndTubeCapitalCostDto.ParameterB_English;
+                internalShellAndTubeCapitalCostDto.ParameterN         = externalShellAndTubeCapitalCostDto.ParameterN;
+                internalShellAndTubeCapitalCostDto.MaterialFactor     = externalShellAndTubeCapitalCostDto.MaterialFactor;
+                internalShellAndTubeCapitalCostDto.AreaUnits_Metric   = externalShellAndTubeCapitalCostDto.AreaUnits_Metric;
+                internalShellAndTubeCapitalCostDto.AreaUnits_English  = externalShellAndTubeCapitalCostDto.AreaUnits_English;
                 //-------------------------------------------------------------------------------------------------------------
                 //--- Add INTERNAL ShellAndTubeCapitalCost Dto to the Database using the ShellAndTubeCapitalCostRepo Object ---
                 //--- Returns the ShellAndTubeCapitalCost ID (PK) from the ShellAndTubeCapitalCost Table database addition  ---
@@ -141,15 +142,16 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalShellAndTubeCapitalCostDto.Id = internalShellAndTubeCapitalCostDto.Id;
+                externalShellAndTubeCapitalCostDto.Id        = internalShellAndTubeCapitalCostDto.Id;
                 externalShellAndTubeCapitalCostDto.ProjectId = internalShellAndTubeCapitalCostDto.ProjectId;
-                externalShellAndTubeCapitalCostDto.ParameterA = internalShellAndTubeCapitalCostDto.ParameterA;
-                externalShellAndTubeCapitalCostDto.ParameterB_Metric = internalShellAndTubeCapitalCostDto.ParameterB_Metric;
+
+                externalShellAndTubeCapitalCostDto.ParameterA         = internalShellAndTubeCapitalCostDto.ParameterA;
+                externalShellAndTubeCapitalCostDto.ParameterB_Metric  = internalShellAndTubeCapitalCostDto.ParameterB_Metric;
                 externalShellAndTubeCapitalCostDto.ParameterB_English = internalShellAndTubeCapitalCostDto.ParameterB_English;
-                externalShellAndTubeCapitalCostDto.ParameterN = internalShellAndTubeCapitalCostDto.ParameterN;
-                externalShellAndTubeCapitalCostDto.MaterialFactor = internalShellAndTubeCapitalCostDto.MaterialFactor;
-                externalShellAndTubeCapitalCostDto.AreaUnits_Metric = internalShellAndTubeCapitalCostDto.AreaUnits_Metric;
-                externalShellAndTubeCapitalCostDto.AreaUnits_English = internalShellAndTubeCapitalCostDto.AreaUnits_English;
+                externalShellAndTubeCapitalCostDto.ParameterN         = internalShellAndTubeCapitalCostDto.ParameterN;
+                externalShellAndTubeCapitalCostDto.MaterialFactor     = internalShellAndTubeCapitalCostDto.MaterialFactor;
+                externalShellAndTubeCapitalCostDto.AreaUnits_Metric   = internalShellAndTubeCapitalCostDto.AreaUnits_Metric;
+                externalShellAndTubeCapitalCostDto.AreaUnits_English  = internalShellAndTubeCapitalCostDto.AreaUnits_English;
             }
             catch (Exception ex)
             {
@@ -163,14 +165,17 @@ namespace HenViewModel.Project.CostParameters
 
         #region UpdateShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto externalShellAndTubeCapitalCostDto) ... UPDATE
         /// <summary>
-        /// Updates (UPDATE) an existing shell and tube capital cost in the database using the specified shell and tube capital cost data transfer object (DTO) 
-        /// with external units.
+        /// Updates (UPDATE) an existing shell and tube capital cost in the database using the 
+        /// specified shell and tube capital cost data transfer object (DTO) with external units.
         /// </summary>
         /// <remarks>This method converts the provided shell and tube capital cost data from external units to the internal
-        /// units required by the database before updating the cost metadata. If the specified cost metadata does not exist,
-        /// the behavior depends on the repository implementation.</remarks>
-        /// <param name="externalShellAndTubeCapitalCostDto">The shell and tube capital cost data transfer object containing updated shell and tube capital cost 
-        /// information in external units. Cannot be null.</param>
+        /// units required by the database before updating the shell and tube capital cost. 
+        /// If the specified shell and tube capital cost does not exist,
+        /// the behavior depends on the repository implementation.
+        /// </remarks>
+        /// <param name="externalShellAndTubeCapitalCostDto">The shell and tube capital cost data transfer object 
+        /// containing updated shell and tube capital cost information in external units. Cannot be null.
+        /// </param>
         public void UpdateShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto externalShellAndTubeCapitalCostDto)
         {
             try
@@ -182,15 +187,16 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalShellAndTubeCapitalCostDto.Id = externalShellAndTubeCapitalCostDto.Id;
+                internalShellAndTubeCapitalCostDto.Id        = externalShellAndTubeCapitalCostDto.Id;
                 internalShellAndTubeCapitalCostDto.ProjectId = externalShellAndTubeCapitalCostDto.ProjectId;
-                internalShellAndTubeCapitalCostDto.ParameterA = externalShellAndTubeCapitalCostDto.ParameterA;
-                internalShellAndTubeCapitalCostDto.ParameterB_Metric = externalShellAndTubeCapitalCostDto.ParameterB_Metric;
+
+                internalShellAndTubeCapitalCostDto.ParameterA         = externalShellAndTubeCapitalCostDto.ParameterA;
+                internalShellAndTubeCapitalCostDto.ParameterB_Metric  = externalShellAndTubeCapitalCostDto.ParameterB_Metric;
                 internalShellAndTubeCapitalCostDto.ParameterB_English = externalShellAndTubeCapitalCostDto.ParameterB_English;
-                internalShellAndTubeCapitalCostDto.ParameterN = externalShellAndTubeCapitalCostDto.ParameterN;
-                internalShellAndTubeCapitalCostDto.MaterialFactor = externalShellAndTubeCapitalCostDto.MaterialFactor;
-                internalShellAndTubeCapitalCostDto.AreaUnits_Metric = externalShellAndTubeCapitalCostDto.AreaUnits_Metric;
-                internalShellAndTubeCapitalCostDto.AreaUnits_English = externalShellAndTubeCapitalCostDto.AreaUnits_English;
+                internalShellAndTubeCapitalCostDto.ParameterN         = externalShellAndTubeCapitalCostDto.ParameterN;
+                internalShellAndTubeCapitalCostDto.MaterialFactor     = externalShellAndTubeCapitalCostDto.MaterialFactor;
+                internalShellAndTubeCapitalCostDto.AreaUnits_Metric   = externalShellAndTubeCapitalCostDto.AreaUnits_Metric;
+                internalShellAndTubeCapitalCostDto.AreaUnits_English  = externalShellAndTubeCapitalCostDto.AreaUnits_English;
                 //-----------------------------------------------------------------------
                 //--- UPDATE INTERNAL Shell and Tube Capital Cost Dto to the Database ---
                 //--- The Shell and Tube Capital Cost to be updated is identified by  ---

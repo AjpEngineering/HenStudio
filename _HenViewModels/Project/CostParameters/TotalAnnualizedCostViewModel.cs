@@ -8,7 +8,7 @@
 //  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the view model class for the Total Annualized Cost Project-Cost Parameters View Model.
+//    This file contains the view model class for the Total Annualized Cost Parameters View Model.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -78,9 +78,9 @@ namespace HenViewModel.Project.CostParameters
         /// <summary>
         /// Adds (CREATE) a new total annualized cost to the database using the specified DTO.
         /// </summary>
-        /// <param name="totalAnnualizedCostDto">The total annualized cost data to add.</param>
+        /// <param name="externalTotalAnnualizedCostDto">The total annualized cost data to add.</param>
         /// <returns>A GUID representing the unique identifier of the newly added total annualized cost.</returns>
-        public Guid AddTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto)
+        public Guid AddTotalAnnualizedCost(TotalAnnualizedCostDto externalTotalAnnualizedCostDto)
         {
             Guid totalAnnualizedCostId = new Guid();
             try
@@ -92,12 +92,13 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalTotalAnnualizedCostDto.Id = totalAnnualizedCostDto.Id;
-                internalTotalAnnualizedCostDto.ProjectId = totalAnnualizedCostDto.ProjectId;
-                internalTotalAnnualizedCostDto.TAC_InterestRate = totalAnnualizedCostDto.TAC_InterestRate;
-                internalTotalAnnualizedCostDto.TAC_LifeYears = totalAnnualizedCostDto.TAC_LifeYears;
-                internalTotalAnnualizedCostDto.TAC_MaintenanceFraction = totalAnnualizedCostDto.TAC_MaintenanceFraction;
-                internalTotalAnnualizedCostDto.TAC_OperatingHours = totalAnnualizedCostDto.TAC_OperatingHours;
+                internalTotalAnnualizedCostDto.Id        = externalTotalAnnualizedCostDto.Id;
+                internalTotalAnnualizedCostDto.ProjectId = externalTotalAnnualizedCostDto.ProjectId;
+
+                internalTotalAnnualizedCostDto.TAC_InterestRate        = externalTotalAnnualizedCostDto.TAC_InterestRate;
+                internalTotalAnnualizedCostDto.TAC_LifeYears           = externalTotalAnnualizedCostDto.TAC_LifeYears;
+                internalTotalAnnualizedCostDto.TAC_MaintenanceFraction = externalTotalAnnualizedCostDto.TAC_MaintenanceFraction;
+                internalTotalAnnualizedCostDto.TAC_OperatingHours      = externalTotalAnnualizedCostDto.TAC_OperatingHours;
                 //-----------------------------------------------------------------------------------------------------
                 //--- Add INTERNAL TotalAnnualizedCost Dto to the Database using the TotalAnnualizedCostRepo Object ---
                 //--- Returns the TotalAnnualizedCost ID (PK) from the TotalAnnualizedCost Table database addition  ---
@@ -138,12 +139,13 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalTotalAnnualizedCostDto.Id = internalTotalAnnualizedCostDto.Id;
+                externalTotalAnnualizedCostDto.Id        = internalTotalAnnualizedCostDto.Id;
                 externalTotalAnnualizedCostDto.ProjectId = internalTotalAnnualizedCostDto.ProjectId;
-                externalTotalAnnualizedCostDto.TAC_InterestRate = internalTotalAnnualizedCostDto.TAC_InterestRate;
-                externalTotalAnnualizedCostDto.TAC_LifeYears = internalTotalAnnualizedCostDto.TAC_LifeYears;
+
+                externalTotalAnnualizedCostDto.TAC_InterestRate        = internalTotalAnnualizedCostDto.TAC_InterestRate;
+                externalTotalAnnualizedCostDto.TAC_LifeYears           = internalTotalAnnualizedCostDto.TAC_LifeYears;
                 externalTotalAnnualizedCostDto.TAC_MaintenanceFraction = internalTotalAnnualizedCostDto.TAC_MaintenanceFraction;
-                externalTotalAnnualizedCostDto.TAC_OperatingHours = internalTotalAnnualizedCostDto.TAC_OperatingHours;
+                externalTotalAnnualizedCostDto.TAC_OperatingHours      = internalTotalAnnualizedCostDto.TAC_OperatingHours;
             }
             catch (Exception ex)
             {
@@ -157,14 +159,16 @@ namespace HenViewModel.Project.CostParameters
 
         #region UpdateTotalAnnualizedCost(TotalAnnualizedCostDto externalTotalAnnualizedCostDto) ... UPDATE
         /// <summary>
-        /// Updates (UPDATE) an existing total annualized cost in the database using the specified total annualized cost data transfer object (DTO) 
-        /// with external units.
+        /// Updates (UPDATE) an existing total annualized cost in the database using the 
+        /// specified total annualized cost data transfer object (DTO) with external units.
         /// </summary>
-        /// <remarks>This method converts the provided total annualized cost data from external units to the internal
-        /// units required by the database before updating the cost metadata. If the specified cost metadata does not exist,
-        /// the behavior depends on the repository implementation.</remarks>
-        /// <param name="externalTotalAnnualizedCostDto">The total annualized cost data transfer object containing updated total annualized cost 
-        /// information in external units. Cannot be null.</param>
+        /// <remarks>This method converts the provided total annualized cost data from external units to the 
+        /// internal units required by the database before updating the total annualized cost. 
+        /// If the specified total annualized cost does not exist, the behavior depends on the 
+        /// repository implementation.
+        /// </remarks>
+        /// <param name="externalTotalAnnualizedCostDto">The total annualized cost data transfer object 
+        /// containing updated total annualized cost information in external units. Cannot be null.</param>
         public void UpdateTotalAnnualizedCost(TotalAnnualizedCostDto externalTotalAnnualizedCostDto)
         {
             try

@@ -120,7 +120,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
         }
         #endregion      // CTOR
 
-        #region METHODS
+        #region UTILITY STREAM CRUD METHODS
 
         #region AddUtilityStream() ... CREATE
         /// <summary>
@@ -454,7 +454,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
         }
         #endregion      // DeleteUtilityStream() ... DELETE
 
-        #endregion      // METHODS
+        #endregion      // UTILITY STREAM CRUD METHODS
     }
     #endregion      // public class UtilityStreamRepo
 }

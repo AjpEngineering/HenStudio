@@ -101,10 +101,10 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
                 internalProjectUnitsDto.DefaultMagnitudeUnits = externalProjectUnitsDto.DefaultMagnitudeUnits;
                 internalProjectUnitsDto.DefaultTemperatureUnits = externalProjectUnitsDto.DefaultTemperatureUnits;
                 internalProjectUnitsDto.DefaultPressureUnits = externalProjectUnitsDto.DefaultPressureUnits;
-                //----------------------------------------------------------------------------
-                //--- Add INTERNAL Project Dto to the Database using the Repository Layer  ---
-                //--- Returns the Project ID (PK) from the Project Table database addition ---
-                //----------------------------------------------------------------------------
+                //----------------------------------------------------------------------------------------
+                //--- Add INTERNAL ProjectUnits Dto to the Database using the ProjectUnitsRepo Object  ---
+                //--- Returns the ProjectUnits ID (PK) from the ProjectUnits Table database addition   ---
+                //----------------------------------------------------------------------------------------
                 projectUnitsID = ProjectUnitsRepoObj.AddProjectUnits(internalProjectUnitsDto);
             }
             catch (Exception ex)
@@ -118,7 +118,7 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
 
         #region GetProjectUnitsByProjectId(Guid projectId) ... READ
         /// <summary>
-        /// Retrieves (READ) the Project Dto associated with the specified unique identifier.
+        /// Retrieves (READ) the Project Units Dto associated with the specified unique identifier.
         /// The project retrieved from the Database is in INTERNAL Units, 
         /// database access performed by the repository layer, 
         /// the fields of the project are converted to EXTERNAL Units, which are the units used in the user interface,
@@ -132,10 +132,10 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
             ProjectUnitsDto externalProjectUnitsDto = new ProjectUnitsDto();
             try
             {
-                //------------------------------------------------------------------------------------------------
-                //--- Retrieve Project Dto from the Database using the Repository layer                        ---
-                //--- The retrieved Project Dto is in INTERNAL Units, which are the units used in the database ---
-                //------------------------------------------------------------------------------------------------
+                //------------------------------------------------------------------------------------------------------
+                //--- Retrieve Project Units Dto from the Database using the Repository layer                        ---
+                //--- The retrieved Project Units Dto is in INTERNAL Units, which are the units used in the database ---
+                //------------------------------------------------------------------------------------------------------
                 ProjectUnitsDto internalProjectUnits = ProjectUnitsRepoObj.GetProjectUnitsByProjectId(projectId);
 
                 //-------------------------------------------------
@@ -161,13 +161,13 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
 
         #region UpdateProjectUnits(ProjectUnitsDto externalProjectUnitsDto) ... UPDATE
         /// <summary>
-        /// Updates (UPDATE) an existing project in the database using the specified project data transfer object (DTO) 
-        /// with external units.
+        /// Updates (UPDATE) an existing project units in the database using the 
+        /// specified project units data transfer object (DTO) with external units.
         /// </summary>
-        /// <remarks>This method converts the provided project data from external units to the internal
-        /// units required by the database before updating the project. If the specified project does not exist,
+        /// <remarks>This method converts the provided project units data from external units to the internal
+        /// units required by the database before updating the project units. If the specified project units does not exist,
         /// the behavior depends on the repository implementation.</remarks>
-        /// <param name="externalProjectDto">The project data transfer object containing updated project 
+        /// <param name="externalProjectUnitsDto">The project units data transfer object containing updated project units 
         /// information in external units. Cannot be null.</param>
         public void UpdateProjectUnits(ProjectUnitsDto externalProjectUnitsDto)
         {
@@ -186,9 +186,9 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
                 internalProjectUnitsDto.DefaultMagnitudeUnits = externalProjectUnitsDto.DefaultMagnitudeUnits;
                 internalProjectUnitsDto.DefaultTemperatureUnits = externalProjectUnitsDto.DefaultTemperatureUnits;
                 internalProjectUnitsDto.DefaultPressureUnits = externalProjectUnitsDto.DefaultPressureUnits;
-                //-------------------------------------------------------------------------------------
-                //--- UPDATE INTERNAL Project Dto to the Database using the ProjectUnitsRepo Object ---
-                //-------------------------------------------------------------------------------------
+                //-------------------------------------------------------------------------------------------
+                //--- UPDATE INTERNAL Project Units Dto to the Database using the ProjectUnitsRepo Object ---
+                //-------------------------------------------------------------------------------------------
                 ProjectUnitsRepoObj.UpdateProjectUnits(internalProjectUnitsDto);
             }
             catch (Exception ex)

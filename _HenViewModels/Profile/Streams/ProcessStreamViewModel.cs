@@ -138,9 +138,33 @@ namespace HenViewModel.Profile.Streams
 
         #endregion      // PRIVATE METHODS
 
-        #region GetProcessStreams()
+        #region PROCESS STREAM CRUD METHODS
+
+        #region AddProcessStream(ProcessStreamDto externalProcessStreamDto) ... CREATE
         /// <summary>
-        /// Retrieves a list of all ProcessStreams in external units.
+        /// Adds (CREATE) a new process stream to the database using the specified DTO in external units.
+        /// </summary>
+        /// <param name="externalProcessStreamDto">The process stream data to add in external units.</param>
+        /// <returns>A GUID representing the unique identifier of the newly added process stream.</returns>
+        public Guid AddProcessStream(ProcessStreamDto externalProcessStreamDto)
+        {
+            Guid processStreamId = new Guid();
+            try
+            {
+                ProcessStreamDto internalProcessStreamDto = ConvertFromExternalProcessStream(externalProcessStreamDto);
+                processStreamId = ProcessStreamRepoObj.AddProcessStream(internalProcessStreamDto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving process stream: {ex.Message}");
+            }
+            return processStreamId;
+        }
+        #endregion  // AddProcessStream(ProcessStreamDto externalProcessStreamDto) ... CREATE
+
+        #region GetProcessStreams() ... READ
+        /// <summary>
+        /// Retrieves (READ) a list of all ProcessStreams in external units.
         /// </summary>
         /// <returns>A list of <see cref="ProcessStreamDto"/> objects representing the available process streams, or an empty list if none are found.</returns>
         public IList<ProcessStreamDto> GetProcessStreams()
@@ -160,11 +184,11 @@ namespace HenViewModel.Profile.Streams
             }
             return externalProcessStreams;
         }
-        #endregion  // GetProcessStreams()
+        #endregion  // GetProcessStreams() ... READ
 
-        #region GetProcessStreamsByProfileId(Guid profileId)
+        #region GetProcessStreamsByProfileId(Guid profileId) ... READ
         /// <summary>
-        /// Retrieves a list of all ProcessStreams associated with the specified profile identifier in external units.
+        /// Retrieves (READ) a list of all ProcessStreams associated with the specified profile identifier in external units.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile whose process streams are to be retrieved.</param>
         /// <returns>A list of <see cref="ProcessStreamDto"/> objects representing the matching process streams, or an empty list if none are found.</returns>
@@ -185,11 +209,11 @@ namespace HenViewModel.Profile.Streams
             }
             return externalProcessStreams;
         }
-        #endregion  // GetProcessStreamsByProfileId(Guid profileId)
+        #endregion  // GetProcessStreamsByProfileId(Guid profileId) ... READ
 
-        #region GetProcessStreamById(Guid processStreamId)
+        #region GetProcessStreamById(Guid processStreamId) ... READ
         /// <summary>
-        /// Retrieves the ProcessStream DTO associated with the specified unique identifier.
+        /// Retrieves (READ) the ProcessStream DTO associated with the specified unique identifier.
         /// </summary>
         /// <param name="processStreamId">The unique identifier of the process stream to retrieve.</param>
         /// <returns>A <see cref="ProcessStreamDto"/> representing the process stream with the specified identifier. Returns null if none is found.</returns>
@@ -206,11 +230,11 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetProcessStreamById(Guid processStreamId)
+        #endregion  // GetProcessStreamById(Guid processStreamId) ... READ
 
-        #region GetProcessStreamByStreamId(Guid profileId, string streamId)
+        #region GetProcessStreamByStreamId(Guid profileId, string streamId) ... READ
         /// <summary>
-        /// Retrieves a process stream by its profile identifier and stream identifier.
+        /// Retrieves (READ) a process stream by its profile identifier and stream identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile that owns the process stream.</param>
         /// <param name="streamId">The stream identifier of the process stream to retrieve.</param>
@@ -228,33 +252,11 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetProcessStreamByStreamId(Guid profileId, string streamId)
+        #endregion  // GetProcessStreamByStreamId(Guid profileId, string streamId) ... READ
 
-        #region AddProcessStream(ProcessStreamDto externalProcessStreamDto)
+        #region UpdateProcessStream(ProcessStreamDto externalProcessStreamDto) ... UPDATE
         /// <summary>
-        /// Adds a new process stream to the database using the specified DTO in external units.
-        /// </summary>
-        /// <param name="externalProcessStreamDto">The process stream data to add in external units.</param>
-        /// <returns>A GUID representing the unique identifier of the newly added process stream.</returns>
-        public Guid AddProcessStream(ProcessStreamDto externalProcessStreamDto)
-        {
-            Guid processStreamId = new Guid();
-            try
-            {
-                ProcessStreamDto internalProcessStreamDto = ConvertFromExternalProcessStream(externalProcessStreamDto);
-                processStreamId = ProcessStreamRepoObj.AddProcessStream(internalProcessStreamDto);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error retrieving process stream: {ex.Message}");
-            }
-            return processStreamId;
-        }
-        #endregion  // AddProcessStream(ProcessStreamDto externalProcessStreamDto)
-
-        #region UpdateProcessStream(ProcessStreamDto externalProcessStreamDto)
-        /// <summary>
-        /// Updates an existing process stream in the database using the specified DTO in external units.
+        /// Updates (UPDATE)an existing process stream in the database using the specified DTO in external units.
         /// </summary>
         /// <param name="externalProcessStreamDto">The process stream DTO containing updated information in external units.</param>
         public void UpdateProcessStream(ProcessStreamDto externalProcessStreamDto)
@@ -269,11 +271,11 @@ namespace HenViewModel.Profile.Streams
                 Console.WriteLine($"Error retrieving process stream: {ex.Message}");
             }
         }
-        #endregion  // UpdateProcessStream(ProcessStreamDto externalProcessStreamDto)
+        #endregion  // UpdateProcessStream(ProcessStreamDto externalProcessStreamDto) ... UPDATE
 
-        #region DeleteProcessStream(Guid processStreamId)
+        #region DeleteProcessStream(Guid processStreamId) ... DELETE
         /// <summary>
-        /// Deletes the process stream with the specified unique identifier.
+        /// Deletes (DELETE) the process stream with the specified unique identifier.
         /// </summary>
         /// <param name="processStreamId">The unique identifier of the process stream to delete.</param>
         public void DeleteProcessStream(Guid processStreamId)
@@ -287,7 +289,10 @@ namespace HenViewModel.Profile.Streams
                 Console.WriteLine($"Error retrieving process stream: {ex.Message}");
             }
         }
-        #endregion  // DeleteProcessStream(Guid processStreamId)
+        #endregion  // DeleteProcessStream(Guid processStreamId) ... DELETE
+
+        #endregion  // PROCESS STREAM CRUD METHODS
+
     }
     #endregion      // public class ProcessStreamViewModel
 }

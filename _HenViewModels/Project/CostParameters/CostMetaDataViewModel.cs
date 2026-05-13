@@ -8,7 +8,7 @@
 //  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the view model class for the Cost Metadata Project-Cost Parameters View Model.
+//    This file contains the view model class for the Cost Metadata Parameters View Model.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -78,9 +78,9 @@ namespace HenViewModel.Project.CostParameters
         /// <summary>
         /// Adds (CREATE) a new cost metadata to the database using the specified DTO.
         /// </summary>
-        /// <param name="costMetadataDto">The cost metadata data to add.</param>
+        /// <param name="externalCostMetadataDto">The cost metadata data to add.</param>
         /// <returns>A GUID representing the unique identifier of the newly added cost metadata.</returns>
-        public Guid AddCostMetadata(CostMetadataDto costMetadataDto)
+        public Guid AddCostMetadata(CostMetadataDto externalCostMetadataDto)
         {
             Guid costMetadataId = new Guid();
             try
@@ -92,17 +92,18 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalCostMetadataDto.Id = costMetadataDto.Id;
-                internalCostMetadataDto.ProjectId = costMetadataDto.ProjectId;
-                internalCostMetadataDto.CostIndexBaseYear = costMetadataDto.CostIndexBaseYear;
-                internalCostMetadataDto.CostIndexName = costMetadataDto.CostIndexName;
-                internalCostMetadataDto.CostIndexValue = costMetadataDto.CostIndexValue;
-                internalCostMetadataDto.CostIndexCurrency = costMetadataDto.CostIndexCurrency;
-                internalCostMetadataDto.CostIndexInstalledCost = costMetadataDto.CostIndexInstalledCost;
-                //---------------------------------------------------------------------------------------------
+                internalCostMetadataDto.Id        = externalCostMetadataDto.Id;
+                internalCostMetadataDto.ProjectId = externalCostMetadataDto.ProjectId;
+
+                internalCostMetadataDto.CostIndexBaseYear      = externalCostMetadataDto.CostIndexBaseYear;
+                internalCostMetadataDto.CostIndexName          = externalCostMetadataDto.CostIndexName;
+                internalCostMetadataDto.CostIndexValue         = externalCostMetadataDto.CostIndexValue;
+                internalCostMetadataDto.CostIndexCurrency      = externalCostMetadataDto.CostIndexCurrency;
+                internalCostMetadataDto.CostIndexInstalledCost = externalCostMetadataDto.CostIndexInstalledCost;
+                //---------------------------------------------------------------------------------------
                 //--- Add INTERNAL CostMetadata Dto to the Database using the CostMetadataRepo Object ---
                 //--- Returns the CostMetadata ID (PK) from the CostMetadata Table database addition  ---
-                //---------------------------------------------------------------------------------------------
+                //---------------------------------------------------------------------------------------
                 costMetadataId = CostMetadataRepoObj.AddCostMetadata(internalCostMetadataDto);
             }
             catch (Exception ex)
@@ -116,9 +117,9 @@ namespace HenViewModel.Project.CostParameters
         #region GetCostMetadataByProjectId(Guid projectId) ... READ
         /// <summary>
         /// Retrieves (READ) the CostMetadata Dto associated with the specified unique identifier.
-        /// The CostMetadata retrieved from the Database is in INTERNAL Units, 
-        /// database access performed by the repository layer, 
-        /// the fields of the CostMetadata are converted to EXTERNAL Units, which are the units used in the user interface,
+        /// The CostMetadata retrieved from the Database is in INTERNAL Units, database access 
+        /// performed by the repository layer, the fields of the CostMetadata are converted to 
+        /// EXTERNAL Units, which are the units used in the user interface, 
         /// the resulting CostMetadata Dto is returned as a <see cref="CostMetadataDto"/> object.
         /// </summary>
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
@@ -140,12 +141,13 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalCostMetadataDto.Id = internalCostMetadata.Id;
+                externalCostMetadataDto.Id        = internalCostMetadata.Id;
                 externalCostMetadataDto.ProjectId = internalCostMetadata.ProjectId;
-                externalCostMetadataDto.CostIndexBaseYear = internalCostMetadata.CostIndexBaseYear;
-                externalCostMetadataDto.CostIndexName = internalCostMetadata.CostIndexName;
-                externalCostMetadataDto.CostIndexValue = internalCostMetadata.CostIndexValue;
-                externalCostMetadataDto.CostIndexCurrency = internalCostMetadata.CostIndexCurrency;
+
+                externalCostMetadataDto.CostIndexBaseYear      = internalCostMetadata.CostIndexBaseYear;
+                externalCostMetadataDto.CostIndexName          = internalCostMetadata.CostIndexName;
+                externalCostMetadataDto.CostIndexValue         = internalCostMetadata.CostIndexValue;
+                externalCostMetadataDto.CostIndexCurrency      = internalCostMetadata.CostIndexCurrency;
                 externalCostMetadataDto.CostIndexInstalledCost = internalCostMetadata.CostIndexInstalledCost;
             }
             catch (Exception ex)
@@ -160,11 +162,12 @@ namespace HenViewModel.Project.CostParameters
 
         #region UpdateCostMetadata(CostMetadataDto externalCostMetadataDto) ... UPDATE
         /// <summary>
-        /// Updates (UPDATE) an existing cost metadata in the database using the specified cost metadata data transfer object (DTO) 
-        /// with external units.
+        /// Updates (UPDATE) an existing cost metadata in the database using the 
+        /// specified cost metadata data transfer object (DTO) with external units.
         /// </summary>
-        /// <remarks>This method converts the provided cost metadata data from external units to the internal
-        /// units required by the database before updating the cost metadata. If the specified cost metadata does not exist,
+        /// <remarks>This method converts the provided cost metadata data 
+        /// from external units to the internal units required by the database before 
+        /// updating the cost metadata. If the specified cost metadata does not exist,
         /// the behavior depends on the repository implementation.</remarks>
         /// <param name="externalCostMetadataDto">The cost metadata data transfer object containing updated cost metadata 
         /// information in external units. Cannot be null.</param>
@@ -179,12 +182,13 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalCostMetadataDto.Id = externalCostMetadataDto.Id;
+                internalCostMetadataDto.Id        = externalCostMetadataDto.Id;
                 internalCostMetadataDto.ProjectId = externalCostMetadataDto.ProjectId;
-                internalCostMetadataDto.CostIndexBaseYear = externalCostMetadataDto.CostIndexBaseYear;
-                internalCostMetadataDto.CostIndexName = externalCostMetadataDto.CostIndexName;
-                internalCostMetadataDto.CostIndexValue = externalCostMetadataDto.CostIndexValue;
-                internalCostMetadataDto.CostIndexCurrency = externalCostMetadataDto.CostIndexCurrency;
+
+                internalCostMetadataDto.CostIndexBaseYear      = externalCostMetadataDto.CostIndexBaseYear;
+                internalCostMetadataDto.CostIndexName          = externalCostMetadataDto.CostIndexName;
+                internalCostMetadataDto.CostIndexValue         = externalCostMetadataDto.CostIndexValue;
+                internalCostMetadataDto.CostIndexCurrency      = externalCostMetadataDto.CostIndexCurrency;
                 internalCostMetadataDto.CostIndexInstalledCost = externalCostMetadataDto.CostIndexInstalledCost;
                 //---------------------------------------------------------
                 //--- UPDATE INTERNAL Cost Metadata Dto to the Database ---

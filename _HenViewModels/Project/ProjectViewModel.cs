@@ -126,7 +126,11 @@ namespace HenViewModel.Project
         /// representing the available projects, or an empty list if no projects found.</returns>
         public IList<ProjectDto> GetProjects()
         {
-            List<ProjectDto> externalProjects = new List<ProjectDto>(); // List of Project Dtos [EXTERNAL Units]
+            //---------------------------------------------------------------
+            //--- List to Hold Projects to be Returned to the Caller      ---
+            //--- This List will Contain Project Dtos with EXTERNAL Units ---
+            //---------------------------------------------------------------
+            List<ProjectDto> externalProjects = new List<ProjectDto>();
             try
             {
                 //-----------------------------------------------------------------------------
@@ -306,7 +310,7 @@ namespace HenViewModel.Project
             catch (Exception ex)
             {
                 // Handle exceptions (e.g., log the error, rethrow, or return null)
-                Console.WriteLine($"Error retrieving project: {ex.Message}");
+                Console.WriteLine($"Error deleting project: {ex.Message}");
             }
         }
         #endregion  // DeleteProject(Guid projectId) ... DELETE

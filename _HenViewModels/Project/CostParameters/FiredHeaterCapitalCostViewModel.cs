@@ -8,7 +8,7 @@
 //  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the view model class for the Fired Heater Capital Cost Project-Cost Parameters View Model.
+//    This file contains the view model class for the Fired Heater Capital Cost Parameters View Model.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -92,14 +92,15 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalFiredHeaterCapitalCostDto.Id = firedHeaterCapitalCostDto.Id;
+                internalFiredHeaterCapitalCostDto.Id        = firedHeaterCapitalCostDto.Id;
                 internalFiredHeaterCapitalCostDto.ProjectId = firedHeaterCapitalCostDto.ProjectId;
-                internalFiredHeaterCapitalCostDto.ParameterAlpha_Metric = firedHeaterCapitalCostDto.ParameterAlpha_Metric;
+
+                internalFiredHeaterCapitalCostDto.ParameterAlpha_Metric  = firedHeaterCapitalCostDto.ParameterAlpha_Metric;
                 internalFiredHeaterCapitalCostDto.ParameterAlpha_English = firedHeaterCapitalCostDto.ParameterAlpha_English;
-                internalFiredHeaterCapitalCostDto.ParameterBeta = firedHeaterCapitalCostDto.ParameterBeta;
-                internalFiredHeaterCapitalCostDto.Efficiency = firedHeaterCapitalCostDto.Efficiency;
-                internalFiredHeaterCapitalCostDto.DutyUnits_Metric = firedHeaterCapitalCostDto.DutyUnits_Metric;
-                internalFiredHeaterCapitalCostDto.DutyUnits_English = firedHeaterCapitalCostDto.DutyUnits_English;
+                internalFiredHeaterCapitalCostDto.ParameterBeta          = firedHeaterCapitalCostDto.ParameterBeta;
+                internalFiredHeaterCapitalCostDto.Efficiency             = firedHeaterCapitalCostDto.Efficiency;
+                internalFiredHeaterCapitalCostDto.DutyUnits_Metric       = firedHeaterCapitalCostDto.DutyUnits_Metric;
+                internalFiredHeaterCapitalCostDto.DutyUnits_English      = firedHeaterCapitalCostDto.DutyUnits_English;
                 //-----------------------------------------------------------------------------------------------------------
                 //--- Add INTERNAL FiredHeaterCapitalCost Dto to the Database using the FiredHeaterCapitalCostRepo Object ---
                 //--- Returns the FiredHeaterCapitalCost ID (PK) from the FiredHeaterCapitalCost Table database addition  ---
@@ -130,24 +131,25 @@ namespace HenViewModel.Project.CostParameters
             FiredHeaterCapitalCostDto externalFiredHeaterCapitalCostDto = new FiredHeaterCapitalCostDto();
             try
             {
-                //----------------------------------------------------------------
-                //--- Retrieve FiredHeaterCapitalCost Dto from the Database.    ---
+                //--------------------------------------------------------------------------
+                //--- Retrieve FiredHeaterCapitalCost Dto from the Database.             ---
                 //--- The retrieved FiredHeaterCapitalCost Dto is in INTERNAL Units,     ---
                 //--- database access performed by the FiredHeaterCapitalCostRepo Object ---
-                //----------------------------------------------------------------
+                //--------------------------------------------------------------------------
                 FiredHeaterCapitalCostDto internalFiredHeaterCapitalCostDto =
                     FiredHeaterCapitalCostRepoObj.GetFiredHeaterCapitalCostByProjectId(projectId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalFiredHeaterCapitalCostDto.Id = internalFiredHeaterCapitalCostDto.Id;
+                externalFiredHeaterCapitalCostDto.Id        = internalFiredHeaterCapitalCostDto.Id;
                 externalFiredHeaterCapitalCostDto.ProjectId = internalFiredHeaterCapitalCostDto.ProjectId;
-                externalFiredHeaterCapitalCostDto.ParameterAlpha_Metric = internalFiredHeaterCapitalCostDto.ParameterAlpha_Metric;
+
+                externalFiredHeaterCapitalCostDto.ParameterAlpha_Metric  = internalFiredHeaterCapitalCostDto.ParameterAlpha_Metric;
                 externalFiredHeaterCapitalCostDto.ParameterAlpha_English = internalFiredHeaterCapitalCostDto.ParameterAlpha_English;
-                externalFiredHeaterCapitalCostDto.ParameterBeta = internalFiredHeaterCapitalCostDto.ParameterBeta;
-                externalFiredHeaterCapitalCostDto.Efficiency = internalFiredHeaterCapitalCostDto.Efficiency;
-                externalFiredHeaterCapitalCostDto.DutyUnits_Metric = internalFiredHeaterCapitalCostDto.DutyUnits_Metric;
-                externalFiredHeaterCapitalCostDto.DutyUnits_English = internalFiredHeaterCapitalCostDto.DutyUnits_English;
+                externalFiredHeaterCapitalCostDto.ParameterBeta          = internalFiredHeaterCapitalCostDto.ParameterBeta;
+                externalFiredHeaterCapitalCostDto.Efficiency             = internalFiredHeaterCapitalCostDto.Efficiency;
+                externalFiredHeaterCapitalCostDto.DutyUnits_Metric       = internalFiredHeaterCapitalCostDto.DutyUnits_Metric;
+                externalFiredHeaterCapitalCostDto.DutyUnits_English      = internalFiredHeaterCapitalCostDto.DutyUnits_English;
             }
             catch (Exception ex)
             {
@@ -161,14 +163,17 @@ namespace HenViewModel.Project.CostParameters
 
         #region UpdateFiredHeaterCapitalCost(FiredHeaterCapitalCostDto externalFiredHeaterCapitalCostDto) ... UPDATE
         /// <summary>
-        /// Updates (UPDATE) an existing fired heater capital cost in the database using the specified fired heater capital cost data transfer object (DTO) 
-        /// with external units.
+        /// Updates (UPDATE) an existing fired heater capital cost in the database using the 
+        /// specified fired heater capital cost data transfer object (DTO) with external units.
         /// </summary>
         /// <remarks>This method converts the provided fired heater capital cost data from external units to the internal
-        /// units required by the database before updating the cost metadata. If the specified cost metadata does not exist,
-        /// the behavior depends on the repository implementation.</remarks>
-        /// <param name="externalFiredHeaterCapitalCostDto">The fired heater capital cost data transfer object containing updated fired heater capital cost 
-        /// information in external units. Cannot be null.</param>
+        /// units required by the database before updating the fired heater capital cost. 
+        /// If the specified fired heater capital cost does not exist,
+        /// the behavior depends on the repository implementation.
+        /// </remarks>
+        /// <param name="externalFiredHeaterCapitalCostDto">The fired heater capital cost data transfer object containing 
+        /// updated fired heater capital cost information in external units. Cannot be null.
+        /// </param>
         public void UpdateFiredHeaterCapitalCost(FiredHeaterCapitalCostDto externalFiredHeaterCapitalCostDto)
         {
             try
@@ -180,14 +185,15 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalFiredHeaterCapitalCostDto.Id = externalFiredHeaterCapitalCostDto.Id;
+                internalFiredHeaterCapitalCostDto.Id        = externalFiredHeaterCapitalCostDto.Id;
                 internalFiredHeaterCapitalCostDto.ProjectId = externalFiredHeaterCapitalCostDto.ProjectId;
-                internalFiredHeaterCapitalCostDto.ParameterAlpha_Metric = externalFiredHeaterCapitalCostDto.ParameterAlpha_Metric;
+
+                internalFiredHeaterCapitalCostDto.ParameterAlpha_Metric  = externalFiredHeaterCapitalCostDto.ParameterAlpha_Metric;
                 internalFiredHeaterCapitalCostDto.ParameterAlpha_English = externalFiredHeaterCapitalCostDto.ParameterAlpha_English;
-                internalFiredHeaterCapitalCostDto.ParameterBeta = externalFiredHeaterCapitalCostDto.ParameterBeta;
-                internalFiredHeaterCapitalCostDto.Efficiency = externalFiredHeaterCapitalCostDto.Efficiency;
-                internalFiredHeaterCapitalCostDto.DutyUnits_Metric = externalFiredHeaterCapitalCostDto.DutyUnits_Metric;
-                internalFiredHeaterCapitalCostDto.DutyUnits_English = externalFiredHeaterCapitalCostDto.DutyUnits_English;
+                internalFiredHeaterCapitalCostDto.ParameterBeta          = externalFiredHeaterCapitalCostDto.ParameterBeta;
+                internalFiredHeaterCapitalCostDto.Efficiency             = externalFiredHeaterCapitalCostDto.Efficiency;
+                internalFiredHeaterCapitalCostDto.DutyUnits_Metric       = externalFiredHeaterCapitalCostDto.DutyUnits_Metric;
+                internalFiredHeaterCapitalCostDto.DutyUnits_English      = externalFiredHeaterCapitalCostDto.DutyUnits_English;
                 //---------------------------------------------------------------------
                 //--- UPDATE INTERNAL Fired Heater Capital Cost Dto to the Database ---
                 //--- The Fired Heater Capital Cost to be updated is identified by  ---

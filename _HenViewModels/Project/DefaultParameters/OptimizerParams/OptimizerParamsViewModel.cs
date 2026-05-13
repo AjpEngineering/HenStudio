@@ -77,7 +77,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         /// <summary>
         /// Adds (CREATE) a new optimizer params to the database using the specified optimizer params data transfer object.
         /// </summary>
-        /// <remarks>The method converts the provided project data from external to internal units before
+        /// <remarks>The method converts the provided optimizer params data from external to internal units before
         /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
         /// an empty GUID.</remarks>
         /// <param name="externalOptimizerParamsDto">The optimizer params data to add. The object must contain 
@@ -167,8 +167,8 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
 
         #region UpdateOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto) ... UPDATE
         /// <summary>
-        /// Updates (UPDATE) an existing optimizer params in the database using the specified optimizer params data transfer object (DTO) 
-        /// with external units.
+        /// Updates (UPDATE) an existing optimizer params in the database using the specified 
+        /// optimizer params data transfer object (DTO) with external units.
         /// </summary>
         /// <remarks>This method converts the provided optimizer params data from external units to the internal
         /// units required by the database before updating the optimizer params. If the specified optimizer params does not exist,
@@ -179,9 +179,9 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         {
             try
             {
-                //----------------------------------------------------------------------
+                //-------------------------------------------------------------------------
                 //--- Optimizer Params Dto [INTERNAL Units] to be Added to the Database ---
-                //----------------------------------------------------------------------
+                //-------------------------------------------------------------------------
                 OptimizerParamsDto internalOptimizerParamDto = new OptimizerParamsDto();
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
