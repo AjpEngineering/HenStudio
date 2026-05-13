@@ -282,7 +282,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         }
         #endregion  // GetOptimizerMILP_ByOptimizerParamsId(Guid optimizerParamsId) ... READ
 
-        #region UpdateOptimizerGreedy(OptimizerGreedyDto externalOptimizerGreedyDto) ... UPDATE
+        #region UpdateOptimizerMILP(OptimizerMILP_Dto externalOptimizerMILP_Dto) ... UPDATE
         /// <summary>
         /// Updates (UPDATE) an existing optimizer greedy in the database using the specified 
         /// optimizer greedy data transfer object (DTO) with external units.
@@ -290,42 +290,42 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         /// <remarks>This method converts the provided optimizer greedy data from external units to the internal
         /// units required by the database before updating the optimizer greedy. If the specified optimizer greedy does not exist,
         /// the behavior depends on the repository implementation.</remarks>
-        /// <param name="externalOptimizerGreedyDto">The optimizer greedy data transfer object containing updated optimizer greedy 
+        /// <param name="externalOptimizerMILP_Dto">The optimizer MILP data transfer object containing updated optimizer MILP 
         /// information in external units. Cannot be null.</param>
-        public void UpdateOptimizerGreedy(OptimizerGreedyDto externalOptimizerGreedyDto)
+        public void UpdateOptimizerMILP(OptimizerMILP_Dto externalOptimizerMILP_Dto)
         {
             try
             {
-                //-------------------------------------------------------------------------
-                //--- Optimizer Greedy Dto [INTERNAL Units] to be Added to the Database ---
-                //-------------------------------------------------------------------------
-                OptimizerGreedyDto internalOptimizerGreedyDto = new OptimizerGreedyDto();
+                //-----------------------------------------------------------------------
+                //--- Optimizer MILP Dto [INTERNAL Units] to be Added to the Database ---
+                //-----------------------------------------------------------------------
+                OptimizerMILP_Dto internalOptimizerMILP_Dto = new OptimizerMILP_Dto();
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalOptimizerGreedyDto.Id = externalOptimizerGreedyDto.Id;
-                internalOptimizerGreedyDto.OptimizerParamsId = externalOptimizerGreedyDto.OptimizerParamsId;
+                internalOptimizerMILP_Dto.Id = externalOptimizerMILP_Dto.Id;
+                internalOptimizerMILP_Dto.OptimizerParamsId = externalOptimizerMILP_Dto.OptimizerParamsId;
 
-                internalOptimizerGreedyDto.Name        = externalOptimizerGreedyDto.Name;
-                internalOptimizerGreedyDto.Description = externalOptimizerGreedyDto.Description;
-                //------------------------------------------------------------
-                //--- UPDATE INTERNAL Optimizer Greedy Dto to the Database ---
-                //--- The Optimizer Greedy to be updated is identified by  ---
-                //--- the Id field of the provided Optimizer Greedy Dto    ---
-                //------------------------------------------------------------
-                OptimizerGreedyRepoObj.UpdateOptimizerGreedy(internalOptimizerGreedyDto);
+                internalOptimizerMILP_Dto.Name        = externalOptimizerMILP_Dto.Name;
+                internalOptimizerMILP_Dto.Description = externalOptimizerMILP_Dto.Description;
+                //----------------------------------------------------------
+                //--- UPDATE INTERNAL Optimizer MILP Dto to the Database ---
+                //--- The Optimizer MILP to be updated is identified by  ---
+                //--- the Id field of the provided Optimizer MILP Dto    ---
+                //----------------------------------------------------------
+                OptimizerMILP_RepoObj.UpdateOptimizerMILP(internalOptimizerMILP_Dto);
             }
             catch (Exception ex)
             {
                 // Handle exceptions (e.g., log the error, rethrow, or return null)
-                Console.WriteLine($"Error updating optimizer greedy: {ex.Message}");
+                Console.WriteLine($"Error updating optimizer MILP: {ex.Message}");
             }
         }
-        #endregion  // UpdateOptimizerGreedy(OptimizerGreedyDto externalOptimizerGreedyDto) ... UPDATE
+        #endregion  // UpdateOptimizerMILP(OptimizerMILP_Dto externalOptimizerMILP_Dto) ... UPDATE
 
         #region DeleteOptimizerMILP(Guid optimizerMILP_Id) ... DELETE
         /// <summary>
-        /// Deletes (DELETE) the optimizer greedy with the specified unique identifier.
+        /// Deletes (DELETE) the optimizer MILP with the specified unique identifier.
         /// </summary>
         /// <param name="optimizerMILP_Id">The unique identifier of the optimizer MILP to delete.</param>
         public void DeleteOptimizerMILP(Guid optimizerMILP_Id)
