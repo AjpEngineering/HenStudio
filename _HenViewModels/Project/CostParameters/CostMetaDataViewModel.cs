@@ -72,6 +72,11 @@ namespace HenViewModel.Project.CostParameters
         }
         #endregion  // CTOR
 
+        #region PRIVATE DTO CONVERSION METHODS
+
+
+        #endregion  // PRIVATE DTO CONVERSION METHODS
+
         #region COST METADATA CRUD METHODS
 
         #region AddCostMetadata(CostMetadataDto costMetadataDto) ... CREATE
