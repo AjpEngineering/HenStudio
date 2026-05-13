@@ -36,6 +36,7 @@
 using HenGlobal;
 
 using HenModel.Connection;
+using HenModel.Dto.Project;
 using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 using HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits;
 
@@ -73,6 +74,85 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
 
         #region PRIVATE DTO CONVERSION METHODS
 
+        #region ConvertToExternalDto(ProjectUnitsDto internalDto)
+        /// <summary>
+        /// Converts a Project Units DTO from INTERNAL units to EXTERNAL units.
+        /// </summary>
+        /// <param name="internalDto">The Project Units DTO in INTERNAL units.</param>
+        /// <returns>A <see cref="ProjectUnitsDto"/> DTO in EXTERNAL units.</returns>
+        private ProjectUnitsDto ConvertToExternalDto(ProjectUnitsDto internalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (internalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create EXTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in EXTERNAL units.        ---
+            //--- This object will be populated with the converted values from the INTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            ProjectUnitsDto externalDto = new ProjectUnitsDto();
+            //---------------------------------------------------------
+            //--- Convert INTERNAL DTO Fields to EXTERNAL DTO Units ---
+            //---------------------------------------------------------
+            externalDto.Id = internalDto.Id;
+            externalDto.ProjectId = internalDto.ProjectId;
+
+            externalDto.DefaultSystemUnits      = internalDto.DefaultSystemUnits;
+            externalDto.DefaultMagnitudeUnits   = internalDto.DefaultMagnitudeUnits;
+            externalDto.DefaultTemperatureUnits = internalDto.DefaultTemperatureUnits;
+            externalDto.DefaultPressureUnits    = internalDto.DefaultPressureUnits;
+            //--------------------------------------------------
+            //--- Return the EXTERNAL DTO in EXTERNAL units. ---
+            //--------------------------------------------------
+            return externalDto;
+        }
+        #endregion  // ConvertToExternalDto(ProjectUnitsDto internalDto)
+
+        #region ConvertToInternalDto(ProjectUnitsDto externalDto)
+        /// <summary>
+        /// Converts a Project DTO from EXTERNAL units to INTERNAL units.
+        /// </summary>
+        /// <param name="externalDto">The Project Units DTO in EXTERNAL units.</param>
+        /// <returns>A <see cref="ProjectUnitsDto"/> DTO in INTERNAL units.</returns>
+        private ProjectUnitsDto ConvertToInternalDto(ProjectUnitsDto externalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (externalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create INTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in INTERNAL units.        ---
+            //--- This object will be populated with the converted values from the EXTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            ProjectUnitsDto internalDto = new ProjectUnitsDto();
+            //-------------------------------------------------
+            //--- Convert EXTERNAL Fields to INTERNAL Units ---
+            //-------------------------------------------------
+            internalDto.Id = externalDto.Id;
+            internalDto.ProjectId = externalDto.ProjectId;
+
+            internalDto.DefaultSystemUnits      = externalDto.DefaultSystemUnits;
+            internalDto.DefaultMagnitudeUnits   = externalDto.DefaultMagnitudeUnits;
+            internalDto.DefaultTemperatureUnits = externalDto.DefaultTemperatureUnits;
+            internalDto.DefaultPressureUnits    = externalDto.DefaultPressureUnits;
+            //--------------------------------------------------
+            //--- Return the INTERNAL DTO in INTERNAL units. ---
+            //--------------------------------------------------
+            return internalDto;
+        }
+        #endregion  // ConvertToInternalDto(ProjectUnitsDto externalDto)
 
         #endregion  // PRIVATE DTO CONVERSION METHODS
 

@@ -38,6 +38,7 @@ using HenGlobal;
 
 using HenModel.Connection;
 using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams;
 
 using System;
@@ -74,6 +75,81 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
 
         #region PRIVATE DTO CONVERSION METHODS
 
+        #region ConvertToExternalDto(ExchangerParamsDto internalDto)
+        /// <summary>
+        /// Converts a Exchanger Params DTO from INTERNAL units to EXTERNAL units.
+        /// </summary>
+        /// <param name="internalDto">The Exchanger Params DTO in INTERNAL units.</param>
+        /// <returns>A <see cref="ExchangerParamsDto"/> DTO in EXTERNAL units.</returns>
+        private ExchangerParamsDto ConvertToExternalDto(ExchangerParamsDto internalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (internalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create EXTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in EXTERNAL units.        ---
+            //--- This object will be populated with the converted values from the INTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            ExchangerParamsDto externalDto = new ExchangerParamsDto();
+            //---------------------------------------------------------
+            //--- Convert INTERNAL DTO Fields to EXTERNAL DTO Units ---
+            //---------------------------------------------------------
+            externalDto.Id = internalDto.Id;
+            externalDto.ProjectId = internalDto.ProjectId;
+
+            externalDto.DefaultHeatTransferCoefficient = internalDto.DefaultHeatTransferCoefficient;
+            externalDto.DefaultCorrectionFactor = internalDto.DefaultCorrectionFactor;
+            //--------------------------------------------------
+            //--- Return the EXTERNAL DTO in EXTERNAL units. ---
+            //--------------------------------------------------
+            return externalDto;
+        }
+        #endregion  // ConvertToExternalDto(ExchangerParamsDto internalDto)
+
+        #region ConvertToInternalDto(ExchangerParamsDto externalDto)
+        /// <summary>
+        /// Converts a Exchanger Params DTO from EXTERNAL units to INTERNAL units.
+        /// </summary>
+        /// <param name="externalDto">The Exchanger Params DTO in EXTERNAL units.</param>
+        /// <returns>A <see cref="ExchangerParamsDto"/> DTO in INTERNAL units.</returns>
+        private ExchangerParamsDto ConvertToInternalDto(ExchangerParamsDto externalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (externalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create INTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in INTERNAL units.        ---
+            //--- This object will be populated with the converted values from the EXTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            ExchangerParamsDto internalDto = new ExchangerParamsDto();
+            //-------------------------------------------------
+            //--- Convert EXTERNAL Fields to INTERNAL Units ---
+            //-------------------------------------------------
+            internalDto.Id = externalDto.Id;
+            internalDto.ProjectId = externalDto.ProjectId;
+
+            internalDto.DefaultHeatTransferCoefficient = externalDto.DefaultHeatTransferCoefficient;
+            internalDto.DefaultCorrectionFactor = externalDto.DefaultCorrectionFactor;
+            //--------------------------------------------------
+            //--- Return the INTERNAL DTO in INTERNAL units. ---
+            //--------------------------------------------------
+            return internalDto;
+        }
+        #endregion  // ConvertToInternalDto(ExchangerParamsDto externalDto)
 
         #endregion  // PRIVATE DTO CONVERSION METHODS
 

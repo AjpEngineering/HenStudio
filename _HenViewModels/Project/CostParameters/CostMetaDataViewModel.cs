@@ -74,6 +74,87 @@ namespace HenViewModel.Project.CostParameters
 
         #region PRIVATE DTO CONVERSION METHODS
 
+        #region ConvertToExternalDto(CostMetadataDto internalDto)
+        /// <summary>
+        /// Converts a Cost Metadata DTO from INTERNAL units to EXTERNAL units.
+        /// </summary>
+        /// <param name="internalDto">The Cost Metadata DTO in INTERNAL units.</param>
+        /// <returns>A <see cref="CostMetadataDto"/> DTO in EXTERNAL units.</returns>
+        private CostMetadataDto ConvertToExternalDto(CostMetadataDto internalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (internalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create EXTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in EXTERNAL units.        ---
+            //--- This object will be populated with the converted values from the INTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            CostMetadataDto externalDto = new CostMetadataDto();
+            //---------------------------------------------------------
+            //--- Convert INTERNAL DTO Fields to EXTERNAL DTO Units ---
+            //---------------------------------------------------------
+            externalDto.Id = internalDto.Id;
+            externalDto.ProjectId = internalDto.ProjectId;
+
+            externalDto.CostIndexBaseYear      = internalDto.CostIndexBaseYear;
+            externalDto.CostIndexName          = internalDto.CostIndexName;
+            externalDto.CostIndexValue         = internalDto.CostIndexValue;
+            externalDto.CostIndexCurrency      = internalDto.CostIndexCurrency;
+            externalDto.CostIndexInstalledCost = internalDto.CostIndexInstalledCost;
+            //--------------------------------------------------
+            //--- Return the EXTERNAL DTO in EXTERNAL units. ---
+            //--------------------------------------------------
+            return externalDto;
+        }
+        #endregion  // ConvertToExternalDto(CostMetadataDto internalDto)
+
+        #region ConvertToInternalDto(CostMetadataDto externalDto)
+        /// <summary>
+        /// Converts a Cost Metadata DTO from EXTERNAL units to INTERNAL units.
+        /// </summary>
+        /// <param name="externalDto">The Cost Metadata DTO in EXTERNAL units.</param>
+        /// <returns>A <see cref="CostMetadataDto"/> DTO in INTERNAL units.</returns>
+        private CostMetadataDto ConvertToInternalDto(CostMetadataDto externalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (externalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create INTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in INTERNAL units.        ---
+            //--- This object will be populated with the converted values from the EXTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            CostMetadataDto internalDto = new CostMetadataDto();
+            //-------------------------------------------------
+            //--- Convert EXTERNAL Fields to INTERNAL Units ---
+            //-------------------------------------------------
+            internalDto.Id = externalDto.Id;
+            internalDto.ProjectId = externalDto.ProjectId;
+
+            internalDto.CostIndexBaseYear      = externalDto.CostIndexBaseYear;
+            internalDto.CostIndexName          = externalDto.CostIndexName;
+            internalDto.CostIndexValue         = externalDto.CostIndexValue;
+            internalDto.CostIndexCurrency      = externalDto.CostIndexCurrency;
+            internalDto.CostIndexInstalledCost = externalDto.CostIndexInstalledCost;
+            //--------------------------------------------------
+            //--- Return the INTERNAL DTO in INTERNAL units. ---
+            //--------------------------------------------------
+            return internalDto;
+        }
+        #endregion  // ConvertToInternalDto(CostMetadataDto externalDto)
 
         #endregion  // PRIVATE DTO CONVERSION METHODS
 

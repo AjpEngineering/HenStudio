@@ -74,6 +74,85 @@ namespace HenViewModel.Project.CostParameters
 
         #region PRIVATE DTO CONVERSION METHODS
 
+        #region ConvertToExternalDto(TotalAnnualizedCostDto internalDto)
+        /// <summary>
+        /// Converts a Total Annualized Cost DTO from INTERNAL units to EXTERNAL units.
+        /// </summary>
+        /// <param name="internalDto">The Total Annualized Cost DTO in INTERNAL units.</param>
+        /// <returns>A <see cref="TotalAnnualizedCostDto"/> DTO in EXTERNAL units.</returns>
+        private TotalAnnualizedCostDto ConvertToExternalDto(TotalAnnualizedCostDto internalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (internalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create EXTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in EXTERNAL units.        ---
+            //--- This object will be populated with the converted values from the INTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            TotalAnnualizedCostDto externalDto = new TotalAnnualizedCostDto();
+            //---------------------------------------------------------
+            //--- Convert INTERNAL DTO Fields to EXTERNAL DTO Units ---
+            //---------------------------------------------------------
+            externalDto.Id = internalDto.Id;
+            externalDto.ProjectId = internalDto.ProjectId;
+
+            externalDto.TAC_InterestRate        = internalDto.TAC_InterestRate;
+            externalDto.TAC_LifeYears           = internalDto.TAC_LifeYears;
+            externalDto.TAC_MaintenanceFraction = internalDto.TAC_MaintenanceFraction;
+            externalDto.TAC_OperatingHours      = internalDto.TAC_OperatingHours;
+            //--------------------------------------------------
+            //--- Return the EXTERNAL DTO in EXTERNAL units. ---
+            //--------------------------------------------------
+            return externalDto;
+        }
+        #endregion  // ConvertToExternalDto(TotalAnnualizedCostDto internalDto)
+
+        #region ConvertToInternalDto(TotalAnnualizedCostDto externalDto)
+        /// <summary>
+        /// Converts a Total Annualized Cost DTO from EXTERNAL units to INTERNAL units.
+        /// </summary>
+        /// <param name="externalDto">The Total Annualized Cost DTO in EXTERNAL units.</param>
+        /// <returns>A <see cref="TotalAnnualizedCostDto"/> DTO in INTERNAL units.</returns>
+        private TotalAnnualizedCostDto ConvertToInternalDto(TotalAnnualizedCostDto externalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (externalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create INTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in INTERNAL units.        ---
+            //--- This object will be populated with the converted values from the EXTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            TotalAnnualizedCostDto internalDto = new TotalAnnualizedCostDto();
+            //-------------------------------------------------
+            //--- Convert EXTERNAL Fields to INTERNAL Units ---
+            //-------------------------------------------------
+            internalDto.Id = externalDto.Id;
+            internalDto.ProjectId = externalDto.ProjectId;
+
+            internalDto.TAC_InterestRate        = externalDto.TAC_InterestRate;
+            internalDto.TAC_LifeYears           = externalDto.TAC_LifeYears;
+            internalDto.TAC_MaintenanceFraction = externalDto.TAC_MaintenanceFraction;
+            internalDto.TAC_OperatingHours      = externalDto.TAC_OperatingHours;
+            //--------------------------------------------------
+            //--- Return the INTERNAL DTO in INTERNAL units. ---
+            //--------------------------------------------------
+            return internalDto;
+        }
+        #endregion  // ConvertToInternalDto(TotalAnnualizedCostDto externalDto)
 
         #endregion  // PRIVATE DTO CONVERSION METHODS
 

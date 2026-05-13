@@ -38,6 +38,7 @@ using HenGlobal;
 using HenModel.Connection;
 using HenModel.Dto.Profile;
 using HenModel.Dto.Project;
+using HenModel.Dto.Project.CostParameters;
 using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 using HenModel.RepoImplementations.Profile;
 
@@ -75,6 +76,81 @@ namespace HenViewModel.Profile
 
         #region PRIVATE DTO CONVERSION METHODS
 
+        #region ConvertToExternalDto(ProfileDto internalDto)
+        /// <summary>
+        /// Converts a Profile DTO from INTERNAL units to EXTERNAL units.
+        /// </summary>
+        /// <param name="internalDto">The Profile DTO in INTERNAL units.</param>
+        /// <returns>A <see cref="ProfileDto"/> DTO in EXTERNAL units.</returns>
+        private ProfileDto ConvertToExternalDto(ProfileDto internalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (internalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create EXTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in EXTERNAL units.        ---
+            //--- This object will be populated with the converted values from the INTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            ProfileDto externalDto = new ProfileDto();
+            //---------------------------------------------------------
+            //--- Convert INTERNAL DTO Fields to EXTERNAL DTO Units ---
+            //---------------------------------------------------------
+            externalDto.Id = internalDto.Id;
+            externalDto.ProjectId = internalDto.ProjectId;
+
+            externalDto.Name        = internalDto.Name;
+            externalDto.Description = internalDto.Description;
+            //--------------------------------------------------
+            //--- Return the EXTERNAL DTO in EXTERNAL units. ---
+            //--------------------------------------------------
+            return externalDto;
+        }
+        #endregion  // ConvertToExternalDto(ProfileDto internalDto)
+
+        #region ConvertToInternalDto(ProfileDto externalDto)
+        /// <summary>
+        /// Converts a Profile DTO from EXTERNAL units to INTERNAL units.
+        /// </summary>
+        /// <param name="externalDto">The Profile DTO in EXTERNAL units.</param>
+        /// <returns>A <see cref="ProfileDto"/> DTO in INTERNAL units.</returns>
+        private ProfileDto ConvertToInternalDto(ProfileDto externalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (externalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create INTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in INTERNAL units.        ---
+            //--- This object will be populated with the converted values from the EXTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            ProfileDto internalDto = new ProfileDto();
+            //-------------------------------------------------
+            //--- Convert EXTERNAL Fields to INTERNAL Units ---
+            //-------------------------------------------------
+            internalDto.Id = externalDto.Id;
+            internalDto.ProjectId = externalDto.ProjectId;
+
+            internalDto.Name = externalDto.Name;
+            internalDto.Description = externalDto.Description;
+            //--------------------------------------------------
+            //--- Return the INTERNAL DTO in INTERNAL units. ---
+            //--------------------------------------------------
+            return internalDto;
+        }
+        #endregion  // ConvertToInternalDto(CostMetadataDto externalDto)
 
         #endregion  // PRIVATE DTO CONVERSION METHODS
 

@@ -37,6 +37,7 @@ using HenGlobal;
 
 using HenModel.Connection;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
+using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 using HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams;
 
 using System;
@@ -73,6 +74,89 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
 
         #region PRIVATE DTO CONVERSION METHODS
 
+        #region ConvertToExternalDto(OptimizerParamsDto internalDto)
+        /// <summary>
+        /// Converts a Optimizer Params DTO from INTERNAL units to EXTERNAL units.
+        /// </summary>
+        /// <param name="internalDto">The Optimizer Params DTO in INTERNAL units.</param>
+        /// <returns>A <see cref="OptimizerParamsDto"/> DTO in EXTERNAL units.</returns>
+        private OptimizerParamsDto ConvertToExternalDto(OptimizerParamsDto internalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (internalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create EXTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in EXTERNAL units.        ---
+            //--- This object will be populated with the converted values from the INTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            OptimizerParamsDto externalDto = new OptimizerParamsDto();
+            //---------------------------------------------------------
+            //--- Convert INTERNAL DTO Fields to EXTERNAL DTO Units ---
+            //---------------------------------------------------------
+            externalDto.Id = internalDto.Id;
+            externalDto.ProjectId = internalDto.ProjectId;
+
+            externalDto.Name                        = internalDto.Name;
+            externalDto.Description                 = internalDto.Description;
+            externalDto.OptimizerType               = internalDto.OptimizerType;
+            externalDto.DefaultObjective            = internalDto.DefaultObjective;
+            externalDto.DefaultMaxIterations        = internalDto.DefaultMaxIterations;
+            externalDto.DefaultConvergenceTolerance = internalDto.DefaultConvergenceTolerance;
+            //--------------------------------------------------
+            //--- Return the EXTERNAL DTO in EXTERNAL units. ---
+            //--------------------------------------------------
+            return externalDto;
+        }
+        #endregion  // ConvertToExternalDto(OptimizerParamsDto internalDto)
+
+        #region ConvertToInternalDto(OptimizerParamsDto externalDto)
+        /// <summary>
+        /// Converts a Optimizer Params DTO from EXTERNAL units to INTERNAL units.
+        /// </summary>
+        /// <param name="externalDto">The Optimizer Params DTO in EXTERNAL units.</param>
+        /// <returns>A <see cref="OptimizerParamsDto"/> DTO in INTERNAL units.</returns>
+        private OptimizerParamsDto ConvertToInternalDto(OptimizerParamsDto externalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (externalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create INTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in INTERNAL units.        ---
+            //--- This object will be populated with the converted values from the EXTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            OptimizerParamsDto internalDto = new OptimizerParamsDto();
+            //-------------------------------------------------
+            //--- Convert EXTERNAL Fields to INTERNAL Units ---
+            //-------------------------------------------------
+            internalDto.Id = externalDto.Id;
+            internalDto.ProjectId = externalDto.ProjectId;
+
+            internalDto.Name                        = externalDto.Name;
+            internalDto.Description                 = externalDto.Description;
+            internalDto.OptimizerType               = externalDto.OptimizerType;
+            internalDto.DefaultObjective            = externalDto.DefaultObjective;
+            internalDto.DefaultMaxIterations        = externalDto.DefaultMaxIterations;
+            internalDto.DefaultConvergenceTolerance = externalDto.DefaultConvergenceTolerance;
+            //--------------------------------------------------
+            //--- Return the INTERNAL DTO in INTERNAL units. ---
+            //--------------------------------------------------
+            return internalDto;
+        }
+        #endregion  // ConvertToInternalDto(OptimizerParamsDto externalDto)
 
         #endregion  // PRIVATE DTO CONVERSION METHODS
 

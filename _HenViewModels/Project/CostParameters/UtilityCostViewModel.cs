@@ -37,6 +37,7 @@ using HenGlobal;
 
 using HenModel.Connection;
 using HenModel.Dto.Project.CostParameters;
+using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.RepoImplementations.Project.CostParameters;
 
@@ -74,6 +75,103 @@ namespace HenViewModel.Project.CostParameters
 
         #region PRIVATE DTO CONVERSION METHODS
 
+        #region ConvertToExternalDto(UtilityCostDto internalDto)
+        /// <summary>
+        /// Converts a Utility Cost DTO from INTERNAL units to EXTERNAL units.
+        /// </summary>
+        /// <param name="internalDto">The Utility Cost DTO in INTERNAL units.</param>
+        /// <returns>A <see cref="UtilityCostDto"/> DTO in EXTERNAL units.</returns>
+        private UtilityCostDto ConvertToExternalDto(UtilityCostDto internalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (internalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create EXTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in EXTERNAL units.        ---
+            //--- This object will be populated with the converted values from the INTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            UtilityCostDto externalDto = new UtilityCostDto();
+            //---------------------------------------------------------
+            //--- Convert INTERNAL DTO Fields to EXTERNAL DTO Units ---
+            //---------------------------------------------------------
+            externalDto.Id = internalDto.Id;
+            externalDto.ProjectId = internalDto.ProjectId;
+
+            externalDto.HP_SteamCost_Metric     = internalDto.HP_SteamCost_Metric;
+            externalDto.MP_SteamCost_Metric     = internalDto.MP_SteamCost_Metric;
+            externalDto.LP_SteamCost_Metric     = internalDto.LP_SteamCost_Metric;
+            externalDto.CoolingWaterCost_Metric = internalDto.CoolingWaterCost_Metric;
+            externalDto.ChilledWaterCost_Metric = internalDto.ChilledWaterCost_Metric;
+            externalDto.FuelGasCost_Metric      = internalDto.FuelGasCost_Metric;
+
+            externalDto.HP_SteamCost_English     = internalDto.HP_SteamCost_English;
+            externalDto.MP_SteamCost_English     = internalDto.MP_SteamCost_English;
+            externalDto.LP_SteamCost_English     = internalDto.LP_SteamCost_English;
+            externalDto.CoolingWaterCost_English = internalDto.CoolingWaterCost_English;
+            externalDto.ChilledWaterCost_English = internalDto.ChilledWaterCost_English;
+            externalDto.FuelGasCost_English      = internalDto.FuelGasCost_English;
+            //--------------------------------------------------
+            //--- Return the EXTERNAL DTO in EXTERNAL units. ---
+            //--------------------------------------------------
+            return externalDto;
+        }
+        #endregion  // ConvertToExternalDto(UtilityCostDto internalDto)
+
+        #region ConvertToInternalDto(UtilityCostDto externalDto)
+        /// <summary>
+        /// Converts a Utility Cost Params DTO from EXTERNAL units to INTERNAL units.
+        /// </summary>
+        /// <param name="externalDto">The Utility Cost Params DTO in EXTERNAL units.</param>
+        /// <returns>A <see cref="UtilityCostDto"/> DTO in INTERNAL units.</returns>
+        private UtilityCostDto ConvertToInternalDto(UtilityCostDto externalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (externalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create INTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in INTERNAL units.        ---
+            //--- This object will be populated with the converted values from the EXTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            UtilityCostDto internalDto = new UtilityCostDto();
+            //-------------------------------------------------
+            //--- Convert EXTERNAL Fields to INTERNAL Units ---
+            //-------------------------------------------------
+            internalDto.Id = externalDto.Id;
+            internalDto.ProjectId = externalDto.ProjectId;
+
+            internalDto.HP_SteamCost_Metric     = externalDto.HP_SteamCost_Metric;
+            internalDto.MP_SteamCost_Metric     = externalDto.MP_SteamCost_Metric;
+            internalDto.LP_SteamCost_Metric     = externalDto.LP_SteamCost_Metric;
+            internalDto.CoolingWaterCost_Metric = externalDto.CoolingWaterCost_Metric;
+            internalDto.ChilledWaterCost_Metric = externalDto.ChilledWaterCost_Metric;
+            internalDto.FuelGasCost_Metric      = externalDto.FuelGasCost_Metric;
+
+            internalDto.HP_SteamCost_English     = externalDto.HP_SteamCost_English;
+            internalDto.MP_SteamCost_English     = externalDto.MP_SteamCost_English;
+            internalDto.LP_SteamCost_English     = externalDto.LP_SteamCost_English;
+            internalDto.CoolingWaterCost_English = externalDto.CoolingWaterCost_English;
+            internalDto.ChilledWaterCost_English = externalDto.ChilledWaterCost_English;
+            internalDto.FuelGasCost_English      = externalDto.FuelGasCost_English;
+            //--------------------------------------------------
+            //--- Return the INTERNAL DTO in INTERNAL units. ---
+            //--------------------------------------------------
+            return internalDto;
+        }
+        #endregion  // ConvertToInternalDto(UtilityCostDto externalDto)
 
         #endregion  // PRIVATE DTO CONVERSION METHODS
 

@@ -74,6 +74,89 @@ namespace HenViewModel.Project.CostParameters
 
         #region PRIVATE DTO CONVERSION METHODS
 
+        #region ConvertToExternalDto(FiredHeaterCapitalCostDto internalDto)
+        /// <summary>
+        /// Converts a Fired Heater Capital Cost DTO from INTERNAL units to EXTERNAL units.
+        /// </summary>
+        /// <param name="internalDto">The Fired Heater Capital Cost DTO in INTERNAL units.</param>
+        /// <returns>A <see cref="FiredHeaterCapitalCostDto"/> DTO in EXTERNAL units.</returns>
+        private FiredHeaterCapitalCostDto ConvertToExternalDto(FiredHeaterCapitalCostDto internalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (internalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create EXTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in EXTERNAL units.        ---
+            //--- This object will be populated with the converted values from the INTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            FiredHeaterCapitalCostDto externalDto = new FiredHeaterCapitalCostDto();
+            //---------------------------------------------------------
+            //--- Convert INTERNAL DTO Fields to EXTERNAL DTO Units ---
+            //---------------------------------------------------------
+            externalDto.Id = internalDto.Id;
+            externalDto.ProjectId = internalDto.ProjectId;
+
+            externalDto.ParameterAlpha_Metric  = internalDto.ParameterAlpha_Metric;
+            externalDto.ParameterAlpha_English = internalDto.ParameterAlpha_English;
+            externalDto.ParameterBeta          = internalDto.ParameterBeta;
+            externalDto.Efficiency             = internalDto.Efficiency;
+            externalDto.DutyUnits_Metric       = internalDto.DutyUnits_Metric;
+            externalDto.DutyUnits_English      = internalDto.DutyUnits_English;
+            //--------------------------------------------------
+            //--- Return the EXTERNAL DTO in EXTERNAL units. ---
+            //--------------------------------------------------
+            return externalDto;
+        }
+        #endregion  // ConvertToExternalDto(FiredHeaterCapitalCostDto internalDto)
+
+        #region ConvertToInternalDto(FiredHeaterCapitalCostDto externalDto)
+        /// <summary>
+        /// Converts a Fired Heater Capital Cost DTO from EXTERNAL units to INTERNAL units.
+        /// </summary>
+        /// <param name="externalDto">The Fired Heater Capital Cost DTO in EXTERNAL units.</param>
+        /// <returns>A <see cref="FiredHeaterCapitalCostDto"/> DTO in INTERNAL units.</returns>
+        private FiredHeaterCapitalCostDto ConvertToInternalDto(FiredHeaterCapitalCostDto externalDto)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO is null,                              ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (externalDto == null)
+            {
+                return null;
+            }
+            //------------------------------ Create INTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in INTERNAL units.        ---
+            //--- This object will be populated with the converted values from the EXTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            FiredHeaterCapitalCostDto internalDto = new FiredHeaterCapitalCostDto();
+            //-------------------------------------------------
+            //--- Convert EXTERNAL Fields to INTERNAL Units ---
+            //-------------------------------------------------
+            internalDto.Id = externalDto.Id;
+            internalDto.ProjectId = externalDto.ProjectId;
+
+            internalDto.ParameterAlpha_Metric  = externalDto.ParameterAlpha_Metric;
+            internalDto.ParameterAlpha_English = externalDto.ParameterAlpha_English;
+            internalDto.ParameterBeta          = externalDto.ParameterBeta;
+            internalDto.Efficiency             = externalDto.Efficiency;
+            internalDto.DutyUnits_Metric       = externalDto.DutyUnits_Metric;
+            internalDto.DutyUnits_English      = externalDto.DutyUnits_English;
+            //--------------------------------------------------
+            //--- Return the INTERNAL DTO in INTERNAL units. ---
+            //--------------------------------------------------
+            return internalDto;
+        }
+        #endregion  // ConvertToInternalDto(FiredHeaterCapitalCostDto externalDto)
 
         #endregion  // PRIVATE DTO CONVERSION METHODS
 
