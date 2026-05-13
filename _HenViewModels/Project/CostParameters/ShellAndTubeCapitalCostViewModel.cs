@@ -72,6 +72,11 @@ namespace HenViewModel.Project.CostParameters
         }
         #endregion  // CTOR
 
+        #region PRIVATE DTO CONVERSION METHODS
+
+
+        #endregion  // PRIVATE DTO CONVERSION METHODS
+
         #region SHELL AND TUBE CAPITAL COST CRUD METHODS
 
         #region AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDto) ... CREATE

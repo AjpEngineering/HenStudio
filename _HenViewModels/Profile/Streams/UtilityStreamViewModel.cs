@@ -73,7 +73,7 @@ namespace HenViewModel.Profile.Streams
         }
         #endregion  // CTOR
 
-        #region PRIVATE METHODS
+        #region PRIVATE DTO CONVERSION METHODS
 
         #region ConvertToExternalUtilityStream(UtilityStreamDto internalUtilityStream)
         /// <summary>
@@ -133,7 +133,7 @@ namespace HenViewModel.Profile.Streams
         }
         #endregion  // ConvertFromExternalUtilityStream(UtilityStreamDto externalUtilityStream)
 
-        #endregion      // PRIVATE METHODS
+        #endregion      // PRIVATE DTO CONVERSION METHODS
 
         #region UTILITY STREAM CRUD METHODS
 

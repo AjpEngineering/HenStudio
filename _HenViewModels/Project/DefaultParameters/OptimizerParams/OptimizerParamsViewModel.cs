@@ -71,6 +71,11 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         }
         #endregion  // DEFAULT CTOR
 
+        #region PRIVATE DTO CONVERSION METHODS
+
+
+        #endregion  // PRIVATE DTO CONVERSION METHODS
+
         #region OPTIMIZER PARAMS CRUD METHODS
 
         #region AddOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto) ... CREATE

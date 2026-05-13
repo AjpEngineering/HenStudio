@@ -72,7 +72,7 @@ namespace HenViewModel.Profile.Streams
         }
         #endregion  // CTOR
 
-        #region PRIVATE METHODS
+        #region PRIVATE DTO CONVERSION METHODS
 
         #region ConvertToExternalProcessStream(ProcessStreamDto internalProcessStream)
         /// <summary>
@@ -136,7 +136,7 @@ namespace HenViewModel.Profile.Streams
         }
         #endregion  // ConvertFromExternalProcessStream(ProcessStreamDto externalProcessStream)
 
-        #endregion      // PRIVATE METHODS
+        #endregion      // PRIVATE DTO CONVERSION METHODS
 
         #region PROCESS STREAM CRUD METHODS
 

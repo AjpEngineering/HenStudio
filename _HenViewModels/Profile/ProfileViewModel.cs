@@ -73,6 +73,11 @@ namespace HenViewModel.Profile
         }
         #endregion  // CTOR
 
+        #region PRIVATE DTO CONVERSION METHODS
+
+
+        #endregion  // PRIVATE DTO CONVERSION METHODS
+
         #region PROFILE CRUD METHODS
 
         #region AddProfile(ProfileDto profileDto) ... CREATE

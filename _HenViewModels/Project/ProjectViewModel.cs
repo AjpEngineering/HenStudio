@@ -71,6 +71,11 @@ namespace HenViewModel.Project
         }
         #endregion  // DEFAULT CTOR
 
+        #region PRIVATE DTO CONVERSION METHODS
+
+
+        #endregion  // PRIVATE DTO CONVERSION METHODS
+
         #region PROJECT CRUD METHODS
 
         #region AddProject(ProjectDto externalProjectDto) ... CREATE

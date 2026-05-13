@@ -72,6 +72,11 @@ namespace HenViewModel.Project.CostParameters
         }
         #endregion  // CTOR
 
+        #region PRIVATE DTO CONVERSION METHODS
+
+
+        #endregion  // PRIVATE DTO CONVERSION METHODS
+
         #region TOTAL ANNUALIZED COST CRUD METHODS
 
         #region AddTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto) ... CREATE

@@ -72,6 +72,11 @@ namespace HenViewModel.Project.CostParameters
         }
         #endregion  // CTOR
 
+        #region PRIVATE DTO CONVERSION METHODS
+
+
+        #endregion  // PRIVATE DTO CONVERSION METHODS
+
         #region UTILITY COST CRUD METHODS
 
         #region AddUtilityCost(UtilityCostDto utilityCostDto) ... CREATE

@@ -70,7 +70,12 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
             InternalUnitsObj = new HenProjectUnits();
         }
         #endregion  // DEFAULT CTOR
-        
+
+        #region PRIVATE DTO CONVERSION METHODS
+
+
+        #endregion  // PRIVATE DTO CONVERSION METHODS
+
         #region PROJECT UNITS CRUD METHODS
 
         #region AddProjectUnits(ProjectUnitsDto externalProjectUnitsDto) ... CREATE

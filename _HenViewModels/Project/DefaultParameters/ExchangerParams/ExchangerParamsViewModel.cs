@@ -72,6 +72,11 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
         }
         #endregion  // DEFAULT CTOR
 
+        #region PRIVATE DTO CONVERSION METHODS
+
+
+        #endregion  // PRIVATE DTO CONVERSION METHODS
+
         #region EXCHANGER PARAMS CRUD METHODS
 
         #region AddExchangerParams(ExchangerParamsDto externalExchangerParamsDto) ... CREATE
