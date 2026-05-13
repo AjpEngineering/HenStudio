@@ -49,6 +49,9 @@
     <Compile Include="Project\CostParameters\ShellAndTubeCapitalCostViewModel.cs" />
     <Compile Include="Project\CostParameters\FiredHeaterCapitalCostViewModel.cs" />
     <Compile Include="Project\DefaultParameters\ExchangerParams\ExchangerParamsViewModel.cs" />
+    <Compile Include="Project\DefaultParameters\OptimizerParams\OptimizerMILP_ViewModel.cs" />
+    <Compile Include="Project\DefaultParameters\OptimizerParams\OptimizerGreedyViewModel.cs" />
+    <Compile Include="Project\DefaultParameters\OptimizerParams\OptimizerGeneticViewModel.cs" />
     <Compile Include="Project\DefaultParameters\OptimizerParams\OptimizerParamsViewModel.cs" />
     <Compile Include="Project\DefaultParameters\ProjectUnits\ProjectUnitsViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
