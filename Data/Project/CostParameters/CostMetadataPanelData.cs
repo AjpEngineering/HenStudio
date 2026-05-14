@@ -74,11 +74,11 @@ namespace HenStudio.Data.Project.CostParameters
             CostMetadataDtoObj = new CostMetadataDto();
             Id = new Guid();
             ProjectId = new Guid();
-            CostIndexBaseYear = string.Empty;
-            CostIndexName = string.Empty;
-            CostIndexValue = 0.0;
+            CostIndexBaseYear = "2026";
+            CostIndexName = "CEPCI";
+            CostIndexValue = 840.0;
             CostIndexCurrency = string.Empty;
-            CostIndexInstalledCost = 0.0;
+            CostIndexInstalledCost = 3.0;
         }
         #endregion  // CTOR
 

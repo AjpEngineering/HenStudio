@@ -58,6 +58,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         public OptimizerMILP_Dto OptimizerMILP_DtoObj { get; set; }
         public Guid Id { get; set; }
         public Guid OptimizerParamsId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -70,6 +72,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             OptimizerMILP_DtoObj = new OptimizerMILP_Dto();
             Id = new Guid();
             OptimizerParamsId = new Guid();
+            Name = string.Empty;
+            Description = string.Empty;
         }
         #endregion  // CTOR
 
@@ -115,6 +119,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             OptimizerMILP_DtoObj = optimizerMILP_Dto;
             this.Id = optimizerMILP_Dto.Id;
             this.OptimizerParamsId = optimizerMILP_Dto.OptimizerParamsId;
+            this.Name = optimizerMILP_Dto.Name;
+            this.Description = optimizerMILP_Dto.Description;
             return this;
         }
         #endregion  // ConvertToPanelData(OptimizerMILP_Dto optimizerMILP_Dto)
@@ -131,6 +137,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             OptimizerMILP_DtoObj = new OptimizerMILP_Dto();
             OptimizerMILP_DtoObj.Id = this.Id;
             OptimizerMILP_DtoObj.OptimizerParamsId = this.OptimizerParamsId;
+            OptimizerMILP_DtoObj.Name = this.Name;
+            OptimizerMILP_DtoObj.Description = this.Description;
             return OptimizerMILP_DtoObj;
         }
         #endregion  // ConvertFromPanelData()   

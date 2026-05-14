@@ -58,6 +58,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         public OptimizerGreedyDto OptimizerGreedyDtoObj { get; set; }
         public Guid Id { get; set; }
         public Guid OptimizerParamsId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -70,6 +72,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             OptimizerGreedyDtoObj = new OptimizerGreedyDto();
             Id = new Guid();
             OptimizerParamsId = new Guid();
+            Name = string.Empty;
+            Description = string.Empty;
         }
         #endregion  // CTOR
 
@@ -115,6 +119,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             OptimizerGreedyDtoObj = optimizerGreedyDto;
             this.Id = optimizerGreedyDto.Id;
             this.OptimizerParamsId = optimizerGreedyDto.OptimizerParamsId;
+            this.Name = optimizerGreedyDto.Name;
+            this.Description = optimizerGreedyDto.Description;
             return this;
         }
         #endregion  // ConvertToPanelData(OptimizerGreedyDto optimizerGreedyDto)
@@ -131,6 +137,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             OptimizerGreedyDtoObj = new OptimizerGreedyDto();
             OptimizerGreedyDtoObj.Id = this.Id;
             OptimizerGreedyDtoObj.OptimizerParamsId = this.OptimizerParamsId;
+            OptimizerGreedyDtoObj.Name = this.Name;
+            OptimizerGreedyDtoObj.Description = this.Description;
             return OptimizerGreedyDtoObj;
         }
         #endregion  // ConvertFromPanelData()   

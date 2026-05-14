@@ -58,6 +58,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         public OptimizerGeneticDto OptimizerGeneticDtoObj { get; set; }
         public Guid Id { get; set; }
         public Guid HenOptimizerParamsId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -70,6 +72,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             OptimizerGeneticDtoObj = new OptimizerGeneticDto();
             Id = new Guid();
             HenOptimizerParamsId = new Guid();
+            Name = string.Empty;
+            Description = string.Empty;
         }
         #endregion  // CTOR
 
@@ -115,6 +119,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             OptimizerGeneticDtoObj = optimizerGeneticDto;
             this.Id = optimizerGeneticDto.Id;
             this.HenOptimizerParamsId = optimizerGeneticDto.OptimizerParamsId;
+            this.Name = optimizerGeneticDto.Name;
+            this.Description = optimizerGeneticDto.Description;
             return this;
         }
         #endregion  // ConvertToPanelData(OptimizerGeneticDto optimizerGeneticDto)
@@ -131,6 +137,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             OptimizerGeneticDtoObj = new OptimizerGeneticDto();
             OptimizerGeneticDtoObj.Id = this.Id;
             OptimizerGeneticDtoObj.OptimizerParamsId = this.HenOptimizerParamsId;
+            OptimizerGeneticDtoObj.Name = this.Name;
+            OptimizerGeneticDtoObj.Description = this.Description;
             return OptimizerGeneticDtoObj;
         }
         #endregion  // ConvertFromPanelData()   

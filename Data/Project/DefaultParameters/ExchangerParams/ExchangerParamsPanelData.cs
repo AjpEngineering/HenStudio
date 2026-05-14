@@ -67,8 +67,8 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
             ExchangerParamsDtoObj = new ExchangerParamsDto();
             Id = new Guid();
             ProjectId = new Guid();
-            DefaultHeatTransferCoefficient = 0.0;
-            DefaultCorrectionFactor = 0.0;
+            DefaultHeatTransferCoefficient = 0.0000352;     // MMBtu/(hr ft2 °F)
+            DefaultCorrectionFactor = 0.85;
         }
         #endregion  // CTOR
 

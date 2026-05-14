@@ -74,10 +74,10 @@ namespace HenStudio.Data.Project.CostParameters
             TotalAnnualizedCostDtoObj = new TotalAnnualizedCostDto();
             Id = new Guid();
             ProjectId = new Guid();
-            TAC_InterestRate = 0.0;
-            TAC_LifeYears = 0.0;
-            TAC_MaintenanceFraction = 0.0;
-            TAC_OperatingHours = 0.0;
+            TAC_InterestRate = 0.10;
+            TAC_LifeYears = 10.0;
+            TAC_MaintenanceFraction = 0.03;     // 3% of Installed Cost/yr
+            TAC_OperatingHours = 8000.0;
         }
         #endregion  // CTOR
 

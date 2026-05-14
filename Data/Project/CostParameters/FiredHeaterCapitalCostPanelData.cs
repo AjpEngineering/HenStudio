@@ -76,12 +76,12 @@ namespace HenStudio.Data.Project.CostParameters
             FiredHeaterCapitalCostDtoObj = new FiredHeaterCapitalCostDto();
             Id = new Guid();
             ProjectId = new Guid();
-            ParameterAlpha_Metric = 0.0;
-            ParameterAlpha_English = 0.0;
-            ParameterBeta = 0.0;
-            Efficiency = 0.0;
-            DutyUnits_Metric = string.Empty;
-            DutyUnits_English = string.Empty;
+            ParameterAlpha_Metric = 200000.00;
+            ParameterAlpha_English = 74924.32;
+            ParameterBeta = 0.80;
+            Efficiency = 0.85;
+            DutyUnits_Metric = "MW";
+            DutyUnits_English = "MMBtu/hr";
         }
         #endregion  // CTOR
 

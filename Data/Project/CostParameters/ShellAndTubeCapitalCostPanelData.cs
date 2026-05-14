@@ -78,12 +78,12 @@ namespace HenStudio.Data.Project.CostParameters
             Id = new Guid();
             ProjectId = new Guid();
             ParameterA = 0.0;
-            ParameterB_Metric = 0.0;
-            ParameterB_English = 0.0;
-            ParameterN = 0.0;
-            MaterialFactor = 0.0;
-            AreaUnits_Metric = string.Empty;
-            AreaUnits_English = string.Empty;
+            ParameterB_Metric = 10000.0;
+            ParameterB_English = 170.729;
+            ParameterN = 0.65;
+            MaterialFactor = 1.0;
+            AreaUnits_Metric = "m2";
+            AreaUnits_English = "Ft2";
         }
         #endregion  // CTOR
 

@@ -79,8 +79,8 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             Description = string.Empty;
             OptimizerType = string.Empty;
             DefaultObjective = string.Empty;
-            DefaultMaxIterations = 0;
-            DefaultConvergenceTolerance = 0.0;
+            DefaultMaxIterations = 99;
+            DefaultConvergenceTolerance = 0.001;
         }
         #endregion  // CTOR
 
