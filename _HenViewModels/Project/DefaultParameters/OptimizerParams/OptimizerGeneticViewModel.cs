@@ -176,15 +176,11 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalOptimizerGeneticDto.Id = externalOptimizerGeneticDto.Id;
-                internalOptimizerGeneticDto.OptimizerParamsId = externalOptimizerGeneticDto.OptimizerParamsId;
-
-                internalOptimizerGeneticDto.Name        = externalOptimizerGeneticDto.Name;
-                internalOptimizerGeneticDto.Description = externalOptimizerGeneticDto.Description;
-                //---------------------------------------------------------------------------------------------
+                internalOptimizerGeneticDto = ConvertToInternalDto(externalOptimizerGeneticDto);
+                //-----------------------------------------------------------------------------------------------
                 //--- Add INTERNAL OptimizerGenetic Dto to the Database using the OptimizerGeneticRepo Object ---
                 //--- Returns the OptimizerGenetic ID (PK) from the OptimizerGenetic Table database addition  ---
-                //---------------------------------------------------------------------------------------------
+                //-----------------------------------------------------------------------------------------------
                 optimizerGeneticID = OptimizerGeneticRepoObj.AddOptimizerGenetic(internalOptimizerGeneticDto);
             }
             catch (Exception ex)
@@ -192,7 +188,15 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 // Handle exceptions (e.g., log the error, rethrow, or return null)
                 Console.WriteLine($"Error retrieving optimizer genetic: {ex.Message}");
             }
-            return optimizerGeneticID; // Return Optimizer Genetic ID (PK) from the Optimizer Genetic Table database addition
+            //----------------------------------------------------------------------------------------------
+            //--- Return the OptimizerGenetic ID (PK) from the OptimizerGenetic Table database addition. ---
+            //--- If an error occurs, returns an empty GUID.                                             ---
+            //--- The returned OptimizerGenetic ID can be used to reference the newly added optimizer    ---
+            //--- genetic in subsequent operations.                                                      ---
+            //--- An empty GUID indicates that the addition was unsuccessful, while a valid GUID         ---
+            //--- indicates success.                                                                     ---
+            //----------------------------------------------------------------------------------------------
+            return optimizerGeneticID;
         }
         #endregion  // AddOptimizerGenetic(OptimizerGeneticDto externalOptimizerGeneticDto) ... CREATE
 
@@ -212,21 +216,29 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
             OptimizerGeneticDto externalOptimizerGeneticDto = new OptimizerGeneticDto();
             try
             {
-                //-------------------------------------------------------------------
+                //---------------------- Guard against empty or null optimizerGeneticId ----------------
+                //--- If the provided optimizerGeneticId is empty, return null to indicate that      ---
+                //--- there is no valid optimizerGenetic to retrieve.                                ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve an optimizerGenetic with an invalid identifier.                       ---
+                //--- An empty optimizerGeneticId is not valid for retrieval, so we return null to   ---
+                //--- indicate that the optimizerGenetic cannot be found.                            ---
+                //-------------------------------------------------------------------------------------
+                if (optimizerGeneticId == Guid.Empty)
+                {
+                    return null; // Return null if the optimizerGeneticId is empty
+                }
+                //--------------------------------------------------------------------
                 //--- Retrieve OptimizerGenetic Dto from the Database.             ---
                 //--- The retrieved OptimizerGenetic Dto is in INTERNAL Units,     ---
                 //--- database access performed by the OptimizerGeneticRepo Object ---
-                //-------------------------------------------------------------------
-                OptimizerGeneticDto internalOptimizerGenetic = 
-                    OptimizerGeneticRepoObj.GetOptimizerGeneticById(optimizerGeneticId);
+                //--------------------------------------------------------------------
+                OptimizerGeneticDto internalOptimizerGeneticDto = 
+                        OptimizerGeneticRepoObj.GetOptimizerGeneticById(optimizerGeneticId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalOptimizerGeneticDto.Id = internalOptimizerGenetic.Id;
-                externalOptimizerGeneticDto.OptimizerParamsId = internalOptimizerGenetic.OptimizerParamsId;
-
-                externalOptimizerGeneticDto.Name        = internalOptimizerGenetic.Name;
-                externalOptimizerGeneticDto.Description = internalOptimizerGenetic.Description;
+                externalOptimizerGeneticDto = ConvertToInternalDto(internalOptimizerGeneticDto);
             }
             catch (Exception ex)
             {
@@ -239,7 +251,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         }
         #endregion  // GetOptimizerGeneticById(Guid optimizerGeneticId) ... READ
 
-        #region etOptimizerGeneticByOptimizerParamsId(Guid optimizerParamsId) ... READ
+        #region GetOptimizerGeneticByOptimizerParamsId(Guid optimizerParamsId) ... READ
         /// <summary>
         /// Retrieves (READ) the OptimizerGenetic Dto associated with the specified unique identifier.
         /// The OptimizerGenetic retrieved from the Database is in INTERNAL Units, 
@@ -250,26 +262,34 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="OptimizerGeneticDto"/> representing the OptimizerGenetic with the specified identifier. 
         /// Returns null if no OptimizerGenetic is found.</returns>
-        public OptimizerGeneticDto etOptimizerGeneticByOptimizerParamsId(Guid optimizerParamsId)
+        public OptimizerGeneticDto GetOptimizerGeneticByOptimizerParamsId(Guid optimizerParamsId)
         {
             OptimizerGeneticDto externalOptimizerGeneticDto = new OptimizerGeneticDto();
             try
             {
+                //---------------------- Guard against empty or null optimizerParamsId ----------------
+                //--- If the provided optimizerParamsId is empty, return null to indicate that      ---
+                //--- there is no valid optimizerGreedy to retrieve.                                ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve an optimizerGreedy with an invalid identifier.                       ---
+                //--- An empty optimizerParamsId is not valid for retrieval, so we return null to   ---
+                //--- indicate that the optimizerGreedy cannot be found.                            ---
+                //-------------------------------------------------------------------------------------
+                if (optimizerParamsId == Guid.Empty)
+                {
+                    return null; // Return null if the optimizerParamsId is empty
+                }
                 //-------------------------------------------------------------------
                 //--- Retrieve OptimizerGenetic Dto from the Database.             ---
                 //--- The retrieved OptimizerGenetic Dto is in INTERNAL Units,     ---
                 //--- database access performed by the OptimizerGeneticRepo Object ---
                 //-------------------------------------------------------------------
-                OptimizerGeneticDto internalOptimizerGenetic =
-                    OptimizerGeneticRepoObj.GetOptimizerGeneticByOptimizerParamsId(optimizerParamsId);
+                OptimizerGeneticDto internalOptimizerGeneticDto =
+                        OptimizerGeneticRepoObj.GetOptimizerGeneticByOptimizerParamsId(optimizerParamsId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalOptimizerGeneticDto.Id = internalOptimizerGenetic.Id;
-                externalOptimizerGeneticDto.OptimizerParamsId = internalOptimizerGenetic.OptimizerParamsId;
-
-                externalOptimizerGeneticDto.Name = internalOptimizerGenetic.Name;
-                externalOptimizerGeneticDto.Description = internalOptimizerGenetic.Description;
+                externalOptimizerGeneticDto = ConvertToExternalDto(internalOptimizerGeneticDto);
             }
             catch (Exception ex)
             {
@@ -303,11 +323,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalOptimizerGeneticDto.Id = externalOptimizerGeneticDto.Id;
-                internalOptimizerGeneticDto.OptimizerParamsId = externalOptimizerGeneticDto.OptimizerParamsId;
-
-                internalOptimizerGeneticDto.Name        = externalOptimizerGeneticDto.Name;
-                internalOptimizerGeneticDto.Description = externalOptimizerGeneticDto.Description;
+                internalOptimizerGeneticDto = ConvertToInternalDto(externalOptimizerGeneticDto);
                 //------------------------------------------------------------
                 //--- UPDATE INTERNAL Optimizer Genetic Dto to the Database ---
                 //--- The Optimizer Genetic to be updated is identified by  ---

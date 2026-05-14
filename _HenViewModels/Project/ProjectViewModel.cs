@@ -180,12 +180,7 @@ namespace HenViewModel.Project
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalProjectDto.Id = externalProjectDto.Id;
-                internalProjectDto.Name = externalProjectDto.Name;
-                internalProjectDto.Description = externalProjectDto.Description;
-                internalProjectDto.DefaultOptimizer = externalProjectDto.DefaultOptimizer;
-                internalProjectDto.CreationDate = externalProjectDto.CreationDate;
-                internalProjectDto.ModifiedDate = externalProjectDto.ModifiedDate;
+                internalProjectDto = ConvertToInternalDto(externalProjectDto);
                 //------------------------------------------------------------------------------
                 //--- Add INTERNAL Project Dto to the Database using the ProjectRepo Object  ---
                 //--- Returns the Project ID (PK) from the Project Table database addition   ---
@@ -228,12 +223,10 @@ namespace HenViewModel.Project
                     //-------------------------------------------------
                     //--- Convert INTERNAL Fields to EXTERNAL Units ---
                     //-------------------------------------------------
-                    externalProject.Id = internalProject.Id;
-                    externalProject.Name = internalProject.Name;
-                    externalProject.Description = internalProject.Description;
-                    externalProject.DefaultOptimizer = internalProject.DefaultOptimizer;
-                    externalProject.CreationDate = internalProject.CreationDate;
-                    externalProject.ModifiedDate = internalProject.ModifiedDate;
+                    externalProject = ConvertToExternalDto(internalProject);
+                    //-----------------------------------------------------------------------------------------
+                    //--- Add the EXTERNAL Project Dto to the List of Projects to be returned to the caller ---
+                    //-----------------------------------------------------------------------------------------
                     externalProjects.Add(externalProject);
                 }
             }
@@ -260,24 +253,37 @@ namespace HenViewModel.Project
         /// Returns null if no Project is found.</returns>
         public ProjectDto GetProjectById(Guid projectId)
         {
-            ProjectDto externalProject = new ProjectDto();
+            ProjectDto externalProjectDto = new ProjectDto();
             try
             {
+                //---------------------- Guard against empty or null projectId ------------------------
+                //--- If the provided projectId is empty, return null to indicate that there is no  ---
+                //--- valid project to retrieve.                                                    ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve a project with an invalid identifier.                                ---
+                //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
+                //---that the project cannot be found.                                              ---
+                //-------------------------------------------------------------------------------------
+                if (projectId == Guid.Empty)
+                {
+                    return null; // Return null if the projectId is empty
+                }
                 //---------------------------------------------------------------------------
                 //--- Retrieve Project Dto from the Database using the ProjectRepo Object ---
                 //--- Retrieved Project Dto [INTERNAL Units]                              ---
                 //---------------------------------------------------------------------------
-                ProjectDto internalProject = ProjectRepoObj.GetProjectById(projectId);
-
+                ProjectDto internalProjectDto = ProjectRepoObj.GetProjectById(projectId);
+                //-----------------------------------------------------------------------
+                //--- Project by Name NOT Found ... return null to indicate not found ---
+                //-----------------------------------------------------------------------
+                if (internalProjectDto == null)
+                {
+                    return null; // Return null if the project is not found
+                }
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalProject.Id = internalProject.Id;
-                externalProject.Name = internalProject.Name;
-                externalProject.Description = internalProject.Description;
-                externalProject.DefaultOptimizer = internalProject.DefaultOptimizer;
-                externalProject.CreationDate = internalProject.CreationDate;
-                externalProject.ModifiedDate = internalProject.ModifiedDate;
+                externalProjectDto = ConvertToExternalDto(internalProjectDto);
             }
             catch (Exception ex)
             {
@@ -285,8 +291,10 @@ namespace HenViewModel.Project
                 Console.WriteLine($"Error retrieving project: {ex.Message}");
                 return null; // Return null if an error occurs
             }
-
-            return externalProject;
+            //--------------------------------------------------------------
+            //--- Return the Project Dto in EXTERNAL Units to the caller ---
+            //--------------------------------------------------------------
+            return externalProjectDto;
         }
         #endregion  // GetProjectById(Guid projectId) ... READ
 
@@ -302,32 +310,33 @@ namespace HenViewModel.Project
         {
             try
             {
+                //----------------------------------------
+                //--- Empty or Null Project Name Guard ---
+                //----------------------------------------
+                if (string.IsNullOrEmpty(projectName))
+                {
+                    return null; // Return null if the project name is null or empty
+                }
                 //---------------------------------------------------------------------------
                 //--- Retrieve Project Dto from the Database using the ProjectRepo Object ---
                 //--- Retrieved Project Dto [INTERNAL Units]                              ---
                 //---------------------------------------------------------------------------
-                ProjectDto internalProject = ProjectRepoObj.GetProjectByName(projectName);
-
+                ProjectDto internalProjectDto = ProjectRepoObj.GetProjectByName(projectName);
                 //-----------------------------------------------------------------------
                 //--- Project by Name NOT Found ... return null to indicate not found ---
                 //-----------------------------------------------------------------------
-                if (internalProject==null)
+                if (internalProjectDto == null)
                 {
                     return null; // Return null if the project is not found
                 }
-
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                ProjectDto externalProject = new ProjectDto();
-                externalProject.Id = internalProject.Id;
-                externalProject.Name = internalProject.Name;
-                externalProject.Description = internalProject.Description;
-                externalProject.DefaultOptimizer = internalProject.DefaultOptimizer;
-                externalProject.CreationDate = internalProject.CreationDate;
-                externalProject.ModifiedDate = internalProject.ModifiedDate;
-                return externalProject;
-
+                ProjectDto externalProjectDto = ConvertToExternalDto(internalProjectDto);
+                //--------------------------------------------------------------
+                //--- Return the Project Dto in EXTERNAL Units to the caller ---
+                //--------------------------------------------------------------
+                return externalProjectDto;
             }
             catch (Exception ex)
             {
@@ -354,17 +363,9 @@ namespace HenViewModel.Project
             {
                 //----------------------------------------------------------------
                 //--- Project Dto [INTERNAL Units] to be Added to the Database ---
+                //--- Convert EXTERNAL Fields to INTERNAL Units                ---
                 //----------------------------------------------------------------
-                ProjectDto internalProjectDto = new ProjectDto();
-                //-------------------------------------------------
-                //--- Convert EXTERNAL Fields to INTERNAL Units ---
-                //-------------------------------------------------
-                internalProjectDto.Id = externalProjectDto.Id;
-                internalProjectDto.Name = externalProjectDto.Name;
-                internalProjectDto.Description = externalProjectDto.Description;
-                internalProjectDto.DefaultOptimizer = externalProjectDto.DefaultOptimizer;
-                internalProjectDto.CreationDate = externalProjectDto.CreationDate;
-                internalProjectDto.ModifiedDate = externalProjectDto.ModifiedDate;
+                ProjectDto internalProjectDto = ConvertToInternalDto(externalProjectDto);
                 //--------------------------------------------------------------------------------
                 //--- UPDATE INTERNAL Project Dto to the Database using the ProjectRepo Object ---
                 //--------------------------------------------------------------------------------

@@ -171,16 +171,9 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
             {
                 //----------------------------------------------------------------------
                 //--- OptimizerMILP Dto [INTERNAL Units] to be Added to the Database ---
+                //--- Convert EXTERNAL Fields to INTERNAL Units                      ---
                 //----------------------------------------------------------------------
-                OptimizerMILP_Dto internalOptimizerMILP_Dto = new OptimizerMILP_Dto();
-                //-------------------------------------------------
-                //--- Convert EXTERNAL Fields to INTERNAL Units ---
-                //-------------------------------------------------
-                internalOptimizerMILP_Dto.Id = externalOptimizerMILP_Dto.Id;
-                internalOptimizerMILP_Dto.OptimizerParamsId = externalOptimizerMILP_Dto.OptimizerParamsId;
-
-                internalOptimizerMILP_Dto.Name        = externalOptimizerMILP_Dto.Name;
-                internalOptimizerMILP_Dto.Description = externalOptimizerMILP_Dto.Description;
+                OptimizerMILP_Dto internalOptimizerMILP_Dto = ConvertToInternalDto(externalOptimizerMILP_Dto);
                 //-----------------------------------------------------------------------------------------
                 //--- Add INTERNAL OptimizerMILP Dto to the Database using the OptimizerMILPRepo Object ---
                 //--- Returns the OptimizerMILP ID (PK) from the OptimizerMILP Table database addition  ---
@@ -222,11 +215,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalOptimizerMILP_Dto.Id = internalOptimizerMILP_Dto.Id;
-                externalOptimizerMILP_Dto.OptimizerParamsId = internalOptimizerMILP_Dto.OptimizerParamsId;
-
-                externalOptimizerMILP_Dto.Name        = internalOptimizerMILP_Dto.Name;
-                externalOptimizerMILP_Dto.Description = internalOptimizerMILP_Dto.Description;
+                externalOptimizerMILP_Dto = ConvertToExternalDto(internalOptimizerMILP_Dto);
             }
             catch (Exception ex)
             {
@@ -234,7 +223,14 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 Console.WriteLine($"Error retrieving optimizer MILP: {ex.Message}");
                 return null; // Return null if an error occurs
             }
-
+            //---------------------------------------------------------
+            //--- Return the OptimizerMILP Dto in EXTERNAL Units.   ---
+            //--- The returned OptimizerMILP Dto is used in the     ---
+            //--- user interface, which operates in EXTERNAL Units. ---
+            //--- Returning the OptimizerMILP Dto in EXTERNAL Units ---
+            //--- ensures that the data is correctly displayed and  ---
+            //--- interpreted in the user interface.                ---
+            //---------------------------------------------------------
             return externalOptimizerMILP_Dto;
         }
         #endregion  // GetOptimizerMILP_ById(Guid optimizerMILP_Id) ... READ
@@ -255,21 +251,29 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
             OptimizerMILP_Dto externalOptimizerMILP_Dto = new OptimizerMILP_Dto();
             try
             {
-                //-----------------------------------------------------------------
-                //--- Retrieve OptimizerGreedy Dto from the Database.           ---
-                //--- The retrieved OptimizerGreedy Dto is in INTERNAL Units,   ---
-                //--- database access performed by the OptimizerMILPRepo Object ---
-                //-----------------------------------------------------------------
-                OptimizerMILP_Dto internalOptimizerMILP =
-                    OptimizerMILP_RepoObj.GetOptimizerMILP_ByOptimizerParamsId(optimizerParamsId);
+                //---------------------- Guard against empty or null optimizerParamsId ----------------
+                //--- If the provided optimizerParamsId is empty, return null to indicate that      ---
+                //--- there is no valid optimizerMILP to retrieve.                                  ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve an optimizerMILP with an invalid identifier.                         ---
+                //--- An empty optimizerParamsId is not valid for retrieval, so we return null to   ---
+                //--- indicate that the optimizerMILP cannot be found.                              ---
+                //-------------------------------------------------------------------------------------
+                if (optimizerParamsId == Guid.Empty)
+                {
+                    return null; // Return null if the optimizerParamsId is empty
+                }
+                //------------------------------------------------------------------
+                //--- Retrieve OptimizerMILP_Dto from the Database.              ---
+                //--- The retrieved OptimizerMILP_Dto is in INTERNAL Units,      ---
+                //--- database access performed by the OptimizerMILP_Repo Object ---
+                //------------------------------------------------------------------
+                OptimizerMILP_Dto internalOptimizerMILP_Dto =
+                        OptimizerMILP_RepoObj.GetOptimizerMILP_ByOptimizerParamsId(optimizerParamsId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalOptimizerMILP_Dto.Id = internalOptimizerMILP.Id;
-                externalOptimizerMILP_Dto.OptimizerParamsId = internalOptimizerMILP.OptimizerParamsId;
-
-                externalOptimizerMILP_Dto.Name = internalOptimizerMILP.Name;
-                externalOptimizerMILP_Dto.Description = internalOptimizerMILP.Description;
+                externalOptimizerMILP_Dto = ConvertToExternalDto(internalOptimizerMILP_Dto);
             }
             catch (Exception ex)
             {
@@ -277,7 +281,11 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 Console.WriteLine($"Error retrieving optimizer MILP: {ex.Message}");
                 return null; // Return null if an error occurs
             }
-
+            //---------------------------------------------------------
+            //--- Return the OptimizerMILP_Dto in EXTERNAL Units.   ---
+            //--- The returned OptimizerMILP_Dto is used in the     ---
+            //--- user interface, which operates in EXTERNAL Units. ---
+            //---------------------------------------------------------
             return externalOptimizerMILP_Dto;
         }
         #endregion  // GetOptimizerMILP_ByOptimizerParamsId(Guid optimizerParamsId) ... READ
@@ -303,11 +311,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalOptimizerMILP_Dto.Id = externalOptimizerMILP_Dto.Id;
-                internalOptimizerMILP_Dto.OptimizerParamsId = externalOptimizerMILP_Dto.OptimizerParamsId;
-
-                internalOptimizerMILP_Dto.Name        = externalOptimizerMILP_Dto.Name;
-                internalOptimizerMILP_Dto.Description = externalOptimizerMILP_Dto.Description;
+                internalOptimizerMILP_Dto = ConvertToInternalDto(externalOptimizerMILP_Dto);
                 //----------------------------------------------------------
                 //--- UPDATE INTERNAL Optimizer MILP Dto to the Database ---
                 //--- The Optimizer MILP to be updated is identified by  ---

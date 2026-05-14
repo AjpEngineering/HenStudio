@@ -104,8 +104,8 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
             externalDto.Id = internalDto.Id;
             externalDto.ProjectId = internalDto.ProjectId;
 
-            externalDto.DefaultHeatTransferCoefficient = internalDto.DefaultHeatTransferCoefficient;
-            externalDto.DefaultCorrectionFactor = internalDto.DefaultCorrectionFactor;
+            externalDto.DefaultHeatTransferCoefficient = ConvertToExternalU(internalDto.DefaultHeatTransferCoefficient);
+            externalDto.DefaultCorrectionFactor        = internalDto.DefaultCorrectionFactor;
             //--------------------------------------------------
             //--- Return the EXTERNAL DTO in EXTERNAL units. ---
             //--------------------------------------------------
@@ -142,7 +142,7 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
             internalDto.Id = externalDto.Id;
             internalDto.ProjectId = externalDto.ProjectId;
 
-            internalDto.DefaultHeatTransferCoefficient = externalDto.DefaultHeatTransferCoefficient;
+            internalDto.DefaultHeatTransferCoefficient = ConvertFromExternalU(externalDto.DefaultHeatTransferCoefficient);
             internalDto.DefaultCorrectionFactor = externalDto.DefaultCorrectionFactor;
             //--------------------------------------------------
             //--- Return the INTERNAL DTO in INTERNAL units. ---
@@ -211,24 +211,32 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
         /// Returns null if no Project is found.</returns>
         public ExchangerParamsDto GetExchangerParamsByProjectId(Guid projectId)
         {
-            ExchangerParamsDto externalExchangerParams = new ExchangerParamsDto();
+            ExchangerParamsDto externalExchangerParamsDto = new ExchangerParamsDto();
             try
             {
+                //---------------------- Guard against empty or null projectId ------------------------
+                //--- If the provided projectId is empty, return null to indicate that there is no  ---
+                //--- valid exchangerParams to retrieve.                                            ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve an exchangerParams with an invalid identifier.                       ---
+                //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
+                //---that the exchangerParams cannot be found.                                      ---
+                //-------------------------------------------------------------------------------------
+                if (projectId == Guid.Empty)
+                {
+                    return null; // Return null if the projectId is empty
+                }
                 //-------------------------------------------------------------------
                 //--- Retrieve Exchanger Params Dto from the Database             ---
                 //--- The retrieved Exchanger Params Dto is in INTERNAL Units,    ---
                 //--- database access performed by the ExchangerParamsRepo Object ---
                 //-------------------------------------------------------------------
-                ExchangerParamsDto internalExchangerParams = ExchangerParamsRepoObj.GetExchangerParamsByProjectId(projectId);
-
+                ExchangerParamsDto internalExchangerParamsDto = 
+                        ExchangerParamsRepoObj.GetExchangerParamsByProjectId(projectId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalExchangerParams.Id = internalExchangerParams.Id;
-                externalExchangerParams.ProjectId = internalExchangerParams.ProjectId;
-                externalExchangerParams.DefaultCorrectionFactor = internalExchangerParams.DefaultCorrectionFactor;
-                externalExchangerParams.DefaultHeatTransferCoefficient = 
-                                        ConvertToExternalU(internalExchangerParams.DefaultHeatTransferCoefficient);
+                externalExchangerParamsDto = ConvertToExternalDto(internalExchangerParamsDto);
             }
             catch (Exception ex)
             {
@@ -236,8 +244,17 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
                 Console.WriteLine($"Error retrieving project units: {ex.Message}");
                 return null; // Return null if an error occurs
             }
-
-            return externalExchangerParams;
+            //-----------------------------------------------------------------------------------------------
+            //--- Return the Exchanger Params Dto in EXTERNAL Units to the caller (e.g., user interface)  ---
+            //--- The returned Exchanger Params Dto is in EXTERNAL Units, which are the units used in the ---
+            //--- user interface.                                                                         ---
+            //--- This allows the user interface to work with the Exchanger Params Dto in the expected    ---
+            //--- units without needing to perform any additional conversions. The conversion from        ---
+            //--- INTERNAL to EXTERNAL units is handled within this method, abstracting away the unit     ---
+            //--- conversion logic from the caller and ensuring that the user interface receives the data ---
+            //--- in the correct format.                                                                  ---
+            //-----------------------------------------------------------------------------------------------
+            return externalExchangerParamsDto;
         }
         #endregion  // GetExchangerParamsByProjectId(Guid projectId) ... READ
 
@@ -262,11 +279,7 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalExchangerParamsDto.Id = externalExchangerParamsDto.Id;
-                internalExchangerParamsDto.ProjectId = externalExchangerParamsDto.ProjectId;
-                internalExchangerParamsDto.DefaultCorrectionFactor = externalExchangerParamsDto.DefaultCorrectionFactor;
-                internalExchangerParamsDto.DefaultHeatTransferCoefficient = 
-                                            ConvertFromExternalU(externalExchangerParamsDto.DefaultHeatTransferCoefficient);
+                internalExchangerParamsDto = ConvertToInternalDto(externalExchangerParamsDto);
                 //-------------------------------------------------------------------------------------------------
                 //--- UPDATE INTERNAL Exchanger Params Dto to the Database using the ExchangerParamsRepo Object ---
                 //-------------------------------------------------------------------------------------------------

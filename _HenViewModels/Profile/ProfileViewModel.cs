@@ -174,11 +174,7 @@ namespace HenViewModel.Profile
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalProfileDto.Id         = externalProfileDto.Id;
-                internalProfileDto.ProjectId  = externalProfileDto.ProjectId;
-
-                internalProfileDto.Name        = externalProfileDto.Name;
-                internalProfileDto.Description = externalProfileDto.Description;
+                internalProfileDto = ConvertToInternalDto(externalProfileDto);
                 //------------------------------------------------------------------------------
                 //--- Add INTERNAL Profile Dto to the Database using the ProfileRepo Object  ---
                 //--- Returns the Profile ID (PK) from the Profile Table database addition   ---
@@ -190,6 +186,12 @@ namespace HenViewModel.Profile
                 // Handle exceptions (e.g., log the error, rethrow, or return null)
                 Console.WriteLine($"Error retrieving profile: {ex.Message}");
             }
+            //---------------------------------------------------------------------------------------------
+            //--- Return the Profile ID (PK) from the Profile Table database addition                   ---
+            //--- This ID can be used by the caller for reference or further operations.                ---
+            //--- If the addition was successful, this will be the new profile's unique identifier.     ---
+            //--- If an error occurred during the addition, this will return an empty GUID (all zeros). ---
+            //---------------------------------------------------------------------------------------------
             return profileId;
         }
         #endregion  // AddProfile(ProfileDto profileDto) ... CREATE
@@ -219,12 +221,12 @@ namespace HenViewModel.Profile
                     //-------------------------------------------------
                     //--- Convert INTERNAL Fields to EXTERNAL Units ---
                     //-------------------------------------------------
-                    externalProfile.Id         = internalProfile.Id;
-                    externalProfile.ProjectId  = internalProfile.ProjectId;
-
-                    externalProfile.Name        = internalProfile.Name;
-                    externalProfile.Description = internalProfile.Description;
-
+                    externalProfile = ConvertToExternalDto(internalProfile);
+                    //-------------------------------------------------------------------------------------------
+                    //--- Add the EXTERNAL Profile Dto to the List of Profiles to be Returned to the Caller   ---
+                    //--- This List will contain all Profiles in EXTERNAL units, which is the expected format ---
+                    //--- for the caller.                                                                     ---
+                    //-------------------------------------------------------------------------------------------
                     externalProfiles.Add(externalProfile);
                 }
             }
@@ -234,7 +236,9 @@ namespace HenViewModel.Profile
                 Console.WriteLine($"Error retrieving profile: {ex.Message}");
                 return null;
             }
-
+            //------------------------------------------------------
+            //--- Returns the List of Profiles in EXTERNAL Units ---
+            //------------------------------------------------------
             return externalProfiles;
         }
         #endregion  // GetProfiles() ... READ
@@ -249,6 +253,18 @@ namespace HenViewModel.Profile
         /// </returns>
         public IList<ProfileDto> GetProfilesByProjectId(Guid projectId)
         {
+            //---------------------- Guard against empty or null projectId ------------------------
+            //--- If the provided projectId is empty, return null to indicate that there is no  ---
+            //--- valid profiles to retrieve.                                                   ---
+            //--- This prevents unnecessary database calls and potential errors when trying to  ---
+            //--- retrieve profiles with an invalid identifier.                                 ---
+            //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
+            //---that the profiles cannot be found.                                             ---
+            //-------------------------------------------------------------------------------------
+            if (projectId == Guid.Empty)
+            {
+                return null; // Return null if the projectId is empty
+            }
             //---------------------------------------------------------------
             //--- List to Hold Projects to be Returned to the Caller      ---
             //--- This List will Contain Profile Dtos with EXTERNAL Units ---
@@ -260,19 +276,16 @@ namespace HenViewModel.Profile
                 //--- Use ProfileRepo Object to Retrieve List of Profiles from the Database ---
                 //--- Retrieved List of Profile Dtos [INTERNAL Units] from the Database     ---
                 //-----------------------------------------------------------------------------
-                foreach (ProfileDto internalProfile in ProfileRepoObj.GetProfiles())
+                foreach (ProfileDto internalProfileDto in ProfileRepoObj.GetProfilesByProjectId(projectId))
                 {
-                    ProfileDto externalProfile = new ProfileDto();
                     //-------------------------------------------------
                     //--- Convert INTERNAL Fields to EXTERNAL Units ---
                     //-------------------------------------------------
-                    externalProfile.Id         = internalProfile.Id;
-                    externalProfile.ProjectId  = internalProfile.ProjectId;
-
-                    externalProfile.Name        = internalProfile.Name;
-                    externalProfile.Description = internalProfile.Description;
-
-                    externalProfiles.Add(externalProfile);
+                    ProfileDto externalProfileDto = ConvertToExternalDto(internalProfileDto);
+                    //---------------------------------------------------------------------------
+                    //---Add EXTERNAL Profile DTO to the List of Profiles Matching Project ID ---
+                    //---------------------------------------------------------------------------
+                    externalProfiles.Add(externalProfileDto);
                 }
             }
             catch (Exception ex)
@@ -281,6 +294,14 @@ namespace HenViewModel.Profile
                 Console.WriteLine($"Error retrieving project: {ex.Message}");
                 return null; // Return null if an error occurs
             }
+            //-------------------------------------------------------------------------
+            //--- Return the List of Profiles Matching the Project ID to the Caller ---
+            //--- This List will contain Profile Dtos in EXTERNAL units, which is   ---
+            //--  the expected format for the caller.                               ---
+            //--- If no profiles are found for the given projectId,                 ---
+            //--- this will return an empty list.                                   ---
+            //--- If an error occurs during retrieval, this will return null.       ---
+            //-------------------------------------------------------------------------
             return externalProfiles;
         }
         #endregion  // GetProfilesByProjectId(Guid projectId) ... READ
@@ -293,11 +314,23 @@ namespace HenViewModel.Profile
         /// <returns>A <see cref="ProfileDto"/> representing the Profile with the specified identifier. Returns null if no Profile is found.</returns>
         public ProfileDto GetProfileById(Guid profileId)
         {
+            //---------------------- Guard against empty or null profileId ------------------------
+            //--- If the provided profileId is empty, return null to indicate that there is no  ---
+            //--- valid profiles to retrieve.                                                   ---
+            //--- This prevents unnecessary database calls and potential errors when trying to  ---
+            //--- retrieve profiles with an invalid identifier.                                 ---
+            //--- An empty profileId is not valid for retrieval, so we return null to indicate  ---
+            //---that the profiles cannot be found.                                             ---
+            //-------------------------------------------------------------------------------------
+            if (profileId == Guid.Empty)
+            {
+                return null; // Return null if the profileId is empty
+            }
             //----------------------------------------------------
             //--- Profile Dto to be Returned to the Caller     ---
             //--- This Profile Dto will Contain EXTERNAL Units ---
             //----------------------------------------------------
-            ProfileDto externalProfile = new ProfileDto();
+            ProfileDto externalProfileDto = new ProfileDto();
             try
             {
                 //-----------------------------------------------------------
@@ -305,16 +338,11 @@ namespace HenViewModel.Profile
                 //--- The retrieved Profile Dto is in INTERNAL Units,     ---
                 //--- database access performed by the ProfileRepo Object ---
                 //-----------------------------------------------------------
-                ProfileDto internalProfile = ProfileRepoObj.GetProfileById(profileId);
-
+                ProfileDto internalProfileDto = ProfileRepoObj.GetProfileById(profileId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalProfile.Id          = internalProfile.Id;
-                externalProfile.ProjectId   = internalProfile.ProjectId;
-
-                externalProfile.Name        = internalProfile.Name;
-                externalProfile.Description = internalProfile.Description;
+                externalProfileDto = ConvertToExternalDto(internalProfileDto);
             }
             catch (Exception ex)
             {
@@ -322,8 +350,14 @@ namespace HenViewModel.Profile
                 Console.WriteLine($"Error retrieving profile: {ex.Message}");
                 return null;
             }
-
-            return externalProfile;
+            //-------------------------------------------------------------------------------
+            //--- Return the Profile Dto in EXTERNAL Units to the Caller                  ---
+            //--- This Profile Dto will contain the profile information in the expected   ---
+            //--- format for the caller.                                                  ---
+            //--- If no profile is found with the given profileId, this will return null. ---
+            //--- If an error occurs during retrieval, this will return null.             ---
+            //-------------------------------------------------------------------------------
+            return externalProfileDto;
         }
         #endregion  // GetProfileById(Guid profileId) ... READ
 
@@ -341,7 +375,7 @@ namespace HenViewModel.Profile
             //--- Profile Dto to be Returned to the Caller     ---
             //--- This Profile Dto will Contain EXTERNAL Units ---
             //----------------------------------------------------
-            ProfileDto externalProfile = new ProfileDto();
+            ProfileDto externalProfileDto = new ProfileDto();
             try
             {
                 //-----------------------------------------------------------
@@ -349,16 +383,12 @@ namespace HenViewModel.Profile
                 //--- The retrieved Profile Dto is in INTERNAL Units,     ---
                 //--- database access performed by the ProfileRepo Object ---
                 //-----------------------------------------------------------
-                ProfileDto internalProfile = ProfileRepoObj.GetProfileByName(projectId, profileName);
-
+                ProfileDto internalProfileDto = 
+                        ProfileRepoObj.GetProfileByName(projectId, profileName);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalProfile.Id          = internalProfile.Id;
-                externalProfile.ProjectId   = internalProfile.ProjectId;
-
-                externalProfile.Name        = internalProfile.Name;
-                externalProfile.Description = internalProfile.Description;
+                externalProfileDto = ConvertToExternalDto(internalProfileDto);
             }
             catch (Exception ex)
             {
@@ -366,8 +396,14 @@ namespace HenViewModel.Profile
                 Console.WriteLine($"Error retrieving profile: {ex.Message}");
                 return null;
             }
-
-            return externalProfile;
+            //-------------------------------------------------------------------------------
+            //--- Return the Profile Dto in EXTERNAL Units to the Caller                  ---
+            //--- This Profile Dto will contain the profile information in the expected   ---
+            //--- format for the caller.                                                  ---
+            //--- If no profile is found with the given profileId, this will return null. ---
+            //--- If an error occurs during retrieval, this will return null.             ---
+            //-------------------------------------------------------------------------------
+            return externalProfileDto;
         }
         #endregion  // GetProfileByName(Guid projectId, string profileName) ... READ
 
@@ -377,7 +413,7 @@ namespace HenViewModel.Profile
         /// specified profile data transfer object.
         /// </summary>
         /// <param name="externalProfileDto">The profile data transfer object 
-        /// containing updated profile information. Cannot be null.
+        /// containing updated profile information in EXTERNAL Units. Cannot be null.
         /// </param>
         public void UpdateProfile(ProfileDto externalProfileDto)
         {
@@ -390,11 +426,7 @@ namespace HenViewModel.Profile
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalProfileDto.Id          = externalProfileDto.Id;
-                internalProfileDto.ProjectId   = externalProfileDto.ProjectId;
-
-                internalProfileDto.Name        = externalProfileDto.Name;
-                internalProfileDto.Description = externalProfileDto.Description;
+                internalProfileDto = ConvertToInternalDto(externalProfileDto);
                 //--------------------------------------------------------------------------------
                 //--- UPDATE INTERNAL Profile Dto to the Database using the ProfileRepo Object ---
                 //--------------------------------------------------------------------------------

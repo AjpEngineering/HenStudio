@@ -206,12 +206,18 @@ namespace HenViewModel.Profile.Streams
                 //--- repository method for adding the utility stream.                        ---
                 //-------------------------------------------------------------------------------
                 UtilityStreamDto internalUtilityStreamDto = ConvertToInternalDto(externalUtilityStreamDto);
+
                 utilityStreamId = UtilityStreamRepoObj.AddUtilityStream(internalUtilityStreamDto);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error retrieving utility stream: {ex.Message}");
+                Console.WriteLine($"Error Adding utility stream: {ex.Message}");
             }
+            //---------------------------------------------------------------------------------------------
+            //--- Return the Utility Stream ID (PK) from the Utility Stream Table database addition     ---
+            //--- This ID can be used by the caller for reference or further operations.                ---
+            //--- If an error occurred during the addition, this will return an empty GUID (all zeros). ---
+            //---------------------------------------------------------------------------------------------
             return utilityStreamId;
         }
         #endregion  // AddUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... CREATE
@@ -261,7 +267,7 @@ namespace HenViewModel.Profile.Streams
                 //--- the exception and return null to indicate that the operation was unsuccessful.    ---
                 //--- Consumers of this method should check for a null return value to handle potential ---
                 //--- errors gracefully, and should also be prepared to handle an empty list if there   ---
-                //---are no utility streams available.                                                  ---
+                //--- are no utility streams available.                                                 ---
                 //------------------------------------------------------------------------------------------
                 foreach (UtilityStreamDto internalUtilityStream in UtilityStreamRepoObj.GetUtilityStreams())
                 {
@@ -273,6 +279,9 @@ namespace HenViewModel.Profile.Streams
                 Console.WriteLine($"Error retrieving utility stream: {ex.Message}");
                 return null;
             }
+            //-----------------------------------------------------------------
+            //--- Returns the List of ALL Utility Streams in EXTERNAL Units ---
+            //-----------------------------------------------------------------
             return externalUtilityStreams;
         }
         #endregion  // GetUtilityStreams() ... READ
@@ -341,6 +350,10 @@ namespace HenViewModel.Profile.Streams
                 Console.WriteLine($"Error retrieving utility stream: {ex.Message}");
                 return null;
             }
+            //--------------------------------------------------------------
+            //--- Returns the List of Utility Streams in EXTERNAL Units, ---
+            //--- for a given Profile ID                                 ---
+            //--------------------------------------------------------------
             return externalUtilityStreams;
         }
         #endregion  // GetUtilityStreamsByProfileId(Guid profileId) ... READ
@@ -374,6 +387,13 @@ namespace HenViewModel.Profile.Streams
                 //---------------------------------------------------------------------------------------
                 //--- If the repository does not find a utility stream with the specified             ---
                 //--- identifier, it may return null, which will be handled by the conversion method. ---
+                UtilityStreamDto internalUtilityStreamDto = 
+                            UtilityStreamRepoObj.GetUtilityStreamById(utilityStreamId);
+                //-------------------------------------------------
+                //--- Convert INTERNAL Fields to EXTERNAL Units ---
+                //-------------------------------------------------
+                UtilityStreamDto externalUtilityStreamDto = 
+                        ConvertToExternalDto(internalUtilityStreamDto);
                 //---------------------------------------------------------------------------------------
                 //--- The conversion method will return null if the input DTO is null, allowing the   ---
                 //--- method to return null in cases where the utility stream is not found.           ---
@@ -381,8 +401,7 @@ namespace HenViewModel.Profile.Streams
                 //--- If an error occurs during retrieval or conversion, the catch block will handle  ---
                 //--- the exception and return null to indicate that the operation was unsuccessful.  ---
                 //---------------------------------------------------------------------------------------
-                UtilityStreamDto internalUtilityStream = UtilityStreamRepoObj.GetUtilityStreamById(utilityStreamId);
-                return ConvertToExternalDto(internalUtilityStream);
+                return externalUtilityStreamDto;
             }
             catch (Exception ex)
             {
@@ -424,14 +443,21 @@ namespace HenViewModel.Profile.Streams
                 //--- If the repository does not find a utility stream with the specified identifiers, ---
                 //--- it may return null, which will be handled by the conversion method.              ---
                 //----------------------------------------------------------------------------------------
-                //--- The conversion method will return null if the input DTO is null, allowing the    ---
-                //--- method to return null in cases where the utility stream is not found.            ---
-                //----------------------------------------------------------------------------------------
-                //--- If an error occurs during retrieval or conversion, the catch block will handle   ---
-                //--- the exception and return null to indicate that the operation was unsuccessful.   ---
+                UtilityStreamDto internalUtilityStreamDto = 
+                        UtilityStreamRepoObj.GetUtilityStreamByStreamId(profileId, streamId);
+                //-------------------------------------------------
+                //--- Convert INTERNAL Fields to EXTERNAL Units ---
+                //-------------------------------------------------
+                UtilityStreamDto externalUtilityStreamDto =
+                        ConvertToExternalDto(internalUtilityStreamDto);
                 //---------------------------------------------------------------------------------------
-                UtilityStreamDto internalUtilityStream = UtilityStreamRepoObj.GetUtilityStreamByStreamId(profileId, streamId);
-                return ConvertToExternalDto(internalUtilityStream);
+                //--- The conversion method will return null if the input DTO is null, allowing the   ---
+                //--- method to return null in cases where the utility stream is not found.           ---
+                //---------------------------------------------------------------------------------------
+                //--- If an error occurs during retrieval or conversion, the catch block will handle  ---
+                //--- the exception and return null to indicate that the operation was unsuccessful.  ---
+                //---------------------------------------------------------------------------------------
+                return externalUtilityStreamDto;
             }
             catch (Exception ex)
             {
@@ -461,11 +487,6 @@ namespace HenViewModel.Profile.Streams
             try
             {
                 //------------------------------------------------------------------------------------------
-                //--- Update the utility stream in the repository using the provided EXTERNAL DTO.       ---
-                //------------------------------------------------------------------------------------------
-                //--- The repository method expects a DTO in INTERNAL units, so the provided EXTERNAL    ---
-                //--- DTO will be converted to INTERNAL units before being passed to the repository.     ---
-                //------------------------------------------------------------------------------------------
                 //--- The conversion method will handle the unit conversion for all relevant properties. ---
                 //--- After conversion, the INTERNAL DTO can be passed to the repository method for      ---
                 //--- updating the utility stream.                                                       ---
@@ -473,12 +494,21 @@ namespace HenViewModel.Profile.Streams
                 //--- If an error occurs during conversion or the update operation, the catch block will ---
                 //--- handle the exception and log an error message.                                     ---
                 //------------------------------------------------------------------------------------------
+                //--- Update the utility stream in the repository using the provided EXTERNAL DTO.       ---
+                //------------------------------------------------------------------------------------------
+                //--- The repository method expects a DTO in INTERNAL units, so the provided EXTERNAL    ---
+                //--- DTO will be converted to INTERNAL units before being passed to the repository.     ---
+                //------------------------------------------------------------------------------------------
                 UtilityStreamDto internalUtilityStreamDto = ConvertToInternalDto(externalUtilityStreamDto);
+                //--------------------------------------------------------------
+                //--- The repository method expects a DTO in INTERNAL units. ---
+                //--- Use Repo Object to Update Table                        ---
+                //--------------------------------------------------------------
                 UtilityStreamRepoObj.UpdateUtilityStream(internalUtilityStreamDto);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error retrieving utility stream: {ex.Message}");
+                Console.WriteLine($"Error updating utility stream: {ex.Message}");
             }
         }
         #endregion  // UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... UPDATE
@@ -511,7 +541,7 @@ namespace HenViewModel.Profile.Streams
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error retrieving utility stream: {ex.Message}");
+                Console.WriteLine($"Error deleting utility stream: {ex.Message}");
             }
         }
         #endregion  // DeleteUtilityStream(Guid utilityStreamId) ... DELETE

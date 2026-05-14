@@ -180,25 +180,26 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalFiredHeaterCapitalCostDto.Id        = firedHeaterCapitalCostDto.Id;
-                internalFiredHeaterCapitalCostDto.ProjectId = firedHeaterCapitalCostDto.ProjectId;
-
-                internalFiredHeaterCapitalCostDto.ParameterAlpha_Metric  = firedHeaterCapitalCostDto.ParameterAlpha_Metric;
-                internalFiredHeaterCapitalCostDto.ParameterAlpha_English = firedHeaterCapitalCostDto.ParameterAlpha_English;
-                internalFiredHeaterCapitalCostDto.ParameterBeta          = firedHeaterCapitalCostDto.ParameterBeta;
-                internalFiredHeaterCapitalCostDto.Efficiency             = firedHeaterCapitalCostDto.Efficiency;
-                internalFiredHeaterCapitalCostDto.DutyUnits_Metric       = firedHeaterCapitalCostDto.DutyUnits_Metric;
-                internalFiredHeaterCapitalCostDto.DutyUnits_English      = firedHeaterCapitalCostDto.DutyUnits_English;
-                //-----------------------------------------------------------------------------------------------------------
-                //--- Add INTERNAL FiredHeaterCapitalCost Dto to the Database using the FiredHeaterCapitalCostRepo Object ---
-                //--- Returns the FiredHeaterCapitalCost ID (PK) from the FiredHeaterCapitalCost Table database addition  ---
-                //-----------------------------------------------------------------------------------------------------------
-                firedHeaterCapitalCostId = FiredHeaterCapitalCostRepoObj.AddFiredHeaterCapitalCost(internalFiredHeaterCapitalCostDto);
+                internalFiredHeaterCapitalCostDto = ConvertToInternalDto(firedHeaterCapitalCostDto);
+                //---------------------------------------------------------------
+                //--- Add INTERNAL FiredHeaterCapitalCost Dto to the Database ---
+                //--- using the FiredHeaterCapitalCostRepo Object             ---
+                //--- Returns the FiredHeaterCapitalCost ID (PK) from the     ---
+                //--- FiredHeaterCapitalCost Table database addition          ---
+                //---------------------------------------------------------------
+                firedHeaterCapitalCostId = 
+                        FiredHeaterCapitalCostRepoObj.AddFiredHeaterCapitalCost(internalFiredHeaterCapitalCostDto);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error adding fired heater capital cost: {ex.Message}");
             }
+            //----------------------------------------------------------------------------------
+            //--- Return the FiredHeaterCapitalCost ID (PK) from the Database Addition       ---
+            //--- This ID can be used for further operations on the newly added fired heater ---
+            //--- capital cost.                                                              ---
+            //--- If the addition failed, the returned ID will be an empty GUID (all zeros). ---
+            //----------------------------------------------------------------------------------
             return firedHeaterCapitalCostId;
         }
         #endregion  // AddFiredHeaterCapitalCost(FiredHeaterCapitalCostDto firedHeaterCapitalCostDto) ... CREATE
@@ -219,32 +220,41 @@ namespace HenViewModel.Project.CostParameters
             FiredHeaterCapitalCostDto externalFiredHeaterCapitalCostDto = new FiredHeaterCapitalCostDto();
             try
             {
+                //---------------------- Guard against empty or null projectId ------------------------
+                //--- If the provided projectId is empty, return null to indicate that there is no  ---
+                //--- valid fired heater capital cost to retrieve.                                  ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve a fired heater capital cost with an invalid identifier.              ---
+                //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
+                //---that the fired heater capital cost cannot be found.                            ---
+                //-------------------------------------------------------------------------------------
+                if (projectId == Guid.Empty)
+                {
+                    return null; // Return null if the projectId is empty
+                }
                 //--------------------------------------------------------------------------
                 //--- Retrieve FiredHeaterCapitalCost Dto from the Database.             ---
                 //--- The retrieved FiredHeaterCapitalCost Dto is in INTERNAL Units,     ---
                 //--- database access performed by the FiredHeaterCapitalCostRepo Object ---
                 //--------------------------------------------------------------------------
                 FiredHeaterCapitalCostDto internalFiredHeaterCapitalCostDto =
-                    FiredHeaterCapitalCostRepoObj.GetFiredHeaterCapitalCostByProjectId(projectId);
+                        FiredHeaterCapitalCostRepoObj.GetFiredHeaterCapitalCostByProjectId(projectId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalFiredHeaterCapitalCostDto.Id        = internalFiredHeaterCapitalCostDto.Id;
-                externalFiredHeaterCapitalCostDto.ProjectId = internalFiredHeaterCapitalCostDto.ProjectId;
-
-                externalFiredHeaterCapitalCostDto.ParameterAlpha_Metric  = internalFiredHeaterCapitalCostDto.ParameterAlpha_Metric;
-                externalFiredHeaterCapitalCostDto.ParameterAlpha_English = internalFiredHeaterCapitalCostDto.ParameterAlpha_English;
-                externalFiredHeaterCapitalCostDto.ParameterBeta          = internalFiredHeaterCapitalCostDto.ParameterBeta;
-                externalFiredHeaterCapitalCostDto.Efficiency             = internalFiredHeaterCapitalCostDto.Efficiency;
-                externalFiredHeaterCapitalCostDto.DutyUnits_Metric       = internalFiredHeaterCapitalCostDto.DutyUnits_Metric;
-                externalFiredHeaterCapitalCostDto.DutyUnits_English      = internalFiredHeaterCapitalCostDto.DutyUnits_English;
+                externalFiredHeaterCapitalCostDto = ConvertToExternalDto(internalFiredHeaterCapitalCostDto);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error retrieving fired heater capital cost: {ex.Message}");
                 return null;
             }
-
+            //--------------------------------------------------------------------------------------
+            //--- Return the FiredHeaterCapitalCost Dto in EXTERNAL Units to the caller.         ---
+            //--- The returned DTO can be used in the user interface or for further processing.  ---
+            //--- If the retrieval failed or no fired heater capital cost is found, the returned ---
+            //--- DTO will be null.                                                              ---
+            //--------------------------------------------------------------------------------------
             return externalFiredHeaterCapitalCostDto;
         }
         #endregion  // GetFiredHeaterCapitalCostByProjectId(Guid projectId) ... READ
@@ -273,15 +283,7 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalFiredHeaterCapitalCostDto.Id        = externalFiredHeaterCapitalCostDto.Id;
-                internalFiredHeaterCapitalCostDto.ProjectId = externalFiredHeaterCapitalCostDto.ProjectId;
-
-                internalFiredHeaterCapitalCostDto.ParameterAlpha_Metric  = externalFiredHeaterCapitalCostDto.ParameterAlpha_Metric;
-                internalFiredHeaterCapitalCostDto.ParameterAlpha_English = externalFiredHeaterCapitalCostDto.ParameterAlpha_English;
-                internalFiredHeaterCapitalCostDto.ParameterBeta          = externalFiredHeaterCapitalCostDto.ParameterBeta;
-                internalFiredHeaterCapitalCostDto.Efficiency             = externalFiredHeaterCapitalCostDto.Efficiency;
-                internalFiredHeaterCapitalCostDto.DutyUnits_Metric       = externalFiredHeaterCapitalCostDto.DutyUnits_Metric;
-                internalFiredHeaterCapitalCostDto.DutyUnits_English      = externalFiredHeaterCapitalCostDto.DutyUnits_English;
+                internalFiredHeaterCapitalCostDto = ConvertToInternalDto(externalFiredHeaterCapitalCostDto);
                 //---------------------------------------------------------------------
                 //--- UPDATE INTERNAL Fired Heater Capital Cost Dto to the Database ---
                 //--- The Fired Heater Capital Cost to be updated is identified by  ---
@@ -305,10 +307,12 @@ namespace HenViewModel.Project.CostParameters
         {
             try
             {
-                //---------------------------------------------------------------------------------------------------------------
-                //--- DELETE Fired Heater Capital Cost from the Database using the FiredHeaterCapitalCostRepo Object          ---
-                //--- The Fired Heater Capital Cost to be deleted is identified by the provided firedHeaterCapitalCostId (PK) ---
-                //---------------------------------------------------------------------------------------------------------------
+                //-----------------------------------------------------------------
+                //--- DELETE Fired Heater Capital Cost from the Database using  ---
+                //--- the FiredHeaterCapitalCostRepo Object                     ---
+                //--- The Fired Heater Capital Cost to be deleted is identified ---
+                //--- by the provided firedHeaterCapitalCostId (PK)             ---
+                //-----------------------------------------------------------------
                 FiredHeaterCapitalCostRepoObj.DeleteFiredHeaterCapitalCost(firedHeaterCapitalCostId);
             }
             catch (Exception ex)

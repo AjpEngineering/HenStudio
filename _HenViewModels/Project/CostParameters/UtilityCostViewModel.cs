@@ -195,25 +195,7 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalUtilityCostDto.Id        = externalUtilityCostDto.Id;
-                internalUtilityCostDto.ProjectId = externalUtilityCostDto.ProjectId;
-
-                internalUtilityCostDto.HP_SteamCost_Metric      = externalUtilityCostDto.HP_SteamCost_Metric;
-                internalUtilityCostDto.MP_SteamCost_Metric      = externalUtilityCostDto.MP_SteamCost_Metric;
-                internalUtilityCostDto.LP_SteamCost_Metric      = externalUtilityCostDto.LP_SteamCost_Metric;
-                internalUtilityCostDto.CoolingWaterCost_Metric  = externalUtilityCostDto.CoolingWaterCost_Metric;
-                internalUtilityCostDto.ChilledWaterCost_Metric  = externalUtilityCostDto.ChilledWaterCost_Metric;
-                internalUtilityCostDto.FuelGasCost_Metric       = externalUtilityCostDto.FuelGasCost_Metric;
-
-                internalUtilityCostDto.HP_SteamCost_English     = externalUtilityCostDto.HP_SteamCost_English;
-                internalUtilityCostDto.MP_SteamCost_English     = externalUtilityCostDto.MP_SteamCost_English;
-                internalUtilityCostDto.LP_SteamCost_English     = externalUtilityCostDto.LP_SteamCost_English;
-                internalUtilityCostDto.CoolingWaterCost_English = externalUtilityCostDto.CoolingWaterCost_English;
-                internalUtilityCostDto.ChilledWaterCost_English = externalUtilityCostDto.ChilledWaterCost_English;
-                internalUtilityCostDto.FuelGasCost_English      = externalUtilityCostDto.FuelGasCost_English;
-
-                internalUtilityCostDto.DutyUnits_Metric         = externalUtilityCostDto.DutyUnits_Metric;
-                internalUtilityCostDto.DutyUnits_English        = externalUtilityCostDto.DutyUnits_English;
+                internalUtilityCostDto = ConvertToInternalDto(externalUtilityCostDto);
                 //-------------------------------------------------------------------------------------
                 //--- Add INTERNAL UtilityCost Dto to the Database using the UtilityCostRepo Object ---
                 //--- Returns the UtilityCost ID (PK) from the UtilityCost Table database addition  ---
@@ -224,6 +206,14 @@ namespace HenViewModel.Project.CostParameters
             {
                 Console.WriteLine($"Error adding utility cost: {ex.Message}");
             }
+            //------------------------------------------------------------------------------------
+            //--- Return the UtilityCost ID (PK) from the Database addition of the provided    ---
+            //--- UtilityCost Dto.                                                             ---
+            //--- This ID can be used for reference in subsequent operations (e.g., retrieval, ---
+            //--- update, deletion) on the added UtilityCost.                                  ---
+            //--- If the addition fails, the returned GUID will be empty (all zeros), which    ---
+            //--- can be used to indicate that the operation was unsuccessful.                 ---
+            //------------------------------------------------------------------------------------
             return utilityCostId;
         }
         #endregion  // AddUtilityCost(UtilityCostDto utilityCostDto) ... CREATE
@@ -244,42 +234,41 @@ namespace HenViewModel.Project.CostParameters
             UtilityCostDto externalUtilityCostDto = new UtilityCostDto();
             try
             {
+                //---------------------- Guard against empty or null projectId ------------------------
+                //--- If the provided projectId is empty, return null to indicate that there is no  ---
+                //--- valid UtilityCost to retrieve.                                                ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve a UtilityCost with an invalid identifier.                            ---
+                //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
+                //---that the UtilityCost cannot be found.                                          ---
+                //-------------------------------------------------------------------------------------
+                if (projectId == Guid.Empty)
+                {
+                    return null; // Return null if the projectId is empty
+                }
                 //---------------------------------------------------------------
                 //--- Retrieve UtilityCost Dto from the Database.             ---
                 //--- The retrieved UtilityCost Dto is in INTERNAL Units,     ---
                 //--- database access performed by the UtilityCostRepo Object ---
                 //---------------------------------------------------------------
                 UtilityCostDto internalUtilityCostDto =
-                    UtilityCostRepoObj.GetUtilityCostByProjectId(projectId);
+                        UtilityCostRepoObj.GetUtilityCostByProjectId(projectId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalUtilityCostDto.Id        = internalUtilityCostDto.Id;
-                externalUtilityCostDto.ProjectId = internalUtilityCostDto.ProjectId;
-
-                externalUtilityCostDto.HP_SteamCost_Metric      = internalUtilityCostDto.HP_SteamCost_Metric;
-                externalUtilityCostDto.MP_SteamCost_Metric      = internalUtilityCostDto.MP_SteamCost_Metric;
-                externalUtilityCostDto.LP_SteamCost_Metric      = internalUtilityCostDto.LP_SteamCost_Metric;
-                externalUtilityCostDto.CoolingWaterCost_Metric  = internalUtilityCostDto.CoolingWaterCost_Metric;
-                externalUtilityCostDto.ChilledWaterCost_Metric  = internalUtilityCostDto.ChilledWaterCost_Metric;
-                externalUtilityCostDto.FuelGasCost_Metric       = internalUtilityCostDto.FuelGasCost_Metric;
-
-                externalUtilityCostDto.HP_SteamCost_English     = internalUtilityCostDto.HP_SteamCost_English;
-                externalUtilityCostDto.MP_SteamCost_English     = internalUtilityCostDto.MP_SteamCost_English;
-                externalUtilityCostDto.LP_SteamCost_English     = internalUtilityCostDto.LP_SteamCost_English;
-                externalUtilityCostDto.CoolingWaterCost_English = internalUtilityCostDto.CoolingWaterCost_English;
-                externalUtilityCostDto.ChilledWaterCost_English = internalUtilityCostDto.ChilledWaterCost_English;
-                externalUtilityCostDto.FuelGasCost_English      = internalUtilityCostDto.FuelGasCost_English;
-
-                externalUtilityCostDto.DutyUnits_Metric         = internalUtilityCostDto.DutyUnits_Metric;
-                externalUtilityCostDto.DutyUnits_English        = internalUtilityCostDto.DutyUnits_English;
+                externalUtilityCostDto = ConvertToExternalDto(internalUtilityCostDto);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error retrieving utility cost: {ex.Message}");
                 return null;
             }
-
+            //-------------------------------------------------------------------
+            //--- Return the UtilityCost Dto in EXTERNAL Units to the caller. ---
+            //--- If the retrieval or conversion fails, the returned DTO will ---
+            //--- be null, which can be used to indicate that the operation   ---
+            //--- was unsuccessful.                                           ---
+            //-------------------------------------------------------------------
             return externalUtilityCostDto;
         }
         #endregion  // GetUtilityCostByProjectId(Guid projectId) ... READ
@@ -305,25 +294,7 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalUtilityCostDto.Id        = externalUtilityCostDto.Id;
-                internalUtilityCostDto.ProjectId = externalUtilityCostDto.ProjectId;
-
-                internalUtilityCostDto.HP_SteamCost_Metric      = externalUtilityCostDto.HP_SteamCost_Metric;
-                internalUtilityCostDto.MP_SteamCost_Metric      = externalUtilityCostDto.MP_SteamCost_Metric;
-                internalUtilityCostDto.LP_SteamCost_Metric      = externalUtilityCostDto.LP_SteamCost_Metric;
-                internalUtilityCostDto.CoolingWaterCost_Metric  = externalUtilityCostDto.CoolingWaterCost_Metric;
-                internalUtilityCostDto.ChilledWaterCost_Metric  = externalUtilityCostDto.ChilledWaterCost_Metric;
-                internalUtilityCostDto.FuelGasCost_Metric       = externalUtilityCostDto.FuelGasCost_Metric;
-
-                internalUtilityCostDto.HP_SteamCost_English     = externalUtilityCostDto.HP_SteamCost_English;
-                internalUtilityCostDto.MP_SteamCost_English     = externalUtilityCostDto.MP_SteamCost_English;
-                internalUtilityCostDto.LP_SteamCost_English     = externalUtilityCostDto.LP_SteamCost_English;
-                internalUtilityCostDto.CoolingWaterCost_English = externalUtilityCostDto.CoolingWaterCost_English;
-                internalUtilityCostDto.ChilledWaterCost_English = externalUtilityCostDto.ChilledWaterCost_English;
-                internalUtilityCostDto.FuelGasCost_English      = externalUtilityCostDto.FuelGasCost_English;
-
-                internalUtilityCostDto.DutyUnits_Metric         = externalUtilityCostDto.DutyUnits_Metric;
-                internalUtilityCostDto.DutyUnits_English        = externalUtilityCostDto.DutyUnits_English;
+                internalUtilityCostDto = ConvertToInternalDto(externalUtilityCostDto);
                 //--------------------------------------------------------
                 //--- UPDATE INTERNAL Utility Cost Dto to the Database ---
                 //--- The Utility Cost to be updated is identified by  ---

@@ -184,14 +184,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalOptimizerParamsDto.Id = externalOptimizerParamsDto.Id;
-                internalOptimizerParamsDto.ProjectId = externalOptimizerParamsDto.ProjectId;
-                internalOptimizerParamsDto.Name = externalOptimizerParamsDto.Name;
-                internalOptimizerParamsDto.Description = externalOptimizerParamsDto.Description;
-                internalOptimizerParamsDto.OptimizerType = externalOptimizerParamsDto.OptimizerType;
-                internalOptimizerParamsDto.DefaultObjective = externalOptimizerParamsDto.DefaultObjective;
-                internalOptimizerParamsDto.DefaultMaxIterations = externalOptimizerParamsDto.DefaultMaxIterations;
-                internalOptimizerParamsDto.DefaultConvergenceTolerance = externalOptimizerParamsDto.DefaultConvergenceTolerance;
+                internalOptimizerParamsDto = ConvertToInternalDto(externalOptimizerParamsDto);
                 //---------------------------------------------------------------------------------------------
                 //--- Add INTERNAL OptimizerParams Dto to the Database using the OptimizerParamsRepo Object ---
                 //--- Returns the OptimizerParams ID (PK) from the OptimizerParams Table database addition  ---
@@ -223,25 +216,29 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
             OptimizerParamsDto externalOptimizerParamsDto = new OptimizerParamsDto();
             try
             {
+                //---------------------- Guard against empty or null projectId ------------------------
+                //--- If the provided projectId is empty, return null to indicate that there is no  ---
+                //--- valid optimizerParams to retrieve.                                            ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve an optimizerParams with an invalid identifier.                       ---
+                //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
+                //---that the optimizerParams cannot be found.                                      ---
+                //-------------------------------------------------------------------------------------
+                if (projectId == Guid.Empty)
+                {
+                    return null; // Return null if the projectId is empty
+                }
                 //-------------------------------------------------------------------
                 //--- Retrieve OptimizerParams Dto from the Database.             ---
                 //--- The retrieved OptimizerParams Dto is in INTERNAL Units,     ---
                 //--- database access performed by the OptimizerParamsRepo Object ---
                 //-------------------------------------------------------------------
-                OptimizerParamsDto internalOptimizerParams = 
+                OptimizerParamsDto internalOptimizerParamsDto = 
                     OptimizerParamsRepoObj.GetOptimizerParamsByProjectId(projectId);
-
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalOptimizerParamsDto.Id = internalOptimizerParams.Id;
-                externalOptimizerParamsDto.ProjectId = internalOptimizerParams.ProjectId;
-                externalOptimizerParamsDto.Name = internalOptimizerParams.Name;
-                externalOptimizerParamsDto.Description = internalOptimizerParams.Description;
-                externalOptimizerParamsDto.OptimizerType = internalOptimizerParams.OptimizerType;
-                externalOptimizerParamsDto.DefaultObjective = internalOptimizerParams.DefaultObjective;
-                externalOptimizerParamsDto.DefaultMaxIterations = internalOptimizerParams.DefaultMaxIterations;
-                externalOptimizerParamsDto.DefaultConvergenceTolerance = internalOptimizerParams.DefaultConvergenceTolerance;
+                externalOptimizerParamsDto = ConvertToExternalDto(internalOptimizerParamsDto);
             }
             catch (Exception ex)
             {
@@ -275,14 +272,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalOptimizerParamDto.Id = externalOptimizerParamDto.Id;
-                internalOptimizerParamDto.ProjectId = externalOptimizerParamDto.ProjectId;
-                internalOptimizerParamDto.Name = externalOptimizerParamDto.Name;
-                internalOptimizerParamDto.Description = externalOptimizerParamDto.Description;
-                internalOptimizerParamDto.OptimizerType = externalOptimizerParamDto.OptimizerType;
-                internalOptimizerParamDto.DefaultObjective = externalOptimizerParamDto.DefaultObjective;
-                internalOptimizerParamDto.DefaultMaxIterations = externalOptimizerParamDto.DefaultMaxIterations;
-                internalOptimizerParamDto.DefaultConvergenceTolerance = externalOptimizerParamDto.DefaultConvergenceTolerance;
+                internalOptimizerParamDto = ConvertToInternalDto(externalOptimizerParamDto);
                 //------------------------------------------------------------
                 //--- UPDATE INTERNAL Optimizer Params Dto to the Database ---
                 //--- The Optimizer Params to be updated is identified by  ---

@@ -202,7 +202,7 @@ namespace HenViewModel.Profile.Streams
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error retrieving process stream: {ex.Message}");
+                Console.WriteLine($"Error adding process stream: {ex.Message}");
             }
             return processStreamId;
         }
@@ -326,7 +326,9 @@ namespace HenViewModel.Profile.Streams
                 //--- If the process stream with the specified ID does not exist, the repository method may return  ---
                 //--- null, which will be handled by the catch block.                                               ---
                 //-----------------------------------------------------------------------------------------------------
-                ProcessStreamDto internalProcessStream = ProcessStreamRepoObj.GetProcessStreamById(processStreamId);
+                ProcessStreamDto internalProcessStream = 
+                        ProcessStreamRepoObj.GetProcessStreamById(processStreamId);
+
                 return ConvertToExternalDto(internalProcessStream);
             }
             catch (Exception ex)
@@ -377,7 +379,9 @@ namespace HenViewModel.Profile.Streams
                 //--- If the process stream with the specified profile ID and stream ID does not exist, the repository  ---
                 //--- method may return null, which will be handled by the catch block.                                 ---
                 //---------------------------------------------------------------------------------------------------------
-                ProcessStreamDto internalProcessStream = ProcessStreamRepoObj.GetProcessStreamByStreamId(profileId, streamId);
+                ProcessStreamDto internalProcessStream = 
+                    ProcessStreamRepoObj.GetProcessStreamByStreamId(profileId, streamId);
+
                 return ConvertToExternalDto(internalProcessStream);
             }
             catch (Exception ex)
@@ -420,7 +424,7 @@ namespace HenViewModel.Profile.Streams
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error retrieving process stream: {ex.Message}");
+                Console.WriteLine($"Error updating process stream: {ex.Message}");
             }
         }
         #endregion  // UpdateProcessStream(ProcessStreamDto externalProcessStreamDto) ... UPDATE
@@ -455,7 +459,7 @@ namespace HenViewModel.Profile.Streams
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error retrieving process stream: {ex.Message}");
+                Console.WriteLine($"Error deleting process stream: {ex.Message}");
             }
         }
         #endregion  // DeleteProcessStream(Guid processStreamId) ... DELETE

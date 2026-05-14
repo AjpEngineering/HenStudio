@@ -176,11 +176,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalOptimizerGreedyDto.Id = externalOptimizerGreedyDto.Id;
-                internalOptimizerGreedyDto.OptimizerParamsId = externalOptimizerGreedyDto.OptimizerParamsId;
-
-                internalOptimizerGreedyDto.Name        = externalOptimizerGreedyDto.Name;
-                internalOptimizerGreedyDto.Description = externalOptimizerGreedyDto.Description;
+                internalOptimizerGreedyDto = ConvertToInternalDto(externalOptimizerGreedyDto);
                 //---------------------------------------------------------------------------------------------
                 //--- Add INTERNAL OptimizerGreedy Dto to the Database using the OptimizerGreedyRepo Object ---
                 //--- Returns the OptimizerGreedy ID (PK) from the OptimizerGreedy Table database addition  ---
@@ -212,21 +208,29 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
             OptimizerGreedyDto externalOptimizerGreedyDto = new OptimizerGreedyDto();
             try
             {
+                //---------------------- Guard against empty or null optimizerGreedyId ----------------
+                //--- If the provided optimizerGreedyId is empty, return null to indicate that      ---
+                //--- there is no valid optimizerGreedy to retrieve.                                ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve an optimizerGreedy with an invalid identifier.                       ---
+                //--- An empty optimizerGreedyId is not valid for retrieval, so we return null to   ---
+                //--- indicate that the optimizerGreedy cannot be found.                            ---
+                //-------------------------------------------------------------------------------------
+                if (optimizerGreedyId == Guid.Empty)
+                {
+                    return null; // Return null if the optimizerGreedyId is empty
+                }
                 //-------------------------------------------------------------------
                 //--- Retrieve OptimizerGreedy Dto from the Database.             ---
                 //--- The retrieved OptimizerGreedy Dto is in INTERNAL Units,     ---
                 //--- database access performed by the OptimizerGreedyRepo Object ---
                 //-------------------------------------------------------------------
-                OptimizerGreedyDto internalOptimizerGreedy = 
-                    OptimizerGreedyRepoObj.GetOptimizerGreedyById(optimizerGreedyId);
+                OptimizerGreedyDto internalOptimizerGreedyDto = 
+                        OptimizerGreedyRepoObj.GetOptimizerGreedyById(optimizerGreedyId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalOptimizerGreedyDto.Id = internalOptimizerGreedy.Id;
-                externalOptimizerGreedyDto.OptimizerParamsId = internalOptimizerGreedy.OptimizerParamsId;
-
-                externalOptimizerGreedyDto.Name        = internalOptimizerGreedy.Name;
-                externalOptimizerGreedyDto.Description = internalOptimizerGreedy.Description;
+                externalOptimizerGreedyDto = ConvertToExternalDto(internalOptimizerGreedyDto);
             }
             catch (Exception ex)
             {
@@ -234,7 +238,13 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 Console.WriteLine($"Error retrieving optimizer greedy: {ex.Message}");
                 return null; // Return null if an error occurs
             }
-
+            //---------------------------------------------------------
+            //--- Return the OptimizerGreedy Dto in EXTERNAL Units. ---
+            //--- If the retrieval and conversion were successful,  ---
+            //--- this will be a valid OptimizerGreedyDto.          ---
+            //--- If the optimizerGreedyId was empty or an error    ---
+            //--- occurred, this will return null.                  ---
+            //---------------------------------------------------------
             return externalOptimizerGreedyDto;
         }
         #endregion  // GetOptimizerGreedyById(Guid optimizerGreedyId) ... READ
@@ -255,21 +265,29 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
             OptimizerGreedyDto externalOptimizerGreedyDto = new OptimizerGreedyDto();
             try
             {
+                //---------------------- Guard against empty or null optimizerParamsId ----------------
+                //--- If the provided optimizerParamsId is empty, return null to indicate that      ---
+                //--- there is no valid optimizerGreedy to retrieve.                                ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve an optimizerGreedy with an invalid identifier.                       ---
+                //--- An empty optimizerParamsId is not valid for retrieval, so we return null to   ---
+                //--- indicate that the optimizerGreedy cannot be found.                            ---
+                //-------------------------------------------------------------------------------------
+                if (optimizerParamsId == Guid.Empty)
+                {
+                    return null; // Return null if the optimizerParamsId is empty
+                }
                 //-------------------------------------------------------------------
                 //--- Retrieve OptimizerGreedy Dto from the Database.             ---
                 //--- The retrieved OptimizerGreedy Dto is in INTERNAL Units,     ---
                 //--- database access performed by the OptimizerGreedyRepo Object ---
                 //-------------------------------------------------------------------
-                OptimizerGreedyDto internalOptimizerGreedy =
-                    OptimizerGreedyRepoObj.GetOptimizerGreedyByOptimizerParamsId(optimizerParamsId);
+                OptimizerGreedyDto internalOptimizerGreedyDto =
+                        OptimizerGreedyRepoObj.GetOptimizerGreedyByOptimizerParamsId(optimizerParamsId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalOptimizerGreedyDto.Id = internalOptimizerGreedy.Id;
-                externalOptimizerGreedyDto.OptimizerParamsId = internalOptimizerGreedy.OptimizerParamsId;
-
-                externalOptimizerGreedyDto.Name = internalOptimizerGreedy.Name;
-                externalOptimizerGreedyDto.Description = internalOptimizerGreedy.Description;
+                externalOptimizerGreedyDto = ConvertToExternalDto(internalOptimizerGreedyDto);
             }
             catch (Exception ex)
             {
@@ -277,7 +295,13 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 Console.WriteLine($"Error retrieving optimizer greedy: {ex.Message}");
                 return null; // Return null if an error occurs
             }
-
+            //---------------------------------------------------------
+            //--- Return the OptimizerGreedy Dto in EXTERNAL Units. ---
+            //--- If the retrieval and conversion were successful,  ---
+            //--- this will be a valid OptimizerGreedyDto.          ---
+            //--- If the optimizerParamsId was empty or an error    ---
+            //--- occurred, this will return null.                  ---
+            //---------------------------------------------------------
             return externalOptimizerGreedyDto;
         }
         #endregion  // GetOptimizerGreedyByOptimizerParamsId(Guid optimizerParamsId) ... READ
@@ -303,11 +327,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalOptimizerGreedyDto.Id = externalOptimizerGreedyDto.Id;
-                internalOptimizerGreedyDto.OptimizerParamsId = externalOptimizerGreedyDto.OptimizerParamsId;
-
-                internalOptimizerGreedyDto.Name        = externalOptimizerGreedyDto.Name;
-                internalOptimizerGreedyDto.Description = externalOptimizerGreedyDto.Description;
+                internalOptimizerGreedyDto = ConvertToInternalDto(externalOptimizerGreedyDto);
                 //------------------------------------------------------------
                 //--- UPDATE INTERNAL Optimizer Greedy Dto to the Database ---
                 //--- The Optimizer Greedy to be updated is identified by  ---

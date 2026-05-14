@@ -182,26 +182,24 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalShellAndTubeCapitalCostDto.Id        = externalShellAndTubeCapitalCostDto.Id;
-                internalShellAndTubeCapitalCostDto.ProjectId = externalShellAndTubeCapitalCostDto.ProjectId;
-
-                internalShellAndTubeCapitalCostDto.ParameterA         = externalShellAndTubeCapitalCostDto.ParameterA;
-                internalShellAndTubeCapitalCostDto.ParameterB_Metric  = externalShellAndTubeCapitalCostDto.ParameterB_Metric;
-                internalShellAndTubeCapitalCostDto.ParameterB_English = externalShellAndTubeCapitalCostDto.ParameterB_English;
-                internalShellAndTubeCapitalCostDto.ParameterN         = externalShellAndTubeCapitalCostDto.ParameterN;
-                internalShellAndTubeCapitalCostDto.MaterialFactor     = externalShellAndTubeCapitalCostDto.MaterialFactor;
-                internalShellAndTubeCapitalCostDto.AreaUnits_Metric   = externalShellAndTubeCapitalCostDto.AreaUnits_Metric;
-                internalShellAndTubeCapitalCostDto.AreaUnits_English  = externalShellAndTubeCapitalCostDto.AreaUnits_English;
+                internalShellAndTubeCapitalCostDto = ConvertToInternalDto(externalShellAndTubeCapitalCostDto);
                 //-------------------------------------------------------------------------------------------------------------
                 //--- Add INTERNAL ShellAndTubeCapitalCost Dto to the Database using the ShellAndTubeCapitalCostRepo Object ---
                 //--- Returns the ShellAndTubeCapitalCost ID (PK) from the ShellAndTubeCapitalCost Table database addition  ---
                 //-------------------------------------------------------------------------------------------------------------
-                shellAndTubeCapitalCostId = ShellAndTubeCapitalCostRepoObj.AddShellAndTubeCapitalCost(internalShellAndTubeCapitalCostDto);
+                shellAndTubeCapitalCostId = 
+                        ShellAndTubeCapitalCostRepoObj.AddShellAndTubeCapitalCost(internalShellAndTubeCapitalCostDto);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error adding shell and tube capital cost: {ex.Message}");
             }
+            //----------------------------------------------------------------------------------------------
+            //--- Return the ShellAndTubeCapitalCost ID (PK) from the Database addition                  ---
+            //--- This ID can be used for further operations on the newly added ShellAndTubeCapitalCost, ---
+            //--- such as retrieval, update, or deletion. -                                              ---
+            //--- If the addition was unsuccessful, the returned ID will be an empty GUID (all zeros).   ---
+            //----------------------------------------------------------------------------------------------
             return shellAndTubeCapitalCostId;
         }
         #endregion  // AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDto) ... CREATE
@@ -222,33 +220,41 @@ namespace HenViewModel.Project.CostParameters
             ShellAndTubeCapitalCostDto externalShellAndTubeCapitalCostDto = new ShellAndTubeCapitalCostDto();
             try
             {
+                //---------------------- Guard against empty or null projectId ------------------------
+                //--- If the provided projectId is empty, return null to indicate that there is no  ---
+                //--- valid ShellAndTubeCapitalCost to retrieve.                                    ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve a ShellAndTubeCapitalCost with an invalid identifier.                ---
+                //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
+                //---that the ShellAndTubeCapitalCost cannot be found.                              ---
+                //-------------------------------------------------------------------------------------
+                if (projectId == Guid.Empty)
+                {
+                    return null; // Return null if the projectId is empty
+                }
                 //---------------------------------------------------------------------------
                 //--- Retrieve ShellAndTubeCapitalCost Dto from the Database.             ---
                 //--- The retrieved ShellAndTubeCapitalCost Dto is in INTERNAL Units,     ---
                 //--- database access performed by the ShellAndTubeCapitalCostRepo Object ---
                 //---------------------------------------------------------------------------
                 ShellAndTubeCapitalCostDto internalShellAndTubeCapitalCostDto =
-                    ShellAndTubeCapitalCostRepoObj.GetShellAndTubeCapitalCostByProjectId(projectId);
+                        ShellAndTubeCapitalCostRepoObj.GetShellAndTubeCapitalCostByProjectId(projectId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalShellAndTubeCapitalCostDto.Id        = internalShellAndTubeCapitalCostDto.Id;
-                externalShellAndTubeCapitalCostDto.ProjectId = internalShellAndTubeCapitalCostDto.ProjectId;
-
-                externalShellAndTubeCapitalCostDto.ParameterA         = internalShellAndTubeCapitalCostDto.ParameterA;
-                externalShellAndTubeCapitalCostDto.ParameterB_Metric  = internalShellAndTubeCapitalCostDto.ParameterB_Metric;
-                externalShellAndTubeCapitalCostDto.ParameterB_English = internalShellAndTubeCapitalCostDto.ParameterB_English;
-                externalShellAndTubeCapitalCostDto.ParameterN         = internalShellAndTubeCapitalCostDto.ParameterN;
-                externalShellAndTubeCapitalCostDto.MaterialFactor     = internalShellAndTubeCapitalCostDto.MaterialFactor;
-                externalShellAndTubeCapitalCostDto.AreaUnits_Metric   = internalShellAndTubeCapitalCostDto.AreaUnits_Metric;
-                externalShellAndTubeCapitalCostDto.AreaUnits_English  = internalShellAndTubeCapitalCostDto.AreaUnits_English;
+                externalShellAndTubeCapitalCostDto = ConvertToExternalDto(internalShellAndTubeCapitalCostDto);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error retrieving shell and tube capital cost: {ex.Message}");
                 return null;
             }
-
+            //-------------------------------------------------------------------------------
+            //--- Return the ShellAndTubeCapitalCost Dto in EXTERNAL Units to the caller. ---
+            //--- The caller can use this Dto to display the ShellAndTubeCapitalCost      ---
+            //--- information in the user interface.                                      ---
+            //--- If the retrieval was unsuccessful, the returned Dto will be null.       ---
+            //-------------------------------------------------------------------------------
             return externalShellAndTubeCapitalCostDto;
         }
         #endregion  // GetShellAndTubeCapitalCostByProjectId(Guid projectId) ... READ
@@ -277,16 +283,7 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalShellAndTubeCapitalCostDto.Id        = externalShellAndTubeCapitalCostDto.Id;
-                internalShellAndTubeCapitalCostDto.ProjectId = externalShellAndTubeCapitalCostDto.ProjectId;
-
-                internalShellAndTubeCapitalCostDto.ParameterA         = externalShellAndTubeCapitalCostDto.ParameterA;
-                internalShellAndTubeCapitalCostDto.ParameterB_Metric  = externalShellAndTubeCapitalCostDto.ParameterB_Metric;
-                internalShellAndTubeCapitalCostDto.ParameterB_English = externalShellAndTubeCapitalCostDto.ParameterB_English;
-                internalShellAndTubeCapitalCostDto.ParameterN         = externalShellAndTubeCapitalCostDto.ParameterN;
-                internalShellAndTubeCapitalCostDto.MaterialFactor     = externalShellAndTubeCapitalCostDto.MaterialFactor;
-                internalShellAndTubeCapitalCostDto.AreaUnits_Metric   = externalShellAndTubeCapitalCostDto.AreaUnits_Metric;
-                internalShellAndTubeCapitalCostDto.AreaUnits_English  = externalShellAndTubeCapitalCostDto.AreaUnits_English;
+                internalShellAndTubeCapitalCostDto = ConvertToInternalDto(externalShellAndTubeCapitalCostDto);
                 //-----------------------------------------------------------------------
                 //--- UPDATE INTERNAL Shell and Tube Capital Cost Dto to the Database ---
                 //--- The Shell and Tube Capital Cost to be updated is identified by  ---
@@ -310,10 +307,12 @@ namespace HenViewModel.Project.CostParameters
         {
             try
             {
-                //------------------------------------------------------------------------------------------------------------------
-                //--- DELETE Shell and Tube Capital Cost from the Database using the ShellAndTubeCapitalCostRepo Object          ---
-                //--- The Shell and Tube Capital Cost to be deleted is identified by the provided shellAndTubeCapitalCostId (PK) ---
-                //------------------------------------------------------------------------------------------------------------------
+                //-------------------------------------------------------------------
+                //--- DELETE Shell and Tube Capital Cost from the Database using  ---
+                //--- the ShellAndTubeCapitalCostRepo Object                      ---
+                //--- The Shell and Tube Capital Cost to be deleted is identified ---
+                //--- by the provided shellAndTubeCapitalCostId (PK)              ---
+                //-------------------------------------------------------------------
                 ShellAndTubeCapitalCostRepoObj.DeleteShellAndTubeCapitalCost(shellAndTubeCapitalCostId);
             }
             catch (Exception ex)

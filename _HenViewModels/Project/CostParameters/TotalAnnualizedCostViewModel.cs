@@ -176,13 +176,7 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalTotalAnnualizedCostDto.Id        = externalTotalAnnualizedCostDto.Id;
-                internalTotalAnnualizedCostDto.ProjectId = externalTotalAnnualizedCostDto.ProjectId;
-
-                internalTotalAnnualizedCostDto.TAC_InterestRate        = externalTotalAnnualizedCostDto.TAC_InterestRate;
-                internalTotalAnnualizedCostDto.TAC_LifeYears           = externalTotalAnnualizedCostDto.TAC_LifeYears;
-                internalTotalAnnualizedCostDto.TAC_MaintenanceFraction = externalTotalAnnualizedCostDto.TAC_MaintenanceFraction;
-                internalTotalAnnualizedCostDto.TAC_OperatingHours      = externalTotalAnnualizedCostDto.TAC_OperatingHours;
+                internalTotalAnnualizedCostDto = ConvertToInternalDto(externalTotalAnnualizedCostDto);
                 //-----------------------------------------------------------------------------------------------------
                 //--- Add INTERNAL TotalAnnualizedCost Dto to the Database using the TotalAnnualizedCostRepo Object ---
                 //--- Returns the TotalAnnualizedCost ID (PK) from the TotalAnnualizedCost Table database addition  ---
@@ -193,6 +187,12 @@ namespace HenViewModel.Project.CostParameters
             {
                 Console.WriteLine($"Error adding total annualized cost: {ex.Message}");
             }
+            //----------------------------------------------------------------------------------
+            //--- Return the TotalAnnualizedCost ID (PK) from the TotalAnnualizedCost Table  ---
+            //--- database addition                                                          ---
+            //--- This ID can be used for further operations or reference.                   ---
+            //--- If the addition failed, the returned ID will be an empty GUID (all zeros). ---
+            //----------------------------------------------------------------------------------
             return totalAnnualizedCostId;
         }
         #endregion  // AddTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto) ... CREATE
@@ -213,30 +213,41 @@ namespace HenViewModel.Project.CostParameters
             TotalAnnualizedCostDto externalTotalAnnualizedCostDto = new TotalAnnualizedCostDto();
             try
             {
+                //---------------------- Guard against empty or null projectId ------------------------
+                //--- If the provided projectId is empty, return null to indicate that there is no  ---
+                //--- valid TotalAnnualizedCost to retrieve.                                        ---
+                //--- This prevents unnecessary database calls and potential errors when trying to  ---
+                //--- retrieve a TotalAnnualizedCost with an invalid identifier.                    ---
+                //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
+                //---that the TotalAnnualizedCost cannot be found.                                  ---
+                //-------------------------------------------------------------------------------------
+                if (projectId == Guid.Empty)
+                {
+                    return null; // Return null if the projectId is empty
+                }
                 //-----------------------------------------------------------------------
                 //--- Retrieve TotalAnnualizedCost Dto from the Database.             ---
                 //--- The retrieved TotalAnnualizedCost Dto is in INTERNAL Units,     ---
                 //--- database access performed by the TotalAnnualizedCostRepo Object ---
                 //-----------------------------------------------------------------------
                 TotalAnnualizedCostDto internalTotalAnnualizedCostDto =
-                    TotalAnnualizedCostRepoObj.GetTotalAnnualizedCostByProjectId(projectId);
+                        TotalAnnualizedCostRepoObj.GetTotalAnnualizedCostByProjectId(projectId);
                 //-------------------------------------------------
                 //--- Convert INTERNAL Fields to EXTERNAL Units ---
                 //-------------------------------------------------
-                externalTotalAnnualizedCostDto.Id        = internalTotalAnnualizedCostDto.Id;
-                externalTotalAnnualizedCostDto.ProjectId = internalTotalAnnualizedCostDto.ProjectId;
-
-                externalTotalAnnualizedCostDto.TAC_InterestRate        = internalTotalAnnualizedCostDto.TAC_InterestRate;
-                externalTotalAnnualizedCostDto.TAC_LifeYears           = internalTotalAnnualizedCostDto.TAC_LifeYears;
-                externalTotalAnnualizedCostDto.TAC_MaintenanceFraction = internalTotalAnnualizedCostDto.TAC_MaintenanceFraction;
-                externalTotalAnnualizedCostDto.TAC_OperatingHours      = internalTotalAnnualizedCostDto.TAC_OperatingHours;
+                externalTotalAnnualizedCostDto = ConvertToExternalDto(internalTotalAnnualizedCostDto);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error retrieving total annualized cost: {ex.Message}");
                 return null;
             }
-
+            //--------------------------------------------------------------------
+            //--- Return the TotalAnnualizedCost Dto in EXTERNAL Units to be   ---
+            //--- used in the user interface or further processing.            ---
+            //--- If the retrieval failed or no TotalAnnualizedCost was found, ---
+            //--- the returned Dto will be null.                               ---
+            //--------------------------------------------------------------------
             return externalTotalAnnualizedCostDto;
         }
         #endregion  // GetTotalAnnualizedCostByProjectId(Guid projectId) ... READ
@@ -264,12 +275,7 @@ namespace HenViewModel.Project.CostParameters
                 //-------------------------------------------------
                 //--- Convert EXTERNAL Fields to INTERNAL Units ---
                 //-------------------------------------------------
-                internalTotalAnnualizedCostDto.Id = externalTotalAnnualizedCostDto.Id;
-                internalTotalAnnualizedCostDto.ProjectId = externalTotalAnnualizedCostDto.ProjectId;
-                internalTotalAnnualizedCostDto.TAC_InterestRate = externalTotalAnnualizedCostDto.TAC_InterestRate;
-                internalTotalAnnualizedCostDto.TAC_LifeYears = externalTotalAnnualizedCostDto.TAC_LifeYears;
-                internalTotalAnnualizedCostDto.TAC_MaintenanceFraction = externalTotalAnnualizedCostDto.TAC_MaintenanceFraction;
-                internalTotalAnnualizedCostDto.TAC_OperatingHours = externalTotalAnnualizedCostDto.TAC_OperatingHours;
+                internalTotalAnnualizedCostDto = ConvertToInternalDto(externalTotalAnnualizedCostDto);
                 //-----------------------------------------------------------------
                 //--- UPDATE INTERNAL Total Annualized Cost Dto to the Database ---
                 //--- The Total Annualized Cost to be updated is identified by  ---
@@ -293,10 +299,12 @@ namespace HenViewModel.Project.CostParameters
         {
             try
             {
-                //--------------------------------------------------------------------------------------------------------
-                //--- DELETE Total Annualized Cost from the Database using the TotalAnnualizedCostRepo Object          ---
-                //--- The Total Annualized Cost to be deleted is identified by the provided totalAnnualizedCostId (PK) ---
-                //--------------------------------------------------------------------------------------------------------
+                //-------------------------------------------------------------
+                //--- DELETE Total Annualized Cost from the Database using  ---
+                //--- the TotalAnnualizedCostRepo Object                    ---
+                //--- The Total Annualized Cost to be deleted is identified ---
+                //--- by the provided totalAnnualizedCostId (PK)            ---
+                //-------------------------------------------------------------
                 TotalAnnualizedCostRepoObj.DeleteTotalAnnualizedCost(totalAnnualizedCostId);
             }
             catch (Exception ex)
