@@ -62,13 +62,8 @@ namespace HenGlobal
         public const string DEFAULT_LICENSE_FOLDERNAME = "LICENSE";
         public const string DEFAULT_LICENSE_FILENAME = "License.xml";
 
-        public const string DEFAULT_PROJECTS_FOLDERNAME  = "PROJECTS";
-        public const string DEFAULT_PROJECTS_DB_FILENAME = "HenStudioProjects.txt";    // ***** TEST ONLY *****
-        //public const string DEFAULT_PROJECTS_DB_FILENAME = "HenStudioProjects.mdb";  // HEN Studio Projects SQL Server 2025 EXPRESS Database File
+        public const string DEFAULT_HENSTUDIO_DB_NAME  = "HENSTUDIO";
 
-        public const string DEFAULT_ARCHIVE_FOLDERNAME = "ARCHIVE";
-        public const string DEFAULT_EXPORT_FOLDERNAME = "EXPORT";
-        public const string DEFAULT_IMPORT_FOLDERNAME = "IMPORT";
         public const string DEFAULT_TEMPLATE_FOLDERNAME = "TEMPLATE";
 
         #endregion      // CONSTANTS
@@ -87,11 +82,6 @@ namespace HenGlobal
         public string AppExecConfigFilePath { get; set; }    // Full Path App Exe Config File Location
         public string LicenseFolderPath { get; set; }        // Full Path LICENSE Folder Location
         public string LicenseFilePath { get; set; }          // Full Path LICENSE File Location
-        public string ProjectsFolderPath { get; set; }       // Full Path PROJECTS Folder Location
-        public string ProjectsDbFilePath { get; set; }       // Full Path HEN Projects SQL Server 2025 EXPRESS Database File Location
-        public string ArchiveFolderPath { get; set; }        // Full Path ARCHIVE Folder Location
-        public string ExportFolderPath { get; set; }         // Full Path EXPORT Folder Location
-        public string ImportFolderPath { get; set; }         // Full Path IMPORT Folder Location
         public string TemplateFolderPath { get; set; }       // Full Path TEMPLATE Folder Location
         #endregion  // USER APP DATA LOCAL LOCATION
 
@@ -147,31 +137,10 @@ namespace HenGlobal
                                                    Path.GetDirectoryName(Application.ExecutablePath), 
                                                    DEFAULT_LICENSE_FOLDERNAME);
 
-                ProjectsFolderPath = String.Format("{0}\\{1}",
-                                                   Path.GetDirectoryName(Application.ExecutablePath),
-                                                   DEFAULT_PROJECTS_FOLDERNAME);
-
-                ArchiveFolderPath = String.Format("{0}\\{1}",
-                                                   ProjectsFolderPath,
-                                                   DEFAULT_ARCHIVE_FOLDERNAME);
-
-                ExportFolderPath = String.Format("{0}\\{1}",
-                                                   ProjectsFolderPath,
-                                                   DEFAULT_EXPORT_FOLDERNAME);
-
-                ImportFolderPath = String.Format("{0}\\{1}",
-                                                   ProjectsFolderPath,
-                                                   DEFAULT_IMPORT_FOLDERNAME);
-
-                TemplateFolderPath = String.Format("{0}\\{1}",
-                                                   ProjectsFolderPath,
-                                                   DEFAULT_TEMPLATE_FOLDERNAME);
-
                 //**************************************************************************************** DATA ---
                 //*************************************************************************************************
 
                 LicenseFilePath = String.Format("{0}\\{1}", LicenseFolderPath, DEFAULT_LICENSE_FILENAME);
-                ProjectsDbFilePath = String.Format("{0}\\{1}", ProjectsFolderPath, DEFAULT_PROJECTS_DB_FILENAME);
             }
             catch (Exception ex)
             {
@@ -356,22 +325,16 @@ namespace HenGlobal
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("        APP EXE CONFIG FILE LOCATION : {0}", AppExecConfigFilePath);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+
+                HenLogger.WriteSeparatorLine('-');
+
                 strMsg = string.Format("             LICENSE FOLDER LOCATION : {0}", LicenseFolderPath);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("               LICENSE FILE LOCATION : {0}", LicenseFilePath);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
-                strMsg = string.Format("            PROJECTS FOLDER LOCATION : {0}", ProjectsFolderPath);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("           PROJECTS DB FILE LOCATION : {0}", ProjectsDbFilePath);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                HenLogger.WriteSeparatorLine('-');
 
-                strMsg = string.Format("             ARCHIVE FOLDER LOCATION : {0}", ArchiveFolderPath);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("              EXPORT FOLDER LOCATION : {0}", ExportFolderPath);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("              IMPORT FOLDER LOCATION : {0}", ImportFolderPath);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 strMsg = string.Format("            TEMPLATE FOLDER LOCATION : {0}", TemplateFolderPath);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
 
