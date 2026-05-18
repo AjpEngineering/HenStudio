@@ -54,18 +54,18 @@ namespace HenStudio.Data.Profile.Streams
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public UtilityStreamDto UtilityStreamDtoObj { get; set; }
-        public Guid Id { get; set; }
-        public Guid ProfileId { get; set; }
-        public string StreamCategory { get; set; }
-        public string StreamHeat { get; set; }
-        public string StreamId { get; set; }
-        public string Name { get; set; }
-        public string StreamType { get; set; }
-        public double IsothermalTemperature { get; set; }
-        public double SupplyPressure { get; set; }
-        public double TargetPressure { get; set; }
-        public double EnthalpyFlowRate { get; set; }
+        public UtilityStreamDto UtilityStreamDtoObj { get; set; }   // Utility Stream DTO Object
+        public Guid Id { get; set; }                                // Utility Stream ID .......... (PK)
+        public Guid ProfileId { get; set; }                         // Profile ID ................. (FK)
+        public string StreamCategory { get; set; }                  // Stream Category ............ ["Process"   | "Utility"]
+        public string StreamHeat { get; set; }                      // Stream Heat ................ ["Sensible", | "Latent"]
+        public string StreamId { get; set; }                        // Stream ID .................. (e.g., "H1", "C1", etc.)
+        public string Name { get; set; }                            // Stream Name ................ (e.g., "Naptha Feed")
+        public string StreamType { get; set; }                      // Stream Type ................ ["Hot", | "Cold"]
+        public double IsothermalTemperature { get; set; }           // Isothermal Temperature Value (°C)
+        public double SupplyPressure { get; set; }                  // Supply Pressure        Value (kPa)
+        public double TargetPressure { get; set; }                  // Target Pressure        Value (kPa)
+        public double EnthalpyFlowRate { get; set; }                // Enthalpy Flow Rate     Value (kW)
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -77,18 +77,19 @@ namespace HenStudio.Data.Profile.Streams
         /// This constructor ensures that the object is in a valid default state upon creation.</remarks>
         public UtilityStreamPanelData()
         {
-            UtilityStreamDtoObj = new UtilityStreamDto();
-            Id = new Guid();
-            ProfileId = new Guid();
-            StreamCategory = string.Empty;
-            StreamHeat = string.Empty;
-            StreamId = string.Empty;
-            Name = string.Empty;
-            StreamType = string.Empty;
-            IsothermalTemperature = 0.0;
-            SupplyPressure = 0.0;
-            TargetPressure = 0.0;
-            EnthalpyFlowRate = 0.0;
+            UtilityStreamDtoObj = new UtilityStreamDto(); // Utility Stream DTO Object
+
+            Id = new Guid();                // Utility Stream ID .......... (PK)
+            ProfileId = new Guid();         // Profile ID ................. (FK)
+            StreamCategory = string.Empty;  // Stream Category ............ ["Process"   | "Utility"]
+            StreamHeat = string.Empty;      // Stream Heat ................ ["Sensible", | "Latent"]
+            StreamId = string.Empty;        // Stream ID .................. (e.g., "H1", "C1", etc.)
+            Name = string.Empty;            // Stream Name ................ (e.g., "Naptha Feed")
+            StreamType = string.Empty;      // Stream Type ................ ["Hot", | "Cold"]
+            IsothermalTemperature = 0.0;    // Isothermal Temperature Value (°C)
+            SupplyPressure = 0.0;           // Supply Pressure        Value (kPa)
+            TargetPressure = 0.0;           // Target Pressure        Value (kPa)
+            EnthalpyFlowRate = 0.0;         // Enthalpy Flow Rate     Value (kW)
         }
         #endregion  // CTOR
 
