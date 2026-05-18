@@ -328,7 +328,7 @@ namespace HenStudio
             }
             finally
             {
-                this.panelSELECTED_PROJECTS.BringToFront();
+                this.panelSELECTED_ROOT.BringToFront();
             }
         }
         #endregion      // CTOR
@@ -1344,7 +1344,7 @@ namespace HenStudio
                 //---------------------------------------------
                 rootNode.ImageIndex = 9;
 
-                this.panelSELECTED_PROJECTS.BringToFront();
+                this.panelSELECTED_ROOT.BringToFront();
                 treeViewCurrentProjectExplorer.SelectedNode = rootNode;
                 rootNode.EnsureVisible();
                 treeViewCurrentProjectExplorer.HideSelection = false;
