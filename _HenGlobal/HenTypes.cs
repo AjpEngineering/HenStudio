@@ -151,13 +151,13 @@ namespace HenGlobal
 
         #region PROJECT EXPLORER TREE ID
 
-        #region enum ExplorerNodeId
+        #region enum ExplorerNodeIdType
         /// <summary>
         /// ENUMERATION: Project-Explorer Tree Node ID [ UNKNOWN | CATALOG | PROJECT | PROFILE | STUDY ]
         /// NOTE: STUDY LEVEL IS SAME AS PROFILE LEVEL IN EXPLORER TREE, however, 
         ///       STUDY ID IS DIFFERENT THAN PROFILE ID (Unique ID)
         /// </summary>
-        public enum ExplorerNodeId
+        public enum ExplorerNodeIdType
         {
             UNKNOWN = -1,   // UNKNOWN Level
             CATALOG = 0,    // Projects Catalog - No Project Selected (root)
@@ -165,7 +165,7 @@ namespace HenGlobal
             PROFILE = 2,    // Profile Process Flowsheet Input
             STUDY   = 3     // Study (Pinch Analysis and/or HEN Design)
         };
-        #endregion      // enum ExplorerNodeId
+        #endregion      // enum ExplorerNodeIdType
 
         #endregion  // PROJECT EXPLORER TREE ID
 

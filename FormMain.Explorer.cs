@@ -273,7 +273,7 @@ namespace HenStudio
                 //-----------------------------------------------
                 //-- Create Tag Object and Assign to New Node ---
                 //-----------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeId.CATALOG, "HEN Studio");
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.CATALOG, "HEN Studio");
                 rootNode.Tag = dataTagDisplayObj;
 
                 //---------------------------
@@ -371,7 +371,7 @@ namespace HenStudio
                         strProjectName = project.Name;
                         strNodeName = string.Format("Project: {0}", strProjectName.Trim());
                         DataTagDisplay DataTagDisplayObj = 
-                            new DataTagDisplay(ExplorerNodeId.PROJECT, strProjectName.Trim()) { ProjectID = project.Id };
+                            new DataTagDisplay(ExplorerNodeIdType.PROJECT, strProjectName.Trim()) { ProjectID = project.Id };
 
                         //-----------------------------------------------------------------
                         //--- Create Project Node and Assign Tag Object, and Set Images ---
@@ -423,7 +423,7 @@ namespace HenStudio
             string strMethod = "UpdateTreeStatusBar";
             string strMsg = String.Empty;
             DataTagDisplay dataTagDisplayObj;
-            HenTypes.ExplorerNodeId level = ExplorerNodeId.UNKNOWN;
+            HenTypes.ExplorerNodeIdType level = ExplorerNodeIdType.UNKNOWN;
             string strProjectName = string.Empty;
             string strProfileName = string.Empty;
             string strPinchName = string.Empty;
@@ -439,14 +439,14 @@ namespace HenStudio
                 HenSettingsObj.ExplorerSelectedLevelEnum = level;
                 switch(level)
                 {
-                    case ExplorerNodeId.CATALOG:
+                    case ExplorerNodeIdType.CATALOG:
                         HenSettingsObj.CurrentProjectName = strProjectName;
                         HenSettingsObj.CurrentProfileName = strProfileName;
                         HenSettingsObj.CurrentPinchName = strPinchName;
                         HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
                         break;
 
-                        case ExplorerNodeId.PROJECT:
+                        case ExplorerNodeIdType.PROJECT:
                         strProjectName = dataTagDisplayObj.NodeName;
                         HenSettingsObj.CurrentProjectName = strProjectName;
                         HenSettingsObj.CurrentProfileName = strProfileName;
@@ -454,7 +454,7 @@ namespace HenStudio
                         HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
                         break;
 
-                        case ExplorerNodeId.PROFILE:
+                        case ExplorerNodeIdType.PROFILE:
                         strProjectName = ((DataTagDisplay)node.Parent.Tag).NodeName;
                         strProfileName = dataTagDisplayObj.NodeName;
                         HenSettingsObj.CurrentProjectName = strProjectName;
@@ -463,7 +463,7 @@ namespace HenStudio
                         HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
                         break;
 
-                        case ExplorerNodeId.PINCH:
+                        case ExplorerNodeIdType.PINCH:
                         strProjectName = ((DataTagDisplay)node.Parent.Parent.Tag).NodeName;
                         strProfileName = ((DataTagDisplay)node.Parent.Tag).NodeName;
                         strPinchName = dataTagDisplayObj.NodeName;
@@ -473,7 +473,7 @@ namespace HenStudio
                         HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
                         break;
 
-                        case ExplorerNodeId.HEN:
+                        case ExplorerNodeIdType.HEN:
                         strProjectName = ((DataTagDisplay)node.Parent.Parent.Parent.Tag).NodeName;
                         strProfileName = ((DataTagDisplay)node.Parent.Parent.Tag).NodeName;
                         strPinchName = ((DataTagDisplay)node.Parent.Tag).NodeName;
@@ -514,7 +514,7 @@ namespace HenStudio
         {
             string strMethod = "HandleSelectionChange";
             string strMsg = String.Empty;
-            ExplorerNodeId level = ExplorerNodeId.UNKNOWN;
+            ExplorerNodeIdType level = ExplorerNodeIdType.UNKNOWN;
             try
             {
                 //----------------------------------------------------------------
@@ -547,7 +547,7 @@ namespace HenStudio
                 switch (level)
                 {
                     #region CATALOG (PROJECTS)
-                    case ExplorerNodeId.CATALOG:
+                    case ExplorerNodeIdType.CATALOG:
                         //-------------------------------------------------
                         //--- Populate Current Projects (CATALOG) Panel ---
                         //--- and Display Projects (CATALOG) Panel      ---
@@ -557,7 +557,7 @@ namespace HenStudio
                     #endregion  // CATALOG (PROJECTS)
 
                     #region PROJECT
-                    case ExplorerNodeId.PROJECT:
+                    case ExplorerNodeIdType.PROJECT:
                         //-----------------------------------------------------------
                         //--- Get Project Data from DB and Populate Project Panel ---
                         //-----------------------------------------------------------
@@ -593,7 +593,7 @@ namespace HenStudio
                     #endregion  // PROJECT
 
                     #region PROFILE
-                    case ExplorerNodeId.PROFILE:
+                    case ExplorerNodeIdType.PROFILE:
                         //--------------------------------------
                         //--- Populate Current Profile Panel ---
                         //--------------------------------------
@@ -608,7 +608,7 @@ namespace HenStudio
                     #endregion  // PROFILE
 
                     #region PINCH
-                    case ExplorerNodeId.PINCH:
+                    case ExplorerNodeIdType.PINCH:
                         //------------------------------------
                         //--- Populate Current Pinch Panel ---
                         //------------------------------------
@@ -623,7 +623,7 @@ namespace HenStudio
                     #endregion  // PINCH
 
                     #region HEN
-                    case ExplorerNodeId.HEN:
+                    case ExplorerNodeIdType.HEN:
                         //----------------------------------
                         //--- Populate Current Hen Panel ---
                         //----------------------------------
@@ -871,7 +871,7 @@ namespace HenStudio
                 //-------------------------------------------------------
                 //-- Create Node Tag Object and Assign Tag Attributes ---
                 //-------------------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeId.PROJECT, strDlgName);
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.PROJECT, strDlgName);
                 dataTagDisplayObj.ProjectID = projectGUID;
 
                 //---------------------------------------------------
@@ -938,7 +938,7 @@ namespace HenStudio
                 //-------------------------------------------------------
                 //-- Create Node Tag Object and Assign Tag Attributes ---
                 //-------------------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeId.PROFILE,
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.PROFILE,
                                                                       strNodeName);
                 dataTagDisplayObj.ProfileID = profileGUID;
 
@@ -994,7 +994,7 @@ namespace HenStudio
                 //-------------------------------------------------------
                 //-- Create Node Tag Object and Assign Tag Attributes ---
                 //-------------------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeId.PINCH,
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.PINCH,
                                                                       strNodeName);
                 dataTagDisplayObj.PinchID = pinchGUID;
 
@@ -1050,7 +1050,7 @@ namespace HenStudio
                 //-------------------------------------------------------
                 //-- Create Node Tag Object and Assign Tag Attributes ---
                 //-------------------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeId.HEN,
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.HEN,
                                                                       strNodeName);
                 dataTagDisplayObj.HenID = henGUID;
 
@@ -1778,26 +1778,26 @@ namespace HenStudio
         {
             string strMethod = "LogTreeRecursive";
             string strMsg = String.Empty;
-            ExplorerNodeId level = ExplorerNodeId.CATALOG;
+            ExplorerNodeIdType level = ExplorerNodeIdType.CATALOG;
             try
             {
                 level = ((DataTagDisplay)node.Tag).LevelEnum;
 
                 switch (level)
                 {
-                    case ExplorerNodeId.CATALOG:
+                    case ExplorerNodeIdType.CATALOG:
                         strMsg = string.Format("  > {0}", node.Text);
                         break;
-                    case ExplorerNodeId.PROJECT:
+                    case ExplorerNodeIdType.PROJECT:
                         strMsg = string.Format("    + {0}", node.Text);
                         break;
-                    case ExplorerNodeId.PROFILE:
+                    case ExplorerNodeIdType.PROFILE:
                         strMsg = string.Format("      + {0}", node.Text);
                         break;
-                    case ExplorerNodeId.PINCH:
+                    case ExplorerNodeIdType.PINCH:
                         strMsg = string.Format("        + {0}", node.Text);
                         break;
-                    case ExplorerNodeId.HEN:
+                    case ExplorerNodeIdType.HEN:
                         strMsg = string.Format("          + {0}", node.Text);
                         break;
                     default:

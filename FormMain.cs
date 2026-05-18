@@ -298,7 +298,7 @@ namespace HenStudio
                 //---------------------------------------------------------
                 //--- Initialize Catalog-Project Level Status Bar Label ---
                 //---------------------------------------------------------
-                HenSettingsObj.ExplorerSelectedLevelEnum = HenTypes.ExplorerNodeId.CATALOG;
+                HenSettingsObj.ExplorerSelectedLevelEnum = HenTypes.ExplorerNodeIdType.CATALOG;
                 HenSettingsObj.CurrentProjectName = string.Empty;
                 HenSettingsObj.CurrentProfileName = string.Empty;
                 HenSettingsObj.CurrentPinchName = string.Empty;
@@ -307,7 +307,7 @@ namespace HenStudio
                 //***********************************************************************************************
                 //***********************************************************************************************
                 //***********************************************************************************************
-                //HenSettingsObj.ProjectExplorerSelectedLevel = HenTypes.ExplorerNodeId.CATALOG;
+                //HenSettingsObj.ProjectExplorerSelectedLevel = HenTypes.ExplorerNodeIdType.CATALOG;
                 //HenSettingsObj.ProjectDatabaseName = "Deer Park";
                 //HenSettingsObj.CurrentProjectName = "Deer Park";
                 //HenSettingsObj.CurrentProfileName = "Q1 Setup";
@@ -769,7 +769,7 @@ namespace HenStudio
                 switch (HenSettingsObj.ExplorerSelectedLevelEnum)
                 {
                     #region CATALOG (PROJECTS) LEVEL
-                    case HenTypes.ExplorerNodeId.CATALOG:
+                    case HenTypes.ExplorerNodeIdType.CATALOG:
                         strSelectedName = String.Format(" PROJECT: {0} ", strNone);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OPEN_Project_DB_32_32;
@@ -795,7 +795,7 @@ namespace HenStudio
                     #endregion  // CATALOG (PROJECTS) LEVEL
 
                     #region PROJECT LEVEL
-                    case HenTypes.ExplorerNodeId.PROJECT:
+                    case HenTypes.ExplorerNodeIdType.PROJECT:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
@@ -821,7 +821,7 @@ namespace HenStudio
                     #endregion  // PROJECT LEVEL
 
                     #region PROFILE LEVEL
-                    case HenTypes.ExplorerNodeId.PROFILE:
+                    case HenTypes.ExplorerNodeIdType.PROFILE:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
@@ -847,7 +847,7 @@ namespace HenStudio
                     #endregion  // PROFILE LEVEL
 
                     #region PINCH LEVEL
-                    case HenTypes.ExplorerNodeId.PINCH:
+                    case HenTypes.ExplorerNodeIdType.PINCH:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
@@ -873,7 +873,7 @@ namespace HenStudio
                     #endregion  // PINCH LEVEL
 
                     #region HEN LEVEL
-                    case HenTypes.ExplorerNodeId.HEN:
+                    case HenTypes.ExplorerNodeIdType.HEN:
                         strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
                         this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
                         this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
@@ -1053,7 +1053,7 @@ namespace HenStudio
         {
             string strTitle = String.Empty;
 
-            if (HenSettingsObj.ExplorerSelectedLevelEnum == HenTypes.ExplorerNodeId.CATALOG)
+            if (HenSettingsObj.ExplorerSelectedLevelEnum == HenTypes.ExplorerNodeIdType.CATALOG)
             {
                 strTitle = string.Format("AJP HEN Studio");
             }

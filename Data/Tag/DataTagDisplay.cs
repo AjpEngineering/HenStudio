@@ -56,21 +56,28 @@ namespace HenStudio.Data.Tag
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public string FullPathNodeLoc { get; set; }    // Full-Path Node location from root to node
-        public string NodeName { get; set; }           // Name of Node
-        public string DisplayName { get; set; }        // Display Name of Node (Prefix + NodeName)
-        public ExplorerNodeId LevelEnum { get; set; }   // Project Level Enumeration
-                                                       // [ UNKNOWN | CATALOG | PROJECT | PROFILE | PINCH | HEN ]
 
-        public Guid ProjectID { get; set; }     // Project ID (PK)
-        public Guid ProfileID { get; set; }     // Profile ID (PK)
-        public Guid PinchID { get; set; }       // Pinch ID (PK)
-        public Guid HenID { get; set; }         // Hen ID (PK)
+        #region NODE ID ENUMERATION
+        public ExplorerNodeIdType NodeIdEnum 
+        { get; set; } // Project Node ID Enumeration
+        #endregion  // NODE ID ENUMERATION
 
-        public StreamCategory StreamCategoryEnum { get; set; }  // Profile Input Type Enumeration
-        public Guid ProcessID { get; set; }     // Process Streams ID (PK)
-        public Guid UtilityID { get; set; }     // Utility Streams ID (PK)
-        public Guid EconomicID { get; set; }    // Economic Params ID (PK)
+        #region TAG STRING PROPERTIES
+        public string NodeName 
+        { get; set; }       // Name of Node (without Prefix)
+        public string DisplayName 
+        { get; set; }       // Display Name of Node (Prefix + NodeName)
+                            // [ UNKNOWN | CATALOG | PROJECT | PROFILE | STUDY ]
+        #endregion  // TAG STRING PROPERTIES
+
+        #region TAG GUID (PK) PROPERTIES
+        public Guid ProjectID 
+        { get; set; }       // Project ID (PK)
+        public Guid ProfileID 
+        { get; set; }       // Profile ID (PK)
+        public Guid StudyID 
+        { get; set; }       // Study ID (PK)
+        #endregion // TAG GUID (PK) PROPERTIES
 
         #endregion  // PROPERTIES
 
@@ -78,50 +85,40 @@ namespace HenStudio.Data.Tag
         /// <summary>
         /// Parameterized Constructor
         /// </summary>
-        /// <param name="level">Node Level</param>
-        /// <param name="strNodeName">Node name - not including the Level Prefix</param>
-        public DataTagDisplay(ExplorerNodeId level, string strNodeName) 
+        /// <param name="nodeId">Node ID Enumeration</param>
+        /// <param name="strNodeName">Node name - without the Prefix</param>
+        public DataTagDisplay(ExplorerNodeIdType nodeId, string strNodeName) 
         {
             //-----------------------------
             //--- Initialize Properties ---
             //-----------------------------
-            FullPathNodeLoc = string.Empty;
-            NodeName = strNodeName;
-            LevelEnum = level;
+            NodeName = strNodeName;     // Name of Node (without Prefix)
+            NodeIdEnum = nodeId;        // Display Name of Node (Prefix + NodeName)
 
-            ProjectID = Guid.Empty;
-            ProfileID = Guid.Empty;
-            PinchID = Guid.Empty;
-            HenID = Guid.Empty;
-
-            StreamCategoryEnum = StreamCategory.UNKNOWN;
-
-            ProcessID = Guid.Empty;
-            UtilityID = Guid.Empty;
-            EconomicID = Guid.Empty;
-
-            switch(LevelEnum)
+            ProjectID = Guid.Empty;     // Project ID (PK)
+            ProfileID = Guid.Empty;     // Profile ID (PK)
+            StudyID = Guid.Empty;       // Study   ID (PK)
+            //------------------------------------------------
+            //--- Display Name of Node (Prefix + NodeName) ---
+            //------------------------------------------------
+            switch (nodeId)
             {
-                case ExplorerNodeId.CATALOG:
+                case ExplorerNodeIdType.CATALOG:
                     DisplayName = string.Format("HEN Studio");
                     break;
-                case ExplorerNodeId.PROJECT:
+                case ExplorerNodeIdType.PROJECT:
                     DisplayName = string.Format("Project: {0}", NodeName);
                     break;
-                case ExplorerNodeId.PROFILE:
+                case ExplorerNodeIdType.PROFILE:
                     DisplayName = string.Format("Profile: {0}", NodeName);
                     break;
-                case ExplorerNodeId.PINCH:
-                    DisplayName = string.Format("Pinch: {0}", NodeName);
-                    break;
-                case ExplorerNodeId.HEN:
-                    DisplayName = string.Format("Hen: {0}", NodeName);
+                case ExplorerNodeIdType.STUDY:
+                    DisplayName = string.Format("Study: {0}", NodeName);
                     break;
                 default:
                     DisplayName = "Unknown: none";
                     break;
             }
-
         }
         #endregion  // CTOR
 
