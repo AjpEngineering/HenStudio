@@ -58,12 +58,11 @@ namespace HenGlobal
         #region CONSTANTS
         const string NAMESPACE = "HenGlobal";
         const string CLASS = "HenTypes";
-
         #endregion      // CONSTANTS
 
         #region ENUMS
 
-        #region LICENSE
+        #region LICENSE MANAGER
 
         #region enum LicenseStatus
         /// <summary>
@@ -93,9 +92,9 @@ namespace HenGlobal
         };
         #endregion      // enum LicenseType
 
-        #endregion  // LICENSE
+        #endregion  // LICENSE MANAGER
 
-        #region CATALOG & PROJECT DB CONNECTION STATUS
+        #region HENSTUDIO DATABASE CONNECTION STATUS
 
         #region enum DbConnected
         /// <summary>
@@ -109,27 +108,11 @@ namespace HenGlobal
         };
         #endregion      // enum DbConnected
 
-        #endregion  // DB CONNECTED
+        #endregion  // HENSTUDIO DATABASE CONNECTION STATUS
 
-        #region PROJECT DIRTY FLAG STATE
+        #region PROJECT TYPES
 
-        #region enum ProjectDirtyFlagState
-        /// <summary>
-        /// ENUMERATION: Project Dirty Flag State [ UNKNOWN = -1 | UPDATE = 0 | UPDATED = 1 ]
-        /// UPDATE  the same as SYNCHED [RED]   (Dirty Flag is true) ... 
-        /// UPDATED the same as SYNCHED [GREEN] (Dirty Flag is false - data Clean)
-        /// </summary>
-        public enum ProjectDirtyFlagState
-        {
-            UNKNOWN = -1,    // UNKNOWN Dirty Flag State
-            DIRTY = 0,       // DIRTY Project Data ... DirtyFlag = true  ... DB Needs to be Synched
-            CLEAN = 1        // CLEAN Project Data ... DirtyFlag = false ... DB Synched
-        };
-        #endregion      // enum ProjectDirtyFlagState
-
-        #endregion  // PROJECT DIRTY FLAG STATE
-
-        #region UNITS
+        #region CONVERSION UNIT TYPES - INTERNAL <-> EXTERNAL
 
         #region enum ConversionUnitsTypes
         /// <summary>
@@ -138,107 +121,106 @@ namespace HenGlobal
         public enum ConversionUnitsTypes
         {
             UNKNOWN = -1,   // UNKNOWN
-            HEAT_FLOW = 0,  // Heat Flow (e.g., Btu/hr | W)
+            HEAT_FLOW = 0,  // Heat Flow   (e.g., Btu/hr | W)
             TEMP = 1,       // Temperature (e.g., °F | °R | °C | K ) 
-            PRESS = 2,      // Pressure (e.g., psia | kPa)
-            CP = 3,         // CP - Heat Capacity Flow Rate (e.g., Btu/(hr °F) | W/K ) 
+            PRESS = 2,      // Pressure    (e.g., psia | kPa)
+            CP = 3,         // CP - Heat Capacity Flow Rate          (e.g., Btu/(hr °F) | W/K ) 
             U = 4,          // U - Overall Heat Transfer Coefficient (e.g., Btu/(hr ft² °F) | W/(m² K) 
             A = 5           // A - Area (e.g., ft² | m²)
         };
         #endregion      // enum ConversionUnitsTypes
 
-        #endregion  // UNITS
+        #endregion  // CONVERSION UNIT TYPES - INTERNAL <-> EXTERNAL
 
-        #region OPTIMIZER
+        #region STUDY OPTIMIZER OPTIONS
 
-        //#region enum HenOptimizer
-        ///// <summary>
-        ///// ENUMERATION: AJP HEN Studio Optimizer [ UNKNOWN | GENETIC | GREEDY ]
-        ///// </summary>
-        //public enum HenOptimizer
-        //{
-        //    UNKNOWN = -1,     // UNKNOWN Units
-        //    GENETIC = 0,      // GENETIC Optimizer
-        //    GREEDY = 1        // GREEDY Optimizer
-        //};
-        //#endregion      // enum HenOptimizer
-
-
-        #endregion  // OPTIMIZER
-
-        #region PROJECT EXPLORER LEVEL
-
-        #region enum ExplorerLevel
+        #region enum StudyOptimizerType
         /// <summary>
-        /// ENUMERATION: Project-Explorer Level [ UNKNOWN | CATALOG | PROJECT | PROFILE | PINCH | HEN ]
+        /// ENUMERATION: AJP HEN Studio Study Optimizer [ UNKNOWN | GENETIC | GREEDY | MILP ]
         /// </summary>
-        public enum ExplorerLevel
+        public enum StudyOptimizerType
+        {
+            UNKNOWN = -1,     // UNKNOWN Units
+            GENETIC = 0,      // GENETIC Optimizer
+            GREEDY  = 1,      // GREEDY Optimizer
+            MILP    = 2       // MILP Optimizer
+        };
+        #endregion      // enum StudyOptimizerType
+
+        #endregion  // STUDY OPTIMIZER OPTIONS
+
+        #region PROJECT EXPLORER TREE ID
+
+        #region enum ExplorerNodeId
+        /// <summary>
+        /// ENUMERATION: Project-Explorer Tree Node ID [ UNKNOWN | CATALOG | PROJECT | PROFILE | STUDY ]
+        /// NOTE: STUDY LEVEL IS SAME AS PROFILE LEVEL IN EXPLORER TREE, however, 
+        ///       STUDY ID IS DIFFERENT THAN PROFILE ID (Unique ID)
+        /// </summary>
+        public enum ExplorerNodeId
         {
             UNKNOWN = -1,   // UNKNOWN Level
-            CATALOG = 0,    // Projects (Catalog) - No Project Selected (root)
+            CATALOG = 0,    // Projects Catalog - No Project Selected (root)
             PROJECT = 1,    // Project Selected
-            PROFILE = 2,    // Profile Input
-            PINCH   = 3,    // Pinch Study
-            HEN     = 4     // HEN Design
+            PROFILE = 2,    // Profile Process Flowsheet Input
+            STUDY   = 3     // Study (Pinch Analysis and/or HEN Design)
         };
-        #endregion      // enum ExplorerLevel
+        #endregion      // enum ExplorerNodeId
 
-        #endregion  // PROJECT EXPLORER LEVEL
+        #endregion  // PROJECT EXPLORER TREE ID
 
-        #region PROFILE INPUT
+        #endregion  // PROJECT TYPES
 
-        #region enum ProfileInputType
+        #region PROFILE INPUT - FLOWSHEET INPUT
+
+        #region enum StreamCategory
         /// <summary>
-        /// ENUMERATION: Profile Input Type [ UNKNOWN | PROCESS_STREAM | UTILITY_STREAM | ECONOMIC_PARAMS ]
+        /// ENUMERATION: Stream Category Type [ UNKNOWN | PROCESS_STREAM | UTILITY_STREAM ]
         /// </summary>
-        public enum ProfileInputType
+        public enum StreamCategoryType
         {
-            UNKNOWN = -1,          // UNKNOWN Input Type
-            PROCESS_STREAM = 0,    // Process Streams Input Type
-            UTILITY_STREAM = 1,    // Utilities Streams Input Type
-            ECONOMIC_PARAMS = 2    // Economic Parameters Input Type
+            UNKNOWN = -1,         // UNKNOWN   Stream Category Type
+            PROCESS_STREAM = 0,   // Process   Streams Input Type
+            UTILITY_STREAM = 1    // Utilities Streams Input Type
         };
-        #endregion      // enum ProfileInputType
+        #endregion  // enum StreamCategoryType
 
-        #endregion  // PROJECT EXPLORER LEVEL
-
-        #region HEAT
-
-        #region enum HeatLoadType
+        #region enum StreamHeatType
         /// <summary>
-        /// ENUMERATION: Heat Load Type
+        /// ENUMERATION: Stream Heat Type ... [ UNKNOWN | SENSIBLE | LATENT ]
         /// </summary>
-        public enum HeatLoadType
+        public enum StreamHeatType
         {
-            UNKNOWN  = -1,  // UNKNOWN
-            RELEASED =  0,  // HEAT RELEASED (Surplus)
-            REQUIRED =  1   // HEAT REQUIRED (Deficit)
+            UNKNOWN = -1,  // UNKNOWN
+            SENSIBLE = 0,  // SENSIBLE HEAT (Single Phase)
+            LATENT = 1     // LATENT   HEAT (Two-Phase)
         };
-        #endregion      // enum HeatLoadType
+        #endregion  // enum StreamHeatType
 
-        #region enum HeatType
+        #region enum StreamType
         /// <summary>
-        /// ENUMERATION: Heat Type
+        /// ENUMERATION: Stream Type ... [ UNKNOWN | HOT | COLD ]
         /// </summary>
-        public enum HeatType
+        public enum StreamType
         {
-            UNKNOWN  = -1,  // UNKNOWN
-            SENSIBLE =  0,  // SENSIBLE HEAT (Single Phase)
-            LATENT   =  1   // LATENT   HEAT (Two-Phase)
-       };
-        #endregion      // enum HeatType
-
-        #region enum LatentHeatType
-        /// <summary>
-        /// ENUMERATION: Latent Heat Type
-        /// </summary>
-        public enum LatentHeatType
-        {
-            UNKNOWN    = -1,  // UNKNOWN
-            BOILING    =  0,  // BOILING    LATENT HEAT (Cold Stream)
-            CONDENSING =  1   // CONDENSING LATENT HEAT (Hot  Stream)
+            UNKNOWN = -1,  // UNKNOWN
+            HOT = 0,       // HOT  Stream
+            COLD = 1       // COLD Stream
         };
-        #endregion      // enum LatentHeatType
+        #endregion  // enum StreamType
+
+        #region enum StreamSubtType
+        /// <summary>
+        /// ENUMERATION: Stream Subtype (Phase) ... [ UNKNOWN | LIQUID | VAPOR | MIXED ]
+        /// </summary>
+        public enum StreamSubtType
+        {
+            UNKNOWN = -1, // UNKNOWN
+            LIQUID = 0,   // LIQUID Phase
+            VAPOR = 1,    // VAPOR  Phase
+            MIXED = 2     // MIXED  Phase - (LIQUID-VAPOR Two-Phase Stream)
+        };
+        #endregion  // enum StreamSubtType
 
         #region enum SensibleHeatType
         /// <summary>
@@ -250,38 +232,53 @@ namespace HenGlobal
             LIQUID  =  0,  // LIQUID SENSIBLE HEAT
             VAPOR   =  1   // VAPOR  SENSIBLE HEAT
         };
-        #endregion      // enum SensibleHeatType
+        #endregion  // enum SensibleHeatType
 
-        #endregion  // HEAT
+        #region enum UtilityStreamType
+        /// <summary>
+        /// ENUMERATION: Utility Stream Type ... [ UNKNOWN | HP_STEAM | MP_STEAM | LP_STEAM | COLD_WATER | CHILLED_WATER | FUEL_GAS ]
+        /// </summary>
+        public enum UtilityStreamType
+        {
+            UNKNOWN = -1,       // UNKNOWN
+            HP_STEAM = 0,       // HIGH PRESSURE STEAM
+            MP_STEAM = 1,       // MEDIUM PRESSURE STEAM
+            LP_STEAM = 2,       // LOW PRESSURE STEAM
+            COLD_WATER = 3,     // COLD WATER
+            CHILLED_WATER = 4,  // CHILLED WATER
+            FUEL_GAS = 5        // FUEL GAS
+        };
+        #endregion  // enum UtilStreamType
+
+        #region enum HeatLoadType
+        /// <summary>
+        /// ENUMERATION: Heat Load Type
+        /// </summary>
+        public enum HeatLoadType
+        {
+            UNKNOWN  = -1,  // UNKNOWN
+            RELEASED =  0,  // HEAT RELEASED (Surplus)
+            REQUIRED =  1   // HEAT REQUIRED (Deficit)
+        };
+        #endregion  // enum HeatLoadType
+
+        #region enum LatentHeatType
+        /// <summary>
+        /// ENUMERATION: Latent Heat Type
+        /// </summary>
+        public enum LatentHeatType
+        {
+            UNKNOWN    = -1,  // UNKNOWN
+            BOILING    =  0,  // BOILING    LATENT HEAT (Cold Stream)
+            CONDENSING =  1   // CONDENSING LATENT HEAT (Hot  Stream)
+        };
+        #endregion  // enum LatentHeatType
 
         #region STREAM
 
-        #region enum StreamPhase
-        /// <summary>
-        /// ENUMERATION: Stream Phase Types
-        /// </summary>
-        public enum StreamPhase
-        {
-            UNKNOWN      = -1,  // UNKNOWN Phase
-            LIQUID       =  0,  // Single Liquid Phase
-            VAPOR        =  1,  // Single Vapor Phase
-            LIQUID_VAPOR =  2   // Two-Phase Liquid-Vapor
-        };
-        #endregion      // enum StreamPhase
-
-        #region enum StreamTypes
-        /// <summary>
-        /// ENUMERATION: Stream Types [UNKNOWN | COLD | HOT]
-        /// </summary>
-        public enum StreamTypes
-        {
-            UNKNOWN = -1,  // UNKNOWN Stream Type
-            COLD    =  0,  // COLD Stream
-            HOT     =  1   // HOT  Stream
-        };
-        #endregion      // enum StreamTypes
-
         #endregion      // STREAM
+
+        #endregion  // PROFILE INPUT - FLOWSHEET INPUT
 
         #region PROGRESS
 

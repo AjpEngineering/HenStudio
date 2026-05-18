@@ -59,7 +59,7 @@ namespace HenStudio.Data.Tag
         public string FullPathNodeLoc { get; set; }    // Full-Path Node location from root to node
         public string NodeName { get; set; }           // Name of Node
         public string DisplayName { get; set; }        // Display Name of Node (Prefix + NodeName)
-        public ExplorerLevel LevelEnum { get; set; }   // Project Level Enumeration
+        public ExplorerNodeId LevelEnum { get; set; }   // Project Level Enumeration
                                                        // [ UNKNOWN | CATALOG | PROJECT | PROFILE | PINCH | HEN ]
 
         public Guid ProjectID { get; set; }     // Project ID (PK)
@@ -67,7 +67,7 @@ namespace HenStudio.Data.Tag
         public Guid PinchID { get; set; }       // Pinch ID (PK)
         public Guid HenID { get; set; }         // Hen ID (PK)
 
-        public ProfileInputType ProfileInputTypeEnum { get; set; }  // Profile Input Type Enumeration
+        public StreamCategory StreamCategoryEnum { get; set; }  // Profile Input Type Enumeration
         public Guid ProcessID { get; set; }     // Process Streams ID (PK)
         public Guid UtilityID { get; set; }     // Utility Streams ID (PK)
         public Guid EconomicID { get; set; }    // Economic Params ID (PK)
@@ -80,7 +80,7 @@ namespace HenStudio.Data.Tag
         /// </summary>
         /// <param name="level">Node Level</param>
         /// <param name="strNodeName">Node name - not including the Level Prefix</param>
-        public DataTagDisplay(ExplorerLevel level, string strNodeName) 
+        public DataTagDisplay(ExplorerNodeId level, string strNodeName) 
         {
             //-----------------------------
             //--- Initialize Properties ---
@@ -94,7 +94,7 @@ namespace HenStudio.Data.Tag
             PinchID = Guid.Empty;
             HenID = Guid.Empty;
 
-            ProfileInputTypeEnum = ProfileInputType.UNKNOWN;
+            StreamCategoryEnum = StreamCategory.UNKNOWN;
 
             ProcessID = Guid.Empty;
             UtilityID = Guid.Empty;
@@ -102,19 +102,19 @@ namespace HenStudio.Data.Tag
 
             switch(LevelEnum)
             {
-                case ExplorerLevel.CATALOG:
+                case ExplorerNodeId.CATALOG:
                     DisplayName = string.Format("HEN Studio");
                     break;
-                case ExplorerLevel.PROJECT:
+                case ExplorerNodeId.PROJECT:
                     DisplayName = string.Format("Project: {0}", NodeName);
                     break;
-                case ExplorerLevel.PROFILE:
+                case ExplorerNodeId.PROFILE:
                     DisplayName = string.Format("Profile: {0}", NodeName);
                     break;
-                case ExplorerLevel.PINCH:
+                case ExplorerNodeId.PINCH:
                     DisplayName = string.Format("Pinch: {0}", NodeName);
                     break;
-                case ExplorerLevel.HEN:
+                case ExplorerNodeId.HEN:
                     DisplayName = string.Format("Hen: {0}", NodeName);
                     break;
                 default:
