@@ -117,14 +117,49 @@ namespace HenGlobal
         public List<string> AJP_HEN_COMPONENTS { get; set; }  // Component List;
         #endregion  // HEN Studio Application Components (Assemblies)
 
-        #region STANDARD COLORS
-        public Color ColorNotSelectedText { get; set; }  // Color.SlateGray;
-        public Color ColorCatalogText { get; set; }  // Color.FromArgb(255, 90, 200, 255);     // Light Blue
-        public Color ColorProjectText { get; set; }  // Color.FromArgb(255, 255, 100, 0);      // Light Orange
-        public Color ColorProfileText { get; set; }  // Color.FromArgb(255, 150, 150, 255);    // Light Purple
-        public Color ColorPinchText { get; set; }  // Color.FromArgb(255, 255, 0, 0);          // Red
-        public Color ColorHenText { get; set; }  // Color.FromArgb(255, 0, 210, 210);          // Turquiose
-        #endregion  // STANDARD COLORS
+        #region STANDARD APPLICATION TEXT COLORS
+
+        #region GENERAL
+        public Color ColorGeneral_NotSelected_Text { get; set; }  // Color.FromArgb(255, 112, 128, 144 ... SlateGray
+        public Color ColorGeneral_Selected_Text { get; set; }     // Color.FromArgb(255, 0, 0, 0 ......... Black
+        #endregion  // GENERAL
+
+        #region PROJECTS-CATALOG
+        public Color ColorProjects_Catalog_NotSelected_Text { get; set; }  // Color.FromArgb(255, 250, 0, 0) ...... Blue
+        public Color ColorProjects_Catalog_Selected_Text { get; set; }     // Color.FromArgb(255, 91, 203, 250) ... Icon Blue
+        #endregion  // PROJECTS-CATALOG
+
+        #region PROJECT
+        public Color ColorProject_NotSelected_Text { get; set; }  // Color.FromArgb(255, 91, 203, 250) ... Icon Blue
+        public Color ColorProject_Selected_Text { get; set; }     // Color.FromArgb(255, 250, 100, 87) ... Icon Orange
+        #endregion  // PROJECT
+
+        #region PROFILE
+        public Color ColorProfile_NotSelected_Text { get; set; }  // Color.FromArgb(255, 150, 150, 255) ... Icon Purple
+        public Color ColorProfile_Selected_Text { get; set; }     // Color.FromArgb(255, 135, 80, 255) .... Icon Purple (darker)
+        #endregion  // PROFILE
+
+        #region STUDY
+        public Color ColorStudy_NotSelected_Text { get; set; }    // Color.FromArgb(255, 255, 100, 100) ... Light Red
+        public Color ColorStudy_Selected_Text { get; set; }       // Color.FromArgb(255, 255, 0, 0) ....... Red
+        #endregion  // STUDY
+
+        #region PINCH
+        public Color ColorPinch_NotSelected_Text { get; set; }    // Color.FromArgb(255, 0, 255, 255) ....... Turquiose
+        public Color ColorPinch_Selected_Text { get; set; }       // Color.FromArgb(255, 0, 230, 230) ....... Darker Turquiose
+        #endregion  // PINCH
+
+        #region HEN
+        public Color ColorHen_NotSelected_Text { get; set; }      // Color.FromArgb(255, 75, 255, 180) .... Greenish Turquiose
+        public Color ColorHen_Selected_Text { get; set; }         // Color.FromArgb(255, 0, 230, 130) ..... Darker Greenish Turquiose
+        #endregion  // HEN
+
+        #region FIGURE
+        public Color ColorFigure_NotSelected_Text { get; set; }      // Color.FromArgb(255, 180, 60, 0) .... Brown
+        public Color ColorFigure_Selected_Text { get; set; }         // Color.FromArgb(255, 150, 50, 0) .... Darker Brown
+        #endregion  // FIGURE
+
+        #endregion  // STANDARD APPLICATION TEXT COLORS
 
         #region LICENSE
 
@@ -222,14 +257,31 @@ namespace HenGlobal
             HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenSettings Object");
             try
             {
-                #region STANDARD COLORS
-                ColorNotSelectedText = Color.SlateGray;
-                ColorCatalogText = Color.FromArgb(255, 90, 200, 255);     // Light Blue
-                ColorProjectText = Color.FromArgb(255, 255, 100, 0);      // Light Orange
-                ColorProfileText = Color.FromArgb(255, 150, 150, 255);    // Light Purple
-                ColorPinchText = Color.FromArgb(255, 255, 0, 0);          // Red
-                ColorHenText = Color.FromArgb(255, 0, 210, 210);          // Turquiose
-                #endregion  // STANDARD COLORS
+                #region STANDARD APPLICATION TEXT COLORS
+                ColorGeneral_NotSelected_Text = Color.SlateGray;
+                ColorGeneral_Selected_Text = Color.Black;
+
+                ColorProjects_Catalog_NotSelected_Text = Color.FromArgb(255, 250, 0, 0);  // Blue
+                ColorProjects_Catalog_Selected_Text = Color.FromArgb(255, 91, 203, 250);  // Icon Blue
+
+                ColorProject_NotSelected_Text = Color.FromArgb(255, 91, 203, 250);        // Icon Blue
+                ColorProject_Selected_Text = Color.FromArgb(255, 250, 100, 87);           // Icon Orange
+
+                ColorProfile_NotSelected_Text = Color.FromArgb(255, 150, 150, 255);       // Icon Purple
+                ColorProfile_Selected_Text = Color.FromArgb(255, 135, 80, 255);           // Icon Purple (darker)
+
+                ColorStudy_NotSelected_Text = Color.FromArgb(255, 255, 100, 100);         // Light Red
+                ColorStudy_Selected_Text = Color.FromArgb(255, 255, 0, 0);                // Red  
+
+                ColorPinch_NotSelected_Text = Color.FromArgb(255, 0, 255, 255);           // Turquiose
+                ColorPinch_Selected_Text = Color.FromArgb(255, 0, 230, 230);              // Darker Turquiose
+
+                ColorHen_NotSelected_Text = Color.FromArgb(255, 75, 255, 180);            // Greenish Turquiose
+                ColorHen_Selected_Text = Color.FromArgb(255, 0, 230, 130);                // Darker Greenish Turquiose
+
+                ColorFigure_NotSelected_Text = Color.FromArgb(255, 180, 60, 0);           // Brown
+                ColorFigure_Selected_Text = Color.FromArgb(255, 150, 50, 0);              // Darker Brown
+                #endregion  // STANDARD APPLICATION TEXT COLORS
 
                 #region HEN COMPONENTS (ASSEMBLIES)
                 AJP_HEN_COMPONENTS = new List<string>();
