@@ -64,7 +64,7 @@ namespace HenGlobal
 
         #region SYSTEM UNITS
         public const string ENGLISH_UNITS = "English - Imperial";
-        public const string METRIC_UNITS = "Metric - SI";     // <<<--- INTERNAL ---<<<
+        public const string METRIC_UNITS  = "Metric - SI";     // <<<--- INTERNAL ---<<<
         #endregion  // SYSTEM UNITS
 
         #region MAG - MAGNITUDE UNITS
@@ -188,7 +188,7 @@ namespace HenGlobal
         {
             UNKNOWN = -1,     // UNKNOWN Units
             ENGLISH = 0,      // ENGLISH-IMPERIAL Units
-            METRIC = 1        // METRIC-SI Units
+            METRIC  = 1       // METRIC-SI Units
         };
         #endregion      // enum ProjectSystemUnits
 
@@ -293,7 +293,6 @@ namespace HenGlobal
 
         public ProjectEnglishArea ProjectEnglishAreaEnum { get; set; }    // Project English Area [ UNKNOWN = -1 | FT2 = 0 ]
         public ProjectMetricArea ProjectMetricAreaEnum { get; set; }      // Project Metric  Area [ UNKNOWN = -1 | M2 = 0 ]
-
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -310,18 +309,18 @@ namespace HenGlobal
                 //--- Initialize With INTERNAL Property Value ---
                 //-----------------------------------------------
 
-                ProjectSystemUnitsEnum = ProjectSystemUnits.METRIC;     // INTERNAL
+                ProjectSystemUnitsEnum  = ProjectSystemUnits.METRIC;    // <- INTERNAL
 
-                ProjectMagnitudeEnum = ProjectMagnitude.KILO;           // INTERNAL
+                ProjectMagnitudeEnum    = ProjectMagnitude.KILO;        // <- INTERNAL
 
-                ProjectEnglishTempEnum = ProjectEnglishTemp.DEG_F;
-                ProjectMetricTempEnum = ProjectMetricTemp.KELVIN;       // INTERNAL
+                ProjectEnglishTempEnum  = ProjectEnglishTemp.DEG_F;
+                ProjectMetricTempEnum   = ProjectMetricTemp.KELVIN;     // <- INTERNAL
 
                 ProjectEnglishPressEnum = ProjectEnglishPress.PSIA;
-                ProjectMetricPressEnum = ProjectMetricPress.Pa;         // INTERNAL (KPa)
+                ProjectMetricPressEnum  = ProjectMetricPress.Pa;        // <- INTERNAL (KPa)
 
-                ProjectEnglishAreaEnum = ProjectEnglishArea.FT2;
-                ProjectMetricAreaEnum = ProjectMetricArea.M2;           // INTERNAL
+                ProjectEnglishAreaEnum  = ProjectEnglishArea.FT2;
+                ProjectMetricAreaEnum   = ProjectMetricArea.M2;         // <- INTERNAL
 
             }
             catch (Exception ex)
@@ -1244,7 +1243,6 @@ namespace HenGlobal
         #endregion  // GetMetricPressEnum()
 
         #endregion  // GET ENUMERATION FROM STRING
-
 
     }
     #endregion      // public class HenProjectUnits
