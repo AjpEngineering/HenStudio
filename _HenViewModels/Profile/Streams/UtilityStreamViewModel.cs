@@ -108,7 +108,7 @@ namespace HenViewModel.Profile.Streams
             externalDto.StreamHeat            = internalDto.StreamHeat;
             externalDto.StreamId              = internalDto.StreamId;
             externalDto.Name                  = internalDto.Name;
-            externalDto.StreamType            = internalDto.StreamType;
+            externalDto.UtilityType           = internalDto.UtilityType;
             externalDto.IsothermalTemperature = ConvertToExternalTemp(internalDto.IsothermalTemperature);
             externalDto.SupplyPressure        = ConvertToExternalPress(internalDto.SupplyPressure);
             externalDto.TargetPressure        = ConvertToExternalPress(internalDto.TargetPressure);
@@ -153,7 +153,7 @@ namespace HenViewModel.Profile.Streams
             internalDto.StreamHeat            = externalDto.StreamHeat;
             internalDto.StreamId              = externalDto.StreamId;
             internalDto.Name                  = externalDto.Name;
-            internalDto.StreamType            = externalDto.StreamType;
+            internalDto.UtilityType           = externalDto.UtilityType;
             internalDto.IsothermalTemperature = ConvertFromExternalTemp(externalDto.IsothermalTemperature);
             internalDto.SupplyPressure        = ConvertFromExternalPress(externalDto.SupplyPressure);
             internalDto.TargetPressure        = ConvertFromExternalPress(externalDto.TargetPressure);

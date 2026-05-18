@@ -59,9 +59,9 @@ namespace HenStudio.Data.Profile.Streams
         public Guid ProfileId { get; set; }                         // Profile ID ................. (FK)
         public string StreamCategory { get; set; }                  // Stream Category ............ ["Process"   | "Utility"]
         public string StreamHeat { get; set; }                      // Stream Heat ................ ["Sensible", | "Latent"]
-        public string StreamId { get; set; }                        // Stream ID .................. (e.g., "H1", "C1", etc.)
-        public string Name { get; set; }                            // Stream Name ................ (e.g., "Naptha Feed")
-        public string StreamType { get; set; }                      // Stream Type ................ ["Hot", | "Cold"]
+        public string StreamId { get; set; }                        // Stream ID .................. (e.g., "HU01", "CU01", etc.)
+        public string Name { get; set; }                            // Stream Name ................ (e.g., "Naptha Feed Reboiler")
+        public string UtilityType { get; set; }                     // Utility Type ........ ["HP_Steam", | "MP_Steam" | "LP_Steam" | "Cold_Water" | "Chilled_Water" | "Fuel_Gas"]
         public double IsothermalTemperature { get; set; }           // Isothermal Temperature Value (°C)
         public double SupplyPressure { get; set; }                  // Supply Pressure        Value (kPa)
         public double TargetPressure { get; set; }                  // Target Pressure        Value (kPa)
@@ -83,9 +83,9 @@ namespace HenStudio.Data.Profile.Streams
             ProfileId = new Guid();         // Profile ID ................. (FK)
             StreamCategory = string.Empty;  // Stream Category ............ ["Process"   | "Utility"]
             StreamHeat = string.Empty;      // Stream Heat ................ ["Sensible", | "Latent"]
-            StreamId = string.Empty;        // Stream ID .................. (e.g., "H1", "C1", etc.)
+            StreamId = string.Empty;        // Stream ID .................. (e.g., "HU01", "CU01", etc.)
             Name = string.Empty;            // Stream Name ................ (e.g., "Naptha Feed")
-            StreamType = string.Empty;      // Stream Type ................ ["Hot", | "Cold"]
+            UtilityType = string.Empty;     // Utility Type ............... ["HP_Steam", | "MP_Steam" | "LP_Steam" | "Cold_Water" | "Chilled_Water" | "Fuel_Gas"]
             IsothermalTemperature = 0.0;    // Isothermal Temperature Value (°C)
             SupplyPressure = 0.0;           // Supply Pressure        Value (kPa)
             TargetPressure = 0.0;           // Target Pressure        Value (kPa)
@@ -183,7 +183,7 @@ namespace HenStudio.Data.Profile.Streams
             this.StreamHeat = utilityStreamDto.StreamHeat;
             this.StreamId = utilityStreamDto.StreamId;
             this.Name = utilityStreamDto.Name;
-            this.StreamType = utilityStreamDto.StreamType;
+            this.UtilityType = utilityStreamDto.UtilityType;
             this.IsothermalTemperature = utilityStreamDto.IsothermalTemperature;
             this.SupplyPressure = utilityStreamDto.SupplyPressure;
             this.TargetPressure = utilityStreamDto.TargetPressure;
@@ -209,7 +209,7 @@ namespace HenStudio.Data.Profile.Streams
             UtilityStreamDtoObj.StreamHeat = this.StreamHeat;
             UtilityStreamDtoObj.StreamId = this.StreamId;
             UtilityStreamDtoObj.Name = this.Name;
-            UtilityStreamDtoObj.StreamType = this.StreamType;
+            UtilityStreamDtoObj.UtilityType = this.UtilityType;
             UtilityStreamDtoObj.IsothermalTemperature = this.IsothermalTemperature;
             UtilityStreamDtoObj.SupplyPressure = this.SupplyPressure;
             UtilityStreamDtoObj.TargetPressure = this.TargetPressure;

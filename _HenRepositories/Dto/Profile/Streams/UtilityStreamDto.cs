@@ -52,7 +52,7 @@ namespace HenModel.Dto.Profile.Streams
         public string StreamHeat { get; set; }
         public string StreamId { get; set; }
         public string Name { get; set; }
-        public string StreamType { get; set; }
+        public string UtilityType { get; set; }
         public double IsothermalTemperature { get; set; }
         public double SupplyPressure { get; set; }
         public double TargetPressure { get; set; }

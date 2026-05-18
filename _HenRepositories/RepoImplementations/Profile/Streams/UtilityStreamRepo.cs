@@ -93,7 +93,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 StreamHeat = record.IsDBNull(record.GetOrdinal("StreamHeat")) ? null : record.GetString(record.GetOrdinal("StreamHeat")),
                 StreamId = record.IsDBNull(record.GetOrdinal("StreamId")) ? null : record.GetString(record.GetOrdinal("StreamId")),
                 Name = record.IsDBNull(record.GetOrdinal("Name")) ? null : record.GetString(record.GetOrdinal("Name")),
-                StreamType = record.IsDBNull(record.GetOrdinal("StreamType")) ? null : record.GetString(record.GetOrdinal("StreamType")),
+                UtilityType = record.IsDBNull(record.GetOrdinal("UtilityType")) ? null : record.GetString(record.GetOrdinal("UtilityType")),
                 IsothermalTemperature = record.GetDouble(record.GetOrdinal("IsothermalTemperature")),
                 SupplyPressure = record.GetDouble(record.GetOrdinal("SupplyPressure")),
                 TargetPressure = record.GetDouble(record.GetOrdinal("TargetPressure")),
@@ -141,7 +141,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                                      StreamHeat,
                                      StreamId,
                                      Name,
-                                     StreamType,
+                                     UtilityType,
                                      IsothermalTemperature,
                                      SupplyPressure,
                                      TargetPressure,
@@ -153,7 +153,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                                      @StreamHeat,
                                      @StreamId,
                                      @Name,
-                                     @StreamType,
+                                     @UtilityType,
                                      @IsothermalTemperature,
                                      @SupplyPressure,
                                      @TargetPressure,
@@ -170,7 +170,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                     AddParameter(command, "@StreamHeat", DbType.String, utilityStreamDto.StreamHeat);
                     AddParameter(command, "@StreamId", DbType.String, utilityStreamDto.StreamId);
                     AddParameter(command, "@Name", DbType.String, utilityStreamDto.Name);
-                    AddParameter(command, "@StreamType", DbType.String, utilityStreamDto.StreamType);
+                    AddParameter(command, "@UtilityType", DbType.String, utilityStreamDto.UtilityType);
                     AddParameter(command, "@IsothermalTemperature", DbType.Double, utilityStreamDto.IsothermalTemperature);
                     AddParameter(command, "@SupplyPressure", DbType.Double, utilityStreamDto.SupplyPressure);
                     AddParameter(command, "@TargetPressure", DbType.Double, utilityStreamDto.TargetPressure);
@@ -197,7 +197,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                                         StreamHeat,
                                         StreamId,
                                         Name,
-                                        StreamType,
+                                        UtilityType,
                                         IsothermalTemperature,
                                         SupplyPressure,
                                         TargetPressure,
@@ -244,7 +244,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                                         StreamHeat,
                                         StreamId,
                                         Name,
-                                        StreamType,
+                                        UtilityType,
                                         IsothermalTemperature,
                                         SupplyPressure,
                                         TargetPressure,
@@ -293,7 +293,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                                         StreamHeat,
                                         StreamId,
                                         Name,
-                                        StreamType,
+                                        UtilityType,
                                         IsothermalTemperature,
                                         SupplyPressure,
                                         TargetPressure,
@@ -345,7 +345,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                                         StreamHeat,
                                         StreamId,
                                         Name,
-                                        StreamType,
+                                        UtilityType,
                                         IsothermalTemperature,
                                         SupplyPressure,
                                         TargetPressure,
@@ -397,7 +397,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                                      StreamHeat = @StreamHeat,
                                      StreamId = @StreamId,
                                      Name = @Name,
-                                     StreamType = @StreamType,
+                                     UtilityType = @UtilityType,
                                      IsothermalTemperature = @IsothermalTemperature,
                                      SupplyPressure = @SupplyPressure,
                                      TargetPressure = @TargetPressure,
@@ -416,7 +416,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                     AddParameter(command, "@StreamHeat", DbType.String, utilityStreamDto.StreamHeat);
                     AddParameter(command, "@StreamId", DbType.String, utilityStreamDto.StreamId);
                     AddParameter(command, "@Name", DbType.String, utilityStreamDto.Name);
-                    AddParameter(command, "@StreamType", DbType.String, utilityStreamDto.StreamType);
+                    AddParameter(command, "@UtilityType", DbType.String, utilityStreamDto.UtilityType);
                     AddParameter(command, "@IsothermalTemperature", DbType.Double, utilityStreamDto.IsothermalTemperature);
                     AddParameter(command, "@SupplyPressure", DbType.Double, utilityStreamDto.SupplyPressure);
                     AddParameter(command, "@TargetPressure", DbType.Double, utilityStreamDto.TargetPressure);
