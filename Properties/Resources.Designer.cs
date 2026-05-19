@@ -201,6 +201,16 @@ namespace HenStudio.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CapitalCostEquations_No_Background_383x200 {
+            get {
+                object obj = ResourceManager.GetObject("CapitalCostEquations_No_Background_383x200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] Catalog_16x16 {
