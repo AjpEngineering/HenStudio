@@ -83,6 +83,16 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AJP_HEN_Studio_with_Graphic_NO_BACKGROUND {
+            get {
+                object obj = ResourceManager.GetObject("AJP_HEN_Studio_with_Graphic_NO_BACKGROUND", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AJP_HEN_StudioGraphic_16x16 {
             get {
                 object obj = ResourceManager.GetObject("AJP_HEN_StudioGraphic_16x16", resourceCulture);
@@ -126,6 +136,26 @@ namespace HenStudio.Properties {
         internal static System.Drawing.Bitmap AJP_Refinery___1280x720 {
             get {
                 object obj = ResourceManager.GetObject("AJP Refinery...1280x720", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AJP_Refinery_BACKGROUND_903x527 {
+            get {
+                object obj = ResourceManager.GetObject("AJP_Refinery_BACKGROUND_903x527", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AJP_Refinery_HOME___903x527 {
+            get {
+                object obj = ResourceManager.GetObject("AJP_Refinery_HOME...903x527", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
