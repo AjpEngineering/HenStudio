@@ -49,27 +49,13 @@
             treeNode17,
             treeNode18,
             treeNode19});
-            this.contextMenuStripHen = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemCurProjHenRename = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparatorCurProjHenRename = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemCurProjHenDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStripPinch = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemPinchAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemPinchRename = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparatorRename = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemPinchDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemProfileAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemProfileRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemProfileDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripCurrProj = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemCurrProjExpandAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCurrProjCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparatorCurrProjExpandAll = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemCurProjSave = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemCurProjAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorCurProjAdd = new System.Windows.Forms.ToolStripSeparator();
@@ -81,8 +67,6 @@
             this.toolStripMenuItemExpandAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorExpandCollapse = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemAddProject = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemImport = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMainCatalog = new System.Windows.Forms.MenuStrip();
             this.catalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,10 +103,6 @@
             this.statusStripMainDASHBOARD = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelLICENSE = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelCAT_DB = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelLEVEL_PROJECT = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelLEVEL_PROFILE = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelLEVEL_PINCH = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelLEVEL_HEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelAJP_LOGO = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageListAnalysis = new System.Windows.Forms.ImageList(this.components);
             this.imageListInput = new System.Windows.Forms.ImageList(this.components);
@@ -345,8 +325,10 @@
             this.pictureBoxOpenedPinch = new System.Windows.Forms.PictureBox();
             this.imageListProjectZIP = new System.Windows.Forms.ImageList(this.components);
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
-            this.contextMenuStripHen.SuspendLayout();
-            this.contextMenuStripPinch.SuspendLayout();
+            this.addStudyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripProgressBarEngineRuns = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabelProgressText = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStripProfile.SuspendLayout();
             this.contextMenuStripCurrProj.SuspendLayout();
             this.contextMenuStripProjectCatalog.SuspendLayout();
@@ -396,115 +378,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedPinch)).BeginInit();
             this.SuspendLayout();
             // 
-            // contextMenuStripHen
-            // 
-            this.contextMenuStripHen.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemCurProjHenRename,
-            this.toolStripSeparatorCurProjHenRename,
-            this.toolStripMenuItemCurProjHenDelete});
-            this.contextMenuStripHen.Name = "contextMenuStripHen";
-            this.contextMenuStripHen.Size = new System.Drawing.Size(145, 54);
-            // 
-            // toolStripMenuItemCurProjHenRename
-            // 
-            this.toolStripMenuItemCurProjHenRename.Name = "toolStripMenuItemCurProjHenRename";
-            this.toolStripMenuItemCurProjHenRename.Size = new System.Drawing.Size(144, 22);
-            this.toolStripMenuItemCurProjHenRename.Text = "Rename HEN";
-            this.toolStripMenuItemCurProjHenRename.Click += new System.EventHandler(this.toolStripMenuItemCurProjHenRename_Click);
-            // 
-            // toolStripSeparatorCurProjHenRename
-            // 
-            this.toolStripSeparatorCurProjHenRename.Name = "toolStripSeparatorCurProjHenRename";
-            this.toolStripSeparatorCurProjHenRename.Size = new System.Drawing.Size(141, 6);
-            // 
-            // toolStripMenuItemCurProjHenDelete
-            // 
-            this.toolStripMenuItemCurProjHenDelete.Name = "toolStripMenuItemCurProjHenDelete";
-            this.toolStripMenuItemCurProjHenDelete.Size = new System.Drawing.Size(144, 22);
-            this.toolStripMenuItemCurProjHenDelete.Text = "Delete HEN";
-            this.toolStripMenuItemCurProjHenDelete.Click += new System.EventHandler(this.toolStripMenuItemCurProjHenDelete_Click);
-            // 
-            // contextMenuStripPinch
-            // 
-            this.contextMenuStripPinch.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemPinchAdd,
-            this.toolStripSeparator15,
-            this.toolStripMenuItemPinchRename,
-            this.toolStripSeparatorRename,
-            this.toolStripMenuItemPinchDelete});
-            this.contextMenuStripPinch.Name = "contextMenuStripPinch";
-            this.contextMenuStripPinch.Size = new System.Drawing.Size(313, 82);
-            // 
-            // toolStripMenuItemPinchAdd
-            // 
-            this.toolStripMenuItemPinchAdd.Name = "toolStripMenuItemPinchAdd";
-            this.toolStripMenuItemPinchAdd.Size = new System.Drawing.Size(312, 22);
-            this.toolStripMenuItemPinchAdd.Text = "Add Heat Exchanger Network (HEN) Design...";
-            this.toolStripMenuItemPinchAdd.Click += new System.EventHandler(this.toolStripMenuItemPinchAdd_Click);
-            // 
-            // toolStripSeparator15
-            // 
-            this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(309, 6);
-            // 
-            // toolStripMenuItemPinchRename
-            // 
-            this.toolStripMenuItemPinchRename.Name = "toolStripMenuItemPinchRename";
-            this.toolStripMenuItemPinchRename.Size = new System.Drawing.Size(312, 22);
-            this.toolStripMenuItemPinchRename.Text = "Rename Pinch";
-            this.toolStripMenuItemPinchRename.Click += new System.EventHandler(this.toolStripMenuItemPinchRename_Click);
-            // 
-            // toolStripSeparatorRename
-            // 
-            this.toolStripSeparatorRename.Name = "toolStripSeparatorRename";
-            this.toolStripSeparatorRename.Size = new System.Drawing.Size(309, 6);
-            // 
-            // toolStripMenuItemPinchDelete
-            // 
-            this.toolStripMenuItemPinchDelete.Name = "toolStripMenuItemPinchDelete";
-            this.toolStripMenuItemPinchDelete.Size = new System.Drawing.Size(312, 22);
-            this.toolStripMenuItemPinchDelete.Text = "Delete Pinch";
-            this.toolStripMenuItemPinchDelete.Click += new System.EventHandler(this.toolStripMenuItemPinchDelete_Click);
-            // 
             // contextMenuStripProfile
             // 
             this.contextMenuStripProfile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemProfileAdd,
-            this.toolStripSeparator14,
             this.toolStripMenuItemProfileRename,
             this.toolStripSeparator4,
             this.toolStripMenuItemProfileDelete});
             this.contextMenuStripProfile.Name = "contextMenuStripProfile";
-            this.contextMenuStripProfile.Size = new System.Drawing.Size(172, 82);
-            // 
-            // toolStripMenuItemProfileAdd
-            // 
-            this.toolStripMenuItemProfileAdd.Name = "toolStripMenuItemProfileAdd";
-            this.toolStripMenuItemProfileAdd.Size = new System.Drawing.Size(171, 22);
-            this.toolStripMenuItemProfileAdd.Text = "Add Pinch Study...";
-            this.toolStripMenuItemProfileAdd.Click += new System.EventHandler(this.toolStripMenuItemProfileAdd_Click);
-            // 
-            // toolStripSeparator14
-            // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(168, 6);
+            this.contextMenuStripProfile.Size = new System.Drawing.Size(155, 54);
             // 
             // toolStripMenuItemProfileRename
             // 
             this.toolStripMenuItemProfileRename.Name = "toolStripMenuItemProfileRename";
-            this.toolStripMenuItemProfileRename.Size = new System.Drawing.Size(171, 22);
+            this.toolStripMenuItemProfileRename.Size = new System.Drawing.Size(154, 22);
             this.toolStripMenuItemProfileRename.Text = "Rename Profile";
             this.toolStripMenuItemProfileRename.Click += new System.EventHandler(this.toolStripMenuItemProfileRename_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(168, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(151, 6);
             // 
             // toolStripMenuItemProfileDelete
             // 
             this.toolStripMenuItemProfileDelete.Name = "toolStripMenuItemProfileDelete";
-            this.toolStripMenuItemProfileDelete.Size = new System.Drawing.Size(171, 22);
+            this.toolStripMenuItemProfileDelete.Size = new System.Drawing.Size(154, 22);
             this.toolStripMenuItemProfileDelete.Text = "Delete Profile";
             this.toolStripMenuItemProfileDelete.Click += new System.EventHandler(this.toolStripMenuItemProfileDelete_Click);
             // 
@@ -513,22 +411,22 @@
             this.contextMenuStripCurrProj.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemCurrProjExpandAll,
             this.toolStripMenuItemCurrProjCollapseAll,
-            this.toolStripSeparatorCurrProjExpandAll,
-            this.toolStripMenuItemCurProjSave,
             this.toolStripSeparator9,
             this.toolStripMenuItemCurProjAdd,
+            this.addStudyToolStripMenuItem,
             this.toolStripSeparatorCurProjAdd,
             this.toolStripMenuItemCurProjRename,
+            this.renameProjectToolStripMenuItem,
             this.toolStripSeparator13,
             this.toolStripMenuItemDeleteProject});
             this.contextMenuStripCurrProj.Name = "contextMenuStripCurrProj";
-            this.contextMenuStripCurrProj.Size = new System.Drawing.Size(174, 160);
+            this.contextMenuStripCurrProj.Size = new System.Drawing.Size(167, 176);
             // 
             // toolStripMenuItemCurrProjExpandAll
             // 
             this.toolStripMenuItemCurrProjExpandAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemCurrProjExpandAll.Image")));
             this.toolStripMenuItemCurrProjExpandAll.Name = "toolStripMenuItemCurrProjExpandAll";
-            this.toolStripMenuItemCurrProjExpandAll.Size = new System.Drawing.Size(173, 22);
+            this.toolStripMenuItemCurrProjExpandAll.Size = new System.Drawing.Size(166, 22);
             this.toolStripMenuItemCurrProjExpandAll.Text = "Expand All";
             this.toolStripMenuItemCurrProjExpandAll.Click += new System.EventHandler(this.toolStripMenuItemCurrProjExpandAll_Click);
             // 
@@ -536,54 +434,43 @@
             // 
             this.toolStripMenuItemCurrProjCollapseAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemCurrProjCollapseAll.Image")));
             this.toolStripMenuItemCurrProjCollapseAll.Name = "toolStripMenuItemCurrProjCollapseAll";
-            this.toolStripMenuItemCurrProjCollapseAll.Size = new System.Drawing.Size(173, 22);
+            this.toolStripMenuItemCurrProjCollapseAll.Size = new System.Drawing.Size(166, 22);
             this.toolStripMenuItemCurrProjCollapseAll.Text = "Collapse All";
             this.toolStripMenuItemCurrProjCollapseAll.Click += new System.EventHandler(this.toolStripMenuItemCurrProjCollapseAll_Click);
-            // 
-            // toolStripSeparatorCurrProjExpandAll
-            // 
-            this.toolStripSeparatorCurrProjExpandAll.Name = "toolStripSeparatorCurrProjExpandAll";
-            this.toolStripSeparatorCurrProjExpandAll.Size = new System.Drawing.Size(170, 6);
-            // 
-            // toolStripMenuItemCurProjSave
-            // 
-            this.toolStripMenuItemCurProjSave.Name = "toolStripMenuItemCurProjSave";
-            this.toolStripMenuItemCurProjSave.Size = new System.Drawing.Size(173, 22);
-            this.toolStripMenuItemCurProjSave.Text = "Save Project";
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(170, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(163, 6);
             // 
             // toolStripMenuItemCurProjAdd
             // 
             this.toolStripMenuItemCurProjAdd.Name = "toolStripMenuItemCurProjAdd";
-            this.toolStripMenuItemCurProjAdd.Size = new System.Drawing.Size(173, 22);
-            this.toolStripMenuItemCurProjAdd.Text = "Add Input Profile...";
+            this.toolStripMenuItemCurProjAdd.Size = new System.Drawing.Size(166, 22);
+            this.toolStripMenuItemCurProjAdd.Text = "Add Profile...";
             this.toolStripMenuItemCurProjAdd.Click += new System.EventHandler(this.toolStripMenuItemCurProjAdd_Click);
             // 
             // toolStripSeparatorCurProjAdd
             // 
             this.toolStripSeparatorCurProjAdd.Name = "toolStripSeparatorCurProjAdd";
-            this.toolStripSeparatorCurProjAdd.Size = new System.Drawing.Size(170, 6);
+            this.toolStripSeparatorCurProjAdd.Size = new System.Drawing.Size(163, 6);
             // 
             // toolStripMenuItemCurProjRename
             // 
             this.toolStripMenuItemCurProjRename.Name = "toolStripMenuItemCurProjRename";
-            this.toolStripMenuItemCurProjRename.Size = new System.Drawing.Size(173, 22);
+            this.toolStripMenuItemCurProjRename.Size = new System.Drawing.Size(166, 22);
             this.toolStripMenuItemCurProjRename.Text = "Modify Project...";
             this.toolStripMenuItemCurProjRename.Click += new System.EventHandler(this.toolStripMenuItemCurProjRename_Click);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(170, 6);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(163, 6);
             // 
             // toolStripMenuItemDeleteProject
             // 
             this.toolStripMenuItemDeleteProject.Name = "toolStripMenuItemDeleteProject";
-            this.toolStripMenuItemDeleteProject.Size = new System.Drawing.Size(173, 22);
+            this.toolStripMenuItemDeleteProject.Size = new System.Drawing.Size(166, 22);
             this.toolStripMenuItemDeleteProject.Text = "Delete Project";
             this.toolStripMenuItemDeleteProject.Click += new System.EventHandler(this.toolStripMenuItemDeleteProject_Click);
             // 
@@ -594,18 +481,16 @@
             this.toolStripMenuItemCollapseAll,
             this.toolStripMenuItemExpandAll,
             this.toolStripSeparatorExpandCollapse,
-            this.toolStripMenuItemAddProject,
-            this.toolStripSeparator12,
-            this.toolStripMenuItemImport});
+            this.toolStripMenuItemAddProject});
             this.contextMenuStripProjectCatalog.Name = "contextMenuStripProjectCatalog";
-            this.contextMenuStripProjectCatalog.Size = new System.Drawing.Size(180, 104);
+            this.contextMenuStripProjectCatalog.Size = new System.Drawing.Size(173, 76);
             this.contextMenuStripProjectCatalog.Text = "PROJECT CATALOG";
             // 
             // toolStripMenuItemCollapseAll
             // 
             this.toolStripMenuItemCollapseAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemCollapseAll.Image")));
             this.toolStripMenuItemCollapseAll.Name = "toolStripMenuItemCollapseAll";
-            this.toolStripMenuItemCollapseAll.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemCollapseAll.Size = new System.Drawing.Size(172, 22);
             this.toolStripMenuItemCollapseAll.Text = "Collapse All";
             this.toolStripMenuItemCollapseAll.Click += new System.EventHandler(this.toolStripMenuItemCollapseAll_Click);
             // 
@@ -613,34 +498,22 @@
             // 
             this.toolStripMenuItemExpandAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemExpandAll.Image")));
             this.toolStripMenuItemExpandAll.Name = "toolStripMenuItemExpandAll";
-            this.toolStripMenuItemExpandAll.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemExpandAll.Size = new System.Drawing.Size(172, 22);
             this.toolStripMenuItemExpandAll.Text = "Expand All";
             this.toolStripMenuItemExpandAll.Click += new System.EventHandler(this.toolStripMenuItemExpandAll_Click);
             // 
             // toolStripSeparatorExpandCollapse
             // 
             this.toolStripSeparatorExpandCollapse.Name = "toolStripSeparatorExpandCollapse";
-            this.toolStripSeparatorExpandCollapse.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparatorExpandCollapse.Size = new System.Drawing.Size(169, 6);
             // 
             // toolStripMenuItemAddProject
             // 
             this.toolStripMenuItemAddProject.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemAddProject.Image")));
             this.toolStripMenuItemAddProject.Name = "toolStripMenuItemAddProject";
-            this.toolStripMenuItemAddProject.Size = new System.Drawing.Size(179, 22);
+            this.toolStripMenuItemAddProject.Size = new System.Drawing.Size(172, 22);
             this.toolStripMenuItemAddProject.Text = "Add New Project...";
             this.toolStripMenuItemAddProject.Click += new System.EventHandler(this.toolStripMenuItemAddProject_Click);
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(176, 6);
-            // 
-            // toolStripMenuItemImport
-            // 
-            this.toolStripMenuItemImport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItemImport.Image")));
-            this.toolStripMenuItemImport.Name = "toolStripMenuItemImport";
-            this.toolStripMenuItemImport.Size = new System.Drawing.Size(179, 22);
-            this.toolStripMenuItemImport.Text = "Import Zip Project...";
             // 
             // menuStripMainCatalog
             // 
@@ -907,10 +780,8 @@
             this.statusStripMainDASHBOARD.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelLICENSE,
             this.toolStripStatusLabelCAT_DB,
-            this.toolStripStatusLabelLEVEL_PROJECT,
-            this.toolStripStatusLabelLEVEL_PROFILE,
-            this.toolStripStatusLabelLEVEL_PINCH,
-            this.toolStripStatusLabelLEVEL_HEN,
+            this.toolStripProgressBarEngineRuns,
+            this.toolStripStatusLabelProgressText,
             this.toolStripStatusLabelAJP_LOGO});
             this.statusStripMainDASHBOARD.Location = new System.Drawing.Point(0, 640);
             this.statusStripMainDASHBOARD.Margin = new System.Windows.Forms.Padding(3);
@@ -921,14 +792,14 @@
             // toolStripStatusLabelLICENSE
             // 
             this.toolStripStatusLabelLICENSE.BackColor = System.Drawing.Color.Green;
-            this.toolStripStatusLabelLICENSE.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelLICENSE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelLICENSE.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabelLICENSE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLICENSE.Image")));
             this.toolStripStatusLabelLICENSE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelLICENSE.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelLICENSE.Name = "toolStripStatusLabelLICENSE";
             this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(96, 32);
+            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(99, 32);
             this.toolStripStatusLabelLICENSE.Text = "LICENSE ";
             this.toolStripStatusLabelLICENSE.Click += new System.EventHandler(this.toolStripStatusLabelLICENSE_Click);
             this.toolStripStatusLabelLICENSE.DoubleClick += new System.EventHandler(this.toolStripStatusLabelLICENSE_DoubleClick);
@@ -936,69 +807,17 @@
             // toolStripStatusLabelCAT_DB
             // 
             this.toolStripStatusLabelCAT_DB.BackColor = System.Drawing.Color.Red;
-            this.toolStripStatusLabelCAT_DB.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelCAT_DB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelCAT_DB.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabelCAT_DB.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelCAT_DB.Image")));
             this.toolStripStatusLabelCAT_DB.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelCAT_DB.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelCAT_DB.Name = "toolStripStatusLabelCAT_DB";
             this.toolStripStatusLabelCAT_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(126, 32);
+            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(129, 32);
             this.toolStripStatusLabelCAT_DB.Text = "CONNECTED";
             this.toolStripStatusLabelCAT_DB.Click += new System.EventHandler(this.toolStripStatusLabelCAT_DB_Click);
             this.toolStripStatusLabelCAT_DB.DoubleClick += new System.EventHandler(this.toolStripStatusLabelCAT_DB_DoubleClick);
-            // 
-            // toolStripStatusLabelLEVEL_PROJECT
-            // 
-            this.toolStripStatusLabelLEVEL_PROJECT.BackColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelLEVEL_PROJECT.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(203)))), ((int)(((byte)(250)))));
-            this.toolStripStatusLabelLEVEL_PROJECT.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROJECT.Image")));
-            this.toolStripStatusLabelLEVEL_PROJECT.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolStripStatusLabelLEVEL_PROJECT.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
-            this.toolStripStatusLabelLEVEL_PROJECT.Name = "toolStripStatusLabelLEVEL_PROJECT";
-            this.toolStripStatusLabelLEVEL_PROJECT.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_PROJECT.Size = new System.Drawing.Size(127, 32);
-            this.toolStripStatusLabelLEVEL_PROJECT.Text = "PROJECT: ---";
-            // 
-            // toolStripStatusLabelLEVEL_PROFILE
-            // 
-            this.toolStripStatusLabelLEVEL_PROFILE.BackColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelLEVEL_PROFILE.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
-            this.toolStripStatusLabelLEVEL_PROFILE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PROFILE.Image")));
-            this.toolStripStatusLabelLEVEL_PROFILE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolStripStatusLabelLEVEL_PROFILE.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
-            this.toolStripStatusLabelLEVEL_PROFILE.Name = "toolStripStatusLabelLEVEL_PROFILE";
-            this.toolStripStatusLabelLEVEL_PROFILE.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_PROFILE.Size = new System.Drawing.Size(120, 32);
-            this.toolStripStatusLabelLEVEL_PROFILE.Text = "PROFILE: ---";
-            // 
-            // toolStripStatusLabelLEVEL_PINCH
-            // 
-            this.toolStripStatusLabelLEVEL_PINCH.BackColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelLEVEL_PINCH.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelLEVEL_PINCH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.toolStripStatusLabelLEVEL_PINCH.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_PINCH.Image")));
-            this.toolStripStatusLabelLEVEL_PINCH.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolStripStatusLabelLEVEL_PINCH.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
-            this.toolStripStatusLabelLEVEL_PINCH.Name = "toolStripStatusLabelLEVEL_PINCH";
-            this.toolStripStatusLabelLEVEL_PINCH.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_PINCH.Size = new System.Drawing.Size(110, 32);
-            this.toolStripStatusLabelLEVEL_PINCH.Text = "STUDY: ---";
-            // 
-            // toolStripStatusLabelLEVEL_HEN
-            // 
-            this.toolStripStatusLabelLEVEL_HEN.BackColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelLEVEL_HEN.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelLEVEL_HEN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(20)))), ((int)(((byte)(0)))));
-            this.toolStripStatusLabelLEVEL_HEN.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelLEVEL_HEN.Image")));
-            this.toolStripStatusLabelLEVEL_HEN.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolStripStatusLabelLEVEL_HEN.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
-            this.toolStripStatusLabelLEVEL_HEN.Name = "toolStripStatusLabelLEVEL_HEN";
-            this.toolStripStatusLabelLEVEL_HEN.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLEVEL_HEN.Size = new System.Drawing.Size(86, 32);
-            this.toolStripStatusLabelLEVEL_HEN.Text = "HEN ---";
             // 
             // toolStripStatusLabelAJP_LOGO
             // 
@@ -1012,7 +831,7 @@
             this.toolStripStatusLabelAJP_LOGO.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelAJP_LOGO.Name = "toolStripStatusLabelAJP_LOGO";
             this.toolStripStatusLabelAJP_LOGO.Padding = new System.Windows.Forms.Padding(6);
-            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(563, 32);
+            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(467, 32);
             this.toolStripStatusLabelAJP_LOGO.Spring = true;
             this.toolStripStatusLabelAJP_LOGO.Text = "Engineering  ";
             this.toolStripStatusLabelAJP_LOGO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -4176,6 +3995,36 @@
             this.imageListProject.Images.SetKeyName(0, "Project Explorer...32x32.png");
             this.imageListProject.Images.SetKeyName(1, "Project...32x32.png");
             // 
+            // addStudyToolStripMenuItem
+            // 
+            this.addStudyToolStripMenuItem.Name = "addStudyToolStripMenuItem";
+            this.addStudyToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.addStudyToolStripMenuItem.Text = "Add Study...";
+            // 
+            // renameProjectToolStripMenuItem
+            // 
+            this.renameProjectToolStripMenuItem.Name = "renameProjectToolStripMenuItem";
+            this.renameProjectToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.renameProjectToolStripMenuItem.Text = "Rename Project...";
+            // 
+            // toolStripProgressBarEngineRuns
+            // 
+            this.toolStripProgressBarEngineRuns.BackColor = System.Drawing.Color.White;
+            this.toolStripProgressBarEngineRuns.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.toolStripProgressBarEngineRuns.Name = "toolStripProgressBarEngineRuns";
+            this.toolStripProgressBarEngineRuns.Size = new System.Drawing.Size(300, 35);
+            // 
+            // toolStripStatusLabelProgressText
+            // 
+            this.toolStripStatusLabelProgressText.BackColor = System.Drawing.Color.DarkOrange;
+            this.toolStripStatusLabelProgressText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelProgressText.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelProgressText.Image = global::HenStudio.Properties.Resources.HEN_Studio_Graphic___32x32;
+            this.toolStripStatusLabelProgressText.Name = "toolStripStatusLabelProgressText";
+            this.toolStripStatusLabelProgressText.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.toolStripStatusLabelProgressText.Size = new System.Drawing.Size(243, 36);
+            this.toolStripStatusLabelProgressText.Text = "Working ... 005% Complete";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -4197,8 +4046,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AJP HEN Studio";
             this.Load += new System.EventHandler(this.FormMain_Load);
-            this.contextMenuStripHen.ResumeLayout(false);
-            this.contextMenuStripPinch.ResumeLayout(false);
             this.contextMenuStripProfile.ResumeLayout(false);
             this.contextMenuStripCurrProj.ResumeLayout(false);
             this.contextMenuStripProjectCatalog.ResumeLayout(false);
@@ -4311,26 +4158,14 @@
         private System.Windows.Forms.TextBox textBoxHenBanner;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripProjectCatalog;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddProject;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemImport;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripCurrProj;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurProjRename;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparatorCurProjAdd;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurProjSave;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripProfile;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripPinch;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPinchRename;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPinchAdd;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorRename;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPinchDelete;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProfileRename;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProfileAdd;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProfileDelete;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurProjAdd;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripHen;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurProjHenRename;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorCurProjHenRename;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurProjHenDelete;
         private System.Windows.Forms.ImageList imageListProjectTreeViews;
         private System.Windows.Forms.ToolStripMenuItem catalogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
@@ -4354,7 +4189,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparatorExpandCollapse;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurrProjExpandAll;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCurrProjCollapseAll;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorCurrProjExpandAll;
         private System.Windows.Forms.TextBox textBoxProjectBanner;
         private System.Windows.Forms.TextBox textBoxProjectNameValue;
         private System.Windows.Forms.TextBox textBoxProjectName;
@@ -4390,10 +4224,6 @@
         private System.Windows.Forms.TextBox textBoxDbConnectionTitle;
         private System.Windows.Forms.TextBox textBoxConnPacketSizeValue;
         private System.Windows.Forms.TextBox textBoxConnPacketSize;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLEVEL_PROJECT;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLEVEL_PROFILE;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLEVEL_PINCH;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLEVEL_HEN;
         private System.Windows.Forms.TreeView treeViewCurrentProjectExplorer;
         private System.Windows.Forms.Panel panelSELECTED_ROOT;
         private System.Windows.Forms.PictureBox pictureBoxProjects;
@@ -4404,10 +4234,7 @@
         private System.Windows.Forms.Panel panelSELECTED_PINCH;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDeleteProject;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
         private System.Windows.Forms.TextBox textBoxConnInitCatalogValue;
         private System.Windows.Forms.TextBox textBoxConnInitCatalog;
         private System.Windows.Forms.TextBox textBoxConnWorkstationIDValue;
@@ -4571,6 +4398,10 @@
         private System.Windows.Forms.TextBox textBoxUtilityCostUnits;
         private System.Windows.Forms.TextBox textBoxUtilityCostUnits_METRIC;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem addStudyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renameProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelProgressText;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBarEngineRuns;
     }
 }
 

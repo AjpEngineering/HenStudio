@@ -303,7 +303,6 @@ namespace HenStudio
                 HenSettingsObj.CurrentProfileName = string.Empty;
                 HenSettingsObj.CurrentPinchName = string.Empty;
                 HenSettingsObj.CurrentHenName = string.Empty;
-                UpdateProjectLevelStatusBarLabel();    // Initialize Catalog-Project Level Status Bar Label
                 //***********************************************************************************************
                 //***********************************************************************************************
                 //***********************************************************************************************
@@ -750,176 +749,6 @@ namespace HenStudio
             }
         }
         #endregion  // UpdateDbConnectLabel() ... HENSTUDIO DB
-
-        #region UpdateProjectLevelStatusBarLabel() ... [LEVEL_PROJECT, LEVEL_PROFILE, LEVEL_PINCH, LEVEL_HEN]
-        /// <summary>
-        /// Update the Catalog-Project Level Status Bar Label using Global Setting
-        /// </summary>
-        private void UpdateProjectLevelStatusBarLabel()
-        {
-            string strMethod = "UpdateProjectLevelStatusBarLabel";
-
-            string strNone = "---";
-            string strSelectedName = String.Empty;
-            try
-            {
-                //----------------------------------------------------------------------------
-                //--- Update Status Bar Text Based on Project Explorer Selected Node Level ---
-                //----------------------------------------------------------------------------
-                switch (HenSettingsObj.ExplorerSelectedLevelEnum)
-                {
-                    #region CATALOG (PROJECTS) LEVEL
-                    case HenTypes.ExplorerNodeIdType.CATALOG:
-                        strSelectedName = String.Format(" PROJECT: {0} ", strNone);
-                        this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OPEN_Project_DB_32_32;
-                        this.toolStripStatusLabelLEVEL_PROJECT.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = HenSettingsObj.ColorCatalogText;
-
-                        strSelectedName = String.Format(" PROFILE: {0} ", strNone);
-                        this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorNotSelectedText;
-
-                        strSelectedName = String.Format(" PINCH: {0} ", strNone);
-                        this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PINCH.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = HenSettingsObj.ColorNotSelectedText;
-
-                        strSelectedName = String.Format(" HEN: {0} ", strNone);
-                        this.toolStripStatusLabelLEVEL_HEN.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_HEN.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = HenSettingsObj.ColorNotSelectedText;
-
-                        break;
-                    #endregion  // CATALOG (PROJECTS) LEVEL
-
-                    #region PROJECT LEVEL
-                    case HenTypes.ExplorerNodeIdType.PROJECT:
-                        strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
-                        this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
-                        this.toolStripStatusLabelLEVEL_PROJECT.BackColor = Color.Yellow;
-                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = HenSettingsObj.ColorProjectText;
-
-                        strSelectedName = String.Format(" PROFILE: {0} ", strNone);
-                        this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorNotSelectedText;
-
-                        strSelectedName = String.Format(" PINCH: {0} ", strNone);
-                        this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PINCH.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = HenSettingsObj.ColorNotSelectedText;
-
-                        strSelectedName = String.Format(" HEN: {0} ", strNone);
-                        this.toolStripStatusLabelLEVEL_HEN.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_HEN.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = HenSettingsObj.ColorNotSelectedText;
-
-                        break;
-                    #endregion  // PROJECT LEVEL
-
-                    #region PROFILE LEVEL
-                    case HenTypes.ExplorerNodeIdType.PROFILE:
-                        strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
-                        this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
-                        this.toolStripStatusLabelLEVEL_PROJECT.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = HenSettingsObj.ColorProjectText;
-
-                        strSelectedName = String.Format(" PROFILE: {0} ", HenSettingsObj.CurrentProfileName);
-                        this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.Yellow;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorProfileText;
-
-                        strSelectedName = String.Format(" PINCH: {0} ", strNone);
-                        this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PINCH.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = HenSettingsObj.ColorNotSelectedText;
-
-                        strSelectedName = String.Format(" HEN: {0} ", strNone);
-                        this.toolStripStatusLabelLEVEL_HEN.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_HEN.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = HenSettingsObj.ColorNotSelectedText;
-
-                        break;
-                    #endregion  // PROFILE LEVEL
-
-                    #region PINCH LEVEL
-                    case HenTypes.ExplorerNodeIdType.PINCH:
-                        strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
-                        this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
-                        this.toolStripStatusLabelLEVEL_PROJECT.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = HenSettingsObj.ColorProjectText;
-
-                        strSelectedName = String.Format(" PROFILE: {0} ", HenSettingsObj.CurrentProfileName);
-                        this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorProfileText;
-
-                        strSelectedName = String.Format(" PINCH: {0} ", HenSettingsObj.CurrentPinchName);
-                        this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PINCH.BackColor = Color.Yellow;
-                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = HenSettingsObj.ColorPinchText;
-
-                        strSelectedName = String.Format(" HEN: {0} ", strNone);
-                        this.toolStripStatusLabelLEVEL_HEN.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_HEN.BackColor = Color.WhiteSmoke;
-                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = HenSettingsObj.ColorNotSelectedText;
-
-                        break;
-                    #endregion  // PINCH LEVEL
-
-                    #region HEN LEVEL
-                    case HenTypes.ExplorerNodeIdType.HEN:
-                        strSelectedName = String.Format(" PROJECT: {0} ", HenSettingsObj.CurrentProjectName);
-                        this.toolStripStatusLabelLEVEL_PROJECT.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROJECT.Image = HenStudio.Properties.Resources.OpenedProject_32x32;
-                        this.toolStripStatusLabelLEVEL_PROJECT.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROJECT.ForeColor = HenSettingsObj.ColorProjectText;
-
-                        strSelectedName = String.Format(" PROFILE: {0} ", HenSettingsObj.CurrentProfileName);
-                        this.toolStripStatusLabelLEVEL_PROFILE.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PROFILE.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PROFILE.ForeColor = HenSettingsObj.ColorProfileText;
-
-                        strSelectedName = String.Format(" PINCH: {0} ", HenSettingsObj.CurrentPinchName);
-                        this.toolStripStatusLabelLEVEL_PINCH.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_PINCH.BackColor = Color.LightYellow;
-                        this.toolStripStatusLabelLEVEL_PINCH.ForeColor = HenSettingsObj.ColorPinchText;
-
-                        strSelectedName = String.Format(" HEN: {0} ", HenSettingsObj.CurrentHenName);
-                        this.toolStripStatusLabelLEVEL_HEN.Text = strSelectedName;
-                        this.toolStripStatusLabelLEVEL_HEN.BackColor = Color.Yellow;
-                        this.toolStripStatusLabelLEVEL_HEN.ForeColor = HenSettingsObj.ColorHenText;
-
-                        break;
-                    #endregion  // HEN LEVEL
-
-                    #region UNKNOWN LEVEL
-                    default:
-
-                        break;
-                    #endregion  // UNKNOWN LEVEL
-                }
-                //-------------------------------------------------
-                //--- Update Application Title ... Project Name ---
-                //-------------------------------------------------
-                UpdateProjectNameUI();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // UpdateProjectLevelStatusBarLabel() ... [LEVEL_PROJECT, LEVEL_PROFILE, LEVEL_PINCH, LEVEL_HEN]
 
         #endregion  // UPDATE STATUS BAR LABELS METHODS
 
@@ -1902,223 +1731,6 @@ namespace HenStudio
 
         #region Project Panel
 
-        #region CONVERSION METHODS ... DTO - PANEL VIEW DATA
-
-        #region GetProjectViewData()
-        /// <summary>
-        /// Creates a new ProjectViewData instance populated with All Project Panel data 
-        /// based on the specified Project Data Transfer Object values.
-        /// </summary>
-        /// <remarks>The returned ProjectViewData will have its Properties set according to the
-        /// system, magnitude, and temperature units specified in the input ProjectDto. This ensures that all
-        /// unit-related fields are consistent with the project's configuration.</remarks>
-        /// <param name="projectDto">The Project Data Transfer Object containing the source Project information. 
-        /// Cannot be null.</param>
-        /// <returns>A ProjectPanelData object containing the mapped project details and unit display values derived from the
-        /// provided project data.</returns>
-        private ProjectPanelData GetProjectViewData(ProjectDto projectDto, 
-                                                   ExchangerParamsDto exchangerParamsDto,
-                                                   ProjectUnitsDto projectUnitsDto)
-        {
-            //-----------------------------
-            //--- Null ProjectDto Guard ---
-            //-----------------------------
-            if (projectDto == null) throw new ArgumentNullException(nameof(projectDto),
-                                       "Project Data Transfer Object cannot be null.");
-
-            ProjectPanelData projectViewDataObj = new ProjectPanelData();
-
-            projectViewDataObj.Id = projectDto.Id;
-            projectViewDataObj.Name = projectDto.Name;
-            projectViewDataObj.Description = projectDto.Description;
-            projectViewDataObj.ProjectU_Value = exchangerParamsDto.DefaultHeatTransferCoefficient.ToString();
-            projectViewDataObj.ProjectF_Value = exchangerParamsDto.DefaultCorrectionFactor.ToString();
-            projectViewDataObj.ProjectOptimizer = projectDto.DefaultOptimizer;
-
-            projectViewDataObj.ProjectSystem_Units = projectUnitsDto.DefaultSystemUnits;
-            projectViewDataObj.ProjectMagnitude_Units = projectUnitsDto.DefaultMagnitudeUnits;
-            projectViewDataObj.ProjectTemperature_Units = projectUnitsDto.DefaultTemperatureUnits;
-            projectViewDataObj.ProjectPressure_Units = projectUnitsDto.DefaultPressureUnits;
-
-            projectViewDataObj.ProjectCreationDate = projectDto.CreationDate;
-            projectViewDataObj.ProjectModificationDate = projectDto.ModifiedDate;
-
-            #region ENGLISH
-            if (string.Compare(projectUnitsDto.DefaultSystemUnits, "English - Imperial", true) == 0)
-            {
-                projectViewDataObj.ProjectArea_Units = "ft2";
-
-                #region BASE
-                if (string.Compare(projectUnitsDto.DefaultMagnitudeUnits, "Base", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "Btu/hr";
-
-                    if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "°F", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "BTU/(hr·°F)";
-                        projectViewDataObj.ProjectU_Units = "BTU/(hr·ft2·°F)";
-                    }
-                    else if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "°R", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "BTU/(hr·°R)";
-                        projectViewDataObj.ProjectU_Units = "BTU/(hr·ft2·°R)";
-                    }
-                }
-                #endregion  // BASE
-
-                #region KILO
-                else if (string.Compare(projectUnitsDto.DefaultMagnitudeUnits, "Kilo", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "KBtu/hr";
-
-                    if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "°F", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "KBTU/(hr·°F)";
-                        projectViewDataObj.ProjectU_Units = "KBTU/(hr·ft2·°F)";
-                    }
-                    else if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "°R", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "KBTU/(hr·°R)";
-                        projectViewDataObj.ProjectU_Units = "KBTU/(hr·ft2·°R)";
-                    }
-
-                }
-                #endregion  // KILO
-
-                #region MEGA
-                else if (string.Compare(projectUnitsDto.DefaultMagnitudeUnits, "Mega", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "MMBtu/hr";
-
-                    if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "°F", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "MMBTU/(hr·°F)";
-                        projectViewDataObj.ProjectU_Units = "MMBTU/(hr·ft2·°F)";
-                    }
-                    else if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "°R", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "MMBTU/(hr·°R)";
-                        projectViewDataObj.ProjectU_Units = "MMBTU/(hr·ft2·°R)";
-                    }
-
-                }
-                #endregion  // MEGA
-            }
-            #endregion  // ENGLISH
-
-            #region METRIC
-            else if (string.Compare(projectUnitsDto.DefaultSystemUnits, "Metric - SI", true) == 0)
-            {
-                projectViewDataObj.ProjectArea_Units = "m2";
-
-                #region BASE
-                if (string.Compare(projectUnitsDto.DefaultMagnitudeUnits, "Base", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "W";
-
-                    if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "K", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "W/(K)";
-                        projectViewDataObj.ProjectU_Units = "W/(m2·K)";
-                    }
-                    else if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "°C", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "W/(°C)";
-                        projectViewDataObj.ProjectU_Units = "W/(m2·°C)";
-                    }
-                }
-                #endregion  // BASE
-
-                #region KILO
-                else if (string.Compare(projectUnitsDto.DefaultMagnitudeUnits, "Kilo", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "kW";
-
-                    if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "K", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "kW/(K)";
-                        projectViewDataObj.ProjectU_Units = "kW/(m2·K)";
-                    }
-                    else if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "°C", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "kW/(°C)";
-                        projectViewDataObj.ProjectU_Units = "kW/(m2·°C)";
-                    }
-                }
-                #endregion  // KILO
-
-                #region MEGA
-                else if (string.Compare(projectUnitsDto.DefaultMagnitudeUnits, "Mega", true) == 0)
-                {
-                    projectViewDataObj.ProjectDuty_Units = "MW";
-
-                    if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "K", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "MW/(K)";
-                        projectViewDataObj.ProjectU_Units = "MW/(m2·K)";
-                    }
-                    else if (string.Compare(projectUnitsDto.DefaultTemperatureUnits, "°C", true) == 0)
-                    {
-                        projectViewDataObj.ProjectCP_Units = "MW/(°C)";
-                        projectViewDataObj.ProjectU_Units = "MW/(m2·°C)";
-                    }
-                }
-                #endregion  // MEGA
-            }
-            #endregion  // METRIC
-
-            return projectViewDataObj;
-        }
-        #endregion  // GetProjectViewData()
-
-        #region GetProjectDtoFromViewData()
-        /// <summary>
-        /// Gets Project Data Transfer Objects populated with All Project Panel data 
-        /// based on the specified ProjectViewData values.
-        /// </summary>
-        /// <param name="projectViewDataObj">Project Panel Data</param>
-        /// <param name="ProjectDtoObj">Project Data Transfer Object</param>
-        /// <param name="ExchangerParamsDtoObj">Exchanger Parameters Data Transfer Object</param>
-        /// <param name="ProjectUnitsDtoObj">Project Units Data Transfer Object</param>
-        /// <exception cref="ArgumentNullException"></exception>
-        private void GetDtosFromViewData(in  ProjectPanelData projectViewDataObj,
-                                         out ProjectDto ProjectDtoObj,
-                                         out ExchangerParamsDto ExchangerParamsDtoObj,
-                                         out ProjectUnitsDto ProjectUnitsDtoObj)                                                     
-        {
-            //-----------------------------------------
-            //--- Null ProjectViewData Object Guard ---
-            //-----------------------------------------
-             if (projectViewDataObj == null) throw new ArgumentNullException(nameof(projectViewDataObj),
-                                       "Project View Data Object cannot be null.");
-
-            ProjectDtoObj = new ProjectDto();
-            ExchangerParamsDtoObj = new ExchangerParamsDto();
-            ProjectUnitsDtoObj = new ProjectUnitsDto();
-
-            ProjectDtoObj.Id = projectViewDataObj.Id;
-            ProjectDtoObj.Name = projectViewDataObj.Name;
-            ProjectDtoObj.Description = projectViewDataObj.Description;
-
-            ProjectDtoObj.CreationDate = projectViewDataObj.ProjectCreationDate;
-            ProjectDtoObj.ModifiedDate = projectViewDataObj.ProjectModificationDate;
-
-            ProjectDtoObj.DefaultHenOptimizer = projectViewDataObj.ProjectHenOptimizer;
-
-            ExchangerParamsDtoObj.DefaultHeatTransferCoefficient = double.Parse(projectViewDataObj.ProjectU_Value);
-            ExchangerParamsDtoObj.DefaultCorrectionFactor = double.Parse(projectViewDataObj.ProjectF_Value);
-
-            ProjectUnitsDtoObj.DefaultSystemUnits = projectViewDataObj.ProjectSystem_Units;
-            ProjectUnitsDtoObj.DefaultMagnitudeUnits = projectViewDataObj.ProjectMagnitude_Units;
-            ProjectUnitsDtoObj.DefaultTemperatureUnits = projectViewDataObj.ProjectTemperature_Units;
-            ProjectUnitsDtoObj.DefaultPressureUnits = projectViewDataObj.ProjectPressure_Units;
-
-        }
-
-        #endregion  // GetProjectDtoFromViewData()
-
-        #endregion  // CONVERSION METHODS ... DTO - PANEL VIEW DATA
-
         #region PopulateProjectPanel(ProjectViewData projectPanelData)
         /// <summary>
         /// Populate the Project Panel with ProjectViewData
@@ -2126,37 +1738,37 @@ namespace HenStudio
         /// <param name="projectPanelData"></param>
         private void PopulateProjectPanel(ProjectPanelData projectPanelData)
         {
-            this.textBoxProjectGUID.Text = projectPanelData.Id.ToString();
-            this.textBoxProjectNameValue.Text = projectPanelData.Name;
-            this.textBoxProjectDescriptionValue.Text = projectPanelData.Description;
+            //this.textBoxProjectGUID.Text = projectPanelData.Id.ToString();
+            //this.textBoxProjectNameValue.Text = projectPanelData.Name;
+            //this.textBoxProjectDescriptionValue.Text = projectPanelData.Description;
 
-            this.textBoxDefaultU_Value.Text = projectPanelData.ProjectU_Value.ToString();
-            this.textBoxFValue.Text = projectPanelData.ProjectF_Value.ToString();
-            this.textBoxDefaultHenOpitimizer.Text = projectPanelData.ProjectHenOptimizer;
-            this.textBoxDefaultU_Units.Text = projectPanelData.ProjectU_Units;
+            //this.textBoxDefaultU_Value.Text = projectPanelData.ProjectU_Value.ToString();
+            //this.textBoxFValue.Text = projectPanelData.ProjectF_Value.ToString();
+            //this.textBoxDefaultHenOpitimizer.Text = projectPanelData.ProjectHenOptimizer;
+            //this.textBoxDefaultU_Units.Text = projectPanelData.ProjectU_Units;
            
-            //--- PROJECT UNITS ---
+            ////--- PROJECT UNITS ---
 
-            this.textBoxProjectUnitsSystem.Text = projectPanelData.ProjectSystem_Units;
-            this.textBoxProjectUnitsMagnitude.Text = projectPanelData.ProjectMagnitude_Units;
-            this.textBoxProjectUnitsTemp.Text = projectPanelData.ProjectTemperature_Units;
-            this.textBoxProjectUnitsPress.Text = projectPanelData.ProjectPressure_Units;
+            //this.textBoxProjectUnitsSystem.Text = projectPanelData.ProjectSystem_Units;
+            //this.textBoxProjectUnitsMagnitude.Text = projectPanelData.ProjectMagnitude_Units;
+            //this.textBoxProjectUnitsTemp.Text = projectPanelData.ProjectTemperature_Units;
+            //this.textBoxProjectUnitsPress.Text = projectPanelData.ProjectPressure_Units;
 
-            this.textBoxUnitsAreaValue.Text = projectPanelData.ProjectArea_Units;
-            this.textBoxUnitsDutyValue.Text = projectPanelData.ProjectDuty_Units;
-            this.textBoxUnitsCPValue.Text = projectPanelData.ProjectCP_Units;
-            this.textBoxUnitsUValue.Text = projectPanelData.ProjectU_Units;
+            //this.textBoxUnitsAreaValue.Text = projectPanelData.ProjectArea_Units;
+            //this.textBoxUnitsDutyValue.Text = projectPanelData.ProjectDuty_Units;
+            //this.textBoxUnitsCPValue.Text = projectPanelData.ProjectCP_Units;
+            //this.textBoxUnitsUValue.Text = projectPanelData.ProjectU_Units;
 
-            //--- Update Systems Units Image ---
-            if (string.Compare(projectPanelData.ProjectSystem_Units, "Metric - SI", true) == 0)
-            {
-                pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
-            }
-            else if (string.Compare(projectPanelData.ProjectSystem_Units, "English - Imperial", true) == 0)
-            {
-                pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
-            }
-            else throw new Exception("Invalid System Units!");
+            ////--- Update Systems Units Image ---
+            //if (string.Compare(projectPanelData.ProjectSystem_Units, "Metric - SI", true) == 0)
+            //{
+            //    pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
+            //}
+            //else if (string.Compare(projectPanelData.ProjectSystem_Units, "English - Imperial", true) == 0)
+            //{
+            //    pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
+            //}
+            //else throw new Exception("Invalid System Units!");
         }
         #endregion  // PopulateProjectPanel(ProjectViewData projectPanelData)
 

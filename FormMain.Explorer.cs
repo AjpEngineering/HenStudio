@@ -423,7 +423,7 @@ namespace HenStudio
             string strMethod = "UpdateTreeStatusBar";
             string strMsg = String.Empty;
             DataTagDisplay dataTagDisplayObj;
-            HenTypes.ExplorerNodeIdType level = ExplorerNodeIdType.UNKNOWN;
+            HenTypes.ExplorerNodeIdType explorerNodeIdType = ExplorerNodeIdType.UNKNOWN;
             string strProjectName = string.Empty;
             string strProfileName = string.Empty;
             string strPinchName = string.Empty;
@@ -435,9 +435,9 @@ namespace HenStudio
                 //------------------------------------------
                 dataTagDisplayObj = ((DataTagDisplay)node.Tag);
 
-                level = dataTagDisplayObj.LevelEnum;
-                HenSettingsObj.ExplorerSelectedLevelEnum = level;
-                switch(level)
+                explorerNodeIdType = dataTagDisplayObj.NodeIdEnum;
+                HenSettingsObj.ExplorerSelectedLevelEnum = explorerNodeIdType;
+                switch(explorerNodeIdType)
                 {
                     case ExplorerNodeIdType.CATALOG:
                         HenSettingsObj.CurrentProjectName = strProjectName;
@@ -463,38 +463,22 @@ namespace HenStudio
                         HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
                         break;
 
-                        case ExplorerNodeIdType.PINCH:
-                        strProjectName = ((DataTagDisplay)node.Parent.Parent.Tag).NodeName;
-                        strProfileName = ((DataTagDisplay)node.Parent.Tag).NodeName;
-                        strPinchName = dataTagDisplayObj.NodeName;
+                    case ExplorerNodeIdType.STUDY:
+                        strProjectName = ((DataTagDisplay)node.Parent.Tag).NodeName;
+                        strProfileName = dataTagDisplayObj.NodeName;
                         HenSettingsObj.CurrentProjectName = strProjectName;
                         HenSettingsObj.CurrentProfileName = strProfileName;
                         HenSettingsObj.CurrentPinchName = strPinchName;
                         HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
                         break;
 
-                        case ExplorerNodeIdType.HEN:
-                        strProjectName = ((DataTagDisplay)node.Parent.Parent.Parent.Tag).NodeName;
-                        strProfileName = ((DataTagDisplay)node.Parent.Parent.Tag).NodeName;
-                        strPinchName = ((DataTagDisplay)node.Parent.Tag).NodeName;
-                        strHenName = dataTagDisplayObj.NodeName;
-                        HenSettingsObj.CurrentProjectName = strProjectName;
-                        HenSettingsObj.CurrentProfileName = strProfileName;
-                        HenSettingsObj.CurrentPinchName = strPinchName;
-                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
-                        break;
-
-                        default:
+                    default:
                         HenSettingsObj.CurrentProjectName = strProjectName;
                         HenSettingsObj.CurrentProfileName = strProfileName;
                         HenSettingsObj.CurrentPinchName = strPinchName;
                         HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
                         break;
                 }
-                //--------------------------------------------
-                //--- Update Current Tree-Status Bar State ---
-                //--------------------------------------------
-                UpdateProjectLevelStatusBarLabel();    // Initialize Catalog-Project Level Status Bar Label
             }
 
             catch (Exception ex)
@@ -514,7 +498,7 @@ namespace HenStudio
         {
             string strMethod = "HandleSelectionChange";
             string strMsg = String.Empty;
-            ExplorerNodeIdType level = ExplorerNodeIdType.UNKNOWN;
+            ExplorerNodeIdType explorerNodeIdType = ExplorerNodeIdType.UNKNOWN;
             try
             {
                 //----------------------------------------------------------------
@@ -533,7 +517,7 @@ namespace HenStudio
                 DataTagDisplay dataTagDisplayObj = ((DataTagDisplay)node.Tag);
                 if(dataTagDisplayObj == null ) return;  // Null Guard
 
-                level = dataTagDisplayObj.LevelEnum;
+                explorerNodeIdType = dataTagDisplayObj.NodeIdEnum;
 
                 //---------------------------------------
                 //--- Update Current Tree-Panel State ---
@@ -544,7 +528,7 @@ namespace HenStudio
                 //-----------------------------------
                 //--- Popluate and Display Panels ---
                 //-----------------------------------
-                switch (level)
+                switch (explorerNodeIdType)
                 {
                     #region CATALOG (PROJECTS)
                     case ExplorerNodeIdType.CATALOG:
@@ -607,36 +591,20 @@ namespace HenStudio
                         break;
                     #endregion  // PROFILE
 
-                    #region PINCH
-                    case ExplorerNodeIdType.PINCH:
+                    #region STUDY
+                    case ExplorerNodeIdType.STUDY:
                         //------------------------------------
-                        //--- Populate Current Pinch Panel ---
+                        //--- Populate Current Study Panel ---
                         //------------------------------------
-                        HenMsgDlg.DisplayWarningDlg("***** Populate Current PINCH Panel *****");
+                        HenMsgDlg.DisplayWarningDlg("***** Populate Current STUDY Panel *****");
 
 
                         //---------------------------
-                        //--- Display Pinch Panel ---
+                        //--- Display Study Panel ---
                         //---------------------------
-                        this.panelSELECTED_PINCH.BringToFront();
+                        //this.panelSELECTED_STUDY.BringToFront();
                         break;
-                    #endregion  // PINCH
-
-                    #region HEN
-                    case ExplorerNodeIdType.HEN:
-                        //----------------------------------
-                        //--- Populate Current Hen Panel ---
-                        //----------------------------------
-                        HenMsgDlg.DisplayWarningDlg("***** Populate Current HEN Panel *****");
-
-
-                        //-------------------------
-                        //--- Display HEN Panel ---
-                        //-------------------------
-                        this.panelSELECTED_HEN.BringToFront();
-
-                        break;
-                    #endregion  // HEN
+                    #endregion  // STUDY
 
                     #region UNKNOWN
                     default:
@@ -960,49 +928,49 @@ namespace HenStudio
         }
         #endregion  // HandleNewProfile
 
-        #region HandleNewPinch
+        #region HandleNewStudy
         /// <summary>
-        /// Common New Command Handler. Display New Pinch Form to capture display Name
+        /// Common New Command Handler. Display New Study Form to capture display Name
         /// </summary>
-        private void HandleNewPinch()
+        private void HandleNewStudy()
         {
-            string strMethod = "HandleNewPinch";
+            string strMethod = "HandleNewStudy";
             string strNodeName = string.Empty;      // Node name no Prefix ... From New Dialog Name field
-            string strDisplayName = string.Empty;   // Includes Prefix (e.g., "Pinch: *")
-            int nPinchNodeID = 0;
-            Guid pinchGUID = Guid.Empty;            // DB Pinch GUID (PK)
+            string strDisplayName = string.Empty;   // Includes Prefix (e.g., "Study: *")
+            int nStudyNodeID = 0;
+            Guid studyGUID = Guid.Empty;            // DB Study GUID (PK)
             try
             {
                 //------------------------------
-                //--- Display New Pinch Form ---
+                //--- Display New Study Form ---
                 //------------------------------
-                HenMsgDlg.DisplayWarningDlg("***** Display New Pinch Form *****");
-                //FormNewPinch dlg = new FormNewPinch();
+                HenMsgDlg.DisplayWarningDlg("***** Display New Study Form *****");
+                //FormNewStudy dlg = new FormNewStudy();
                 //if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
 
                 //*********************************************************************************
                 //***** Scrape Dialog Data and SAVE to DB                                     *****
-                //***** Get DB PinchID (PK)                                                   *****            
+                //***** Get DB StudyID (PK)                                                   *****            
                 //*********************************************************************************
                 HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
-                HenMsgDlg.DisplayWarningDlg("***** Get DB PinchID (PK) *****");
+                HenMsgDlg.DisplayWarningDlg("***** Get DB StudyID (PK) *****");
                 strNodeName = "Delta T = 10";      // From New Dialog ... Name Field
-                strDisplayName = "Pinch: Delta T = 10";  // Node name with prefix ("Pinch: ")
-                pinchGUID = new Guid();
+                strDisplayName = "Study: Delta T = 10";  // Node name with prefix ("Study: ")
+                studyGUID = new Guid();
                 //********************************************************************** TEST *****
 
                 //-------------------------------------------------------
                 //-- Create Node Tag Object and Assign Tag Attributes ---
                 //-------------------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.PINCH,
+                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.STUDY,
                                                                       strNodeName);
-                dataTagDisplayObj.PinchID = pinchGUID;
+                dataTagDisplayObj.StudyID = studyGUID;
 
                 //----------------------------------------------------
-                //--- Get Parent (Profile) Node and Add Pinch Node ---
+                //--- Get Parent (Project) Node and Add Study Node ---
                 //----------------------------------------------------
                 TreeNode parentNode = GetSelectedNode();
-                nPinchNodeID = AddPinchNode(parentNode, strDisplayName, dataTagDisplayObj);
+                //nStudyNodeID = AddStudyNode(parentNode, strDisplayName, dataTagDisplayObj);
             }
             catch (Exception ex)
             {
@@ -1014,63 +982,7 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // HandleNewPinch
-
-        #region HandleNewHen
-        /// <summary>
-        /// Common New Command Handler. Display New Hen Form to capture display Name
-        /// </summary>
-        private void HandleNewHen()
-        {
-            string strMethod = "HandleNewHen";
-            string strNodeName = string.Empty;      // Node name no Prefix ... From New Dialog Name field
-            string strDisplayName = string.Empty;   // Includes Prefix (e.g., "Hen: *")
-            int nHenNodeID = 0;
-            Guid henGUID = Guid.Empty;              // DB Hen GUID (PK)
-            try
-            {
-                //----------------------------
-                //--- Display New Hen Form ---
-                //----------------------------
-                HenMsgDlg.DisplayWarningDlg("***** Display New Hen Form *****");
-                //FormNewHen dlg = new FormNewHen();
-                //if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
-
-                //*********************************************************************************
-                //***** Scrape Dialog Data and SAVE to DB                                     *****
-                //***** Get DB HenID (PK)                                                     *****            
-                //*********************************************************************************
-                HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
-                HenMsgDlg.DisplayWarningDlg("***** Get DB HenID (PK) *****");
-                strNodeName = "Base Design";      // From New Dialog ... Name Field
-                strDisplayName = "Hen: Base Design";  // Node name with prefix ("Hen: ")
-                henGUID = new Guid();
-                //********************************************************************** TEST *****
-
-                //-------------------------------------------------------
-                //-- Create Node Tag Object and Assign Tag Attributes ---
-                //-------------------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.HEN,
-                                                                      strNodeName);
-                dataTagDisplayObj.HenID = henGUID;
-
-                //------------------------------------------------
-                //--- Get Parent (Pinch) Node and Add Hen Node ---
-                //------------------------------------------------
-                TreeNode parentNode = GetSelectedNode();
-                nHenNodeID = AddHenNode(parentNode, strDisplayName, dataTagDisplayObj);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleNewHen
+        #endregion  // HandleNewStudy
 
         #endregion  // HANDLE NEW NODE EVENTS
 
@@ -1218,14 +1130,14 @@ namespace HenStudio
         }
         #endregion  // HandleRenameProfile
 
-        #region HandleRenamePinch
+        #region HandleRenameStudy
         /// <summary>
-        /// Common Rename Pinch Command Handler. Rename User Specified Node.
+        /// Common Rename Study Command Handler. Rename User Specified Node.
         /// </summary>
-        private void HandleRenamePinch()
+        private void HandleRenameStudy()
         {
-            string strMethod = "HandleRenamePinch";
-            string strRenameFormTitle = "Rename PINCH ";
+            string strMethod = "HandleRenameStudy";
+            string strRenameFormTitle = "Rename STUDY ";
             string strOriginalName = string.Empty;
             string strNewNodeName = string.Empty;
             string strNewDisplayName = string.Empty;
@@ -1236,15 +1148,15 @@ namespace HenStudio
                 //-----------------------
                 //--- Null Node Guard ---
                 //-----------------------
-                if (node == null) throw new Exception("Null Pinch Node Encountered!");
+                if (node == null) throw new Exception("Null Study Node Encountered!");
 
                 //-------------------------------------
-                //--- Rename Pinch Data in Database ---
+                //--- Rename Study Data in Database ---
                 //-------------------------------------
-                HenMsgDlg.DisplayWarningDlg("RENAME PINCH Data in Database");
+                HenMsgDlg.DisplayWarningDlg("RENAME STUDY Data in Database");
 
                 //-------------------------------------------
-                //--- Rename the Selected Pinch Tree Node ---
+                //--- Rename the Selected Study Tree Node ---
                 //-------------------------------------------
                 FormRename dlg = new FormRename(strRenameFormTitle, ((DataTagDisplay)node.Tag).NodeName);
                 if (dlg.ShowDialog() == DialogResult.OK)
@@ -1266,57 +1178,7 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // HandleRenamePinch
-
-        #region HandleRenameHen
-        /// <summary>
-        /// Common Rename Hen Command Handler. Rename User Specified Node.
-        /// </summary>
-        private void HandleRenameHen()
-        {
-            string strMethod = "HandleRenameHen";
-            string strRenameFormTitle = "Rename HEN ";
-            string strOriginalName = string.Empty;
-            string strNewNodeName = string.Empty;
-            string strNewDisplayName = string.Empty;
-            TreeNode node;
-            try
-            {
-                node = GetSelectedNode();
-                //-----------------------
-                //--- Null Node Guard ---
-                //-----------------------
-                if (node == null) throw new Exception("Null Hen Node Encountered!");
-
-                //-----------------------------------
-                //--- Rename Hen Data in Database ---
-                //-----------------------------------
-                HenMsgDlg.DisplayWarningDlg("RENAME HEN Data in Database");
-
-                //-----------------------------------------
-                //--- Rename the Selected Hen Tree Node ---
-                //-----------------------------------------
-                FormRename dlg = new FormRename(strRenameFormTitle, ((DataTagDisplay)node.Tag).NodeName);
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    strNewNodeName = dlg.NewNodeName;
-                    strNewDisplayName = string.Format("Hen: {0}", dlg.NewNodeName);
-
-                    node.Text = strNewDisplayName;
-                    ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
-                }
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleRenameHen
+        #endregion  // HandleRenameStudy
 
         #endregion  // HANDLE MODIFY NODE EVENTS
 
@@ -1398,22 +1260,22 @@ namespace HenStudio
         }
         #endregion  // HandleDeleteProfile
 
-        #region HandleDeletePinch
+        #region HandleDeleteStudy
         /// <summary>
-        /// Common Delete Pinch Command Handler. 
+        /// Common Delete Study Command Handler. 
         /// </summary>
-        private void HandleDeletePinch()
+        private void HandleDeleteStudy()
         {
-            string strMethod = "HandleDeletePinch";
+            string strMethod = "HandleDeleteStudy";
             try
             {
                 //---------------------------------------
-                //--- Delete Pinch Data from Database ---
+                //--- Delete Study Data from Database ---
                 //---------------------------------------
-                HenMsgDlg.DisplayWarningDlg("Delete PINCH Data from Database");
+                HenMsgDlg.DisplayWarningDlg("Delete STUDY Data from Database");
 
                 //---------------------------------------------------------------------------
-                //--- Delete the Selected Pinch Tree Node and All Sub Nodes from the Tree ---
+                //--- Delete the Selected Study Tree Node and All Sub Nodes from the Tree ---
                 //---------------------------------------------------------------------------
                 DeleteSelectedNode();
             }
@@ -1427,38 +1289,7 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // HandleDeletePinch
-
-        #region HandleDeleteHen
-        /// <summary>
-        /// Common Delete HEN Command Handler. 
-        /// </summary>
-        private void HandleDeleteHen()
-        {
-            string strMethod = "HandleDeleteHen";
-            try
-            {
-                //-------------------------------------
-                //--- Delete HEN Data from Database ---
-                //-------------------------------------
-                HenMsgDlg.DisplayWarningDlg("Delete HEN Data from Database");
-
-                //-------------------------------------------------------
-                //--- Delete the Selected HEN Tree Node from the Tree ---
-                //-------------------------------------------------------
-                DeleteSelectedNode();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleDeleteHen
+        #endregion  // HandleDeleteStudy
 
         #endregion  // HANDLE DELETE NODE EVENTS
 
@@ -1594,21 +1425,20 @@ namespace HenStudio
         }
         #endregion  // AddProfileNode()
 
-        #region AddPinchNode()
+        #region AddStudyNode()
         /// <summary>
-        /// Create and Add a Pinch Node to the Tree
+        /// Create and Add a Study Node to the Tree
         /// </summary>
-        /// <param name="parentNode">Parent node ... for Pinch-> Selected Profile Node</param>
-        /// <param name="strDisplayName">Display name of the new Pinch node</param>
-        /// <param name="dataTagDisplayObj">Tag object for the new Pinch node</param>
-        /// <returns>Node Id for the new Pinch node</returns>
-        private int AddPinchNode(TreeNode parentNode, string strDisplayName, DataTagDisplay dataTagDisplayObj)
+        /// <param name="parentNode">Parent node ... for Study-> Selected Project Node</param>
+        /// <param name="strDisplayName">Display name of the new Study node</param>
+        /// <param name="dataTagDisplayObj">Tag object for the new Study node</param>
+        /// <returns>Node Id for the new Study node</returns>
+        private int AddStudyNode(TreeNode parentNode, string strDisplayName, DataTagDisplay dataTagDisplayObj)
         {
-            string strMethod = "AddPinchNode";
+            string strMethod = "AddStudyNode";
             string strMsg = String.Empty;
-            int nPinchNodeID = 0;
+            int nStudyNodeID = 0;
             string strProjectName = string.Empty;
-            string strProfileName = string.Empty;
             try
             {
                 treeViewCurrentProjectExplorer.BeginUpdate();
@@ -1616,12 +1446,12 @@ namespace HenStudio
                 //-- Create New Node and Add to the Tree ---
                 //------------------------------------------
                 TreeNode node = new TreeNode(strDisplayName);
-                node.ContextMenuStrip = this.contextMenuStripPinch;
+                //node.ContextMenuStrip = this.contextMenuStripStudy;
 
-                node.ImageIndex = 5;            // Pinch_16x16.ico ........... imageListProjectTreeViews
-                node.SelectedImageIndex = 6;    // PinchSelected_16x16.ico ... imageListProjectTreeViews
+                node.ImageIndex = 3;            // Study_Input_16x16.ico ............ imageListProjectTreeViews
+                node.SelectedImageIndex = 4;    // Study_Input_Selected_16x16.ico ... imageListProjectTreeViews
 
-                nPinchNodeID = parentNode.Nodes.Add(node);
+                nStudyNodeID = parentNode.Nodes.Add(node);
 
                 //------------------------------------
                 //-- Assign Tag Object to New Node ---
@@ -1638,10 +1468,11 @@ namespace HenStudio
                 //--------------------------------------
                 HenMsgDlg.DisplayWarningDlg("***** Populate Current Panel *****");
 
-                //---------------------------
-                //--- Display Pinch Panel ---
-                //---------------------------
-                this.panelSELECTED_PINCH.BringToFront();
+                //-----------------------------
+                //-----------------------------
+                //--- Display Study Panel ---
+                //-----------------------------
+                //this.panelSELECTED_STUDY.BringToFront();
 
                 //-----------------------------------
                 //--- Display and Select New Node ---
@@ -1659,81 +1490,9 @@ namespace HenStudio
             {
                 treeViewCurrentProjectExplorer.EndUpdate();
             }
-            return nPinchNodeID;
+            return nStudyNodeID;
         }
-        #endregion  // AddPinchNode()
-
-        #region AddHenNode()
-        /// <summary>
-        /// Create and Add a Hen Node to the Tree
-        /// </summary>
-        /// <param name="parentNode">Parent node ... for Hen-> Selected Pinch Node</param>
-        /// <param name="strDisplayName">Display name of the new Hen node</param>
-        /// <param name="dataTagDisplayObj">Tag object for the new Hen node</param>
-        /// <returns>Node Id for the new Hen node</returns>
-        private int AddHenNode(TreeNode parentNode, string strDisplayName, DataTagDisplay dataTagDisplayObj)
-        {
-            string strMethod = "AddHenNode";
-            string strMsg = String.Empty;
-            int nHenNodeID = 0;
-            string strProjectName = string.Empty;
-            string strProfileName = string.Empty;
-            string strPinchName = string.Empty;
-            try
-            {
-                treeViewCurrentProjectExplorer.BeginUpdate();
-                //------------------------------------------
-                //-- Create New Node and Add to the Tree ---
-                //------------------------------------------
-                TreeNode node = new TreeNode(strDisplayName);
-                node.ContextMenuStrip = this.contextMenuStripHen;
-
-                node.ImageIndex = 7;            // HEN_16x16.ico ........... imageListProjectTreeViews
-                node.SelectedImageIndex = 8;    // HENSelected_16x16.ico ... imageListProjectTreeViews
-
-                nHenNodeID = parentNode.Nodes.Add(node);
-
-                //------------------------------------
-                //-- Assign Tag Object to New Node ---
-                //------------------------------------
-                node.Tag = dataTagDisplayObj;
-
-                //---------------------------------------
-                //--- Update Current Tree-Panel State ---
-                //---------------------------------------
-                UpdateTreeStatusBar(node);
-
-                //--------------------------------------
-                //--- Populate Current Project Panel ---
-                //--------------------------------------
-                HenMsgDlg.DisplayWarningDlg("***** Populate Current Panel *****");
-
-                //-------------------------
-                //--- Display Hen Panel ---
-                //-------------------------
-                this.panelSELECTED_HEN.BringToFront();
-
-                //-----------------------------------
-                //--- Display and Select New Node ---
-                //-----------------------------------
-                treeViewCurrentProjectExplorer.SelectedNode = node;
-                node.EnsureVisible();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-                treeViewCurrentProjectExplorer.EndUpdate();
-
-                //LogTree();  //***** TEST *****
-            }
-            return nHenNodeID;
-        }
-        #endregion  // AddHenNode()
+        #endregion  // AddStudyNode()
 
         #endregion  // ADD NODE METHODS
 
@@ -1778,12 +1537,12 @@ namespace HenStudio
         {
             string strMethod = "LogTreeRecursive";
             string strMsg = String.Empty;
-            ExplorerNodeIdType level = ExplorerNodeIdType.CATALOG;
+            ExplorerNodeIdType explorerNodeIdType = ExplorerNodeIdType.CATALOG;
             try
             {
-                level = ((DataTagDisplay)node.Tag).LevelEnum;
+                explorerNodeIdType = ((DataTagDisplay)node.Tag).NodeIdEnum;
 
-                switch (level)
+                switch (explorerNodeIdType)
                 {
                     case ExplorerNodeIdType.CATALOG:
                         strMsg = string.Format("  > {0}", node.Text);
@@ -1794,11 +1553,8 @@ namespace HenStudio
                     case ExplorerNodeIdType.PROFILE:
                         strMsg = string.Format("      + {0}", node.Text);
                         break;
-                    case ExplorerNodeIdType.PINCH:
-                        strMsg = string.Format("        + {0}", node.Text);
-                        break;
-                    case ExplorerNodeIdType.HEN:
-                        strMsg = string.Format("          + {0}", node.Text);
+                    case ExplorerNodeIdType.STUDY:
+                        strMsg = string.Format("      + {0}", node.Text);
                         break;
                     default:
                         break;
