@@ -58,8 +58,10 @@
             this.toolStripMenuItemCurrProjCollapseAll = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemCurProjAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.addStudyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorCurProjAdd = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemCurProjRename = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemDeleteProject = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripProjectCatalog = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -103,6 +105,8 @@
             this.statusStripMainDASHBOARD = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelLICENSE = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelCAT_DB = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBarEngineRuns = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabelProgressText = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelAJP_LOGO = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageListAnalysis = new System.Windows.Forms.ImageList(this.components);
             this.imageListInput = new System.Windows.Forms.ImageList(this.components);
@@ -325,10 +329,6 @@
             this.pictureBoxOpenedPinch = new System.Windows.Forms.PictureBox();
             this.imageListProjectZIP = new System.Windows.Forms.ImageList(this.components);
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
-            this.addStudyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.renameProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripProgressBarEngineRuns = new System.Windows.Forms.ToolStripProgressBar();
-            this.toolStripStatusLabelProgressText = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStripProfile.SuspendLayout();
             this.contextMenuStripCurrProj.SuspendLayout();
             this.contextMenuStripProjectCatalog.SuspendLayout();
@@ -385,17 +385,22 @@
             this.toolStripSeparator4,
             this.toolStripMenuItemProfileDelete});
             this.contextMenuStripProfile.Name = "contextMenuStripProfile";
-            this.contextMenuStripProfile.Size = new System.Drawing.Size(155, 54);
+            this.contextMenuStripProfile.Size = new System.Drawing.Size(145, 54);
+            // 
+            // toolStripMenuItemProfileRename
+            // 
+            this.toolStripMenuItemProfileRename.Name = "toolStripMenuItemProfileRename";
+            this.toolStripMenuItemProfileRename.Size = new System.Drawing.Size(144, 22);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(151, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(141, 6);
             // 
             // toolStripMenuItemProfileDelete
             // 
             this.toolStripMenuItemProfileDelete.Name = "toolStripMenuItemProfileDelete";
-            this.toolStripMenuItemProfileDelete.Size = new System.Drawing.Size(154, 22);
+            this.toolStripMenuItemProfileDelete.Size = new System.Drawing.Size(144, 22);
             this.toolStripMenuItemProfileDelete.Text = "Delete Profile";
             this.toolStripMenuItemProfileDelete.Click += new System.EventHandler(this.toolStripMenuItemProfileDelete_Click);
             // 
@@ -443,6 +448,12 @@
             this.toolStripMenuItemCurProjAdd.Text = "Add Profile...";
             this.toolStripMenuItemCurProjAdd.Click += new System.EventHandler(this.toolStripMenuItemCurProjAdd_Click);
             // 
+            // addStudyToolStripMenuItem
+            // 
+            this.addStudyToolStripMenuItem.Name = "addStudyToolStripMenuItem";
+            this.addStudyToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.addStudyToolStripMenuItem.Text = "Add Study...";
+            // 
             // toolStripSeparatorCurProjAdd
             // 
             this.toolStripSeparatorCurProjAdd.Name = "toolStripSeparatorCurProjAdd";
@@ -454,6 +465,12 @@
             this.toolStripMenuItemCurProjRename.Size = new System.Drawing.Size(166, 22);
             this.toolStripMenuItemCurProjRename.Text = "Modify Project...";
             this.toolStripMenuItemCurProjRename.Click += new System.EventHandler(this.toolStripMenuItemCurProjRename_Click);
+            // 
+            // renameProjectToolStripMenuItem
+            // 
+            this.renameProjectToolStripMenuItem.Name = "renameProjectToolStripMenuItem";
+            this.renameProjectToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.renameProjectToolStripMenuItem.Text = "Rename Project...";
             // 
             // toolStripSeparator13
             // 
@@ -812,6 +829,23 @@
             this.toolStripStatusLabelCAT_DB.Click += new System.EventHandler(this.toolStripStatusLabelCAT_DB_Click);
             this.toolStripStatusLabelCAT_DB.DoubleClick += new System.EventHandler(this.toolStripStatusLabelCAT_DB_DoubleClick);
             // 
+            // toolStripProgressBarEngineRuns
+            // 
+            this.toolStripProgressBarEngineRuns.BackColor = System.Drawing.Color.White;
+            this.toolStripProgressBarEngineRuns.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.toolStripProgressBarEngineRuns.Name = "toolStripProgressBarEngineRuns";
+            this.toolStripProgressBarEngineRuns.Size = new System.Drawing.Size(300, 35);
+            // 
+            // toolStripStatusLabelProgressText
+            // 
+            this.toolStripStatusLabelProgressText.BackColor = System.Drawing.Color.DarkOrange;
+            this.toolStripStatusLabelProgressText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelProgressText.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelProgressText.Name = "toolStripStatusLabelProgressText";
+            this.toolStripStatusLabelProgressText.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.toolStripStatusLabelProgressText.Size = new System.Drawing.Size(227, 36);
+            this.toolStripStatusLabelProgressText.Text = "Working ... 005% Complete";
+            // 
             // toolStripStatusLabelAJP_LOGO
             // 
             this.toolStripStatusLabelAJP_LOGO.BackColor = System.Drawing.Color.White;
@@ -824,7 +858,7 @@
             this.toolStripStatusLabelAJP_LOGO.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelAJP_LOGO.Name = "toolStripStatusLabelAJP_LOGO";
             this.toolStripStatusLabelAJP_LOGO.Padding = new System.Windows.Forms.Padding(6);
-            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(467, 32);
+            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(483, 32);
             this.toolStripStatusLabelAJP_LOGO.Spring = true;
             this.toolStripStatusLabelAJP_LOGO.Text = "Engineering  ";
             this.toolStripStatusLabelAJP_LOGO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1018,7 +1052,6 @@
             // tabPageDefaultParams
             // 
             this.tabPageDefaultParams.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageDefaultParams.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery_BACKGROUND_903x527;
             this.tabPageDefaultParams.Controls.Add(this.panelDefaultParmeters);
             this.tabPageDefaultParams.Controls.Add(this.panelProjectUnits);
             this.tabPageDefaultParams.Controls.Add(this.panelDefaultHenOptimizer);
@@ -1458,7 +1491,6 @@
             // tabPageCostParams
             // 
             this.tabPageCostParams.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageCostParams.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery_BACKGROUND_903x527;
             this.tabPageCostParams.Controls.Add(this.pictureBox1);
             this.tabPageCostParams.Controls.Add(this.panelUtilityCost);
             this.tabPageCostParams.Controls.Add(this.panelTotalAnnualizedCost);
@@ -1475,7 +1507,6 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.LightYellow;
-            this.pictureBox1.Image = global::HenStudio.Properties.Resources.CapitalCostEquations_No_Background_383x200;
             this.pictureBox1.Location = new System.Drawing.Point(281, 230);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(286, 133);
@@ -2651,7 +2682,6 @@
             // 
             // pictureBoxProject_HenStudioLogo
             // 
-            this.pictureBoxProject_HenStudioLogo.Image = global::HenStudio.Properties.Resources.AJP_HenStudio_Logo_No_Background_164x120;
             this.pictureBoxProject_HenStudioLogo.Location = new System.Drawing.Point(10, 78);
             this.pictureBoxProject_HenStudioLogo.Name = "pictureBoxProject_HenStudioLogo";
             this.pictureBoxProject_HenStudioLogo.Size = new System.Drawing.Size(100, 50);
@@ -2782,7 +2812,6 @@
             // tabPageROOT_Home
             // 
             this.tabPageROOT_Home.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageROOT_Home.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery_HOME___903x527;
             this.tabPageROOT_Home.Location = new System.Drawing.Point(4, 39);
             this.tabPageROOT_Home.Name = "tabPageROOT_Home";
             this.tabPageROOT_Home.Padding = new System.Windows.Forms.Padding(3);
@@ -2793,7 +2822,6 @@
             // tabPageROOT_License
             // 
             this.tabPageROOT_License.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageROOT_License.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery_BACKGROUND_903x527;
             this.tabPageROOT_License.Controls.Add(this.groupBoxLicense);
             this.tabPageROOT_License.Controls.Add(this.groupBoxLicenseType);
             this.tabPageROOT_License.Controls.Add(this.groupBoxProduct);
@@ -3222,7 +3250,6 @@
             // pictureBoxProductLogo
             // 
             this.pictureBoxProductLogo.BackColor = System.Drawing.Color.White;
-            this.pictureBoxProductLogo.Image = global::HenStudio.Properties.Resources.AJP_HEN_Studio_with_Graphic_NO_BACKGROUND;
             this.pictureBoxProductLogo.Location = new System.Drawing.Point(676, 20);
             this.pictureBoxProductLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxProductLogo.Name = "pictureBoxProductLogo";
@@ -3491,7 +3518,6 @@
             // tabPageROOT_Database
             // 
             this.tabPageROOT_Database.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageROOT_Database.BackgroundImage = global::HenStudio.Properties.Resources.AJP_Refinery_BACKGROUND_903x527;
             this.tabPageROOT_Database.Controls.Add(this.panelProjectDbFileMetadata);
             this.tabPageROOT_Database.Controls.Add(this.buttonConnection);
             this.tabPageROOT_Database.Location = new System.Drawing.Point(4, 39);
@@ -3987,36 +4013,6 @@
             this.imageListProject.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListProject.Images.SetKeyName(0, "Project Explorer...32x32.png");
             this.imageListProject.Images.SetKeyName(1, "Project...32x32.png");
-            // 
-            // addStudyToolStripMenuItem
-            // 
-            this.addStudyToolStripMenuItem.Name = "addStudyToolStripMenuItem";
-            this.addStudyToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.addStudyToolStripMenuItem.Text = "Add Study...";
-            // 
-            // renameProjectToolStripMenuItem
-            // 
-            this.renameProjectToolStripMenuItem.Name = "renameProjectToolStripMenuItem";
-            this.renameProjectToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.renameProjectToolStripMenuItem.Text = "Rename Project...";
-            // 
-            // toolStripProgressBarEngineRuns
-            // 
-            this.toolStripProgressBarEngineRuns.BackColor = System.Drawing.Color.White;
-            this.toolStripProgressBarEngineRuns.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.toolStripProgressBarEngineRuns.Name = "toolStripProgressBarEngineRuns";
-            this.toolStripProgressBarEngineRuns.Size = new System.Drawing.Size(300, 35);
-            // 
-            // toolStripStatusLabelProgressText
-            // 
-            this.toolStripStatusLabelProgressText.BackColor = System.Drawing.Color.DarkOrange;
-            this.toolStripStatusLabelProgressText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelProgressText.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabelProgressText.Image = global::HenStudio.Properties.Resources.HEN_Studio_Graphic___32x32;
-            this.toolStripStatusLabelProgressText.Name = "toolStripStatusLabelProgressText";
-            this.toolStripStatusLabelProgressText.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.toolStripStatusLabelProgressText.Size = new System.Drawing.Size(243, 36);
-            this.toolStripStatusLabelProgressText.Text = "Working ... 005% Complete";
             // 
             // FormMain
             // 
