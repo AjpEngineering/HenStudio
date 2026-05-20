@@ -91,6 +91,11 @@ using HenViewModel.Hen;
 
 using HenStudio.Properties;
 using HenStudio.Data.Project;
+using HenStudio.Data.Project.DefaultParameters;
+using HenStudio.Data.Project.DefaultParameters.ExchangerParams;
+using HenStudio.Data.Project.DefaultParameters.OptimizerParams;
+using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
+using HenStudio.Data.Project.CostParameters;
 using HenStudio.Data.Tag;
 
 #endregion  // AJP HEN NAMESPACES
@@ -413,86 +418,6 @@ namespace HenStudio
         }
         #endregion  // RefreshTree(bool bCollapseAll)
 
-        #region UpdateTreeStatusBar()
-        /// <summary>
-        /// Update Tree View - Status Bar States based on User Specified Tree Node
-        /// </summary>
-        /// <param name="node">Update state base on this Tree Node</param>
-        private void UpdateTreeStatusBar(TreeNode node)
-        {
-            string strMethod = "UpdateTreeStatusBar";
-            string strMsg = String.Empty;
-            DataTagDisplay dataTagDisplayObj;
-            HenTypes.ExplorerNodeIdType explorerNodeIdType = ExplorerNodeIdType.UNKNOWN;
-            string strProjectName = string.Empty;
-            string strProfileName = string.Empty;
-            string strPinchName = string.Empty;
-            string strHenName = string.Empty;
-            try
-            {
-                //------------------------------------------
-                //-- Get Tag Object Associated with node ---
-                //------------------------------------------
-                dataTagDisplayObj = ((DataTagDisplay)node.Tag);
-
-                explorerNodeIdType = dataTagDisplayObj.NodeIdEnum;
-                HenSettingsObj.ExplorerSelectedLevelEnum = explorerNodeIdType;
-                switch(explorerNodeIdType)
-                {
-                    case ExplorerNodeIdType.CATALOG:
-                        HenSettingsObj.CurrentProjectName = strProjectName;
-                        HenSettingsObj.CurrentProfileName = strProfileName;
-                        HenSettingsObj.CurrentPinchName = strPinchName;
-                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
-                        break;
-
-                        case ExplorerNodeIdType.PROJECT:
-                        strProjectName = dataTagDisplayObj.NodeName;
-                        HenSettingsObj.CurrentProjectName = strProjectName;
-                        HenSettingsObj.CurrentProfileName = strProfileName;
-                        HenSettingsObj.CurrentPinchName = strPinchName;
-                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
-                        break;
-
-                        case ExplorerNodeIdType.PROFILE:
-                        strProjectName = ((DataTagDisplay)node.Parent.Tag).NodeName;
-                        strProfileName = dataTagDisplayObj.NodeName;
-                        HenSettingsObj.CurrentProjectName = strProjectName;
-                        HenSettingsObj.CurrentProfileName = strProfileName;
-                        HenSettingsObj.CurrentPinchName = strPinchName;
-                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
-                        break;
-
-                    case ExplorerNodeIdType.STUDY:
-                        strProjectName = ((DataTagDisplay)node.Parent.Tag).NodeName;
-                        strProfileName = dataTagDisplayObj.NodeName;
-                        HenSettingsObj.CurrentProjectName = strProjectName;
-                        HenSettingsObj.CurrentProfileName = strProfileName;
-                        HenSettingsObj.CurrentPinchName = strPinchName;
-                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
-                        break;
-
-                    default:
-                        HenSettingsObj.CurrentProjectName = strProjectName;
-                        HenSettingsObj.CurrentProfileName = strProfileName;
-                        HenSettingsObj.CurrentPinchName = strPinchName;
-                        HenSettingsObj.CurrentHenName = dataTagDisplayObj.NodeName;
-                        break;
-                }
-            }
-
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // UpdateTreeStatusBar()
-
         #region HandleSelectionChange()
         private void HandleSelectionChange()
         {
@@ -507,6 +432,7 @@ namespace HenStudio
                 var projectViewModelObj = new ProjectViewModel();
                 var projectUnitsViewModelObj = new ProjectUnitsViewModel();
                 var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
+                var optimizerParamsViewModelObj = new OptimizerParamsViewModel();
 
                 //--------------------------
                 //--- Get Node and Level ---
@@ -519,55 +445,60 @@ namespace HenStudio
 
                 explorerNodeIdType = dataTagDisplayObj.NodeIdEnum;
 
-                //---------------------------------------
-                //--- Update Current Tree-Panel State ---
-                //---------------------------------------
-                UpdateTreeStatusBar(node);
-
                 #region Popluate and Display Panels
                 //-----------------------------------
                 //--- Popluate and Display Panels ---
                 //-----------------------------------
                 switch (explorerNodeIdType)
                 {
-                    #region CATALOG (PROJECTS)
+                    #region CATALOG (ROOT)
                     case ExplorerNodeIdType.CATALOG:
                         //-------------------------------------------------
-                        //--- Populate Current Projects (CATALOG) Panel ---
+                        //--- Populate Current ROOT (CATALOG) Panel ---
                         //--- and Display Projects (CATALOG) Panel      ---
                         //-------------------------------------------------
                         HandleDBConnectionState();
                         break;
-                    #endregion  // CATALOG (PROJECTS)
+                    #endregion  // CATALOG (ROOT)
 
                     #region PROJECT
                     case ExplorerNodeIdType.PROJECT:
-                        //-----------------------------------------------------------
-                        //--- Get Project Data from DB and Populate Project Panel ---
-                        //-----------------------------------------------------------
+                        //-------------------------------------------------------------------------
+                        //--- Get Project Data from DB and Populate Project Panel and Subpanels ---
+                        //-------------------------------------------------------------------------
                         TreeNode selNode = treeViewCurrentProjectExplorer.SelectedNode;
                         
                         Guid projectID = ((DataTagDisplay)selNode.Tag).ProjectID;
                         if (projectID == Guid.Empty) throw(new Exception("Invalid Project ID!"));
 
-                        //-----------------------------------------------------------------------------------
-                        //--- Get Project Data from DB using Project ViewModel and Populate Project Panel ---
-                        //-----------------------------------------------------------------------------------
+                        //---------------------------------------------------------
+                        //--- Get Project Data from DB using Project ViewModels ---
+                        //---------------------------------------------------------
                         ProjectDto projectDtoObj = projectViewModelObj.GetProjectById(projectID);
                         ProjectUnitsDto projectUnitsDto = projectUnitsViewModelObj.GetProjectUnitsByProjectId(projectID);
                         ExchangerParamsDto exchangerParamsDto = exchangerParamsViewModelObj.GetExchangerParamsByProjectId(projectID);
+                        OptimizerParamsDto optimizerParamsDto = optimizerParamsViewModelObj.GetOptimizerParamsByProjectId(projectID);
 
-                        //------------------------------------------------
-                        //--- Populate Project Panel with Project Data ---
-                        //------------------------------------------------
-                        //ProjectPanelData projectPanelDataObj = GetProjectViewData(projectDtoObj,
-                        //                                                        exchangerParamsDto,
-                        //                                                        projectUnitsDto);
+                        //--------------------------------------------------------------
+                        //--- Populate Project Panel and Subpanels with Project Data ---
+                        //--------------------------------------------------------------
                         ProjectPanelData projectPanelDataObj = new ProjectPanelData();
                         projectPanelDataObj = projectPanelDataObj.ConvertToPanelData(projectDtoObj);
 
+                        ProjectUnitsPanelData projectUnitsPanelDataObj = new ProjectUnitsPanelData();
+                        projectUnitsPanelDataObj = projectUnitsPanelDataObj.ConvertToPanelData(projectUnitsDto);
 
-                        PopulateProjectPanel(projectPanelDataObj);
+                        OptimizerParamsPanelData optimizerParamsPanelDataObj = new OptimizerParamsPanelData();
+                        optimizerParamsPanelDataObj = optimizerParamsPanelDataObj.ConvertToPanelData(optimizerParamsDto);
+
+                        ExchangerParamsPanelData exchangerParamsPanelDataObj = new ExchangerParamsPanelData();
+                        exchangerParamsPanelDataObj = exchangerParamsPanelDataObj.ConvertToPanelData(exchangerParamsDto);
+
+
+                        PopulateProjectPanel(projectPanelDataObj,
+                                             projectUnitsPanelDataObj,
+                                             optimizerParamsPanelDataObj,
+                                             exchangerParamsPanelDataObj);
 
                         //-----------------------------
                         //--- Display Project Panel ---
@@ -688,29 +619,17 @@ namespace HenStudio
         }
         #endregion  // NEW PROFILE
 
-        #region NEW PINCH
+        #region NEW STUDY
         /// <summary>
-        /// Context Menu Associated with Profile Node -> Add Pinch...
+        /// Context Menu Associated with Profile Node -> Add Study...
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void toolStripMenuItemProfileAdd_Click(object sender, EventArgs e)
-        {
-            HandleNewPinch();
-        }
+        //private void toolStripMenuItemProfileAdd_Click(object sender, EventArgs e)
+        //{
+        //    HandleNewPinch();
+        //}
         #endregion  // NEW PINCH
-
-        #region NEW HEN
-        /// <summary>
-        /// Context Menu Associated with Pinch Node -> Add Hen...
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripMenuItemPinchAdd_Click(object sender, EventArgs e)
-        {
-            HandleNewHen();
-        }
-        #endregion  // NEW HEN
 
         #endregion  // NEW EVENT HANDLERS
 
@@ -852,7 +771,17 @@ namespace HenStudio
                 //--- Populate Project Panel with New Project Data ---
                 //----------------------------------------------------
                 dlg.ProjectPanelDataObj.Id = projectGUID;     // Assign DATABASE GUID
-                PopulateProjectPanel(dlg.ProjectPanelDataObj);
+                
+                
+                
+                
+                
+                //PopulateProjectPanel(dlg.ProjectPanelDataObj, 
+                //                     dlg.ProjectUnitsPanelDataObj, 
+                //                     dlg.OptimizerParamsPanelDataObj, 
+                //                     dlg.ExchangerParamsPanelDataObj);
+
+
 
                 //------------------------------
                 //--- Set Project Dirty Flag ---
@@ -1327,11 +1256,6 @@ namespace HenStudio
                 //------------------------------------
                 node.Tag = dataTagDisplayObj;
 
-                //---------------------------------------
-                //--- Update Current Tree-Panel State ---
-                //---------------------------------------
-                UpdateTreeStatusBar(node);
-
                 //-----------------------------
                 //--- Display Project Panel ---
                 //-----------------------------
@@ -1389,11 +1313,6 @@ namespace HenStudio
                 //-- Assign Tag Object to New Node ---
                 //------------------------------------
                 node.Tag = dataTagDisplayObj;
-
-                //---------------------------------------
-                //--- Update Current Tree-Panel State ---
-                //---------------------------------------
-                UpdateTreeStatusBar(node);
 
                 //--------------------------------------
                 //--- Populate Current Project Panel ---
@@ -1457,11 +1376,6 @@ namespace HenStudio
                 //-- Assign Tag Object to New Node ---
                 //------------------------------------
                 node.Tag = dataTagDisplayObj;
-
-                //---------------------------------------
-                //--- Update Current Tree-Panel State ---
-                //---------------------------------------
-                UpdateTreeStatusBar(node);
 
                 //--------------------------------------
                 //--- Populate Current Project Panel ---

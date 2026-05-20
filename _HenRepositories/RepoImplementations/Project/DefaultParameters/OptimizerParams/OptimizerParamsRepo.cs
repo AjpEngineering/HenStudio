@@ -397,21 +397,20 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
 
         #region DeleteOptimizerParams() ... DELETE
         /// <summary>
-        /// Deletes (DELETE) an optimizer params from the data store by its identifier.
+        /// Deletes (DELETE) an optimizer params from the data store by its projectidentifier.
         /// </summary>
-        /// <param name="optimizerParamsId">The unique identifier of the optimizer params to delete.</param>
-        public void DeleteOptimizerParams(Guid optimizerParamsId)
+        /// <param name="projectId">The unique identifier of the project whose optimizer params to delete.</param>
+        public void DeleteOptimizerParams(Guid projectId)
         {
             const string sql = @"DELETE FROM dbo.OptimizerParams
-                                 WHERE Id = @Id;";
-
+                                 WHERE ProjectId = @ProjectId;";
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
                 using (IDbCommand command = connection.CreateCommand())
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, optimizerParamsId);
+                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

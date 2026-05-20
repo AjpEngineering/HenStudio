@@ -314,13 +314,13 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
 
         #region DeleteProjectUnits() ... DELETE
         /// <summary>
-        /// Deletes (DELETE) a project units from the data store by its identifier.
+        /// Deletes (DELETE) a project units from the data store by its project identifier.
         /// </summary>
-        /// <param name="projectUnitsId">The unique identifier of the project units to delete.</param>
-        public void DeleteProjectUnits(Guid projectUnitsId)
+        /// <param name="projectId">The unique identifier of the project whose project units to delete.</param>
+        public void DeleteProjectUnits(Guid projectId)
         {
             const string sql = @"DELETE FROM dbo.ProjectUnits
-                                 WHERE Id = @Id;";
+                                 WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -328,7 +328,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, projectUnitsId);
+                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

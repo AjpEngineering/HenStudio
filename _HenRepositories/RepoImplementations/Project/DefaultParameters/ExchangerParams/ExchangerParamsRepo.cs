@@ -289,13 +289,13 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
 
         #region DeleteExchangerParams() ... DELETE
         /// <summary>
-        /// Deletes (DELETE) an exchanger params from the data store by its identifier.
+        /// Deletes (DELETE) an exchanger params from the data store by its project identifier.
         /// </summary>
-        /// <param name="exchangerParamsId">The unique identifier of the exchanger params to delete.</param>
-        public void DeleteExchangerParams(Guid exchangerParamsId)
+        /// <param name="projectId">The unique identifier of the project whose exchanger params to delete.</param>
+        public void DeleteExchangerParams(Guid projectId)
         {
             const string sql = @"DELETE FROM dbo.ExchangerParams
-                                 WHERE Id = @Id;";
+                                 WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -303,7 +303,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, exchangerParamsId);
+                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

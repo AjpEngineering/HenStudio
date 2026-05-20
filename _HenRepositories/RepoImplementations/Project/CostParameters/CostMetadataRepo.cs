@@ -339,13 +339,13 @@ namespace HenModel.RepoImplementations.Project.CostParameters
 
         #region DeleteCostMetadata() ... DELETE
         /// <summary>
-        /// Deletes (DELETE) a cost metadata entry from the data store by its identifier.
+        /// Deletes (DELETE) a cost metadata entry from the data store by its project identifier.
         /// </summary>
-        /// <param name="costMetadataId">The unique identifier of the cost metadata entry to delete.</param>
-        public void DeleteCostMetadata(Guid costMetadataId)
+        /// <param name="projectId">The unique identifier of the project whose cost metadata entry to delete.</param>
+        public void DeleteCostMetadata(Guid projectId)
         {
             const string sql = @"DELETE FROM dbo.CostMetadata
-                                 WHERE Id = @Id;";
+                                 WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -353,7 +353,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, costMetadataId);
+                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

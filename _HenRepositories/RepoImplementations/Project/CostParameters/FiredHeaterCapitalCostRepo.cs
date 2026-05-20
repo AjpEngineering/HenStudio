@@ -348,13 +348,13 @@ namespace HenModel.RepoImplementations.Project.CostParameters
 
         #region DeleteFiredHeaterCapitalCost() ... DELETE
         /// <summary>
-        /// Deletes (DELETE) a fired heater capital cost entry from the data store by its identifier.
+        /// Deletes (DELETE) a fired heater capital cost entry from the data store by its project identifier.
         /// </summary>
-        /// <param name="firedHeaterCapitalCostId">The unique identifier of the fired heater capital cost entry to delete.</param>
-        public void DeleteFiredHeaterCapitalCost(Guid firedHeaterCapitalCostId)
+        /// <param name="projectId">The unique identifier of the project whose fired heater capital cost entry to delete.</param>
+        public void DeleteFiredHeaterCapitalCost(Guid projectId)
         {
             const string sql = @"DELETE FROM dbo.FiredHeaterCapitalCost
-                                 WHERE Id = @Id;";
+                                 WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -362,7 +362,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, firedHeaterCapitalCostId);
+                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

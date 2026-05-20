@@ -42,8 +42,6 @@
 #region REFERENCES
 
 #region AJP HEN NAMESPACES
-using AJP_License_File;
-
 using HenGlobal;
 
 using HenModel.Connection;
@@ -84,7 +82,6 @@ using HenViewModel.Project.DefaultParameters.OptimizerParams;
 using HenViewModel.Project.DefaultParameters.ProjectUnits;
 
 using HenViewModel.Profile;
-using HenViewModel.Profile.Streams;
 
 using HenViewModel.Pinch;
 using HenViewModel.Pinch.Plots;
@@ -94,6 +91,11 @@ using HenViewModel.Hen;
 
 using HenStudio.Properties;
 using HenStudio.Data.Project;
+using HenStudio.Data.Project.DefaultParameters;
+using HenStudio.Data.Project.DefaultParameters.ExchangerParams;
+using HenStudio.Data.Project.DefaultParameters.OptimizerParams;
+using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
+using HenStudio.Data.Project.CostParameters;
 using HenStudio.Data.Tag;
 
 #endregion  // AJP HEN NAMESPACES
@@ -108,6 +110,8 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 
 using static HenGlobal.HenTypes;
+
+using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
 
 #endregion  // REFERENCES 
 
@@ -1733,10 +1737,16 @@ namespace HenStudio
 
         #region PopulateProjectPanel(ProjectViewData projectPanelData)
         /// <summary>
-        /// Populate the Project Panel with ProjectViewData
+        /// Populate the Project Panel and Subpanels with Project ViewData Objects
         /// </summary>
-        /// <param name="projectPanelData"></param>
-        private void PopulateProjectPanel(ProjectPanelData projectPanelData)
+        /// <param name="projectPanelDataObj">Project Panel Data Object</param>
+        /// <param name="projectUnitsPanelDataObj">Project Units Panel Data Object</param>
+        /// <param name="optimizerParamsPanelDataObj">Optimizer Parameters Panel Data Object</param>
+        /// <param name="exchangerParamsPanelDataObj">Exchanger Parameters Panel Data Object</param>
+        private void PopulateProjectPanel(ProjectPanelData projectPanelDataObj,
+                                          ProjectUnitsPanelData projectUnitsPanelDataObj,
+                                          OptimizerParamsPanelData optimizerParamsPanelDataObj,
+                                          ExchangerParamsPanelData exchangerParamsPanelDataObj)
         {
             //this.textBoxProjectGUID.Text = projectPanelData.Id.ToString();
             //this.textBoxProjectNameValue.Text = projectPanelData.Name;

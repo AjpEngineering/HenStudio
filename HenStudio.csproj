@@ -96,6 +96,7 @@
     <Compile Include="Data\Project\DefaultParameters\ProjectUnits\IProjectUnitsPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ProjectUnits\ProjectUnitsPanelData.cs" />
     <Compile Include="Data\Project\IProjectPanelData.cs" />
+    <Compile Include="Data\Project\ProjectWrapperPanelData.cs" />
     <Compile Include="Data\Tag\DataTagDisplay.cs" />
     <Compile Include="FormAboutPinch.cs">
       <SubType>Form</SubType>

@@ -49,9 +49,10 @@
     <Compile Include="Connection\SqlConnectionFactory.cs" />
     <Compile Include="Dto\Project\CostParameters\TotalAnnualizedCostDto.cs" />
     <Compile Include="Dto\Project\CostParameters\UtilityCostDto.cs" />
-    <Compile Include="Dto\Project\CostParameters\FiredHeatedCapitalCostDto.cs" />
+    <Compile Include="Dto\Project\CostParameters\FiredHeaterCapitalCostDto.cs" />
     <Compile Include="Dto\Project\CostParameters\ShellAndTubeCapitalCostDto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\ExchangerParams\ExchangerParamsDto.cs" />
+    <Compile Include="Dto\Project\ProjectWrapperDto.cs" />
     <Compile Include="Dto\Project\ProjectDto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\OptimizerParamsDto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\OptimizerGeneticDto.cs" />

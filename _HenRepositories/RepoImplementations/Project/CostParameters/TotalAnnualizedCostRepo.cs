@@ -330,13 +330,13 @@ namespace HenModel.RepoImplementations.Project.CostParameters
 
         #region DeleteTotalAnnualizedCost() ... DELETE
         /// <summary>
-        /// Deletes (DELETE) a total annualized cost (TAC) entry from the data store by its identifier.
+        /// Deletes (DELETE) a total annualized cost (TAC) entry from the data store by its project identifier.
         /// </summary>
-        /// <param name="totalAnnualizedCostId">The unique identifier of the total annualized cost (TAC) entry to delete.</param>
-        public void DeleteTotalAnnualizedCost(Guid totalAnnualizedCostId)
+        /// <param name="projectId">The unique identifier of the project whose total annualized cost (TAC) entry to delete.</param>
+        public void DeleteTotalAnnualizedCost(Guid projectId)
         {
             const string sql = @"DELETE FROM dbo.TotalAnnualizedCost
-                                 WHERE Id = @Id;";
+                                 WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -344,7 +344,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, totalAnnualizedCostId);
+                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

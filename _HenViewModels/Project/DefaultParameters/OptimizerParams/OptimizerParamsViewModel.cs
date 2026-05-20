@@ -162,7 +162,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
 
         #region OPTIMIZER PARAMS CRUD METHODS
 
-        #region AddOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto) ... CREATE
+        #region AddOptimizerParams(OptimizerParamsDto externalOptimizerParamsDto) ... CREATE
         /// <summary>
         /// Adds (CREATE) a new optimizer params to the database using the specified optimizer params data transfer object.
         /// </summary>
@@ -172,7 +172,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         /// <param name="externalOptimizerParamsDto">The optimizer params data to add. The object must contain 
         /// all required optimizer params fields in external units. Cannot be null.</param>
         /// <returns>A GUID representing the unique identifier of the newly added optimizer params.</returns>
-        public Guid AddOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto)
+        public Guid AddOptimizerParams(OptimizerParamsDto externalOptimizerParamsDto)
         {
             Guid optimizerParamsID = new Guid();
             try
@@ -198,9 +198,9 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
             }
             return optimizerParamsID; // Return Optimizer Params ID (PK) from the Optimizer Params Table database addition
         }
-        #endregion  // AddOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto) ... CREATE
+        #endregion  // AddOptimizerParams(OptimizerParamsDto externalOptimizerParamsDto) ... CREATE
 
-        #region GetOptimizerParamByProjectId(Guid projectId) ... READ
+        #region GetOptimizerParamsByProjectId(Guid projectId) ... READ
         /// <summary>
         /// Retrieves (READ) the OptimizerParams Dto associated with the specified unique identifier.
         /// The OptimizerParams retrieved from the Database is in INTERNAL Units, 
@@ -211,7 +211,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="OptimizerParamsDto"/> representing the OptimizerParams with the specified identifier. 
         /// Returns null if no OptimizerParams is found.</returns>
-        public OptimizerParamsDto GetOptimizerParamByProjectId(Guid projectId)
+        public OptimizerParamsDto GetOptimizerParamsByProjectId(Guid projectId)
         {
             OptimizerParamsDto externalOptimizerParamsDto = new OptimizerParamsDto();
             try
@@ -249,9 +249,9 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
 
             return externalOptimizerParamsDto;
         }
-        #endregion  // GetOptimizerParamByProjectId(Guid projectId) ... READ
+        #endregion  // GetOptimizerParamsByProjectId(Guid projectId) ... READ
 
-        #region UpdateOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto) ... UPDATE
+        #region UpdateOptimizerParams(OptimizerParamsDto externalOptimizerParamsDto) ... UPDATE
         /// <summary>
         /// Updates (UPDATE) an existing optimizer params in the database using the specified 
         /// optimizer params data transfer object (DTO) with external units.
@@ -261,7 +261,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         /// the behavior depends on the repository implementation.</remarks>
         /// <param name="externalOptimizerParamsDto">The optimizer params data transfer object containing updated optimizer params 
         /// information in external units. Cannot be null.</param>
-        public void UpdateOptimizerParam(OptimizerParamsDto externalOptimizerParamDto)
+        public void UpdateOptimizerParams(OptimizerParamsDto externalOptimizerParamDto)
         {
             try
             {
@@ -286,7 +286,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 Console.WriteLine($"Error updating optimizer params: {ex.Message}");
             }
         }
-        #endregion  // UpdateOptimizerParam(OptimizerParamsDto externalOptimizerParamsDto) ... UPDATE
+        #endregion  // UpdateOptimizerParams(OptimizerParamsDto externalOptimizerParamsDto) ... UPDATE
 
         #region DeleteOptimizerParams(Guid optimizerParamsId) ... DELETE
         /// <summary>

@@ -356,13 +356,13 @@ namespace HenModel.RepoImplementations.Project.CostParameters
 
         #region DeleteShellAndTubeCapitalCost() ... DELETE
         /// <summary>
-        /// Deletes (DELETE) a shell and tube capital cost entry from the data store by its identifier.
+        /// Deletes (DELETE) a shell and tube capital cost entry from the data store by its project identifier.
         /// </summary>
-        /// <param name="shellAndTubeCapitalCostId">The unique identifier of the shell and tube capital cost entry to delete.</param>
-        public void DeleteShellAndTubeCapitalCost(Guid shellAndTubeCapitalCostId)
+        /// <param name="projectId">The unique identifier of the project whose shell and tube capital cost entry to delete.</param>
+        public void DeleteShellAndTubeCapitalCost(Guid projectId)
         {
             const string sql = @"DELETE FROM dbo.ShellAndTubeCapitalCost
-                                 WHERE Id = @Id;";
+                                 WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -370,7 +370,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, shellAndTubeCapitalCostId);
+                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

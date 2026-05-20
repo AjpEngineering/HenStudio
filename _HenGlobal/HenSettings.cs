@@ -77,6 +77,10 @@ namespace HenGlobal
         const string CLASS = "HenSettings";
         #endregion      // CONSTANTS
 
+        #region ROOT NAME
+        const string ROOT_NAME = "HenStudio";
+        #endregion  //// ROOT NAME
+
         #region SUPPLIER & PRODUCT INFORMATION ... LICENSE FILE STRINGS
         //-------------------------------------------------------------------------------
         //--- Supplier Information ... Check Against What is Supplied in License File ---
@@ -188,14 +192,22 @@ namespace HenGlobal
 
         #endregion  // LICENSE
 
-        #region PROJECT - PROFILE - PINCH - HEN ... STATE PROPERTIES ... Used by StatusBar Items
+        #region ROOT - PROJECT - PROFILE - STUDY ... STATE PROPERTIES
 
-        #region ExplorerSelectedLevelEnum
+        #region ExplorerSelectedNodeIdEnum
         /// <summary>
-        /// Project Explorer Selected Level Enumeration
+        /// Project Explorer Selected Node ID Enumeration
         /// </summary>
-        public ExplorerNodeIdType ExplorerSelectedLevelEnum { get; set; }  // Project Explorer Selected Level Enumeration
-        #endregion  // ExplorerSelectedLevelEnum
+        public ExplorerNodeIdType ExplorerSelectedNodeIdEnum 
+                { get; set; }  // Project Explorer Selected Node ID Enumeration
+        #endregion  // ExplorerSelectedNodeIdEnum
+
+        #region CurrentRootName
+        /// <summary>
+        /// Current Root Name
+        /// </summary>
+        public string CurrentRootName { get; set; }  // Current Root Name
+        #endregion  // CurrentRootName
 
         #region CurrentProjectName
         /// <summary>
@@ -211,21 +223,14 @@ namespace HenGlobal
         public string CurrentProfileName { get; set; }  // Current Profile Name
         #endregion  // CurrentProfileName
 
-        #region CurrentPinchName
+        #region CurrentStudyName
         /// <summary>
-        /// Current Pinch Name
+        /// Current Study Name
         /// </summary>
-        public string CurrentPinchName { get; set; }  // Current Pinch Name
-        #endregion  // CurrentPinchName
+        public string CurrentStudyName { get; set; }  // Current Study Name
+        #endregion  // CurrentStudyName
 
-        #region CurrentHenName
-        /// <summary>
-        /// Current Hen Name
-        /// </summary>
-        public string CurrentHenName { get; set; }  // Current Hen Name
-        #endregion  // CurrentHenName
-
-        #endregion  // PROJECT - PROFILE - PINCH - HEN ... STATE PROPERTIES ... Used by StatusBar Items
+        #endregion  // ROOT - PROJECT - PROFILE - STUDY ... STATE PROPERTIES
 
         #region STATUS BAR
 
@@ -301,12 +306,13 @@ namespace HenGlobal
                 WriteProductDataToLog();    // Write Product  Data to Log
                 #endregion  // LOG LICENSE DATA
 
-                #region INITIAL PROJECT-PROFILE-PINCH-HEN STATE
+                #region INITIAL ROOT-PROJECT-PROFILE-STUDY STATE
+                ExplorerSelectedNodeIdEnum = ExplorerNodeIdType.CATALOG;
+                CurrentRootName = ROOT_NAME;            // Initially set to ROOT_NAME ("HenStudio")
                 CurrentProjectName = string.Empty;      // Initially set to Empty
                 CurrentProfileName = string.Empty;      // Initially set to Empty
-                CurrentPinchName = string.Empty;        // Initially set to Empty
-                CurrentHenName = string.Empty;          // Initially set to Empty
-                #endregion  // INITIAL PROJECT-PROFILE-PINCH-HEN STATE
+                CurrentStudyName = string.Empty;        // Initially set to Empty
+                #endregion  // INITIAL ROOT-PROJECT-PROFILE-STUDY STATE
 
                 LogCurrentState();      // Log Current INITIAL State
             }
@@ -337,12 +343,12 @@ namespace HenGlobal
             string strMethod = "LogCurrentState()";
             try
             {
-                HenLogger.WriteSection("CURRENT PRODUCT - PROFILE - PINCH - HEN STATE");
+                HenLogger.WriteSection("CURRENT ROOT - PROJECT - PROFILE - STUDY STATE");
 
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " ROOT    : " + CurrentRootName);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " PROJECT : " + CurrentProjectName);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " PROFILE : " + CurrentProfileName);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " PINCH   : " + CurrentPinchName);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " HEN     : " + CurrentHenName);
+                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, " STUDY   : " + CurrentStudyName);
                 HenLogger.WriteSeparatorLine('=');
             }
             catch (Exception ex)
