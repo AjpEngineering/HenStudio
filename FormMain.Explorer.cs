@@ -620,16 +620,7 @@ namespace HenStudio
         #endregion  // NEW PROFILE
 
         #region NEW STUDY
-        /// <summary>
-        /// Context Menu Associated with Profile Node -> Add Study...
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void toolStripMenuItemProfileAdd_Click(object sender, EventArgs e)
-        //{
-        //    HandleNewPinch();
-        //}
-        #endregion  // NEW PINCH
+        #endregion  // NEW STUDY
 
         #endregion  // NEW EVENT HANDLERS
 
@@ -642,28 +633,7 @@ namespace HenStudio
         }
         #endregion  // MODIFY PROJECT
 
-        #region RENAME PROFILE
-        private void toolStripMenuItemProfileRename_Click(object sender, EventArgs e)
-        {
-            HandleRenameProfile();
-        }
-        #endregion  // RENAME PROFILE
-
-        #region RENAME PINCH
-        private void toolStripMenuItemPinchRename_Click(object sender, EventArgs e)
-        {
-            HandleRenamePinch();
-        }
-        #endregion  // RENAME PINCH
-
-        #region RENAME HEN
-        private void toolStripMenuItemCurProjHenRename_Click(object sender, EventArgs e)
-        {
-            HandleRenameHen();
-        }
-        #endregion  // RENAME HEN
-
-        #endregion  // RENAME NODES
+        #endregion  // MODIFY EVENT HANDLERS
 
         #region DELETE EVENT HANDLERS
 
@@ -684,14 +654,12 @@ namespace HenStudio
         #region DELETE PINCH NODE
         private void toolStripMenuItemPinchDelete_Click(object sender, EventArgs e)
         {
-            HandleDeletePinch();
         }
         #endregion  // DELETE PINCH NODE
 
         #region DELETE HEN NODE
         private void toolStripMenuItemCurProjHenDelete_Click(object sender, EventArgs e)
         {
-            HandleDeleteHen();
         }
         #endregion  // DELETE HEN NODE
 
@@ -718,30 +686,30 @@ namespace HenStudio
             Guid projectGUID = Guid.Empty;      // DB Project GUID (PK)
             try
             {
-                //-----------------------------------------------------------------
-                //--- Get Project ViewModel Object to Retrieve Projects from DB ---
-                //-----------------------------------------------------------------
-                var projectViewModelObj = new ProjectViewModel();
-                var projectUnitsViewModelObj = new ProjectUnitsViewModel();
-                var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
+                ////-----------------------------------------------------------------
+                ////--- Get Project ViewModel Object to Retrieve Projects from DB ---
+                ////-----------------------------------------------------------------
+                //var projectViewModelObj = new ProjectViewModel();
+                //var projectUnitsViewModelObj = new ProjectUnitsViewModel();
+                //var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
 
-                //-------------------------------------
-                //--- Display New Project Data Form ---
-                //-------------------------------------
-                FormProjectNewModify dlg = new FormProjectNewModify(HenSettingsObj.AppGlobalSettingsObj);
-                if (dlg.ShowDialog()!=DialogResult.OK) return;   // User Canceled Dialog
+                ////-------------------------------------
+                ////--- Display New Project Data Form ---
+                ////-------------------------------------
+                //FormProjectNewModify dlg = new FormProjectNewModify(HenSettingsObj.AppGlobalSettingsObj);
+                //if (dlg.ShowDialog()!=DialogResult.OK) return;   // User Canceled Dialog
 
-                //-------------------------
-                //--- Update Form Title ---
-                //-------------------------
-                HenSettingsObj.CurrentProjectName = dlg.ProjectPanelDataObj.Name;
-                UpdateProjectNameUI();
+                ////-------------------------
+                ////--- Update Form Title ---
+                ////-------------------------
+                //HenSettingsObj.CurrentProjectName = dlg.ProjectPanelDataObj.Name;
+                //UpdateProjectNameUI();
 
-                //------------------------------------------------------------------------------
-                //--- Get New Project Name from Dialog and Format Display Name for Tree Node ---
-                //------------------------------------------------------------------------------
-                strDlgName = dlg.ProjectPanelDataObj.Name;
-                strNodeName = string.Format("Project: {0}", strDlgName.Trim());
+                ////------------------------------------------------------------------------------
+                ////--- Get New Project Name from Dialog and Format Display Name for Tree Node ---
+                ////------------------------------------------------------------------------------
+                //strDlgName = dlg.ProjectPanelDataObj.Name;
+                //strNodeName = string.Format("Project: {0}", strDlgName.Trim());
 
                 //-------------------------------------------------------------------
                 //--- Get ProjectDto Object from Panel Data (ProjectPanelDataObj) ---
@@ -758,19 +726,19 @@ namespace HenStudio
                 //-------------------------------------------------------
                 //-- Create Node Tag Object and Assign Tag Attributes ---
                 //-------------------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.PROJECT, strDlgName);
-                dataTagDisplayObj.ProjectID = projectGUID;
+                //DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.PROJECT, strDlgName);
+                //dataTagDisplayObj.ProjectID = projectGUID;
 
-                //---------------------------------------------------
-                //--- Get Parent (Root) Node and Add Project Node ---
-                //---------------------------------------------------
-                TreeNode parentNode = GetRootNode();
-                nDisplayNodeID = AddProjectNode(parentNode, strNodeName, dataTagDisplayObj);
+                ////---------------------------------------------------
+                ////--- Get Parent (Root) Node and Add Project Node ---
+                ////---------------------------------------------------
+                //TreeNode parentNode = GetRootNode();
+                //nDisplayNodeID = AddProjectNode(parentNode, strNodeName, dataTagDisplayObj);
 
-                //----------------------------------------------------
-                //--- Populate Project Panel with New Project Data ---
-                //----------------------------------------------------
-                dlg.ProjectPanelDataObj.Id = projectGUID;     // Assign DATABASE GUID
+                ////----------------------------------------------------
+                ////--- Populate Project Panel with New Project Data ---
+                ////----------------------------------------------------
+                //dlg.ProjectPanelDataObj.Id = projectGUID;     // Assign DATABASE GUID
                 
                 
                 
@@ -814,36 +782,36 @@ namespace HenStudio
             Guid profileGUID = Guid.Empty;          // DB Profile GUID (PK)
             try
             {
-                //--------------------------------
-                //--- Display New Profile Form ---
-                //--------------------------------
-                HenMsgDlg.DisplayWarningDlg("***** Display New Profile Form *****");
-                //FormNewProfile dlg = new FormNewProfile();
-                //if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
+                ////--------------------------------
+                ////--- Display New Profile Form ---
+                ////--------------------------------
+                //HenMsgDlg.DisplayWarningDlg("***** Display New Profile Form *****");
+                ////FormNewProfile dlg = new FormNewProfile();
+                ////if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
 
-                //*********************************************************************************
-                //***** Scrape Dialog Data and SAVE to DB                                     *****
-                //***** Get DB ProfileID (PK)                                                 *****            
-                //*********************************************************************************
-                HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
-                HenMsgDlg.DisplayWarningDlg("***** Get DB ProfileID (PK) *****");
-                strNodeName = "Q1 Setup";      // From New Dialog ... Name Field
-                strDisplayName = "Profile: Q1 Setup";  // Node name with prefix ("Profile: ")
-                profileGUID = new Guid();
-                //********************************************************************** TEST *****
+                ////*********************************************************************************
+                ////***** Scrape Dialog Data and SAVE to DB                                     *****
+                ////***** Get DB ProfileID (PK)                                                 *****            
+                ////*********************************************************************************
+                //HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
+                //HenMsgDlg.DisplayWarningDlg("***** Get DB ProfileID (PK) *****");
+                //strNodeName = "Q1 Setup";      // From New Dialog ... Name Field
+                //strDisplayName = "Profile: Q1 Setup";  // Node name with prefix ("Profile: ")
+                //profileGUID = new Guid();
+                ////********************************************************************** TEST *****
 
-                //-------------------------------------------------------
-                //-- Create Node Tag Object and Assign Tag Attributes ---
-                //-------------------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.PROFILE,
-                                                                      strNodeName);
-                dataTagDisplayObj.ProfileID = profileGUID;
+                ////-------------------------------------------------------
+                ////-- Create Node Tag Object and Assign Tag Attributes ---
+                ////-------------------------------------------------------
+                //DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.PROFILE,
+                //                                                      strNodeName);
+                //dataTagDisplayObj.ProfileID = profileGUID;
 
-                //------------------------------------------------------
-                //--- Get Parent (Project) Node and Add Profile Node ---
-                //------------------------------------------------------
-                TreeNode parentNode = GetSelectedNode();
-                nProfileNodeID = AddProfileNode(parentNode, strDisplayName, dataTagDisplayObj);
+                ////------------------------------------------------------
+                ////--- Get Parent (Project) Node and Add Profile Node ---
+                ////------------------------------------------------------
+                //TreeNode parentNode = GetSelectedNode();
+                //nProfileNodeID = AddProfileNode(parentNode, strDisplayName, dataTagDisplayObj);
             }
             catch (Exception ex)
             {
@@ -870,36 +838,36 @@ namespace HenStudio
             Guid studyGUID = Guid.Empty;            // DB Study GUID (PK)
             try
             {
-                //------------------------------
-                //--- Display New Study Form ---
-                //------------------------------
-                HenMsgDlg.DisplayWarningDlg("***** Display New Study Form *****");
-                //FormNewStudy dlg = new FormNewStudy();
-                //if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
+                ////------------------------------
+                ////--- Display New Study Form ---
+                ////------------------------------
+                //HenMsgDlg.DisplayWarningDlg("***** Display New Study Form *****");
+                ////FormNewStudy dlg = new FormNewStudy();
+                ////if (dlg.ShowDialog() != DialogResult.OK) return;   // User Canceled Dialog
 
-                //*********************************************************************************
-                //***** Scrape Dialog Data and SAVE to DB                                     *****
-                //***** Get DB StudyID (PK)                                                   *****            
-                //*********************************************************************************
-                HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
-                HenMsgDlg.DisplayWarningDlg("***** Get DB StudyID (PK) *****");
-                strNodeName = "Delta T = 10";      // From New Dialog ... Name Field
-                strDisplayName = "Study: Delta T = 10";  // Node name with prefix ("Study: ")
-                studyGUID = new Guid();
-                //********************************************************************** TEST *****
+                ////*********************************************************************************
+                ////***** Scrape Dialog Data and SAVE to DB                                     *****
+                ////***** Get DB StudyID (PK)                                                   *****            
+                ////*********************************************************************************
+                //HenMsgDlg.DisplayWarningDlg("***** Scrape Dialog Data and SAVE to DB *****");
+                //HenMsgDlg.DisplayWarningDlg("***** Get DB StudyID (PK) *****");
+                //strNodeName = "Delta T = 10";      // From New Dialog ... Name Field
+                //strDisplayName = "Study: Delta T = 10";  // Node name with prefix ("Study: ")
+                //studyGUID = new Guid();
+                ////********************************************************************** TEST *****
 
-                //-------------------------------------------------------
-                //-- Create Node Tag Object and Assign Tag Attributes ---
-                //-------------------------------------------------------
-                DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.STUDY,
-                                                                      strNodeName);
-                dataTagDisplayObj.StudyID = studyGUID;
+                ////-------------------------------------------------------
+                ////-- Create Node Tag Object and Assign Tag Attributes ---
+                ////-------------------------------------------------------
+                //DataTagDisplay dataTagDisplayObj = new DataTagDisplay(ExplorerNodeIdType.STUDY,
+                //                                                      strNodeName);
+                //dataTagDisplayObj.StudyID = studyGUID;
 
-                //----------------------------------------------------
-                //--- Get Parent (Project) Node and Add Study Node ---
-                //----------------------------------------------------
-                TreeNode parentNode = GetSelectedNode();
-                //nStudyNodeID = AddStudyNode(parentNode, strDisplayName, dataTagDisplayObj);
+                ////----------------------------------------------------
+                ////--- Get Parent (Project) Node and Add Study Node ---
+                ////----------------------------------------------------
+                //TreeNode parentNode = GetSelectedNode();
+                ////nStudyNodeID = AddStudyNode(parentNode, strDisplayName, dataTagDisplayObj);
             }
             catch (Exception ex)
             {
@@ -930,18 +898,18 @@ namespace HenStudio
             TreeNode node;
             try
             {
-                node = GetSelectedNode();
-                //-----------------------
-                //--- Null Node Guard ---
-                //-----------------------
-                if (node == null) throw new Exception("Null Project Node Encountered!");
+                //node = GetSelectedNode();
+                ////-----------------------
+                ////--- Null Node Guard ---
+                ////-----------------------
+                //if (node == null) throw new Exception("Null Project Node Encountered!");
 
-                //---------------------------------------------------------------
-                //--- GetProject ViewModel Object to Retrieve Project from DB ---
-                //---------------------------------------------------------------
-                var projectViewModelObj = new ProjectViewModel();
-                var projectUnitsViewModelObj = new ProjectUnitsViewModel();
-                var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
+                ////---------------------------------------------------------------
+                ////--- GetProject ViewModel Object to Retrieve Project from DB ---
+                ////---------------------------------------------------------------
+                //var projectViewModelObj = new ProjectViewModel();
+                //var projectUnitsViewModelObj = new ProjectUnitsViewModel();
+                //var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
 
 
                 //------------------------------------------------------------------------------------------------------
@@ -983,8 +951,8 @@ namespace HenStudio
                 //strNewNodeName = ModProjectDtoObj.Name;
                 //strNewDisplayName = string.Format("Project: {0}", ModProjectDtoObj.Name);
 
-                node.Text = strNewDisplayName;
-                ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
+                //node.Text = strNewDisplayName;
+                //((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
 
                 //----------------------------------------------------
                 //--- Populate Project Panel with New Project Data ---
@@ -1009,43 +977,43 @@ namespace HenStudio
         }
         #endregion  // HandleModifyProject
 
-        #region HandleRenameProfile
+        #region HandleModifyProfile
         /// <summary>
-        /// Common Rename Profile Command Handler. Rename User Specified Node.
+        /// Common Modify Profile Command Handler. Modify User Specified Node.
         /// </summary>
-        private void HandleRenameProfile()
+        private void HandleModifyProfile()
         {
-            string strMethod = "HandleRenameProfile";
-            string strRenameFormTitle = "Rename PROFILE ";
+            string strMethod = "HandleModifyProfile";
+            string strRenameFormTitle = "Modify PROFILE ";
             string strOriginalName = string.Empty;
             string strNewNodeName = string.Empty;
             string strNewDisplayName = string.Empty;
             TreeNode node;
             try
             {
-                node = GetSelectedNode();
-                //-----------------------
-                //--- Null Node Guard ---
-                //-----------------------
-                if (node == null) throw new Exception("Null Profile Node Encountered!");
+                //node = GetSelectedNode();
+                ////-----------------------
+                ////--- Null Node Guard ---
+                ////-----------------------
+                //if (node == null) throw new Exception("Null Profile Node Encountered!");
 
-                //---------------------------------------
-                //--- Rename Profile Data in Database ---
-                //---------------------------------------
-                HenMsgDlg.DisplayWarningDlg("RENAME PROFILE Data in Database");
+                ////---------------------------------------
+                ////--- Rename Profile Data in Database ---
+                ////---------------------------------------
+                //HenMsgDlg.DisplayWarningDlg("RENAME PROFILE Data in Database");
 
-                //---------------------------------------------
-                //--- Rename the Selected Profile Tree Node ---
-                //---------------------------------------------
-                FormRename dlg = new FormRename(strRenameFormTitle, ((DataTagDisplay)node.Tag).NodeName);
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    strNewNodeName = dlg.NewNodeName;
-                    strNewDisplayName = string.Format("Profile: {0}", dlg.NewNodeName);
+                ////---------------------------------------------
+                ////--- Rename the Selected Profile Tree Node ---
+                ////---------------------------------------------
+                //FormRename dlg = new FormRename(strRenameFormTitle, ((DataTagDisplay)node.Tag).NodeName);
+                //if (dlg.ShowDialog() == DialogResult.OK)
+                //{
+                //    strNewNodeName = dlg.NewNodeName;
+                //    strNewDisplayName = string.Format("Profile: {0}", dlg.NewNodeName);
 
-                    node.Text = strNewDisplayName;
-                    ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
-                }
+                //    node.Text = strNewDisplayName;
+                //    ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
+                //}
             }
             catch (Exception ex)
             {
@@ -1057,45 +1025,45 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // HandleRenameProfile
+        #endregion  // HandleModifyProfile
 
-        #region HandleRenameStudy
+        #region HandleModifyStudy
         /// <summary>
-        /// Common Rename Study Command Handler. Rename User Specified Node.
+        /// Common Modify Study Command Handler. Modify User Specified Node.
         /// </summary>
-        private void HandleRenameStudy()
+        private void HandleModifyStudy()
         {
-            string strMethod = "HandleRenameStudy";
-            string strRenameFormTitle = "Rename STUDY ";
+            string strMethod = "HandleModifyStudy";
+            string strModifyFormTitle = "Modify STUDY ";
             string strOriginalName = string.Empty;
             string strNewNodeName = string.Empty;
             string strNewDisplayName = string.Empty;
             TreeNode node;
             try
             {
-                node = GetSelectedNode();
-                //-----------------------
-                //--- Null Node Guard ---
-                //-----------------------
-                if (node == null) throw new Exception("Null Study Node Encountered!");
+                //node = GetSelectedNode();
+                ////-----------------------
+                ////--- Null Node Guard ---
+                ////-----------------------
+                //if (node == null) throw new Exception("Null Study Node Encountered!");
 
-                //-------------------------------------
-                //--- Rename Study Data in Database ---
-                //-------------------------------------
-                HenMsgDlg.DisplayWarningDlg("RENAME STUDY Data in Database");
+                ////-------------------------------------
+                ////--- Rename Study Data in Database ---
+                ////-------------------------------------
+                //HenMsgDlg.DisplayWarningDlg("RENAME STUDY Data in Database");
 
-                //-------------------------------------------
-                //--- Rename the Selected Study Tree Node ---
-                //-------------------------------------------
-                FormRename dlg = new FormRename(strRenameFormTitle, ((DataTagDisplay)node.Tag).NodeName);
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    strNewNodeName = dlg.NewNodeName;
-                    strNewDisplayName = string.Format("Pinch: {0}", dlg.NewNodeName);
+                ////-------------------------------------------
+                ////--- Rename the Selected Study Tree Node ---
+                ////-------------------------------------------
+                //FormRename dlg = new FormRename(strRenameFormTitle, ((DataTagDisplay)node.Tag).NodeName);
+                //if (dlg.ShowDialog() == DialogResult.OK)
+                //{
+                //    strNewNodeName = dlg.NewNodeName;
+                //    strNewDisplayName = string.Format("Pinch: {0}", dlg.NewNodeName);
 
-                    node.Text = strNewDisplayName;
-                    ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
-                }
+                //    node.Text = strNewDisplayName;
+                //    ((DataTagDisplay)node.Tag).NodeName = strNewNodeName.Trim();
+                //}
             }
             catch (Exception ex)
             {
@@ -1123,27 +1091,27 @@ namespace HenStudio
             TreeNode node;
             try
             {
-                node = GetSelectedNode();
-                //-----------------------
-                //--- Null Node Guard ---
-                //-----------------------
-                if (node == null) throw new Exception("Null Project Node Encountered!");
+                //node = GetSelectedNode();
+                ////-----------------------
+                ////--- Null Node Guard ---
+                ////-----------------------
+                //if (node == null) throw new Exception("Null Project Node Encountered!");
 
-                //---------------------------------------------------------------
-                //--- GetProject ViewModel Object to Retrieve Project from DB ---
-                //---------------------------------------------------------------
-                var projectViewModelObj = new ProjectViewModel();
+                ////---------------------------------------------------------------
+                ////--- GetProject ViewModel Object to Retrieve Project from DB ---
+                ////---------------------------------------------------------------
+                //var projectViewModelObj = new ProjectViewModel();
 
-                //------------------------------------------------------------------------------------------------------
-                //--- Get ProjectID from Selected Node Tag and Retrieve Project Data from DB using Project ViewModel ---
-                //------------------------------------------------------------------------------------------------------
-                Guid projectID = ((DataTagDisplay)treeViewCurrentProjectExplorer.SelectedNode.Tag).ProjectID;
-                projectViewModelObj.DeleteProject(projectID);
+                ////------------------------------------------------------------------------------------------------------
+                ////--- Get ProjectID from Selected Node Tag and Retrieve Project Data from DB using Project ViewModel ---
+                ////------------------------------------------------------------------------------------------------------
+                //Guid projectID = ((DataTagDisplay)treeViewCurrentProjectExplorer.SelectedNode.Tag).ProjectID;
+                //projectViewModelObj.DeleteProject(projectID);
 
-                //-----------------------------------------------------------------------------
-                //--- Delete the Selected Project Tree Node and All Sub Nodes from the Tree ---
-                //-----------------------------------------------------------------------------
-                DeleteSelectedNode();
+                ////-----------------------------------------------------------------------------
+                ////--- Delete the Selected Project Tree Node and All Sub Nodes from the Tree ---
+                ////-----------------------------------------------------------------------------
+                //DeleteSelectedNode();
 
             }
             catch (Exception ex)
@@ -1167,15 +1135,15 @@ namespace HenStudio
             string strMethod = "HandleDeleteProfile";
             try
             {
-                //-----------------------------------------
-                //--- Delete Profile Data from Database ---
-                //-----------------------------------------
-                HenMsgDlg.DisplayWarningDlg("Delete PROFILE Data from Database");
+                ////-----------------------------------------
+                ////--- Delete Profile Data from Database ---
+                ////-----------------------------------------
+                //HenMsgDlg.DisplayWarningDlg("Delete PROFILE Data from Database");
 
-                //-----------------------------------------------------------------------------
-                //--- Delete the Selected Profile Tree Node and All Sub Nodes from the Tree ---
-                //-----------------------------------------------------------------------------
-                DeleteSelectedNode();
+                ////-----------------------------------------------------------------------------
+                ////--- Delete the Selected Profile Tree Node and All Sub Nodes from the Tree ---
+                ////-----------------------------------------------------------------------------
+                //DeleteSelectedNode();
             }
             catch (Exception ex)
             {
@@ -1198,15 +1166,15 @@ namespace HenStudio
             string strMethod = "HandleDeleteStudy";
             try
             {
-                //---------------------------------------
-                //--- Delete Study Data from Database ---
-                //---------------------------------------
-                HenMsgDlg.DisplayWarningDlg("Delete STUDY Data from Database");
+                ////---------------------------------------
+                ////--- Delete Study Data from Database ---
+                ////---------------------------------------
+                //HenMsgDlg.DisplayWarningDlg("Delete STUDY Data from Database");
 
-                //---------------------------------------------------------------------------
-                //--- Delete the Selected Study Tree Node and All Sub Nodes from the Tree ---
-                //---------------------------------------------------------------------------
-                DeleteSelectedNode();
+                ////---------------------------------------------------------------------------
+                ////--- Delete the Selected Study Tree Node and All Sub Nodes from the Tree ---
+                ////---------------------------------------------------------------------------
+                //DeleteSelectedNode();
             }
             catch (Exception ex)
             {
@@ -1360,39 +1328,39 @@ namespace HenStudio
             string strProjectName = string.Empty;
             try
             {
-                treeViewCurrentProjectExplorer.BeginUpdate();
-                //------------------------------------------
-                //-- Create New Node and Add to the Tree ---
-                //------------------------------------------
-                TreeNode node = new TreeNode(strDisplayName);
-                //node.ContextMenuStrip = this.contextMenuStripStudy;
+                //treeViewCurrentProjectExplorer.BeginUpdate();
+                ////------------------------------------------
+                ////-- Create New Node and Add to the Tree ---
+                ////------------------------------------------
+                //TreeNode node = new TreeNode(strDisplayName);
+                ////node.ContextMenuStrip = this.contextMenuStripStudy;
 
-                node.ImageIndex = 3;            // Study_Input_16x16.ico ............ imageListProjectTreeViews
-                node.SelectedImageIndex = 4;    // Study_Input_Selected_16x16.ico ... imageListProjectTreeViews
+                //node.ImageIndex = 3;            // Study_Input_16x16.ico ............ imageListProjectTreeViews
+                //node.SelectedImageIndex = 4;    // Study_Input_Selected_16x16.ico ... imageListProjectTreeViews
 
-                nStudyNodeID = parentNode.Nodes.Add(node);
+                //nStudyNodeID = parentNode.Nodes.Add(node);
 
-                //------------------------------------
-                //-- Assign Tag Object to New Node ---
-                //------------------------------------
-                node.Tag = dataTagDisplayObj;
+                ////------------------------------------
+                ////-- Assign Tag Object to New Node ---
+                ////------------------------------------
+                //node.Tag = dataTagDisplayObj;
 
-                //--------------------------------------
-                //--- Populate Current Project Panel ---
-                //--------------------------------------
-                HenMsgDlg.DisplayWarningDlg("***** Populate Current Panel *****");
+                ////--------------------------------------
+                ////--- Populate Current Project Panel ---
+                ////--------------------------------------
+                //HenMsgDlg.DisplayWarningDlg("***** Populate Current Panel *****");
 
-                //-----------------------------
-                //-----------------------------
-                //--- Display Study Panel ---
-                //-----------------------------
-                //this.panelSELECTED_STUDY.BringToFront();
+                ////-----------------------------
+                ////-----------------------------
+                ////--- Display Study Panel ---
+                ////-----------------------------
+                ////this.panelSELECTED_STUDY.BringToFront();
 
-                //-----------------------------------
-                //--- Display and Select New Node ---
-                //-----------------------------------
-                treeViewCurrentProjectExplorer.SelectedNode = node;
-                node.EnsureVisible();
+                ////-----------------------------------
+                ////--- Display and Select New Node ---
+                ////-----------------------------------
+                //treeViewCurrentProjectExplorer.SelectedNode = node;
+                //node.EnsureVisible();
             }
             catch (Exception ex)
             {

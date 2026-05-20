@@ -186,97 +186,97 @@ namespace HenStudio
         /// <summary>
         /// MODIFY Parameterized Constructor
         /// </summary>
-        public FormProjectNewModify(ProjectPanelData projectViewDataObj)
+        public FormProjectNewModify(ProjectPanelData projectPanelDataObj)
         {
-            OrigProjectName = projectViewDataObj.Name;
+            //OrigProjectName = projectPanelDataObj.Name;
 
-            NewProjectFlag = false; // MODIFY Project
+            //NewProjectFlag = false; // MODIFY Project
 
-            //------------------------------------------------
-            //--- Initialize New Project Settings Property ---
-            //------------------------------------------------
-            NewProjectSettingsObj = new DefaultProjectSettings();
-            ProjectPanelDataObj = projectViewDataObj;
+            ////------------------------------------------------
+            ////--- Initialize New Project Settings Property ---
+            ////------------------------------------------------
+            //NewProjectSettingsObj = new DefaultProjectSettings();
+            //ProjectPanelDataObj = projectPanelDataObj;
 
-            InitializeComponent();
+            //InitializeComponent();
 
-            //-----------------------------------
-            //--- Set Initial Form Title Text ---
-            //-----------------------------------
-            this.Text = string.Format("MODIFY Project Data : {0}", projectViewDataObj.Name);
+            ////-----------------------------------
+            ////--- Set Initial Form Title Text ---
+            ////-----------------------------------
+            //this.Text = string.Format("MODIFY Project Data : {0}", projectPanelDataObj.Name);
 
-            //----------------------------------
-            //--- Initialize Textbox Strings ---
-            //----------------------------------
-            this.textBoxProjectNameValue.Text = projectViewDataObj.Name;
-            this.textBoxProjectDescriptionValue.Text = projectViewDataObj.Description;
+            ////----------------------------------
+            ////--- Initialize Textbox Strings ---
+            ////----------------------------------
+            //this.textBoxProjectNameValue.Text = projectPanelDataObj.Name;
+            //this.textBoxProjectDescriptionValue.Text = projectPanelDataObj.Description;
 
-            #region ENGLISH
+            //#region ENGLISH
 
-            if (string.Compare(projectViewDataObj.ProjectSystem_Units, "English - Imperial", true) == 0)
-            {
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
+            ////if (string.Compare(projectPanelDataObj.ProjectDtoObj., "English - Imperial", true) == 0)
+            ////{
+            ////    NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
 
-                #region MAGNITUDE
-                if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Base", true) == 0)
-                {
-                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.BASE;
-                    this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_BASE.ToString();
-                }
-                else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Kilo", true) == 0)
-                {
-                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.KILO;
-                    this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_KILO.ToString();
-                }
-                else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Mega", true) == 0)
-                {
-                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
-                    this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_MEGA.ToString();
-                }
-                #endregion  // MAGNITUDE
+            ////    #region MAGNITUDE
+            ////    if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Base", true) == 0)
+            ////    {
+            ////        NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.BASE;
+            ////        this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_BASE.ToString();
+            ////    }
+            ////    else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Kilo", true) == 0)
+            ////    {
+            ////        NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.KILO;
+            ////        this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_KILO.ToString();
+            ////    }
+            ////    else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Mega", true) == 0)
+            ////    {
+            ////        NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
+            ////        this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_MEGA.ToString();
+            ////    }
+            ////    #endregion  // MAGNITUDE
 
-                //--------------------------------------------
-                //--- Initialize with ENGLISH System Units ---
-                //--------------------------------------------
-                SetDefaultEngslishSettings();
-            }
-            #endregion  // ENGLISH
+            ////    //--------------------------------------------
+            ////    //--- Initialize with ENGLISH System Units ---
+            ////    //--------------------------------------------
+            ////    SetDefaultEngslishSettings();
+            ////}
+            //#endregion  // ENGLISH
             
-            #region METRIC
-            else if (string.Compare(projectViewDataObj.ProjectSystem_Units, "Metric - SI", true) == 0)
-            {
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
+            //#region METRIC
+            //else if (string.Compare(projectViewDataObj.ProjectSystem_Units, "Metric - SI", true) == 0)
+            //{
+            //    NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
 
-                #region MAGNITUDE
+            //    #region MAGNITUDE
 
-                if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Base", true) == 0)
-                {
-                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.BASE;
-                    this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_BASE.ToString();
-                }
-                else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Kilo", true) == 0)
-                {
-                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.KILO;
-                    this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_KILO.ToString();
-                }
-                else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Mega", true) == 0)
-                {
-                    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
-                    this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_MEGA.ToString();
-                }
-                #endregion  // MAGNITUDE
+            //    if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Base", true) == 0)
+            //    {
+            //        NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.BASE;
+            //        this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_BASE.ToString();
+            //    }
+            //    else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Kilo", true) == 0)
+            //    {
+            //        NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.KILO;
+            //        this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_KILO.ToString();
+            //    }
+            //    else if (string.Compare(projectViewDataObj.ProjectMagnitude_Units, "Mega", true) == 0)
+            //    {
+            //        NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
+            //        this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_MEGA.ToString();
+            //    }
+            //    #endregion  // MAGNITUDE
 
-                //------------------------------------------
-                //---Initialize with METRIC System Units ---
-                //------------------------------------------
-                SetDefaultMetricSettings();
-            }
-            #endregion  //// METRIC
+            //    //------------------------------------------
+            //    //---Initialize with METRIC System Units ---
+            //    //------------------------------------------
+            //    SetDefaultMetricSettings();
+            //}
+            //#endregion  //// METRIC
 
-            //--------------------------
-            //--- Load HEN Optimizer ---
-            //--------------------------
-            LoadHenOptimizer();
+            ////--------------------------
+            ////--- Load HEN Optimizer ---
+            ////--------------------------
+            //LoadHenOptimizer();
         }
         #endregion  // CTOR ... MODIFY
 
@@ -885,31 +885,31 @@ namespace HenStudio
             string strMethod = "LoadHenOptimizer";
             try
             {
-                //------------------------------
-                //--- Get HEN Optimizer Data ---
-                //------------------------------
-                DefaultProjectSettings.HenOptimizer henOptimizerEnum = NewProjectSettingsObj.HenOptimizerEnum;
+                ////------------------------------
+                ////--- Get HEN Optimizer Data ---
+                ////------------------------------
+                //DefaultProjectSettings.HenOptimizer henOptimizerEnum = NewProjectSettingsObj.HenOptimizerEnum;
 
-                string strSelectName = NewProjectSettingsObj.GetHenOptimizerString();
+                //string strSelectName = NewProjectSettingsObj.GetHenOptimizerString();
 
-                //----------------------------------------
-                //--- Load System Units ComboBox Items ---
-                //----------------------------------------
-                List<string> lst = NewProjectSettingsObj.GetHenOptimizerList();
+                ////----------------------------------------
+                ////--- Load System Units ComboBox Items ---
+                ////----------------------------------------
+                //List<string> lst = NewProjectSettingsObj.GetHenOptimizerList();
 
-                comboBoxDefaultHenOpitimizer.Items.Clear();
-                foreach (string str in lst)
-                {
-                    comboBoxDefaultHenOpitimizer.Items.Add(str);
-                }
+                //comboBoxDefaultHenOpitimizer.Items.Clear();
+                //foreach (string str in lst)
+                //{
+                //    comboBoxDefaultHenOpitimizer.Items.Add(str);
+                //}
 
-                //-------------------
-                //--- Select Item ---
-                //-------------------
-                if (comboBoxDefaultHenOpitimizer.Items.Count > 0)
-                {
-                    comboBoxDefaultHenOpitimizer.SelectedItem = strSelectName;
-                }
+                ////-------------------
+                ////--- Select Item ---
+                ////-------------------
+                //if (comboBoxDefaultHenOpitimizer.Items.Count > 0)
+                //{
+                //    comboBoxDefaultHenOpitimizer.SelectedItem = strSelectName;
+                //}
             }
             catch (Exception ex)
             {
@@ -1175,86 +1175,86 @@ namespace HenStudio
             //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "OK Button Click");
             try
             {
-                //---------------------------------------------------------------------
-                //--- Scrape Screen and Assign Control Values to New Default Values ---
-                //---------------------------------------------------------------------
+                ////---------------------------------------------------------------------
+                ////--- Scrape Screen and Assign Control Values to New Default Values ---
+                ////---------------------------------------------------------------------
 
-                #region TEXTBOX STRINGS
-                ProjectPanelDataObj.Name = this.textBoxProjectNameValue.Text;
-                ProjectPanelDataObj.Description = this.textBoxProjectDescriptionValue.Text;
-                #endregion  // TEXTBOX STRINGS
+                //#region TEXTBOX STRINGS
+                //ProjectPanelDataObj.Name = this.textBoxProjectNameValue.Text;
+                //ProjectPanelDataObj.Description = this.textBoxProjectDescriptionValue.Text;
+                //#endregion  // TEXTBOX STRINGS
 
-                #region DEFAULT EXCHANGER PARAMETERS
-                ProjectPanelDataObj.ProjectU_Value = textBoxDefaultU_Value.Text;
-                ProjectPanelDataObj.ProjectF_Value = textBoxDefaultF_Value.Text;
-                #endregion  // DEFAULT EXCHANGER PARAMETERS
+                //#region DEFAULT EXCHANGER PARAMETERS
+                //ProjectPanelDataObj.ProjectU_Value = textBoxDefaultU_Value.Text;
+                //ProjectPanelDataObj.ProjectF_Value = textBoxDefaultF_Value.Text;
+                //#endregion  // DEFAULT EXCHANGER PARAMETERS
 
-                #region DEFAULT HEN OPTIMIZER
-                ProjectPanelDataObj.ProjectHenOptimizer = comboBoxDefaultHenOpitimizer.Text;
-                #endregion  // DEFAULT HEN OPTIMIZER
+                //#region DEFAULT HEN OPTIMIZER
+                //ProjectPanelDataObj.ProjectHenOptimizer = comboBoxDefaultHenOpitimizer.Text;
+                //#endregion  // DEFAULT HEN OPTIMIZER
 
-                #region DEFAULT PROJECT UNITS
-                ProjectPanelDataObj.ProjectSystem_Units = comboBoxUnitsSystem.Text;
-                ProjectPanelDataObj.ProjectMagnitude_Units = comboBoxUnitsMagnitude.Text;
+                //#region DEFAULT PROJECT UNITS
+                //ProjectPanelDataObj.ProjectSystem_Units = comboBoxUnitsSystem.Text;
+                //ProjectPanelDataObj.ProjectMagnitude_Units = comboBoxUnitsMagnitude.Text;
 
-                ProjectPanelDataObj.ProjectTemperature_Units = comboBoxUnitsTemp.Text;
-                ProjectPanelDataObj.ProjectPressure_Units = comboBoxUnitsPress.Text;
-                #endregion  // DEFAULT PROJECT UNITS
+                //ProjectPanelDataObj.ProjectTemperature_Units = comboBoxUnitsTemp.Text;
+                //ProjectPanelDataObj.ProjectPressure_Units = comboBoxUnitsPress.Text;
+                //#endregion  // DEFAULT PROJECT UNITS
 
-                #region DERIVED UNITS
-                ProjectPanelDataObj.ProjectArea_Units = textBoxUnitsAreaValue.Text;
-                ProjectPanelDataObj.ProjectDuty_Units = textBoxUnitsDutyValue.Text;
-                ProjectPanelDataObj.ProjectCP_Units = textBoxUnitsCPValue.Text;
-                ProjectPanelDataObj.ProjectU_Units = textBoxUnitsUValue.Text;
-                #endregion  // DERIVED UNITS
+                //#region DERIVED UNITS
+                //ProjectPanelDataObj.ProjectArea_Units = textBoxUnitsAreaValue.Text;
+                //ProjectPanelDataObj.ProjectDuty_Units = textBoxUnitsDutyValue.Text;
+                //ProjectPanelDataObj.ProjectCP_Units = textBoxUnitsCPValue.Text;
+                //ProjectPanelDataObj.ProjectU_Units = textBoxUnitsUValue.Text;
+                //#endregion  // DERIVED UNITS
 
-                //----------------------------------------------------------------------
-                //--- Check if New Project Creation or Existing Project Modification ---
-                //--- (Based on Original Project Name vs Current Project Name)       ---
-                //----------------------------------------------------------------------
-                if ((NewProjectFlag) ||
-                    ((!NewProjectFlag)&&(ProjectPanelDataObj.Name != OrigProjectName)))
-                {
-                    string strProjectName = this.textBoxProjectNameValue.Text.Trim();
-                    //---------------------------------------------------------------------------------------------
-                    //--- Check if Existing Project Data is Present for Project (Should Not Be for New Project) ---
-                    //---------------------------------------------------------------------------------------------
-                    var projectViewModelObj = new ProjectViewModel();
-                    var projectUnitsViewModelObj = new ProjectUnitsViewModel();
-                    var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
+                ////----------------------------------------------------------------------
+                ////--- Check if New Project Creation or Existing Project Modification ---
+                ////--- (Based on Original Project Name vs Current Project Name)       ---
+                ////----------------------------------------------------------------------
+                //if ((NewProjectFlag) ||
+                //    ((!NewProjectFlag)&&(ProjectPanelDataObj.Name != OrigProjectName)))
+                //{
+                //    string strProjectName = this.textBoxProjectNameValue.Text.Trim();
+                //    //---------------------------------------------------------------------------------------------
+                //    //--- Check if Existing Project Data is Present for Project (Should Not Be for New Project) ---
+                //    //---------------------------------------------------------------------------------------------
+                //    var projectViewModelObj = new ProjectViewModel();
+                //    var projectUnitsViewModelObj = new ProjectUnitsViewModel();
+                //    var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
 
 
-                    //ProjectUnitsDto projectDtoObj = projectViewModelObj.GetProjectByName(strProjectName);
-                    //if(projectDtoObj != null)
-                    {
-                        //    HenLogger.WriteSeparatorLine('*');
-                        //    HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, String.Format("WARNING: Existing Project Data Found for Project Name: {0}", strProjectName));
-                        //    HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, "WARNING: This Should Not Occur for New Project Creation");
-                        //    HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, "WARNING: Check Logic for New vs Modify Project in FormProjectNewModify");
-                        //    HenLogger.WriteSeparatorLine('*');
+                //    //ProjectUnitsDto projectDtoObj = projectViewModelObj.GetProjectByName(strProjectName);
+                //    //if(projectDtoObj != null)
+                //    {
+                //        //    HenLogger.WriteSeparatorLine('*');
+                //        //    HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, String.Format("WARNING: Existing Project Data Found for Project Name: {0}", strProjectName));
+                //        //    HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, "WARNING: This Should Not Occur for New Project Creation");
+                //        //    HenLogger.LogWarning(NAMESPACE, CLASS, strMethod, "WARNING: Check Logic for New vs Modify Project in FormProjectNewModify");
+                //        //    HenLogger.WriteSeparatorLine('*');
 
-                        //    HenMsgDlg.DisplayErrorDlg(String.Format("ERROR: Existing Project Data Found for Project Name: {0}", strProjectName));
+                //        //    HenMsgDlg.DisplayErrorDlg(String.Format("ERROR: Existing Project Data Found for Project Name: {0}", strProjectName));
 
-                        //-------------------------------------------------------------------------------------------
-                        //--- Exit without Saving Data since Existing Project Data Found for New Project Creation ---
-                        //-------------------------------------------------------------------------------------------
-                        DialogResult = DialogResult.Retry;
-                        return;
-                    }
+                //        //-------------------------------------------------------------------------------------------
+                //        //--- Exit without Saving Data since Existing Project Data Found for New Project Creation ---
+                //        //-------------------------------------------------------------------------------------------
+                //        DialogResult = DialogResult.Retry;
+                //        return;
+                //    }
 
-                    //--------------------------------------
-                    //--- NEW PROJECT: Set Creation Date ---
-                    //--------------------------------------
-                    //ProjectViewDataObj.ProjectCreationDate = DateTime.Now;
-                    //ProjectViewDataObj.ProjectModificationDate = DateTime.Now;
-                }
-                else
-                {
-                    //---------------------------------------------
-                    //--- MODIFY PROJECT: Set Modification Date ---
-                    //---------------------------------------------
-                    ProjectPanelDataObj.ProjectModificationDate = DateTime.Now;
-                }
+                //    //--------------------------------------
+                //    //--- NEW PROJECT: Set Creation Date ---
+                //    //--------------------------------------
+                //    //ProjectViewDataObj.ProjectCreationDate = DateTime.Now;
+                //    //ProjectViewDataObj.ProjectModificationDate = DateTime.Now;
+                //}
+                //else
+                //{
+                //    //---------------------------------------------
+                //    //--- MODIFY PROJECT: Set Modification Date ---
+                //    //---------------------------------------------
+                //    ProjectPanelDataObj.ProjectModificationDate = DateTime.Now;
+                //}
             }
             catch (Exception ex)
             {

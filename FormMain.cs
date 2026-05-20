@@ -42,6 +42,8 @@
 #region REFERENCES
 
 #region AJP HEN NAMESPACES
+using AJP_License_File;
+
 using HenGlobal;
 
 using HenModel.Connection;
@@ -111,7 +113,7 @@ using System.Xml.Linq;
 
 using static HenGlobal.HenTypes;
 
-using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
+using System.Runtime;
 
 #endregion  // REFERENCES 
 
@@ -211,12 +213,13 @@ namespace HenStudio
             string strMethod = "CTOR";
             string strMsg = string.Empty;
             HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating Object");
+
             bool bValidLicenseFile = false;
             try
             {
                 InitializeComponent();
 
-                this.Text = "AJP HEN Studio";      // Form Title
+                this.Text = HenSettings.AJP_PRODUCT_NAME;      // Form Title
 
                 #region INITIALIZE PROPERTIES
 
@@ -298,29 +301,15 @@ namespace HenStudio
                 bValidLicenseFile = ValidateLicense(); // Initialize Global Settings in Method - return valid flag
                 #endregion  // License Validation
 
-                #region Initialize Catalog-Project Level Status Bar Label
+                #region Initialize Root-Project-Profile-Study Property Values
                 //---------------------------------------------------------
-                //--- Initialize Catalog-Project Level Status Bar Label ---
+                //--- Initialize Root-Project Level Status Bar Label ---
                 //---------------------------------------------------------
-                HenSettingsObj.ExplorerSelectedLevelEnum = HenTypes.ExplorerNodeIdType.CATALOG;
+                HenSettingsObj.ExplorerSelectedNodeIdEnum = HenTypes.ExplorerNodeIdType.CATALOG;
                 HenSettingsObj.CurrentProjectName = string.Empty;
                 HenSettingsObj.CurrentProfileName = string.Empty;
-                HenSettingsObj.CurrentPinchName = string.Empty;
-                HenSettingsObj.CurrentHenName = string.Empty;
-                //***********************************************************************************************
-                //***********************************************************************************************
-                //***********************************************************************************************
-                //HenSettingsObj.ProjectExplorerSelectedLevel = HenTypes.ExplorerNodeIdType.CATALOG;
-                //HenSettingsObj.ProjectDatabaseName = "Deer Park";
-                //HenSettingsObj.CurrentProjectName = "Deer Park";
-                //HenSettingsObj.CurrentProfileName = "Q1 Setup";
-                //HenSettingsObj.CurrentPinchName = "Delta T = 10";
-                //HenSettingsObj.CurrentHenName = "Base Design";
-                //UpdateProjectLevelStatusBarLabel();    // Initialize Catalog-Project Level Status Bar Label
-                //***********************************************************************************************
-                //***********************************************************************************************
-                //***********************************************************************************************
-                #endregion  // Initialize Project DB Connected Status Bar Label
+                HenSettingsObj.CurrentStudyName = string.Empty;
+                #endregion  // Initialize Root-Project-Profile-Study Property Values
 
             }
             catch (Exception ex)
@@ -345,7 +334,7 @@ namespace HenStudio
             string strMethod = "InitializeControls";
             try
             {
-                this.Text = "AJP HEN Studio";
+                this.Text = HenSettings.AJP_PRODUCT_NAME;   // Form Title
                 this.BackColor = ColorPanelGreenBackground; // Form Background Color
             }
             catch (Exception ex)
@@ -366,7 +355,7 @@ namespace HenStudio
             string strMethod = "FormMain_Load";
             string strMsg = string.Empty;
             HenLogger.WriteSeparatorLine(' ');
-            HenLogger.WriteSection("GET HENSTUDIO DATABASE TABLE NAMES");
+            HenLogger.WriteSection("GET SYSTEM FACTORY SETTINGS");
             try
             {
                 #region VALID XML File Exists Guard - EXIT ON ERROR
@@ -394,18 +383,11 @@ namespace HenStudio
                 }
                 #endregion  // VALID XML File Exists Guard - EXIT ON ERROR
 
-                #region LOG DATABASE TABLE NAMES
-                LogDatabaseTables();
-                #endregion  // LOG DATABASE TABLE NAMES
+                #region GET SYSTEM DATA FROM DB ... Populate HenSettings Properties
+                GetSystemFactorySettings();
 
-                #region POPULATE CONNECTION STRING CONTROLS
                 PopulateConnectionStringControls();
-                LogConnectionState();
-                #endregion  // POPULATE CONNECTION STRING CONTROLS
-
-                #region GET APPLICATION GLOBAL SETTINGS FROM DB
-                GetGlobalSettings();
-                #endregion  // GET APPLICATION GLOBAL SETTINGS FROM DB
+                #endregion  // GET SYSTEM DATA FROM DB ... Populate HenSettings Properties
 
                 #region POPULATE PROJECT TREE NODES
                 HenLogger.WriteSection("START POPULATE PROJECT TREE NODES");
@@ -554,31 +536,23 @@ namespace HenStudio
         /// be updated.</remarks>
         private void PopulateConnectionStringControls()
         {
-            string strMethod = "PopulateConnectionStringControls";
-            //-------------------------------------------------------------------------------------------------
-            //--- Initialize DB Connected Enum to UNCONNECTED before attempting to retrieve connection data ---
-            //-------------------------------------------------------------------------------------------------
-            HenSettingsObj.DbConnectedEnum = DbConnected.UNCONNECTED;   
-
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
-            var connDataRepo = new ConnectionDataRepo(connFactoryObj);
+            string strMethod = "PopulateConnectionStringControls";            
             try
             {
-                var connData = connDataRepo.GetConnectionData();
+                ConnectionDataDto connDataDto = HenSettingsObj.ConnectionDataDtoObj;
 
-                textBoxConnDataSourceValue.Text = connData.DataSource;
-                textBoxConnUserIDValue.Text = connData.UserId;
-                textBoxConnWorkstationIDValue.Text = connData.WorkstationId;
-                textBoxConnInitCatalogValue.Text = connData.InitialCatalog;
-                textBoxConnTimeoutValue.Text = connData.Timeout.ToString();
-                textBoxConnPacketSizeValue.Text = (connData.PacketSize.ToString() + " Kb");
-                textBoxConnServerVersionValue.Text = connData.ServerVersion;
-                textBoxConnStateValue.Text = connData.ConnectionState;
-
+                textBoxConnDataSourceValue.Text = connDataDto.DataSource;
+                textBoxConnUserIDValue.Text = connDataDto.UserId;
+                textBoxConnWorkstationIDValue.Text = connDataDto.WorkstationId;
+                textBoxConnInitCatalogValue.Text = connDataDto.InitialCatalog;
+                textBoxConnTimeoutValue.Text = connDataDto.Timeout.ToString();
+                textBoxConnPacketSizeValue.Text = (connDataDto.PacketSize.ToString() + " Kb");
+                textBoxConnServerVersionValue.Text = connDataDto.ServerVersion;
+                textBoxConnStateValue.Text = connDataDto.ConnectionState;
                 //------------------------------------------------------------------------------------------------
                 //--- SET GLOBAL DB CONNECTED FLAG AND ENUM VALUE IN SETTINGS OBJECT BASED ON CONNECTION STATE ---
                 //------------------------------------------------------------------------------------------------
-                if (string.Compare(connData.ConnectionState, "Open",true) == 0)
+                if (string.Compare(connDataDto.ConnectionState, "Open",true) == 0)
                 {
                     //-----------------------------
                     //--- OPEN Connection State ---
@@ -606,47 +580,77 @@ namespace HenStudio
             }
             finally
             {
-                //----------------------------------------------------------------
-                //--- Use Connection Factory Object Method to Close Connection ---
-                //--- Null Guard for Connection Object in case of Exception    ---
-                //--- during Connection Creation                               ---
-                //----------------------------------------------------------------
-                if (connFactoryObj.dbConnection != null)
-                {
-                    connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
-                }
             }
         }
         #endregion  // PopulateConnectionStringControls()
 
-        #region GetGlobalSettings()
-        private void GetGlobalSettings()
+        #region GetSystemFactorySettings()
+        /// <summary>
+        /// Get the System Factory Settings from the Database and Assign Global Settings Properties
+        /// </summary>
+        private void GetSystemFactorySettings()
         {
-            string strMethod = "GetGlobalSettings";
+            string strMethod = "GetSystemFactorySettings";
             string strMsg = string.Empty;
+            //---------------------------------------------------------
+            //--- Create ViewModel Repo Objects to Retrieve DB Data ---
+            //---------------------------------------------------------
+            SystemViewModel systemViewModelObj = new SystemViewModel();
+
+            SqlConnectionFactory connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            ConnectionDataRepo connDataRepo = new ConnectionDataRepo(connFactoryObj);
+
             try
             {
-                HenLogger.WriteSection("CONNECTING TO DATABASE ... GET GLOBAL SETTING KEY-VALUE PAIRS");
+                HenLogger.WriteSection("CONNECTING TO DATABASE ... GET SYSTEM FACTORY SETTINGS");
 
-                //-------------------------------------------------------------------------------------------------
-                //--- Create System ViewModel Object to Retrieve Global Settings Data from DB using Repo Method ---
-                //-------------------------------------------------------------------------------------------------
-                var systemViewModelObj = new SystemViewModel();
+                #region APP GLOBAL SETTINGS
 
-                var settingsDtos = systemViewModelObj.GetGlobalSettings();
-                foreach (var nameValuePair in settingsDtos)
+                #endregion  // APP GLOBAL SETTINGS
+
+                #region CONNECTION DATA
+                ConnectionDataDto connDataDto = connDataRepo.GetConnectionData();
+
+                HenSettingsObj.ConnectionDataDtoObj = connDataDto;
+
+                LogConnectionState(connDataDto);
+                connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
+                #endregion  // CONNECTION DATA
+
+                #region DATABASE TABLES
+                //----------------------------------------------------------
+                //--- Get Database Tables Data from DB using Repo Method ---
+                //----------------------------------------------------------
+                HenSettingsObj.DatabaseTableDtoList = systemViewModelObj.GetDatabaseTables();
+                //--------------------------------------------------------------------
+                //--- Log Database Tables Schame and Table Names Retrieved from DB ---
+                //--------------------------------------------------------------------
+                foreach (var databaseTableDto in HenSettingsObj.DatabaseTableDtoList)
+                {
+                    strMsg = string.Format("  + SCHEMA: {0,-40} ... TABLE: {1}",
+                                           databaseTableDto.SchemaName,
+                                           databaseTableDto.TableName);
+                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                }
+                #endregion  // DATABASE TABLES
+
+                #region GLOBAL SETTINGS
+                //----------------------------------------------------------
+                //--- Get Global Settings Data from DB using Repo Method ---
+                //----------------------------------------------------------
+                HenSettingsObj.GlobalSettingsDtoList = systemViewModelObj.GetGlobalSettings();
+                //-------------------------------------------------------------
+                //--- Log Global Settings Key-Value Pairs Retrieved from DB ---
+                //-------------------------------------------------------------
+                foreach (var nameValuePair in HenSettingsObj.GlobalSettingsDtoList)
                 {
                     strMsg = string.Format("  + KEY: {0,-40} ... VALUE: {1}",
                                            nameValuePair.SettingKey,
                                            nameValuePair.SettingValue);
                     HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
                 }
+                #endregion  // GLOBAL SETTINGS
 
-                //--------------------------------------------------------------------------------------
-                //--- ASSIGN APPLICATION GLOBAL SETTINGS PROPERTIES FROM DB VALUES USING REPO METHOD ---
-                //--------------------------------------------------------------------------------------
-                HenSettingsObj.AppGlobalSettingsObj = systemViewModelObj.GetAppGlobalSettings();
-                LogAppGlobalSettings();  // Log Application Global Settings based on data retrieved from DB
             }
             catch (Exception ex)
             {
@@ -658,7 +662,7 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // GetGlobalSettings()
+        #endregion  // GetSystemFactorySettings()
 
         #region UPDATE STATUS BAR LABELS METHODS
 
@@ -886,13 +890,16 @@ namespace HenStudio
         {
             string strTitle = String.Empty;
 
-            if (HenSettingsObj.ExplorerSelectedLevelEnum == HenTypes.ExplorerNodeIdType.CATALOG)
+            if (HenSettingsObj.ExplorerSelectedNodeIdEnum == HenTypes.ExplorerNodeIdType.CATALOG)
             {
-                strTitle = string.Format("AJP HEN Studio");
+                strTitle = string.Format("{0} ",
+                                         HenSettings.AJP_PRODUCT_NAME);
             }
             else
             {
-                strTitle = string.Format("AJP HEN Studio : {0}", HenSettingsObj.CurrentProjectName);
+                strTitle = string.Format("{0}} : {1}", 
+                                         HenSettings.AJP_PRODUCT_NAME,
+                                         HenSettingsObj.CurrentProjectName);
             }
 
             this.Text = strTitle;
@@ -1323,33 +1330,29 @@ namespace HenStudio
         #region LOG METHODS
 
         #region LogConnectionState()
-        private void LogConnectionState()
+        private void LogConnectionState(ConnectionDataDto connDataDto)
         {
             string strMethod = "LogConnectionState";
             string strMsg = string.Empty;
-
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
-            var connDataRepo = new ConnectionDataRepo(connFactoryObj);
-            var connData = connDataRepo.GetConnectionData();
             try
             {
                 HenLogger.WriteSection("HENSTUDIO DATABASE CONNECTION STATE");
 
-                strMsg = string.Format("  + DATA SOURCE      : {0}", connData.DataSource);
+                strMsg = string.Format("  + DATA SOURCE      : {0}", connDataDto.DataSource);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + USER ID          : {0}", connData.UserId);
+                strMsg = string.Format("  + USER ID          : {0}", connDataDto.UserId);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + WORKSTATION ID   : {0}", connData.WorkstationId);
+                strMsg = string.Format("  + WORKSTATION ID   : {0}", connDataDto.WorkstationId);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + INITIAL CATALOG  : {0}", connData.InitialCatalog);
+                strMsg = string.Format("  + INITIAL CATALOG  : {0}", connDataDto.InitialCatalog);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + TIME OUT         : {0}", connData.Timeout.ToString());
+                strMsg = string.Format("  + TIME OUT         : {0}", connDataDto.Timeout.ToString());
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + PACKET SIZE      : {0}", (connData.PacketSize.ToString() + " Kb"));
+                strMsg = string.Format("  + PACKET SIZE      : {0}", (connDataDto.PacketSize.ToString() + " Kb"));
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + SERVER VERSION   : {0}", connData.ServerVersion);
+                strMsg = string.Format("  + SERVER VERSION   : {0}", connDataDto.ServerVersion);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + CONNECTION STATE : {0}", connData.ConnectionState);
+                strMsg = string.Format("  + CONNECTION STATE : {0}", connDataDto.ConnectionState);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
             }
             catch (Exception ex)
@@ -1360,181 +1363,9 @@ namespace HenStudio
             }
             finally
             {
-                //----------------------------------------------------------------
-                //--- Use Connection Factory Object Method to Close Connection ---
-                //----------------------------------------------------------------
-                connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
             }
         }
         #endregion  // LogConnectionState()
-
-        #region LogDatabaseTables()
-        /// <summary>
-        /// Logs the names and schemas of all database tables in the current Hen Studio database connection for
-        /// diagnostic or informational purposes.
-        /// </summary>
-        /// <remarks>This method connects to the configured Hen Studio database, retrieves all available
-        /// table names and their schemas, and writes this information to the log. It is typically used for
-        /// troubleshooting or verifying database structure during development or support operations. Any exceptions
-        /// encountered during the process are logged as errors. The database connection is closed automatically when
-        /// the operation completes.
-        /// </remarks>
-        private void LogDatabaseTables()
-        {
-            string strMethod = "LogDatabaseTables";
-            string strMsg = string.Empty;
-            HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Log Database Tables");
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
-            var dbTablesRepo = new DatabaseTableRepo(connFactoryObj);
-            var connDataRepo = new ConnectionDataRepo(connFactoryObj);
-            try
-            {
-                HenLogger.WriteSection("CONNECTING TO DATABASE ... GET TABLE NAMES");
-
-                foreach (var tableName in dbTablesRepo.GetDatabaseTables())
-                {
-                    strMsg = string.Format("  + TABLE: {0,-30} ... SCHEMA: {1}",
-                                           tableName.TableName,
-                                           tableName.SchemaName);
-                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                }
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-                //----------------------------------------------------------------
-                //--- Use Connection Factory Object Method to Close Connection ---
-                //----------------------------------------------------------------
-                connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
-            }
-        }
-        #endregion  // LogDatabaseTables()
-
-        #region LogAppGlobalSettings()
-        /// <summary>
-        /// Logs Application Global Settings values.
-        /// </summary>
-        /// <remarks>This method Logs Application Global Settings values based on retrieved DB key-value pairs. 
-        /// It is typically used for troubleshooting or verifying configuration during development or support operations. 
-        /// Any exceptions encountered during the process are logged as errors.
-        /// </remarks>
-        private void LogAppGlobalSettings()
-        {
-            string strMethod = "LogAppGlobalSettings";
-            string strMsg = string.Empty;
-            try
-            {
-                HenLogger.WriteSection("LOG APPLICATION GLOBAL SETTINGS ... BASED ON RETRIEVED DB KEY-VALUE PAIRS");
-
-                strMsg = string.Format("  {0,-44} ... {1}", "DatabaseCreatedOn", HenSettingsObj.AppGlobalSettingsObj.DatabaseCreatedOn.ToString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1:0.00}", "DefaultApproachTemperature", HenSettingsObj.AppGlobalSettingsObj.DefaultApproachTemperature);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1:0.00}", "DefaultEnglishU", HenSettingsObj.AppGlobalSettingsObj.DefaultEnglishU);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1:0.00}", "DefaultMetricU", HenSettingsObj.AppGlobalSettingsObj.DefaultMetricU);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "DefaultOptimizer", HenSettingsObj.AppGlobalSettingsObj.DefaultOptimizer);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "EnableAreaEstimation", HenSettingsObj.AppGlobalSettingsObj.EnableAreaEstimation.ToString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ExternalMagnitudeUnits", HenSettingsObj.AppGlobalSettingsObj.ExternalMagnitudeUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ExternalPressUnits", HenSettingsObj.AppGlobalSettingsObj.ExternalPressUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ExternalSystemUnits", HenSettingsObj.AppGlobalSettingsObj.ExternalSystemUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ExternalTempUnits", HenSettingsObj.AppGlobalSettingsObj.ExternalTempUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsA", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsA);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsEnergy", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsEnergy);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsHeatCapacityFlowRate", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsHeatCapacityFlowRate);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsMassFlowrate", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsMassFlowrate);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsSpecificHeatCapacity", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsSpecificHeatCapacity);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ExternalUnitsU", HenSettingsObj.AppGlobalSettingsObj.ExternalUnitsU);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "InternalMagnitudeUnits", HenSettingsObj.AppGlobalSettingsObj.InternalMagnitudeUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "InternalPressUnits", HenSettingsObj.AppGlobalSettingsObj.InternalPressUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "InternalSystemUnits", HenSettingsObj.AppGlobalSettingsObj.InternalSystemUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "InternalTempUnits", HenSettingsObj.AppGlobalSettingsObj.InternalTempUnits);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsA", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsA);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsEnergy", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsEnergy);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsHeatCapacityFlowRate", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsHeatCapacityFlowRate);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsMassFlowrate", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsMassFlowrate);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsSpecificHeatCapacity", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsSpecificHeatCapacity);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "InternalUnitsU", HenSettingsObj.AppGlobalSettingsObj.InternalUnitsU);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "LastMigrationApplied", HenSettingsObj.AppGlobalSettingsObj.LastMigrationApplied);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ReportDefaultFont", HenSettingsObj.AppGlobalSettingsObj.ReportDefaultFont);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ReportIncludeAuditSection", HenSettingsObj.AppGlobalSettingsObj.ReportIncludeAuditSection.ToString());
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "ReportUnitsProfile", HenSettingsObj.AppGlobalSettingsObj.ReportUnitsProfile);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-
-                strMsg = string.Format("  {0,-44} ... {1}", "SchemaVersion", HenSettingsObj.AppGlobalSettingsObj.SchemaVersion);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // LogAppGlobalSettings()
 
         #region LogLicenseStatus()
         /// <summary>

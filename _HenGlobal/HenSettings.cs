@@ -46,6 +46,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using HenModel.Connection;
+
 using HenModel.Dto;
 using HenModel.Dto.Hen;
 using HenModel.Dto.Pinch;
@@ -76,6 +78,11 @@ namespace HenGlobal
         const string NAMESPACE = "HenGlobal";
         const string CLASS = "HenSettings";
         #endregion      // CONSTANTS
+
+        #region CONNECTION STRINGS
+        public const string HenStudio = HenModel.Connection.ConnectionStrings.HenStudio;
+        //public const string HenStudio = "Server=localhost\\HENSTUDIO;Database=HenStudio;Trusted_Connection=True;";
+        #endregion  // CONNECTION STRINGS
 
         #region ROOT NAME
         const string ROOT_NAME = "HenStudio";
@@ -192,6 +199,13 @@ namespace HenGlobal
 
         #endregion  // LICENSE
 
+        #region SYSTEM DATA
+        //public List<AppGlobalSettingsDto> AppGlobalSettingsList { get; set; }
+        public ConnectionDataDto ConnectionDataDtoObj { get; set; }
+        public IList<DatabaseTableDto> DatabaseTableDtoList { get; set; }
+        public IList<GlobalSettingsDto> GlobalSettingsDtoList { get; set; }
+        #endregion  // SYSTEM DATA
+
         #region ROOT - PROJECT - PROFILE - STUDY ... STATE PROPERTIES
 
         #region ExplorerSelectedNodeIdEnum
@@ -241,10 +255,6 @@ namespace HenGlobal
         /// </summary>
         public HenTypes.DbConnected DbConnectedEnum { get; set; } // HENSTUDIO DB Connected [UNKNOWN | UNCONNECTED | CONNECTED]
         #endregion  // DbConnectedEnum
-
-        #region APPLICATION GLOBAL SETTINGS
-        public AppGlobalSettingsDto AppGlobalSettingsObj { get; set; }
-        #endregion  // APPLICATION GLOBAL SETTINGS
 
         #endregion  // STATUS BAR
 
@@ -305,6 +315,14 @@ namespace HenGlobal
                 WriteCustomerDataToLog();   // Write Customer Data to Log
                 WriteProductDataToLog();    // Write Product  Data to Log
                 #endregion  // LOG LICENSE DATA
+
+                #region SYSTEM DATA
+                //AppGlobalSettingsList = new List<AppGlobalSettingsDto>();
+                ConnectionDataDtoObj = new ConnectionDataDto();
+
+                DatabaseTableDtoList = new List<DatabaseTableDto>();
+                GlobalSettingsDtoList = new List<GlobalSettingsDto>();
+                #endregion  // SYSTEM DATA
 
                 #region INITIAL ROOT-PROJECT-PROFILE-STUDY STATE
                 ExplorerSelectedNodeIdEnum = ExplorerNodeIdType.CATALOG;

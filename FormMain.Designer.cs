@@ -387,13 +387,6 @@
             this.contextMenuStripProfile.Name = "contextMenuStripProfile";
             this.contextMenuStripProfile.Size = new System.Drawing.Size(155, 54);
             // 
-            // toolStripMenuItemProfileRename
-            // 
-            this.toolStripMenuItemProfileRename.Name = "toolStripMenuItemProfileRename";
-            this.toolStripMenuItemProfileRename.Size = new System.Drawing.Size(154, 22);
-            this.toolStripMenuItemProfileRename.Text = "Rename Profile";
-            this.toolStripMenuItemProfileRename.Click += new System.EventHandler(this.toolStripMenuItemProfileRename_Click);
-            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
