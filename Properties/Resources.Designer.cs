@@ -73,6 +73,16 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AJP_Engineering_Landscape_White_Background {
+            get {
+                object obj = ResourceManager.GetObject("AJP_Engineering_Landscape_White_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AJP_HEN_Studio_with_Graphic {
             get {
                 object obj = ResourceManager.GetObject("AJP_HEN_Studio_with_Graphic", resourceCulture);
