@@ -561,7 +561,7 @@
 </value>
   </data>
   <metadata name="imageListAnalysis.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>22, 59</value>
+    <value>355, 63</value>
   </metadata>
   <data name="imageListAnalysis.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -642,7 +642,7 @@
 </value>
   </data>
   <metadata name="imageListInput.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>173, 59</value>
+    <value>514, 64</value>
   </metadata>
   <data name="imageListInput.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -754,7 +754,7 @@
 </value>
   </data>
   <metadata name="imageListTargets.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>305, 60</value>
+    <value>657, 62</value>
   </metadata>
   <data name="imageListTargets.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -932,7 +932,7 @@
 </value>
   </data>
   <metadata name="imageListProjectTreeViews.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>621, 63</value>
+    <value>25, 67</value>
   </metadata>
   <data name="imageListProjectTreeViews.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -12579,64 +12579,8 @@
         D4k6+a4MgBJ2WvqnAGzCHtvtBsCqCnCxX4DbAVaWcV6P7QGWJgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="imageListProjectZIP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>457, 61</value>
-  </metadata>
-  <data name="imageListProjectZIP.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAC8
-        CgAAAk1TRnQBSQFMAgEBBAEAAagBAwGoAQMBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
-        AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
-        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
-        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
-        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
-        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
-        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
-        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
-        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
-        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
-        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
-        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
-        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
-        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
-        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
-        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
-        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
-        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
-        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
-        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
-        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
-        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
-        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
-        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
-        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
-        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
-        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
-        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
-        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD//8A/wD/AP8AOQAC/wH0
-        AvMC9AL/NQAB9AEAAdoB1AT+AtQB2wEZAf8CAAH/DPQB/yMAAQkBAAjUAf4B2gH/AQAB/wGaAZ8Emgd6
-        Ab0BAAH/AcMBGgm9AfYDAAH/C/QB/wUAARkB/gnUAdsB/wEAAf8BvQGZAZ8EmgZ6Ab0BAAH2AcMBGgWa
-        A+UBXgHxAfMCAAH/AZoBnwWaBHoB8wUAAQkBAAHaBtsB2gHUAdoB/wEAAf8BGgG8AZ8EmgR6AVkBegG9
-        AQAB9gEbAZkDmgN6AXkBcwF5Ae0BEgHyAQAB/wEaAbwFmgF6AeUBeQEUAbwC9AH/AgABCAHoAQkB4gHh
-        AeIB4QPiAQkB6AH/AQAB9AG8AQcKHAEHAfIBAAH0AfAB7wSZAXgBHAFEAmkBbwHjAW4B8wH/AbwBBwaZ
-        ARwBSgFuAWgBbgFoAe8CAAEZBOIBCQHcBOIBGQH/AQAB/wEbAhoBmQd5AZkBGgHzAQAB9AHDARoFnwGZ
-        AeoCaQEWAeMBbgHyAf8BGwEaBZkBeQFKAUUBFgPjAfcCAAEZCuIBGQH/AQAB/wG9AaAKmgGgAb0BAAH2
-        A6AFmgEcAXMBUQHsARIB8gEAAf8BwwGgB5oB6wFEAewBkgGNAbwCAAEZAeEBCQLoAwAB6AHcAeIBGQH/
-        AQAB/wLDAb0CoAiaAcMBAAH/AcMEvQGgApoBoAHlAaAB8QHyAgAB/wLDAr0BoAWaAVEB8gEAAf8DAAEZ
-        AdsB2gfUAdoB6AH/AQAB/wG9AcMCvQGaAb0CoASaAeUBwwEAAf8CWQN6Ab0CoAKaAaAB9AMAAf8CmgJ6
-        AZoGoAH0BQABCQH+CdQB2gH/AQAB/wRZAXoBWQeaAfQBAAH/AVkBOAJZAb0B9gH/A/YC/wMAAf8BWQM4
-        AXoG9AH/BQABGQH+CdQB2wH/AQAB/wJZAjgBWQGaAfYH/wEAAf8E9AH/CgAB/wLDAb0BwwH0DAABCQH+
-        AdoBuQXbAdoB1AHaAf8CAAH0A8MB9AH/KwABCAEABOIB4QPiAQABugH/MwAB9AEZCOIBGQHyAf81AAH/
-        BvQC/wMAAUIBTQE+BwABPgMAASgDAAFAAwABIAMAAQEBAAEBBgABARYAA/+BAAb/AfABBwb/AcABAQGA
-        AQEE/wHAAQEBAAEBAQABBwEAAQcBwAEBAQABAQEAAQMBAAEHAcABAQEAAQEBAAEBAgABwAEBAQABAQQA
-        AcABAQEAAQEEAAHAAQEBAAEBAQABAQIAAcABAQEAAQEBAAEDAQABBQHAAQEBAAEBAQABBwEAAQcBwAEB
-        AQABAQEAAQcBAAEHAcABAQEAAQEBAwH/AQMB/wHAAQEBgQX/AcABAQb/AcABAQb/AfABBws=
-</value>
-  </data>
   <metadata name="imageListProject.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>936, 61</value>
+    <value>1007, 63</value>
   </metadata>
   <data name="imageListProject.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>

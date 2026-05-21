@@ -24,7 +24,7 @@ USING (VALUES
     ('ExternalUnitsA', 'ft²', 'string', 'EXTERNAL Default Heat Exchanger Area Units'),
     ('ExternalUnitsEnergy', 'MMBtu/hr', 'string', 'EXTERNAL Default Energy Units'),
     ('ExternalUnitsMassFlowrate', 'lbs/hr', 'string', 'EXTERNAL Default Mass Flow Units'),
-    ('ExternalUnitsSpecificHeatCapacity', 'kJ/kg-K', 'string', 'EXTERNAL Default Cp Units'),
+    ('ExternalUnitsSpecificHeatCapacity', 'MMBTU/( lbs ·°F)', 'string', 'EXTERNAL Default Cp Units'),
     ('ExternalUnitsHeatCapacityFlowRate', 'MMBtu/(hr·°F)', 'string', 'EXTERNAL Default CP Units'),
     ('ExternalUnitsU', 'MMBtu/(hr·ft²·°F)', 'string', 'EXTERNAL Default Heat Transfer Coefficient Units'),
 
