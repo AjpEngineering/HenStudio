@@ -241,7 +241,6 @@
             this.tabControlROOT = new System.Windows.Forms.TabControl();
             this.tabPageROOT_Home = new System.Windows.Forms.TabPage();
             this.tabPageROOT_License = new System.Windows.Forms.TabPage();
-            this.groupBoxLicense = new System.Windows.Forms.GroupBox();
             this.buttonDaysRemaining = new System.Windows.Forms.Button();
             this.labelHash = new System.Windows.Forms.Label();
             this.textBoxEndDate = new System.Windows.Forms.TextBox();
@@ -254,7 +253,6 @@
             this.labelDuration = new System.Windows.Forms.Label();
             this.labelEndDate = new System.Windows.Forms.Label();
             this.labelStartDate = new System.Windows.Forms.Label();
-            this.groupBoxLicenseType = new System.Windows.Forms.GroupBox();
             this.pictureBoxKeys = new System.Windows.Forms.PictureBox();
             this.pictureBoxSite = new System.Windows.Forms.PictureBox();
             this.textBoxGroup = new System.Windows.Forms.TextBox();
@@ -269,8 +267,6 @@
             this.textBoxDeviceName = new System.Windows.Forms.TextBox();
             this.labelLicenseType = new System.Windows.Forms.Label();
             this.labelDeviceName = new System.Windows.Forms.Label();
-            this.groupBoxProduct = new System.Windows.Forms.GroupBox();
-            this.pictureBoxProductLogo = new System.Windows.Forms.PictureBox();
             this.textBoxProductCode = new System.Windows.Forms.TextBox();
             this.labelProductCode = new System.Windows.Forms.Label();
             this.textBoxVersion = new System.Windows.Forms.TextBox();
@@ -279,12 +275,10 @@
             this.labelSerialNumber = new System.Windows.Forms.Label();
             this.textBoxProductName = new System.Windows.Forms.TextBox();
             this.labelProductName = new System.Windows.Forms.Label();
-            this.groupBoxCustomerContact = new System.Windows.Forms.GroupBox();
             this.textBoxCustomerEmail = new System.Windows.Forms.TextBox();
             this.labelCustomerEmail = new System.Windows.Forms.Label();
             this.textBoxCustomerName = new System.Windows.Forms.TextBox();
             this.labelCustomerName = new System.Windows.Forms.Label();
-            this.groupBoxSupplier = new System.Windows.Forms.GroupBox();
             this.textBoxSupplierUrl = new System.Windows.Forms.TextBox();
             this.labelSupplierUrl = new System.Windows.Forms.Label();
             this.textBoxSupplierName = new System.Windows.Forms.TextBox();
@@ -328,6 +322,25 @@
             this.pictureBoxOpenedPinch = new System.Windows.Forms.PictureBox();
             this.imageListProjectZIP = new System.Windows.Forms.ImageList(this.components);
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
+            this.modifyProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.renameProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelSupplier = new System.Windows.Forms.Panel();
+            this.textBoxSupplierTitle = new System.Windows.Forms.TextBox();
+            this.panelCustomerContact = new System.Windows.Forms.Panel();
+            this.textBoxCustomerContactTitle = new System.Windows.Forms.TextBox();
+            this.panelProduct = new System.Windows.Forms.Panel();
+            this.textBoxProductTitle = new System.Windows.Forms.TextBox();
+            this.panelLicenseType = new System.Windows.Forms.Panel();
+            this.textBoxLicenseTypeTitle = new System.Windows.Forms.TextBox();
+            this.panelLicense = new System.Windows.Forms.Panel();
+            this.textBoxLicenseTitle = new System.Windows.Forms.TextBox();
+            this.listViewDatabaseTables = new System.Windows.Forms.ListView();
+            this.panelDatabaseTables = new System.Windows.Forms.Panel();
+            this.textBoxDatabaseTablesTitle = new System.Windows.Forms.TextBox();
+            this.columnHeaderNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTableName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTableSchema = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStripProfile.SuspendLayout();
             this.contextMenuStripCurrProj.SuspendLayout();
             this.contextMenuStripProjectCatalog.SuspendLayout();
@@ -356,14 +369,8 @@
             this.panelSELECTED_ROOT.SuspendLayout();
             this.tabControlROOT.SuspendLayout();
             this.tabPageROOT_License.SuspendLayout();
-            this.groupBoxLicense.SuspendLayout();
-            this.groupBoxLicenseType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKeys)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSite)).BeginInit();
-            this.groupBoxProduct.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductLogo)).BeginInit();
-            this.groupBoxCustomerContact.SuspendLayout();
-            this.groupBoxSupplier.SuspendLayout();
             this.tabPageROOT_Database.SuspendLayout();
             this.panelProjectDbFileMetadata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProjects)).BeginInit();
@@ -374,6 +381,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).BeginInit();
             this.panelSELECTED_PINCH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedPinch)).BeginInit();
+            this.panelSupplier.SuspendLayout();
+            this.panelCustomerContact.SuspendLayout();
+            this.panelProduct.SuspendLayout();
+            this.panelLicenseType.SuspendLayout();
+            this.panelLicense.SuspendLayout();
+            this.panelDatabaseTables.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripProfile
@@ -381,24 +394,28 @@
             this.contextMenuStripProfile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemProfileRename,
             this.toolStripSeparator4,
+            this.modifyProfileToolStripMenuItem,
+            this.renameProfileToolStripMenuItem,
+            this.toolStripSeparator12,
             this.toolStripMenuItemProfileDelete});
             this.contextMenuStripProfile.Name = "contextMenuStripProfile";
-            this.contextMenuStripProfile.Size = new System.Drawing.Size(145, 54);
+            this.contextMenuStripProfile.Size = new System.Drawing.Size(159, 104);
             // 
             // toolStripMenuItemProfileRename
             // 
             this.toolStripMenuItemProfileRename.Name = "toolStripMenuItemProfileRename";
-            this.toolStripMenuItemProfileRename.Size = new System.Drawing.Size(144, 22);
+            this.toolStripMenuItemProfileRename.Size = new System.Drawing.Size(158, 22);
+            this.toolStripMenuItemProfileRename.Text = "Add Profile...";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(155, 6);
             // 
             // toolStripMenuItemProfileDelete
             // 
             this.toolStripMenuItemProfileDelete.Name = "toolStripMenuItemProfileDelete";
-            this.toolStripMenuItemProfileDelete.Size = new System.Drawing.Size(144, 22);
+            this.toolStripMenuItemProfileDelete.Size = new System.Drawing.Size(158, 22);
             this.toolStripMenuItemProfileDelete.Text = "Delete Profile";
             this.toolStripMenuItemProfileDelete.Click += new System.EventHandler(this.toolStripMenuItemProfileDelete_Click);
             // 
@@ -915,8 +932,8 @@
             // splitContainerLefCenter.Panel2
             // 
             this.splitContainerLefCenter.Panel2.BackColor = System.Drawing.Color.Honeydew;
-            this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROJECT);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_ROOT);
+            this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROJECT);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROFILE);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_HEN);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PINCH);
@@ -2801,8 +2818,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlROOT.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControlROOT.Controls.Add(this.tabPageROOT_Home);
-            this.tabControlROOT.Controls.Add(this.tabPageROOT_License);
             this.tabControlROOT.Controls.Add(this.tabPageROOT_Database);
+            this.tabControlROOT.Controls.Add(this.tabPageROOT_License);
             this.tabControlROOT.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlROOT.ItemSize = new System.Drawing.Size(161, 35);
             this.tabControlROOT.Location = new System.Drawing.Point(-3, 45);
@@ -2816,7 +2833,7 @@
             // 
             // tabPageROOT_Home
             // 
-            this.tabPageROOT_Home.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageROOT_Home.BackColor = System.Drawing.Color.White;
             this.tabPageROOT_Home.Location = new System.Drawing.Point(4, 39);
             this.tabPageROOT_Home.Name = "tabPageROOT_Home";
             this.tabPageROOT_Home.Padding = new System.Windows.Forms.Padding(3);
@@ -2827,45 +2844,17 @@
             // tabPageROOT_License
             // 
             this.tabPageROOT_License.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageROOT_License.Controls.Add(this.groupBoxLicense);
-            this.tabPageROOT_License.Controls.Add(this.groupBoxLicenseType);
-            this.tabPageROOT_License.Controls.Add(this.groupBoxProduct);
-            this.tabPageROOT_License.Controls.Add(this.groupBoxCustomerContact);
-            this.tabPageROOT_License.Controls.Add(this.groupBoxSupplier);
+            this.tabPageROOT_License.Controls.Add(this.panelLicense);
+            this.tabPageROOT_License.Controls.Add(this.panelLicenseType);
+            this.tabPageROOT_License.Controls.Add(this.panelProduct);
+            this.tabPageROOT_License.Controls.Add(this.panelCustomerContact);
+            this.tabPageROOT_License.Controls.Add(this.panelSupplier);
             this.tabPageROOT_License.Location = new System.Drawing.Point(4, 39);
             this.tabPageROOT_License.Name = "tabPageROOT_License";
             this.tabPageROOT_License.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageROOT_License.Size = new System.Drawing.Size(903, 527);
             this.tabPageROOT_License.TabIndex = 1;
             this.tabPageROOT_License.Text = "License";
-            // 
-            // groupBoxLicense
-            // 
-            this.groupBoxLicense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBoxLicense.BackColor = System.Drawing.Color.Azure;
-            this.groupBoxLicense.Controls.Add(this.buttonDaysRemaining);
-            this.groupBoxLicense.Controls.Add(this.labelHash);
-            this.groupBoxLicense.Controls.Add(this.textBoxEndDate);
-            this.groupBoxLicense.Controls.Add(this.textBoxStartDate);
-            this.groupBoxLicense.Controls.Add(this.textBoxHash);
-            this.groupBoxLicense.Controls.Add(this.textBoxDuration);
-            this.groupBoxLicense.Controls.Add(this.textBoxLicenseKey);
-            this.groupBoxLicense.Controls.Add(this.labelLicenseKey);
-            this.groupBoxLicense.Controls.Add(this.labelDays);
-            this.groupBoxLicense.Controls.Add(this.labelDuration);
-            this.groupBoxLicense.Controls.Add(this.labelEndDate);
-            this.groupBoxLicense.Controls.Add(this.labelStartDate);
-            this.groupBoxLicense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxLicense.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxLicense.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.groupBoxLicense.Location = new System.Drawing.Point(9, 397);
-            this.groupBoxLicense.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxLicense.Name = "groupBoxLicense";
-            this.groupBoxLicense.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxLicense.Size = new System.Drawing.Size(888, 123);
-            this.groupBoxLicense.TabIndex = 50;
-            this.groupBoxLicense.TabStop = false;
-            this.groupBoxLicense.Text = "License";
             // 
             // buttonDaysRemaining
             // 
@@ -2875,12 +2864,12 @@
             this.buttonDaysRemaining.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.buttonDaysRemaining.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonDaysRemaining.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDaysRemaining.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDaysRemaining.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDaysRemaining.ForeColor = System.Drawing.Color.White;
-            this.buttonDaysRemaining.Location = new System.Drawing.Point(533, 68);
+            this.buttonDaysRemaining.Location = new System.Drawing.Point(527, 79);
             this.buttonDaysRemaining.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDaysRemaining.Name = "buttonDaysRemaining";
-            this.buttonDaysRemaining.Size = new System.Drawing.Size(322, 42);
+            this.buttonDaysRemaining.Size = new System.Drawing.Size(285, 42);
             this.buttonDaysRemaining.TabIndex = 49;
             this.buttonDaysRemaining.Text = "Days Remaining";
             this.buttonDaysRemaining.UseVisualStyleBackColor = false;
@@ -2888,47 +2877,48 @@
             // labelHash
             // 
             this.labelHash.AutoSize = true;
-            this.labelHash.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHash.BackColor = System.Drawing.Color.White;
+            this.labelHash.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHash.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelHash.Location = new System.Drawing.Point(435, 35);
+            this.labelHash.Location = new System.Drawing.Point(429, 41);
             this.labelHash.Name = "labelHash";
-            this.labelHash.Size = new System.Drawing.Size(51, 20);
+            this.labelHash.Size = new System.Drawing.Size(52, 20);
             this.labelHash.TabIndex = 35;
             this.labelHash.Text = "Hash: ";
             this.labelHash.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxEndDate
             // 
-            this.textBoxEndDate.BackColor = System.Drawing.Color.Azure;
+            this.textBoxEndDate.BackColor = System.Drawing.Color.White;
             this.textBoxEndDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxEndDate.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEndDate.Location = new System.Drawing.Point(278, 79);
+            this.textBoxEndDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEndDate.Location = new System.Drawing.Point(272, 90);
             this.textBoxEndDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEndDate.Name = "textBoxEndDate";
             this.textBoxEndDate.ReadOnly = true;
-            this.textBoxEndDate.Size = new System.Drawing.Size(91, 20);
+            this.textBoxEndDate.Size = new System.Drawing.Size(80, 20);
             this.textBoxEndDate.TabIndex = 39;
             this.textBoxEndDate.Text = "7/4/2022";
             // 
             // textBoxStartDate
             // 
-            this.textBoxStartDate.BackColor = System.Drawing.Color.Azure;
+            this.textBoxStartDate.BackColor = System.Drawing.Color.White;
             this.textBoxStartDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxStartDate.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxStartDate.Location = new System.Drawing.Point(112, 79);
+            this.textBoxStartDate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxStartDate.Location = new System.Drawing.Point(106, 90);
             this.textBoxStartDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxStartDate.Name = "textBoxStartDate";
             this.textBoxStartDate.ReadOnly = true;
-            this.textBoxStartDate.Size = new System.Drawing.Size(91, 20);
+            this.textBoxStartDate.Size = new System.Drawing.Size(80, 20);
             this.textBoxStartDate.TabIndex = 36;
             this.textBoxStartDate.Text = "7/4/2022";
             // 
             // textBoxHash
             // 
-            this.textBoxHash.BackColor = System.Drawing.Color.Azure;
+            this.textBoxHash.BackColor = System.Drawing.Color.White;
             this.textBoxHash.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxHash.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxHash.Location = new System.Drawing.Point(487, 35);
+            this.textBoxHash.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxHash.Location = new System.Drawing.Point(481, 41);
             this.textBoxHash.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxHash.Name = "textBoxHash";
             this.textBoxHash.ReadOnly = true;
@@ -2938,24 +2928,24 @@
             // 
             // textBoxDuration
             // 
-            this.textBoxDuration.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDuration.BackColor = System.Drawing.Color.White;
             this.textBoxDuration.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDuration.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDuration.Location = new System.Drawing.Point(447, 79);
+            this.textBoxDuration.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDuration.Location = new System.Drawing.Point(441, 90);
             this.textBoxDuration.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDuration.Name = "textBoxDuration";
             this.textBoxDuration.ReadOnly = true;
-            this.textBoxDuration.Size = new System.Drawing.Size(31, 20);
+            this.textBoxDuration.Size = new System.Drawing.Size(30, 20);
             this.textBoxDuration.TabIndex = 38;
             this.textBoxDuration.Text = "365";
             this.textBoxDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxLicenseKey
             // 
-            this.textBoxLicenseKey.BackColor = System.Drawing.Color.Azure;
+            this.textBoxLicenseKey.BackColor = System.Drawing.Color.White;
             this.textBoxLicenseKey.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxLicenseKey.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLicenseKey.Location = new System.Drawing.Point(112, 35);
+            this.textBoxLicenseKey.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLicenseKey.Location = new System.Drawing.Point(106, 41);
             this.textBoxLicenseKey.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLicenseKey.Name = "textBoxLicenseKey";
             this.textBoxLicenseKey.ReadOnly = true;
@@ -2966,22 +2956,23 @@
             // labelLicenseKey
             // 
             this.labelLicenseKey.AutoSize = true;
-            this.labelLicenseKey.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLicenseKey.BackColor = System.Drawing.Color.White;
+            this.labelLicenseKey.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLicenseKey.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelLicenseKey.Location = new System.Drawing.Point(13, 35);
+            this.labelLicenseKey.Location = new System.Drawing.Point(4, 41);
             this.labelLicenseKey.Name = "labelLicenseKey";
-            this.labelLicenseKey.Size = new System.Drawing.Size(96, 20);
+            this.labelLicenseKey.Size = new System.Drawing.Size(94, 20);
             this.labelLicenseKey.TabIndex = 15;
-            this.labelLicenseKey.Text = "License Key: ";
+            this.labelLicenseKey.Text = "License Key:";
             this.labelLicenseKey.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelDays
             // 
             this.labelDays.AutoSize = true;
-            this.labelDays.BackColor = System.Drawing.Color.Azure;
-            this.labelDays.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDays.BackColor = System.Drawing.Color.White;
+            this.labelDays.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDays.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelDays.Location = new System.Drawing.Point(482, 79);
+            this.labelDays.Location = new System.Drawing.Point(476, 90);
             this.labelDays.Name = "labelDays";
             this.labelDays.Size = new System.Drawing.Size(41, 20);
             this.labelDays.TabIndex = 14;
@@ -2991,12 +2982,12 @@
             // labelDuration
             // 
             this.labelDuration.AutoSize = true;
-            this.labelDuration.BackColor = System.Drawing.Color.Azure;
-            this.labelDuration.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDuration.BackColor = System.Drawing.Color.White;
+            this.labelDuration.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDuration.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelDuration.Location = new System.Drawing.Point(367, 79);
+            this.labelDuration.Location = new System.Drawing.Point(361, 90);
             this.labelDuration.Name = "labelDuration";
-            this.labelDuration.Size = new System.Drawing.Size(74, 20);
+            this.labelDuration.Size = new System.Drawing.Size(75, 20);
             this.labelDuration.TabIndex = 12;
             this.labelDuration.Text = "Duration:";
             this.labelDuration.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3004,12 +2995,12 @@
             // labelEndDate
             // 
             this.labelEndDate.AutoSize = true;
-            this.labelEndDate.BackColor = System.Drawing.Color.Azure;
-            this.labelEndDate.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEndDate.BackColor = System.Drawing.Color.White;
+            this.labelEndDate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEndDate.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelEndDate.Location = new System.Drawing.Point(200, 79);
+            this.labelEndDate.Location = new System.Drawing.Point(194, 90);
             this.labelEndDate.Name = "labelEndDate";
-            this.labelEndDate.Size = new System.Drawing.Size(75, 20);
+            this.labelEndDate.Size = new System.Drawing.Size(76, 20);
             this.labelEndDate.TabIndex = 31;
             this.labelEndDate.Text = "End Date:";
             this.labelEndDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3017,53 +3008,23 @@
             // labelStartDate
             // 
             this.labelStartDate.AutoSize = true;
-            this.labelStartDate.BackColor = System.Drawing.Color.Azure;
-            this.labelStartDate.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStartDate.BackColor = System.Drawing.Color.White;
+            this.labelStartDate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStartDate.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelStartDate.Location = new System.Drawing.Point(25, 78);
+            this.labelStartDate.Location = new System.Drawing.Point(18, 90);
             this.labelStartDate.Name = "labelStartDate";
             this.labelStartDate.Size = new System.Drawing.Size(84, 20);
             this.labelStartDate.TabIndex = 30;
             this.labelStartDate.Text = "Start Date:";
             this.labelStartDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // groupBoxLicenseType
-            // 
-            this.groupBoxLicenseType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBoxLicenseType.BackColor = System.Drawing.Color.Azure;
-            this.groupBoxLicenseType.Controls.Add(this.pictureBoxKeys);
-            this.groupBoxLicenseType.Controls.Add(this.pictureBoxSite);
-            this.groupBoxLicenseType.Controls.Add(this.textBoxGroup);
-            this.groupBoxLicenseType.Controls.Add(this.textBoxDivision);
-            this.groupBoxLicenseType.Controls.Add(this.textBoxUsername);
-            this.groupBoxLicenseType.Controls.Add(this.labelGroup);
-            this.groupBoxLicenseType.Controls.Add(this.labelUsername);
-            this.groupBoxLicenseType.Controls.Add(this.labelDivision);
-            this.groupBoxLicenseType.Controls.Add(this.textBoxLicenseType);
-            this.groupBoxLicenseType.Controls.Add(this.textBoxCorporation);
-            this.groupBoxLicenseType.Controls.Add(this.labelCorporation);
-            this.groupBoxLicenseType.Controls.Add(this.textBoxDeviceName);
-            this.groupBoxLicenseType.Controls.Add(this.labelLicenseType);
-            this.groupBoxLicenseType.Controls.Add(this.labelDeviceName);
-            this.groupBoxLicenseType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxLicenseType.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxLicenseType.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.groupBoxLicenseType.Location = new System.Drawing.Point(8, 247);
-            this.groupBoxLicenseType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxLicenseType.Name = "groupBoxLicenseType";
-            this.groupBoxLicenseType.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxLicenseType.Size = new System.Drawing.Size(889, 141);
-            this.groupBoxLicenseType.TabIndex = 49;
-            this.groupBoxLicenseType.TabStop = false;
-            this.groupBoxLicenseType.Text = "License Type";
-            // 
             // pictureBoxKeys
             // 
             this.pictureBoxKeys.BackColor = System.Drawing.Color.White;
             this.pictureBoxKeys.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxKeys.Image")));
-            this.pictureBoxKeys.Location = new System.Drawing.Point(675, 16);
+            this.pictureBoxKeys.Location = new System.Drawing.Point(667, 32);
             this.pictureBoxKeys.Name = "pictureBoxKeys";
-            this.pictureBoxKeys.Size = new System.Drawing.Size(181, 118);
+            this.pictureBoxKeys.Size = new System.Drawing.Size(145, 88);
             this.pictureBoxKeys.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxKeys.TabIndex = 50;
             this.pictureBoxKeys.TabStop = false;
@@ -3071,7 +3032,7 @@
             // pictureBoxSite
             // 
             this.pictureBoxSite.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pictureBoxSite.Location = new System.Drawing.Point(11, 62);
+            this.pictureBoxSite.Location = new System.Drawing.Point(11, 73);
             this.pictureBoxSite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxSite.Name = "pictureBoxSite";
             this.pictureBoxSite.Size = new System.Drawing.Size(650, 6);
@@ -3080,10 +3041,11 @@
             // 
             // textBoxGroup
             // 
-            this.textBoxGroup.BackColor = System.Drawing.Color.Azure;
+            this.textBoxGroup.BackColor = System.Drawing.Color.White;
             this.textBoxGroup.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxGroup.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGroup.Location = new System.Drawing.Point(116, 106);
+            this.textBoxGroup.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxGroup.ForeColor = System.Drawing.Color.Black;
+            this.textBoxGroup.Location = new System.Drawing.Point(114, 115);
             this.textBoxGroup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxGroup.Name = "textBoxGroup";
             this.textBoxGroup.ReadOnly = true;
@@ -3093,38 +3055,41 @@
             // 
             // textBoxDivision
             // 
-            this.textBoxDivision.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDivision.BackColor = System.Drawing.Color.White;
             this.textBoxDivision.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDivision.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDivision.Location = new System.Drawing.Point(420, 106);
+            this.textBoxDivision.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDivision.ForeColor = System.Drawing.Color.Black;
+            this.textBoxDivision.Location = new System.Drawing.Point(420, 115);
             this.textBoxDivision.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDivision.Name = "textBoxDivision";
             this.textBoxDivision.ReadOnly = true;
-            this.textBoxDivision.Size = new System.Drawing.Size(218, 20);
+            this.textBoxDivision.Size = new System.Drawing.Size(239, 20);
             this.textBoxDivision.TabIndex = 40;
             this.textBoxDivision.Text = "Research and Development";
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUsername.BackColor = System.Drawing.Color.White;
             this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUsername.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUsername.Location = new System.Drawing.Point(190, 28);
+            this.textBoxUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUsername.ForeColor = System.Drawing.Color.Black;
+            this.textBoxUsername.Location = new System.Drawing.Point(193, 37);
             this.textBoxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.ReadOnly = true;
-            this.textBoxUsername.Size = new System.Drawing.Size(141, 20);
+            this.textBoxUsername.Size = new System.Drawing.Size(147, 20);
             this.textBoxUsername.TabIndex = 44;
             this.textBoxUsername.Text = "Joey Bots";
             // 
             // labelGroup
             // 
             this.labelGroup.AutoSize = true;
-            this.labelGroup.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGroup.BackColor = System.Drawing.Color.White;
+            this.labelGroup.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGroup.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelGroup.Location = new System.Drawing.Point(55, 106);
+            this.labelGroup.Location = new System.Drawing.Point(51, 115);
             this.labelGroup.Name = "labelGroup";
-            this.labelGroup.Size = new System.Drawing.Size(56, 20);
+            this.labelGroup.Size = new System.Drawing.Size(57, 20);
             this.labelGroup.TabIndex = 41;
             this.labelGroup.Text = "Group:";
             this.labelGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3132,11 +3097,12 @@
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
-            this.labelUsername.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.BackColor = System.Drawing.Color.White;
+            this.labelUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsername.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelUsername.Location = new System.Drawing.Point(143, 28);
+            this.labelUsername.Location = new System.Drawing.Point(143, 37);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(43, 20);
+            this.labelUsername.Size = new System.Drawing.Size(46, 20);
             this.labelUsername.TabIndex = 43;
             this.labelUsername.Text = "User:";
             this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3144,21 +3110,23 @@
             // labelDivision
             // 
             this.labelDivision.AutoSize = true;
-            this.labelDivision.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDivision.BackColor = System.Drawing.Color.White;
+            this.labelDivision.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDivision.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelDivision.Location = new System.Drawing.Point(346, 106);
+            this.labelDivision.Location = new System.Drawing.Point(346, 115);
             this.labelDivision.Name = "labelDivision";
-            this.labelDivision.Size = new System.Drawing.Size(68, 20);
+            this.labelDivision.Size = new System.Drawing.Size(69, 20);
             this.labelDivision.TabIndex = 39;
             this.labelDivision.Text = "Division:";
             this.labelDivision.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxLicenseType
             // 
-            this.textBoxLicenseType.BackColor = System.Drawing.Color.Azure;
+            this.textBoxLicenseType.BackColor = System.Drawing.Color.White;
             this.textBoxLicenseType.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxLicenseType.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLicenseType.Location = new System.Drawing.Point(59, 28);
+            this.textBoxLicenseType.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLicenseType.ForeColor = System.Drawing.Color.Black;
+            this.textBoxLicenseType.Location = new System.Drawing.Point(65, 37);
             this.textBoxLicenseType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLicenseType.Name = "textBoxLicenseType";
             this.textBoxLicenseType.ReadOnly = true;
@@ -3168,10 +3136,11 @@
             // 
             // textBoxCorporation
             // 
-            this.textBoxCorporation.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCorporation.BackColor = System.Drawing.Color.White;
             this.textBoxCorporation.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCorporation.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCorporation.Location = new System.Drawing.Point(114, 79);
+            this.textBoxCorporation.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCorporation.ForeColor = System.Drawing.Color.Black;
+            this.textBoxCorporation.Location = new System.Drawing.Point(114, 87);
             this.textBoxCorporation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCorporation.Name = "textBoxCorporation";
             this.textBoxCorporation.ReadOnly = true;
@@ -3182,93 +3151,63 @@
             // labelCorporation
             // 
             this.labelCorporation.AutoSize = true;
-            this.labelCorporation.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCorporation.BackColor = System.Drawing.Color.White;
+            this.labelCorporation.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCorporation.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelCorporation.Location = new System.Drawing.Point(13, 78);
+            this.labelCorporation.Location = new System.Drawing.Point(11, 87);
             this.labelCorporation.Name = "labelCorporation";
-            this.labelCorporation.Size = new System.Drawing.Size(98, 20);
+            this.labelCorporation.Size = new System.Drawing.Size(97, 20);
             this.labelCorporation.TabIndex = 29;
             this.labelCorporation.Text = "Corporation:";
             this.labelCorporation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxDeviceName
             // 
-            this.textBoxDeviceName.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDeviceName.BackColor = System.Drawing.Color.White;
             this.textBoxDeviceName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDeviceName.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDeviceName.Location = new System.Drawing.Point(408, 28);
+            this.textBoxDeviceName.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDeviceName.ForeColor = System.Drawing.Color.Black;
+            this.textBoxDeviceName.Location = new System.Drawing.Point(415, 37);
             this.textBoxDeviceName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDeviceName.Name = "textBoxDeviceName";
             this.textBoxDeviceName.ReadOnly = true;
-            this.textBoxDeviceName.Size = new System.Drawing.Size(230, 20);
+            this.textBoxDeviceName.Size = new System.Drawing.Size(244, 20);
             this.textBoxDeviceName.TabIndex = 22;
             this.textBoxDeviceName.Text = "GM-DESKTOP";
             // 
             // labelLicenseType
             // 
             this.labelLicenseType.AutoSize = true;
-            this.labelLicenseType.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLicenseType.BackColor = System.Drawing.Color.White;
+            this.labelLicenseType.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLicenseType.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelLicenseType.Location = new System.Drawing.Point(13, 28);
+            this.labelLicenseType.Location = new System.Drawing.Point(13, 37);
             this.labelLicenseType.Name = "labelLicenseType";
-            this.labelLicenseType.Size = new System.Drawing.Size(48, 20);
+            this.labelLicenseType.Size = new System.Drawing.Size(46, 20);
             this.labelLicenseType.TabIndex = 10;
-            this.labelLicenseType.Text = "Type: ";
+            this.labelLicenseType.Text = "Type:";
             this.labelLicenseType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelDeviceName
             // 
             this.labelDeviceName.AutoSize = true;
-            this.labelDeviceName.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDeviceName.BackColor = System.Drawing.Color.White;
+            this.labelDeviceName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDeviceName.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelDeviceName.Location = new System.Drawing.Point(346, 28);
+            this.labelDeviceName.Location = new System.Drawing.Point(352, 37);
             this.labelDeviceName.Name = "labelDeviceName";
-            this.labelDeviceName.Size = new System.Drawing.Size(63, 20);
+            this.labelDeviceName.Size = new System.Drawing.Size(59, 20);
             this.labelDeviceName.TabIndex = 21;
-            this.labelDeviceName.Text = "Device: ";
+            this.labelDeviceName.Text = "Device:";
             this.labelDeviceName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // groupBoxProduct
-            // 
-            this.groupBoxProduct.BackColor = System.Drawing.Color.Azure;
-            this.groupBoxProduct.Controls.Add(this.pictureBoxProductLogo);
-            this.groupBoxProduct.Controls.Add(this.textBoxProductCode);
-            this.groupBoxProduct.Controls.Add(this.labelProductCode);
-            this.groupBoxProduct.Controls.Add(this.textBoxVersion);
-            this.groupBoxProduct.Controls.Add(this.labelVersion);
-            this.groupBoxProduct.Controls.Add(this.textBoxSerialNumber);
-            this.groupBoxProduct.Controls.Add(this.labelSerialNumber);
-            this.groupBoxProduct.Controls.Add(this.textBoxProductName);
-            this.groupBoxProduct.Controls.Add(this.labelProductName);
-            this.groupBoxProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxProduct.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxProduct.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.groupBoxProduct.Location = new System.Drawing.Point(7, 129);
-            this.groupBoxProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxProduct.Name = "groupBoxProduct";
-            this.groupBoxProduct.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxProduct.Size = new System.Drawing.Size(888, 108);
-            this.groupBoxProduct.TabIndex = 48;
-            this.groupBoxProduct.TabStop = false;
-            this.groupBoxProduct.Text = "Product";
-            // 
-            // pictureBoxProductLogo
-            // 
-            this.pictureBoxProductLogo.BackColor = System.Drawing.Color.White;
-            this.pictureBoxProductLogo.Location = new System.Drawing.Point(676, 20);
-            this.pictureBoxProductLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxProductLogo.Name = "pictureBoxProductLogo";
-            this.pictureBoxProductLogo.Size = new System.Drawing.Size(181, 73);
-            this.pictureBoxProductLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxProductLogo.TabIndex = 38;
-            this.pictureBoxProductLogo.TabStop = false;
             // 
             // textBoxProductCode
             // 
-            this.textBoxProductCode.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxProductCode.BackColor = System.Drawing.Color.White;
             this.textBoxProductCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProductCode.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProductCode.Location = new System.Drawing.Point(134, 67);
+            this.textBoxProductCode.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProductCode.ForeColor = System.Drawing.Color.Black;
+            this.textBoxProductCode.Location = new System.Drawing.Point(130, 63);
             this.textBoxProductCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxProductCode.Name = "textBoxProductCode";
             this.textBoxProductCode.ReadOnly = true;
@@ -3279,20 +3218,23 @@
             // labelProductCode
             // 
             this.labelProductCode.AutoSize = true;
-            this.labelProductCode.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductCode.Location = new System.Drawing.Point(19, 67);
+            this.labelProductCode.BackColor = System.Drawing.Color.White;
+            this.labelProductCode.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProductCode.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelProductCode.Location = new System.Drawing.Point(18, 63);
             this.labelProductCode.Name = "labelProductCode";
-            this.labelProductCode.Size = new System.Drawing.Size(109, 20);
+            this.labelProductCode.Size = new System.Drawing.Size(107, 20);
             this.labelProductCode.TabIndex = 36;
             this.labelProductCode.Text = "Product Code:";
             this.labelProductCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxVersion
             // 
-            this.textBoxVersion.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxVersion.BackColor = System.Drawing.Color.White;
             this.textBoxVersion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxVersion.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxVersion.Location = new System.Drawing.Point(377, 33);
+            this.textBoxVersion.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxVersion.ForeColor = System.Drawing.Color.Black;
+            this.textBoxVersion.Location = new System.Drawing.Point(412, 36);
             this.textBoxVersion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxVersion.Name = "textBoxVersion";
             this.textBoxVersion.ReadOnly = true;
@@ -3303,20 +3245,23 @@
             // labelVersion
             // 
             this.labelVersion.AutoSize = true;
-            this.labelVersion.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVersion.Location = new System.Drawing.Point(307, 33);
+            this.labelVersion.BackColor = System.Drawing.Color.White;
+            this.labelVersion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVersion.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelVersion.Location = new System.Drawing.Point(342, 36);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(64, 20);
+            this.labelVersion.Size = new System.Drawing.Size(65, 20);
             this.labelVersion.TabIndex = 34;
             this.labelVersion.Text = "Version:";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxSerialNumber
             // 
-            this.textBoxSerialNumber.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxSerialNumber.BackColor = System.Drawing.Color.White;
             this.textBoxSerialNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSerialNumber.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSerialNumber.Location = new System.Drawing.Point(497, 67);
+            this.textBoxSerialNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSerialNumber.ForeColor = System.Drawing.Color.Black;
+            this.textBoxSerialNumber.Location = new System.Drawing.Point(597, 63);
             this.textBoxSerialNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxSerialNumber.Name = "textBoxSerialNumber";
             this.textBoxSerialNumber.ReadOnly = true;
@@ -3328,63 +3273,50 @@
             // labelSerialNumber
             // 
             this.labelSerialNumber.AutoSize = true;
-            this.labelSerialNumber.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSerialNumber.Location = new System.Drawing.Point(493, 33);
+            this.labelSerialNumber.BackColor = System.Drawing.Color.White;
+            this.labelSerialNumber.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSerialNumber.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelSerialNumber.Location = new System.Drawing.Point(473, 63);
             this.labelSerialNumber.Name = "labelSerialNumber";
-            this.labelSerialNumber.Size = new System.Drawing.Size(115, 20);
+            this.labelSerialNumber.Size = new System.Drawing.Size(118, 20);
             this.labelSerialNumber.TabIndex = 27;
             this.labelSerialNumber.Text = "Serial Number: ";
             this.labelSerialNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxProductName
             // 
-            this.textBoxProductName.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxProductName.BackColor = System.Drawing.Color.White;
             this.textBoxProductName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProductName.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProductName.Location = new System.Drawing.Point(134, 33);
+            this.textBoxProductName.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProductName.ForeColor = System.Drawing.Color.Black;
+            this.textBoxProductName.Location = new System.Drawing.Point(130, 34);
             this.textBoxProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxProductName.Name = "textBoxProductName";
             this.textBoxProductName.ReadOnly = true;
-            this.textBoxProductName.Size = new System.Drawing.Size(153, 20);
+            this.textBoxProductName.Size = new System.Drawing.Size(211, 20);
             this.textBoxProductName.TabIndex = 33;
             this.textBoxProductName.Text = "AJP HEN Studio 1.0";
             // 
             // labelProductName
             // 
             this.labelProductName.AutoSize = true;
-            this.labelProductName.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductName.Location = new System.Drawing.Point(19, 33);
+            this.labelProductName.BackColor = System.Drawing.Color.White;
+            this.labelProductName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProductName.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelProductName.Location = new System.Drawing.Point(11, 34);
             this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(112, 20);
+            this.labelProductName.Size = new System.Drawing.Size(114, 20);
             this.labelProductName.TabIndex = 32;
             this.labelProductName.Text = "Product Name:";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // groupBoxCustomerContact
-            // 
-            this.groupBoxCustomerContact.BackColor = System.Drawing.Color.Azure;
-            this.groupBoxCustomerContact.Controls.Add(this.textBoxCustomerEmail);
-            this.groupBoxCustomerContact.Controls.Add(this.labelCustomerEmail);
-            this.groupBoxCustomerContact.Controls.Add(this.textBoxCustomerName);
-            this.groupBoxCustomerContact.Controls.Add(this.labelCustomerName);
-            this.groupBoxCustomerContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxCustomerContact.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxCustomerContact.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.groupBoxCustomerContact.Location = new System.Drawing.Point(492, 7);
-            this.groupBoxCustomerContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxCustomerContact.Name = "groupBoxCustomerContact";
-            this.groupBoxCustomerContact.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxCustomerContact.Size = new System.Drawing.Size(372, 112);
-            this.groupBoxCustomerContact.TabIndex = 47;
-            this.groupBoxCustomerContact.TabStop = false;
-            this.groupBoxCustomerContact.Text = "Customer Contact";
-            // 
             // textBoxCustomerEmail
             // 
-            this.textBoxCustomerEmail.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxCustomerEmail.BackColor = System.Drawing.Color.White;
             this.textBoxCustomerEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCustomerEmail.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCustomerEmail.Location = new System.Drawing.Point(55, 73);
+            this.textBoxCustomerEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCustomerEmail.ForeColor = System.Drawing.Color.Black;
+            this.textBoxCustomerEmail.Location = new System.Drawing.Point(86, 79);
             this.textBoxCustomerEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCustomerEmail.Name = "textBoxCustomerEmail";
             this.textBoxCustomerEmail.ReadOnly = true;
@@ -3395,20 +3327,22 @@
             // labelCustomerEmail
             // 
             this.labelCustomerEmail.AutoSize = true;
-            this.labelCustomerEmail.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCustomerEmail.Location = new System.Drawing.Point(6, 73);
+            this.labelCustomerEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCustomerEmail.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelCustomerEmail.Location = new System.Drawing.Point(29, 79);
             this.labelCustomerEmail.Name = "labelCustomerEmail";
-            this.labelCustomerEmail.Size = new System.Drawing.Size(49, 20);
+            this.labelCustomerEmail.Size = new System.Drawing.Size(51, 20);
             this.labelCustomerEmail.TabIndex = 34;
             this.labelCustomerEmail.Text = "Email:";
             this.labelCustomerEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxCustomerName
             // 
-            this.textBoxCustomerName.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxCustomerName.BackColor = System.Drawing.Color.White;
             this.textBoxCustomerName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCustomerName.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCustomerName.Location = new System.Drawing.Point(139, 35);
+            this.textBoxCustomerName.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCustomerName.ForeColor = System.Drawing.Color.Black;
+            this.textBoxCustomerName.Location = new System.Drawing.Point(162, 41);
             this.textBoxCustomerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCustomerName.Name = "textBoxCustomerName";
             this.textBoxCustomerName.ReadOnly = true;
@@ -3419,41 +3353,22 @@
             // labelCustomerName
             // 
             this.labelCustomerName.AutoSize = true;
-            this.labelCustomerName.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCustomerName.Location = new System.Drawing.Point(6, 35);
+            this.labelCustomerName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCustomerName.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelCustomerName.Location = new System.Drawing.Point(29, 41);
             this.labelCustomerName.Name = "labelCustomerName";
-            this.labelCustomerName.Size = new System.Drawing.Size(125, 20);
+            this.labelCustomerName.Size = new System.Drawing.Size(127, 20);
             this.labelCustomerName.TabIndex = 32;
             this.labelCustomerName.Text = "Customer Name:";
             this.labelCustomerName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // groupBoxSupplier
-            // 
-            this.groupBoxSupplier.BackColor = System.Drawing.Color.Azure;
-            this.groupBoxSupplier.Controls.Add(this.textBoxSupplierUrl);
-            this.groupBoxSupplier.Controls.Add(this.labelSupplierUrl);
-            this.groupBoxSupplier.Controls.Add(this.textBoxSupplierName);
-            this.groupBoxSupplier.Controls.Add(this.labelSupplierName);
-            this.groupBoxSupplier.Controls.Add(this.textBoxAuthor);
-            this.groupBoxSupplier.Controls.Add(this.labelAuthor);
-            this.groupBoxSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxSupplier.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxSupplier.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.groupBoxSupplier.Location = new System.Drawing.Point(36, 7);
-            this.groupBoxSupplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxSupplier.Name = "groupBoxSupplier";
-            this.groupBoxSupplier.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxSupplier.Size = new System.Drawing.Size(405, 112);
-            this.groupBoxSupplier.TabIndex = 46;
-            this.groupBoxSupplier.TabStop = false;
-            this.groupBoxSupplier.Text = "Supplier";
-            // 
             // textBoxSupplierUrl
             // 
-            this.textBoxSupplierUrl.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxSupplierUrl.BackColor = System.Drawing.Color.White;
             this.textBoxSupplierUrl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSupplierUrl.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupplierUrl.Location = new System.Drawing.Point(127, 73);
+            this.textBoxSupplierUrl.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupplierUrl.ForeColor = System.Drawing.Color.Black;
+            this.textBoxSupplierUrl.Location = new System.Drawing.Point(129, 84);
             this.textBoxSupplierUrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxSupplierUrl.Name = "textBoxSupplierUrl";
             this.textBoxSupplierUrl.ReadOnly = true;
@@ -3464,20 +3379,22 @@
             // labelSupplierUrl
             // 
             this.labelSupplierUrl.AutoSize = true;
-            this.labelSupplierUrl.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSupplierUrl.Location = new System.Drawing.Point(19, 73);
+            this.labelSupplierUrl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSupplierUrl.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelSupplierUrl.Location = new System.Drawing.Point(21, 84);
             this.labelSupplierUrl.Name = "labelSupplierUrl";
-            this.labelSupplierUrl.Size = new System.Drawing.Size(100, 20);
+            this.labelSupplierUrl.Size = new System.Drawing.Size(103, 20);
             this.labelSupplierUrl.TabIndex = 34;
             this.labelSupplierUrl.Text = "Supplier URL:";
             this.labelSupplierUrl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxSupplierName
             // 
-            this.textBoxSupplierName.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxSupplierName.BackColor = System.Drawing.Color.White;
             this.textBoxSupplierName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSupplierName.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupplierName.Location = new System.Drawing.Point(127, 48);
+            this.textBoxSupplierName.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupplierName.ForeColor = System.Drawing.Color.Black;
+            this.textBoxSupplierName.Location = new System.Drawing.Point(129, 59);
             this.textBoxSupplierName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxSupplierName.Name = "textBoxSupplierName";
             this.textBoxSupplierName.ReadOnly = true;
@@ -3488,20 +3405,22 @@
             // labelSupplierName
             // 
             this.labelSupplierName.AutoSize = true;
-            this.labelSupplierName.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSupplierName.Location = new System.Drawing.Point(5, 48);
+            this.labelSupplierName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSupplierName.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelSupplierName.Location = new System.Drawing.Point(7, 59);
             this.labelSupplierName.Name = "labelSupplierName";
-            this.labelSupplierName.Size = new System.Drawing.Size(114, 20);
+            this.labelSupplierName.Size = new System.Drawing.Size(116, 20);
             this.labelSupplierName.TabIndex = 32;
             this.labelSupplierName.Text = "Supplier Name:";
             this.labelSupplierName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxAuthor
             // 
-            this.textBoxAuthor.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxAuthor.BackColor = System.Drawing.Color.White;
             this.textBoxAuthor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxAuthor.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAuthor.Location = new System.Drawing.Point(127, 22);
+            this.textBoxAuthor.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAuthor.ForeColor = System.Drawing.Color.Black;
+            this.textBoxAuthor.Location = new System.Drawing.Point(129, 33);
             this.textBoxAuthor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxAuthor.Name = "textBoxAuthor";
             this.textBoxAuthor.ReadOnly = true;
@@ -3512,10 +3431,11 @@
             // labelAuthor
             // 
             this.labelAuthor.AutoSize = true;
-            this.labelAuthor.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAuthor.Location = new System.Drawing.Point(54, 23);
+            this.labelAuthor.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAuthor.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelAuthor.Location = new System.Drawing.Point(56, 34);
             this.labelAuthor.Name = "labelAuthor";
-            this.labelAuthor.Size = new System.Drawing.Size(65, 20);
+            this.labelAuthor.Size = new System.Drawing.Size(68, 20);
             this.labelAuthor.TabIndex = 31;
             this.labelAuthor.Text = "Author: ";
             this.labelAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3523,6 +3443,7 @@
             // tabPageROOT_Database
             // 
             this.tabPageROOT_Database.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageROOT_Database.Controls.Add(this.panelDatabaseTables);
             this.tabPageROOT_Database.Controls.Add(this.panelProjectDbFileMetadata);
             this.tabPageROOT_Database.Controls.Add(this.buttonConnection);
             this.tabPageROOT_Database.Location = new System.Drawing.Point(4, 39);
@@ -3533,7 +3454,8 @@
             // 
             // panelProjectDbFileMetadata
             // 
-            this.panelProjectDbFileMetadata.BackColor = System.Drawing.Color.Azure;
+            this.panelProjectDbFileMetadata.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelProjectDbFileMetadata.BackColor = System.Drawing.Color.White;
             this.panelProjectDbFileMetadata.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelProjectDbFileMetadata.Controls.Add(this.textBoxConnServerVersionValue);
             this.panelProjectDbFileMetadata.Controls.Add(this.textBoxConnServerVersion);
@@ -3552,14 +3474,14 @@
             this.panelProjectDbFileMetadata.Controls.Add(this.textBoxConnDataSourceValue);
             this.panelProjectDbFileMetadata.Controls.Add(this.textBoxConnDataSource);
             this.panelProjectDbFileMetadata.Controls.Add(this.textBoxDbConnectionTitle);
-            this.panelProjectDbFileMetadata.Location = new System.Drawing.Point(9, 13);
+            this.panelProjectDbFileMetadata.Location = new System.Drawing.Point(530, 11);
             this.panelProjectDbFileMetadata.Name = "panelProjectDbFileMetadata";
             this.panelProjectDbFileMetadata.Size = new System.Drawing.Size(350, 237);
             this.panelProjectDbFileMetadata.TabIndex = 14;
             // 
             // textBoxConnServerVersionValue
             // 
-            this.textBoxConnServerVersionValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnServerVersionValue.BackColor = System.Drawing.Color.White;
             this.textBoxConnServerVersionValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnServerVersionValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnServerVersionValue.ForeColor = System.Drawing.Color.Black;
@@ -3572,7 +3494,7 @@
             // 
             // textBoxConnServerVersion
             // 
-            this.textBoxConnServerVersion.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnServerVersion.BackColor = System.Drawing.Color.White;
             this.textBoxConnServerVersion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnServerVersion.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnServerVersion.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -3586,7 +3508,7 @@
             // 
             // textBoxConnTimeoutValue
             // 
-            this.textBoxConnTimeoutValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnTimeoutValue.BackColor = System.Drawing.Color.White;
             this.textBoxConnTimeoutValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnTimeoutValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnTimeoutValue.ForeColor = System.Drawing.Color.Black;
@@ -3599,7 +3521,7 @@
             // 
             // textBoxConnTimeout
             // 
-            this.textBoxConnTimeout.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnTimeout.BackColor = System.Drawing.Color.White;
             this.textBoxConnTimeout.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnTimeout.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnTimeout.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -3613,7 +3535,7 @@
             // 
             // textBoxConnInitCatalogValue
             // 
-            this.textBoxConnInitCatalogValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnInitCatalogValue.BackColor = System.Drawing.Color.White;
             this.textBoxConnInitCatalogValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnInitCatalogValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnInitCatalogValue.ForeColor = System.Drawing.Color.Black;
@@ -3626,7 +3548,7 @@
             // 
             // textBoxConnInitCatalog
             // 
-            this.textBoxConnInitCatalog.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnInitCatalog.BackColor = System.Drawing.Color.White;
             this.textBoxConnInitCatalog.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnInitCatalog.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnInitCatalog.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -3640,7 +3562,7 @@
             // 
             // textBoxConnWorkstationIDValue
             // 
-            this.textBoxConnWorkstationIDValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnWorkstationIDValue.BackColor = System.Drawing.Color.White;
             this.textBoxConnWorkstationIDValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnWorkstationIDValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnWorkstationIDValue.ForeColor = System.Drawing.Color.Black;
@@ -3653,7 +3575,7 @@
             // 
             // textBoxConnWorkstationID
             // 
-            this.textBoxConnWorkstationID.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnWorkstationID.BackColor = System.Drawing.Color.White;
             this.textBoxConnWorkstationID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnWorkstationID.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnWorkstationID.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -3667,7 +3589,7 @@
             // 
             // textBoxConnUserIDValue
             // 
-            this.textBoxConnUserIDValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnUserIDValue.BackColor = System.Drawing.Color.White;
             this.textBoxConnUserIDValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnUserIDValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnUserIDValue.ForeColor = System.Drawing.Color.Black;
@@ -3680,7 +3602,7 @@
             // 
             // textBoxConnUserID
             // 
-            this.textBoxConnUserID.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnUserID.BackColor = System.Drawing.Color.White;
             this.textBoxConnUserID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnUserID.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnUserID.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -3694,7 +3616,7 @@
             // 
             // textBoxConnPacketSizeValue
             // 
-            this.textBoxConnPacketSizeValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnPacketSizeValue.BackColor = System.Drawing.Color.White;
             this.textBoxConnPacketSizeValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnPacketSizeValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnPacketSizeValue.ForeColor = System.Drawing.Color.Black;
@@ -3707,7 +3629,7 @@
             // 
             // textBoxConnPacketSize
             // 
-            this.textBoxConnPacketSize.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnPacketSize.BackColor = System.Drawing.Color.White;
             this.textBoxConnPacketSize.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnPacketSize.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnPacketSize.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -3721,7 +3643,7 @@
             // 
             // textBoxConnStateValue
             // 
-            this.textBoxConnStateValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnStateValue.BackColor = System.Drawing.Color.White;
             this.textBoxConnStateValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnStateValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnStateValue.ForeColor = System.Drawing.Color.Black;
@@ -3734,7 +3656,7 @@
             // 
             // textBoxConnState
             // 
-            this.textBoxConnState.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnState.BackColor = System.Drawing.Color.White;
             this.textBoxConnState.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnState.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnState.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -3748,7 +3670,7 @@
             // 
             // textBoxConnDataSourceValue
             // 
-            this.textBoxConnDataSourceValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnDataSourceValue.BackColor = System.Drawing.Color.White;
             this.textBoxConnDataSourceValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnDataSourceValue.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnDataSourceValue.ForeColor = System.Drawing.Color.Black;
@@ -3761,7 +3683,7 @@
             // 
             // textBoxConnDataSource
             // 
-            this.textBoxConnDataSource.BackColor = System.Drawing.Color.Azure;
+            this.textBoxConnDataSource.BackColor = System.Drawing.Color.White;
             this.textBoxConnDataSource.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConnDataSource.Font = new System.Drawing.Font("Segoe UI Variable Display", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConnDataSource.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -3775,32 +3697,33 @@
             // 
             // textBoxDbConnectionTitle
             // 
-            this.textBoxDbConnectionTitle.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDbConnectionTitle.BackColor = System.Drawing.Color.Yellow;
             this.textBoxDbConnectionTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDbConnectionTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDbConnectionTitle.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.textBoxDbConnectionTitle.Location = new System.Drawing.Point(2, 11);
+            this.textBoxDbConnectionTitle.Location = new System.Drawing.Point(3, 0);
             this.textBoxDbConnectionTitle.Name = "textBoxDbConnectionTitle";
-            this.textBoxDbConnectionTitle.Size = new System.Drawing.Size(346, 22);
+            this.textBoxDbConnectionTitle.Size = new System.Drawing.Size(336, 22);
             this.textBoxDbConnectionTitle.TabIndex = 33;
             this.textBoxDbConnectionTitle.Text = "HENSTUDIO DATABASE CONNECTION";
             this.textBoxDbConnectionTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonConnection
             // 
+            this.buttonConnection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonConnection.BackColor = System.Drawing.Color.RoyalBlue;
             this.buttonConnection.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonConnection.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonConnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonConnection.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConnection.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConnection.ForeColor = System.Drawing.Color.White;
             this.buttonConnection.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonConnection.Location = new System.Drawing.Point(10, 256);
+            this.buttonConnection.Location = new System.Drawing.Point(531, 254);
             this.buttonConnection.Name = "buttonConnection";
             this.buttonConnection.Padding = new System.Windows.Forms.Padding(3, 3, 6, 3);
             this.buttonConnection.Size = new System.Drawing.Size(349, 50);
             this.buttonConnection.TabIndex = 15;
-            this.buttonConnection.Text = "  CHECK DATABASE CONNECTION";
+            this.buttonConnection.Text = "Check Database Connection";
             this.buttonConnection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonConnection.UseVisualStyleBackColor = false;
             this.buttonConnection.Click += new System.EventHandler(this.buttonConnection_Click);
@@ -3826,7 +3749,7 @@
             this.textBoxProjectsBanner.Name = "textBoxProjectsBanner";
             this.textBoxProjectsBanner.Size = new System.Drawing.Size(853, 33);
             this.textBoxProjectsBanner.TabIndex = 10;
-            this.textBoxProjectsBanner.Text = "HEN STUDIO PROJECT - CATALOG";
+            this.textBoxProjectsBanner.Text = "AJP HEN STUDIO APPLICATION";
             this.textBoxProjectsBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panelSELECTED_PROFILE
@@ -4019,6 +3942,257 @@
             this.imageListProject.Images.SetKeyName(0, "Project Explorer...32x32.png");
             this.imageListProject.Images.SetKeyName(1, "Project...32x32.png");
             // 
+            // modifyProfileToolStripMenuItem
+            // 
+            this.modifyProfileToolStripMenuItem.Name = "modifyProfileToolStripMenuItem";
+            this.modifyProfileToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.modifyProfileToolStripMenuItem.Text = "Modify Profile...";
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(155, 6);
+            // 
+            // renameProfileToolStripMenuItem
+            // 
+            this.renameProfileToolStripMenuItem.Name = "renameProfileToolStripMenuItem";
+            this.renameProfileToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.renameProfileToolStripMenuItem.Text = "Rename Profile";
+            // 
+            // panelSupplier
+            // 
+            this.panelSupplier.BackColor = System.Drawing.Color.White;
+            this.panelSupplier.Controls.Add(this.textBoxSupplierTitle);
+            this.panelSupplier.Controls.Add(this.textBoxSupplierUrl);
+            this.panelSupplier.Controls.Add(this.labelSupplierUrl);
+            this.panelSupplier.Controls.Add(this.labelAuthor);
+            this.panelSupplier.Controls.Add(this.textBoxSupplierName);
+            this.panelSupplier.Controls.Add(this.textBoxAuthor);
+            this.panelSupplier.Controls.Add(this.labelSupplierName);
+            this.panelSupplier.Location = new System.Drawing.Point(47, 9);
+            this.panelSupplier.Name = "panelSupplier";
+            this.panelSupplier.Size = new System.Drawing.Size(405, 112);
+            this.panelSupplier.TabIndex = 51;
+            // 
+            // textBoxSupplierTitle
+            // 
+            this.textBoxSupplierTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSupplierTitle.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxSupplierTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSupplierTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupplierTitle.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxSupplierTitle.Location = new System.Drawing.Point(5, 2);
+            this.textBoxSupplierTitle.Name = "textBoxSupplierTitle";
+            this.textBoxSupplierTitle.ReadOnly = true;
+            this.textBoxSupplierTitle.Size = new System.Drawing.Size(397, 22);
+            this.textBoxSupplierTitle.TabIndex = 36;
+            this.textBoxSupplierTitle.TabStop = false;
+            this.textBoxSupplierTitle.Text = "SUPPLIER";
+            this.textBoxSupplierTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelCustomerContact
+            // 
+            this.panelCustomerContact.BackColor = System.Drawing.Color.White;
+            this.panelCustomerContact.Controls.Add(this.textBoxCustomerEmail);
+            this.panelCustomerContact.Controls.Add(this.textBoxCustomerContactTitle);
+            this.panelCustomerContact.Controls.Add(this.labelCustomerEmail);
+            this.panelCustomerContact.Controls.Add(this.labelCustomerName);
+            this.panelCustomerContact.Controls.Add(this.textBoxCustomerName);
+            this.panelCustomerContact.Location = new System.Drawing.Point(459, 9);
+            this.panelCustomerContact.Name = "panelCustomerContact";
+            this.panelCustomerContact.Size = new System.Drawing.Size(405, 112);
+            this.panelCustomerContact.TabIndex = 52;
+            // 
+            // textBoxCustomerContactTitle
+            // 
+            this.textBoxCustomerContactTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxCustomerContactTitle.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxCustomerContactTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxCustomerContactTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCustomerContactTitle.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxCustomerContactTitle.Location = new System.Drawing.Point(5, 3);
+            this.textBoxCustomerContactTitle.Name = "textBoxCustomerContactTitle";
+            this.textBoxCustomerContactTitle.ReadOnly = true;
+            this.textBoxCustomerContactTitle.Size = new System.Drawing.Size(397, 22);
+            this.textBoxCustomerContactTitle.TabIndex = 36;
+            this.textBoxCustomerContactTitle.TabStop = false;
+            this.textBoxCustomerContactTitle.Text = "CUSTOMER CONTACT";
+            this.textBoxCustomerContactTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelProduct
+            // 
+            this.panelProduct.BackColor = System.Drawing.Color.White;
+            this.panelProduct.Controls.Add(this.textBoxProductCode);
+            this.panelProduct.Controls.Add(this.textBoxProductTitle);
+            this.panelProduct.Controls.Add(this.labelProductCode);
+            this.panelProduct.Controls.Add(this.labelProductName);
+            this.panelProduct.Controls.Add(this.textBoxVersion);
+            this.panelProduct.Controls.Add(this.textBoxProductName);
+            this.panelProduct.Controls.Add(this.labelVersion);
+            this.panelProduct.Controls.Add(this.labelSerialNumber);
+            this.panelProduct.Controls.Add(this.textBoxSerialNumber);
+            this.panelProduct.Location = new System.Drawing.Point(47, 127);
+            this.panelProduct.Name = "panelProduct";
+            this.panelProduct.Size = new System.Drawing.Size(817, 97);
+            this.panelProduct.TabIndex = 53;
+            // 
+            // textBoxProductTitle
+            // 
+            this.textBoxProductTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProductTitle.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxProductTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProductTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProductTitle.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxProductTitle.Location = new System.Drawing.Point(3, 2);
+            this.textBoxProductTitle.Name = "textBoxProductTitle";
+            this.textBoxProductTitle.ReadOnly = true;
+            this.textBoxProductTitle.Size = new System.Drawing.Size(811, 22);
+            this.textBoxProductTitle.TabIndex = 37;
+            this.textBoxProductTitle.TabStop = false;
+            this.textBoxProductTitle.Text = "PRODUCT";
+            this.textBoxProductTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelLicenseType
+            // 
+            this.panelLicenseType.BackColor = System.Drawing.Color.White;
+            this.panelLicenseType.Controls.Add(this.pictureBoxKeys);
+            this.panelLicenseType.Controls.Add(this.textBoxLicenseTypeTitle);
+            this.panelLicenseType.Controls.Add(this.pictureBoxSite);
+            this.panelLicenseType.Controls.Add(this.textBoxUsername);
+            this.panelLicenseType.Controls.Add(this.textBoxGroup);
+            this.panelLicenseType.Controls.Add(this.labelDeviceName);
+            this.panelLicenseType.Controls.Add(this.textBoxDivision);
+            this.panelLicenseType.Controls.Add(this.labelLicenseType);
+            this.panelLicenseType.Controls.Add(this.textBoxDeviceName);
+            this.panelLicenseType.Controls.Add(this.labelGroup);
+            this.panelLicenseType.Controls.Add(this.labelCorporation);
+            this.panelLicenseType.Controls.Add(this.labelUsername);
+            this.panelLicenseType.Controls.Add(this.textBoxCorporation);
+            this.panelLicenseType.Controls.Add(this.labelDivision);
+            this.panelLicenseType.Controls.Add(this.textBoxLicenseType);
+            this.panelLicenseType.Location = new System.Drawing.Point(47, 230);
+            this.panelLicenseType.Name = "panelLicenseType";
+            this.panelLicenseType.Size = new System.Drawing.Size(817, 146);
+            this.panelLicenseType.TabIndex = 54;
+            // 
+            // textBoxLicenseTypeTitle
+            // 
+            this.textBoxLicenseTypeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLicenseTypeTitle.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxLicenseTypeTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxLicenseTypeTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLicenseTypeTitle.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxLicenseTypeTitle.Location = new System.Drawing.Point(3, 3);
+            this.textBoxLicenseTypeTitle.Name = "textBoxLicenseTypeTitle";
+            this.textBoxLicenseTypeTitle.ReadOnly = true;
+            this.textBoxLicenseTypeTitle.Size = new System.Drawing.Size(811, 22);
+            this.textBoxLicenseTypeTitle.TabIndex = 37;
+            this.textBoxLicenseTypeTitle.TabStop = false;
+            this.textBoxLicenseTypeTitle.Text = "LICENSE TYPE";
+            this.textBoxLicenseTypeTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelLicense
+            // 
+            this.panelLicense.BackColor = System.Drawing.Color.White;
+            this.panelLicense.Controls.Add(this.buttonDaysRemaining);
+            this.panelLicense.Controls.Add(this.textBoxLicenseTitle);
+            this.panelLicense.Controls.Add(this.labelHash);
+            this.panelLicense.Controls.Add(this.labelLicenseKey);
+            this.panelLicense.Controls.Add(this.textBoxEndDate);
+            this.panelLicense.Controls.Add(this.labelStartDate);
+            this.panelLicense.Controls.Add(this.textBoxStartDate);
+            this.panelLicense.Controls.Add(this.labelEndDate);
+            this.panelLicense.Controls.Add(this.textBoxHash);
+            this.panelLicense.Controls.Add(this.labelDuration);
+            this.panelLicense.Controls.Add(this.textBoxDuration);
+            this.panelLicense.Controls.Add(this.labelDays);
+            this.panelLicense.Controls.Add(this.textBoxLicenseKey);
+            this.panelLicense.Location = new System.Drawing.Point(47, 382);
+            this.panelLicense.Name = "panelLicense";
+            this.panelLicense.Size = new System.Drawing.Size(817, 135);
+            this.panelLicense.TabIndex = 55;
+            // 
+            // textBoxLicenseTitle
+            // 
+            this.textBoxLicenseTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLicenseTitle.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxLicenseTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxLicenseTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLicenseTitle.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxLicenseTitle.Location = new System.Drawing.Point(3, 3);
+            this.textBoxLicenseTitle.Name = "textBoxLicenseTitle";
+            this.textBoxLicenseTitle.ReadOnly = true;
+            this.textBoxLicenseTitle.Size = new System.Drawing.Size(811, 22);
+            this.textBoxLicenseTitle.TabIndex = 37;
+            this.textBoxLicenseTitle.TabStop = false;
+            this.textBoxLicenseTitle.Text = "LICENSE";
+            this.textBoxLicenseTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // listViewDatabaseTables
+            // 
+            this.listViewDatabaseTables.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewDatabaseTables.BackColor = System.Drawing.Color.Azure;
+            this.listViewDatabaseTables.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewDatabaseTables.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderNumber,
+            this.columnHeaderTableName,
+            this.columnHeaderTableSchema});
+            this.listViewDatabaseTables.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewDatabaseTables.ForeColor = System.Drawing.Color.Black;
+            this.listViewDatabaseTables.FullRowSelect = true;
+            this.listViewDatabaseTables.GridLines = true;
+            this.listViewDatabaseTables.HideSelection = false;
+            this.listViewDatabaseTables.Location = new System.Drawing.Point(10, 35);
+            this.listViewDatabaseTables.Margin = new System.Windows.Forms.Padding(6);
+            this.listViewDatabaseTables.Name = "listViewDatabaseTables";
+            this.listViewDatabaseTables.Size = new System.Drawing.Size(447, 458);
+            this.listViewDatabaseTables.TabIndex = 16;
+            this.listViewDatabaseTables.UseCompatibleStateImageBehavior = false;
+            this.listViewDatabaseTables.View = System.Windows.Forms.View.Details;
+            // 
+            // panelDatabaseTables
+            // 
+            this.panelDatabaseTables.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDatabaseTables.BackColor = System.Drawing.Color.White;
+            this.panelDatabaseTables.Controls.Add(this.textBoxDatabaseTablesTitle);
+            this.panelDatabaseTables.Controls.Add(this.listViewDatabaseTables);
+            this.panelDatabaseTables.Location = new System.Drawing.Point(21, 11);
+            this.panelDatabaseTables.Name = "panelDatabaseTables";
+            this.panelDatabaseTables.Size = new System.Drawing.Size(470, 507);
+            this.panelDatabaseTables.TabIndex = 17;
+            // 
+            // textBoxDatabaseTablesTitle
+            // 
+            this.textBoxDatabaseTablesTitle.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxDatabaseTablesTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDatabaseTablesTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDatabaseTablesTitle.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxDatabaseTablesTitle.Location = new System.Drawing.Point(3, 3);
+            this.textBoxDatabaseTablesTitle.Name = "textBoxDatabaseTablesTitle";
+            this.textBoxDatabaseTablesTitle.Size = new System.Drawing.Size(464, 22);
+            this.textBoxDatabaseTablesTitle.TabIndex = 50;
+            this.textBoxDatabaseTablesTitle.Text = "HENSTUDIO DATABASE TABLES";
+            this.textBoxDatabaseTablesTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // columnHeaderNumber
+            // 
+            this.columnHeaderNumber.Text = "#";
+            this.columnHeaderNumber.Width = 25;
+            // 
+            // columnHeaderTableName
+            // 
+            this.columnHeaderTableName.Text = "Table Name";
+            this.columnHeaderTableName.Width = 94;
+            // 
+            // columnHeaderTableSchema
+            // 
+            this.columnHeaderTableSchema.Text = "Schema";
+            this.columnHeaderTableSchema.Width = 328;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -4081,19 +4255,8 @@
             this.panelSELECTED_ROOT.PerformLayout();
             this.tabControlROOT.ResumeLayout(false);
             this.tabPageROOT_License.ResumeLayout(false);
-            this.groupBoxLicense.ResumeLayout(false);
-            this.groupBoxLicense.PerformLayout();
-            this.groupBoxLicenseType.ResumeLayout(false);
-            this.groupBoxLicenseType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKeys)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSite)).EndInit();
-            this.groupBoxProduct.ResumeLayout(false);
-            this.groupBoxProduct.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductLogo)).EndInit();
-            this.groupBoxCustomerContact.ResumeLayout(false);
-            this.groupBoxCustomerContact.PerformLayout();
-            this.groupBoxSupplier.ResumeLayout(false);
-            this.groupBoxSupplier.PerformLayout();
             this.tabPageROOT_Database.ResumeLayout(false);
             this.panelProjectDbFileMetadata.ResumeLayout(false);
             this.panelProjectDbFileMetadata.PerformLayout();
@@ -4108,6 +4271,18 @@
             this.panelSELECTED_PINCH.ResumeLayout(false);
             this.panelSELECTED_PINCH.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedPinch)).EndInit();
+            this.panelSupplier.ResumeLayout(false);
+            this.panelSupplier.PerformLayout();
+            this.panelCustomerContact.ResumeLayout(false);
+            this.panelCustomerContact.PerformLayout();
+            this.panelProduct.ResumeLayout(false);
+            this.panelProduct.PerformLayout();
+            this.panelLicenseType.ResumeLayout(false);
+            this.panelLicenseType.PerformLayout();
+            this.panelLicense.ResumeLayout(false);
+            this.panelLicense.PerformLayout();
+            this.panelDatabaseTables.ResumeLayout(false);
+            this.panelDatabaseTables.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4259,20 +4434,16 @@
         private System.Windows.Forms.TabPage tabPageROOT_Home;
         private System.Windows.Forms.TabPage tabPageROOT_License;
         private System.Windows.Forms.TabPage tabPageROOT_Database;
-        private System.Windows.Forms.GroupBox groupBoxSupplier;
         private System.Windows.Forms.TextBox textBoxSupplierUrl;
         private System.Windows.Forms.Label labelSupplierUrl;
         private System.Windows.Forms.TextBox textBoxSupplierName;
         private System.Windows.Forms.Label labelSupplierName;
         private System.Windows.Forms.TextBox textBoxAuthor;
         private System.Windows.Forms.Label labelAuthor;
-        private System.Windows.Forms.GroupBox groupBoxCustomerContact;
         private System.Windows.Forms.TextBox textBoxCustomerEmail;
         private System.Windows.Forms.Label labelCustomerEmail;
         private System.Windows.Forms.TextBox textBoxCustomerName;
         private System.Windows.Forms.Label labelCustomerName;
-        private System.Windows.Forms.GroupBox groupBoxProduct;
-        private System.Windows.Forms.PictureBox pictureBoxProductLogo;
         private System.Windows.Forms.TextBox textBoxProductCode;
         private System.Windows.Forms.Label labelProductCode;
         private System.Windows.Forms.TextBox textBoxVersion;
@@ -4281,7 +4452,6 @@
         private System.Windows.Forms.Label labelSerialNumber;
         private System.Windows.Forms.TextBox textBoxProductName;
         private System.Windows.Forms.Label labelProductName;
-        private System.Windows.Forms.GroupBox groupBoxLicenseType;
         private System.Windows.Forms.PictureBox pictureBoxKeys;
         private System.Windows.Forms.PictureBox pictureBoxSite;
         private System.Windows.Forms.TextBox textBoxGroup;
@@ -4296,7 +4466,6 @@
         private System.Windows.Forms.TextBox textBoxDeviceName;
         private System.Windows.Forms.Label labelLicenseType;
         private System.Windows.Forms.Label labelDeviceName;
-        private System.Windows.Forms.GroupBox groupBoxLicense;
         private System.Windows.Forms.Button buttonDaysRemaining;
         private System.Windows.Forms.Label labelHash;
         private System.Windows.Forms.TextBox textBoxEndDate;
@@ -4394,6 +4563,25 @@
         private System.Windows.Forms.ToolStripMenuItem renameProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelProgressText;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBarEngineRuns;
+        private System.Windows.Forms.ToolStripMenuItem modifyProfileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renameProfileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.Panel panelSupplier;
+        private System.Windows.Forms.Panel panelCustomerContact;
+        private System.Windows.Forms.TextBox textBoxCustomerContactTitle;
+        private System.Windows.Forms.TextBox textBoxSupplierTitle;
+        private System.Windows.Forms.Panel panelProduct;
+        private System.Windows.Forms.TextBox textBoxProductTitle;
+        private System.Windows.Forms.Panel panelLicenseType;
+        private System.Windows.Forms.TextBox textBoxLicenseTypeTitle;
+        private System.Windows.Forms.Panel panelLicense;
+        private System.Windows.Forms.TextBox textBoxLicenseTitle;
+        private System.Windows.Forms.ListView listViewDatabaseTables;
+        private System.Windows.Forms.Panel panelDatabaseTables;
+        private System.Windows.Forms.TextBox textBoxDatabaseTablesTitle;
+        private System.Windows.Forms.ColumnHeader columnHeaderNumber;
+        private System.Windows.Forms.ColumnHeader columnHeaderTableSchema;
+        private System.Windows.Forms.ColumnHeader columnHeaderTableName;
     }
 }
 
