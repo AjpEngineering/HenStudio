@@ -30,198 +30,205 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Study: Pinch Analysis");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Study: HEN Analysis");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("HEN Studio", 10, 10, new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8,
-            treeNode9});
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Study: Pinch Analysis");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Study: HEN Analysis");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("HEN Studio", 10, 10, new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18,
+            treeNode19});
+            System.Windows.Forms.ListViewItem listViewItem47 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "DatabaseCreatedOn",
             "5/5/2026 8:38:41 PM"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem48 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "DefaultApproachTemperature",
             "10.00"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem49 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "DefaultEnglishU ",
             "35.20"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem50 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "DefaultMetricU ",
             "720.00"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem51 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "DefaultOptimizer",
             "Genetic"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem52 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "EnableAreaEstimation",
             "True"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem53 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "ExternalMagnitudeUnits",
             "Mega"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem54 = new System.Windows.Forms.ListViewItem(new string[] {
             "8",
             "ExternalPressUnits",
             "psia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem55 = new System.Windows.Forms.ListViewItem(new string[] {
             "9",
             "ExternalSystemUnits",
             "English - Imperial"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem56 = new System.Windows.Forms.ListViewItem(new string[] {
             "10",
             "ExternalTempUnits",
             "°F"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem57 = new System.Windows.Forms.ListViewItem(new string[] {
             "11",
             "ExternalUnitsA",
             "ft²"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem58 = new System.Windows.Forms.ListViewItem(new string[] {
             "12",
             "ExternalUnitsEnergy",
             "MMBtu/hr"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem59 = new System.Windows.Forms.ListViewItem(new string[] {
             "13",
             "ExternalUnitsHeatCapacityFlowRate",
             "MMBtu/(hr·°F)"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem60 = new System.Windows.Forms.ListViewItem(new string[] {
             "14",
             "ExternalUnitsMassFlowrate ",
             "lbs/hr"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem29 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem61 = new System.Windows.Forms.ListViewItem(new string[] {
             "15",
             "ExternalUnitsSpecificHeatCapacity",
             "MMBTU/( lbs ·°F) "}, -1);
-            System.Windows.Forms.ListViewItem listViewItem30 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem62 = new System.Windows.Forms.ListViewItem(new string[] {
             "16",
             "ExternalUnitsU",
             "MMBtu/(hr·ft²·°F)"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem31 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem63 = new System.Windows.Forms.ListViewItem(new string[] {
             "17",
             "InternalMagnitudeUnits",
             "Kilo"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem32 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem64 = new System.Windows.Forms.ListViewItem(new string[] {
             "18",
             "InternalPressUnits",
             "Pa"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem33 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem65 = new System.Windows.Forms.ListViewItem(new string[] {
             "19",
             "InternalSystemUnits",
             "Metric - SI"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem34 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem66 = new System.Windows.Forms.ListViewItem(new string[] {
             "20",
             "InternalTempUnits",
             "°C"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem35 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem67 = new System.Windows.Forms.ListViewItem(new string[] {
             "21",
             "InternalUnitsA",
             "m²"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem36 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem68 = new System.Windows.Forms.ListViewItem(new string[] {
             "22",
             "InternalUnitsEnergy",
             "kW"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem37 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem69 = new System.Windows.Forms.ListViewItem(new string[] {
             "23",
             "InternalUnitsHeatCapacityFlowRate",
             "kW/K"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem38 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem70 = new System.Windows.Forms.ListViewItem(new string[] {
             "24",
             "InternalUnitsMassFlowrate",
             "kg/s"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem39 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem71 = new System.Windows.Forms.ListViewItem(new string[] {
             "25",
             "InternalUnitsSpecificHeatCapacity",
             "kJ/kg-K"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem40 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem72 = new System.Windows.Forms.ListViewItem(new string[] {
             "26",
             "InternalUnitsU",
             "kW/(m²·K)"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem41 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem73 = new System.Windows.Forms.ListViewItem(new string[] {
             "27",
             "LastMigrationApplied",
             "InitialCreate"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem42 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem74 = new System.Windows.Forms.ListViewItem(new string[] {
             "28",
             "ReportDefaultFont",
             "Segoe UI"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem43 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem75 = new System.Windows.Forms.ListViewItem(new string[] {
             "29",
             "ReportIncludeAuditSection",
             "True"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem44 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem76 = new System.Windows.Forms.ListViewItem(new string[] {
             "30",
             "ReportUnitsProfile",
             "Default"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem45 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem77 = new System.Windows.Forms.ListViewItem(new string[] {
             "31",
             "SchemaVersion",
             "1.0.0"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem78 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "PRODUCT FULLNAME",
             "AJP HEN Studio 1.0"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem79 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "PRODUCT NAME",
             "AJP HEN Studio"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem80 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "PRODUCT VERSION",
             "1.0.1"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem81 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "PRODUCT SERIAL_NUMBER",
             "1022-789-1189"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem82 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "PRODUCT CODE",
             "{3D9721BA-003E-4711-B7AF-B579645F0AC9}"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem83 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "SUPPLIER NAME ",
             "AJP Engineering"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem84 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "SUPPLIER URL",
             "http:://www.AJPEngineering.com"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem85 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "_AJP License File.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem86 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "_HenDomainModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem87 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "_HenGlobal.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem88 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "_HenModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem89 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "_HenStudioDatabase.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem90 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "_HenViewModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem91 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "HenStudio.exe"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem92 = new System.Windows.Forms.ListViewItem(new string[] {
+            "1",
+            "AF65E173-4819-9858-02A96FECD9CF",
+            "Shell Deer Park Refinery",
+            "Heat Integration Analysis for Refinery and Petrochemical Plant.  This is a concep" +
+                "tual design based on the current PFD specs for all four quarter process profile " +
+                "setups."}, -1);
             this.contextMenuStripProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemProfileRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -246,8 +253,6 @@
             this.catalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.importProjectZIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.exitAJPHENStudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -278,7 +283,6 @@
             this.statusStripMainDASHBOARD = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelLICENSE = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelCAT_DB = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBarEngineRuns = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabelProgressText = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelAJP_LOGO = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageListAnalysis = new System.Windows.Forms.ImageList(this.components);
@@ -532,6 +536,13 @@
             this.columnHeaderComponentsNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderComponentsName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxAppComponentsTitle = new System.Windows.Forms.TextBox();
+            this.panelProjectList = new System.Windows.Forms.Panel();
+            this.textBoxProjectListTitle = new System.Windows.Forms.TextBox();
+            this.listViewProjectList = new System.Windows.Forms.ListView();
+            this.columnHeaderProjectListNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderProjectListID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderProjectListName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderProjectListDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStripProfile.SuspendLayout();
             this.contextMenuStripCurrProj.SuspendLayout();
             this.contextMenuStripProjectCatalog.SuspendLayout();
@@ -559,6 +570,7 @@
             this.panelProjectMetadata.SuspendLayout();
             this.panelSELECTED_ROOT.SuspendLayout();
             this.tabControlROOT.SuspendLayout();
+            this.tabPageROOT_Home.SuspendLayout();
             this.tabPageROOT_License.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKeys)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSite)).BeginInit();
@@ -582,6 +594,7 @@
             this.panelFactorySettings.SuspendLayout();
             this.panelAppMetadata.SuspendLayout();
             this.panelAppComponents.SuspendLayout();
+            this.panelProjectList.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripProfile
@@ -753,8 +766,6 @@
             this.catalogToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newProjectToolStripMenuItem,
             this.toolStripSeparator10,
-            this.importProjectZIPToolStripMenuItem,
-            this.toolStripSeparator11,
             this.exitAJPHENStudioToolStripMenuItem});
             this.catalogToolStripMenuItem.Name = "catalogToolStripMenuItem";
             this.catalogToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
@@ -765,7 +776,7 @@
             // 
             this.newProjectToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newProjectToolStripMenuItem.Image")));
             this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(194, 30);
+            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(192, 30);
             this.newProjectToolStripMenuItem.Text = "Add New Project...";
             this.newProjectToolStripMenuItem.ToolTipText = "Add New Project to Catalog";
             this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.newProjectToolStripMenuItem_Click);
@@ -773,27 +784,13 @@
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(191, 6);
-            // 
-            // importProjectZIPToolStripMenuItem
-            // 
-            this.importProjectZIPToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("importProjectZIPToolStripMenuItem.Image")));
-            this.importProjectZIPToolStripMenuItem.Name = "importProjectZIPToolStripMenuItem";
-            this.importProjectZIPToolStripMenuItem.Size = new System.Drawing.Size(194, 30);
-            this.importProjectZIPToolStripMenuItem.Text = "Import ZIP Project...";
-            this.importProjectZIPToolStripMenuItem.ToolTipText = "Import Zip Project";
-            this.importProjectZIPToolStripMenuItem.Click += new System.EventHandler(this.importProjectZIPToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(191, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(189, 6);
             // 
             // exitAJPHENStudioToolStripMenuItem
             // 
             this.exitAJPHENStudioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitAJPHENStudioToolStripMenuItem.Image")));
             this.exitAJPHENStudioToolStripMenuItem.Name = "exitAJPHENStudioToolStripMenuItem";
-            this.exitAJPHENStudioToolStripMenuItem.Size = new System.Drawing.Size(194, 30);
+            this.exitAJPHENStudioToolStripMenuItem.Size = new System.Drawing.Size(192, 30);
             this.exitAJPHENStudioToolStripMenuItem.Text = "Exit AJP HEN Studio";
             this.exitAJPHENStudioToolStripMenuItem.ToolTipText = "Exit Application";
             this.exitAJPHENStudioToolStripMenuItem.Click += new System.EventHandler(this.exitAJPHENStudioToolStripMenuItem_Click);
@@ -998,15 +995,14 @@
             // statusStripMainDASHBOARD
             // 
             this.statusStripMainDASHBOARD.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelAJP_LOGO,
             this.toolStripStatusLabelLICENSE,
             this.toolStripStatusLabelCAT_DB,
-            this.toolStripProgressBarEngineRuns,
-            this.toolStripStatusLabelProgressText,
-            this.toolStripStatusLabelAJP_LOGO});
-            this.statusStripMainDASHBOARD.Location = new System.Drawing.Point(0, 640);
+            this.toolStripStatusLabelProgressText});
+            this.statusStripMainDASHBOARD.Location = new System.Drawing.Point(0, 639);
             this.statusStripMainDASHBOARD.Margin = new System.Windows.Forms.Padding(3);
             this.statusStripMainDASHBOARD.Name = "statusStripMainDASHBOARD";
-            this.statusStripMainDASHBOARD.Size = new System.Drawing.Size(1264, 41);
+            this.statusStripMainDASHBOARD.Size = new System.Drawing.Size(1264, 42);
             this.statusStripMainDASHBOARD.TabIndex = 6;
             // 
             // toolStripStatusLabelLICENSE
@@ -1019,7 +1015,7 @@
             this.toolStripStatusLabelLICENSE.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelLICENSE.Name = "toolStripStatusLabelLICENSE";
             this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(99, 32);
+            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(99, 33);
             this.toolStripStatusLabelLICENSE.Text = "LICENSE ";
             this.toolStripStatusLabelLICENSE.Click += new System.EventHandler(this.toolStripStatusLabelLICENSE_Click);
             this.toolStripStatusLabelLICENSE.DoubleClick += new System.EventHandler(this.toolStripStatusLabelLICENSE_DoubleClick);
@@ -1034,43 +1030,40 @@
             this.toolStripStatusLabelCAT_DB.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelCAT_DB.Name = "toolStripStatusLabelCAT_DB";
             this.toolStripStatusLabelCAT_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(129, 32);
+            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(129, 33);
             this.toolStripStatusLabelCAT_DB.Text = "CONNECTED";
             this.toolStripStatusLabelCAT_DB.Click += new System.EventHandler(this.toolStripStatusLabelCAT_DB_Click);
             this.toolStripStatusLabelCAT_DB.DoubleClick += new System.EventHandler(this.toolStripStatusLabelCAT_DB_DoubleClick);
             // 
-            // toolStripProgressBarEngineRuns
-            // 
-            this.toolStripProgressBarEngineRuns.BackColor = System.Drawing.Color.White;
-            this.toolStripProgressBarEngineRuns.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.toolStripProgressBarEngineRuns.Name = "toolStripProgressBarEngineRuns";
-            this.toolStripProgressBarEngineRuns.Size = new System.Drawing.Size(300, 35);
-            // 
             // toolStripStatusLabelProgressText
             // 
-            this.toolStripStatusLabelProgressText.BackColor = System.Drawing.Color.DarkOrange;
+            this.toolStripStatusLabelProgressText.BackColor = System.Drawing.Color.RoyalBlue;
+            this.toolStripStatusLabelProgressText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.toolStripStatusLabelProgressText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripStatusLabelProgressText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabelProgressText.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabelProgressText.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripStatusLabelProgressText.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelProgressText.Name = "toolStripStatusLabelProgressText";
-            this.toolStripStatusLabelProgressText.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.toolStripStatusLabelProgressText.Size = new System.Drawing.Size(227, 36);
-            this.toolStripStatusLabelProgressText.Text = "Working ... 005% Complete";
+            this.toolStripStatusLabelProgressText.Padding = new System.Windows.Forms.Padding(6);
+            this.toolStripStatusLabelProgressText.Size = new System.Drawing.Size(822, 33);
+            this.toolStripStatusLabelProgressText.Spring = true;
+            this.toolStripStatusLabelProgressText.Text = "AJP HEN Studio";
             // 
             // toolStripStatusLabelAJP_LOGO
             // 
             this.toolStripStatusLabelAJP_LOGO.BackColor = System.Drawing.Color.White;
             this.toolStripStatusLabelAJP_LOGO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.toolStripStatusLabelAJP_LOGO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripStatusLabelAJP_LOGO.DoubleClickEnabled = true;
-            this.toolStripStatusLabelAJP_LOGO.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelAJP_LOGO.ForeColor = System.Drawing.Color.Black;
-            this.toolStripStatusLabelAJP_LOGO.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabelAJP_LOGO.Image")));
-            this.toolStripStatusLabelAJP_LOGO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabelAJP_LOGO.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelAJP_LOGO.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.toolStripStatusLabelAJP_LOGO.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripStatusLabelAJP_LOGO.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelAJP_LOGO.Name = "toolStripStatusLabelAJP_LOGO";
             this.toolStripStatusLabelAJP_LOGO.Padding = new System.Windows.Forms.Padding(6);
-            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(483, 32);
-            this.toolStripStatusLabelAJP_LOGO.Spring = true;
-            this.toolStripStatusLabelAJP_LOGO.Text = "Engineering  ";
+            this.toolStripStatusLabelAJP_LOGO.Size = new System.Drawing.Size(156, 33);
+            this.toolStripStatusLabelAJP_LOGO.Text = "AJP Engineering  ";
             this.toolStripStatusLabelAJP_LOGO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelAJP_LOGO.Click += new System.EventHandler(this.toolStripStatusLabelAJP_LOGO_Click);
             this.toolStripStatusLabelAJP_LOGO.DoubleClick += new System.EventHandler(this.toolStripStatusLabelAJP_LOGO_DoubleClick);
@@ -1153,56 +1146,56 @@
             this.treeViewCurrentProjectExplorer.Location = new System.Drawing.Point(0, 0);
             this.treeViewCurrentProjectExplorer.Margin = new System.Windows.Forms.Padding(6);
             this.treeViewCurrentProjectExplorer.Name = "treeViewCurrentProjectExplorer";
-            treeNode1.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode1.ImageIndex = 3;
-            treeNode1.Name = "NodeProfile_01";
-            treeNode1.SelectedImageIndex = 4;
-            treeNode1.Text = "Profile: Q1 Setup";
-            treeNode2.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode2.ImageIndex = 3;
-            treeNode2.Name = "NodeProfile_02";
-            treeNode2.SelectedImageIndex = 4;
-            treeNode2.Text = "Profile: Q2 Setup";
-            treeNode3.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode3.ImageIndex = 3;
-            treeNode3.Name = "NodeProfile_03";
-            treeNode3.SelectedImageIndex = 4;
-            treeNode3.Text = "Profile: Q3 Setup";
-            treeNode4.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode4.ImageIndex = 3;
-            treeNode4.Name = "NodeProfile_04";
-            treeNode4.SelectedImageIndex = 4;
-            treeNode4.Text = "Profile: Q4 Setup";
-            treeNode5.ImageKey = "Pinch_16x16.ico";
-            treeNode5.Name = "Node0";
-            treeNode5.SelectedImageIndex = 6;
-            treeNode5.Text = "Study: Pinch Analysis";
-            treeNode6.ImageKey = "Pinch_16x16.ico";
-            treeNode6.Name = "Node1";
-            treeNode6.SelectedImageKey = "PinchSelected_16x16.ico";
-            treeNode6.Text = "Study: HEN Analysis";
-            treeNode7.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode7.ImageIndex = 1;
-            treeNode7.Name = "NodeProject02";
-            treeNode7.SelectedImageIndex = 2;
-            treeNode7.Text = "Project: Deer Park";
-            treeNode8.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode8.ImageIndex = 1;
-            treeNode8.Name = "NodeProject02";
-            treeNode8.SelectedImageIndex = 2;
-            treeNode8.Text = "Project: Convent";
-            treeNode9.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode9.ImageIndex = 1;
-            treeNode9.Name = "NodeProject03";
-            treeNode9.SelectedImageIndex = 2;
-            treeNode9.Text = "Project: Norco";
-            treeNode10.ContextMenuStrip = this.contextMenuStripProjectCatalog;
-            treeNode10.ImageIndex = 10;
-            treeNode10.Name = "NodeRootProjects";
-            treeNode10.SelectedImageIndex = 10;
-            treeNode10.Text = "HEN Studio";
+            treeNode11.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode11.ImageIndex = 3;
+            treeNode11.Name = "NodeProfile_01";
+            treeNode11.SelectedImageIndex = 4;
+            treeNode11.Text = "Profile: Q1 Setup";
+            treeNode12.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode12.ImageIndex = 3;
+            treeNode12.Name = "NodeProfile_02";
+            treeNode12.SelectedImageIndex = 4;
+            treeNode12.Text = "Profile: Q2 Setup";
+            treeNode13.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode13.ImageIndex = 3;
+            treeNode13.Name = "NodeProfile_03";
+            treeNode13.SelectedImageIndex = 4;
+            treeNode13.Text = "Profile: Q3 Setup";
+            treeNode14.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode14.ImageIndex = 3;
+            treeNode14.Name = "NodeProfile_04";
+            treeNode14.SelectedImageIndex = 4;
+            treeNode14.Text = "Profile: Q4 Setup";
+            treeNode15.ImageKey = "Pinch_16x16.ico";
+            treeNode15.Name = "Node0";
+            treeNode15.SelectedImageIndex = 6;
+            treeNode15.Text = "Study: Pinch Analysis";
+            treeNode16.ImageKey = "Pinch_16x16.ico";
+            treeNode16.Name = "Node1";
+            treeNode16.SelectedImageKey = "PinchSelected_16x16.ico";
+            treeNode16.Text = "Study: HEN Analysis";
+            treeNode17.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode17.ImageIndex = 1;
+            treeNode17.Name = "NodeProject02";
+            treeNode17.SelectedImageIndex = 2;
+            treeNode17.Text = "Project: Deer Park";
+            treeNode18.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode18.ImageIndex = 1;
+            treeNode18.Name = "NodeProject02";
+            treeNode18.SelectedImageIndex = 2;
+            treeNode18.Text = "Project: Convent";
+            treeNode19.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode19.ImageIndex = 1;
+            treeNode19.Name = "NodeProject03";
+            treeNode19.SelectedImageIndex = 2;
+            treeNode19.Text = "Project: Norco";
+            treeNode20.ContextMenuStrip = this.contextMenuStripProjectCatalog;
+            treeNode20.ImageIndex = 10;
+            treeNode20.Name = "NodeRootProjects";
+            treeNode20.SelectedImageIndex = 10;
+            treeNode20.Text = "HEN Studio";
             this.treeViewCurrentProjectExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10});
+            treeNode20});
             this.treeViewCurrentProjectExplorer.SelectedImageIndex = 9;
             this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(351, 619);
             this.treeViewCurrentProjectExplorer.TabIndex = 1;
@@ -3030,6 +3023,7 @@
             // tabPageROOT_Home
             // 
             this.tabPageROOT_Home.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageROOT_Home.Controls.Add(this.panelProjectList);
             this.tabPageROOT_Home.Location = new System.Drawing.Point(4, 39);
             this.tabPageROOT_Home.Name = "tabPageROOT_Home";
             this.tabPageROOT_Home.Padding = new System.Windows.Forms.Padding(3);
@@ -3901,7 +3895,7 @@
             this.textBoxDbConnectionTitle.Name = "textBoxDbConnectionTitle";
             this.textBoxDbConnectionTitle.Size = new System.Drawing.Size(336, 22);
             this.textBoxDbConnectionTitle.TabIndex = 33;
-            this.textBoxDbConnectionTitle.Text = "HENSTUDIO DATABASE CONNECTION";
+            this.textBoxDbConnectionTitle.Text = "HENSTUDIO CONNECTION";
             this.textBoxDbConnectionTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonConnection
@@ -4335,7 +4329,7 @@
             this.columnHeaderNumber,
             this.columnHeaderTableName,
             this.columnHeaderTableSchema});
-            this.listViewDatabaseTables.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewDatabaseTables.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewDatabaseTables.ForeColor = System.Drawing.Color.Black;
             this.listViewDatabaseTables.FullRowSelect = true;
             this.listViewDatabaseTables.GridLines = true;
@@ -4371,7 +4365,7 @@
             this.textBoxDatabaseTablesTitle.Name = "textBoxDatabaseTablesTitle";
             this.textBoxDatabaseTablesTitle.Size = new System.Drawing.Size(464, 22);
             this.textBoxDatabaseTablesTitle.TabIndex = 50;
-            this.textBoxDatabaseTablesTitle.Text = "HENSTUDIO DATABASE TABLES";
+            this.textBoxDatabaseTablesTitle.Text = "HENSTUDIO TABLES";
             this.textBoxDatabaseTablesTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeaderNumber
@@ -4446,37 +4440,37 @@
             this.listViewFactorySettings.GridLines = true;
             this.listViewFactorySettings.HideSelection = false;
             this.listViewFactorySettings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem15,
-            listViewItem16,
-            listViewItem17,
-            listViewItem18,
-            listViewItem19,
-            listViewItem20,
-            listViewItem21,
-            listViewItem22,
-            listViewItem23,
-            listViewItem24,
-            listViewItem25,
-            listViewItem26,
-            listViewItem27,
-            listViewItem28,
-            listViewItem29,
-            listViewItem30,
-            listViewItem31,
-            listViewItem32,
-            listViewItem33,
-            listViewItem34,
-            listViewItem35,
-            listViewItem36,
-            listViewItem37,
-            listViewItem38,
-            listViewItem39,
-            listViewItem40,
-            listViewItem41,
-            listViewItem42,
-            listViewItem43,
-            listViewItem44,
-            listViewItem45});
+            listViewItem47,
+            listViewItem48,
+            listViewItem49,
+            listViewItem50,
+            listViewItem51,
+            listViewItem52,
+            listViewItem53,
+            listViewItem54,
+            listViewItem55,
+            listViewItem56,
+            listViewItem57,
+            listViewItem58,
+            listViewItem59,
+            listViewItem60,
+            listViewItem61,
+            listViewItem62,
+            listViewItem63,
+            listViewItem64,
+            listViewItem65,
+            listViewItem66,
+            listViewItem67,
+            listViewItem68,
+            listViewItem69,
+            listViewItem70,
+            listViewItem71,
+            listViewItem72,
+            listViewItem73,
+            listViewItem74,
+            listViewItem75,
+            listViewItem76,
+            listViewItem77});
             this.listViewFactorySettings.Location = new System.Drawing.Point(12, 35);
             this.listViewFactorySettings.Margin = new System.Windows.Forms.Padding(6);
             this.listViewFactorySettings.Name = "listViewFactorySettings";
@@ -4540,13 +4534,13 @@
             this.listViewAppMetadata.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewAppMetadata.HideSelection = false;
             this.listViewAppMetadata.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem8,
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14});
+            listViewItem78,
+            listViewItem79,
+            listViewItem80,
+            listViewItem81,
+            listViewItem82,
+            listViewItem83,
+            listViewItem84});
             this.listViewAppMetadata.Location = new System.Drawing.Point(8, 34);
             this.listViewAppMetadata.Margin = new System.Windows.Forms.Padding(6);
             this.listViewAppMetadata.Name = "listViewAppMetadata";
@@ -4597,13 +4591,13 @@
             this.listViewAppComponents.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewAppComponents.HideSelection = false;
             this.listViewAppComponents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7});
+            listViewItem85,
+            listViewItem86,
+            listViewItem87,
+            listViewItem88,
+            listViewItem89,
+            listViewItem90,
+            listViewItem91});
             this.listViewAppComponents.Location = new System.Drawing.Point(10, 35);
             this.listViewAppComponents.Margin = new System.Windows.Forms.Padding(6);
             this.listViewAppComponents.Name = "listViewAppComponents";
@@ -4637,6 +4631,79 @@
             this.textBoxAppComponentsTitle.TabIndex = 50;
             this.textBoxAppComponentsTitle.Text = "APPLICATION COMPONENTS";
             this.textBoxAppComponentsTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelProjectList
+            // 
+            this.panelProjectList.BackColor = System.Drawing.Color.White;
+            this.panelProjectList.Controls.Add(this.listViewProjectList);
+            this.panelProjectList.Controls.Add(this.textBoxProjectListTitle);
+            this.panelProjectList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelProjectList.Location = new System.Drawing.Point(3, 3);
+            this.panelProjectList.Name = "panelProjectList";
+            this.panelProjectList.Size = new System.Drawing.Size(897, 521);
+            this.panelProjectList.TabIndex = 1;
+            // 
+            // textBoxProjectListTitle
+            // 
+            this.textBoxProjectListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProjectListTitle.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxProjectListTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectListTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectListTitle.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxProjectListTitle.Location = new System.Drawing.Point(3, 3);
+            this.textBoxProjectListTitle.Name = "textBoxProjectListTitle";
+            this.textBoxProjectListTitle.Size = new System.Drawing.Size(891, 22);
+            this.textBoxProjectListTitle.TabIndex = 51;
+            this.textBoxProjectListTitle.Text = "PROJECTS";
+            this.textBoxProjectListTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // listViewProjectList
+            // 
+            this.listViewProjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewProjectList.BackColor = System.Drawing.Color.Azure;
+            this.listViewProjectList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewProjectList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderProjectListNumber,
+            this.columnHeaderProjectListID,
+            this.columnHeaderProjectListName,
+            this.columnHeaderProjectListDescription});
+            this.listViewProjectList.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewProjectList.ForeColor = System.Drawing.Color.Black;
+            this.listViewProjectList.FullRowSelect = true;
+            this.listViewProjectList.GridLines = true;
+            this.listViewProjectList.HideSelection = false;
+            this.listViewProjectList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem92});
+            this.listViewProjectList.Location = new System.Drawing.Point(6, 34);
+            this.listViewProjectList.Margin = new System.Windows.Forms.Padding(6);
+            this.listViewProjectList.Name = "listViewProjectList";
+            this.listViewProjectList.Size = new System.Drawing.Size(885, 481);
+            this.listViewProjectList.TabIndex = 52;
+            this.listViewProjectList.UseCompatibleStateImageBehavior = false;
+            this.listViewProjectList.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeaderProjectListNumber
+            // 
+            this.columnHeaderProjectListNumber.Text = "#";
+            this.columnHeaderProjectListNumber.Width = 27;
+            // 
+            // columnHeaderProjectListID
+            // 
+            this.columnHeaderProjectListID.Text = "ID";
+            this.columnHeaderProjectListID.Width = 227;
+            // 
+            // columnHeaderProjectListName
+            // 
+            this.columnHeaderProjectListName.Text = "Name";
+            this.columnHeaderProjectListName.Width = 156;
+            // 
+            // columnHeaderProjectListDescription
+            // 
+            this.columnHeaderProjectListDescription.Text = "Description";
+            this.columnHeaderProjectListDescription.Width = 1016;
             // 
             // FormMain
             // 
@@ -4699,6 +4766,7 @@
             this.panelSELECTED_ROOT.ResumeLayout(false);
             this.panelSELECTED_ROOT.PerformLayout();
             this.tabControlROOT.ResumeLayout(false);
+            this.tabPageROOT_Home.ResumeLayout(false);
             this.tabPageROOT_License.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKeys)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSite)).EndInit();
@@ -4735,6 +4803,8 @@
             this.panelAppMetadata.PerformLayout();
             this.panelAppComponents.ResumeLayout(false);
             this.panelAppComponents.PerformLayout();
+            this.panelProjectList.ResumeLayout(false);
+            this.panelProjectList.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4790,8 +4860,6 @@
         private System.Windows.Forms.ToolStripMenuItem catalogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-        private System.Windows.Forms.ToolStripMenuItem importProjectZIPToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripMenuItem exitAJPHENStudioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem licenseViewerToolStripMenuItem;
@@ -5014,7 +5082,6 @@
         private System.Windows.Forms.ToolStripMenuItem addStudyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelProgressText;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBarEngineRuns;
         private System.Windows.Forms.ToolStripMenuItem modifyProfileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameProfileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
@@ -5052,6 +5119,13 @@
         private System.Windows.Forms.ColumnHeader columnHeaderComponentsNumber;
         private System.Windows.Forms.ColumnHeader columnHeaderComponentsName;
         private System.Windows.Forms.TextBox textBoxAppComponentsTitle;
+        private System.Windows.Forms.Panel panelProjectList;
+        private System.Windows.Forms.TextBox textBoxProjectListTitle;
+        private System.Windows.Forms.ListView listViewProjectList;
+        private System.Windows.Forms.ColumnHeader columnHeaderProjectListNumber;
+        private System.Windows.Forms.ColumnHeader columnHeaderProjectListID;
+        private System.Windows.Forms.ColumnHeader columnHeaderProjectListName;
+        private System.Windows.Forms.ColumnHeader columnHeaderProjectListDescription;
     }
 }
 
