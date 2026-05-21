@@ -30,25 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Study: Pinch Analysis");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Study: HEN Analysis");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("HEN Studio", 10, 10, new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode18,
-            treeNode19});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Study: Pinch Analysis");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Study: HEN Analysis");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("HEN Studio", 10, 10, new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8,
+            treeNode9});
             this.contextMenuStripProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemProfileRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -231,7 +231,6 @@
             this.textBoxProjectBanner = new System.Windows.Forms.TextBox();
             this.pictureBoxOpenedProject = new System.Windows.Forms.PictureBox();
             this.panelProjectMetadata = new System.Windows.Forms.Panel();
-            this.pictureBoxProject_HenStudioLogo = new System.Windows.Forms.PictureBox();
             this.textBoxProjectID = new System.Windows.Forms.TextBox();
             this.textBoxProjectGUID = new System.Windows.Forms.TextBox();
             this.textBoxProjectNameValue = new System.Windows.Forms.TextBox();
@@ -354,7 +353,6 @@
             this.panelCostMetadata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProject)).BeginInit();
             this.panelProjectMetadata.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProject_HenStudioLogo)).BeginInit();
             this.panelSELECTED_ROOT.SuspendLayout();
             this.tabControlROOT.SuspendLayout();
             this.tabPageROOT_License.SuspendLayout();
@@ -943,56 +941,56 @@
             this.treeViewCurrentProjectExplorer.Location = new System.Drawing.Point(0, 0);
             this.treeViewCurrentProjectExplorer.Margin = new System.Windows.Forms.Padding(6);
             this.treeViewCurrentProjectExplorer.Name = "treeViewCurrentProjectExplorer";
-            treeNode11.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode11.ImageIndex = 3;
-            treeNode11.Name = "NodeProfile_01";
-            treeNode11.SelectedImageIndex = 4;
-            treeNode11.Text = "Profile: Q1 Setup";
-            treeNode12.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode12.ImageIndex = 3;
-            treeNode12.Name = "NodeProfile_02";
-            treeNode12.SelectedImageIndex = 4;
-            treeNode12.Text = "Profile: Q2 Setup";
-            treeNode13.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode13.ImageIndex = 3;
-            treeNode13.Name = "NodeProfile_03";
-            treeNode13.SelectedImageIndex = 4;
-            treeNode13.Text = "Profile: Q3 Setup";
-            treeNode14.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode14.ImageIndex = 3;
-            treeNode14.Name = "NodeProfile_04";
-            treeNode14.SelectedImageIndex = 4;
-            treeNode14.Text = "Profile: Q4 Setup";
-            treeNode15.ImageKey = "Pinch_16x16.ico";
-            treeNode15.Name = "Node0";
-            treeNode15.SelectedImageIndex = 6;
-            treeNode15.Text = "Study: Pinch Analysis";
-            treeNode16.ImageKey = "Pinch_16x16.ico";
-            treeNode16.Name = "Node1";
-            treeNode16.SelectedImageKey = "PinchSelected_16x16.ico";
-            treeNode16.Text = "Study: HEN Analysis";
-            treeNode17.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode17.ImageIndex = 1;
-            treeNode17.Name = "NodeProject02";
-            treeNode17.SelectedImageIndex = 2;
-            treeNode17.Text = "Project: Deer Park";
-            treeNode18.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode18.ImageIndex = 1;
-            treeNode18.Name = "NodeProject02";
-            treeNode18.SelectedImageIndex = 2;
-            treeNode18.Text = "Project: Convent";
-            treeNode19.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode19.ImageIndex = 1;
-            treeNode19.Name = "NodeProject03";
-            treeNode19.SelectedImageIndex = 2;
-            treeNode19.Text = "Project: Norco";
-            treeNode20.ContextMenuStrip = this.contextMenuStripProjectCatalog;
-            treeNode20.ImageIndex = 10;
-            treeNode20.Name = "NodeRootProjects";
-            treeNode20.SelectedImageIndex = 10;
-            treeNode20.Text = "HEN Studio";
+            treeNode1.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode1.ImageIndex = 3;
+            treeNode1.Name = "NodeProfile_01";
+            treeNode1.SelectedImageIndex = 4;
+            treeNode1.Text = "Profile: Q1 Setup";
+            treeNode2.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode2.ImageIndex = 3;
+            treeNode2.Name = "NodeProfile_02";
+            treeNode2.SelectedImageIndex = 4;
+            treeNode2.Text = "Profile: Q2 Setup";
+            treeNode3.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode3.ImageIndex = 3;
+            treeNode3.Name = "NodeProfile_03";
+            treeNode3.SelectedImageIndex = 4;
+            treeNode3.Text = "Profile: Q3 Setup";
+            treeNode4.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode4.ImageIndex = 3;
+            treeNode4.Name = "NodeProfile_04";
+            treeNode4.SelectedImageIndex = 4;
+            treeNode4.Text = "Profile: Q4 Setup";
+            treeNode5.ImageKey = "Pinch_16x16.ico";
+            treeNode5.Name = "Node0";
+            treeNode5.SelectedImageIndex = 6;
+            treeNode5.Text = "Study: Pinch Analysis";
+            treeNode6.ImageKey = "Pinch_16x16.ico";
+            treeNode6.Name = "Node1";
+            treeNode6.SelectedImageKey = "PinchSelected_16x16.ico";
+            treeNode6.Text = "Study: HEN Analysis";
+            treeNode7.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode7.ImageIndex = 1;
+            treeNode7.Name = "NodeProject02";
+            treeNode7.SelectedImageIndex = 2;
+            treeNode7.Text = "Project: Deer Park";
+            treeNode8.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode8.ImageIndex = 1;
+            treeNode8.Name = "NodeProject02";
+            treeNode8.SelectedImageIndex = 2;
+            treeNode8.Text = "Project: Convent";
+            treeNode9.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode9.ImageIndex = 1;
+            treeNode9.Name = "NodeProject03";
+            treeNode9.SelectedImageIndex = 2;
+            treeNode9.Text = "Project: Norco";
+            treeNode10.ContextMenuStrip = this.contextMenuStripProjectCatalog;
+            treeNode10.ImageIndex = 10;
+            treeNode10.Name = "NodeRootProjects";
+            treeNode10.SelectedImageIndex = 10;
+            treeNode10.Text = "HEN Studio";
             this.treeViewCurrentProjectExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode20});
+            treeNode10});
             this.treeViewCurrentProjectExplorer.SelectedImageIndex = 9;
             this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(351, 619);
             this.treeViewCurrentProjectExplorer.TabIndex = 1;
@@ -1064,7 +1062,7 @@
             // 
             // panelDefaultParmeters
             // 
-            this.panelDefaultParmeters.BackColor = System.Drawing.Color.Azure;
+            this.panelDefaultParmeters.BackColor = System.Drawing.Color.White;
             this.panelDefaultParmeters.Controls.Add(this.textBoxFValue);
             this.panelDefaultParmeters.Controls.Add(this.textBoxExchangerLabel);
             this.panelDefaultParmeters.Controls.Add(this.textBoxDefaultU_Value);
@@ -1078,9 +1076,10 @@
             // 
             // textBoxFValue
             // 
-            this.textBoxFValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxFValue.BackColor = System.Drawing.Color.White;
             this.textBoxFValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxFValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxFValue.Location = new System.Drawing.Point(184, 66);
             this.textBoxFValue.Name = "textBoxFValue";
             this.textBoxFValue.ReadOnly = true;
@@ -1092,14 +1091,14 @@
             // textBoxExchangerLabel
             // 
             this.textBoxExchangerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxExchangerLabel.BackColor = System.Drawing.Color.Azure;
+            this.textBoxExchangerLabel.BackColor = System.Drawing.Color.Yellow;
             this.textBoxExchangerLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxExchangerLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxExchangerLabel.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.textBoxExchangerLabel.Location = new System.Drawing.Point(24, 10);
+            this.textBoxExchangerLabel.Location = new System.Drawing.Point(3, 3);
             this.textBoxExchangerLabel.Name = "textBoxExchangerLabel";
             this.textBoxExchangerLabel.ReadOnly = true;
-            this.textBoxExchangerLabel.Size = new System.Drawing.Size(451, 22);
+            this.textBoxExchangerLabel.Size = new System.Drawing.Size(483, 22);
             this.textBoxExchangerLabel.TabIndex = 35;
             this.textBoxExchangerLabel.TabStop = false;
             this.textBoxExchangerLabel.Text = "DEFAULT EXCHANGER PARAMETERS";
@@ -1107,9 +1106,10 @@
             // 
             // textBoxDefaultU_Value
             // 
-            this.textBoxDefaultU_Value.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDefaultU_Value.BackColor = System.Drawing.Color.White;
             this.textBoxDefaultU_Value.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDefaultU_Value.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultU_Value.ForeColor = System.Drawing.Color.Black;
             this.textBoxDefaultU_Value.Location = new System.Drawing.Point(177, 45);
             this.textBoxDefaultU_Value.Name = "textBoxDefaultU_Value";
             this.textBoxDefaultU_Value.ReadOnly = true;
@@ -1120,9 +1120,9 @@
             // 
             // textBoxF
             // 
-            this.textBoxF.BackColor = System.Drawing.Color.Azure;
+            this.textBoxF.BackColor = System.Drawing.Color.White;
             this.textBoxF.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxF.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxF.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxF.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxF.Location = new System.Drawing.Point(20, 66);
             this.textBoxF.Name = "textBoxF";
@@ -1135,10 +1135,10 @@
             // 
             // textBoxDefaultU_Units
             // 
-            this.textBoxDefaultU_Units.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDefaultU_Units.BackColor = System.Drawing.Color.White;
             this.textBoxDefaultU_Units.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDefaultU_Units.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDefaultU_Units.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxDefaultU_Units.ForeColor = System.Drawing.Color.Black;
             this.textBoxDefaultU_Units.Location = new System.Drawing.Point(253, 45);
             this.textBoxDefaultU_Units.Name = "textBoxDefaultU_Units";
             this.textBoxDefaultU_Units.ReadOnly = true;
@@ -1148,9 +1148,9 @@
             // 
             // textBoxDefaultU
             // 
-            this.textBoxDefaultU.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDefaultU.BackColor = System.Drawing.Color.White;
             this.textBoxDefaultU.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDefaultU.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDefaultU.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDefaultU.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxDefaultU.Location = new System.Drawing.Point(20, 45);
             this.textBoxDefaultU.Name = "textBoxDefaultU";
@@ -1164,7 +1164,7 @@
             // panelProjectUnits
             // 
             this.panelProjectUnits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelProjectUnits.BackColor = System.Drawing.Color.Azure;
+            this.panelProjectUnits.BackColor = System.Drawing.Color.White;
             this.panelProjectUnits.Controls.Add(this.textBoxProjectUnitsPress);
             this.panelProjectUnits.Controls.Add(this.textBoxProjectUnitsTemp);
             this.panelProjectUnits.Controls.Add(this.textBoxProjectUnitsMagnitude);
@@ -1192,9 +1192,10 @@
             // 
             // textBoxProjectUnitsPress
             // 
-            this.textBoxProjectUnitsPress.BackColor = System.Drawing.Color.Azure;
+            this.textBoxProjectUnitsPress.BackColor = System.Drawing.Color.White;
             this.textBoxProjectUnitsPress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectUnitsPress.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectUnitsPress.ForeColor = System.Drawing.Color.Black;
             this.textBoxProjectUnitsPress.Location = new System.Drawing.Point(116, 98);
             this.textBoxProjectUnitsPress.Name = "textBoxProjectUnitsPress";
             this.textBoxProjectUnitsPress.ReadOnly = true;
@@ -1204,9 +1205,10 @@
             // 
             // textBoxProjectUnitsTemp
             // 
-            this.textBoxProjectUnitsTemp.BackColor = System.Drawing.Color.Azure;
+            this.textBoxProjectUnitsTemp.BackColor = System.Drawing.Color.White;
             this.textBoxProjectUnitsTemp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectUnitsTemp.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectUnitsTemp.ForeColor = System.Drawing.Color.Black;
             this.textBoxProjectUnitsTemp.Location = new System.Drawing.Point(116, 78);
             this.textBoxProjectUnitsTemp.Name = "textBoxProjectUnitsTemp";
             this.textBoxProjectUnitsTemp.ReadOnly = true;
@@ -1216,9 +1218,10 @@
             // 
             // textBoxProjectUnitsMagnitude
             // 
-            this.textBoxProjectUnitsMagnitude.BackColor = System.Drawing.Color.Azure;
+            this.textBoxProjectUnitsMagnitude.BackColor = System.Drawing.Color.White;
             this.textBoxProjectUnitsMagnitude.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectUnitsMagnitude.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectUnitsMagnitude.ForeColor = System.Drawing.Color.Black;
             this.textBoxProjectUnitsMagnitude.Location = new System.Drawing.Point(116, 58);
             this.textBoxProjectUnitsMagnitude.Name = "textBoxProjectUnitsMagnitude";
             this.textBoxProjectUnitsMagnitude.ReadOnly = true;
@@ -1228,9 +1231,10 @@
             // 
             // textBoxProjectUnitsSystem
             // 
-            this.textBoxProjectUnitsSystem.BackColor = System.Drawing.Color.Azure;
+            this.textBoxProjectUnitsSystem.BackColor = System.Drawing.Color.White;
             this.textBoxProjectUnitsSystem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectUnitsSystem.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectUnitsSystem.ForeColor = System.Drawing.Color.Black;
             this.textBoxProjectUnitsSystem.Location = new System.Drawing.Point(116, 38);
             this.textBoxProjectUnitsSystem.Name = "textBoxProjectUnitsSystem";
             this.textBoxProjectUnitsSystem.ReadOnly = true;
@@ -1240,11 +1244,11 @@
             // 
             // textBoxUnitsTitle
             // 
-            this.textBoxUnitsTitle.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsTitle.BackColor = System.Drawing.Color.Yellow;
             this.textBoxUnitsTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUnitsTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUnitsTitle.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.textBoxUnitsTitle.Location = new System.Drawing.Point(3, 8);
+            this.textBoxUnitsTitle.Location = new System.Drawing.Point(3, 4);
             this.textBoxUnitsTitle.Name = "textBoxUnitsTitle";
             this.textBoxUnitsTitle.ReadOnly = true;
             this.textBoxUnitsTitle.Size = new System.Drawing.Size(346, 22);
@@ -1254,7 +1258,7 @@
             // 
             // textBoxUDefinition
             // 
-            this.textBoxUDefinition.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUDefinition.BackColor = System.Drawing.Color.White;
             this.textBoxUDefinition.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUDefinition.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUDefinition.ForeColor = System.Drawing.Color.Gray;
@@ -1267,9 +1271,10 @@
             // 
             // textBoxUnitsUValue
             // 
-            this.textBoxUnitsUValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsUValue.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsUValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUnitsUValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsUValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxUnitsUValue.Location = new System.Drawing.Point(116, 198);
             this.textBoxUnitsUValue.Name = "textBoxUnitsUValue";
             this.textBoxUnitsUValue.ReadOnly = true;
@@ -1279,9 +1284,9 @@
             // 
             // textBoxUnitsU
             // 
-            this.textBoxUnitsU.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsU.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsU.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsU.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsU.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUnitsU.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxUnitsU.Location = new System.Drawing.Point(10, 198);
             this.textBoxUnitsU.Name = "textBoxUnitsU";
@@ -1293,9 +1298,10 @@
             // 
             // textBoxUnitsCPValue
             // 
-            this.textBoxUnitsCPValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsCPValue.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsCPValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUnitsCPValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsCPValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxUnitsCPValue.Location = new System.Drawing.Point(116, 158);
             this.textBoxUnitsCPValue.Name = "textBoxUnitsCPValue";
             this.textBoxUnitsCPValue.ReadOnly = true;
@@ -1305,7 +1311,7 @@
             // 
             // textBoxCPDefinition
             // 
-            this.textBoxCPDefinition.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCPDefinition.BackColor = System.Drawing.Color.White;
             this.textBoxCPDefinition.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCPDefinition.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCPDefinition.ForeColor = System.Drawing.Color.Gray;
@@ -1318,9 +1324,9 @@
             // 
             // textBoxUnitsCP
             // 
-            this.textBoxUnitsCP.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsCP.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsCP.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsCP.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsCP.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUnitsCP.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxUnitsCP.Location = new System.Drawing.Point(10, 158);
             this.textBoxUnitsCP.Name = "textBoxUnitsCP";
@@ -1332,9 +1338,10 @@
             // 
             // textBoxUnitsDutyValue
             // 
-            this.textBoxUnitsDutyValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsDutyValue.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsDutyValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUnitsDutyValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsDutyValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxUnitsDutyValue.Location = new System.Drawing.Point(116, 138);
             this.textBoxUnitsDutyValue.Name = "textBoxUnitsDutyValue";
             this.textBoxUnitsDutyValue.ReadOnly = true;
@@ -1344,9 +1351,9 @@
             // 
             // textBoxUnitsDuty
             // 
-            this.textBoxUnitsDuty.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsDuty.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsDuty.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsDuty.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsDuty.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUnitsDuty.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxUnitsDuty.Location = new System.Drawing.Point(10, 138);
             this.textBoxUnitsDuty.Name = "textBoxUnitsDuty";
@@ -1358,9 +1365,10 @@
             // 
             // textBoxUnitsAreaValue
             // 
-            this.textBoxUnitsAreaValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsAreaValue.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsAreaValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUnitsAreaValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsAreaValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxUnitsAreaValue.Location = new System.Drawing.Point(116, 118);
             this.textBoxUnitsAreaValue.Name = "textBoxUnitsAreaValue";
             this.textBoxUnitsAreaValue.ReadOnly = true;
@@ -1370,9 +1378,9 @@
             // 
             // textBoxUnitsArea
             // 
-            this.textBoxUnitsArea.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsArea.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsArea.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsArea.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsArea.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUnitsArea.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxUnitsArea.Location = new System.Drawing.Point(10, 118);
             this.textBoxUnitsArea.Name = "textBoxUnitsArea";
@@ -1384,9 +1392,9 @@
             // 
             // textBoxUnitsPress
             // 
-            this.textBoxUnitsPress.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsPress.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsPress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsPress.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsPress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUnitsPress.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxUnitsPress.Location = new System.Drawing.Point(10, 98);
             this.textBoxUnitsPress.Name = "textBoxUnitsPress";
@@ -1398,9 +1406,9 @@
             // 
             // textBoxUnitsTemp
             // 
-            this.textBoxUnitsTemp.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsTemp.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsTemp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsTemp.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsTemp.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUnitsTemp.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxUnitsTemp.Location = new System.Drawing.Point(10, 78);
             this.textBoxUnitsTemp.Name = "textBoxUnitsTemp";
@@ -1412,9 +1420,9 @@
             // 
             // textBoxUnitsMagnitude
             // 
-            this.textBoxUnitsMagnitude.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsMagnitude.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsMagnitude.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsMagnitude.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsMagnitude.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUnitsMagnitude.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxUnitsMagnitude.Location = new System.Drawing.Point(10, 58);
             this.textBoxUnitsMagnitude.Name = "textBoxUnitsMagnitude";
@@ -1426,6 +1434,7 @@
             // 
             // pictureBoxUnitsSystem
             // 
+            this.pictureBoxUnitsSystem.BackColor = System.Drawing.Color.White;
             this.pictureBoxUnitsSystem.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUnitsSystem.Image")));
             this.pictureBoxUnitsSystem.Location = new System.Drawing.Point(253, 35);
             this.pictureBoxUnitsSystem.Name = "pictureBoxUnitsSystem";
@@ -1436,9 +1445,9 @@
             // 
             // textBoxUnitsSystem
             // 
-            this.textBoxUnitsSystem.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUnitsSystem.BackColor = System.Drawing.Color.White;
             this.textBoxUnitsSystem.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUnitsSystem.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitsSystem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUnitsSystem.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxUnitsSystem.Location = new System.Drawing.Point(10, 38);
             this.textBoxUnitsSystem.Name = "textBoxUnitsSystem";
@@ -1450,7 +1459,7 @@
             // 
             // panelDefaultHenOptimizer
             // 
-            this.panelDefaultHenOptimizer.BackColor = System.Drawing.Color.Azure;
+            this.panelDefaultHenOptimizer.BackColor = System.Drawing.Color.White;
             this.panelDefaultHenOptimizer.Controls.Add(this.textBoxDefaultHenOpitimizer);
             this.panelDefaultHenOptimizer.Controls.Add(this.textBoxDefaultStudyOptimizerTitle);
             this.panelDefaultHenOptimizer.Location = new System.Drawing.Point(391, 168);
@@ -1460,10 +1469,10 @@
             // 
             // textBoxDefaultHenOpitimizer
             // 
-            this.textBoxDefaultHenOpitimizer.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDefaultHenOpitimizer.BackColor = System.Drawing.Color.White;
             this.textBoxDefaultHenOpitimizer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDefaultHenOpitimizer.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDefaultHenOpitimizer.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxDefaultHenOpitimizer.ForeColor = System.Drawing.Color.Black;
             this.textBoxDefaultHenOpitimizer.Location = new System.Drawing.Point(20, 38);
             this.textBoxDefaultHenOpitimizer.Name = "textBoxDefaultHenOpitimizer";
             this.textBoxDefaultHenOpitimizer.ReadOnly = true;
@@ -1475,14 +1484,14 @@
             // textBoxDefaultStudyOptimizerTitle
             // 
             this.textBoxDefaultStudyOptimizerTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDefaultStudyOptimizerTitle.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDefaultStudyOptimizerTitle.BackColor = System.Drawing.Color.Yellow;
             this.textBoxDefaultStudyOptimizerTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDefaultStudyOptimizerTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDefaultStudyOptimizerTitle.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxDefaultStudyOptimizerTitle.Location = new System.Drawing.Point(3, 3);
             this.textBoxDefaultStudyOptimizerTitle.Name = "textBoxDefaultStudyOptimizerTitle";
             this.textBoxDefaultStudyOptimizerTitle.ReadOnly = true;
-            this.textBoxDefaultStudyOptimizerTitle.Size = new System.Drawing.Size(486, 22);
+            this.textBoxDefaultStudyOptimizerTitle.Size = new System.Drawing.Size(483, 22);
             this.textBoxDefaultStudyOptimizerTitle.TabIndex = 34;
             this.textBoxDefaultStudyOptimizerTitle.TabStop = false;
             this.textBoxDefaultStudyOptimizerTitle.Text = "DEFAULT STUDY OPTIMIZER";
@@ -1506,7 +1515,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.LightYellow;
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(281, 230);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(286, 133);
@@ -1516,7 +1525,7 @@
             // 
             // panelUtilityCost
             // 
-            this.panelUtilityCost.BackColor = System.Drawing.Color.Azure;
+            this.panelUtilityCost.BackColor = System.Drawing.Color.White;
             this.panelUtilityCost.Controls.Add(this.textBoxUtilityCostUnits_ENGLISH);
             this.panelUtilityCost.Controls.Add(this.textBoxUtilityCostUnits);
             this.panelUtilityCost.Controls.Add(this.textBoxUtilityCostUnits_METRIC);
@@ -1548,10 +1557,10 @@
             // 
             // textBoxUtilityCostUnits_ENGLISH
             // 
-            this.textBoxUtilityCostUnits_ENGLISH.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUtilityCostUnits_ENGLISH.BackColor = System.Drawing.Color.White;
             this.textBoxUtilityCostUnits_ENGLISH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUtilityCostUnits_ENGLISH.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUtilityCostUnits_ENGLISH.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxUtilityCostUnits_ENGLISH.ForeColor = System.Drawing.Color.Black;
             this.textBoxUtilityCostUnits_ENGLISH.Location = new System.Drawing.Point(215, 191);
             this.textBoxUtilityCostUnits_ENGLISH.Name = "textBoxUtilityCostUnits_ENGLISH";
             this.textBoxUtilityCostUnits_ENGLISH.ReadOnly = true;
@@ -1562,9 +1571,9 @@
             // 
             // textBoxUtilityCostUnits
             // 
-            this.textBoxUtilityCostUnits.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUtilityCostUnits.BackColor = System.Drawing.Color.White;
             this.textBoxUtilityCostUnits.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUtilityCostUnits.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUtilityCostUnits.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUtilityCostUnits.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxUtilityCostUnits.Location = new System.Drawing.Point(25, 191);
             this.textBoxUtilityCostUnits.Name = "textBoxUtilityCostUnits";
@@ -1576,10 +1585,10 @@
             // 
             // textBoxUtilityCostUnits_METRIC
             // 
-            this.textBoxUtilityCostUnits_METRIC.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUtilityCostUnits_METRIC.BackColor = System.Drawing.Color.White;
             this.textBoxUtilityCostUnits_METRIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUtilityCostUnits_METRIC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUtilityCostUnits_METRIC.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxUtilityCostUnits_METRIC.ForeColor = System.Drawing.Color.Black;
             this.textBoxUtilityCostUnits_METRIC.Location = new System.Drawing.Point(134, 191);
             this.textBoxUtilityCostUnits_METRIC.Name = "textBoxUtilityCostUnits_METRIC";
             this.textBoxUtilityCostUnits_METRIC.ReadOnly = true;
@@ -1618,10 +1627,10 @@
             // 
             // textBoxChilledWater_ENGLISH
             // 
-            this.textBoxChilledWater_ENGLISH.BackColor = System.Drawing.Color.Azure;
+            this.textBoxChilledWater_ENGLISH.BackColor = System.Drawing.Color.White;
             this.textBoxChilledWater_ENGLISH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxChilledWater_ENGLISH.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxChilledWater_ENGLISH.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxChilledWater_ENGLISH.ForeColor = System.Drawing.Color.Black;
             this.textBoxChilledWater_ENGLISH.Location = new System.Drawing.Point(215, 143);
             this.textBoxChilledWater_ENGLISH.Name = "textBoxChilledWater_ENGLISH";
             this.textBoxChilledWater_ENGLISH.ReadOnly = true;
@@ -1632,10 +1641,10 @@
             // 
             // textBoxFuelGas_ENGLISH
             // 
-            this.textBoxFuelGas_ENGLISH.BackColor = System.Drawing.Color.Azure;
+            this.textBoxFuelGas_ENGLISH.BackColor = System.Drawing.Color.White;
             this.textBoxFuelGas_ENGLISH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxFuelGas_ENGLISH.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFuelGas_ENGLISH.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxFuelGas_ENGLISH.ForeColor = System.Drawing.Color.Black;
             this.textBoxFuelGas_ENGLISH.Location = new System.Drawing.Point(215, 167);
             this.textBoxFuelGas_ENGLISH.Name = "textBoxFuelGas_ENGLISH";
             this.textBoxFuelGas_ENGLISH.ReadOnly = true;
@@ -1646,10 +1655,10 @@
             // 
             // textBoxCoolingWater_ENGLISH
             // 
-            this.textBoxCoolingWater_ENGLISH.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCoolingWater_ENGLISH.BackColor = System.Drawing.Color.White;
             this.textBoxCoolingWater_ENGLISH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCoolingWater_ENGLISH.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCoolingWater_ENGLISH.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxCoolingWater_ENGLISH.ForeColor = System.Drawing.Color.Black;
             this.textBoxCoolingWater_ENGLISH.Location = new System.Drawing.Point(215, 119);
             this.textBoxCoolingWater_ENGLISH.Name = "textBoxCoolingWater_ENGLISH";
             this.textBoxCoolingWater_ENGLISH.ReadOnly = true;
@@ -1660,10 +1669,10 @@
             // 
             // textBoxLP_Steam_ENGLISH
             // 
-            this.textBoxLP_Steam_ENGLISH.BackColor = System.Drawing.Color.Azure;
+            this.textBoxLP_Steam_ENGLISH.BackColor = System.Drawing.Color.White;
             this.textBoxLP_Steam_ENGLISH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxLP_Steam_ENGLISH.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLP_Steam_ENGLISH.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxLP_Steam_ENGLISH.ForeColor = System.Drawing.Color.Black;
             this.textBoxLP_Steam_ENGLISH.Location = new System.Drawing.Point(215, 95);
             this.textBoxLP_Steam_ENGLISH.Name = "textBoxLP_Steam_ENGLISH";
             this.textBoxLP_Steam_ENGLISH.ReadOnly = true;
@@ -1674,10 +1683,10 @@
             // 
             // textBoxMP_Steam_ENGLISH
             // 
-            this.textBoxMP_Steam_ENGLISH.BackColor = System.Drawing.Color.Azure;
+            this.textBoxMP_Steam_ENGLISH.BackColor = System.Drawing.Color.White;
             this.textBoxMP_Steam_ENGLISH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMP_Steam_ENGLISH.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMP_Steam_ENGLISH.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxMP_Steam_ENGLISH.ForeColor = System.Drawing.Color.Black;
             this.textBoxMP_Steam_ENGLISH.Location = new System.Drawing.Point(215, 71);
             this.textBoxMP_Steam_ENGLISH.Name = "textBoxMP_Steam_ENGLISH";
             this.textBoxMP_Steam_ENGLISH.ReadOnly = true;
@@ -1688,10 +1697,10 @@
             // 
             // textBoxHP_Steam_ENGLISH
             // 
-            this.textBoxHP_Steam_ENGLISH.BackColor = System.Drawing.Color.Azure;
+            this.textBoxHP_Steam_ENGLISH.BackColor = System.Drawing.Color.White;
             this.textBoxHP_Steam_ENGLISH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxHP_Steam_ENGLISH.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxHP_Steam_ENGLISH.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxHP_Steam_ENGLISH.ForeColor = System.Drawing.Color.Black;
             this.textBoxHP_Steam_ENGLISH.Location = new System.Drawing.Point(215, 47);
             this.textBoxHP_Steam_ENGLISH.Name = "textBoxHP_Steam_ENGLISH";
             this.textBoxHP_Steam_ENGLISH.ReadOnly = true;
@@ -1702,9 +1711,9 @@
             // 
             // textBoxChilledWater
             // 
-            this.textBoxChilledWater.BackColor = System.Drawing.Color.Azure;
+            this.textBoxChilledWater.BackColor = System.Drawing.Color.White;
             this.textBoxChilledWater.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxChilledWater.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxChilledWater.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxChilledWater.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxChilledWater.Location = new System.Drawing.Point(25, 143);
             this.textBoxChilledWater.Name = "textBoxChilledWater";
@@ -1716,10 +1725,10 @@
             // 
             // textBoxChilledWater_METRIC
             // 
-            this.textBoxChilledWater_METRIC.BackColor = System.Drawing.Color.Azure;
+            this.textBoxChilledWater_METRIC.BackColor = System.Drawing.Color.White;
             this.textBoxChilledWater_METRIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxChilledWater_METRIC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxChilledWater_METRIC.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxChilledWater_METRIC.ForeColor = System.Drawing.Color.Black;
             this.textBoxChilledWater_METRIC.Location = new System.Drawing.Point(134, 143);
             this.textBoxChilledWater_METRIC.Name = "textBoxChilledWater_METRIC";
             this.textBoxChilledWater_METRIC.ReadOnly = true;
@@ -1730,9 +1739,9 @@
             // 
             // textBoxFuelGas
             // 
-            this.textBoxFuelGas.BackColor = System.Drawing.Color.Azure;
+            this.textBoxFuelGas.BackColor = System.Drawing.Color.White;
             this.textBoxFuelGas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxFuelGas.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFuelGas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxFuelGas.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxFuelGas.Location = new System.Drawing.Point(25, 167);
             this.textBoxFuelGas.Name = "textBoxFuelGas";
@@ -1744,10 +1753,10 @@
             // 
             // textBoxFuelGas_METRIC
             // 
-            this.textBoxFuelGas_METRIC.BackColor = System.Drawing.Color.Azure;
+            this.textBoxFuelGas_METRIC.BackColor = System.Drawing.Color.White;
             this.textBoxFuelGas_METRIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxFuelGas_METRIC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFuelGas_METRIC.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxFuelGas_METRIC.ForeColor = System.Drawing.Color.Black;
             this.textBoxFuelGas_METRIC.Location = new System.Drawing.Point(134, 167);
             this.textBoxFuelGas_METRIC.Name = "textBoxFuelGas_METRIC";
             this.textBoxFuelGas_METRIC.ReadOnly = true;
@@ -1758,9 +1767,9 @@
             // 
             // textBoxCoolingWater
             // 
-            this.textBoxCoolingWater.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCoolingWater.BackColor = System.Drawing.Color.White;
             this.textBoxCoolingWater.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCoolingWater.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCoolingWater.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCoolingWater.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxCoolingWater.Location = new System.Drawing.Point(25, 119);
             this.textBoxCoolingWater.Name = "textBoxCoolingWater";
@@ -1772,10 +1781,10 @@
             // 
             // textBoxCoolingWater_METRIC
             // 
-            this.textBoxCoolingWater_METRIC.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCoolingWater_METRIC.BackColor = System.Drawing.Color.White;
             this.textBoxCoolingWater_METRIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCoolingWater_METRIC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCoolingWater_METRIC.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxCoolingWater_METRIC.ForeColor = System.Drawing.Color.Black;
             this.textBoxCoolingWater_METRIC.Location = new System.Drawing.Point(134, 119);
             this.textBoxCoolingWater_METRIC.Name = "textBoxCoolingWater_METRIC";
             this.textBoxCoolingWater_METRIC.ReadOnly = true;
@@ -1786,9 +1795,9 @@
             // 
             // textBoxLP_Steam
             // 
-            this.textBoxLP_Steam.BackColor = System.Drawing.Color.Azure;
+            this.textBoxLP_Steam.BackColor = System.Drawing.Color.White;
             this.textBoxLP_Steam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxLP_Steam.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLP_Steam.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLP_Steam.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxLP_Steam.Location = new System.Drawing.Point(25, 95);
             this.textBoxLP_Steam.Name = "textBoxLP_Steam";
@@ -1800,10 +1809,10 @@
             // 
             // textBoxLP_Steam_METRIC
             // 
-            this.textBoxLP_Steam_METRIC.BackColor = System.Drawing.Color.Azure;
+            this.textBoxLP_Steam_METRIC.BackColor = System.Drawing.Color.White;
             this.textBoxLP_Steam_METRIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxLP_Steam_METRIC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLP_Steam_METRIC.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxLP_Steam_METRIC.ForeColor = System.Drawing.Color.Black;
             this.textBoxLP_Steam_METRIC.Location = new System.Drawing.Point(134, 95);
             this.textBoxLP_Steam_METRIC.Name = "textBoxLP_Steam_METRIC";
             this.textBoxLP_Steam_METRIC.ReadOnly = true;
@@ -1814,9 +1823,9 @@
             // 
             // textBoxMP_Steam
             // 
-            this.textBoxMP_Steam.BackColor = System.Drawing.Color.Azure;
+            this.textBoxMP_Steam.BackColor = System.Drawing.Color.White;
             this.textBoxMP_Steam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxMP_Steam.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMP_Steam.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMP_Steam.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxMP_Steam.Location = new System.Drawing.Point(25, 71);
             this.textBoxMP_Steam.Name = "textBoxMP_Steam";
@@ -1828,10 +1837,10 @@
             // 
             // textBoxMP_Steam_METRIC
             // 
-            this.textBoxMP_Steam_METRIC.BackColor = System.Drawing.Color.Azure;
+            this.textBoxMP_Steam_METRIC.BackColor = System.Drawing.Color.White;
             this.textBoxMP_Steam_METRIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMP_Steam_METRIC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMP_Steam_METRIC.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxMP_Steam_METRIC.ForeColor = System.Drawing.Color.Black;
             this.textBoxMP_Steam_METRIC.Location = new System.Drawing.Point(134, 71);
             this.textBoxMP_Steam_METRIC.Name = "textBoxMP_Steam_METRIC";
             this.textBoxMP_Steam_METRIC.ReadOnly = true;
@@ -1842,9 +1851,9 @@
             // 
             // textBoxHP_Steam
             // 
-            this.textBoxHP_Steam.BackColor = System.Drawing.Color.Azure;
+            this.textBoxHP_Steam.BackColor = System.Drawing.Color.White;
             this.textBoxHP_Steam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxHP_Steam.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxHP_Steam.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxHP_Steam.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxHP_Steam.Location = new System.Drawing.Point(25, 47);
             this.textBoxHP_Steam.Name = "textBoxHP_Steam";
@@ -1856,10 +1865,10 @@
             // 
             // textBoxHP_Steam_METRIC
             // 
-            this.textBoxHP_Steam_METRIC.BackColor = System.Drawing.Color.Azure;
+            this.textBoxHP_Steam_METRIC.BackColor = System.Drawing.Color.White;
             this.textBoxHP_Steam_METRIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxHP_Steam_METRIC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxHP_Steam_METRIC.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxHP_Steam_METRIC.ForeColor = System.Drawing.Color.Black;
             this.textBoxHP_Steam_METRIC.Location = new System.Drawing.Point(134, 47);
             this.textBoxHP_Steam_METRIC.Name = "textBoxHP_Steam_METRIC";
             this.textBoxHP_Steam_METRIC.ReadOnly = true;
@@ -1870,7 +1879,7 @@
             // 
             // textBoxUtitlityCost_TITLE
             // 
-            this.textBoxUtitlityCost_TITLE.BackColor = System.Drawing.Color.Azure;
+            this.textBoxUtitlityCost_TITLE.BackColor = System.Drawing.Color.Yellow;
             this.textBoxUtitlityCost_TITLE.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUtitlityCost_TITLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUtitlityCost_TITLE.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -1885,7 +1894,7 @@
             // 
             // panelTotalAnnualizedCost
             // 
-            this.panelTotalAnnualizedCost.BackColor = System.Drawing.Color.Azure;
+            this.panelTotalAnnualizedCost.BackColor = System.Drawing.Color.White;
             this.panelTotalAnnualizedCost.Controls.Add(this.textBoxTAC_OperatingHours);
             this.panelTotalAnnualizedCost.Controls.Add(this.textBoxTAC_OperatingHoursValue);
             this.panelTotalAnnualizedCost.Controls.Add(this.textBoxTAC_MaintenanceFraction);
@@ -1902,9 +1911,9 @@
             // 
             // textBoxTAC_OperatingHours
             // 
-            this.textBoxTAC_OperatingHours.BackColor = System.Drawing.Color.Azure;
+            this.textBoxTAC_OperatingHours.BackColor = System.Drawing.Color.White;
             this.textBoxTAC_OperatingHours.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTAC_OperatingHours.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTAC_OperatingHours.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTAC_OperatingHours.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxTAC_OperatingHours.Location = new System.Drawing.Point(45, 106);
             this.textBoxTAC_OperatingHours.Name = "textBoxTAC_OperatingHours";
@@ -1916,10 +1925,10 @@
             // 
             // textBoxTAC_OperatingHoursValue
             // 
-            this.textBoxTAC_OperatingHoursValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxTAC_OperatingHoursValue.BackColor = System.Drawing.Color.White;
             this.textBoxTAC_OperatingHoursValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTAC_OperatingHoursValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTAC_OperatingHoursValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxTAC_OperatingHoursValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxTAC_OperatingHoursValue.Location = new System.Drawing.Point(196, 106);
             this.textBoxTAC_OperatingHoursValue.Name = "textBoxTAC_OperatingHoursValue";
             this.textBoxTAC_OperatingHoursValue.ReadOnly = true;
@@ -1930,9 +1939,9 @@
             // 
             // textBoxTAC_MaintenanceFraction
             // 
-            this.textBoxTAC_MaintenanceFraction.BackColor = System.Drawing.Color.Azure;
+            this.textBoxTAC_MaintenanceFraction.BackColor = System.Drawing.Color.White;
             this.textBoxTAC_MaintenanceFraction.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTAC_MaintenanceFraction.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTAC_MaintenanceFraction.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTAC_MaintenanceFraction.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxTAC_MaintenanceFraction.Location = new System.Drawing.Point(45, 82);
             this.textBoxTAC_MaintenanceFraction.Name = "textBoxTAC_MaintenanceFraction";
@@ -1944,10 +1953,10 @@
             // 
             // textBoxTAC_MaintenanceFractionValue
             // 
-            this.textBoxTAC_MaintenanceFractionValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxTAC_MaintenanceFractionValue.BackColor = System.Drawing.Color.White;
             this.textBoxTAC_MaintenanceFractionValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTAC_MaintenanceFractionValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTAC_MaintenanceFractionValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxTAC_MaintenanceFractionValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxTAC_MaintenanceFractionValue.Location = new System.Drawing.Point(196, 82);
             this.textBoxTAC_MaintenanceFractionValue.Name = "textBoxTAC_MaintenanceFractionValue";
             this.textBoxTAC_MaintenanceFractionValue.ReadOnly = true;
@@ -1958,9 +1967,9 @@
             // 
             // textBoxTAC_LifeYears
             // 
-            this.textBoxTAC_LifeYears.BackColor = System.Drawing.Color.Azure;
+            this.textBoxTAC_LifeYears.BackColor = System.Drawing.Color.White;
             this.textBoxTAC_LifeYears.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTAC_LifeYears.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTAC_LifeYears.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTAC_LifeYears.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxTAC_LifeYears.Location = new System.Drawing.Point(45, 58);
             this.textBoxTAC_LifeYears.Name = "textBoxTAC_LifeYears";
@@ -1972,10 +1981,10 @@
             // 
             // textBoxTAC_LifeYearsValue
             // 
-            this.textBoxTAC_LifeYearsValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxTAC_LifeYearsValue.BackColor = System.Drawing.Color.White;
             this.textBoxTAC_LifeYearsValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTAC_LifeYearsValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTAC_LifeYearsValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxTAC_LifeYearsValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxTAC_LifeYearsValue.Location = new System.Drawing.Point(196, 58);
             this.textBoxTAC_LifeYearsValue.Name = "textBoxTAC_LifeYearsValue";
             this.textBoxTAC_LifeYearsValue.ReadOnly = true;
@@ -1986,9 +1995,9 @@
             // 
             // textBoxTAC_InterestRate
             // 
-            this.textBoxTAC_InterestRate.BackColor = System.Drawing.Color.Azure;
+            this.textBoxTAC_InterestRate.BackColor = System.Drawing.Color.White;
             this.textBoxTAC_InterestRate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTAC_InterestRate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTAC_InterestRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTAC_InterestRate.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxTAC_InterestRate.Location = new System.Drawing.Point(45, 34);
             this.textBoxTAC_InterestRate.Name = "textBoxTAC_InterestRate";
@@ -2000,10 +2009,10 @@
             // 
             // textBoxTAC_InterestRateValue
             // 
-            this.textBoxTAC_InterestRateValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxTAC_InterestRateValue.BackColor = System.Drawing.Color.White;
             this.textBoxTAC_InterestRateValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTAC_InterestRateValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTAC_InterestRateValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxTAC_InterestRateValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxTAC_InterestRateValue.Location = new System.Drawing.Point(196, 34);
             this.textBoxTAC_InterestRateValue.Name = "textBoxTAC_InterestRateValue";
             this.textBoxTAC_InterestRateValue.ReadOnly = true;
@@ -2014,7 +2023,7 @@
             // 
             // textBoxTotalAnnualizedCost_TITLE
             // 
-            this.textBoxTotalAnnualizedCost_TITLE.BackColor = System.Drawing.Color.Azure;
+            this.textBoxTotalAnnualizedCost_TITLE.BackColor = System.Drawing.Color.Yellow;
             this.textBoxTotalAnnualizedCost_TITLE.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxTotalAnnualizedCost_TITLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotalAnnualizedCost_TITLE.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -2029,7 +2038,7 @@
             // 
             // panelShellAndTubeCapitalCost
             // 
-            this.panelShellAndTubeCapitalCost.BackColor = System.Drawing.Color.Azure;
+            this.panelShellAndTubeCapitalCost.BackColor = System.Drawing.Color.White;
             this.panelShellAndTubeCapitalCost.Controls.Add(this.textBoxMaterialFactor);
             this.panelShellAndTubeCapitalCost.Controls.Add(this.textBoxMaterialFactorValue);
             this.panelShellAndTubeCapitalCost.Controls.Add(this.textBoxAreaUnitsEnglish);
@@ -2052,9 +2061,9 @@
             // 
             // textBoxMaterialFactor
             // 
-            this.textBoxMaterialFactor.BackColor = System.Drawing.Color.Azure;
+            this.textBoxMaterialFactor.BackColor = System.Drawing.Color.White;
             this.textBoxMaterialFactor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxMaterialFactor.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMaterialFactor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMaterialFactor.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxMaterialFactor.Location = new System.Drawing.Point(16, 135);
             this.textBoxMaterialFactor.Name = "textBoxMaterialFactor";
@@ -2066,10 +2075,10 @@
             // 
             // textBoxMaterialFactorValue
             // 
-            this.textBoxMaterialFactorValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxMaterialFactorValue.BackColor = System.Drawing.Color.White;
             this.textBoxMaterialFactorValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMaterialFactorValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMaterialFactorValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxMaterialFactorValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxMaterialFactorValue.Location = new System.Drawing.Point(167, 135);
             this.textBoxMaterialFactorValue.Name = "textBoxMaterialFactorValue";
             this.textBoxMaterialFactorValue.ReadOnly = true;
@@ -2080,9 +2089,9 @@
             // 
             // textBoxAreaUnitsEnglish
             // 
-            this.textBoxAreaUnitsEnglish.BackColor = System.Drawing.Color.Azure;
+            this.textBoxAreaUnitsEnglish.BackColor = System.Drawing.Color.White;
             this.textBoxAreaUnitsEnglish.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxAreaUnitsEnglish.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAreaUnitsEnglish.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAreaUnitsEnglish.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxAreaUnitsEnglish.Location = new System.Drawing.Point(16, 183);
             this.textBoxAreaUnitsEnglish.Name = "textBoxAreaUnitsEnglish";
@@ -2094,10 +2103,10 @@
             // 
             // textBoxAreaUnitsEnglishValue
             // 
-            this.textBoxAreaUnitsEnglishValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxAreaUnitsEnglishValue.BackColor = System.Drawing.Color.White;
             this.textBoxAreaUnitsEnglishValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAreaUnitsEnglishValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAreaUnitsEnglishValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxAreaUnitsEnglishValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxAreaUnitsEnglishValue.Location = new System.Drawing.Point(167, 183);
             this.textBoxAreaUnitsEnglishValue.Name = "textBoxAreaUnitsEnglishValue";
             this.textBoxAreaUnitsEnglishValue.ReadOnly = true;
@@ -2108,9 +2117,9 @@
             // 
             // textBoxAreaUnitsMetric
             // 
-            this.textBoxAreaUnitsMetric.BackColor = System.Drawing.Color.Azure;
+            this.textBoxAreaUnitsMetric.BackColor = System.Drawing.Color.White;
             this.textBoxAreaUnitsMetric.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxAreaUnitsMetric.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAreaUnitsMetric.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAreaUnitsMetric.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxAreaUnitsMetric.Location = new System.Drawing.Point(16, 159);
             this.textBoxAreaUnitsMetric.Name = "textBoxAreaUnitsMetric";
@@ -2122,10 +2131,10 @@
             // 
             // textBoxAreaUnitsMetricValue
             // 
-            this.textBoxAreaUnitsMetricValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxAreaUnitsMetricValue.BackColor = System.Drawing.Color.White;
             this.textBoxAreaUnitsMetricValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAreaUnitsMetricValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAreaUnitsMetricValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxAreaUnitsMetricValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxAreaUnitsMetricValue.Location = new System.Drawing.Point(167, 159);
             this.textBoxAreaUnitsMetricValue.Name = "textBoxAreaUnitsMetricValue";
             this.textBoxAreaUnitsMetricValue.ReadOnly = true;
@@ -2136,9 +2145,9 @@
             // 
             // textBoxParameterN
             // 
-            this.textBoxParameterN.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterN.BackColor = System.Drawing.Color.White;
             this.textBoxParameterN.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxParameterN.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxParameterN.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxParameterN.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxParameterN.Location = new System.Drawing.Point(16, 111);
             this.textBoxParameterN.Name = "textBoxParameterN";
@@ -2150,10 +2159,10 @@
             // 
             // textBoxParameterN_Value
             // 
-            this.textBoxParameterN_Value.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterN_Value.BackColor = System.Drawing.Color.White;
             this.textBoxParameterN_Value.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxParameterN_Value.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxParameterN_Value.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxParameterN_Value.ForeColor = System.Drawing.Color.Black;
             this.textBoxParameterN_Value.Location = new System.Drawing.Point(167, 111);
             this.textBoxParameterN_Value.Name = "textBoxParameterN_Value";
             this.textBoxParameterN_Value.ReadOnly = true;
@@ -2164,9 +2173,9 @@
             // 
             // textBoxParameterB_English
             // 
-            this.textBoxParameterB_English.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterB_English.BackColor = System.Drawing.Color.White;
             this.textBoxParameterB_English.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxParameterB_English.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxParameterB_English.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxParameterB_English.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxParameterB_English.Location = new System.Drawing.Point(16, 87);
             this.textBoxParameterB_English.Name = "textBoxParameterB_English";
@@ -2178,10 +2187,10 @@
             // 
             // textBoxParameterB_EnglishValue
             // 
-            this.textBoxParameterB_EnglishValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterB_EnglishValue.BackColor = System.Drawing.Color.White;
             this.textBoxParameterB_EnglishValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxParameterB_EnglishValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxParameterB_EnglishValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxParameterB_EnglishValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxParameterB_EnglishValue.Location = new System.Drawing.Point(167, 87);
             this.textBoxParameterB_EnglishValue.Name = "textBoxParameterB_EnglishValue";
             this.textBoxParameterB_EnglishValue.ReadOnly = true;
@@ -2192,9 +2201,9 @@
             // 
             // textBoxParameterB_Metric
             // 
-            this.textBoxParameterB_Metric.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterB_Metric.BackColor = System.Drawing.Color.White;
             this.textBoxParameterB_Metric.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxParameterB_Metric.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxParameterB_Metric.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxParameterB_Metric.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxParameterB_Metric.Location = new System.Drawing.Point(16, 63);
             this.textBoxParameterB_Metric.Name = "textBoxParameterB_Metric";
@@ -2206,10 +2215,10 @@
             // 
             // textBoxParameterB_MetricValue
             // 
-            this.textBoxParameterB_MetricValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterB_MetricValue.BackColor = System.Drawing.Color.White;
             this.textBoxParameterB_MetricValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxParameterB_MetricValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxParameterB_MetricValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxParameterB_MetricValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxParameterB_MetricValue.Location = new System.Drawing.Point(167, 63);
             this.textBoxParameterB_MetricValue.Name = "textBoxParameterB_MetricValue";
             this.textBoxParameterB_MetricValue.ReadOnly = true;
@@ -2220,9 +2229,9 @@
             // 
             // textBoxParameterA
             // 
-            this.textBoxParameterA.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterA.BackColor = System.Drawing.Color.White;
             this.textBoxParameterA.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxParameterA.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxParameterA.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxParameterA.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxParameterA.Location = new System.Drawing.Point(16, 39);
             this.textBoxParameterA.Name = "textBoxParameterA";
@@ -2234,10 +2243,10 @@
             // 
             // textBoxParameterAValue
             // 
-            this.textBoxParameterAValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterAValue.BackColor = System.Drawing.Color.White;
             this.textBoxParameterAValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxParameterAValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxParameterAValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxParameterAValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxParameterAValue.Location = new System.Drawing.Point(167, 39);
             this.textBoxParameterAValue.Name = "textBoxParameterAValue";
             this.textBoxParameterAValue.ReadOnly = true;
@@ -2248,7 +2257,7 @@
             // 
             // textBoxShellAndTubeCapitalCost_TITLE
             // 
-            this.textBoxShellAndTubeCapitalCost_TITLE.BackColor = System.Drawing.Color.Azure;
+            this.textBoxShellAndTubeCapitalCost_TITLE.BackColor = System.Drawing.Color.Yellow;
             this.textBoxShellAndTubeCapitalCost_TITLE.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxShellAndTubeCapitalCost_TITLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxShellAndTubeCapitalCost_TITLE.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -2263,7 +2272,7 @@
             // 
             // panelFiredHeaterCapitalCost
             // 
-            this.panelFiredHeaterCapitalCost.BackColor = System.Drawing.Color.Azure;
+            this.panelFiredHeaterCapitalCost.BackColor = System.Drawing.Color.White;
             this.panelFiredHeaterCapitalCost.Controls.Add(this.textBoxDutyUnitsEnglish);
             this.panelFiredHeaterCapitalCost.Controls.Add(this.textBoxDutyUnitsEnglishValue);
             this.panelFiredHeaterCapitalCost.Controls.Add(this.textBoxDutyUnitsMetric);
@@ -2284,9 +2293,9 @@
             // 
             // textBoxDutyUnitsEnglish
             // 
-            this.textBoxDutyUnitsEnglish.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDutyUnitsEnglish.BackColor = System.Drawing.Color.White;
             this.textBoxDutyUnitsEnglish.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDutyUnitsEnglish.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDutyUnitsEnglish.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDutyUnitsEnglish.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxDutyUnitsEnglish.Location = new System.Drawing.Point(13, 158);
             this.textBoxDutyUnitsEnglish.Name = "textBoxDutyUnitsEnglish";
@@ -2298,10 +2307,10 @@
             // 
             // textBoxDutyUnitsEnglishValue
             // 
-            this.textBoxDutyUnitsEnglishValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDutyUnitsEnglishValue.BackColor = System.Drawing.Color.White;
             this.textBoxDutyUnitsEnglishValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDutyUnitsEnglishValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDutyUnitsEnglishValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxDutyUnitsEnglishValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxDutyUnitsEnglishValue.Location = new System.Drawing.Point(162, 158);
             this.textBoxDutyUnitsEnglishValue.Name = "textBoxDutyUnitsEnglishValue";
             this.textBoxDutyUnitsEnglishValue.ReadOnly = true;
@@ -2312,9 +2321,9 @@
             // 
             // textBoxDutyUnitsMetric
             // 
-            this.textBoxDutyUnitsMetric.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDutyUnitsMetric.BackColor = System.Drawing.Color.White;
             this.textBoxDutyUnitsMetric.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDutyUnitsMetric.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDutyUnitsMetric.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDutyUnitsMetric.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxDutyUnitsMetric.Location = new System.Drawing.Point(13, 134);
             this.textBoxDutyUnitsMetric.Name = "textBoxDutyUnitsMetric";
@@ -2326,10 +2335,10 @@
             // 
             // textBoxDutyUnitsMetricValue
             // 
-            this.textBoxDutyUnitsMetricValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxDutyUnitsMetricValue.BackColor = System.Drawing.Color.White;
             this.textBoxDutyUnitsMetricValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDutyUnitsMetricValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDutyUnitsMetricValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxDutyUnitsMetricValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxDutyUnitsMetricValue.Location = new System.Drawing.Point(162, 134);
             this.textBoxDutyUnitsMetricValue.Name = "textBoxDutyUnitsMetricValue";
             this.textBoxDutyUnitsMetricValue.ReadOnly = true;
@@ -2340,9 +2349,9 @@
             // 
             // textBoxEffeciency
             // 
-            this.textBoxEffeciency.BackColor = System.Drawing.Color.Azure;
+            this.textBoxEffeciency.BackColor = System.Drawing.Color.White;
             this.textBoxEffeciency.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxEffeciency.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEffeciency.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEffeciency.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxEffeciency.Location = new System.Drawing.Point(13, 110);
             this.textBoxEffeciency.Name = "textBoxEffeciency";
@@ -2354,10 +2363,10 @@
             // 
             // textBoxEffeciencyValue
             // 
-            this.textBoxEffeciencyValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxEffeciencyValue.BackColor = System.Drawing.Color.White;
             this.textBoxEffeciencyValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxEffeciencyValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEffeciencyValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxEffeciencyValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxEffeciencyValue.Location = new System.Drawing.Point(162, 110);
             this.textBoxEffeciencyValue.Name = "textBoxEffeciencyValue";
             this.textBoxEffeciencyValue.ReadOnly = true;
@@ -2368,9 +2377,9 @@
             // 
             // textBoxParameterBeta
             // 
-            this.textBoxParameterBeta.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterBeta.BackColor = System.Drawing.Color.White;
             this.textBoxParameterBeta.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxParameterBeta.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxParameterBeta.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxParameterBeta.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxParameterBeta.Location = new System.Drawing.Point(13, 86);
             this.textBoxParameterBeta.Name = "textBoxParameterBeta";
@@ -2382,10 +2391,10 @@
             // 
             // textBoxParameterBetaValue
             // 
-            this.textBoxParameterBetaValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterBetaValue.BackColor = System.Drawing.Color.White;
             this.textBoxParameterBetaValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxParameterBetaValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxParameterBetaValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxParameterBetaValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxParameterBetaValue.Location = new System.Drawing.Point(162, 86);
             this.textBoxParameterBetaValue.Name = "textBoxParameterBetaValue";
             this.textBoxParameterBetaValue.ReadOnly = true;
@@ -2396,9 +2405,9 @@
             // 
             // textBoxParameterAlphaEnglish
             // 
-            this.textBoxParameterAlphaEnglish.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterAlphaEnglish.BackColor = System.Drawing.Color.White;
             this.textBoxParameterAlphaEnglish.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxParameterAlphaEnglish.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxParameterAlphaEnglish.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxParameterAlphaEnglish.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxParameterAlphaEnglish.Location = new System.Drawing.Point(13, 62);
             this.textBoxParameterAlphaEnglish.Name = "textBoxParameterAlphaEnglish";
@@ -2410,10 +2419,10 @@
             // 
             // textBoxParameterAlphaEnglishValue
             // 
-            this.textBoxParameterAlphaEnglishValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterAlphaEnglishValue.BackColor = System.Drawing.Color.White;
             this.textBoxParameterAlphaEnglishValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxParameterAlphaEnglishValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxParameterAlphaEnglishValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxParameterAlphaEnglishValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxParameterAlphaEnglishValue.Location = new System.Drawing.Point(162, 62);
             this.textBoxParameterAlphaEnglishValue.Name = "textBoxParameterAlphaEnglishValue";
             this.textBoxParameterAlphaEnglishValue.ReadOnly = true;
@@ -2424,9 +2433,9 @@
             // 
             // textBoxParameterAlphaMetric
             // 
-            this.textBoxParameterAlphaMetric.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterAlphaMetric.BackColor = System.Drawing.Color.White;
             this.textBoxParameterAlphaMetric.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxParameterAlphaMetric.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxParameterAlphaMetric.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxParameterAlphaMetric.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxParameterAlphaMetric.Location = new System.Drawing.Point(13, 38);
             this.textBoxParameterAlphaMetric.Name = "textBoxParameterAlphaMetric";
@@ -2438,10 +2447,10 @@
             // 
             // textBoxParameterAlphaMetricValue
             // 
-            this.textBoxParameterAlphaMetricValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxParameterAlphaMetricValue.BackColor = System.Drawing.Color.White;
             this.textBoxParameterAlphaMetricValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxParameterAlphaMetricValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxParameterAlphaMetricValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxParameterAlphaMetricValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxParameterAlphaMetricValue.Location = new System.Drawing.Point(162, 38);
             this.textBoxParameterAlphaMetricValue.Name = "textBoxParameterAlphaMetricValue";
             this.textBoxParameterAlphaMetricValue.ReadOnly = true;
@@ -2452,7 +2461,7 @@
             // 
             // textBoxFiredHeaterCapitalCost_TITLE
             // 
-            this.textBoxFiredHeaterCapitalCost_TITLE.BackColor = System.Drawing.Color.Azure;
+            this.textBoxFiredHeaterCapitalCost_TITLE.BackColor = System.Drawing.Color.Yellow;
             this.textBoxFiredHeaterCapitalCost_TITLE.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxFiredHeaterCapitalCost_TITLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxFiredHeaterCapitalCost_TITLE.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -2467,7 +2476,7 @@
             // 
             // panelCostMetadata
             // 
-            this.panelCostMetadata.BackColor = System.Drawing.Color.Azure;
+            this.panelCostMetadata.BackColor = System.Drawing.Color.White;
             this.panelCostMetadata.Controls.Add(this.textBoxInstalledCostFactor);
             this.panelCostMetadata.Controls.Add(this.textBoxInstalledCostFactorValue);
             this.panelCostMetadata.Controls.Add(this.textBoxCostIndexCurrency);
@@ -2486,9 +2495,9 @@
             // 
             // textBoxInstalledCostFactor
             // 
-            this.textBoxInstalledCostFactor.BackColor = System.Drawing.Color.Azure;
+            this.textBoxInstalledCostFactor.BackColor = System.Drawing.Color.White;
             this.textBoxInstalledCostFactor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxInstalledCostFactor.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxInstalledCostFactor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxInstalledCostFactor.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxInstalledCostFactor.Location = new System.Drawing.Point(13, 130);
             this.textBoxInstalledCostFactor.Name = "textBoxInstalledCostFactor";
@@ -2500,10 +2509,10 @@
             // 
             // textBoxInstalledCostFactorValue
             // 
-            this.textBoxInstalledCostFactorValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxInstalledCostFactorValue.BackColor = System.Drawing.Color.White;
             this.textBoxInstalledCostFactorValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxInstalledCostFactorValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInstalledCostFactorValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxInstalledCostFactorValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxInstalledCostFactorValue.Location = new System.Drawing.Point(164, 130);
             this.textBoxInstalledCostFactorValue.Name = "textBoxInstalledCostFactorValue";
             this.textBoxInstalledCostFactorValue.ReadOnly = true;
@@ -2514,9 +2523,9 @@
             // 
             // textBoxCostIndexCurrency
             // 
-            this.textBoxCostIndexCurrency.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCostIndexCurrency.BackColor = System.Drawing.Color.White;
             this.textBoxCostIndexCurrency.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCostIndexCurrency.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCostIndexCurrency.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCostIndexCurrency.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxCostIndexCurrency.Location = new System.Drawing.Point(13, 106);
             this.textBoxCostIndexCurrency.Name = "textBoxCostIndexCurrency";
@@ -2528,10 +2537,10 @@
             // 
             // textBoxCostIndexCurrencyValue
             // 
-            this.textBoxCostIndexCurrencyValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCostIndexCurrencyValue.BackColor = System.Drawing.Color.White;
             this.textBoxCostIndexCurrencyValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCostIndexCurrencyValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCostIndexCurrencyValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxCostIndexCurrencyValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxCostIndexCurrencyValue.Location = new System.Drawing.Point(164, 106);
             this.textBoxCostIndexCurrencyValue.Name = "textBoxCostIndexCurrencyValue";
             this.textBoxCostIndexCurrencyValue.ReadOnly = true;
@@ -2542,9 +2551,9 @@
             // 
             // textBoxCostIndex
             // 
-            this.textBoxCostIndex.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCostIndex.BackColor = System.Drawing.Color.White;
             this.textBoxCostIndex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCostIndex.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCostIndex.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCostIndex.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxCostIndex.Location = new System.Drawing.Point(13, 82);
             this.textBoxCostIndex.Name = "textBoxCostIndex";
@@ -2556,10 +2565,10 @@
             // 
             // textBoxCostIndexValue
             // 
-            this.textBoxCostIndexValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCostIndexValue.BackColor = System.Drawing.Color.White;
             this.textBoxCostIndexValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCostIndexValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCostIndexValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxCostIndexValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxCostIndexValue.Location = new System.Drawing.Point(164, 82);
             this.textBoxCostIndexValue.Name = "textBoxCostIndexValue";
             this.textBoxCostIndexValue.ReadOnly = true;
@@ -2570,9 +2579,9 @@
             // 
             // textBoxCostIndexName
             // 
-            this.textBoxCostIndexName.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCostIndexName.BackColor = System.Drawing.Color.White;
             this.textBoxCostIndexName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCostIndexName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCostIndexName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCostIndexName.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxCostIndexName.Location = new System.Drawing.Point(13, 58);
             this.textBoxCostIndexName.Name = "textBoxCostIndexName";
@@ -2584,10 +2593,10 @@
             // 
             // textBoxCostIndexNameValue
             // 
-            this.textBoxCostIndexNameValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCostIndexNameValue.BackColor = System.Drawing.Color.White;
             this.textBoxCostIndexNameValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCostIndexNameValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCostIndexNameValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxCostIndexNameValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxCostIndexNameValue.Location = new System.Drawing.Point(164, 58);
             this.textBoxCostIndexNameValue.Name = "textBoxCostIndexNameValue";
             this.textBoxCostIndexNameValue.ReadOnly = true;
@@ -2598,9 +2607,9 @@
             // 
             // textBoxCostIndexBaseYear
             // 
-            this.textBoxCostIndexBaseYear.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCostIndexBaseYear.BackColor = System.Drawing.Color.White;
             this.textBoxCostIndexBaseYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCostIndexBaseYear.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCostIndexBaseYear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCostIndexBaseYear.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxCostIndexBaseYear.Location = new System.Drawing.Point(13, 34);
             this.textBoxCostIndexBaseYear.Name = "textBoxCostIndexBaseYear";
@@ -2612,10 +2621,10 @@
             // 
             // textBoxCostIndexBaseYearValue
             // 
-            this.textBoxCostIndexBaseYearValue.BackColor = System.Drawing.Color.Azure;
+            this.textBoxCostIndexBaseYearValue.BackColor = System.Drawing.Color.White;
             this.textBoxCostIndexBaseYearValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCostIndexBaseYearValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCostIndexBaseYearValue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxCostIndexBaseYearValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxCostIndexBaseYearValue.Location = new System.Drawing.Point(164, 34);
             this.textBoxCostIndexBaseYearValue.Name = "textBoxCostIndexBaseYearValue";
             this.textBoxCostIndexBaseYearValue.ReadOnly = true;
@@ -2626,7 +2635,7 @@
             // 
             // textBoxProjectCostMetadata_TITLE
             // 
-            this.textBoxProjectCostMetadata_TITLE.BackColor = System.Drawing.Color.Azure;
+            this.textBoxProjectCostMetadata_TITLE.BackColor = System.Drawing.Color.Yellow;
             this.textBoxProjectCostMetadata_TITLE.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectCostMetadata_TITLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxProjectCostMetadata_TITLE.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -2666,8 +2675,7 @@
             // 
             this.panelProjectMetadata.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelProjectMetadata.BackColor = System.Drawing.Color.Honeydew;
-            this.panelProjectMetadata.Controls.Add(this.pictureBoxProject_HenStudioLogo);
+            this.panelProjectMetadata.BackColor = System.Drawing.Color.White;
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectID);
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectGUID);
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectNameValue);
@@ -2680,20 +2688,12 @@
             this.panelProjectMetadata.Size = new System.Drawing.Size(889, 135);
             this.panelProjectMetadata.TabIndex = 12;
             // 
-            // pictureBoxProject_HenStudioLogo
-            // 
-            this.pictureBoxProject_HenStudioLogo.Location = new System.Drawing.Point(10, 78);
-            this.pictureBoxProject_HenStudioLogo.Name = "pictureBoxProject_HenStudioLogo";
-            this.pictureBoxProject_HenStudioLogo.Size = new System.Drawing.Size(100, 50);
-            this.pictureBoxProject_HenStudioLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxProject_HenStudioLogo.TabIndex = 7;
-            this.pictureBoxProject_HenStudioLogo.TabStop = false;
-            // 
             // textBoxProjectID
             // 
-            this.textBoxProjectID.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxProjectID.BackColor = System.Drawing.Color.White;
             this.textBoxProjectID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectID.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxProjectID.Location = new System.Drawing.Point(14, 10);
             this.textBoxProjectID.Name = "textBoxProjectID";
             this.textBoxProjectID.ReadOnly = true;
@@ -2704,9 +2704,10 @@
             // 
             // textBoxProjectGUID
             // 
-            this.textBoxProjectGUID.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxProjectGUID.BackColor = System.Drawing.Color.White;
             this.textBoxProjectGUID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectGUID.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectGUID.ForeColor = System.Drawing.Color.Black;
             this.textBoxProjectGUID.Location = new System.Drawing.Point(115, 10);
             this.textBoxProjectGUID.Name = "textBoxProjectGUID";
             this.textBoxProjectGUID.ReadOnly = true;
@@ -2718,9 +2719,10 @@
             // 
             this.textBoxProjectNameValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectNameValue.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxProjectNameValue.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxProjectNameValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectNameValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectNameValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxProjectNameValue.Location = new System.Drawing.Point(115, 34);
             this.textBoxProjectNameValue.Name = "textBoxProjectNameValue";
             this.textBoxProjectNameValue.ReadOnly = true;
@@ -2730,9 +2732,10 @@
             // 
             // textBoxProjectName
             // 
-            this.textBoxProjectName.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxProjectName.BackColor = System.Drawing.Color.White;
             this.textBoxProjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectName.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxProjectName.Location = new System.Drawing.Point(14, 34);
             this.textBoxProjectName.Name = "textBoxProjectName";
             this.textBoxProjectName.ReadOnly = true;
@@ -2745,9 +2748,10 @@
             // 
             this.textBoxProjectDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectDescription.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxProjectDescription.BackColor = System.Drawing.Color.White;
             this.textBoxProjectDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectDescription.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxProjectDescription.Location = new System.Drawing.Point(14, 57);
             this.textBoxProjectDescription.Name = "textBoxProjectDescription";
             this.textBoxProjectDescription.ReadOnly = true;
@@ -2760,9 +2764,10 @@
             // 
             this.textBoxProjectDescriptionValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectDescriptionValue.BackColor = System.Drawing.Color.Honeydew;
+            this.textBoxProjectDescriptionValue.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxProjectDescriptionValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectDescriptionValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProjectDescriptionValue.ForeColor = System.Drawing.Color.Black;
             this.textBoxProjectDescriptionValue.Location = new System.Drawing.Point(115, 58);
             this.textBoxProjectDescriptionValue.Multiline = true;
             this.textBoxProjectDescriptionValue.Name = "textBoxProjectDescriptionValue";
@@ -4072,7 +4077,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProject)).EndInit();
             this.panelProjectMetadata.ResumeLayout(false);
             this.panelProjectMetadata.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProject_HenStudioLogo)).EndInit();
             this.panelSELECTED_ROOT.ResumeLayout(false);
             this.panelSELECTED_ROOT.PerformLayout();
             this.tabControlROOT.ResumeLayout(false);
@@ -4308,7 +4312,6 @@
         private System.Windows.Forms.TabControl tabControlProject;
         private System.Windows.Forms.TabPage tabPageDefaultParams;
         private System.Windows.Forms.TabPage tabPageCostParams;
-        private System.Windows.Forms.PictureBox pictureBoxProject_HenStudioLogo;
         private System.Windows.Forms.Panel panelCostMetadata;
         private System.Windows.Forms.TextBox textBoxCostIndexBaseYearValue;
         private System.Windows.Forms.TextBox textBoxProjectCostMetadata_TITLE;
