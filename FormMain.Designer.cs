@@ -4409,22 +4409,24 @@
             this.panelFactorySettings.BackColor = System.Drawing.Color.White;
             this.panelFactorySettings.Controls.Add(this.textBoxFactorySettingsTitle);
             this.panelFactorySettings.Controls.Add(this.listViewFactorySettings);
-            this.panelFactorySettings.Location = new System.Drawing.Point(15, 214);
+            this.panelFactorySettings.Location = new System.Drawing.Point(43, 214);
             this.panelFactorySettings.Name = "panelFactorySettings";
-            this.panelFactorySettings.Size = new System.Drawing.Size(870, 304);
+            this.panelFactorySettings.Size = new System.Drawing.Size(816, 304);
             this.panelFactorySettings.TabIndex = 18;
             // 
             // textBoxFactorySettingsTitle
             // 
+            this.textBoxFactorySettingsTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxFactorySettingsTitle.BackColor = System.Drawing.Color.Yellow;
             this.textBoxFactorySettingsTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxFactorySettingsTitle.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxFactorySettingsTitle.ForeColor = System.Drawing.Color.RoyalBlue;
             this.textBoxFactorySettingsTitle.Location = new System.Drawing.Point(5, 3);
             this.textBoxFactorySettingsTitle.Name = "textBoxFactorySettingsTitle";
-            this.textBoxFactorySettingsTitle.Size = new System.Drawing.Size(862, 22);
+            this.textBoxFactorySettingsTitle.Size = new System.Drawing.Size(806, 22);
             this.textBoxFactorySettingsTitle.TabIndex = 50;
-            this.textBoxFactorySettingsTitle.Text = "FACTORY SETTINGS";
+            this.textBoxFactorySettingsTitle.Text = "APPLICATION FACTORY SETTINGS";
             this.textBoxFactorySettingsTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // listViewFactorySettings
@@ -4478,7 +4480,7 @@
             this.listViewFactorySettings.Location = new System.Drawing.Point(12, 35);
             this.listViewFactorySettings.Margin = new System.Windows.Forms.Padding(6);
             this.listViewFactorySettings.Name = "listViewFactorySettings";
-            this.listViewFactorySettings.Size = new System.Drawing.Size(847, 255);
+            this.listViewFactorySettings.Size = new System.Drawing.Size(793, 255);
             this.listViewFactorySettings.TabIndex = 16;
             this.listViewFactorySettings.UseCompatibleStateImageBehavior = false;
             this.listViewFactorySettings.View = System.Windows.Forms.View.Details;
@@ -4496,13 +4498,10 @@
             // columnHeaderSettingsValue
             // 
             this.columnHeaderSettingsValue.Text = "Value";
-            this.columnHeaderSettingsValue.Width = 576;
+            this.columnHeaderSettingsValue.Width = 522;
             // 
             // panelAppMetadata
             // 
-            this.panelAppMetadata.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelAppMetadata.BackColor = System.Drawing.Color.White;
             this.panelAppMetadata.Controls.Add(this.listViewAppMetadata);
             this.panelAppMetadata.Controls.Add(this.textBoxAppMetadataTitle);
@@ -4573,9 +4572,6 @@
             // 
             // panelAppComponents
             // 
-            this.panelAppComponents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelAppComponents.BackColor = System.Drawing.Color.White;
             this.panelAppComponents.Controls.Add(this.listViewAppComponents);
             this.panelAppComponents.Controls.Add(this.textBoxAppComponentsTitle);
