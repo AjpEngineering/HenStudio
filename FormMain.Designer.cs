@@ -49,176 +49,176 @@
             treeNode7,
             treeNode8,
             treeNode9});
-            System.Windows.Forms.ListViewItem listViewItem91 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem361 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "_AJP License File.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem92 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem362 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "_HenDomainModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem93 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem363 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "_HenGlobal.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem94 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem364 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "_HenModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem95 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem365 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "_HenStudioDatabase.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem96 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem366 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "_HenViewModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem97 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem367 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "HenStudio.exe"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem98 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem368 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "PRODUCT FULLNAME",
             "AJP HEN Studio 1.0"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem99 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem369 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "PRODUCT NAME",
             "AJP HEN Studio"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem100 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem370 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "PRODUCT VERSION",
             "1.0.1"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem101 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem371 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "PRODUCT SERIAL_NUMBER",
             "1022-789-1189"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem102 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem372 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "PRODUCT CODE",
             "{3D9721BA-003E-4711-B7AF-B579645F0AC9}"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem103 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem373 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "SUPPLIER NAME ",
             "AJP Engineering"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem104 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem374 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "SUPPLIER URL",
             "http:://www.AJPEngineering.com"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem105 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem375 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "DatabaseCreatedOn",
             "5/5/2026 8:38:41 PM"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem106 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem376 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "DefaultApproachTemperature",
             "10.00"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem107 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem377 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "DefaultEnglishU ",
             "35.20"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem108 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem378 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "DefaultMetricU ",
             "720.00"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem109 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem379 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "DefaultOptimizer",
             "Genetic"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem110 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem380 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "EnableAreaEstimation",
             "True"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem111 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem381 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "ExternalMagnitudeUnits",
             "Mega"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem112 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem382 = new System.Windows.Forms.ListViewItem(new string[] {
             "8",
             "ExternalPressUnits",
             "psia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem113 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem383 = new System.Windows.Forms.ListViewItem(new string[] {
             "9",
             "ExternalSystemUnits",
             "English - Imperial"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem114 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem384 = new System.Windows.Forms.ListViewItem(new string[] {
             "10",
             "ExternalTempUnits",
             "°F"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem115 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem385 = new System.Windows.Forms.ListViewItem(new string[] {
             "11",
             "ExternalUnitsA",
             "ft²"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem116 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem386 = new System.Windows.Forms.ListViewItem(new string[] {
             "12",
             "ExternalUnitsEnergy",
             "MMBtu/hr"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem117 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem387 = new System.Windows.Forms.ListViewItem(new string[] {
             "13",
             "ExternalUnitsHeatCapacityFlowRate",
             "MMBtu/(hr·°F)"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem118 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem388 = new System.Windows.Forms.ListViewItem(new string[] {
             "14",
             "ExternalUnitsMassFlowrate ",
             "lbs/hr"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem119 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem389 = new System.Windows.Forms.ListViewItem(new string[] {
             "15",
             "ExternalUnitsSpecificHeatCapacity",
             "MMBTU/( lbs ·°F) "}, -1);
-            System.Windows.Forms.ListViewItem listViewItem120 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem390 = new System.Windows.Forms.ListViewItem(new string[] {
             "16",
             "ExternalUnitsU",
             "MMBtu/(hr·ft²·°F)"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem121 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem391 = new System.Windows.Forms.ListViewItem(new string[] {
             "17",
             "InternalMagnitudeUnits",
             "Kilo"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem122 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem392 = new System.Windows.Forms.ListViewItem(new string[] {
             "18",
             "InternalPressUnits",
             "Pa"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem123 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem393 = new System.Windows.Forms.ListViewItem(new string[] {
             "19",
             "InternalSystemUnits",
             "Metric - SI"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem124 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem394 = new System.Windows.Forms.ListViewItem(new string[] {
             "20",
             "InternalTempUnits",
             "°C"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem125 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem395 = new System.Windows.Forms.ListViewItem(new string[] {
             "21",
             "InternalUnitsA",
             "m²"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem126 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem396 = new System.Windows.Forms.ListViewItem(new string[] {
             "22",
             "InternalUnitsEnergy",
             "kW"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem127 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem397 = new System.Windows.Forms.ListViewItem(new string[] {
             "23",
             "InternalUnitsHeatCapacityFlowRate",
             "kW/K"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem128 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem398 = new System.Windows.Forms.ListViewItem(new string[] {
             "24",
             "InternalUnitsMassFlowrate",
             "kg/s"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem129 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem399 = new System.Windows.Forms.ListViewItem(new string[] {
             "25",
             "InternalUnitsSpecificHeatCapacity",
             "kJ/kg-K"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem130 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem400 = new System.Windows.Forms.ListViewItem(new string[] {
             "26",
             "InternalUnitsU",
             "kW/(m²·K)"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem131 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem401 = new System.Windows.Forms.ListViewItem(new string[] {
             "27",
             "LastMigrationApplied",
             "InitialCreate"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem132 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem402 = new System.Windows.Forms.ListViewItem(new string[] {
             "28",
             "ReportDefaultFont",
             "Segoe UI"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem133 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem403 = new System.Windows.Forms.ListViewItem(new string[] {
             "29",
             "ReportIncludeAuditSection",
             "True"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem134 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem404 = new System.Windows.Forms.ListViewItem(new string[] {
             "30",
             "ReportUnitsProfile",
             "Default"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem135 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem405 = new System.Windows.Forms.ListViewItem(new string[] {
             "31",
             "SchemaVersion",
             "1.0.0"}, -1);
@@ -428,7 +428,7 @@
             this.textBoxDefaultHenOpitimizer = new System.Windows.Forms.TextBox();
             this.textBoxDefaultStudyOptimizerTitle = new System.Windows.Forms.TextBox();
             this.tabPageCostParams = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCostEq = new System.Windows.Forms.PictureBox();
             this.panelUtilityCost = new System.Windows.Forms.Panel();
             this.textBoxUtilityCostUnits_ENGLISH = new System.Windows.Forms.TextBox();
             this.textBoxUtilityCostUnits = new System.Windows.Forms.TextBox();
@@ -566,7 +566,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUnitsSystem)).BeginInit();
             this.panelDefaultHenOptimizer.SuspendLayout();
             this.tabPageCostParams.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCostEq)).BeginInit();
             this.panelUtilityCost.SuspendLayout();
             this.panelTotalAnnualizedCost.SuspendLayout();
             this.panelShellAndTubeCapitalCost.SuspendLayout();
@@ -1010,7 +1010,7 @@
             // 
             // toolStripStatusLabelAJP_LOGO
             // 
-            this.toolStripStatusLabelAJP_LOGO.BackColor = System.Drawing.Color.Yellow;
+            this.toolStripStatusLabelAJP_LOGO.BackColor = System.Drawing.Color.Honeydew;
             this.toolStripStatusLabelAJP_LOGO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.toolStripStatusLabelAJP_LOGO.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripStatusLabelAJP_LOGO.DoubleClickEnabled = true;
@@ -1329,13 +1329,13 @@
             this.listViewAppComponents.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewAppComponents.HideSelection = false;
             this.listViewAppComponents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem91,
-            listViewItem92,
-            listViewItem93,
-            listViewItem94,
-            listViewItem95,
-            listViewItem96,
-            listViewItem97});
+            listViewItem361,
+            listViewItem362,
+            listViewItem363,
+            listViewItem364,
+            listViewItem365,
+            listViewItem366,
+            listViewItem367});
             this.listViewAppComponents.Location = new System.Drawing.Point(10, 35);
             this.listViewAppComponents.Margin = new System.Windows.Forms.Padding(6);
             this.listViewAppComponents.Name = "listViewAppComponents";
@@ -1395,13 +1395,13 @@
             this.listViewAppMetadata.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewAppMetadata.HideSelection = false;
             this.listViewAppMetadata.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem98,
-            listViewItem99,
-            listViewItem100,
-            listViewItem101,
-            listViewItem102,
-            listViewItem103,
-            listViewItem104});
+            listViewItem368,
+            listViewItem369,
+            listViewItem370,
+            listViewItem371,
+            listViewItem372,
+            listViewItem373,
+            listViewItem374});
             this.listViewAppMetadata.Location = new System.Drawing.Point(8, 34);
             this.listViewAppMetadata.Margin = new System.Windows.Forms.Padding(6);
             this.listViewAppMetadata.Name = "listViewAppMetadata";
@@ -1485,37 +1485,37 @@
             this.listViewFactorySettings.GridLines = true;
             this.listViewFactorySettings.HideSelection = false;
             this.listViewFactorySettings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem105,
-            listViewItem106,
-            listViewItem107,
-            listViewItem108,
-            listViewItem109,
-            listViewItem110,
-            listViewItem111,
-            listViewItem112,
-            listViewItem113,
-            listViewItem114,
-            listViewItem115,
-            listViewItem116,
-            listViewItem117,
-            listViewItem118,
-            listViewItem119,
-            listViewItem120,
-            listViewItem121,
-            listViewItem122,
-            listViewItem123,
-            listViewItem124,
-            listViewItem125,
-            listViewItem126,
-            listViewItem127,
-            listViewItem128,
-            listViewItem129,
-            listViewItem130,
-            listViewItem131,
-            listViewItem132,
-            listViewItem133,
-            listViewItem134,
-            listViewItem135});
+            listViewItem375,
+            listViewItem376,
+            listViewItem377,
+            listViewItem378,
+            listViewItem379,
+            listViewItem380,
+            listViewItem381,
+            listViewItem382,
+            listViewItem383,
+            listViewItem384,
+            listViewItem385,
+            listViewItem386,
+            listViewItem387,
+            listViewItem388,
+            listViewItem389,
+            listViewItem390,
+            listViewItem391,
+            listViewItem392,
+            listViewItem393,
+            listViewItem394,
+            listViewItem395,
+            listViewItem396,
+            listViewItem397,
+            listViewItem398,
+            listViewItem399,
+            listViewItem400,
+            listViewItem401,
+            listViewItem402,
+            listViewItem403,
+            listViewItem404,
+            listViewItem405});
             this.listViewFactorySettings.Location = new System.Drawing.Point(12, 35);
             this.listViewFactorySettings.Margin = new System.Windows.Forms.Padding(6);
             this.listViewFactorySettings.Name = "listViewFactorySettings";
@@ -2683,7 +2683,6 @@
             this.panelSELECTED_PROJECT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelSELECTED_PROJECT.Controls.Add(this.tabControlProject);
             this.panelSELECTED_PROJECT.Controls.Add(this.textBoxProjectBanner);
-            this.panelSELECTED_PROJECT.Controls.Add(this.pictureBoxOpenedProject);
             this.panelSELECTED_PROJECT.Controls.Add(this.panelProjectMetadata);
             this.panelSELECTED_PROJECT.Location = new System.Drawing.Point(0, 0);
             this.panelSELECTED_PROJECT.Margin = new System.Windows.Forms.Padding(0);
@@ -2721,7 +2720,7 @@
             this.tabPageDefaultParams.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageDefaultParams.Size = new System.Drawing.Size(903, 379);
             this.tabPageDefaultParams.TabIndex = 0;
-            this.tabPageDefaultParams.Text = "Default Parameters";
+            this.tabPageDefaultParams.Text = "  Default Parameters  ";
             // 
             // panelDefaultParmeters
             // 
@@ -3163,7 +3162,7 @@
             // tabPageCostParams
             // 
             this.tabPageCostParams.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageCostParams.Controls.Add(this.pictureBox1);
+            this.tabPageCostParams.Controls.Add(this.pictureBoxCostEq);
             this.tabPageCostParams.Controls.Add(this.panelUtilityCost);
             this.tabPageCostParams.Controls.Add(this.panelTotalAnnualizedCost);
             this.tabPageCostParams.Controls.Add(this.panelShellAndTubeCapitalCost);
@@ -3174,17 +3173,18 @@
             this.tabPageCostParams.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageCostParams.Size = new System.Drawing.Size(903, 379);
             this.tabPageCostParams.TabIndex = 1;
-            this.tabPageCostParams.Text = "Cost Params";
+            this.tabPageCostParams.Text = "  Cost Params  ";
             // 
-            // pictureBox1
+            // pictureBoxCostEq
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(281, 230);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(286, 133);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 50;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxCostEq.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureBoxCostEq.Image = global::HenStudio.Properties.Resources.CapitalCostEquations_No_Background_383x200;
+            this.pictureBoxCostEq.Location = new System.Drawing.Point(281, 230);
+            this.pictureBoxCostEq.Name = "pictureBoxCostEq";
+            this.pictureBoxCostEq.Size = new System.Drawing.Size(286, 133);
+            this.pictureBoxCostEq.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxCostEq.TabIndex = 50;
+            this.pictureBoxCostEq.TabStop = false;
             // 
             // panelUtilityCost
             // 
@@ -4318,19 +4318,21 @@
             this.textBoxProjectBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(99)))), ((int)(((byte)(87)))));
             this.textBoxProjectBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxProjectBanner.ForeColor = System.Drawing.Color.Yellow;
-            this.textBoxProjectBanner.Location = new System.Drawing.Point(48, 4);
+            this.textBoxProjectBanner.Location = new System.Drawing.Point(1, 4);
+            this.textBoxProjectBanner.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxProjectBanner.Name = "textBoxProjectBanner";
-            this.textBoxProjectBanner.Size = new System.Drawing.Size(853, 33);
+            this.textBoxProjectBanner.Size = new System.Drawing.Size(903, 33);
             this.textBoxProjectBanner.TabIndex = 0;
             this.textBoxProjectBanner.Text = "PROJECT";
             this.textBoxProjectBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBoxOpenedProject
             // 
-            this.pictureBoxOpenedProject.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOpenedProject.Image")));
-            this.pictureBoxOpenedProject.Location = new System.Drawing.Point(4, 4);
+            this.pictureBoxOpenedProject.Image = global::HenStudio.Properties.Resources.OpenedProject_64x64;
+            this.pictureBoxOpenedProject.Location = new System.Drawing.Point(34, 72);
             this.pictureBoxOpenedProject.Name = "pictureBoxOpenedProject";
-            this.pictureBoxOpenedProject.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxOpenedProject.Size = new System.Drawing.Size(48, 48);
+            this.pictureBoxOpenedProject.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxOpenedProject.TabIndex = 9;
             this.pictureBoxOpenedProject.TabStop = false;
             // 
@@ -4341,12 +4343,13 @@
             this.panelProjectMetadata.BackColor = System.Drawing.Color.White;
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectID);
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectGUID);
+            this.panelProjectMetadata.Controls.Add(this.pictureBoxOpenedProject);
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectNameValue);
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectName);
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectDescription);
             this.panelProjectMetadata.Controls.Add(this.textBoxProjectDescriptionValue);
             this.panelProjectMetadata.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelProjectMetadata.Location = new System.Drawing.Point(10, 49);
+            this.panelProjectMetadata.Location = new System.Drawing.Point(10, 46);
             this.panelProjectMetadata.Name = "panelProjectMetadata";
             this.panelProjectMetadata.Size = new System.Drawing.Size(889, 135);
             this.panelProjectMetadata.TabIndex = 12;
@@ -4371,7 +4374,7 @@
             this.textBoxProjectGUID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectGUID.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxProjectGUID.ForeColor = System.Drawing.Color.Black;
-            this.textBoxProjectGUID.Location = new System.Drawing.Point(115, 10);
+            this.textBoxProjectGUID.Location = new System.Drawing.Point(116, 10);
             this.textBoxProjectGUID.Name = "textBoxProjectGUID";
             this.textBoxProjectGUID.ReadOnly = true;
             this.textBoxProjectGUID.Size = new System.Drawing.Size(335, 18);
@@ -4382,11 +4385,11 @@
             // 
             this.textBoxProjectNameValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectNameValue.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxProjectNameValue.BackColor = System.Drawing.Color.White;
             this.textBoxProjectNameValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectNameValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxProjectNameValue.ForeColor = System.Drawing.Color.Black;
-            this.textBoxProjectNameValue.Location = new System.Drawing.Point(115, 34);
+            this.textBoxProjectNameValue.Location = new System.Drawing.Point(116, 29);
             this.textBoxProjectNameValue.Name = "textBoxProjectNameValue";
             this.textBoxProjectNameValue.ReadOnly = true;
             this.textBoxProjectNameValue.Size = new System.Drawing.Size(759, 18);
@@ -4399,7 +4402,7 @@
             this.textBoxProjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxProjectName.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.textBoxProjectName.Location = new System.Drawing.Point(14, 34);
+            this.textBoxProjectName.Location = new System.Drawing.Point(14, 29);
             this.textBoxProjectName.Name = "textBoxProjectName";
             this.textBoxProjectName.ReadOnly = true;
             this.textBoxProjectName.Size = new System.Drawing.Size(96, 18);
@@ -4415,7 +4418,7 @@
             this.textBoxProjectDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxProjectDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxProjectDescription.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.textBoxProjectDescription.Location = new System.Drawing.Point(14, 57);
+            this.textBoxProjectDescription.Location = new System.Drawing.Point(14, 49);
             this.textBoxProjectDescription.Name = "textBoxProjectDescription";
             this.textBoxProjectDescription.ReadOnly = true;
             this.textBoxProjectDescription.Size = new System.Drawing.Size(96, 18);
@@ -4427,15 +4430,16 @@
             // 
             this.textBoxProjectDescriptionValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectDescriptionValue.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxProjectDescriptionValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProjectDescriptionValue.BackColor = System.Drawing.Color.White;
+            this.textBoxProjectDescriptionValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxProjectDescriptionValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxProjectDescriptionValue.ForeColor = System.Drawing.Color.Black;
-            this.textBoxProjectDescriptionValue.Location = new System.Drawing.Point(115, 58);
+            this.textBoxProjectDescriptionValue.Location = new System.Drawing.Point(110, 50);
+            this.textBoxProjectDescriptionValue.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxProjectDescriptionValue.Multiline = true;
             this.textBoxProjectDescriptionValue.Name = "textBoxProjectDescriptionValue";
             this.textBoxProjectDescriptionValue.ReadOnly = true;
-            this.textBoxProjectDescriptionValue.Size = new System.Drawing.Size(759, 67);
+            this.textBoxProjectDescriptionValue.Size = new System.Drawing.Size(764, 79);
             this.textBoxProjectDescriptionValue.TabIndex = 4;
             this.textBoxProjectDescriptionValue.Text = "Enter Project Description";
             // 
@@ -4695,7 +4699,7 @@
             this.panelDefaultHenOptimizer.ResumeLayout(false);
             this.panelDefaultHenOptimizer.PerformLayout();
             this.tabPageCostParams.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCostEq)).EndInit();
             this.panelUtilityCost.ResumeLayout(false);
             this.panelUtilityCost.PerformLayout();
             this.panelTotalAnnualizedCost.ResumeLayout(false);
@@ -4990,7 +4994,7 @@
         private System.Windows.Forms.TextBox textBoxUtilityCostUnits_ENGLISH;
         private System.Windows.Forms.TextBox textBoxUtilityCostUnits;
         private System.Windows.Forms.TextBox textBoxUtilityCostUnits_METRIC;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxCostEq;
         private System.Windows.Forms.ToolStripMenuItem addStudyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelProgressText;
