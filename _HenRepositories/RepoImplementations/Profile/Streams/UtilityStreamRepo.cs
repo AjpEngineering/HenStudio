@@ -127,7 +127,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
 
         #region AddUtilityStream() ... CREATE
         /// <summary>
-        /// Adds (CREATE) a new utility stream to the data store.
+        /// Adds (CREATE) a new SINGLE utility stream to the data store.
         /// </summary>
         /// <param name="utilityStreamDto">The utility stream data to insert.</param>
         /// <returns>The unique identifier of the inserted utility stream.</returns>

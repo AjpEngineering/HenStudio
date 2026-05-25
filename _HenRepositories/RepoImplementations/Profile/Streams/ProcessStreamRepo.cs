@@ -127,9 +127,11 @@ namespace HenModel.RepoImplementations.Profile.Streams
 
         #region PROCESS STREAM CRUD METHODS
 
-        #region AddProcessStream() ... CREATE
+        #region CREATE METHODS
+
+        #region AddProcessStream() ... CREATE SINGLE ROW
         /// <summary>
-        /// Adds (CREATE) a new process stream to the data store.
+        /// Adds (CREATE) a new SINGLE process stream to the data store.
         /// </summary>
         /// <param name="processStreamDto">The process stream data to insert.</param>
         /// <returns>The unique identifier of the inserted process stream.</returns>
@@ -198,7 +200,90 @@ namespace HenModel.RepoImplementations.Profile.Streams
         }
         #endregion      // AddProcessStream() ... CREATE
 
-        #region GetProcessStreams() ... READ
+        #region AddProcessStreams() ... CREATE MULTIPLE ROWS
+        /// <summary>
+        /// Adds (CREATE) a new LIST of process streams to the data store.
+        /// </summary>
+        /// <param name="processStreamDtos">The list of process stream data to insert.</param>
+        /// <returns>The Profile unique identifier of the inserted process streams.</returns>
+        public Guid AddProcessStreams(IList<ProcessStreamDto> processStreamDtos)
+        {
+            Guid profileId = new Guid();
+
+            if (processStreamDtos == null)
+            {
+                throw new ArgumentNullException(nameof(processStreamDtos));
+            }
+
+            const string sql = @"INSERT INTO dbo.ProcessStream
+                                    (ProfileId,
+                                     StreamCategory,
+                                     StreamHeat,
+                                     StreamId,
+                                     Name,
+                                     StreamType,
+                                     StreamSubtype,
+                                     SupplyTemperature,
+                                     SupplyPressure,
+                                     TargetTemperature,
+                                     TargetPressure,
+                                     HeatCapacityFlowRate,
+                                     )
+                                 OUTPUT INSERTED.Id
+                                 VALUES
+                                    (@ProfileId,
+                                     @StreamCategory,
+                                     @StreamHeat,
+                                     @StreamId,
+                                     @StreamSegmentId,
+                                     @Name,
+                                     @StreamType,
+                                     @StreamSubtype,
+                                     @SupplyTemperature,
+                                     @SupplyPressure,
+                                     @TargetTemperature,
+                                     @TargetPressure,
+                                     @HeatCapacityFlowRate,
+                                     @HeatTransferCoefficient);";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                foreach (var processStreamDto in processStreamDtos)
+                {
+                    profileId = processStreamDto.ProfileId;
+
+                    using (IDbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = sql;
+                        command.CommandType = CommandType.Text;
+                        AddParameter(command, "@ProfileId", DbType.Guid, processStreamDto.ProfileId);
+                        AddParameter(command, "@StreamCategory", DbType.String, processStreamDto.StreamCategory);
+                        AddParameter(command, "@StreamHeat", DbType.String, processStreamDto.StreamHeat);
+                        AddParameter(command, "@StreamId", DbType.String, processStreamDto.StreamId);
+                        AddParameter(command, "@Name", DbType.String, processStreamDto.Name);
+                        AddParameter(command, "@StreamType", DbType.String, processStreamDto.StreamType);
+                        AddParameter(command, "@StreamSubtype", DbType.String, processStreamDto.StreamSubtype);
+                        AddParameter(command, "@SupplyTemperature", DbType.Double, processStreamDto.SupplyTemperature);
+                        AddParameter(command, "@SupplyPressure", DbType.Double, processStreamDto.SupplyPressure);
+                        AddParameter(command, "@TargetTemperature", DbType.Double, processStreamDto.TargetTemperature);
+                        AddParameter(command, "@TargetPressure", DbType.Double, processStreamDto.TargetPressure);
+                        AddParameter(command, "@HeatCapacityFlowRate", DbType.Double, processStreamDto.HeatCapacityFlowRate);
+
+                        command.ExecuteScalar();
+                    }
+                }
+            }
+            return profileId;
+        }
+        #endregion      // AddProcessStreams() ... CREATE MULTIPLE ROWS
+
+        #endregion  // CREATE METHODS
+
+        #region READ METHODS
+
+        #region GetProcessStreams() ... READ ALL STREAMS
         /// <summary>
         /// Retrieves (READ) all process streams from the data store.
         /// </summary>
@@ -245,9 +330,9 @@ namespace HenModel.RepoImplementations.Profile.Streams
 
             return processStreams;
         }
-        #endregion      // GetProcessStreams() ... READ
+        #endregion      // GetProcessStreams() ... READ ALL STREAMS
 
-        #region GetProcessStreamsByProfileId() ... READ
+        #region GetProcessStreamsByProfileId() ... READ MULTIPLE ROWS
         /// <summary>
         /// Retrieves (READ) all process streams for the specified profile from the data store.
         /// </summary>
@@ -299,11 +384,11 @@ namespace HenModel.RepoImplementations.Profile.Streams
 
             return processStreams;
         }
-        #endregion      // GetProcessStreamsByProfileId() ... READ
+        #endregion      // GetProcessStreamsByProfileId() ... READ MULTIPLE ROWS
 
-        #region GetProcessStreamById() ... READ
+        #region GetProcessStreamById() ... READ SINGLE ROW
         /// <summary>
-        /// Retrieves (READ) a process stream from the data store by its identifier.
+        /// Retrieves (READ) a SINGLE process stream from the data store by its identifier.
         /// </summary>
         /// <param name="processStreamId">The unique identifier of the process stream to retrieve.</param>
         /// <returns>A <see cref="ProcessStreamDto"/> object representing the requested process stream, 
@@ -350,11 +435,11 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 }
             }
         }
-        #endregion      // GetProcessStreamById() ... READ
+        #endregion      // GetProcessStreamById() ... READ SINGLE ROW
 
-        #region GetProcessStreamByStreamId() ... READ
+        #region GetProcessStreamByStreamId() ... READ SINGLE ROW
         /// <summary>
-        /// Retrieves (READ) a process stream from the data store by its profile identifier and stream identifier.
+        /// Retrieves (READ) a SINGLE process stream from the data store by its profile identifier and stream identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile that owns the process stream.</param>
         /// <param name="streamId">The stream identifier to retrieve.</param>
@@ -409,11 +494,75 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 }
             }
         }
-        #endregion      // GetProcessStreamByStreamId() ... READ
+        #endregion      // GetProcessStreamByStreamId() ... READ SINGLE ROW
 
-        #region UpdateProcessStream() ... UPDATE
+        #endregion  // READ METHODS
+
+        #region UPDATE METHODS
+
+        #region UpdateProcessStreams() ... UPDATE MULTIPLE ROWS
         /// <summary>
-        /// Updates (UPDATE) an existing process stream in the data store.
+        /// Updates (UPDATE) a LIST of existing process streams in the data store.
+        /// </summary>
+        /// <param name="processStreamDtos">The list of process stream data to update.</param>
+        public void UpdateProcessStreams(List<ProcessStreamDto> processStreamDtos)
+        {
+            if (processStreamDtos == null)
+            {
+                throw new ArgumentNullException(nameof(processStreamDtos));
+            }
+
+            const string sql = @"UPDATE dbo.ProcessStream
+                                 SET ProfileId = @ProfileId,
+                                     StreamCategory = @StreamCategory,
+                                     StreamHeat = @StreamHeat,
+                                     StreamId = @StreamId,
+                                     StreamSegmentId = @StreamSegmentId,
+                                     Name = @Name,
+                                     StreamType = @StreamType,
+                                     StreamSubtype = @StreamSubtype,
+                                     SupplyTemperature = @SupplyTemperature,
+                                     SupplyPressure = @SupplyPressure,
+                                     TargetTemperature = @TargetTemperature,
+                                     TargetPressure = @TargetPressure,
+                                     HeatCapacityFlowRate = @HeatCapacityFlowRate,
+                                     HeatTransferCoefficient = @HeatTransferCoefficient
+                                 WHERE Id = @Id;";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                foreach (var processStreamDto in processStreamDtos)
+                {
+                    using (IDbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = sql;
+                        command.CommandType = CommandType.Text;
+                        AddParameter(command, "@Id", DbType.Guid, processStreamDto.Id);
+                        AddParameter(command, "@ProfileId", DbType.Guid, processStreamDto.ProfileId);
+                        AddParameter(command, "@StreamCategory", DbType.String, processStreamDto.StreamCategory);
+                        AddParameter(command, "@StreamHeat", DbType.String, processStreamDto.StreamHeat);
+                        AddParameter(command, "@StreamId", DbType.String, processStreamDto.StreamId);
+                        AddParameter(command, "@Name", DbType.String, processStreamDto.Name);
+                        AddParameter(command, "@StreamType", DbType.String, processStreamDto.StreamType);
+                        AddParameter(command, "@StreamSubtype", DbType.String, processStreamDto.StreamSubtype);
+                        AddParameter(command, "@SupplyTemperature", DbType.Double, processStreamDto.SupplyTemperature);
+                        AddParameter(command, "@SupplyPressure", DbType.Double, processStreamDto.SupplyPressure);
+                        AddParameter(command, "@TargetTemperature", DbType.Double, processStreamDto.TargetTemperature);
+                        AddParameter(command, "@TargetPressure", DbType.Double, processStreamDto.TargetPressure);
+                        AddParameter(command, "@HeatCapacityFlowRate", DbType.Double, processStreamDto.HeatCapacityFlowRate);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+        #endregion      // UpdateProcessStreams() ... UPDATE MULTIPLE ROWS
+
+        #region UpdateProcessStream() ... UPDATE SINGLE ROW
+        /// <summary>
+        /// Updates (UPDATE) a SINGLE existing process stream in the data store.
         /// </summary>
         /// <param name="processStreamDto">The process stream data to update.</param>
         public void UpdateProcessStream(ProcessStreamDto processStreamDto)
@@ -465,11 +614,15 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 }
             }
         }
-        #endregion      // UpdateProcessStream() ... UPDATE
+        #endregion      // UpdateProcessStream() ... UPDATE SINGLE ROW
 
-        #region DeleteProcessStream() .... DELETE
+        #endregion  // UPDATE METHODS
+
+        #region DELETE METHODS
+
+        #region DeleteProcessStream() .... DELETE SINGLE ROW
         /// <summary>
-        /// Deletes (DELETE) a process stream from the data store by its identifier.
+        /// Deletes (DELETE) a SINGLE process stream from the data store by its identifier.
         /// </summary>
         /// <param name="processStreamId">The unique identifier of the process stream to delete.</param>
         public void DeleteProcessStream(Guid processStreamId)
@@ -490,7 +643,9 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 }
             }
         }
-        #endregion      // DeleteProcessStream() .... DELETE
+        #endregion      // DeleteProcessStream() .... DELETE SINGLE ROW
+
+        #endregion  // DELETE METHODS
 
         #endregion      // PROCESS STREAM CRUD METHODS
     }
