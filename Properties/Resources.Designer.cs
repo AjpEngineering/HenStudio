@@ -73,9 +73,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap AJP_Engineering_Landscape_White_Background {
+        internal static System.Drawing.Bitmap AJP_Engineering_Logo {
             get {
-                object obj = ResourceManager.GetObject("AJP_Engineering_Landscape_White_Background", resourceCulture);
+                object obj = ResourceManager.GetObject("AJP_Engineering_Logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CapitalCostEquations_No_Background_383x200 {
+        internal static System.Drawing.Bitmap CapitalCostEquations {
             get {
-                object obj = ResourceManager.GetObject("CapitalCostEquations_No_Background_383x200", resourceCulture);
+                object obj = ResourceManager.GetObject("CapitalCostEquations", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -593,9 +593,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OpenedProject_64x64 {
+        internal static System.Drawing.Bitmap OpenedProject64x64 {
             get {
-                object obj = ResourceManager.GetObject("OpenedProject_64x64", resourceCulture);
+                object obj = ResourceManager.GetObject("OpenedProject64x64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -696,6 +696,16 @@ namespace HenStudio.Properties {
         internal static System.Drawing.Bitmap ProfileDelete_16x16 {
             get {
                 object obj = ResourceManager.GetObject("ProfileDelete_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfilePanel {
+            get {
+                object obj = ResourceManager.GetObject("ProfilePanel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

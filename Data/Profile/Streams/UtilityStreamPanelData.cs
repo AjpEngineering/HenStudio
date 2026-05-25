@@ -55,17 +55,20 @@ namespace HenStudio.Data.Profile.Streams
 
         #region PROPERTIES
         public UtilityStreamDto UtilityStreamDtoObj { get; set; }   // Utility Stream DTO Object
-        public Guid Id { get; set; }                                // Utility Stream ID .......... (PK)
-        public Guid ProfileId { get; set; }                         // Profile ID ................. (FK)
-        public string StreamCategory { get; set; }                  // Stream Category ............ ["Process"   | "Utility"]
-        public string StreamHeat { get; set; }                      // Stream Heat ................ ["Sensible", | "Latent"]
-        public string StreamId { get; set; }                        // Stream ID .................. (e.g., "HU01", "CU01", etc.)
-        public string Name { get; set; }                            // Stream Name ................ (e.g., "Naptha Feed Reboiler")
+        public Guid Id { get; set; }                                // Utility Stream ID ... (PK)
+        public Guid ProfileId { get; set; }                         // Profile ID .......... (FK)
+        public string StreamCategory { get; set; }                  // Stream Category ..... ["Process"   | "Utility"]
+        public string StreamHeat { get; set; }                      // Stream Heat ......... ["Sensible", | "Latent"]
+        public string StreamId { get; set; }                        // Stream ID ........... (e.g., "HU01", "CU01", etc.)
+        public string Name { get; set; }                            // Stream Name ......... (e.g., "Naptha Feed Reboiler")
         public string UtilityType { get; set; }                     // Utility Type ........ ["HP_Steam", | "MP_Steam" | "LP_Steam" | "Cold_Water" | "Chilled_Water" | "Fuel_Gas"]
-        public double IsothermalTemperature { get; set; }           // Isothermal Temperature Value (°C)
-        public double SupplyPressure { get; set; }                  // Supply Pressure        Value (kPa)
-        public double TargetPressure { get; set; }                  // Target Pressure        Value (kPa)
-        public double EnthalpyFlowRate { get; set; }                // Enthalpy Flow Rate     Value (kW)
+        public string StreamSubtype { get; set; }                   // Stream Subtype ...... ["Liquid", | "Vapor" | "Mixed"]
+        public double IsothermalTemperature { get; set; }           // Isothermal Temperature Value (e.g., °C)
+        public double SupplyTemperature { get; set; }               // Supply Temperature     Value (e.g., °C)
+        public double SupplyPressure { get; set; }                  // Supply Pressure        Value (e.g., kPa)
+        public double TargetTemperature { get; set; }               // Target Temperature     Value (e.g., °C)
+        public double TargetPressure { get; set; }                  // Target Pressure        Value (e.g., kPa)
+        public double EnthalpyFlowRate { get; set; }                // Enthalpy Flow Rate     Value (e.g., kW)
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -86,8 +89,11 @@ namespace HenStudio.Data.Profile.Streams
             StreamId = string.Empty;        // Stream ID .................. (e.g., "HU01", "CU01", etc.)
             Name = string.Empty;            // Stream Name ................ (e.g., "Naptha Feed")
             UtilityType = string.Empty;     // Utility Type ............... ["HP_Steam", | "MP_Steam" | "LP_Steam" | "Cold_Water" | "Chilled_Water" | "Fuel_Gas"]
+            StreamSubtype = string.Empty;   // Stream Subtype ............. ["Liquid", | "Vapor" | "Mixed"]
             IsothermalTemperature = 0.0;    // Isothermal Temperature Value (°C)
+            SupplyTemperature = 0.0;        // Supply Temperature     Value (e.g., °C)
             SupplyPressure = 0.0;           // Supply Pressure        Value (kPa)
+            TargetTemperature = 0.0;        // Target Temperature     Value (e.g., °C)
             TargetPressure = 0.0;           // Target Pressure        Value (kPa)
             EnthalpyFlowRate = 0.0;         // Enthalpy Flow Rate     Value (kW)
         }
@@ -127,6 +133,17 @@ namespace HenStudio.Data.Profile.Streams
             return IsothermalTemperature.ToString();
         }
         #endregion  // GetIsothermalTemperature()
+
+        #region GetSupplyTemperature()
+        /// <summary>
+        /// Gets the supply temperature as a string.
+        /// </summary>
+        /// <returns>A string representation of the supply temperature.</returns>
+        public string GetSupplyTemperature()
+        {
+            return SupplyTemperature.ToString();
+        }
+        #endregion  // GetSupplyTemperature()
         
         #region GetSupplyPressure()
         /// <summary>
@@ -139,6 +156,17 @@ namespace HenStudio.Data.Profile.Streams
         }
         #endregion  // GetSupplyPressure()
 
+        #region GetTargetTemperature()
+        /// <summary>
+        /// Gets the target temperature as a string.
+        /// </summary>
+        /// <returns>A string representation of the target temperature.</returns>
+        public string GetTargetTemperature()
+        {
+            return TargetTemperature.ToString();
+        }
+        #endregion  // GetTargetTemperature()
+        
         #region GetTargetPressure()
         /// <summary>
         /// Gets the target pressure as a string.
@@ -184,8 +212,11 @@ namespace HenStudio.Data.Profile.Streams
             this.StreamId = utilityStreamDto.StreamId;
             this.Name = utilityStreamDto.Name;
             this.UtilityType = utilityStreamDto.UtilityType;
+            this.StreamSubtype = utilityStreamDto.StreamSubtype;
             this.IsothermalTemperature = utilityStreamDto.IsothermalTemperature;
+            this.SupplyTemperature = utilityStreamDto.SupplyTemperature;
             this.SupplyPressure = utilityStreamDto.SupplyPressure;
+            this.TargetTemperature = utilityStreamDto.TargetTemperature;
             this.TargetPressure = utilityStreamDto.TargetPressure;
             this.EnthalpyFlowRate = utilityStreamDto.EnthalpyFlowRate;
             return this;
@@ -210,8 +241,11 @@ namespace HenStudio.Data.Profile.Streams
             UtilityStreamDtoObj.StreamId = this.StreamId;
             UtilityStreamDtoObj.Name = this.Name;
             UtilityStreamDtoObj.UtilityType = this.UtilityType;
+            UtilityStreamDtoObj.StreamSubtype = this.StreamSubtype;
             UtilityStreamDtoObj.IsothermalTemperature = this.IsothermalTemperature;
+            UtilityStreamDtoObj.SupplyTemperature = this.SupplyTemperature;
             UtilityStreamDtoObj.SupplyPressure = this.SupplyPressure;
+            UtilityStreamDtoObj.TargetTemperature = this.TargetTemperature;
             UtilityStreamDtoObj.TargetPressure = this.TargetPressure;
             UtilityStreamDtoObj.EnthalpyFlowRate = this.EnthalpyFlowRate;
             return UtilityStreamDtoObj;

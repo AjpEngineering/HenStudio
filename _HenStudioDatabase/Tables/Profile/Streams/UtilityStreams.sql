@@ -15,6 +15,7 @@
 --      + Stream ID [e.g., CU01]
 --      + Stream Name [e.g., Naptha Top Condenser]
 --      + Utility Type [HP Steam| MP Steam| LP Steam | Cold Water | Chilled Water | Fuel Gas]
+--      + Stream Subtype [Liquid|Vapor|Mixed]
 --	    + Stream Isothermal Temperature (Internal Units)
 --	    + Stream Supply Pressure (Internal Units)
 --	    + Stream Target Pressure (Internal Units)
@@ -48,8 +49,11 @@ CREATE TABLE [dbo].[UtilityStreams]
 	[StreamId]              NVARCHAR(16)     NOT NULL,
 	[Name]                  NVARCHAR(256)    NOT NULL,
 	[UtilityType]           NVARCHAR(16)     NOT NULL DEFAULT N'Cold Water',
+	[StreamSubtype]         NVARCHAR(8)      NOT NULL DEFAULT N'Liquid',
 	[IsothermalTemperature] FLOAT            NOT NULL DEFAULT 0.0,
+	[SupplyTemperature]     FLOAT            NOT NULL DEFAULT 0.0,
 	[SupplyPressure]        FLOAT            NOT NULL DEFAULT 0.0,
+	[TargetTemperature]     FLOAT            NOT NULL DEFAULT 0.0,
 	[TargetPressure]        FLOAT            NOT NULL DEFAULT 0.0,
 	[EnthalpyFlowRate]      FLOAT            NOT NULL DEFAULT 0.0,
 
@@ -57,5 +61,7 @@ CREATE TABLE [dbo].[UtilityStreams]
 	CONSTRAINT [FK_UtilityStreams_Profile] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profile]([Id]),
 	CONSTRAINT [CK_UtilityStreams_StreamCategory] CHECK ([StreamCategory] IN (N'Process', N'Utility')),
 	CONSTRAINT [CK_UtilityStreams_StreamHeat] CHECK ([StreamHeat] IN (N'Sensible', N'Latent')),
-	CONSTRAINT [CK_UtilityStreams_UtilityType] CHECK ([UtilityType] IN (N'Chilled Water', N'Cold Water', N'Fuel Gas', N'LP Steam', N'MP Steam', N'HP Steam'))
+	CONSTRAINT [CK_UtilityStreams_UtilityType] CHECK ([UtilityType] IN (N'Chilled Water', N'Cold Water', N'Fuel Gas', N'LP Steam', N'MP Steam', N'HP Steam')),
+	CONSTRAINT [CK_UtilityStreams_StreamSubtype] CHECK ([StreamSubtype] IN (N'Liquid', N'Vapor', N'Mixed'))
+
 )

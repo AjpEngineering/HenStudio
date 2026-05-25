@@ -109,8 +109,11 @@ namespace HenViewModel.Profile.Streams
             externalDto.StreamId              = internalDto.StreamId;
             externalDto.Name                  = internalDto.Name;
             externalDto.UtilityType           = internalDto.UtilityType;
+            externalDto.StreamSubtype         = internalDto.StreamSubtype;
             externalDto.IsothermalTemperature = ConvertToExternalTemp(internalDto.IsothermalTemperature);
+            externalDto.SupplyTemperature     = ConvertToExternalTemp(internalDto.SupplyTemperature);
             externalDto.SupplyPressure        = ConvertToExternalPress(internalDto.SupplyPressure);
+            externalDto.TargetTemperature     = ConvertToExternalTemp(internalDto.TargetTemperature);
             externalDto.TargetPressure        = ConvertToExternalPress(internalDto.TargetPressure);
             externalDto.EnthalpyFlowRate      = ConvertToExternalH(internalDto.EnthalpyFlowRate);
             //--------------------------------------------------
@@ -154,8 +157,11 @@ namespace HenViewModel.Profile.Streams
             internalDto.StreamId              = externalDto.StreamId;
             internalDto.Name                  = externalDto.Name;
             internalDto.UtilityType           = externalDto.UtilityType;
+            internalDto.StreamSubtype         = externalDto.StreamSubtype;
             internalDto.IsothermalTemperature = ConvertFromExternalTemp(externalDto.IsothermalTemperature);
+            internalDto.SupplyTemperature     = ConvertFromExternalTemp(externalDto.SupplyTemperature);
             internalDto.SupplyPressure        = ConvertFromExternalPress(externalDto.SupplyPressure);
+            internalDto.TargetTemperature     = ConvertFromExternalTemp(externalDto.TargetTemperature);
             internalDto.TargetPressure        = ConvertFromExternalPress(externalDto.TargetPressure);
             internalDto.EnthalpyFlowRate      = ConvertFromExternalH(externalDto.EnthalpyFlowRate);
             //--------------------------------------------------

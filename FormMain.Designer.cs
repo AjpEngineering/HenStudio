@@ -49,179 +49,190 @@
             treeNode7,
             treeNode8,
             treeNode9});
-            System.Windows.Forms.ListViewItem listViewItem361 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "_AJP License File.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem362 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "_HenDomainModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem363 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "_HenGlobal.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem364 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "_HenModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem365 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "_HenStudioDatabase.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem366 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "_HenViewModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem367 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "HenStudio.exe"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem368 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "PRODUCT FULLNAME",
             "AJP HEN Studio 1.0"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem369 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "PRODUCT NAME",
             "AJP HEN Studio"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem370 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "PRODUCT VERSION",
             "1.0.1"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem371 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "PRODUCT SERIAL_NUMBER",
             "1022-789-1189"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem372 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "PRODUCT CODE",
             "{3D9721BA-003E-4711-B7AF-B579645F0AC9}"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem373 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "SUPPLIER NAME ",
             "AJP Engineering"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem374 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "SUPPLIER URL",
             "http:://www.AJPEngineering.com"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem375 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "DatabaseCreatedOn",
             "5/5/2026 8:38:41 PM"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem376 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "DefaultApproachTemperature",
             "10.00"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem377 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "DefaultEnglishU ",
             "35.20"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem378 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "DefaultMetricU ",
             "720.00"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem379 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "DefaultOptimizer",
             "Genetic"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem380 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "EnableAreaEstimation",
             "True"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem381 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "ExternalMagnitudeUnits",
             "Mega"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem382 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem(new string[] {
             "8",
             "ExternalPressUnits",
             "psia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem383 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem(new string[] {
             "9",
             "ExternalSystemUnits",
             "English - Imperial"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem384 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem(new string[] {
             "10",
             "ExternalTempUnits",
             "°F"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem385 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem(new string[] {
             "11",
             "ExternalUnitsA",
             "ft²"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem386 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem(new string[] {
             "12",
             "ExternalUnitsEnergy",
             "MMBtu/hr"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem387 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem(new string[] {
             "13",
             "ExternalUnitsHeatCapacityFlowRate",
             "MMBtu/(hr·°F)"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem388 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem(new string[] {
             "14",
             "ExternalUnitsMassFlowrate ",
             "lbs/hr"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem389 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem29 = new System.Windows.Forms.ListViewItem(new string[] {
             "15",
             "ExternalUnitsSpecificHeatCapacity",
             "MMBTU/( lbs ·°F) "}, -1);
-            System.Windows.Forms.ListViewItem listViewItem390 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem30 = new System.Windows.Forms.ListViewItem(new string[] {
             "16",
             "ExternalUnitsU",
             "MMBtu/(hr·ft²·°F)"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem391 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem31 = new System.Windows.Forms.ListViewItem(new string[] {
             "17",
             "InternalMagnitudeUnits",
             "Kilo"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem392 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem32 = new System.Windows.Forms.ListViewItem(new string[] {
             "18",
             "InternalPressUnits",
             "Pa"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem393 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem33 = new System.Windows.Forms.ListViewItem(new string[] {
             "19",
             "InternalSystemUnits",
             "Metric - SI"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem394 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem34 = new System.Windows.Forms.ListViewItem(new string[] {
             "20",
             "InternalTempUnits",
             "°C"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem395 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem35 = new System.Windows.Forms.ListViewItem(new string[] {
             "21",
             "InternalUnitsA",
             "m²"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem396 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem36 = new System.Windows.Forms.ListViewItem(new string[] {
             "22",
             "InternalUnitsEnergy",
             "kW"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem397 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem37 = new System.Windows.Forms.ListViewItem(new string[] {
             "23",
             "InternalUnitsHeatCapacityFlowRate",
             "kW/K"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem398 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem38 = new System.Windows.Forms.ListViewItem(new string[] {
             "24",
             "InternalUnitsMassFlowrate",
             "kg/s"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem399 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem39 = new System.Windows.Forms.ListViewItem(new string[] {
             "25",
             "InternalUnitsSpecificHeatCapacity",
             "kJ/kg-K"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem400 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem40 = new System.Windows.Forms.ListViewItem(new string[] {
             "26",
             "InternalUnitsU",
             "kW/(m²·K)"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem401 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem41 = new System.Windows.Forms.ListViewItem(new string[] {
             "27",
             "LastMigrationApplied",
             "InitialCreate"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem402 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem42 = new System.Windows.Forms.ListViewItem(new string[] {
             "28",
             "ReportDefaultFont",
             "Segoe UI"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem403 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem43 = new System.Windows.Forms.ListViewItem(new string[] {
             "29",
             "ReportIncludeAuditSection",
             "True"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem404 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem44 = new System.Windows.Forms.ListViewItem(new string[] {
             "30",
             "ReportUnitsProfile",
             "Default"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem405 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem45 = new System.Windows.Forms.ListViewItem(new string[] {
             "31",
             "SchemaVersion",
             "1.0.0"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem46 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Heat Flow Rate (Duty)",
+            "MMBtu/hr"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem47 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Heat Capacity Flow Rate (CP)",
+            "MMBtu/(hr °F)"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Azure, null);
+            System.Windows.Forms.ListViewItem listViewItem48 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Temperature (Temp)",
+            "°F"}, -1);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contextMenuStripProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemProfileRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -507,27 +518,71 @@
             this.textBoxCostIndexBaseYearValue = new System.Windows.Forms.TextBox();
             this.textBoxProjectCostMetadata_TITLE = new System.Windows.Forms.TextBox();
             this.textBoxProjectBanner = new System.Windows.Forms.TextBox();
-            this.pictureBoxOpenedProject = new System.Windows.Forms.PictureBox();
             this.panelProjectMetadata = new System.Windows.Forms.Panel();
             this.textBoxProjectID = new System.Windows.Forms.TextBox();
             this.textBoxProjectGUID = new System.Windows.Forms.TextBox();
+            this.pictureBoxOpenedProject = new System.Windows.Forms.PictureBox();
             this.textBoxProjectNameValue = new System.Windows.Forms.TextBox();
             this.textBoxProjectName = new System.Windows.Forms.TextBox();
             this.textBoxProjectDescription = new System.Windows.Forms.TextBox();
             this.textBoxProjectDescriptionValue = new System.Windows.Forms.TextBox();
             this.panelSELECTED_PROFILE = new System.Windows.Forms.Panel();
+            this.panelProfileMetadata = new System.Windows.Forms.Panel();
+            this.listViewProfileUnits = new System.Windows.Forms.ListView();
+            this.columnHeaderProfileName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderProfileUnits = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.textBoxUnits = new System.Windows.Forms.TextBox();
+            this.textBoxProfileProjectId = new System.Windows.Forms.TextBox();
+            this.textBoxProfileProjectIdValue = new System.Windows.Forms.TextBox();
+            this.textBoxProfileId = new System.Windows.Forms.TextBox();
+            this.textBoxProfileIdValue = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBoxProfileNameValue = new System.Windows.Forms.TextBox();
+            this.textBoxProfileName = new System.Windows.Forms.TextBox();
+            this.textBoxProfileDescription = new System.Windows.Forms.TextBox();
+            this.textBoxProfileDescriptionValue = new System.Windows.Forms.TextBox();
             this.tabControlInputPhase = new System.Windows.Forms.TabControl();
-            this.tabPageStreams = new System.Windows.Forms.TabPage();
-            this.tabPageUtilities = new System.Windows.Forms.TabPage();
-            this.tabPageEconomics = new System.Windows.Forms.TabPage();
+            this.tabPageProcessStreams = new System.Windows.Forms.TabPage();
+            this.dataGridViewProcessStreams = new System.Windows.Forms.DataGridView();
+            this.ProcessStreamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProcessStreamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StreamType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StreamSubtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StreamHeat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HeatCapacityFlowRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplyTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TargetTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplyPress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TargetPress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeltaTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeltaPress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValidStreamIcon = new System.Windows.Forms.DataGridViewImageColumn();
+            this.StreamValidation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPageUtilitiesStreams = new System.Windows.Forms.TabPage();
+            this.dataGridViewUtilityStreams = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsothermalTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxInputBanner = new System.Windows.Forms.TextBox();
-            this.pictureBoxOpenedProfile = new System.Windows.Forms.PictureBox();
-            this.panelSELECTED_HEN = new System.Windows.Forms.Panel();
-            this.textBoxHenBanner = new System.Windows.Forms.TextBox();
-            this.pictureBoxOpenedHen = new System.Windows.Forms.PictureBox();
             this.panelSELECTED_PINCH = new System.Windows.Forms.Panel();
             this.textBoxPinchBanner = new System.Windows.Forms.TextBox();
             this.pictureBoxOpenedPinch = new System.Windows.Forms.PictureBox();
+            this.panelSELECTED_HEN = new System.Windows.Forms.Panel();
+            this.textBoxHenBanner = new System.Windows.Forms.TextBox();
+            this.pictureBoxOpenedHen = new System.Windows.Forms.PictureBox();
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStripProfile.SuspendLayout();
             this.contextMenuStripCurrProj.SuspendLayout();
@@ -572,15 +627,20 @@
             this.panelShellAndTubeCapitalCost.SuspendLayout();
             this.panelFiredHeaterCapitalCost.SuspendLayout();
             this.panelCostMetadata.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProject)).BeginInit();
             this.panelProjectMetadata.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProject)).BeginInit();
             this.panelSELECTED_PROFILE.SuspendLayout();
+            this.panelProfileMetadata.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlInputPhase.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProfile)).BeginInit();
-            this.panelSELECTED_HEN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).BeginInit();
+            this.tabPageProcessStreams.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProcessStreams)).BeginInit();
+            this.tabPageUtilitiesStreams.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtilityStreams)).BeginInit();
             this.panelSELECTED_PINCH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedPinch)).BeginInit();
+            this.panelSELECTED_HEN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStripProfile
@@ -1035,8 +1095,8 @@
             this.toolStripStatusLabelLICENSE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelLICENSE.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelLICENSE.Name = "toolStripStatusLabelLICENSE";
-            this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(99, 33);
+            this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(9, 3, 3, 3);
+            this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(105, 33);
             this.toolStripStatusLabelLICENSE.Text = "LICENSE ";
             this.toolStripStatusLabelLICENSE.Click += new System.EventHandler(this.toolStripStatusLabelLICENSE_Click);
             this.toolStripStatusLabelLICENSE.DoubleClick += new System.EventHandler(this.toolStripStatusLabelLICENSE_DoubleClick);
@@ -1050,8 +1110,8 @@
             this.toolStripStatusLabelCAT_DB.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabelCAT_DB.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelCAT_DB.Name = "toolStripStatusLabelCAT_DB";
-            this.toolStripStatusLabelCAT_DB.Padding = new System.Windows.Forms.Padding(3);
-            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(129, 33);
+            this.toolStripStatusLabelCAT_DB.Padding = new System.Windows.Forms.Padding(9, 3, 3, 3);
+            this.toolStripStatusLabelCAT_DB.Size = new System.Drawing.Size(135, 33);
             this.toolStripStatusLabelCAT_DB.Text = "CONNECTED";
             this.toolStripStatusLabelCAT_DB.Click += new System.EventHandler(this.toolStripStatusLabelCAT_DB_Click);
             this.toolStripStatusLabelCAT_DB.DoubleClick += new System.EventHandler(this.toolStripStatusLabelCAT_DB_DoubleClick);
@@ -1067,7 +1127,7 @@
             this.toolStripStatusLabelProgressText.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
             this.toolStripStatusLabelProgressText.Name = "toolStripStatusLabelProgressText";
             this.toolStripStatusLabelProgressText.Padding = new System.Windows.Forms.Padding(6);
-            this.toolStripStatusLabelProgressText.Size = new System.Drawing.Size(853, 33);
+            this.toolStripStatusLabelProgressText.Size = new System.Drawing.Size(841, 33);
             this.toolStripStatusLabelProgressText.Spring = true;
             this.toolStripStatusLabelProgressText.Text = "AJP HEN Studio";
             // 
@@ -1089,7 +1149,6 @@
             this.imageListInput.TransparentColor = System.Drawing.Color.Crimson;
             this.imageListInput.Images.SetKeyName(0, "Streams...32x32.png");
             this.imageListInput.Images.SetKeyName(1, "Utilities Image...32x32.png");
-            this.imageListInput.Images.SetKeyName(2, "Cost...32x32.png");
             // 
             // imageListTargets
             // 
@@ -1126,8 +1185,8 @@
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_ROOT);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROJECT);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PROFILE);
-            this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_HEN);
             this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_PINCH);
+            this.splitContainerLefCenter.Panel2.Controls.Add(this.panelSELECTED_HEN);
             this.splitContainerLefCenter.Panel2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.splitContainerLefCenter.Panel2.Margin = new System.Windows.Forms.Padding(3);
             this.splitContainerLefCenter.Panel2.Padding = new System.Windows.Forms.Padding(3);
@@ -1282,7 +1341,7 @@
             // 
             this.pictureBoxHomeAjpLogo.BackColor = System.Drawing.Color.White;
             this.pictureBoxHomeAjpLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxHomeAjpLogo.Image = global::HenStudio.Properties.Resources.AJP_Engineering_Landscape_White_Background;
+            this.pictureBoxHomeAjpLogo.Image = global::HenStudio.Properties.Resources.AJP_Engineering_Logo;
             this.pictureBoxHomeAjpLogo.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxHomeAjpLogo.Name = "pictureBoxHomeAjpLogo";
             this.pictureBoxHomeAjpLogo.Size = new System.Drawing.Size(897, 521);
@@ -1329,13 +1388,13 @@
             this.listViewAppComponents.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewAppComponents.HideSelection = false;
             this.listViewAppComponents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem361,
-            listViewItem362,
-            listViewItem363,
-            listViewItem364,
-            listViewItem365,
-            listViewItem366,
-            listViewItem367});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7});
             this.listViewAppComponents.Location = new System.Drawing.Point(10, 35);
             this.listViewAppComponents.Margin = new System.Windows.Forms.Padding(6);
             this.listViewAppComponents.Name = "listViewAppComponents";
@@ -1395,13 +1454,13 @@
             this.listViewAppMetadata.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewAppMetadata.HideSelection = false;
             this.listViewAppMetadata.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem368,
-            listViewItem369,
-            listViewItem370,
-            listViewItem371,
-            listViewItem372,
-            listViewItem373,
-            listViewItem374});
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14});
             this.listViewAppMetadata.Location = new System.Drawing.Point(8, 34);
             this.listViewAppMetadata.Margin = new System.Windows.Forms.Padding(6);
             this.listViewAppMetadata.Name = "listViewAppMetadata";
@@ -1485,37 +1544,37 @@
             this.listViewFactorySettings.GridLines = true;
             this.listViewFactorySettings.HideSelection = false;
             this.listViewFactorySettings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem375,
-            listViewItem376,
-            listViewItem377,
-            listViewItem378,
-            listViewItem379,
-            listViewItem380,
-            listViewItem381,
-            listViewItem382,
-            listViewItem383,
-            listViewItem384,
-            listViewItem385,
-            listViewItem386,
-            listViewItem387,
-            listViewItem388,
-            listViewItem389,
-            listViewItem390,
-            listViewItem391,
-            listViewItem392,
-            listViewItem393,
-            listViewItem394,
-            listViewItem395,
-            listViewItem396,
-            listViewItem397,
-            listViewItem398,
-            listViewItem399,
-            listViewItem400,
-            listViewItem401,
-            listViewItem402,
-            listViewItem403,
-            listViewItem404,
-            listViewItem405});
+            listViewItem15,
+            listViewItem16,
+            listViewItem17,
+            listViewItem18,
+            listViewItem19,
+            listViewItem20,
+            listViewItem21,
+            listViewItem22,
+            listViewItem23,
+            listViewItem24,
+            listViewItem25,
+            listViewItem26,
+            listViewItem27,
+            listViewItem28,
+            listViewItem29,
+            listViewItem30,
+            listViewItem31,
+            listViewItem32,
+            listViewItem33,
+            listViewItem34,
+            listViewItem35,
+            listViewItem36,
+            listViewItem37,
+            listViewItem38,
+            listViewItem39,
+            listViewItem40,
+            listViewItem41,
+            listViewItem42,
+            listViewItem43,
+            listViewItem44,
+            listViewItem45});
             this.listViewFactorySettings.Location = new System.Drawing.Point(12, 35);
             this.listViewFactorySettings.Margin = new System.Windows.Forms.Padding(6);
             this.listViewFactorySettings.Name = "listViewFactorySettings";
@@ -3178,7 +3237,7 @@
             // pictureBoxCostEq
             // 
             this.pictureBoxCostEq.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureBoxCostEq.Image = global::HenStudio.Properties.Resources.CapitalCostEquations_No_Background_383x200;
+            this.pictureBoxCostEq.Image = global::HenStudio.Properties.Resources.CapitalCostEquations;
             this.pictureBoxCostEq.Location = new System.Drawing.Point(281, 230);
             this.pictureBoxCostEq.Name = "pictureBoxCostEq";
             this.pictureBoxCostEq.Size = new System.Drawing.Size(286, 133);
@@ -4326,16 +4385,6 @@
             this.textBoxProjectBanner.Text = "PROJECT";
             this.textBoxProjectBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pictureBoxOpenedProject
-            // 
-            this.pictureBoxOpenedProject.Image = global::HenStudio.Properties.Resources.OpenedProject_64x64;
-            this.pictureBoxOpenedProject.Location = new System.Drawing.Point(34, 72);
-            this.pictureBoxOpenedProject.Name = "pictureBoxOpenedProject";
-            this.pictureBoxOpenedProject.Size = new System.Drawing.Size(48, 48);
-            this.pictureBoxOpenedProject.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxOpenedProject.TabIndex = 9;
-            this.pictureBoxOpenedProject.TabStop = false;
-            // 
             // panelProjectMetadata
             // 
             this.panelProjectMetadata.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -4379,7 +4428,17 @@
             this.textBoxProjectGUID.ReadOnly = true;
             this.textBoxProjectGUID.Size = new System.Drawing.Size(335, 18);
             this.textBoxProjectGUID.TabIndex = 5;
-            this.textBoxProjectGUID.Text = "GUID here";
+            this.textBoxProjectGUID.Text = "Project GUID here";
+            // 
+            // pictureBoxOpenedProject
+            // 
+            this.pictureBoxOpenedProject.Image = global::HenStudio.Properties.Resources.OpenedProject64x64;
+            this.pictureBoxOpenedProject.Location = new System.Drawing.Point(34, 72);
+            this.pictureBoxOpenedProject.Name = "pictureBoxOpenedProject";
+            this.pictureBoxOpenedProject.Size = new System.Drawing.Size(48, 48);
+            this.pictureBoxOpenedProject.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxOpenedProject.TabIndex = 9;
+            this.pictureBoxOpenedProject.TabStop = false;
             // 
             // textBoxProjectNameValue
             // 
@@ -4394,7 +4453,7 @@
             this.textBoxProjectNameValue.ReadOnly = true;
             this.textBoxProjectNameValue.Size = new System.Drawing.Size(759, 18);
             this.textBoxProjectNameValue.TabIndex = 2;
-            this.textBoxProjectNameValue.Text = "Enter Project Name";
+            this.textBoxProjectNameValue.Text = "Project Name here";
             // 
             // textBoxProjectName
             // 
@@ -4441,7 +4500,7 @@
             this.textBoxProjectDescriptionValue.ReadOnly = true;
             this.textBoxProjectDescriptionValue.Size = new System.Drawing.Size(764, 79);
             this.textBoxProjectDescriptionValue.TabIndex = 4;
-            this.textBoxProjectDescriptionValue.Text = "Enter Project Description";
+            this.textBoxProjectDescriptionValue.Text = "Project Description here";
             // 
             // panelSELECTED_PROFILE
             // 
@@ -4450,9 +4509,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSELECTED_PROFILE.BackColor = System.Drawing.Color.Honeydew;
             this.panelSELECTED_PROFILE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSELECTED_PROFILE.Controls.Add(this.panelProfileMetadata);
             this.panelSELECTED_PROFILE.Controls.Add(this.tabControlInputPhase);
             this.panelSELECTED_PROFILE.Controls.Add(this.textBoxInputBanner);
-            this.panelSELECTED_PROFILE.Controls.Add(this.pictureBoxOpenedProfile);
             this.panelSELECTED_PROFILE.Location = new System.Drawing.Point(0, 0);
             this.panelSELECTED_PROFILE.Margin = new System.Windows.Forms.Padding(0);
             this.panelSELECTED_PROFILE.Name = "panelSELECTED_PROFILE";
@@ -4460,58 +4519,554 @@
             this.panelSELECTED_PROFILE.Size = new System.Drawing.Size(910, 613);
             this.panelSELECTED_PROFILE.TabIndex = 12;
             // 
+            // panelProfileMetadata
+            // 
+            this.panelProfileMetadata.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelProfileMetadata.BackColor = System.Drawing.Color.White;
+            this.panelProfileMetadata.Controls.Add(this.listViewProfileUnits);
+            this.panelProfileMetadata.Controls.Add(this.textBoxUnits);
+            this.panelProfileMetadata.Controls.Add(this.textBoxProfileProjectId);
+            this.panelProfileMetadata.Controls.Add(this.textBoxProfileProjectIdValue);
+            this.panelProfileMetadata.Controls.Add(this.textBoxProfileId);
+            this.panelProfileMetadata.Controls.Add(this.textBoxProfileIdValue);
+            this.panelProfileMetadata.Controls.Add(this.pictureBox1);
+            this.panelProfileMetadata.Controls.Add(this.textBoxProfileNameValue);
+            this.panelProfileMetadata.Controls.Add(this.textBoxProfileName);
+            this.panelProfileMetadata.Controls.Add(this.textBoxProfileDescription);
+            this.panelProfileMetadata.Controls.Add(this.textBoxProfileDescriptionValue);
+            this.panelProfileMetadata.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelProfileMetadata.Location = new System.Drawing.Point(10, 46);
+            this.panelProfileMetadata.Name = "panelProfileMetadata";
+            this.panelProfileMetadata.Size = new System.Drawing.Size(889, 135);
+            this.panelProfileMetadata.TabIndex = 13;
+            // 
+            // listViewProfileUnits
+            // 
+            this.listViewProfileUnits.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderProfileName,
+            this.columnHeaderProfileUnits});
+            this.listViewProfileUnits.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.listViewProfileUnits.HideSelection = false;
+            this.listViewProfileUnits.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem46,
+            listViewItem47,
+            listViewItem48});
+            this.listViewProfileUnits.Location = new System.Drawing.Point(461, 67);
+            this.listViewProfileUnits.Name = "listViewProfileUnits";
+            this.listViewProfileUnits.Size = new System.Drawing.Size(414, 62);
+            this.listViewProfileUnits.TabIndex = 13;
+            this.listViewProfileUnits.UseCompatibleStateImageBehavior = false;
+            this.listViewProfileUnits.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeaderProfileName
+            // 
+            this.columnHeaderProfileName.Text = "Name";
+            this.columnHeaderProfileName.Width = 169;
+            // 
+            // columnHeaderProfileUnits
+            // 
+            this.columnHeaderProfileUnits.Text = "UNITS";
+            this.columnHeaderProfileUnits.Width = 224;
+            // 
+            // textBoxUnits
+            // 
+            this.textBoxUnits.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxUnits.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnits.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnits.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxUnits.Location = new System.Drawing.Point(461, 49);
+            this.textBoxUnits.Name = "textBoxUnits";
+            this.textBoxUnits.ReadOnly = true;
+            this.textBoxUnits.Size = new System.Drawing.Size(418, 18);
+            this.textBoxUnits.TabIndex = 12;
+            this.textBoxUnits.Text = "UNITS";
+            this.textBoxUnits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxProfileProjectId
+            // 
+            this.textBoxProfileProjectId.BackColor = System.Drawing.Color.White;
+            this.textBoxProfileProjectId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProfileProjectId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProfileProjectId.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxProfileProjectId.Location = new System.Drawing.Point(457, 10);
+            this.textBoxProfileProjectId.Name = "textBoxProfileProjectId";
+            this.textBoxProfileProjectId.ReadOnly = true;
+            this.textBoxProfileProjectId.Size = new System.Drawing.Size(77, 18);
+            this.textBoxProfileProjectId.TabIndex = 11;
+            this.textBoxProfileProjectId.Text = "Project ID: ";
+            this.textBoxProfileProjectId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxProfileProjectIdValue
+            // 
+            this.textBoxProfileProjectIdValue.BackColor = System.Drawing.Color.White;
+            this.textBoxProfileProjectIdValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProfileProjectIdValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProfileProjectIdValue.ForeColor = System.Drawing.Color.Black;
+            this.textBoxProfileProjectIdValue.Location = new System.Drawing.Point(540, 10);
+            this.textBoxProfileProjectIdValue.Name = "textBoxProfileProjectIdValue";
+            this.textBoxProfileProjectIdValue.ReadOnly = true;
+            this.textBoxProfileProjectIdValue.Size = new System.Drawing.Size(335, 18);
+            this.textBoxProfileProjectIdValue.TabIndex = 10;
+            this.textBoxProfileProjectIdValue.Text = "Project GUID here";
+            // 
+            // textBoxProfileId
+            // 
+            this.textBoxProfileId.BackColor = System.Drawing.Color.White;
+            this.textBoxProfileId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProfileId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProfileId.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxProfileId.Location = new System.Drawing.Point(14, 10);
+            this.textBoxProfileId.Name = "textBoxProfileId";
+            this.textBoxProfileId.ReadOnly = true;
+            this.textBoxProfileId.Size = new System.Drawing.Size(96, 18);
+            this.textBoxProfileId.TabIndex = 6;
+            this.textBoxProfileId.Text = "Profile ID: ";
+            this.textBoxProfileId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxProfileIdValue
+            // 
+            this.textBoxProfileIdValue.BackColor = System.Drawing.Color.White;
+            this.textBoxProfileIdValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProfileIdValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProfileIdValue.ForeColor = System.Drawing.Color.Black;
+            this.textBoxProfileIdValue.Location = new System.Drawing.Point(116, 10);
+            this.textBoxProfileIdValue.Name = "textBoxProfileIdValue";
+            this.textBoxProfileIdValue.ReadOnly = true;
+            this.textBoxProfileIdValue.Size = new System.Drawing.Size(335, 18);
+            this.textBoxProfileIdValue.TabIndex = 5;
+            this.textBoxProfileIdValue.Text = "Profile GUID here";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::HenStudio.Properties.Resources.ProfilePanel;
+            this.pictureBox1.Location = new System.Drawing.Point(34, 72);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // textBoxProfileNameValue
+            // 
+            this.textBoxProfileNameValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProfileNameValue.BackColor = System.Drawing.Color.White;
+            this.textBoxProfileNameValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProfileNameValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProfileNameValue.ForeColor = System.Drawing.Color.Black;
+            this.textBoxProfileNameValue.Location = new System.Drawing.Point(116, 29);
+            this.textBoxProfileNameValue.Name = "textBoxProfileNameValue";
+            this.textBoxProfileNameValue.ReadOnly = true;
+            this.textBoxProfileNameValue.Size = new System.Drawing.Size(759, 18);
+            this.textBoxProfileNameValue.TabIndex = 2;
+            this.textBoxProfileNameValue.Text = "Profile Name here";
+            // 
+            // textBoxProfileName
+            // 
+            this.textBoxProfileName.BackColor = System.Drawing.Color.White;
+            this.textBoxProfileName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProfileName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProfileName.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxProfileName.Location = new System.Drawing.Point(14, 29);
+            this.textBoxProfileName.Name = "textBoxProfileName";
+            this.textBoxProfileName.ReadOnly = true;
+            this.textBoxProfileName.Size = new System.Drawing.Size(96, 18);
+            this.textBoxProfileName.TabIndex = 1;
+            this.textBoxProfileName.Text = "Profile Name: ";
+            this.textBoxProfileName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxProfileDescription
+            // 
+            this.textBoxProfileDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProfileDescription.BackColor = System.Drawing.Color.White;
+            this.textBoxProfileDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProfileDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProfileDescription.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxProfileDescription.Location = new System.Drawing.Point(14, 49);
+            this.textBoxProfileDescription.Name = "textBoxProfileDescription";
+            this.textBoxProfileDescription.ReadOnly = true;
+            this.textBoxProfileDescription.Size = new System.Drawing.Size(96, 18);
+            this.textBoxProfileDescription.TabIndex = 3;
+            this.textBoxProfileDescription.Text = "  Description: ";
+            this.textBoxProfileDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxProfileDescriptionValue
+            // 
+            this.textBoxProfileDescriptionValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxProfileDescriptionValue.BackColor = System.Drawing.Color.White;
+            this.textBoxProfileDescriptionValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxProfileDescriptionValue.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProfileDescriptionValue.ForeColor = System.Drawing.Color.Black;
+            this.textBoxProfileDescriptionValue.Location = new System.Drawing.Point(110, 50);
+            this.textBoxProfileDescriptionValue.Margin = new System.Windows.Forms.Padding(6);
+            this.textBoxProfileDescriptionValue.Multiline = true;
+            this.textBoxProfileDescriptionValue.Name = "textBoxProfileDescriptionValue";
+            this.textBoxProfileDescriptionValue.ReadOnly = true;
+            this.textBoxProfileDescriptionValue.Size = new System.Drawing.Size(341, 79);
+            this.textBoxProfileDescriptionValue.TabIndex = 4;
+            this.textBoxProfileDescriptionValue.Text = "Profile Description here";
+            // 
             // tabControlInputPhase
             // 
             this.tabControlInputPhase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControlInputPhase.Controls.Add(this.tabPageStreams);
-            this.tabControlInputPhase.Controls.Add(this.tabPageUtilities);
-            this.tabControlInputPhase.Controls.Add(this.tabPageEconomics);
+            this.tabControlInputPhase.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabControlInputPhase.Controls.Add(this.tabPageProcessStreams);
+            this.tabControlInputPhase.Controls.Add(this.tabPageUtilitiesStreams);
+            this.tabControlInputPhase.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlInputPhase.ImageList = this.imageListInput;
-            this.tabControlInputPhase.Location = new System.Drawing.Point(-3, 45);
+            this.tabControlInputPhase.ItemSize = new System.Drawing.Size(161, 35);
+            this.tabControlInputPhase.Location = new System.Drawing.Point(-3, 190);
             this.tabControlInputPhase.Margin = new System.Windows.Forms.Padding(0);
             this.tabControlInputPhase.Name = "tabControlInputPhase";
             this.tabControlInputPhase.SelectedIndex = 0;
             this.tabControlInputPhase.ShowToolTips = true;
-            this.tabControlInputPhase.Size = new System.Drawing.Size(911, 570);
+            this.tabControlInputPhase.Size = new System.Drawing.Size(911, 422);
             this.tabControlInputPhase.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControlInputPhase.TabIndex = 0;
             // 
-            // tabPageStreams
+            // tabPageProcessStreams
             // 
-            this.tabPageStreams.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageStreams.ImageIndex = 0;
-            this.tabPageStreams.Location = new System.Drawing.Point(4, 39);
-            this.tabPageStreams.Name = "tabPageStreams";
-            this.tabPageStreams.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStreams.Size = new System.Drawing.Size(903, 527);
-            this.tabPageStreams.TabIndex = 0;
-            this.tabPageStreams.Text = "PROCESS STREAMS ";
-            this.tabPageStreams.ToolTipText = "Specify Process Streams for Current Input Profile";
+            this.tabPageProcessStreams.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageProcessStreams.Controls.Add(this.dataGridViewProcessStreams);
+            this.tabPageProcessStreams.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPageProcessStreams.ImageIndex = 0;
+            this.tabPageProcessStreams.Location = new System.Drawing.Point(4, 39);
+            this.tabPageProcessStreams.Name = "tabPageProcessStreams";
+            this.tabPageProcessStreams.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageProcessStreams.Size = new System.Drawing.Size(903, 379);
+            this.tabPageProcessStreams.TabIndex = 0;
+            this.tabPageProcessStreams.Text = "PROCESS STREAMS ";
+            this.tabPageProcessStreams.ToolTipText = "Specify Process Streams for Current Input Profile";
             // 
-            // tabPageUtilities
+            // dataGridViewProcessStreams
             // 
-            this.tabPageUtilities.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageUtilities.ImageIndex = 1;
-            this.tabPageUtilities.Location = new System.Drawing.Point(4, 39);
-            this.tabPageUtilities.Name = "tabPageUtilities";
-            this.tabPageUtilities.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUtilities.Size = new System.Drawing.Size(903, 527);
-            this.tabPageUtilities.TabIndex = 1;
-            this.tabPageUtilities.Text = "UTILITY STREAMS";
-            this.tabPageUtilities.ToolTipText = "Specify Utility Streams for Current Input Profile";
+            this.dataGridViewProcessStreams.AllowUserToAddRows = false;
+            this.dataGridViewProcessStreams.AllowUserToDeleteRows = false;
+            this.dataGridViewProcessStreams.AllowUserToResizeRows = false;
+            this.dataGridViewProcessStreams.BackgroundColor = System.Drawing.Color.Honeydew;
+            this.dataGridViewProcessStreams.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewProcessStreams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProcessStreams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProcessStreamName,
+            this.ProcessStreamId,
+            this.StreamType,
+            this.StreamSubtype,
+            this.StreamHeat,
+            this.HeatCapacityFlowRate,
+            this.SupplyTemp,
+            this.TargetTemp,
+            this.SupplyPress,
+            this.TargetPress,
+            this.DeltaTemp,
+            this.DeltaPress,
+            this.Duty,
+            this.ValidStreamIcon,
+            this.StreamValidation});
+            this.dataGridViewProcessStreams.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewProcessStreams.GridColor = System.Drawing.Color.RoyalBlue;
+            this.dataGridViewProcessStreams.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewProcessStreams.Name = "dataGridViewProcessStreams";
+            this.dataGridViewProcessStreams.ReadOnly = true;
+            this.dataGridViewProcessStreams.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProcessStreams.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewProcessStreams.RowTemplate.ReadOnly = true;
+            this.dataGridViewProcessStreams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewProcessStreams.Size = new System.Drawing.Size(897, 373);
+            this.dataGridViewProcessStreams.TabIndex = 0;
             // 
-            // tabPageEconomics
+            // ProcessStreamName
             // 
-            this.tabPageEconomics.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageEconomics.ImageIndex = 2;
-            this.tabPageEconomics.Location = new System.Drawing.Point(4, 39);
-            this.tabPageEconomics.Name = "tabPageEconomics";
-            this.tabPageEconomics.Size = new System.Drawing.Size(903, 527);
-            this.tabPageEconomics.TabIndex = 2;
-            this.tabPageEconomics.Text = "ECONOMIC PARAMETERS";
-            this.tabPageEconomics.ToolTipText = "Specify Economic Parameters for Current Input Profile";
+            this.ProcessStreamName.HeaderText = "Name";
+            this.ProcessStreamName.Name = "ProcessStreamName";
+            this.ProcessStreamName.ReadOnly = true;
+            this.ProcessStreamName.Width = 50;
+            // 
+            // ProcessStreamId
+            // 
+            this.ProcessStreamId.HeaderText = "Stream ID";
+            this.ProcessStreamId.MinimumWidth = 80;
+            this.ProcessStreamId.Name = "ProcessStreamId";
+            this.ProcessStreamId.ReadOnly = true;
+            this.ProcessStreamId.Width = 80;
+            // 
+            // StreamType
+            // 
+            this.StreamType.HeaderText = "Type";
+            this.StreamType.Name = "StreamType";
+            this.StreamType.ReadOnly = true;
+            this.StreamType.Width = 50;
+            // 
+            // StreamSubtype
+            // 
+            this.StreamSubtype.HeaderText = "Subtype";
+            this.StreamSubtype.Name = "StreamSubtype";
+            this.StreamSubtype.ReadOnly = true;
+            this.StreamSubtype.Width = 75;
+            // 
+            // StreamHeat
+            // 
+            this.StreamHeat.HeaderText = "Heat";
+            this.StreamHeat.Name = "StreamHeat";
+            this.StreamHeat.ReadOnly = true;
+            this.StreamHeat.Width = 50;
+            // 
+            // HeatCapacityFlowRate
+            // 
+            this.HeatCapacityFlowRate.HeaderText = "CP";
+            this.HeatCapacityFlowRate.Name = "HeatCapacityFlowRate";
+            this.HeatCapacityFlowRate.ReadOnly = true;
+            this.HeatCapacityFlowRate.Width = 50;
+            // 
+            // SupplyTemp
+            // 
+            this.SupplyTemp.HeaderText = "Temp Supply";
+            this.SupplyTemp.MinimumWidth = 80;
+            this.SupplyTemp.Name = "SupplyTemp";
+            this.SupplyTemp.ReadOnly = true;
+            this.SupplyTemp.Width = 80;
+            // 
+            // TargetTemp
+            // 
+            this.TargetTemp.HeaderText = "Temp Target";
+            this.TargetTemp.MinimumWidth = 80;
+            this.TargetTemp.Name = "TargetTemp";
+            this.TargetTemp.ReadOnly = true;
+            this.TargetTemp.Width = 80;
+            // 
+            // SupplyPress
+            // 
+            this.SupplyPress.HeaderText = "Press Supply";
+            this.SupplyPress.Name = "SupplyPress";
+            this.SupplyPress.ReadOnly = true;
+            this.SupplyPress.Visible = false;
+            this.SupplyPress.Width = 50;
+            // 
+            // TargetPress
+            // 
+            this.TargetPress.HeaderText = "Press Target";
+            this.TargetPress.Name = "TargetPress";
+            this.TargetPress.ReadOnly = true;
+            this.TargetPress.Visible = false;
+            this.TargetPress.Width = 50;
+            // 
+            // DeltaTemp
+            // 
+            this.DeltaTemp.HeaderText = "Delta T";
+            this.DeltaTemp.Name = "DeltaTemp";
+            this.DeltaTemp.ReadOnly = true;
+            this.DeltaTemp.Width = 75;
+            // 
+            // DeltaPress
+            // 
+            this.DeltaPress.HeaderText = "Delta P";
+            this.DeltaPress.Name = "DeltaPress";
+            this.DeltaPress.ReadOnly = true;
+            this.DeltaPress.Visible = false;
+            this.DeltaPress.Width = 50;
+            // 
+            // Duty
+            // 
+            this.Duty.HeaderText = "Duty";
+            this.Duty.Name = "Duty";
+            this.Duty.ReadOnly = true;
+            this.Duty.Width = 50;
+            // 
+            // ValidStreamIcon
+            // 
+            this.ValidStreamIcon.HeaderText = "X";
+            this.ValidStreamIcon.MinimumWidth = 20;
+            this.ValidStreamIcon.Name = "ValidStreamIcon";
+            this.ValidStreamIcon.ReadOnly = true;
+            this.ValidStreamIcon.Width = 20;
+            // 
+            // StreamValidation
+            // 
+            this.StreamValidation.HeaderText = "Stream Validation";
+            this.StreamValidation.MinimumWidth = 180;
+            this.StreamValidation.Name = "StreamValidation";
+            this.StreamValidation.ReadOnly = true;
+            this.StreamValidation.Width = 180;
+            // 
+            // tabPageUtilitiesStreams
+            // 
+            this.tabPageUtilitiesStreams.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageUtilitiesStreams.Controls.Add(this.dataGridViewUtilityStreams);
+            this.tabPageUtilitiesStreams.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPageUtilitiesStreams.ImageIndex = 1;
+            this.tabPageUtilitiesStreams.Location = new System.Drawing.Point(4, 39);
+            this.tabPageUtilitiesStreams.Name = "tabPageUtilitiesStreams";
+            this.tabPageUtilitiesStreams.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUtilitiesStreams.Size = new System.Drawing.Size(903, 379);
+            this.tabPageUtilitiesStreams.TabIndex = 1;
+            this.tabPageUtilitiesStreams.Text = "UTILITY STREAMS";
+            this.tabPageUtilitiesStreams.ToolTipText = "Specify Utility Streams for Current Input Profile";
+            // 
+            // dataGridViewUtilityStreams
+            // 
+            this.dataGridViewUtilityStreams.AllowUserToAddRows = false;
+            this.dataGridViewUtilityStreams.AllowUserToDeleteRows = false;
+            this.dataGridViewUtilityStreams.AllowUserToResizeRows = false;
+            this.dataGridViewUtilityStreams.BackgroundColor = System.Drawing.Color.Honeydew;
+            this.dataGridViewUtilityStreams.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewUtilityStreams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUtilityStreams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn7,
+            this.IsothermalTemp,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewImageColumn1,
+            this.dataGridViewTextBoxColumn14});
+            this.dataGridViewUtilityStreams.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewUtilityStreams.GridColor = System.Drawing.Color.RoyalBlue;
+            this.dataGridViewUtilityStreams.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewUtilityStreams.Name = "dataGridViewUtilityStreams";
+            this.dataGridViewUtilityStreams.ReadOnly = true;
+            this.dataGridViewUtilityStreams.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewUtilityStreams.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewUtilityStreams.RowTemplate.ReadOnly = true;
+            this.dataGridViewUtilityStreams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewUtilityStreams.Size = new System.Drawing.Size(897, 373);
+            this.dataGridViewUtilityStreams.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Stream ID";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Subtype";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Heat";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "Duty";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Temp Supply";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 80;
+            // 
+            // IsothermalTemp
+            // 
+            this.IsothermalTemp.HeaderText = "Isothermal Temp";
+            this.IsothermalTemp.Name = "IsothermalTemp";
+            this.IsothermalTemp.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Temp Target";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Press Supply";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Visible = false;
+            this.dataGridViewTextBoxColumn9.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Press Target";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Visible = false;
+            this.dataGridViewTextBoxColumn10.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "Delta T";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "Delta P";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Visible = false;
+            this.dataGridViewTextBoxColumn12.Width = 50;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "X";
+            this.dataGridViewImageColumn1.MinimumWidth = 20;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 20;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "Stream Validation";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 180;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 180;
             // 
             // textBoxInputBanner
             // 
@@ -4521,61 +5076,12 @@
             this.textBoxInputBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxInputBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxInputBanner.ForeColor = System.Drawing.Color.Yellow;
-            this.textBoxInputBanner.Location = new System.Drawing.Point(51, 4);
+            this.textBoxInputBanner.Location = new System.Drawing.Point(1, 4);
             this.textBoxInputBanner.Name = "textBoxInputBanner";
-            this.textBoxInputBanner.Size = new System.Drawing.Size(853, 33);
+            this.textBoxInputBanner.Size = new System.Drawing.Size(903, 33);
             this.textBoxInputBanner.TabIndex = 1;
             this.textBoxInputBanner.Text = "INPUT PROFILE";
             this.textBoxInputBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pictureBoxOpenedProfile
-            // 
-            this.pictureBoxOpenedProfile.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOpenedProfile.Image")));
-            this.pictureBoxOpenedProfile.Location = new System.Drawing.Point(7, 4);
-            this.pictureBoxOpenedProfile.Name = "pictureBoxOpenedProfile";
-            this.pictureBoxOpenedProfile.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxOpenedProfile.TabIndex = 0;
-            this.pictureBoxOpenedProfile.TabStop = false;
-            // 
-            // panelSELECTED_HEN
-            // 
-            this.panelSELECTED_HEN.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelSELECTED_HEN.BackColor = System.Drawing.Color.White;
-            this.panelSELECTED_HEN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSELECTED_HEN.Controls.Add(this.textBoxHenBanner);
-            this.panelSELECTED_HEN.Controls.Add(this.pictureBoxOpenedHen);
-            this.panelSELECTED_HEN.Location = new System.Drawing.Point(0, 0);
-            this.panelSELECTED_HEN.Margin = new System.Windows.Forms.Padding(0);
-            this.panelSELECTED_HEN.Name = "panelSELECTED_HEN";
-            this.panelSELECTED_HEN.Padding = new System.Windows.Forms.Padding(6);
-            this.panelSELECTED_HEN.Size = new System.Drawing.Size(910, 613);
-            this.panelSELECTED_HEN.TabIndex = 4;
-            // 
-            // textBoxHenBanner
-            // 
-            this.textBoxHenBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxHenBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.textBoxHenBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxHenBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxHenBanner.ForeColor = System.Drawing.Color.Yellow;
-            this.textBoxHenBanner.Location = new System.Drawing.Point(51, 4);
-            this.textBoxHenBanner.Name = "textBoxHenBanner";
-            this.textBoxHenBanner.Size = new System.Drawing.Size(853, 33);
-            this.textBoxHenBanner.TabIndex = 3;
-            this.textBoxHenBanner.Text = "HEAT EXCHANGER NETWORK (HEN) DESIGN";
-            this.textBoxHenBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pictureBoxOpenedHen
-            // 
-            this.pictureBoxOpenedHen.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOpenedHen.Image")));
-            this.pictureBoxOpenedHen.Location = new System.Drawing.Point(7, 4);
-            this.pictureBoxOpenedHen.Name = "pictureBoxOpenedHen";
-            this.pictureBoxOpenedHen.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxOpenedHen.TabIndex = 4;
-            this.pictureBoxOpenedHen.TabStop = false;
             // 
             // panelSELECTED_PINCH
             // 
@@ -4616,6 +5122,46 @@
             this.pictureBoxOpenedPinch.Size = new System.Drawing.Size(32, 32);
             this.pictureBoxOpenedPinch.TabIndex = 3;
             this.pictureBoxOpenedPinch.TabStop = false;
+            // 
+            // panelSELECTED_HEN
+            // 
+            this.panelSELECTED_HEN.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSELECTED_HEN.BackColor = System.Drawing.Color.White;
+            this.panelSELECTED_HEN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSELECTED_HEN.Controls.Add(this.textBoxHenBanner);
+            this.panelSELECTED_HEN.Controls.Add(this.pictureBoxOpenedHen);
+            this.panelSELECTED_HEN.Location = new System.Drawing.Point(0, 0);
+            this.panelSELECTED_HEN.Margin = new System.Windows.Forms.Padding(0);
+            this.panelSELECTED_HEN.Name = "panelSELECTED_HEN";
+            this.panelSELECTED_HEN.Padding = new System.Windows.Forms.Padding(6);
+            this.panelSELECTED_HEN.Size = new System.Drawing.Size(910, 613);
+            this.panelSELECTED_HEN.TabIndex = 4;
+            // 
+            // textBoxHenBanner
+            // 
+            this.textBoxHenBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxHenBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.textBoxHenBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxHenBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxHenBanner.ForeColor = System.Drawing.Color.Yellow;
+            this.textBoxHenBanner.Location = new System.Drawing.Point(51, 4);
+            this.textBoxHenBanner.Name = "textBoxHenBanner";
+            this.textBoxHenBanner.Size = new System.Drawing.Size(853, 33);
+            this.textBoxHenBanner.TabIndex = 3;
+            this.textBoxHenBanner.Text = "HEAT EXCHANGER NETWORK (HEN) DESIGN";
+            this.textBoxHenBanner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBoxOpenedHen
+            // 
+            this.pictureBoxOpenedHen.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOpenedHen.Image")));
+            this.pictureBoxOpenedHen.Location = new System.Drawing.Point(7, 4);
+            this.pictureBoxOpenedHen.Name = "pictureBoxOpenedHen";
+            this.pictureBoxOpenedHen.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxOpenedHen.TabIndex = 4;
+            this.pictureBoxOpenedHen.TabStop = false;
             // 
             // imageListProject
             // 
@@ -4710,19 +5256,25 @@
             this.panelFiredHeaterCapitalCost.PerformLayout();
             this.panelCostMetadata.ResumeLayout(false);
             this.panelCostMetadata.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProject)).EndInit();
             this.panelProjectMetadata.ResumeLayout(false);
             this.panelProjectMetadata.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProject)).EndInit();
             this.panelSELECTED_PROFILE.ResumeLayout(false);
             this.panelSELECTED_PROFILE.PerformLayout();
+            this.panelProfileMetadata.ResumeLayout(false);
+            this.panelProfileMetadata.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControlInputPhase.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedProfile)).EndInit();
-            this.panelSELECTED_HEN.ResumeLayout(false);
-            this.panelSELECTED_HEN.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).EndInit();
+            this.tabPageProcessStreams.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProcessStreams)).EndInit();
+            this.tabPageUtilitiesStreams.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtilityStreams)).EndInit();
             this.panelSELECTED_PINCH.ResumeLayout(false);
             this.panelSELECTED_PINCH.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedPinch)).EndInit();
+            this.panelSELECTED_HEN.ResumeLayout(false);
+            this.panelSELECTED_HEN.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4758,9 +5310,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ImageList imageListProject;
         private System.Windows.Forms.TabControl tabControlInputPhase;
-        private System.Windows.Forms.TabPage tabPageStreams;
-        private System.Windows.Forms.TabPage tabPageUtilities;
-        private System.Windows.Forms.TabPage tabPageEconomics;
+        private System.Windows.Forms.TabPage tabPageProcessStreams;
+        private System.Windows.Forms.TabPage tabPageUtilitiesStreams;
         private System.Windows.Forms.TextBox textBoxInputBanner;
         private System.Windows.Forms.TextBox textBoxPinchBanner;
         private System.Windows.Forms.TextBox textBoxHenBanner;
@@ -4800,7 +5351,6 @@
         private System.Windows.Forms.TextBox textBoxProjectDescriptionValue;
         private System.Windows.Forms.TextBox textBoxProjectDescription;
         private System.Windows.Forms.PictureBox pictureBoxOpenedProject;
-        private System.Windows.Forms.PictureBox pictureBoxOpenedProfile;
         private System.Windows.Forms.PictureBox pictureBoxOpenedPinch;
         private System.Windows.Forms.PictureBox pictureBoxOpenedHen;
         private System.Windows.Forms.Panel panelProjectMetadata;
@@ -5037,6 +5587,52 @@
         private System.Windows.Forms.TextBox textBoxAppComponentsTitle;
         private System.Windows.Forms.Panel panelHomeAJP;
         private System.Windows.Forms.PictureBox pictureBoxHomeAjpLogo;
+        private System.Windows.Forms.Panel panelProfileMetadata;
+        private System.Windows.Forms.TextBox textBoxProfileId;
+        private System.Windows.Forms.TextBox textBoxProfileIdValue;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBoxProfileNameValue;
+        private System.Windows.Forms.TextBox textBoxProfileName;
+        private System.Windows.Forms.TextBox textBoxProfileDescription;
+        private System.Windows.Forms.TextBox textBoxProfileDescriptionValue;
+        private System.Windows.Forms.TextBox textBoxProfileProjectId;
+        private System.Windows.Forms.TextBox textBoxProfileProjectIdValue;
+        private System.Windows.Forms.DataGridView dataGridViewProcessStreams;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProcessStreamName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProcessStreamId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StreamType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StreamSubtype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StreamHeat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HeatCapacityFlowRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplyTemp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TargetTemp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplyPress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TargetPress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeltaTemp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeltaPress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Duty;
+        private System.Windows.Forms.DataGridViewImageColumn ValidStreamIcon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StreamValidation;
+        private System.Windows.Forms.DataGridView dataGridViewUtilityStreams;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsothermalTemp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.ListView listViewProfileUnits;
+        private System.Windows.Forms.ColumnHeader columnHeaderProfileName;
+        private System.Windows.Forms.ColumnHeader columnHeaderProfileUnits;
+        private System.Windows.Forms.TextBox textBoxUnits;
     }
 }
 
