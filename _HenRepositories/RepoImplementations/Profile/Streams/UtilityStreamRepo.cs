@@ -97,8 +97,8 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 StreamSubtype = record.IsDBNull(record.GetOrdinal("StreamSubtype")) ? null : record.GetString(record.GetOrdinal("StreamSubtype")),
                 IsothermalTemperature = record.GetDouble(record.GetOrdinal("IsothermalTemperature")),
                 SupplyTemperature = record.GetDouble(record.GetOrdinal("SupplyTemperature")),
-                TargetTemperature = record.GetDouble(record.GetOrdinal("TargetTemperature")),
                 SupplyPressure = record.GetDouble(record.GetOrdinal("SupplyPressure")),
+                TargetTemperature = record.GetDouble(record.GetOrdinal("TargetTemperature")),
                 TargetPressure = record.GetDouble(record.GetOrdinal("TargetPressure")),
                 EnthalpyFlowRate = record.GetDouble(record.GetOrdinal("EnthalpyFlowRate"))
             };
