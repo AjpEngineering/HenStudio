@@ -74,7 +74,9 @@ namespace HenViewModel.Profile.Streams
 
         #region PRIVATE DTO CONVERSION METHODS
 
-        #region ConvertToExternalDto(ProcessStreamDto internalDto)
+        #region SINGLE STREAM CONVERSION METHODS
+
+        #region ConvertToExternalDto(ProcessStreamDto internalDto) ... SINGLE STREAM
         /// <summary>
         /// Converts a Process Stream DTO from INTERNAL units to EXTERNAL units.
         /// </summary>
@@ -119,9 +121,9 @@ namespace HenViewModel.Profile.Streams
             //--------------------------------------------------
             return externalDto;
         }
-        #endregion  // ConvertToExternalDto(ProcessStreamDto internalDto)
+        #endregion  // ConvertToExternalDto(ProcessStreamDto internalDto) ... SINGLE STREAM
 
-        #region ConvertToInternalDto(ProcessStreamDto externalDto)
+        #region ConvertToInternalDto(ProcessStreamDto externalDto) ... SINGLE STREAM
         /// <summary>
         /// Converts a Process Stream DTO from EXTERNAL units to INTERNAL units.
         /// </summary>
@@ -166,15 +168,98 @@ namespace HenViewModel.Profile.Streams
             //--------------------------------------------------
             return internalDto;
         }
-        #endregion  // ConvertToInternalDto(ProcessStreamDto externalDto)
+        #endregion  // ConvertToInternalDto(ProcessStreamDto externalDto) ... SINGLE STREAM
+
+        #endregion  // SINGLE STREAM CONVERSION METHODS
+
+        #region MULTIPLE STREAMS CONVERSION METHODS
+
+        #region ConvertToExternalDtos(List<ProcessStreamDto> internalDtos) ... MULTIPLE STREAMS
+        /// <summary>
+        /// Converts a list of Process Stream DTOs from INTERNAL units to EXTERNAL units.
+        /// </summary>
+        /// <param name="internalDtos">The list of Process Stream DTOs in INTERNAL units.</param>
+        /// <returns>A list of <see cref="ProcessStreamDtos"/> DTOs in EXTERNAL units.</returns>
+        private List<ProcessStreamDto> ConvertToExternalDtos(List<ProcessStreamDto> internalDtos)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO List is null,                         ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (internalDtos == null)
+            {
+                return null;
+            }
+            //------------------------------ Create EXTERNAL DTO ----------------------------------------
+            //--- Create a new DTO List object to hold the converted values in EXTERNAL units.        ---
+            //--- This object will be populated with the converted values from the INTERNAL DTO List. ---
+            //-------------------------------------------------------------------------------------------
+            List<ProcessStreamDto> externalDtos = new List<ProcessStreamDto>();
+
+            foreach(ProcessStreamDto internalDto in internalDtos)
+            {
+                //---------------------------------------------------------
+                //--- Convert INTERNAL DTO Fields to EXTERNAL DTO Units ---
+                //---------------------------------------------------------
+                externalDtos.Add(ConvertToExternalDto(internalDto));
+            }
+            //--------------------------------------------------
+            //--- Return the EXTERNAL DTO in EXTERNAL units. ---
+            //--------------------------------------------------
+            return externalDtos;
+        }
+        #endregion  // ConvertToExternalDto(ProcessStreamDto internalDto) ... MULTIPLE STREAMS
+
+        #region ConvertToInternalDtos(List<ProcessStreamDto> externalDtos) ... MULTIPLE STREAMS
+        /// <summary>
+        /// Converts a Process Stream DTO from EXTERNAL units to INTERNAL units.
+        /// </summary>
+        /// <param name="externalDto">The Process Stream DTO in EXTERNAL units.</param>
+        /// <returns>A <see cref="ProcessStreamDto"/> DTO in INTERNAL units.</returns>
+        private List<ProcessStreamDto> ConvertToInternalDtos(List<ProcessStreamDto> externalDtos)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO List is null,                         ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (externalDtos == null)
+            {
+                return null;
+            }
+            //------------------------------ Create INTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in INTERNAL units.        ---
+            //--- This object will be populated with the converted values from the EXTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            List<ProcessStreamDto> internalDtos = new List<ProcessStreamDto>();
+            foreach (ProcessStreamDto externalDto in externalDtos)
+            {
+                //-------------------------------------------------
+                //--- Convert EXTERNAL Fields to INTERNAL Units ---
+                //-------------------------------------------------
+                internalDtos.Add(ConvertToInternalDto(externalDto));
+            }
+            //--------------------------------------------------
+            //--- Return the INTERNAL DTO in INTERNAL units. ---
+            //--------------------------------------------------
+            return internalDtos;
+        }
+        #endregion  // ConvertToInternalDto(ProcessStreamDto externalDto) ... SINGLE STREAM
+
+        #endregion  // MULTIPLE STREAMS CONVERSION METHODS
 
         #endregion      // PRIVATE DTO CONVERSION METHODS
 
         #region PROCESS STREAM CRUD METHODS
 
-        #region AddProcessStream(ProcessStreamDto externalProcessStreamDto) ... CREATE
+        #region CREATE METHODS
+
+        #region AddProcessStream(ProcessStreamDto externalProcessStreamDto) ... CREATE SINGLE STREAM
         /// <summary>
-        /// Adds (CREATE) a new process stream to the database using the specified DTO in external units.
+        /// Adds (CREATE) a SINGLE new process stream to the database using the specified DTO in external units.
         /// </summary>
         /// <param name="externalProcessStreamDto">The process stream data to add in external units.</param>
         /// <returns>A GUID representing the unique identifier of the newly added process stream.</returns>
@@ -206,9 +291,44 @@ namespace HenViewModel.Profile.Streams
             }
             return processStreamId;
         }
-        #endregion  // AddProcessStream(ProcessStreamDto externalProcessStreamDto) ... CREATE
+        #endregion  // AddProcessStream(ProcessStreamDto externalProcessStreamDto) ... CREATE SINGLE STREAM
 
-        #region GetProcessStreams() ... READ
+        #region AddProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos) ... CREATE MULTIPLE STREAMS
+        /// <summary>
+        /// Adds (CREATE) LIST of new process streams to the database using the specified List of DTOs in external units.
+        /// </summary>
+        /// <param name="externalProcessStreamDtos">The process stream data to add in external units.</param>
+        /// <returns>A list of GUIDs representing the unique identifiers of the newly added process streams.</returns>
+        public Guid AddProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos)
+        {
+            Guid profileId = new Guid();
+            try
+            {
+                //-------------------------------------------------------------------------------------------------
+                //--- Convert the provided EXTERNAL DTO List to an INTERNAL DTO List for repository processing. ---
+                //--- The repository methods expect DTOs in INTERNAL units, so the conversion is                ---
+                //--- necessary before calling the add method.                                                  ---
+                //-------------------------------------------------------------------------------------------------
+                List<ProcessStreamDto> internalProcessStreamDtos = ConvertToInternalDtos(externalProcessStreamDtos);
+                //------------------------------------------------------------------------------------------------------------
+                //--- Add the process streams using the repository method and capture the returned unique identifier.      ---
+                //--- The repository method will handle the actual database insertion and return the ID of the new record. ---
+                //------------------------------------------------------------------------------------------------------------
+                profileId = ProcessStreamRepoObj.AddProcessStreams(internalProcessStreamDtos);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding process stream: {ex.Message}");
+            }
+            return profileId;
+        }
+        #endregion  // AddProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos) ... CREATE MULTIPLE STREAMS
+
+        #endregion  // CREATE METHODS
+
+        #region READ METHODS
+
+        #region GetProcessStreams() ... READ ALL PROCESS STREAMS
         /// <summary>
         /// Retrieves (READ) a list of all ProcessStreams in external units.
         /// </summary>
@@ -248,11 +368,11 @@ namespace HenViewModel.Profile.Streams
             }
             return externalProcessStreams;
         }
-        #endregion  // GetProcessStreams() ... READ
+        #endregion  // GetProcessStreams() ... READ ALL PROCESS STREAMS
 
-        #region GetProcessStreamsByProfileId(Guid profileId) ... READ
+        #region GetProcessStreamsByProfileId(Guid profileId) ... READ PROCESS STREAMS BY PROFILE ID
         /// <summary>
-        /// Retrieves (READ) a list of all ProcessStreams associated with the specified profile identifier in external units.
+        /// Retrieves (READ) a LIST of all ProcessStreams associated with the specified profile identifier in external units.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile whose process streams are to be retrieved.</param>
         /// <returns>A list of <see cref="ProcessStreamDto"/> objects representing the matching process streams, 
@@ -295,11 +415,11 @@ namespace HenViewModel.Profile.Streams
             }
             return externalProcessStreams;
         }
-        #endregion  // GetProcessStreamsByProfileId(Guid profileId) ... READ
+        #endregion  // GetProcessStreamsByProfileId(Guid profileId) ... READ PROCESS STREAMS BY PROFILE ID
 
-        #region GetProcessStreamById(Guid processStreamId) ... READ
+        #region GetProcessStreamById(Guid processStreamId) ... READ SINGLE PROCESS STREAM BY ID
         /// <summary>
-        /// Retrieves (READ) the ProcessStream DTO associated with the specified unique identifier.
+        /// Retrieves (READ) a SINGLE ProcessStream DTO associated with the specified unique identifier.
         /// </summary>
         /// <param name="processStreamId">The unique identifier of the process stream to retrieve.</param>
         /// <returns>A <see cref="ProcessStreamDto"/> representing the process stream with the specified identifier. Returns null if none is found.</returns>
@@ -337,11 +457,11 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetProcessStreamById(Guid processStreamId) ... READ
+        #endregion  // GetProcessStreamById(Guid processStreamId) ... READ SINGLE PROCESS STREAM BY ID
 
-        #region GetProcessStreamByStreamId(Guid profileId, string streamId) ... READ
+        #region GetProcessStreamByStreamId(Guid profileId, string streamId) ... READ SINGLE PROCESS STREAM BY STREAM ID
         /// <summary>
-        /// Retrieves (READ) a process stream by its profile identifier and stream identifier.
+        /// Retrieves (READ) a SINGLE process stream by its profile identifier and stream identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile that owns the process stream.</param>
         /// <param name="streamId">The stream identifier of the process stream to retrieve.</param>
@@ -390,11 +510,15 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetProcessStreamByStreamId(Guid profileId, string streamId) ... READ
+        #endregion  // GetProcessStreamByStreamId(Guid profileId, string streamId) ... READ SINGLE PROCESS STREAM BY STREAM ID
 
-        #region UpdateProcessStream(ProcessStreamDto externalProcessStreamDto) ... UPDATE
+        #endregion  // READ METHODS
+
+        #region UPDATE METHODS
+
+        #region UpdateProcessStream(ProcessStreamDto externalProcessStreamDto) ... UPDATE SINGLE STREAM
         /// <summary>
-        /// Updates (UPDATE)an existing process stream in the database using the specified DTO in external units.
+        /// Updates (UPDATE) a SINGLE existing process stream in the database using the specified DTO in external units.
         /// </summary>
         /// <param name="externalProcessStreamDto">The process stream DTO containing updated information in external units.</param>
         public void UpdateProcessStream(ProcessStreamDto externalProcessStreamDto)
@@ -427,11 +551,44 @@ namespace HenViewModel.Profile.Streams
                 Console.WriteLine($"Error updating process stream: {ex.Message}");
             }
         }
-        #endregion  // UpdateProcessStream(ProcessStreamDto externalProcessStreamDto) ... UPDATE
+        #endregion  // UpdateProcessStream(ProcessStreamDto externalProcessStreamDto) ... UPDATE SINGLE STREAM
 
-        #region DeleteProcessStream(Guid processStreamId) ... DELETE
+        #region UpdateProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos) ... UPDATE MULTIPLE STREAMS
         /// <summary>
-        /// Deletes (DELETE) the process stream with the specified unique identifier.
+        /// Updates (UPDATE) multiple existing process streams in the database using the specified DTOs in external units.
+        /// </summary>
+        /// <param name="externalProcessStreamDtos">The list of process stream DTOs containing updated information in external units.</param>
+        public void UpdateProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos)
+        {
+            try
+            {
+                //-------------------------------------------------------------------------------------------------
+                //--- Convert the provided EXTERNAL DTO List to an INTERNAL DTO List for repository processing. ---
+                //--- The repository methods expect DTOs in INTERNAL units, so the conversion is                ---
+                //--- necessary before calling the update method.                                               ---
+                //-------------------------------------------------------------------------------------------------
+                List<ProcessStreamDto> internalProcessStreamDtos = ConvertToInternalDtos(externalProcessStreamDtos);
+                //----------------------------------------------------------------------------------------------------------
+                //--- Update the process streams using the repository method with the converted INTERNAL DTO List.       ---
+                //--- The repository method will handle the actual database update based on the information in the DTOs. ---
+                //--- If the repository update fails, the catch block will handle the exception.                         ---
+                //----------------------------------------------------------------------------------------------------------
+                ProcessStreamRepoObj.UpdateProcessStreams(internalProcessStreamDtos);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating process stream: {ex.Message}");
+            }
+        }
+        #endregion  // UpdateProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos) ... UPDATE MULTIPLE STREAMS
+
+        #endregion  // UPDATE METHODS
+
+        #region DELETE METHODS
+
+        #region DeleteProcessStream(Guid processStreamId) ... DELETE SINGLE STREAM
+        /// <summary>
+        /// Deletes (DELETE) SINGLE process stream with the specified unique identifier.
         /// </summary>
         /// <param name="processStreamId">The unique identifier of the process stream to delete.</param>
         public void DeleteProcessStream(Guid processStreamId)
@@ -462,7 +619,9 @@ namespace HenViewModel.Profile.Streams
                 Console.WriteLine($"Error deleting process stream: {ex.Message}");
             }
         }
-        #endregion  // DeleteProcessStream(Guid processStreamId) ... DELETE
+        #endregion  // DeleteProcessStream(Guid processStreamId) ... DELETE SINGLE STREAM
+
+        #endregion  // DELETE METHODS
 
         #endregion  // PROCESS STREAM CRUD METHODS
 
