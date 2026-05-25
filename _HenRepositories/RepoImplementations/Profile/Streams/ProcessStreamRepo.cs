@@ -500,6 +500,62 @@ namespace HenModel.RepoImplementations.Profile.Streams
 
         #region UPDATE METHODS
 
+        #region UpdateProcessStream() ... UPDATE SINGLE ROW
+        /// <summary>
+        /// Updates (UPDATE) a SINGLE existing process stream in the data store.
+        /// </summary>
+        /// <param name="processStreamDto">The process stream data to update.</param>
+        public void UpdateProcessStream(ProcessStreamDto processStreamDto)
+        {
+            if (processStreamDto == null)
+            {
+                throw new ArgumentNullException(nameof(processStreamDto));
+            }
+
+            const string sql = @"UPDATE dbo.ProcessStream
+                                 SET ProfileId = @ProfileId,
+                                     StreamCategory = @StreamCategory,
+                                     StreamHeat = @StreamHeat,
+                                     StreamId = @StreamId,
+                                     StreamSegmentId = @StreamSegmentId,
+                                     Name = @Name,
+                                     StreamType = @StreamType,
+                                     StreamSubtype = @StreamSubtype,
+                                     SupplyTemperature = @SupplyTemperature,
+                                     SupplyPressure = @SupplyPressure,
+                                     TargetTemperature = @TargetTemperature,
+                                     TargetPressure = @TargetPressure,
+                                     HeatCapacityFlowRate = @HeatCapacityFlowRate,
+                                     HeatTransferCoefficient = @HeatTransferCoefficient
+                                 WHERE Id = @Id;";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                using (IDbCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.CommandType = CommandType.Text;
+                    AddParameter(command, "@Id", DbType.Guid, processStreamDto.Id);
+                    AddParameter(command, "@ProfileId", DbType.Guid, processStreamDto.ProfileId);
+                    AddParameter(command, "@StreamCategory", DbType.String, processStreamDto.StreamCategory);
+                    AddParameter(command, "@StreamHeat", DbType.String, processStreamDto.StreamHeat);
+                    AddParameter(command, "@StreamId", DbType.String, processStreamDto.StreamId);
+                    AddParameter(command, "@Name", DbType.String, processStreamDto.Name);
+                    AddParameter(command, "@StreamType", DbType.String, processStreamDto.StreamType);
+                    AddParameter(command, "@StreamSubtype", DbType.String, processStreamDto.StreamSubtype);
+                    AddParameter(command, "@SupplyTemperature", DbType.Double, processStreamDto.SupplyTemperature);
+                    AddParameter(command, "@SupplyPressure", DbType.Double, processStreamDto.SupplyPressure);
+                    AddParameter(command, "@TargetTemperature", DbType.Double, processStreamDto.TargetTemperature);
+                    AddParameter(command, "@TargetPressure", DbType.Double, processStreamDto.TargetPressure);
+                    AddParameter(command, "@HeatCapacityFlowRate", DbType.Double, processStreamDto.HeatCapacityFlowRate);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+        #endregion      // UpdateProcessStream() ... UPDATE SINGLE ROW
+
         #region UpdateProcessStreams() ... UPDATE MULTIPLE ROWS
         /// <summary>
         /// Updates (UPDATE) a LIST of existing process streams in the data store.
@@ -559,62 +615,6 @@ namespace HenModel.RepoImplementations.Profile.Streams
             }
         }
         #endregion      // UpdateProcessStreams() ... UPDATE MULTIPLE ROWS
-
-        #region UpdateProcessStream() ... UPDATE SINGLE ROW
-        /// <summary>
-        /// Updates (UPDATE) a SINGLE existing process stream in the data store.
-        /// </summary>
-        /// <param name="processStreamDto">The process stream data to update.</param>
-        public void UpdateProcessStream(ProcessStreamDto processStreamDto)
-        {
-            if (processStreamDto == null)
-            {
-                throw new ArgumentNullException(nameof(processStreamDto));
-            }
-
-            const string sql = @"UPDATE dbo.ProcessStream
-                                 SET ProfileId = @ProfileId,
-                                     StreamCategory = @StreamCategory,
-                                     StreamHeat = @StreamHeat,
-                                     StreamId = @StreamId,
-                                     StreamSegmentId = @StreamSegmentId,
-                                     Name = @Name,
-                                     StreamType = @StreamType,
-                                     StreamSubtype = @StreamSubtype,
-                                     SupplyTemperature = @SupplyTemperature,
-                                     SupplyPressure = @SupplyPressure,
-                                     TargetTemperature = @TargetTemperature,
-                                     TargetPressure = @TargetPressure,
-                                     HeatCapacityFlowRate = @HeatCapacityFlowRate,
-                                     HeatTransferCoefficient = @HeatTransferCoefficient
-                                 WHERE Id = @Id;";
-
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                using (IDbCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, processStreamDto.Id);
-                    AddParameter(command, "@ProfileId", DbType.Guid, processStreamDto.ProfileId);
-                    AddParameter(command, "@StreamCategory", DbType.String, processStreamDto.StreamCategory);
-                    AddParameter(command, "@StreamHeat", DbType.String, processStreamDto.StreamHeat);
-                    AddParameter(command, "@StreamId", DbType.String, processStreamDto.StreamId);
-                    AddParameter(command, "@Name", DbType.String, processStreamDto.Name);
-                    AddParameter(command, "@StreamType", DbType.String, processStreamDto.StreamType);
-                    AddParameter(command, "@StreamSubtype", DbType.String, processStreamDto.StreamSubtype);
-                    AddParameter(command, "@SupplyTemperature", DbType.Double, processStreamDto.SupplyTemperature);
-                    AddParameter(command, "@SupplyPressure", DbType.Double, processStreamDto.SupplyPressure);
-                    AddParameter(command, "@TargetTemperature", DbType.Double, processStreamDto.TargetTemperature);
-                    AddParameter(command, "@TargetPressure", DbType.Double, processStreamDto.TargetPressure);
-                    AddParameter(command, "@HeatCapacityFlowRate", DbType.Double, processStreamDto.HeatCapacityFlowRate);
-
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
-        #endregion      // UpdateProcessStream() ... UPDATE SINGLE ROW
 
         #endregion  // UPDATE METHODS
 

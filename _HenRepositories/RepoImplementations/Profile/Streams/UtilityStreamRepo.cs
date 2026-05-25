@@ -125,7 +125,9 @@ namespace HenModel.RepoImplementations.Profile.Streams
 
         #region UTILITY STREAM CRUD METHODS
 
-        #region AddUtilityStream() ... CREATE
+        #region CREATE METHODS
+
+        #region AddUtilityStream() ... CREATE SINGLE STREAM ROW
         /// <summary>
         /// Adds (CREATE) a new SINGLE utility stream to the data store.
         /// </summary>
@@ -194,11 +196,94 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 }
             }
         }
-        #endregion      // AddUtilityStream() ... CREATE
+        #endregion      // AddUtilityStream() ... CREATE SINGLE STREAM ROW
 
-        #region GetUtilityStreams() ... READ
+        #region AddUtilityStreams() ... CREATE MULTIPLE STREAM ROWS
         /// <summary>
-        /// Retrieves (READ) all utility streams from the data store.
+        /// Adds (CREATE) a new LIST of utility stream to the data store.
+        /// </summary>
+        /// <param name="utilityStreamDto">The utility stream data to insert.</param>
+        /// <returns>The unique identifier of the inserted utility stream.</returns>
+        public Guid AddUtilityStreams(List<UtilityStreamDto> utilityStreamDtos)
+        {
+            Guid profileId = new Guid();
+
+            if (utilityStreamDtos == null)
+            {
+                throw new ArgumentNullException(nameof(utilityStreamDtos));
+            }
+
+            const string sql = @"INSERT INTO dbo.UtilityStream
+                                    (ProfileId,
+                                     StreamCategory,
+                                     StreamHeat,
+                                     StreamId,
+                                     Name,
+                                     UtilityType,
+                                     StreamSubtype,
+                                     IsothermalTemperature,
+                                     SupplyTemperature,
+                                     SupplyPressure,
+                                     TargetTemperature,
+                                     TargetPressure,
+                                     EnthalpyFlowRate)
+                                 OUTPUT INSERTED.Id
+                                 VALUES
+                                    (@ProfileId,
+                                     @StreamCategory,
+                                     @StreamHeat,
+                                     @StreamId,
+                                     @Name,
+                                     @UtilityType,
+                                     @StreamSubtype,
+                                     @IsothermalTemperature,
+                                     @SupplyTemperature,
+                                     @SupplyPressure,
+                                     @TargetTemperature,
+                                     @TargetPressure,
+                                     @EnthalpyFlowRate);";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                foreach (var utilityStreamDto in utilityStreamDtos)
+                {
+                    profileId = utilityStreamDto.ProfileId;
+
+                    using (IDbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = sql;
+                        command.CommandType = CommandType.Text;
+                        AddParameter(command, "@ProfileId", DbType.Guid, utilityStreamDto.ProfileId);
+                        AddParameter(command, "@StreamCategory", DbType.String, utilityStreamDto.StreamCategory);
+                        AddParameter(command, "@StreamHeat", DbType.String, utilityStreamDto.StreamHeat);
+                        AddParameter(command, "@StreamId", DbType.String, utilityStreamDto.StreamId);
+                        AddParameter(command, "@Name", DbType.String, utilityStreamDto.Name);
+                        AddParameter(command, "@UtilityType", DbType.String, utilityStreamDto.UtilityType);
+                        AddParameter(command, "@StreamSubtype", DbType.String, utilityStreamDto.StreamSubtype);
+                        AddParameter(command, "@IsothermalTemperature", DbType.Double, utilityStreamDto.IsothermalTemperature);
+                        AddParameter(command, "@SupplyTemperature", DbType.Double, utilityStreamDto.SupplyTemperature);
+                        AddParameter(command, "@SupplyPressure", DbType.Double, utilityStreamDto.SupplyPressure);
+                        AddParameter(command, "@TargetTemperature", DbType.Double, utilityStreamDto.TargetTemperature);
+                        AddParameter(command, "@TargetPressure", DbType.Double, utilityStreamDto.TargetPressure);
+                        AddParameter(command, "@EnthalpyFlowRate", DbType.Double, utilityStreamDto.EnthalpyFlowRate);
+
+                        command.ExecuteScalar();
+                    }
+                }
+            }
+            return profileId;
+        }
+        #endregion      // AddUtilityStreams() ... CREATE SINGLE STREAM ROW
+
+        #endregion  // CREATE METHODS
+
+        #region READ METHODS
+
+        #region GetUtilityStreams() ... READ MULTIPLE STREAM ROWS
+        /// <summary>
+        /// Retrieves (READ) LIST of utility streams from the data store.
         /// </summary>
         /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing all utility streams. The list is empty if no utility streams are found.</returns>
         public IList<UtilityStreamDto> GetUtilityStreams()
@@ -243,11 +328,11 @@ namespace HenModel.RepoImplementations.Profile.Streams
 
             return utilityStreams;
         }
-        #endregion      // GetUtilityStreams() ... READ
+        #endregion      // GetUtilityStreams() ... READ MULTIPLE STREAM ROWS
 
-        #region GetUtilityStreamsByProfileId() ... READ
+        #region GetUtilityStreamsByProfileId() ... READ MULTIPLE STREAM ROWS BY PROFILE ID
         /// <summary>
-        /// Retrieves (READ) all utility streams for the specified profile from the data store.
+        /// Retrieves (READ) LIST of utility streams for the specified profile from the data store.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile whose utility streams are to be retrieved.</param>
         /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing the matching utility streams. The list is empty if no utility streams are found.</returns>
@@ -295,11 +380,11 @@ namespace HenModel.RepoImplementations.Profile.Streams
 
             return utilityStreams;
         }
-        #endregion      // GetUtilityStreamsByProfileId() ... READ
+        #endregion      // GetUtilityStreamsByProfileId() ... READ MULTIPLE STREAM ROWS BY PROFILE ID
 
-        #region GetUtilityStreamById() ... READ
+        #region GetUtilityStreamById() ... READ SINGLE STREAM ROW
         /// <summary>
-        /// Retrieves (READ) a utility stream from the data store by its identifier.
+        /// Retrieves (READ) a SINGLE utility stream from the data store by its identifier.
         /// </summary>
         /// <param name="utilityStreamId">The unique identifier of the utility stream to retrieve.</param>
         /// <returns>A <see cref="UtilityStreamDto"/> object representing the requested utility stream, or <c>null</c> if no matching utility stream is found.</returns>
@@ -346,9 +431,9 @@ namespace HenModel.RepoImplementations.Profile.Streams
         }
         #endregion      // GetUtilityStreamById() ... READ
 
-        #region GetUtilityStreamByStreamId() ... READ
+        #region GetUtilityStreamByStreamId() ... READ SINGLE STREAM ROW BY STREAM ID
         /// <summary>
-        /// Retrieves (READ) a utility stream from the data store by its profile identifier and stream identifier.
+        /// Retrieves (READ) a SINGLE utility stream from the data store by its profile identifier and stream identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile that owns the utility stream.</param>
         /// <param name="streamId">The stream identifier to retrieve.</param>
@@ -401,11 +486,15 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 }
             }
         }
-        #endregion      // GetUtilityStreamByStreamId() ... READ
+        #endregion      // GetUtilityStreamByStreamId() ... READ SINGLE STREAM ROW BY STREAM ID
 
-        #region UpdateUtilityStream() ... UPDATE
+        #endregion  // READ METHODS
+
+        #region UPDATE METHODS
+
+        #region UpdateUtilityStream() ... UPDATE SINGLE STREAM ROW
         /// <summary>
-        /// Updates (UPDATE) an existing utility stream in the data store.
+        /// Updates (UPDATE) a SINGLE existing utility stream in the data store.
         /// </summary>
         /// <param name="utilityStreamDto">The utility stream data to update.</param>
         public void UpdateUtilityStream(UtilityStreamDto utilityStreamDto)
@@ -457,11 +546,75 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 }
             }
         }
-        #endregion      // UpdateUtilityStream() ... UPDATE
+        #endregion      // UpdateUtilityStream() ... UPDATE SINGLE STREAM ROW
 
-        #region DeleteUtilityStream() ... DELETE
+        #region UpdateUtilityStreams() ... UPDATE MULTIPLE STREAM ROWS
         /// <summary>
-        /// Deletes (DELETE) a utility stream from the data store by its identifier.
+        /// Updates (UPDATE) MULTIPLE existing utility streams in the data store.
+        /// </summary>
+        /// <param name="utilityStreamDtos">The utility stream data to update.</param>
+        public void UpdateUtilityStreams(IList<UtilityStreamDto> utilityStreamDtos)
+        {
+            if (utilityStreamDtos == null)
+            {
+                throw new ArgumentNullException(nameof(utilityStreamDtos));
+            }
+
+            const string sql = @"UPDATE dbo.UtilityStream
+                                 SET ProfileId = @ProfileId,
+                                     StreamCategory = @StreamCategory,
+                                     StreamHeat = @StreamHeat,
+                                     StreamId = @StreamId,
+                                     Name = @Name,
+                                     UtilityType = @UtilityType,
+                                     StreamSubtype = @StreamSubtype,
+                                     IsothermalTemperature = @IsothermalTemperature,
+                                     SupplyTemperature = @SupplyTemperature,
+                                     SupplyPressure = @SupplyPressure,
+                                     TargetTemperature = @TargetTemperature,
+                                     TargetPressure = @TargetPressure,
+                                     EnthalpyFlowRate = @EnthalpyFlowRate
+                                 WHERE Id = @Id;";
+
+            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                foreach (var utilityStreamDto in utilityStreamDtos)
+                {
+                    using (IDbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = sql;
+                        command.CommandType = CommandType.Text;
+                        AddParameter(command, "@Id", DbType.Guid, utilityStreamDto.Id);
+                        AddParameter(command, "@ProfileId", DbType.Guid, utilityStreamDto.ProfileId);
+                        AddParameter(command, "@StreamCategory", DbType.String, utilityStreamDto.StreamCategory);
+                        AddParameter(command, "@StreamHeat", DbType.String, utilityStreamDto.StreamHeat);
+                        AddParameter(command, "@StreamId", DbType.String, utilityStreamDto.StreamId);
+                        AddParameter(command, "@Name", DbType.String, utilityStreamDto.Name);
+                        AddParameter(command, "@UtilityType", DbType.String, utilityStreamDto.UtilityType);
+                        AddParameter(command, "@StreamSubtype", DbType.String, utilityStreamDto.StreamSubtype);
+                        AddParameter(command, "@IsothermalTemperature", DbType.Double, utilityStreamDto.IsothermalTemperature);
+                        AddParameter(command, "@SupplyTemperature", DbType.Double, utilityStreamDto.SupplyTemperature);
+                        AddParameter(command, "@SupplyPressure", DbType.Double, utilityStreamDto.SupplyPressure);
+                        AddParameter(command, "@TargetTemperature", DbType.Double, utilityStreamDto.TargetTemperature);
+                        AddParameter(command, "@TargetPressure", DbType.Double, utilityStreamDto.TargetPressure);
+                        AddParameter(command, "@EnthalpyFlowRate", DbType.Double, utilityStreamDto.EnthalpyFlowRate);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+        #endregion      // UpdateUtilityStream() ... UPDATE MULTIPLE STREAM ROWS
+
+        #endregion  // UPDATE METHODS
+
+        #region DELETE METHODS
+
+        #region DeleteUtilityStream() ... DELETE SINGLE STREAM ROW
+        /// <summary>
+        /// Deletes (DELETE) a SINGLE utility stream from the data store by its identifier.
         /// </summary>
         /// <param name="utilityStreamId">The unique identifier of the utility stream to delete.</param>
         public void DeleteUtilityStream(Guid utilityStreamId)
@@ -482,7 +635,9 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 }
             }
         }
-        #endregion      // DeleteUtilityStream() ... DELETE
+        #endregion      // DeleteUtilityStream() ... DELETE SINGLE STREAM ROW
+
+        #endregion  // DELETE METHODS
 
         #endregion      // UTILITY STREAM CRUD METHODS
     }
