@@ -46,7 +46,7 @@ using System.Threading.Tasks;
 namespace HenStudio.Data.Profile.Streams
 {
     #region public class UtilityStreamPanelData
-    public class UtilityStreamPanelData : IUtilityStreamPanelData
+    public class UtilityStreamPanelData
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio.Data.Profile";
@@ -54,21 +54,13 @@ namespace HenStudio.Data.Profile.Streams
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public UtilityStreamDto UtilityStreamDtoObj { get; set; }   // Utility Stream DTO Object
-        public Guid Id { get; set; }                                // Utility Stream ID ... (PK)
-        public Guid ProfileId { get; set; }                         // Profile ID .......... (FK)
-        public string StreamCategory { get; set; }                  // Stream Category ..... ["Process"   | "Utility"]
-        public string StreamHeat { get; set; }                      // Stream Heat ......... ["Sensible", | "Latent"]
-        public string StreamId { get; set; }                        // Stream ID ........... (e.g., "HU01", "CU01", etc.)
-        public string Name { get; set; }                            // Stream Name ......... (e.g., "Naptha Feed Reboiler")
-        public string UtilityType { get; set; }                     // Utility Type ........ ["HP_Steam", | "MP_Steam" | "LP_Steam" | "Cold_Water" | "Chilled_Water" | "Fuel_Gas"]
-        public string StreamSubtype { get; set; }                   // Stream Subtype ...... ["Liquid", | "Vapor" | "Mixed"]
-        public double IsothermalTemperature { get; set; }           // Isothermal Temperature Value (e.g., °C)
-        public double SupplyTemperature { get; set; }               // Supply Temperature     Value (e.g., °C)
-        public double SupplyPressure { get; set; }                  // Supply Pressure        Value (e.g., kPa)
-        public double TargetTemperature { get; set; }               // Target Temperature     Value (e.g., °C)
-        public double TargetPressure { get; set; }                  // Target Pressure        Value (e.g., kPa)
-        public double EnthalpyFlowRate { get; set; }                // Enthalpy Flow Rate     Value (e.g., kW)
+        public Guid ProjectId { get; set; }       // Project Unique Identifier
+        public Guid ProfileId { get; set; }       // Profile Unique Identifier
+        public Guid UtilityStreamId { get; set; } // Utility Stream Unique Identifier
+
+        public int NumInvalidRows { get; set; }   // Number of Invalid Stream Rows ... (e.g., 3 invalid rows)
+
+        public UtilityStreamDto UtilityStreamDtoList { get; set; }   // List of Utility Stream DTO Objects
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -80,179 +72,16 @@ namespace HenStudio.Data.Profile.Streams
         /// This constructor ensures that the object is in a valid default state upon creation.</remarks>
         public UtilityStreamPanelData()
         {
-            UtilityStreamDtoObj = new UtilityStreamDto(); // Utility Stream DTO Object
+            ProjectId = new Guid();         // Project Unique Identifier
+            ProfileId = new Guid();         // Profile Unique Identifier
+            UtilityStreamId = new Guid();   // Utility Stream Unique Identifier
 
-            Id = new Guid();                // Utility Stream ID .......... (PK)
-            ProfileId = new Guid();         // Profile ID ................. (FK)
-            StreamCategory = string.Empty;  // Stream Category ............ ["Process"   | "Utility"]
-            StreamHeat = string.Empty;      // Stream Heat ................ ["Sensible", | "Latent"]
-            StreamId = string.Empty;        // Stream ID .................. (e.g., "HU01", "CU01", etc.)
-            Name = string.Empty;            // Stream Name ................ (e.g., "Naptha Feed")
-            UtilityType = string.Empty;     // Utility Type ............... ["HP_Steam", | "MP_Steam" | "LP_Steam" | "Cold_Water" | "Chilled_Water" | "Fuel_Gas"]
-            StreamSubtype = string.Empty;   // Stream Subtype ............. ["Liquid", | "Vapor" | "Mixed"]
-            IsothermalTemperature = 0.0;    // Isothermal Temperature Value (°C)
-            SupplyTemperature = 0.0;        // Supply Temperature     Value (e.g., °C)
-            SupplyPressure = 0.0;           // Supply Pressure        Value (kPa)
-            TargetTemperature = 0.0;        // Target Temperature     Value (e.g., °C)
-            TargetPressure = 0.0;           // Target Pressure        Value (kPa)
-            EnthalpyFlowRate = 0.0;         // Enthalpy Flow Rate     Value (kW)
+            NumInvalidRows = 0;             // Number of Invalid Stream Rows ... (e.g., 3 invalid rows)
+
+            UtilityStreamDtoList = new UtilityStreamDto(); // List of Utility Stream DTO Objects ... EXTERN Units
         }
         #endregion  // CTOR
 
-        #region STRING CONVERSION METHODS
-
-        #region GetId()
-        /// <summary>
-        /// Gets the unique identifier of the project as a string.
-        /// </summary>
-        /// <returns>A string representation of the project's unique identifier.</returns>
-        public string GetId()
-        { 
-            return Id.ToString(); 
-        }
-        #endregion  // GetId()
-
-        #region GetProfileId()
-        /// <summary>
-        /// Gets the unique identifier of the profile as a string.
-        /// </summary>
-        /// <returns>A string representation of the profile's unique identifier.</returns>
-        public string GetProfileId()
-        {
-            return ProfileId.ToString();
-        }
-        #endregion  // GetProfileId()
-
-        #region GetIsothermalTemperature()
-        /// <summary>
-        /// Gets the isothermal temperature as a string.
-        /// </summary>
-        /// <returns>A string representation of the isothermal temperature.</returns>
-        public string GetIsothermalTemperature()
-        {
-            return IsothermalTemperature.ToString();
-        }
-        #endregion  // GetIsothermalTemperature()
-
-        #region GetSupplyTemperature()
-        /// <summary>
-        /// Gets the supply temperature as a string.
-        /// </summary>
-        /// <returns>A string representation of the supply temperature.</returns>
-        public string GetSupplyTemperature()
-        {
-            return SupplyTemperature.ToString();
-        }
-        #endregion  // GetSupplyTemperature()
-        
-        #region GetSupplyPressure()
-        /// <summary>
-        /// Gets the supply pressure as a string.
-        /// </summary>
-        /// <returns>A string representation of the supply pressure.</returns>
-        public string GetSupplyPressure()
-        {
-            return SupplyPressure.ToString();
-        }
-        #endregion  // GetSupplyPressure()
-
-        #region GetTargetTemperature()
-        /// <summary>
-        /// Gets the target temperature as a string.
-        /// </summary>
-        /// <returns>A string representation of the target temperature.</returns>
-        public string GetTargetTemperature()
-        {
-            return TargetTemperature.ToString();
-        }
-        #endregion  // GetTargetTemperature()
-        
-        #region GetTargetPressure()
-        /// <summary>
-        /// Gets the target pressure as a string.
-        /// </summary>
-        /// <returns>A string representation of the target pressure.</returns>
-        public string GetTargetPressure()
-        {
-            return TargetPressure.ToString();
-        }
-        #endregion  // GetTargetPressure()
-
-        #region GetEnthalpyFlowRate()
-        /// <summary>
-        /// Gets the enthalpy flow rate as a string.
-        /// </summary>
-        /// <returns>A string representation of the enthalpy flow rate.</returns>
-        public string GetEnthalpyFlowRate()
-        {
-            return EnthalpyFlowRate.ToString();
-        }
-        #endregion  // GetEnthalpyFlowRate()
-
-        #endregion  // STRING CONVERSION METHODS
-
-        #region IMPLEMENTATION of IUtilityStreamPanelData METHODS
-
-        #region ConvertToPanelData(UtilityStreamDto utilityStreamDto)
-        /// <summary>
-        /// Creates a new UtilityStreamPanelData instance by copying values from the specified UtilityStreamDto object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from UtilityStreamDto to
-        /// UtilityStreamPanelData. All relevant fields are transferred directly. If utilityStreamDto is null, a
-        /// NullReferenceException may occur.</remarks>
-        /// <param name="utilityStreamDto">The UtilityStreamDto object containing the source values to copy. Cannot be null.</param>
-        /// <returns>A UtilityStreamPanelData instance populated with values from the provided UtilityStreamDto object.</returns>
-        public UtilityStreamPanelData ConvertToPanelData(UtilityStreamDto utilityStreamDto)
-        {
-            UtilityStreamDtoObj = utilityStreamDto;
-            this.Id = utilityStreamDto.Id;
-            this.ProfileId = utilityStreamDto.ProfileId;
-            this.StreamCategory = utilityStreamDto.StreamCategory;
-            this.StreamHeat = utilityStreamDto.StreamHeat;
-            this.StreamId = utilityStreamDto.StreamId;
-            this.Name = utilityStreamDto.Name;
-            this.UtilityType = utilityStreamDto.UtilityType;
-            this.StreamSubtype = utilityStreamDto.StreamSubtype;
-            this.IsothermalTemperature = utilityStreamDto.IsothermalTemperature;
-            this.SupplyTemperature = utilityStreamDto.SupplyTemperature;
-            this.SupplyPressure = utilityStreamDto.SupplyPressure;
-            this.TargetTemperature = utilityStreamDto.TargetTemperature;
-            this.TargetPressure = utilityStreamDto.TargetPressure;
-            this.EnthalpyFlowRate = utilityStreamDto.EnthalpyFlowRate;
-            return this;
-        }
-        #endregion  // ConvertToPanelData(UtilityStreamDto utilityStreamDto)
-
-        #region ConvertFromPanelData()
-        /// <summary>
-        /// Creates a new ProcessStreamDto instance by copying values from the current ProcessStreamPanelData object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from ProcessStreamPanelData to
-        /// ProcessStreamDto. All relevant fields are transferred directly.</remarks>
-        /// NullReferenceException may occur.</remarks>
-        /// <returns>A ProcessStreamDto instance populated with values from the provided ProcessStreamPanelData object.</returns>
-        public UtilityStreamDto ConvertFromPanelData()
-        {
-            UtilityStreamDtoObj = new UtilityStreamDto();
-            UtilityStreamDtoObj.Id = this.Id;
-            UtilityStreamDtoObj.ProfileId = this.ProfileId;
-            UtilityStreamDtoObj.StreamCategory = this.StreamCategory;
-            UtilityStreamDtoObj.StreamHeat = this.StreamHeat;
-            UtilityStreamDtoObj.StreamId = this.StreamId;
-            UtilityStreamDtoObj.Name = this.Name;
-            UtilityStreamDtoObj.UtilityType = this.UtilityType;
-            UtilityStreamDtoObj.StreamSubtype = this.StreamSubtype;
-            UtilityStreamDtoObj.IsothermalTemperature = this.IsothermalTemperature;
-            UtilityStreamDtoObj.SupplyTemperature = this.SupplyTemperature;
-            UtilityStreamDtoObj.SupplyPressure = this.SupplyPressure;
-            UtilityStreamDtoObj.TargetTemperature = this.TargetTemperature;
-            UtilityStreamDtoObj.TargetPressure = this.TargetPressure;
-            UtilityStreamDtoObj.EnthalpyFlowRate = this.EnthalpyFlowRate;
-            return UtilityStreamDtoObj;
-        }
-        #endregion  // ConvertFromPanelData()   
-
-        #endregion  // IMPLEMENTATION of IUtilityStreamPanelData METHODS
     }
     #endregion      // public class UtilityStreamPanelData
 }
