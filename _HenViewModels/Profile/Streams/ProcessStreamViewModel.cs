@@ -176,7 +176,7 @@ namespace HenViewModel.Profile.Streams
 
         #region ConvertToExternalDtos(List<ProcessStreamDto> internalDtos) ... MULTIPLE STREAMS
         /// <summary>
-        /// Converts a list of Process Stream DTOs from INTERNAL units to EXTERNAL units.
+        /// Converts a LIST of Process Stream DTOs from INTERNAL units to EXTERNAL units.
         /// </summary>
         /// <param name="internalDtos">The list of Process Stream DTOs in INTERNAL units.</param>
         /// <returns>A list of <see cref="ProcessStreamDtos"/> DTOs in EXTERNAL units.</returns>
@@ -214,7 +214,7 @@ namespace HenViewModel.Profile.Streams
 
         #region ConvertToInternalDtos(List<ProcessStreamDto> externalDtos) ... MULTIPLE STREAMS
         /// <summary>
-        /// Converts a Process Stream DTO from EXTERNAL units to INTERNAL units.
+        /// Converts a LIST of Process Stream DTOs from EXTERNAL units to INTERNAL units.
         /// </summary>
         /// <param name="externalDto">The Process Stream DTO in EXTERNAL units.</param>
         /// <returns>A <see cref="ProcessStreamDto"/> DTO in INTERNAL units.</returns>
@@ -235,6 +235,7 @@ namespace HenViewModel.Profile.Streams
             //--- This object will be populated with the converted values from the EXTERNAL DTO. ---
             //--------------------------------------------------------------------------------------
             List<ProcessStreamDto> internalDtos = new List<ProcessStreamDto>();
+
             foreach (ProcessStreamDto externalDto in externalDtos)
             {
                 //-------------------------------------------------

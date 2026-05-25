@@ -75,7 +75,9 @@ namespace HenViewModel.Profile.Streams
 
         #region PRIVATE DTO CONVERSION METHODS
 
-        #region ConvertToExternalDto(UtilityStreamDto internalDto)
+        #region SINGLE STREAM CONVERSION METHODS
+
+        #region ConvertToExternalDto(UtilityStreamDto internalDto) ... SINGLE STREAM
         /// <summary>
         /// Converts a Utility Stream DTO from INTERNAL units to EXTERNAL units.
         /// </summary>
@@ -121,9 +123,9 @@ namespace HenViewModel.Profile.Streams
             //--------------------------------------------------
             return externalDto;
         }
-        #endregion  // ConvertToExternalDto(UtilityStreamDto internalDto)
+        #endregion  // ConvertToExternalDto(UtilityStreamDto internalDto) ... SINGLE STREAM
 
-        #region ConvertToInternalDto(UtilityStreamDto externalDto)
+        #region ConvertToInternalDto(UtilityStreamDto externalDto) ... SINGLE STREAM
         /// <summary>
         /// Converts a Utility Stream DTO from EXTERNAL units to INTERNAL units.
         /// </summary>
@@ -169,13 +171,98 @@ namespace HenViewModel.Profile.Streams
             //--------------------------------------------------
             return internalDto;
         }
-        #endregion  // ConvertToInternalDto(UtilityStreamDto externalDto)
+        #endregion  // ConvertToInternalDto(UtilityStreamDto externalDto) ... SINGLE STREAM
+
+        #endregion  // SINGLE STREAM CONVERSION METHODS
+
+        #region MULTIPLE STREAMS CONVERSION METHODS
+
+        #region ConvertToExternalDtos(List<UtilityStreamDto> internalDtos) ... MULTIPLE STREAMS
+        /// <summary>
+        /// Converts a list of Utility Stream DTOs from INTERNAL units to EXTERNAL units.
+        /// </summary>
+        /// <param name="internalDtos">The list of Utility Stream DTOs in INTERNAL units.</param>
+        /// <returns>A list of <see cref="UtilityStreamDto"/> DTOs in EXTERNAL units.</returns>
+        private List<UtilityStreamDto> ConvertToExternalDtos(List<UtilityStreamDto> internalDtos)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO list is null,                         ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (internalDtos == null)
+            {
+                return null;
+            }
+            //------------------------------ Create EXTERNAL DTO -----------------------------------
+            //--- Create a new DTO List object to hold the converted values in EXTERNAL units.   ---
+            //--- This object will be populated with the converted values from the INTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            List<UtilityStreamDto> externalDtos = new List<UtilityStreamDto>();
+
+            foreach (var internalDto in internalDtos)
+            {
+                //---------------------------------------------------------
+                //--- Convert INTERNAL DTO Fields to EXTERNAL DTO Units ---
+                //---------------------------------------------------------
+                externalDtos.Add(ConvertToExternalDto(internalDto));
+            }
+            //--------------------------------------------------
+            //--- Return the EXTERNAL DTO in EXTERNAL units. ---
+            //--------------------------------------------------
+            return externalDtos;
+        }
+        #endregion  // ConvertToExternalDtos(List<UtilityStreamDto> internalDtos) ... MULTIPLE STREAMS
+
+        #region ConvertToInternalDtos(List<UtilityStreamDto> externalDtos) ... MULTIPLE STREAM
+        /// <summary>
+        /// Converts a List of Utility Stream DTOs from EXTERNAL units to INTERNAL units.
+        /// </summary>
+        /// <param name="externalDtos">The list of Utility Stream DTOs in EXTERNAL units.</param>
+        /// <returns>A list of <see cref="UtilityStreamDto"/> DTOs in INTERNAL units.</returns>
+        private List<UtilityStreamDto> ConvertToInternalDtos(List<UtilityStreamDto> externalDtos)
+        {
+            //-------------------------- Null DTO Guard ----------------------------
+            //--- If the user provided DTO Listis null,                          ---
+            //--- Then return null to indicate that there is nothing to convert. ---
+            //--- This prevents potential null reference exceptions when trying  ---
+            //--- to access properties of a null object.                         ---
+            //----------------------------------------------------------------------
+            if (externalDtos == null)
+            {
+                return null;
+            }
+            //------------------------------ Create INTERNAL DTO -----------------------------------
+            //--- Create a new DTO object to hold the converted values in INTERNAL units.        ---
+            //--- This object will be populated with the converted values from the EXTERNAL DTO. ---
+            //--------------------------------------------------------------------------------------
+            List<UtilityStreamDto> internalDtos = new List<UtilityStreamDto>();
+
+            foreach (var externalDto in externalDtos)
+            {
+                //-------------------------------------------------
+                //--- Convert EXTERNAL Fields to INTERNAL Units ---
+                //-------------------------------------------------
+                internalDtos.Add(ConvertToInternalDto(externalDto));
+
+            }
+            //--------------------------------------------------
+            //--- Return the INTERNAL DTO in INTERNAL units. ---
+            //--------------------------------------------------
+            return internalDtos;
+        }
+        #endregion  // ConvertToInternalDtos(List<UtilityStreamDto> externalDtos) ... MULTIPLE STREAM
+
+        #endregion  // MULTIPLE STREAMS CONVERSION METHODS
 
         #endregion      // PRIVATE DTO CONVERSION METHODS
 
         #region UTILITY STREAM CRUD METHODS
 
-        #region AddUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... CREATE
+        #region CREATE METHODS
+
+        #region AddUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... CREATE SINGLE STREAM
         /// <summary>
         /// Adds (CREATE) a new utility stream to the database using the specified DTO in external units.
         /// </summary>
@@ -226,13 +313,68 @@ namespace HenViewModel.Profile.Streams
             //---------------------------------------------------------------------------------------------
             return utilityStreamId;
         }
-        #endregion  // AddUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... CREATE
+        #endregion  // AddUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... CREATE SINGLE STREAM
 
-        #region GetUtilityStreams() ... READ
+        #region AddUtilityStream(List<UtilityStreamDto> externalUtilityStreamDtos) ... CREATE MULTIPLE STREAMS
+        /// <summary>
+        /// Adds (CREATE) List of new utility streams to the database using the specified DTOs in external units.
+        /// </summary>
+        /// <param name="externalUtilityStreamDtos">The list of utility stream data to add in external units.</param>
+        /// <returns>A list of GUIDs representing the unique identifiers of the newly added utility streams.</returns>
+        public Guid AddUtilityStream(List<UtilityStreamDto> externalUtilityStreamDtos)
+        {
+            //-------------------------- Null DTO Guard ---------------------------------
+            //--- If the user provided DTO is null,                                   ---
+            //--- Then return an empty GUID to indicate that there is nothing to add. ---
+            //--- This prevents potential null reference exceptions when trying       ---
+            //--- to access properties of a null object.                              ---
+            //---------------------------------------------------------------------------
+            if (externalUtilityStreamDtos == null)
+            {
+                return Guid.Empty;
+            }
+            //------------------------------------------------------------------------------
+            //--- Initialize a variable to hold the unique identifier of the newly added ---
+            //--- utility stream. This variable will be assigned the value returned by   ---
+            //--- the repository method after adding the utility stream.                 ---
+            //------------------------------------------------------------------------------
+            Guid profileId = new Guid();
+            try
+            {
+                //-------------------------------------------------------------------------------------------------
+                //--- Convert the provided EXTERNAL DTO List to an INTERNAL DTO List for repository processing. ---
+                //--- The repository methods expect DTOs in INTERNAL units, so the conversion is                ---
+                //--- necessary before calling the add method.                                                  ---
+                //-------------------------------------------------------------------------------------------------
+                List<UtilityStreamDto> internalUtilityStreamDtos = ConvertToInternalDtos(externalUtilityStreamDtos);
+                //------------------------------------------------------------------------------------------------------------
+                //--- Add the utility streams using the repository method and capture the returned unique identifier.      ---
+                //--- The repository method will handle the actual database insertion and return the ID of the new record. ---
+                //------------------------------------------------------------------------------------------------------------
+                profileId = UtilityStreamRepoObj.AddUtilityStreams(internalUtilityStreamDtos);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Adding utility stream: {ex.Message}");
+            }
+            //-----------------------------------------------------------------------------------
+            //--- Return the Profile ID (PK) from the Utility Stream Table database addition. ---
+            //-----------------------------------------------------------------------------------
+            return profileId;
+            ;
+        }
+        #endregion  // AddUtilityStream(List<UtilityStreamDto> externalUtilityStreamDtos) ... CREATE MULTIPLE STREAMS
+
+        #endregion  // CREATE METHODS
+
+        #region READ METHODS
+
+        #region GetUtilityStreams() ... READ ALL STREAMS
         /// <summary>
         /// Retrieves (READ) a list of all UtilityStreams in external units.
         /// </summary>
-        /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing the available utility streams, or an empty list if none are found.</returns>
+        /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing the available 
+        /// utility streams, or an empty list if none are found.</returns>
         public IList<UtilityStreamDto> GetUtilityStreams()
         {
             //------------------------------------------------------------------------------------------
@@ -241,19 +383,6 @@ namespace HenViewModel.Profile.Streams
             //--- This list will be populated with the converted DTOs retrieved from the repository. ---
             //--- The repository returns DTOs in INTERNAL units, so each retrieved DTO will be       ---
             //--- converted to EXTERNAL units before being added to this list.                       ---
-            //------------------------------------------------------------------------------------------
-            //--- This approach ensures that the view model provides data in the expected EXTERNAL   ---
-            //--- units to any consuming views or components.                                        ---
-            //------------------------------------------------------------------------------------------
-            //--- If an error occurs during retrieval or conversion, the method will return null to  ---
-            //--- indicate that the operation was unsuccessful.                                      ---
-            //--- Consumers of this method should check for a null return value to handle potential  ---
-            //--- errors gracefully.                                                                 ---
-            //------------------------------------------------------------------------------------------
-            //--- If the method returns an empty list, it indicates that there are no utility        ---
-            //----streams available, but the retrieval operation itself was successful.              ---
-            //--- This distinction between null (error) and empty list (no data) allows for more     ---
-            //--- precise handling of different scenarios in the consuming code.                     ---
             //------------------------------------------------------------------------------------------
             List<UtilityStreamDto> externalUtilityStreams = new List<UtilityStreamDto>();
             try
@@ -290,11 +419,11 @@ namespace HenViewModel.Profile.Streams
             //-----------------------------------------------------------------
             return externalUtilityStreams;
         }
-        #endregion  // GetUtilityStreams() ... READ
+        #endregion  // GetUtilityStreams() ... READ ALL STREAMS
 
-        #region GetUtilityStreamsByProfileId(Guid profileId) ... READ
+        #region GetUtilityStreamsByProfileId(Guid profileId) ... READ MULTIPLE STREAMS
         /// <summary>
-        /// Retrieves (READ) a list of all UtilityStreams associated with the specified profile identifier in external units.
+        /// Retrieves (READ) a List of all UtilityStreams associated with the specified profile identifier in external units.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile whose utility streams are to be retrieved.</param>
         /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing the matching utility streams, or an empty list if none are found.</returns>
@@ -315,19 +444,12 @@ namespace HenViewModel.Profile.Streams
             //--- Initialize a list to hold the utility stream DTOs in EXTERNAL units.               ---
             //------------------------------------------------------------------------------------------
             //--- This list will be populated with the converted DTOs retrieved from the repository. ---
+            //------------------------------------------------------------------------------------------
             //--- The repository returns DTOs in INTERNAL units, so each retrieved DTO will be       ---
             //--- converted to EXTERNAL units before being added to this list.                       ---
+            //------------------------------------------------------------------------------------------
             //--- This approach ensures that the view model provides data in the expected EXTERNAL   ---
             //--- units to any consuming views or components.                                        ---
-            //--- If an error occurs during retrieval or conversion, the method will return null to  ---
-            //--- indicate that the operation was unsuccessful.                                      ---
-            //--- Consumers of this method should check for a null return value to handle potential  ---
-            //--- errors gracefully.                                                                 ---
-            //--- If the method returns an empty list, it indicates that there are no utility        ---
-            //--- streams available for the specified profile, but the retrieval operation itself    ---
-            //--- was successful.                                                                    ---
-            //--- This distinction between null (error) and empty list (no data) allows for more     ---
-            //--- precise handling of different scenarios in the consuming code.                     ---
             //------------------------------------------------------------------------------------------
             List<UtilityStreamDto> externalUtilityStreams = new List<UtilityStreamDto>();
             try
@@ -362,11 +484,11 @@ namespace HenViewModel.Profile.Streams
             //--------------------------------------------------------------
             return externalUtilityStreams;
         }
-        #endregion  // GetUtilityStreamsByProfileId(Guid profileId) ... READ
+        #endregion  // GetUtilityStreamsByProfileId(Guid profileId) ... READ MULTIPLE STREAMS
 
-        #region GetUtilityStreamById(Guid utilityStreamId) ... READ
+        #region GetUtilityStreamById(Guid utilityStreamId) ... READ SINGLE STREAM
         /// <summary>
-        /// Retrieves (READ) the UtilityStream DTO associated with the specified unique identifier.
+        /// Retrieves (READ) the SINGLE UtilityStream DTO associated with the specified unique identifier.
         /// </summary>
         /// <param name="utilityStreamId">The unique identifier of the utility stream to retrieve.</param>
         /// <returns>A <see cref="UtilityStreamDto"/> representing the utility stream with the specified identifier. Returns null if none is found.</returns>
@@ -415,11 +537,11 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetUtilityStreamById(Guid utilityStreamId) ... READ
+        #endregion  // GetUtilityStreamById(Guid utilityStreamId) ... READ SINGLE STREAM
 
-        #region GetUtilityStreamByStreamId(Guid profileId, string streamId) ... READ
+        #region GetUtilityStreamByStreamId(Guid profileId, string streamId) ... READ SINGLE STREAM
         /// <summary>
-        /// Retrieves (READ) a utility stream by its profile identifier and stream identifier.
+        /// Retrieves (READ) a SINGLE utility stream by its profile identifier and stream identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile that owns the utility stream.</param>
         /// <param name="streamId">The stream identifier of the utility stream to retrieve.</param>
@@ -471,11 +593,15 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetUtilityStreamByStreamId(Guid profileId, string streamId) ... READ
+        #endregion  // GetUtilityStreamByStreamId(Guid profileId, string streamId) ... READ SINGLE STREAM
 
-        #region UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... UPDATE
+        #endregion  // READ METHODS
+
+        #region UPDATE METHODS
+
+        #region UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... UPDATE SINGLE STREAM
         /// <summary>
-        /// Updates (UPDATE) an existing utility stream in the database using the specified DTO in external units.
+        /// Updates (UPDATE) a SINGLE existing utility stream in the database using the specified DTO in external units.
         /// </summary>
         /// <param name="externalUtilityStreamDto">The utility stream DTO containing updated information in external units.</param>
         public void UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto)
@@ -517,7 +643,59 @@ namespace HenViewModel.Profile.Streams
                 Console.WriteLine($"Error updating utility stream: {ex.Message}");
             }
         }
-        #endregion  // UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... UPDATE
+        #endregion  // UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... UPDATE SINGLE STREAM
+
+        #region UpdateUtilityStreams(List<UtilityStreamDto> externalUtilityStreamDtos) ... UPDATE MULTIPLE STREAMS
+        /// <summary>
+        /// Updates (UPDATE) multiple existing utility streams in the database using 
+        /// the specified DTOs in external units.
+        /// </summary>
+        /// <param name="externalUtilityStreamDtos">The list of utility stream DTOs 
+        /// containing updated information in external units.</param>
+        public void UpdateUtilityStreams(List<UtilityStreamDto> externalUtilityStreamDtos)
+        {
+            //-------------------------- Null DTO Guard ---------------------------
+            //--- If the user provided DTO list is null,                        ---
+            //--- Then return immediately to prevent further processing.        ---
+            //--- This prevents potential null reference exceptions when trying ---
+            //--- to access properties of a null object.                        ---
+            //---------------------------------------------------------------------
+            if (externalUtilityStreamDtos == null)
+            {
+                return;
+            }
+            try
+            {
+                //------------------------------------------------------------------------------------------
+                //--- The conversion method will handle the unit conversion for all relevant properties. ---
+                //--- After conversion, the INTERNAL DTO can be passed to the repository method for      ---
+                //--- updating the utility stream.                                                       ---
+                //------------------------------------------------------------------------------------------
+                //--- If an error occurs during conversion or the update operation, the catch block will ---
+                //--- handle the exception and log an error message.                                     ---
+                //------------------------------------------------------------------------------------------
+                //--- Update the utility stream in the repository using the provided EXTERNAL DTO.       ---
+                //------------------------------------------------------------------------------------------
+                //--- The repository method expects a DTO in INTERNAL units, so the provided EXTERNAL    ---
+                //--- DTO will be converted to INTERNAL units before being passed to the repository.     ---
+                //------------------------------------------------------------------------------------------
+                List<UtilityStreamDto> internalUtilityStreamDtos = ConvertToInternalDtos(externalUtilityStreamDtos);
+                //--------------------------------------------------------------
+                //--- The repository method expects a DTO in INTERNAL units. ---
+                //--- Use Repo Object to Update Table                        ---
+                //--------------------------------------------------------------
+                UtilityStreamRepoObj.UpdateUtilityStreams(internalUtilityStreamDtos);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating utility stream: {ex.Message}");
+            }
+        }
+        #endregion  // UpdateUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... UPDATE MULTIPLE STREAMS
+
+        #endregion  // UPDATE METHODS
+
+        #region DELETE METHODS
 
         #region DeleteUtilityStream(Guid utilityStreamId) ... DELETE
         /// <summary>
@@ -551,6 +729,8 @@ namespace HenViewModel.Profile.Streams
             }
         }
         #endregion  // DeleteUtilityStream(Guid utilityStreamId) ... DELETE
+
+        #endregion  // DELETE METHODS
 
         #endregion  // UTILITY STREAM CRUD METHODS
 
