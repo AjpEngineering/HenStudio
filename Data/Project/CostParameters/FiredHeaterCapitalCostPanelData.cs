@@ -47,7 +47,7 @@ using System.Threading.Tasks;
 namespace HenStudio.Data.Project.CostParameters
 {
     #region public class FiredHeaterCapitalCostPanelData
-    public class FiredHeaterCapitalCostPanelData : IFiredHeaterCapitalCostPanelData
+    public class FiredHeaterCapitalCostPanelData
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio.Data.Project.CostParameters";
@@ -55,15 +55,9 @@ namespace HenStudio.Data.Project.CostParameters
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public FiredHeaterCapitalCostDto FiredHeaterCapitalCostDtoObj { get; set; }
         public Guid Id { get; set; }
         public Guid ProjectId { get; set; }
-        public double ParameterAlpha_Metric { get; set; }
-        public double ParameterAlpha_English { get; set; }
-        public double ParameterBeta { get; set; }
-        public double Efficiency { get; set; }
-        public string DutyUnits_Metric { get; set; }
-        public string DutyUnits_English { get; set; }
+        public FiredHeaterCapitalCostDto FiredHeaterCapitalCostDtoObj { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -73,137 +67,12 @@ namespace HenStudio.Data.Project.CostParameters
         /// </summary>
         public FiredHeaterCapitalCostPanelData()
         {
-            FiredHeaterCapitalCostDtoObj = new FiredHeaterCapitalCostDto();
             Id = new Guid();
             ProjectId = new Guid();
-            ParameterAlpha_Metric = 200000.00;
-            ParameterAlpha_English = 74924.32;
-            ParameterBeta = 0.80;
-            Efficiency = 0.85;
-            DutyUnits_Metric = "MW";
-            DutyUnits_English = "MMBtu/hr";
+            FiredHeaterCapitalCostDtoObj = new FiredHeaterCapitalCostDto();
         }
         #endregion  // CTOR
 
-        #region STRING CONVERSION METHODS
-
-        #region GetId()
-        /// <summary>
-        /// Gets the unique identifier of the project units as a string.
-        /// </summary>
-        /// <returns>A string representation of the project units' unique identifier.</returns>
-        public string GetId()
-        {
-            return Id.ToString();
-        }
-        #endregion  // GetId()
-
-        #region GetProjectId()
-        /// <summary>
-        /// Gets the unique identifier of the project as a string.
-        /// </summary>
-        /// <returns>A string representation of the project's unique identifier.</returns>
-        public string GetProjectId()
-        {
-            return ProjectId.ToString();
-        }
-        #endregion  // GetProjectId()
-
-        #region GetParameterAlpha_Metric()
-        /// <summary>
-        /// Gets the Capital Cost Alpha Parameter (metric Units) value as a string.
-        /// </summary>
-        /// <returns>A string representation of the Capital Cost Alpha Parameter (metric Units) value.</returns>
-        public string GetParameterAlpha_Metric()
-        {
-            return ParameterAlpha_Metric.ToString();
-        }
-        #endregion  // GetParameterAlpha_Metric()
-
-        #region GetParameterAlpha_English()
-        /// <summary>
-        /// Gets the Capital Cost Alpha Parameter value (english Units)  as a string.
-        /// </summary>
-        /// <returns>A string representation of the Capital Cost Alpha Parameter value (english Units).</returns>
-        public string GetParameterAlpha_English()
-        {
-            return ParameterAlpha_English.ToString();
-        }
-        #endregion  // GetParameterAlpha_English()
-
-        #region GetParameterBeta()
-        /// <summary>
-        /// Gets the Capital Cost Beta Parameter value as a string.
-        /// </summary>
-        /// <returns>A string representation of the Capital Cost Beta Parameter value.</returns>
-        public string GetParameterBeta()
-        {
-            return ParameterBeta.ToString();
-        }
-        #endregion  // GetParameterBeta()
-
-        #region GetEfficiency()
-        /// <summary>
-        /// Gets the Capital Cost Efficiency value as a string.
-        /// </summary>
-        /// <returns>A string representation of the Capital Cost Efficiency value.</returns>
-        public string GetEfficiency()
-        {
-            return Efficiency.ToString();
-        }
-        #endregion  // GetEfficiency()
-
-        #endregion  // STRING CONVERSION METHODS
-
-        #region IMPLEMENTATION of IFiredHeaterCapitalCostPanelData METHODS
-
-        #region ConvertToPanelData(CostMetadataDto costMetadataDto)
-        /// <summary>
-        /// Creates a new CostMetadataPanelData instance by copying values from the specified CostMetadataDto object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from CostMetadataDto to
-        /// CostMetadataPanelData. All relevant fields are transferred directly. If costMetadataDto is null,
-        /// a NullReferenceException may occur.</remarks>
-        /// <param name="firedDto">The FiredHeaterCapitalCostDto object containing the source values to copy. Cannot be null.</param>
-        /// <returns>A FiredHeaterCapitalCostPanelData instance populated with values from the provided FiredHeaterCapitalCostDto object.</returns>
-        public FiredHeaterCapitalCostPanelData ConvertToPanelData(FiredHeaterCapitalCostDto firedHeaterCapitalCostDto)
-        {
-            FiredHeaterCapitalCostDtoObj = firedHeaterCapitalCostDto;
-            this.Id = firedHeaterCapitalCostDto.Id;
-            this.ProjectId = firedHeaterCapitalCostDto.ProjectId;
-            this.ParameterAlpha_Metric = firedHeaterCapitalCostDto.ParameterAlpha_Metric;
-            this.ParameterAlpha_English = firedHeaterCapitalCostDto.ParameterAlpha_English;
-            this.ParameterBeta = firedHeaterCapitalCostDto.ParameterBeta;
-            this.Efficiency = firedHeaterCapitalCostDto.Efficiency;
-            this.DutyUnits_Metric = firedHeaterCapitalCostDto.DutyUnits_Metric;
-            this.DutyUnits_English = firedHeaterCapitalCostDto.DutyUnits_English;
-            return this;
-        }
-        #endregion  // ConvertToPanelData(FiredHeaterCapitalCostDto firedHeaterCapitalCostDto)
-
-        #region ConvertFromPanelData()
-        /// <summary>
-        /// Creates a new FiredHeaterCapitalCostDto instance by copying values from the current FiredHeaterCapitalCostPanelData object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from FiredHeaterCapitalCostPanelData to
-        /// FiredHeaterCapitalCostDto. All relevant fields are transferred directly.</remarks>
-        /// <returns>A FiredHeaterCapitalCostDto instance populated with values from the current FiredHeaterCapitalCostPanelData object.</returns>
-        public FiredHeaterCapitalCostDto ConvertFromPanelData()
-        {
-            FiredHeaterCapitalCostDtoObj = new FiredHeaterCapitalCostDto();
-            FiredHeaterCapitalCostDtoObj.Id = this.Id;
-            FiredHeaterCapitalCostDtoObj.ProjectId = this.ProjectId;
-            FiredHeaterCapitalCostDtoObj.ParameterAlpha_Metric = this.ParameterAlpha_Metric;
-            FiredHeaterCapitalCostDtoObj.ParameterAlpha_English = this.ParameterAlpha_English;
-            FiredHeaterCapitalCostDtoObj.ParameterBeta = this.ParameterBeta;
-            FiredHeaterCapitalCostDtoObj.Efficiency = this.Efficiency;
-            FiredHeaterCapitalCostDtoObj.DutyUnits_Metric = this.DutyUnits_Metric;
-            FiredHeaterCapitalCostDtoObj.DutyUnits_English = this.DutyUnits_English;
-            return FiredHeaterCapitalCostDtoObj;
-        }
-        #endregion  // ConvertFromPanelData()   
-
-        #endregion  // IMPLEMENTATION of IFiredHeaterCapitalCostPanelData
     }
     #endregion      // public class FiredHeaterCapitalCostPanelData
 }

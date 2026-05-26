@@ -46,7 +46,7 @@ using System.Threading.Tasks;
 namespace HenStudio.Data.Project.CostParameters
 {
     #region public class CostMetadataPanelData
-    public class CostMetadataPanelData : ICostMetadataPanelData
+    public class CostMetadataPanelData
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio.Data.Project.CostParameters";
@@ -54,14 +54,9 @@ namespace HenStudio.Data.Project.CostParameters
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public CostMetadataDto CostMetadataDtoObj { get; set; }
         public Guid Id { get; set; }
         public Guid ProjectId { get; set; }
-        public string CostIndexBaseYear { get; set; }
-        public string CostIndexName { get; set; }
-        public double CostIndexValue { get; set; }
-        public string CostIndexCurrency { get; set; }
-        public double CostIndexInstalledCost { get; set; }
+        public CostMetadataDto CostMetadataDtoObj { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -71,112 +66,12 @@ namespace HenStudio.Data.Project.CostParameters
         /// </summary>
         public CostMetadataPanelData()
         {
-            CostMetadataDtoObj = new CostMetadataDto();
             Id = new Guid();
             ProjectId = new Guid();
-            CostIndexBaseYear = "2026";
-            CostIndexName = "CEPCI";
-            CostIndexValue = 840.0;
-            CostIndexCurrency = string.Empty;
-            CostIndexInstalledCost = 3.0;
+            CostMetadataDtoObj = new CostMetadataDto();
         }
         #endregion  // CTOR
 
-        #region STRING CONVERSION METHODS
-
-        #region GetId()
-        /// <summary>
-        /// Gets the unique identifier of the project units as a string.
-        /// </summary>
-        /// <returns>A string representation of the project units' unique identifier.</returns>
-        public string GetId()
-        {
-            return Id.ToString();
-        }
-        #endregion  // GetId()
-
-        #region GetProjectId()
-        /// <summary>
-        /// Gets the unique identifier of the project as a string.
-        /// </summary>
-        /// <returns>A string representation of the project's unique identifier.</returns>
-        public string GetProjectId()
-        {
-            return ProjectId.ToString();
-        }
-        #endregion  // GetProjectId()
-
-        #region GetCostIndexValue()
-        /// <summary>
-        /// Gets the cost index value as a string.
-        /// </summary>
-        /// <returns>A string representation of the cost index value.</returns>
-        public string GetCostIndexValue()
-        {
-            return CostIndexValue.ToString();
-        }
-        #endregion  // GetCostIndexValue()
-
-        #region GetCostIndexInstalledCost()
-        /// <summary>
-        /// Gets the cost index installed cost as a string.
-        /// </summary>
-        /// <returns>A string representation of the cost index installed cost.</returns>
-        public string GetCostIndexInstalledCost()
-        {
-            return CostIndexInstalledCost.ToString();
-        }
-        #endregion  // GetCostIndexInstalledCost()
-
-        #endregion  // STRING CONVERSION METHODS
-
-        #region IMPLEMENTATION of ICostMetadataPanelData METHODS
-
-        #region ConvertToPanelData(CostMetadataDto costMetadataDto)
-        /// <summary>
-        /// Creates a new CostMetadataPanelData instance by copying values from the specified CostMetadataDto object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from CostMetadataDto to
-        /// CostMetadataPanelData. All relevant fields are transferred directly. If costMetadataDto is null,
-        /// a NullReferenceException may occur.</remarks>
-        /// <param name="costMetadataDto">The CostMetadataDto object containing the source values to copy. Cannot be null.</param>
-        /// <returns>A CostMetadataPanelData instance populated with values from the provided CostMetadataDto object.</returns>
-        public CostMetadataPanelData ConvertToPanelData(CostMetadataDto costMetadataDto)
-        {
-            CostMetadataDtoObj = costMetadataDto;
-            this.Id = costMetadataDto.Id;
-            this.ProjectId = costMetadataDto.ProjectId;
-            this.CostIndexBaseYear = costMetadataDto.CostIndexBaseYear;
-            this.CostIndexName = costMetadataDto.CostIndexName;
-            this.CostIndexValue = costMetadataDto.CostIndexValue;
-            this.CostIndexCurrency = costMetadataDto.CostIndexCurrency;
-            this.CostIndexInstalledCost = costMetadataDto.CostIndexInstalledCost;
-            return this;
-        }
-        #endregion  // ConvertToPanelData(CostMetadataDto costMetadataDto)
-
-        #region ConvertFromPanelData()
-        /// <summary>
-        /// Creates a new CostMetadataDto instance by copying values from the current CostMetadataPanelData object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from CostMetadataPanelData to
-        /// CostMetadataDto. All relevant fields are transferred directly.</remarks>
-        /// <returns>A CostMetadataDto instance populated with values from the current CostMetadataPanelData object.</returns>
-        public CostMetadataDto ConvertFromPanelData()
-        {
-            CostMetadataDtoObj = new CostMetadataDto();
-            CostMetadataDtoObj.Id = this.Id;
-            CostMetadataDtoObj.ProjectId = this.ProjectId;
-            CostMetadataDtoObj.CostIndexBaseYear = this.CostIndexBaseYear;
-            CostMetadataDtoObj.CostIndexName = this.CostIndexName;
-            CostMetadataDtoObj.CostIndexValue = this.CostIndexValue;
-            CostMetadataDtoObj.CostIndexCurrency = this.CostIndexCurrency;
-            CostMetadataDtoObj.CostIndexInstalledCost = this.CostIndexInstalledCost;
-            return CostMetadataDtoObj;
-        }
-        #endregion  // ConvertFromPanelData()   
-
-        #endregion  // IMPLEMENTATION of ICostMetadataPanelData
     }
     #endregion      // public class CostMetadataPanelData
 }

@@ -47,7 +47,7 @@ using System.Threading.Tasks;
 namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
 {
     #region public class OptimizerGreedyPanelData
-    public class OptimizerGreedyPanelData : IOptimizerGreedyPanelData
+    public class OptimizerGreedyPanelData
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio.Data.Project.DefaultParameters.OptimizerParams";
@@ -55,11 +55,9 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public OptimizerGreedyDto OptimizerGreedyDtoObj { get; set; }
         public Guid Id { get; set; }
         public Guid OptimizerParamsId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public OptimizerGreedyDto OptimizerGreedyDtoObj { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -69,81 +67,12 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         /// </summary>
         public OptimizerGreedyPanelData()
         {
-            OptimizerGreedyDtoObj = new OptimizerGreedyDto();
             Id = new Guid();
             OptimizerParamsId = new Guid();
-            Name = string.Empty;
-            Description = string.Empty;
+            OptimizerGreedyDtoObj = new OptimizerGreedyDto();
         }
         #endregion  // CTOR
 
-        #region STRING CONVERSION METHODS
-
-        #region GetId()
-        /// <summary>
-        /// Gets the unique identifier of the project units as a string.
-        /// </summary>
-        /// <returns>A string representation of the project units' unique identifier.</returns>
-        public string GetId()
-        {
-            return Id.ToString();
-        }
-        #endregion  // GetId()
-
-        #region GetHenOptimizerParamsId()
-        /// <summary>
-        /// Gets the unique identifier of the HenOptimizerParams as a string.
-        /// </summary>
-        /// <returns>A string representation of the HenOptimizerParams' unique identifier.</returns>
-        public string GetOptimizerParamsId()
-        {
-            return OptimizerParamsId.ToString();
-        }
-        #endregion  // GetHenOptimizerParamsId()
-
-        #endregion  // STRING CONVERSION METHODS
-
-        #region IMPLEMENTATION of IOptimizerGreedyPanelData METHODS
-
-        #region ConvertToPanelData(OptimizerGreedyDto optimizerGreedyDto)
-        /// <summary>
-        /// Creates a new OptimizerGreedyPanelData instance by copying values from the specified OptimizerGreedyDto object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from OptimizerGreedyDto to
-        /// OptimizerGreedyPanelData. All relevant fields are transferred directly. If optimizerGreedyDto is null,
-        /// a NullReferenceException may occur.</remarks>
-        /// <param name="optimizerGreedyDto">The OptimizerGreedyDto object containing the source values to copy. Cannot be null.</param>
-        /// <returns>An OptimizerGreedyPanelData instance populated with values from the provided OptimizerGreedyDto object.</returns>
-        public OptimizerGreedyPanelData ConvertToPanelData(OptimizerGreedyDto optimizerGreedyDto)
-        {
-            OptimizerGreedyDtoObj = optimizerGreedyDto;
-            this.Id = optimizerGreedyDto.Id;
-            this.OptimizerParamsId = optimizerGreedyDto.OptimizerParamsId;
-            this.Name = optimizerGreedyDto.Name;
-            this.Description = optimizerGreedyDto.Description;
-            return this;
-        }
-        #endregion  // ConvertToPanelData(OptimizerGreedyDto optimizerGreedyDto)
-        
-        #region ConvertFromPanelData()
-        /// <summary>
-        /// Creates a new OptimizerGreedyDto instance by copying values from the current OptimizerGreedyPanelData object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from OptimizerGreedyPanelData to
-        /// OptimizerGreedyDto. All relevant fields are transferred directly.</remarks>
-        /// <returns>An OptimizerGreedyDto instance populated with values from the current OptimizerGreedyPanelData object.</returns>
-        public OptimizerGreedyDto ConvertFromPanelData()
-        {
-            OptimizerGreedyDtoObj = new OptimizerGreedyDto();
-            OptimizerGreedyDtoObj.Id = this.Id;
-            OptimizerGreedyDtoObj.OptimizerParamsId = this.OptimizerParamsId;
-            OptimizerGreedyDtoObj.Name = this.Name;
-            OptimizerGreedyDtoObj.Description = this.Description;
-            return OptimizerGreedyDtoObj;
-        }
-        #endregion  // ConvertFromPanelData()   
-
-        #endregion  // IMPLEMENTATION of IOptimizerGreedyPanelData
     }
     #endregion      // public class OptimizerGreedyPanelData
 }

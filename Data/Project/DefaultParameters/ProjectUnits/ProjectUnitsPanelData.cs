@@ -46,7 +46,7 @@ using System.Threading.Tasks;
 namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
 {
     #region public class ProjectUnitsPanelData
-    public class ProjectUnitsPanelData : IProjectUnitsPanelData
+    public class ProjectUnitsPanelData
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio.Data.Project.DefaultParameters.ProjectUnits";
@@ -54,13 +54,9 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public ProjectUnitsDto ProjectUnitsDtoObj { get; set; }
         public Guid Id { get; set; }
         public Guid ProjectId { get; set; }
-        public string DefaultSystemUnits { get; set; }
-        public string DefaultMagnitudeUnits { get; set; }
-        public string DefaultTemperatureUnits { get; set; }
-        public string DefaultPressureUnits { get; set; }
+        public ProjectUnitsDto ProjectUnitsDtoObj { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -70,87 +66,12 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         /// </summary>
         public ProjectUnitsPanelData()
         {
-            ProjectUnitsDtoObj = new ProjectUnitsDto();
             Id = new Guid();
             ProjectId = new Guid();
-            DefaultSystemUnits = string.Empty;
-            DefaultMagnitudeUnits = string.Empty;
-            DefaultTemperatureUnits = string.Empty;
-            DefaultPressureUnits = string.Empty;
+            ProjectUnitsDtoObj = new ProjectUnitsDto();
         }
         #endregion  // CTOR
 
-        #region STRING CONVERSION METHODS
-
-        #region GetId()
-        /// <summary>
-        /// Gets the unique identifier of the project units as a string.
-        /// </summary>
-        /// <returns>A string representation of the project units' unique identifier.</returns>
-        public string GetId()
-        {
-            return Id.ToString();
-        }
-        #endregion  // GetId()
-
-        #region GetProjectId()
-        /// <summary>
-        /// Gets the unique identifier of the project as a string.
-        /// </summary>
-        /// <returns>A string representation of the project's unique identifier.</returns>
-        public string GetProjectId()
-        {
-            return ProjectId.ToString();
-        }
-        #endregion  // GetProjectId()
-
-        #endregion  // STRING CONVERSION METHODS
-
-        #region IMPLEMENTATION of IProjectUnitsPanelData METHODS
-
-        #region ConvertToPanelData(ProjectUnitsDto projectUnitsDto)
-        /// <summary>
-        /// Creates a new ProjectUnitsPanelData instance by copying values from the specified ProjectUnitsDto object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from ProjectUnitsDto to
-        /// ProjectUnitsPanelData. All relevant fields are transferred directly. If projectUnitsDto is null,
-        /// a NullReferenceException may occur.</remarks>
-        /// <param name="projectUnitsDto">The ProjectUnitsDto object containing the source values to copy. Cannot be null.</param>
-        /// <returns>A ProjectUnitsPanelData instance populated with values from the provided ProjectUnitsDto object.</returns>
-        public ProjectUnitsPanelData ConvertToPanelData(ProjectUnitsDto projectUnitsDto)
-        {
-            ProjectUnitsDtoObj = projectUnitsDto;
-            this.Id = projectUnitsDto.Id;
-            this.ProjectId = projectUnitsDto.ProjectId;
-            this.DefaultSystemUnits = projectUnitsDto.DefaultSystemUnits;
-            this.DefaultMagnitudeUnits = projectUnitsDto.DefaultMagnitudeUnits;
-            this.DefaultTemperatureUnits = projectUnitsDto.DefaultTemperatureUnits;
-            this.DefaultPressureUnits = projectUnitsDto.DefaultPressureUnits;
-            return this;
-        }
-        #endregion  // ConvertToPanelData(ProjectUnitsDto projectUnitsDto)
-
-        #region ConvertFromPanelData()
-        /// <summary>
-        /// Creates a new ProjectUnitsDto instance by copying values from the current ProjectUnitsPanelData object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from ProjectUnitsPanelData to
-        /// ProjectUnitsDto. All relevant fields are transferred directly.</remarks>
-        /// <returns>A ProjectUnitsDto instance populated with values from the current ProjectUnitsPanelData object.</returns>
-        public ProjectUnitsDto ConvertFromPanelData()
-        {
-            ProjectUnitsDtoObj = new ProjectUnitsDto();
-            ProjectUnitsDtoObj.Id = this.Id;
-            ProjectUnitsDtoObj.ProjectId = this.ProjectId;
-            ProjectUnitsDtoObj.DefaultSystemUnits = this.DefaultSystemUnits;
-            ProjectUnitsDtoObj.DefaultMagnitudeUnits = this.DefaultMagnitudeUnits;
-            ProjectUnitsDtoObj.DefaultTemperatureUnits = this.DefaultTemperatureUnits;
-            ProjectUnitsDtoObj.DefaultPressureUnits = this.DefaultPressureUnits;
-            return ProjectUnitsDtoObj;
-        }
-        #endregion  // ConvertFromPanelData()   
-
-        #endregion  // IMPLEMENTATION of IProjectUnitsPanelData
     }
     #endregion      // public class ProjectUnitsPanelData
 }

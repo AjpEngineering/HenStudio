@@ -482,23 +482,23 @@ namespace HenStudio
                         //--------------------------------------------------------------
                         //--- Populate Project Panel and Subpanels with Project Data ---
                         //--------------------------------------------------------------
-                        ProjectPanelData projectPanelDataObj = new ProjectPanelData();
-                        projectPanelDataObj = projectPanelDataObj.ConvertToPanelData(projectDtoObj);
+                        //ProjectPanelData projectPanelDataObj = new ProjectPanelData();
+                        //projectPanelDataObj = projectPanelDataObj.ConvertToPanelData(projectDtoObj);
 
-                        ProjectUnitsPanelData projectUnitsPanelDataObj = new ProjectUnitsPanelData();
-                        projectUnitsPanelDataObj = projectUnitsPanelDataObj.ConvertToPanelData(projectUnitsDto);
+                        //ProjectUnitsPanelData projectUnitsPanelDataObj = new ProjectUnitsPanelData();
+                        //projectUnitsPanelDataObj = projectUnitsPanelDataObj.ConvertToPanelData(projectUnitsDto);
 
-                        OptimizerParamsPanelData optimizerParamsPanelDataObj = new OptimizerParamsPanelData();
-                        optimizerParamsPanelDataObj = optimizerParamsPanelDataObj.ConvertToPanelData(optimizerParamsDto);
+                        //OptimizerParamsPanelData optimizerParamsPanelDataObj = new OptimizerParamsPanelData();
+                        //optimizerParamsPanelDataObj = optimizerParamsPanelDataObj.ConvertToPanelData(optimizerParamsDto);
 
-                        ExchangerParamsPanelData exchangerParamsPanelDataObj = new ExchangerParamsPanelData();
-                        exchangerParamsPanelDataObj = exchangerParamsPanelDataObj.ConvertToPanelData(exchangerParamsDto);
+                        //ExchangerParamsPanelData exchangerParamsPanelDataObj = new ExchangerParamsPanelData();
+                        //exchangerParamsPanelDataObj = exchangerParamsPanelDataObj.ConvertToPanelData(exchangerParamsDto);
 
 
-                        PopulateProjectPanel(projectPanelDataObj,
-                                             projectUnitsPanelDataObj,
-                                             optimizerParamsPanelDataObj,
-                                             exchangerParamsPanelDataObj);
+                        //PopulateProjectPanel(projectPanelDataObj,
+                        //                     projectUnitsPanelDataObj,
+                        //                     optimizerParamsPanelDataObj,
+                        //                     exchangerParamsPanelDataObj);
 
                         //-----------------------------
                         //--- Display Project Panel ---

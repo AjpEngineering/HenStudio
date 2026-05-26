@@ -47,7 +47,7 @@ using System.Threading.Tasks;
 namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
 {
     #region public class OptimizerGeneticPanelData
-    public class OptimizerGeneticPanelData : IOptimizerGeneticPanelData
+    public class OptimizerGeneticPanelData
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio.Data.Project.DefaultParameters.OptimizerParams";
@@ -55,11 +55,9 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public OptimizerGeneticDto OptimizerGeneticDtoObj { get; set; }
         public Guid Id { get; set; }
         public Guid HenOptimizerParamsId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public OptimizerGeneticDto OptimizerGeneticDtoObj { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -69,81 +67,12 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         /// </summary>
         public OptimizerGeneticPanelData()
         {
-            OptimizerGeneticDtoObj = new OptimizerGeneticDto();
             Id = new Guid();
             HenOptimizerParamsId = new Guid();
-            Name = string.Empty;
-            Description = string.Empty;
+            OptimizerGeneticDtoObj = new OptimizerGeneticDto();
         }
         #endregion  // CTOR
 
-        #region STRING CONVERSION METHODS
-
-        #region GetId()
-        /// <summary>
-        /// Gets the unique identifier of the project units as a string.
-        /// </summary>
-        /// <returns>A string representation of the project units' unique identifier.</returns>
-        public string GetId()
-        {
-            return Id.ToString();
-        }
-        #endregion  // GetId()
-
-        #region GetHenOptimizerParamsId()
-        /// <summary>
-        /// Gets the unique identifier of the HenOptimizerParams as a string.
-        /// </summary>
-        /// <returns>A string representation of the HenOptimizerParams' unique identifier.</returns>
-        public string GetHenOptimizerParamsId()
-        {
-            return HenOptimizerParamsId.ToString();
-        }
-        #endregion  // GetHenOptimizerParamsId()
-
-        #endregion  // STRING CONVERSION METHODS
-
-        #region IMPLEMENTATION of IOptimizerGeneticPanelData METHODS
-
-        #region ConvertToPanelData(OptimizerGeneticDto optimizerGeneticDto)
-        /// <summary>
-        /// Creates a new OptimizerGeneticPanelData instance by copying values from the specified OptimizerGeneticDto object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from OptimizerGeneticDto to
-        /// OptimizerGeneticPanelData. All relevant fields are transferred directly. If optimizerGeneticDto is null,
-        /// a NullReferenceException may occur.</remarks>
-        /// <param name="optimizerGeneticDto">The OptimizerGeneticDto object containing the source values to copy. Cannot be null.</param>
-        /// <returns>An OptimizerGeneticPanelData instance populated with values from the provided OptimizerGeneticDto object.</returns>
-        public OptimizerGeneticPanelData ConvertToPanelData(OptimizerGeneticDto optimizerGeneticDto)
-        {
-            OptimizerGeneticDtoObj = optimizerGeneticDto;
-            this.Id = optimizerGeneticDto.Id;
-            this.HenOptimizerParamsId = optimizerGeneticDto.OptimizerParamsId;
-            this.Name = optimizerGeneticDto.Name;
-            this.Description = optimizerGeneticDto.Description;
-            return this;
-        }
-        #endregion  // ConvertToPanelData(OptimizerGeneticDto optimizerGeneticDto)
-        
-        #region ConvertFromPanelData()
-        /// <summary>
-        /// Creates a new OptimizerGeneticDto instance by copying values from the current OptimizerGeneticPanelData object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from OptimizerGeneticPanelData to
-        /// OptimizerGeneticDto. All relevant fields are transferred directly.</remarks>
-        /// <returns>An OptimizerGeneticDto instance populated with values from the current OptimizerGeneticPanelData object.</returns>
-        public OptimizerGeneticDto ConvertFromPanelData()
-        {
-            OptimizerGeneticDtoObj = new OptimizerGeneticDto();
-            OptimizerGeneticDtoObj.Id = this.Id;
-            OptimizerGeneticDtoObj.OptimizerParamsId = this.HenOptimizerParamsId;
-            OptimizerGeneticDtoObj.Name = this.Name;
-            OptimizerGeneticDtoObj.Description = this.Description;
-            return OptimizerGeneticDtoObj;
-        }
-        #endregion  // ConvertFromPanelData()   
-
-        #endregion  // IMPLEMENTATION of IOptimizerGeneticPanelData
     }
     #endregion      // public class OptimizerGeneticPanelData
 }

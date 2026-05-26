@@ -47,7 +47,7 @@ using System.Threading.Tasks;
 namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
 {
     #region public class OptimizerMILP_PanelData
-    public class OptimizerMILP_PanelData : IOptimizerMILP_PanelData
+    public class OptimizerMILP_PanelData
     {
         #region CONSTANTS
         const string NAMESPACE = "HenStudio.Data.Project.DefaultParameters.OptimizerParams";
@@ -55,11 +55,9 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public OptimizerMILP_Dto OptimizerMILP_DtoObj { get; set; }
         public Guid Id { get; set; }
         public Guid OptimizerParamsId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public OptimizerMILP_Dto OptimizerMILP_DtoObj { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -69,81 +67,12 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         /// </summary>
         public OptimizerMILP_PanelData()
         {
-            OptimizerMILP_DtoObj = new OptimizerMILP_Dto();
             Id = new Guid();
             OptimizerParamsId = new Guid();
-            Name = string.Empty;
-            Description = string.Empty;
+            OptimizerMILP_DtoObj = new OptimizerMILP_Dto();
         }
         #endregion  // CTOR
 
-        #region STRING CONVERSION METHODS
-
-        #region GetId()
-        /// <summary>
-        /// Gets the unique identifier of the project units as a string.
-        /// </summary>
-        /// <returns>A string representation of the project units' unique identifier.</returns>
-        public string GetId()
-        {
-            return Id.ToString();
-        }
-        #endregion  // GetId()
-
-        #region GetHenOptimizerParamsId()
-        /// <summary>
-        /// Gets the unique identifier of the OptimizerParams as a string.
-        /// </summary>
-        /// <returns>A string representation of the OptimizerParams unique identifier.</returns>
-        public string GetOptimizerParamsId()
-        {
-            return OptimizerParamsId.ToString();
-        }
-        #endregion  // GetOptimizerParamsId()
-
-        #endregion  // STRING CONVERSION METHODS
-
-        #region IMPLEMENTATION of IOptimizerMILP_PanelData METHODS
-
-        #region ConvertToPanelData(OptimizerMILP_Dto optimizerMILP_Dto)
-        /// <summary>
-        /// Creates a new OptimizerMILP_PanelData instance by copying values from the specified OptimizerMILP_Dto object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from OptimizerMILP_Dto to
-        /// OptimizerMILP_PanelData. All relevant fields are transferred directly. If optimizerMILP_Dto is null,
-        /// a NullReferenceException may occur.</remarks>
-        /// <param name="optimizerMILP_Dto">The OptimizerMILP_Dto object containing the source values to copy. Cannot be null.</param>
-        /// <returns>An OptimizerMILP_PanelData instance populated with values from the provided OptimizerMILP_Dto object.</returns>
-        public OptimizerMILP_PanelData ConvertToPanelData(OptimizerMILP_Dto optimizerMILP_Dto)
-        {
-            OptimizerMILP_DtoObj = optimizerMILP_Dto;
-            this.Id = optimizerMILP_Dto.Id;
-            this.OptimizerParamsId = optimizerMILP_Dto.OptimizerParamsId;
-            this.Name = optimizerMILP_Dto.Name;
-            this.Description = optimizerMILP_Dto.Description;
-            return this;
-        }
-        #endregion  // ConvertToPanelData(OptimizerMILP_Dto optimizerMILP_Dto)
-        
-        #region ConvertFromPanelData()
-        /// <summary>
-        /// Creates a new OptimizerMILP_Dto instance by copying values from the current OptimizerMILP_PanelData object.
-        /// </summary>
-        /// <remarks>This method performs a property-by-property mapping from OptimizerMILP_PanelData to
-        /// OptimizerMILP_Dto. All relevant fields are transferred directly.</remarks>
-        /// <returns>An OptimizerMILP_Dto instance populated with values from the current OptimizerMILP_PanelData object.</returns>
-        public OptimizerMILP_Dto ConvertFromPanelData()
-        {
-            OptimizerMILP_DtoObj = new OptimizerMILP_Dto();
-            OptimizerMILP_DtoObj.Id = this.Id;
-            OptimizerMILP_DtoObj.OptimizerParamsId = this.OptimizerParamsId;
-            OptimizerMILP_DtoObj.Name = this.Name;
-            OptimizerMILP_DtoObj.Description = this.Description;
-            return OptimizerMILP_DtoObj;
-        }
-        #endregion  // ConvertFromPanelData()   
-
-        #endregion  // IMPLEMENTATION of IOptimizerMILP_PanelData
     }
     #endregion      // public class OptimizerMILP_PanelData
 }
