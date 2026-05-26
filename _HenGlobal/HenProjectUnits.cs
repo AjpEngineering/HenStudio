@@ -295,33 +295,26 @@ namespace HenGlobal
         public ProjectMetricArea ProjectMetricAreaEnum { get; set; }      // Project Metric  Area [ UNKNOWN = -1 | M2 = 0 ]
         #endregion  // PROPERTIES
 
-        #region CTOR
+        #region InitializeProjectUnits()
         /// <summary>
-        /// Default Constructor
+        /// Initialize Project Units with INTERNAL Property Values
         /// </summary>
-        public HenProjectUnits()
+        private void InitializeProjectUnits()
         {
-            string strMethod = "CTOR";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenProjectUnits Object");
+            string strMethod = "InitializeProjectUnits";
             try
             {
-                //-----------------------------------------------
-                //--- Initialize With INTERNAL Property Value ---
-                //-----------------------------------------------
-
-                ProjectSystemUnitsEnum  = ProjectSystemUnits.METRIC;    // <- INTERNAL
-
-                ProjectMagnitudeEnum    = ProjectMagnitude.KILO;        // <- INTERNAL
-
-                ProjectEnglishTempEnum  = ProjectEnglishTemp.DEG_F;
-                ProjectMetricTempEnum   = ProjectMetricTemp.KELVIN;     // <- INTERNAL
-
+                //------------------------------------------------
+                //--- Initialize With INTERNAL Property Values ---
+                //------------------------------------------------
+                ProjectSystemUnitsEnum = ProjectSystemUnits.METRIC;    // <- INTERNAL
+                ProjectMagnitudeEnum = ProjectMagnitude.KILO;          // <- INTERNAL
+                ProjectEnglishTempEnum = ProjectEnglishTemp.DEG_F;
+                ProjectMetricTempEnum = ProjectMetricTemp.KELVIN;      // <- INTERNAL
                 ProjectEnglishPressEnum = ProjectEnglishPress.PSIA;
-                ProjectMetricPressEnum  = ProjectMetricPress.Pa;        // <- INTERNAL (KPa)
-
-                ProjectEnglishAreaEnum  = ProjectEnglishArea.FT2;
-                ProjectMetricAreaEnum   = ProjectMetricArea.M2;         // <- INTERNAL
-
+                ProjectMetricPressEnum = ProjectMetricPress.Pa;        // <- INTERNAL (KPa)
+                ProjectEnglishAreaEnum = ProjectEnglishArea.FT2;
+                ProjectMetricAreaEnum = ProjectMetricArea.M2;          // <- INTERNAL
             }
             catch (Exception ex)
             {
@@ -333,7 +326,91 @@ namespace HenGlobal
             {
             }
         }
-        #endregion      // CTOR
+        #endregion  // InitializeProjectUnits()
+
+        #region DEFAULT CTOR ... Initialize Project Units with INTERNAL Property Values
+        /// <summary>
+        /// Default Constructor
+        /// Initializes Project Units with INTERNAL Property Values
+        /// </summary>
+        public HenProjectUnits()
+        {
+            string strMethod = "CTOR";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenProjectUnits Object");
+            try
+            {
+                //--------------------------------------------------------------
+                //--- Initialize Project Units with INTERNAL Property Values ---
+                //--------------------------------------------------------------
+                InitializeProjectUnits();
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion      // DEFAULT CTOR ... Initialize Project Units with INTERNAL Property Values
+
+        #region PARAMETERIZED CTOR ... Initialize Project Units with EXTERNAL Property Values
+        /// <summary>
+        /// Parameterized Constructor
+        /// Initializes Project Units with EXTERNAL Property Values
+        /// </summary>
+        /// <param name="strSystemUnits">System Units</param>
+        /// <param name="strMagnitude">Magnitude</param>
+        /// <param name="strTemperature">Temperature</param>
+        /// <param name="strPressure">Pressure</param>
+        public HenProjectUnits(string strSystemUnits, 
+                               string strMagnitude, 
+                               string strTemperature,
+                               string strPressure)
+        {
+            string strMethod = "CTOR";
+            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenProjectUnits Object");
+            try
+            {
+                //--------------------------------------------------------------
+                //--- Initialize Project Units with EXTERNAL Property Values ---
+                //--------------------------------------------------------------
+                InitializeProjectUnits();
+                //------------------------------------
+                //--- Set EXTERNAL Property Values ---
+                //------------------------------------
+                ProjectSystemUnitsEnum = GetSystemUnitsEnum(strSystemUnits);
+                ProjectMagnitudeEnum = GetMagnitudeEnum(strMagnitude);
+
+                switch(ProjectSystemUnitsEnum)
+                {
+                    case ProjectSystemUnits.ENGLISH:
+                        ProjectEnglishTempEnum = GetEnglishTempEnum(strTemperature);
+                        ProjectEnglishPressEnum = GetEnglishPressEnum(strPressure);
+                        ProjectEnglishAreaEnum = ProjectEnglishArea.FT2;
+                        break;
+                    case ProjectSystemUnits.METRIC:
+                        ProjectMetricTempEnum = GetMetricTempEnum(strTemperature);
+                        ProjectMetricPressEnum = GetMetricPressEnum(strPressure);
+                        ProjectMetricAreaEnum = ProjectMetricArea.M2;
+                        break;
+                    default:
+                        throw new Exception(String.Format("Unknown System Units: {0}", strSystemUnits));                        
+                }
+            }
+            catch (Exception ex)
+            {
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            finally
+            {
+            }
+        }
+        #endregion      // DEFAULT CTOR ... Initialize Project Units with INTERNAL Property Values
 
         #region GET STRING LISTS FOR COMBO BOX DROPDOWN
 

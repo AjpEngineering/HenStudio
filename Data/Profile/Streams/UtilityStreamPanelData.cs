@@ -60,7 +60,7 @@ namespace HenStudio.Data.Profile.Streams
 
         public int NumInvalidRows { get; set; }   // Number of Invalid Stream Rows ... (e.g., 3 invalid rows)
 
-        public UtilityStreamDto UtilityStreamDtoList { get; set; }   // List of Utility Stream DTO Objects
+        public List<UtilityStreamDto> UtilityStreamDtoList { get; set; }   // List of Utility Stream DTO Objects
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -78,7 +78,7 @@ namespace HenStudio.Data.Profile.Streams
 
             NumInvalidRows = 0;             // Number of Invalid Stream Rows ... (e.g., 3 invalid rows)
 
-            UtilityStreamDtoList = new UtilityStreamDto(); // List of Utility Stream DTO Objects ... EXTERN Units
+            UtilityStreamDtoList = new List<UtilityStreamDto>(); // List of Utility Stream DTO Objects ... EXTERN Units
         }
         #endregion  // CTOR
 

@@ -59,11 +59,6 @@ namespace HenStudio.Data.Profile
         public Guid ProjectId { get; set; } // Project Unique Identifier
         public Guid ProfileId { get; set; } // Profile Unique Identifier
 
-        public string HeatFlowRateUnits { get; set; }           // Heat Flow Rate PROJECT Units (e.g., kW, BTU/hr)
-        public string HeatCapacityFlowRateUnits { get; set; }   // Heat Capacity Flow Rate PROJECT Units (e.g., kW/K, BTU/hr/°F)
-        public string TemperatureUnits { get; set; }            // Temperature PROJECT Units (e.g., °C, °F)
-        public string PressureUnits { get; set; }               // Pressure PROJECT Units (e.g., bar, psi)  
-        public ProjectUnitsDto ProjectUnitsDtoObj { get; set; } // Project Units DTO Object ... EXTERN Units
         public ProfileDto ProfileDtoObj { get; set; }           // Profile DTO Object ......... EXTERN Units
         #endregion  // PROPERTIES
 
@@ -79,13 +74,7 @@ namespace HenStudio.Data.Profile
             ProjectId = new Guid(); // Project Unique Identifier
             ProfileId = new Guid(); // Profile Unique Identifier
 
-            HeatFlowRateUnits = string.Empty;           // Heat Flow Rate PROJECT Units (e.g., kW, BTU/hr)
-            HeatCapacityFlowRateUnits = string.Empty;   // Heat Capacity Flow Rate PROJECT Units (e.g., kW/K, BTU/hr/°F)
-            TemperatureUnits = string.Empty;            // Temperature PROJECT Units (e.g., °C, °F)
-            PressureUnits = string.Empty;               // Pressure PROJECT Units (e.g., bar, psi) 
-
-            ProjectUnitsDtoObj = new ProjectUnitsDto(); // ProjectUnitsDto DTO Object ... EXTERN Units
-            ProfileDtoObj = new ProfileDto();           // Profile DTO Object ........... EXTERN Units
+            ProfileDtoObj = new ProfileDto(); // Profile DTO Object ........... EXTERN Units
         }
         #endregion  // CTOR
 

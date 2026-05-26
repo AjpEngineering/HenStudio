@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Profile\ProfileWrapperPanelData.cs" />
     <Compile Include="Data\Profile\Streams\UtilityStreamPanelData.cs" />
     <Compile Include="Data\Profile\Streams\ProcessStreamPanelData.cs" />
     <Compile Include="Data\Profile\ProfilePanelData.cs" />

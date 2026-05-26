@@ -334,7 +334,7 @@ namespace HenViewModel.Profile.Streams
         /// Retrieves (READ) a list of all ProcessStreams in external units.
         /// </summary>
         /// <returns>A list of <see cref="ProcessStreamDto"/> objects representing the available process streams, or an empty list if none are found.</returns>
-        public IList<ProcessStreamDto> GetProcessStreams()
+        public List<ProcessStreamDto> GetProcessStreams()
         {
             //------------------------------------------------------------------------------------------------------
             //--- Initialize a list to hold the process stream DTOs in EXTERNAL units.                           ---
@@ -378,7 +378,7 @@ namespace HenViewModel.Profile.Streams
         /// <param name="profileId">The unique identifier of the profile whose process streams are to be retrieved.</param>
         /// <returns>A list of <see cref="ProcessStreamDto"/> objects representing the matching process streams, 
         /// or an empty list if none are found.</returns>
-        public IList<ProcessStreamDto> GetProcessStreamsByProfileId(Guid profileId)
+        public List<ProcessStreamDto> GetProcessStreamsByProfileId(Guid profileId)
         {
             //------------------------------------------------------------------------------------------------------
             //--- Initialize a list to hold the process stream DTOs in EXTERNAL units.                           ---

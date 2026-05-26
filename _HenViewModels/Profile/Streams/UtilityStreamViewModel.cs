@@ -375,7 +375,7 @@ namespace HenViewModel.Profile.Streams
         /// </summary>
         /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing the available 
         /// utility streams, or an empty list if none are found.</returns>
-        public IList<UtilityStreamDto> GetUtilityStreams()
+        public List<UtilityStreamDto> GetUtilityStreams()
         {
             //------------------------------------------------------------------------------------------
             //--- Initialize a list to hold the utility stream DTOs in EXTERNAL units.               ---
@@ -427,7 +427,7 @@ namespace HenViewModel.Profile.Streams
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile whose utility streams are to be retrieved.</param>
         /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing the matching utility streams, or an empty list if none are found.</returns>
-        public IList<UtilityStreamDto> GetUtilityStreamsByProfileId(Guid profileId)
+        public List<UtilityStreamDto> GetUtilityStreamsByProfileId(Guid profileId)
         {
             //---------------------------- Null Guid Guard -----------------------------------
             //--- If the provided profileId is an empty GUID,
