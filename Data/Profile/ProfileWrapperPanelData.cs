@@ -237,7 +237,7 @@ namespace HenStudio.Data.Profile
         /// Wrapper contains Profile Data, Process Stream Data, and Utility Stream Data for a Given Project ID.
         /// </summary>
         /// <param name="projectId">The ID of the project for which to create the profile wrapper data.</param>
-        /// <returns>The ID of the project for which the profile wrapper data was created.</returns>
+        /// <returns>The ID of the profile for which the profile wrapper data was created.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the provided project ID is null.</exception>
         /// <exception cref="ArgumentNullException">Thrown when the add returned profile ID is null.</exception>
         public Guid CreateProfileWrapperData(Guid projectId)
@@ -275,7 +275,7 @@ namespace HenStudio.Data.Profile
             ProfileId = UtilityStreamViewModelObj.AddUtilityStream(UtilityStreamPanelDataObj.UtilityStreamDtoList);
             if (ProfileId == null) throw new ArgumentNullException(
                              nameof(ProfileId), "Profile ID is null for ADD Utility Stream Panel data.");
-            return ProjectId;
+            return ProfileId;
         }
         #endregion  // CreateProfileWrapperData(Guid projectId) ... CREATE ... ADD ALL PROFILE DATA
 

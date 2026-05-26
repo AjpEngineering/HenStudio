@@ -58,6 +58,16 @@ using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
 #endregion  // HEN STUDIO REFERENCES
 
 using System;
+
+using HenGlobal;
+
+using HenViewModel.Profile.Streams;
+
+using HenStudio.Data.Profile.Streams;
+
+using HenViewModel.Profile;
+
+using HenStudio.Data.Profile;
 #endregion      // REFERENCES
 
 #region HenStudio.Data.Project
@@ -72,37 +82,16 @@ namespace HenStudio.Data.Project
         #region PROPERTIES
 
         #region PROJECT ID
-        //---------- Unique Identifier for the Project ------------
-        public Guid ProjectId { get; set; }
+        public Guid ProjectId { get; set; }     //--- PROJECT Identifier
         #endregion  // // PROJECT ID
 
-        #region VIEW MODEL Objects
-        //---------- Project SUB-PANEL ViewModel Objects ----------
-        public ProjectViewModel ProjectViewModelObj { get; set; }
-        
-        //---------- Default Parameters SUB-PANEL ViewModel Objects ----------
-        public ExchangerParamsViewModel ExchangerParamsViewModelObj { get; set; }
-        public OptimizerParamsViewModel OptimizerParamsViewModelObj { get; set; }
-        public ProjectUnitsViewModel ProjectUnitsViewModelObj { get; set; }
-
-        //---------- Cost Parameters SUB-PANEL ViewModel Objects ----------
-        public CostMetadataViewModel CostMetadataViewModelObj { get; set; }
-        public FiredHeaterCapitalCostViewModel FiredHeaterCapitalCostViewModelObj { get; set; }
-        public ShellAndTubeCapitalCostViewModel ShellAndTubeCapitalCostViewModelObj { get; set; }
-        public TotalAnnualizedCostViewModel TotalAnnualizedCostViewModelObj { get; set; }
-        public UtilityCostViewModel UtilityCostViewModelObj { get; set; }
-        #endregion  //  VIEW MODEL Objects
-
         #region PanelData Objects
-        //---------- Project SUB-PANEL PanelData Objects ----------
         public ProjectPanelData ProjectPanelDataObj { get; set; }
 
-        //---------- Default Parameters SUB-PANEL PanelData Objects ----------
         public ExchangerParamsPanelData ExchangerParamsPanelDataObj{ get; set; }
         public OptimizerParamsPanelData OptimizerParamsPanelDataObj { get; set; }
         public ProjectUnitsPanelData ProjectUnitsPanelDataObj { get; set; }
 
-        //---------- Cost Parameters SUB-PANEL PanelData Objects ----------
         public CostMetadataPanelData CostMetadataPanelDataObj { get; set; }
         public FiredHeaterCapitalCostPanelData FiredHeaterCapitalCostPanelDataObj { get; set; }
         public ShellAndTubeCapitalCostPanelData ShellAndTubeCapitalCostPanelDataObj { get; set; }
@@ -110,29 +99,42 @@ namespace HenStudio.Data.Project
         public UtilityCostPanelData UtilityCostPanelDataObj { get; set; }
         #endregion      // PanelData Objects
 
+        #region VIEW MODEL Objects
+        public ProjectViewModel ProjectViewModelObj { get; set; }
+        
+        public ExchangerParamsViewModel ExchangerParamsViewModelObj { get; set; }
+        public OptimizerParamsViewModel OptimizerParamsViewModelObj { get; set; }
+        public ProjectUnitsViewModel ProjectUnitsViewModelObj { get; set; }
+
+        public CostMetadataViewModel CostMetadataViewModelObj { get; set; }
+        public FiredHeaterCapitalCostViewModel FiredHeaterCapitalCostViewModelObj { get; set; }
+        public ShellAndTubeCapitalCostViewModel ShellAndTubeCapitalCostViewModelObj { get; set; }
+        public TotalAnnualizedCostViewModel TotalAnnualizedCostViewModelObj { get; set; }
+        public UtilityCostViewModel UtilityCostViewModelObj { get; set; }
+        #endregion  //  VIEW MODEL Objects
+
+        #region HenProjectUnits OBJECT
+        //------------------------------------------------------------------------
+        //--- HenProjectUnits Holds PROJECT Units Data (INTERNAL & EXTERNAL)   ---
+        //------------------------------------------------------------------------
+        //--- Object contains methods to retrieve the following PROJECT UNITS: ---
+        //--- SystemUnits, MagnitudeUnits, AreaUnits, TemperatureUnits,        ---
+        //--- PressureUnits, HeatFlowRateUnits, HeatCapacityFlowRateUnits,     ---
+        //--- Overall HeatTransferCoefficientUnits                             ---
+        //------------------------------------------------------------------------
+        public HenProjectUnits HenProjectUnitsObj { get; set; }
+        #endregion  // HenProjectUnits OBJECT
+
         #endregion      // PROPERTIES
 
-        #region Default CTOR
+        #region InitializeWrapperData()
         /// <summary>
-        /// Default Constructor for ProjectWrapperData Class
+        /// Initialize the Project Wrapper Data Object with Default Values 
+        /// to Avoid Null Reference Exceptions.
         /// </summary>
-        public ProjectWrapperPanelData()
+        private void InitializeWrapperData()
         {
             ProjectId = Guid.Empty;
-            //-----------------------------------------------------------------------
-            //--- Initialize ViewModel Objects to Avoid Null Reference Exceptions ---
-            //-----------------------------------------------------------------------
-            ProjectViewModelObj = new ProjectViewModel();
-
-            ExchangerParamsViewModelObj = new ExchangerParamsViewModel();
-            OptimizerParamsViewModelObj = new OptimizerParamsViewModel();
-            ProjectUnitsViewModelObj = new ProjectUnitsViewModel();
-
-            CostMetadataViewModelObj = new CostMetadataViewModel();
-            FiredHeaterCapitalCostViewModelObj = new FiredHeaterCapitalCostViewModel();
-            ShellAndTubeCapitalCostViewModelObj = new ShellAndTubeCapitalCostViewModel();
-            TotalAnnualizedCostViewModelObj = new TotalAnnualizedCostViewModel();
-            UtilityCostViewModelObj = new UtilityCostViewModel();
             //-----------------------------------------------------------------
             //--- Initialize PanelData Objects to Avoid Null Reference Exceptions ---
             //-----------------------------------------------------------------
@@ -146,59 +148,6 @@ namespace HenStudio.Data.Project
             ShellAndTubeCapitalCostPanelDataObj = new ShellAndTubeCapitalCostPanelData();
             TotalAnnualizedCostPanelDataObj = new TotalAnnualizedCostPanelData();
             UtilityCostPanelDataObj = new UtilityCostPanelData();
-        }
-        #endregion  // Default CTOR
-
-        #region FULL Parameterized CTOR
-        /// <summary>
-        /// FULL Parameterized Constructor for ProjectWrapperData Class
-        /// </summary>
-        public ProjectWrapperPanelData(Guid projectId,
-                                  ProjectPanelData projectPanelDataObj,
-                                  ExchangerParamsPanelData exchangerParamsPanelDataObj,
-                                  OptimizerParamsPanelData optimizerParamsPanelDataObj,
-                                  ProjectUnitsPanelData projectUnitsPanelDataObj,
-                                  CostMetadataPanelData costMetadataPanelDataObj,
-                                  FiredHeaterCapitalCostPanelData firedHeaterCapitalCostPanelDataObj,
-                                  ShellAndTubeCapitalCostPanelData shellAndTubeCapitalCostPanelDataObj,
-                                  TotalAnnualizedCostPanelData totalAnnualizedCostPanelDataObj,
-                                  UtilityCostPanelData utilityCostPanelDataObj)
-        {
-            //-------------------------------------------------------------------------------------
-            //--- Null Guard on User Supplied PanelData Parameters to Avoid Null Reference Exceptions ---
-            //-------------------------------------------------------------------------------------   
-            if (projectId == null) ProjectId = new Guid();
-            else ProjectId = projectId;
-
-            //--- Project SUB-PANEL PanelData Objects ---
-            if (projectPanelDataObj == null) ProjectPanelDataObj = new ProjectPanelData();
-            else ProjectPanelDataObj = projectPanelDataObj;
-
-            //--- Default Parameters SUB-PANEL PanelData Objects ---
-            if (exchangerParamsPanelDataObj == null) ExchangerParamsPanelDataObj = new ExchangerParamsPanelData();
-            else ExchangerParamsPanelDataObj = exchangerParamsPanelDataObj;
-
-            if (optimizerParamsPanelDataObj == null) OptimizerParamsPanelDataObj = new OptimizerParamsPanelData();
-            else OptimizerParamsPanelDataObj = optimizerParamsPanelDataObj;
-
-            if (projectUnitsPanelDataObj == null) ProjectUnitsPanelDataObj = new ProjectUnitsPanelData();
-            else ProjectUnitsPanelDataObj = projectUnitsPanelDataObj;
-
-            //--- Cost Parameters SUB-PANEL PanelData Objects ---
-            if (costMetadataPanelDataObj == null) CostMetadataPanelDataObj = new CostMetadataPanelData();
-            else CostMetadataPanelDataObj = costMetadataPanelDataObj;
-
-            if (firedHeaterCapitalCostPanelDataObj == null) FiredHeaterCapitalCostPanelDataObj = new FiredHeaterCapitalCostPanelData();
-            else FiredHeaterCapitalCostPanelDataObj = firedHeaterCapitalCostPanelDataObj;
-
-            if (shellAndTubeCapitalCostPanelDataObj == null) ShellAndTubeCapitalCostPanelDataObj = new ShellAndTubeCapitalCostPanelData();
-            else ShellAndTubeCapitalCostPanelDataObj = shellAndTubeCapitalCostPanelDataObj;
-
-            if (totalAnnualizedCostPanelDataObj == null) TotalAnnualizedCostPanelDataObj = new TotalAnnualizedCostPanelData();
-            else TotalAnnualizedCostPanelDataObj = totalAnnualizedCostPanelDataObj;
-
-            if (utilityCostPanelDataObj == null) UtilityCostPanelDataObj = new UtilityCostPanelData();
-            else UtilityCostPanelDataObj = utilityCostPanelDataObj;
             //-----------------------------------------------------------------------
             //--- Initialize ViewModel Objects to Avoid Null Reference Exceptions ---
             //-----------------------------------------------------------------------
@@ -213,113 +162,242 @@ namespace HenStudio.Data.Project
             ShellAndTubeCapitalCostViewModelObj = new ShellAndTubeCapitalCostViewModel();
             TotalAnnualizedCostViewModelObj = new TotalAnnualizedCostViewModel();
             UtilityCostViewModelObj = new UtilityCostViewModel();
+            //----------------------------------------------------------------------------
+            //--- Initialize HenProjectUnits Object to Avoid Null Reference Exceptions ---
+            //----------------------------------------------------------------------------
+            //--- Object contains methods to retrieve the following PROJECT UNITS:     ---
+            //--- SystemUnits, MagnitudeUnits, AreaUnits, TemperatureUnits,            ---
+            //--- PressureUnits, HeatFlowRateUnits, HeatCapacityFlowRateUnits,         ---
+            //--- Overall HeatTransferCoefficientUnits                                 ---
+            //----------------------------------------------------------------------------
+            HenProjectUnitsObj = new HenProjectUnits();
+        }
+        #endregion  // InitializeWrapperData()
+
+        #region Default CTOR
+        /// <summary>
+        /// Default Constructor for ProjectWrapperData Class
+        /// </summary>
+        public ProjectWrapperPanelData()
+        {
+            //-----------------------------------------------------------
+            // --- Initialize the Project Wrapper Data Object with    ---
+            // --- Default Values to Avoid Null Reference Exceptions. ---
+            //-----------------------------------------------------------
+            InitializeWrapperData();
+        }
+        #endregion  // Default CTOR
+
+        #region Parameterized CTOR
+        /// <summary>
+        /// Parameterized Constructor for ProjectWrapperData Class
+        /// </summary>
+        public ProjectWrapperPanelData(Guid projectId)
+        {
+            //-----------------------------------------------------------
+            // --- Initialize the Profile Wrapper Data Object with    ---
+            // --- Default Values to Avoid Null Reference Exceptions. ---
+            //-----------------------------------------------------------
+            InitializeWrapperData();
+            //--------------------------------------------------------------------------
+            //--- Null Guard on User Supplied Ids to Avoid Null Reference Exceptions ---
+            //--------------------------------------------------------------------------   
+            if (projectId == null) throw new ArgumentNullException(
+                                         nameof(projectId), "Project ID cannot be null.");
+            else ProjectId = projectId;
+
+            //---------------------------------------------
+            //--- Assign PanelData Object Id Properties ---
+            //---------------------------------------------
+            ProjectPanelDataObj.Id = ProjectId;
+
+            ExchangerParamsPanelDataObj.ProjectId = ProjectId;
+            OptimizerParamsPanelDataObj.ProjectId = ProjectId;
+            ProjectUnitsPanelDataObj.ProjectId = ProjectId;
+
+            CostMetadataPanelDataObj.ProjectId = ProjectId;
+            FiredHeaterCapitalCostPanelDataObj.ProjectId = ProjectId;
+            ShellAndTubeCapitalCostPanelDataObj.ProjectId = ProjectId;
+            TotalAnnualizedCostPanelDataObj.ProjectId = ProjectId;
+            UtilityCostPanelDataObj.ProjectId = ProjectId;
+            //--------------------------------------------------
+            //--- Initialize Property HenProjectUnits Object ---
+            //--------------------------------------------------
+            ProjectUnitsDto projectUnitsDtoObj =
+                            ProjectUnitsViewModelObj.GetProjectUnitsByProjectId(ProjectId);
+            if (projectUnitsDtoObj != null)
+                throw new Exception("Project Units DTO Object is null for Project ID: " + ProjectId);
+            HenProjectUnitsObj = new HenProjectUnits(projectUnitsDtoObj.DefaultSystemUnits,
+                                                     projectUnitsDtoObj.DefaultMagnitudeUnits,
+                                                     projectUnitsDtoObj.DefaultTemperatureUnits,
+                                                     projectUnitsDtoObj.DefaultPressureUnits);
+
         }
         #endregion  // FULL Parameterized CTOR
 
         #region CRUD Methods
 
-        #region CreateProjectWrapperData()
+        #region CreateProjectWrapperData() ... CREATE ... ADD ALL PROJECT DATA
         /// <summary>
-        /// Use the DTO and ViewModel object properties of this class to 
-        /// CREATE ALL the new Project Subpanel data in the HENSTUDIO DB.
+        /// Create (ADD) the Project Wrapper Data to the HENSTUDIO DB using
+        /// the DTO and ViewModel object properties of this class.
         /// </summary>
         /// <returns>Project ID of the newly created project-related data.</returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public Guid CreateProjectWrapperData()
         {
-            //-----------------------------------------------------------
-            //--- Convert PanelData Objects to EXTERNAL DTO Objects   ---
-            //--- and Use Project ViewModel to Add Project Data to DB ---
-            //--- NOTE: ProjectViewModel Add Method Returns the       ---
-            //--- Project ID of the Newly Created Project Data in DB  ---
-            //-----------------------------------------------------------
-            ProjectId = ProjectViewModelObj.AddProject(ProjectPanelDataObj.ConvertFromPanelData());
-            //-------------------------------------------------------
-            //--- Null Guard on ViewModel returned Project ID to  ---
-            //--- Avoid Null  References in ViewModel Invocations ---
-            //-------------------------------------------------------   
-            if (ProjectId == null) throw new ArgumentNullException(nameof(ProjectId), "Project ID cannot be null.");
-            //---------------------------------------------------------
-            //--- Convert PanelData Objects to EXTERNAL DTO Objects ---
-            //---------------------------------------------------------
-            var ExchangerParamsDto = ExchangerParamsPanelDataObj.ConvertFromPanelData();
-            var OptimizerParamsDto = OptimizerParamsPanelDataObj.ConvertFromPanelData();
-            var ProjectUnitsDto = ProjectUnitsPanelDataObj.ConvertFromPanelData();
+            #region PROJECT PANEL DATA
+            //--------------------------------------------------------------
+            //--- Add Project Data to DB using Project ViewModel         ---
+            //--- returns Project ID for Foreign Key Relationships in DB ---
+            //--------------------------------------------------------------
+            ProjectId = ProjectViewModelObj.AddProject(ProjectPanelDataObj.ProjectDtoObj);
+            if (ProjectId == null) throw new ArgumentNullException(
+                             nameof(ProjectId), "Project ID is null for ADD Project Panel data.");
+            ProjectPanelDataObj.ProjectDtoObj.Id = ProjectId;
 
-            var CostMetadataDto = CostMetadataPanelDataObj.ConvertFromPanelData();
-            var FiredHeaterCapitalCostDto = FiredHeaterCapitalCostPanelDataObj.ConvertFromPanelData();
-            var ShellAndTubeCapitalCostDto = ShellAndTubeCapitalCostPanelDataObj.ConvertFromPanelData();
-            var TotalAnnualizedCostDto = TotalAnnualizedCostPanelDataObj.ConvertFromPanelData();
-            var UtilityCostDto = UtilityCostPanelDataObj.ConvertFromPanelData();
+            #endregion  // PROJECT PANEL DATA
 
-            //-----------------------------------------------------
-            //--- Use Project ID from Created Project to Ensure ---
-            //--- Proper Foreign Key Relationships in DB        ---
-            //--- NOTE: This is Done for All Subpanel Data to   ---
-            //--- Ensure Proper Foreign Key Relationships in DB ---
-            //-----------------------------------------------------
-            ExchangerParamsDto.ProjectId = ProjectId;
-            OptimizerParamsDto.ProjectId = ProjectId;
-            ProjectUnitsDto.ProjectId = ProjectId;
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-            CostMetadataDto.ProjectId = ProjectId;
-            FiredHeaterCapitalCostDto.ProjectId = ProjectId;
-            ShellAndTubeCapitalCostDto.ProjectId = ProjectId;
-            TotalAnnualizedCostDto.ProjectId = ProjectId;
-            UtilityCostDto.ProjectId = ProjectId;
+            #region PROJECT DEFAULT PARAMETERS PANELS DATA
 
-            //----------------------------------------------------
-            //--- Use ViewModel to Add EXTERNAL DTO Data to DB ---
-            //----------------------------------------------------
-            var ExchangerParamsId = ExchangerParamsViewModelObj.AddExchangerParams(ExchangerParamsDto);
-            var OptimizerParamsId = OptimizerParamsViewModelObj.AddOptimizerParams(OptimizerParamsDto);
-            var ProjectUnitsId = ProjectUnitsViewModelObj.AddProjectUnits(ProjectUnitsDto);
+            //----------------------------------------------------------------
+            //--- Add ProjectUnits Data to DB using ProjectUnits ViewModel ---
+            //--- returns Project ID for Foreign Key Relationships in DB   ---
+            //----------------------------------------------------------------
+            ProjectId = ProjectUnitsViewModelObj.AddProjectUnits(ProjectUnitsPanelDataObj.ProjectUnitsDtoObj);
+            if (ProjectId == null) throw new ArgumentNullException(
+                             nameof(ProjectId), "Project ID is null for ADD Project Units Panel data.");
+            ProjectUnitsPanelDataObj.ProjectUnitsDtoObj.Id = ProjectId;
+            //----------------------------------------------------------------------
+            //--- Add ExchangerParams Data to DB using ExchangerParams ViewModel ---
+            //--- returns Project ID for Foreign Key Relationships in DB         ---
+            //----------------------------------------------------------------------
+            ProjectId = ExchangerParamsViewModelObj.AddExchangerParams(ExchangerParamsPanelDataObj.ExchangerParamsDtoObj);
+            if (ProjectId == null) throw new ArgumentNullException(
+                             nameof(ProjectId), "Project ID is null for ADD Exchanger Params Panel data.");
+            ExchangerParamsPanelDataObj.ExchangerParamsDtoObj.Id = ProjectId;
+            //----------------------------------------------------------------------
+            //--- Add OptimizerParams Data to DB using OptimizerParams ViewModel ---
+            //--- returns Project ID for Foreign Key Relationships in DB         ---
+            //----------------------------------------------------------------------
+            ProjectId = OptimizerParamsViewModelObj.AddOptimizerParams(OptimizerParamsPanelDataObj.OptimizerParamsDtoObj);
+            if (ProjectId == null) throw new ArgumentNullException(
+                             nameof(ProjectId), "Project ID is null for ADD Optimizer Params Panel data.");
+            OptimizerParamsPanelDataObj.OptimizerParamsDtoObj.Id = ProjectId;
 
-            var CostMetadataId = CostMetadataViewModelObj.AddCostMetadata(CostMetadataDto);
-            var FiredHeaterCapitalCostId = FiredHeaterCapitalCostViewModelObj.AddFiredHeaterCapitalCost(FiredHeaterCapitalCostDto);
-            var ShellAndTubeCapitalCostId = ShellAndTubeCapitalCostViewModelObj.AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto);
-            var TotalAnnualizedCostId = TotalAnnualizedCostViewModelObj.AddTotalAnnualizedCost(TotalAnnualizedCostDto);
-            var UtilityCostId = UtilityCostViewModelObj.AddUtilityCost(UtilityCostDto);
+            #endregion  // PROJECT DEFAULT PARAMETERS PANELS DATA
+
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+            #region PROJECT COST PARAMETERS PANELS DATA
+
+            //----------------------------------------------------------------
+            //--- Add CostMetadata Data to DB using CostMetadata ViewModel ---
+            //--- returns Project ID for Foreign Key Relationships in DB   ---
+            //----------------------------------------------------------------
+            ProjectId = CostMetadataViewModelObj.AddCostMetadata(CostMetadataPanelDataObj.CostMetadataDtoObj);
+            if (ProjectId == null) throw new ArgumentNullException(
+                             nameof(ProjectId), "Project ID is null for ADD Cost Metadata Panel data.");
+            CostMetadataPanelDataObj.CostMetadataDtoObj.Id = ProjectId;
+            //------------------------------------------------------------------------------------
+            //--- Add FiredHeaterCapitalCost Data to DB using FiredHeaterCapitalCost ViewModel ---
+            //--- returns Project ID for Foreign Key Relationships in DB                       ---
+            //------------------------------------------------------------------------------------
+            ProjectId = FiredHeaterCapitalCostViewModelObj.AddFiredHeaterCapitalCost(FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj);
+            if (ProjectId == null) throw new ArgumentNullException(
+                             nameof(ProjectId), "Project ID is null for ADD Fired Heater Capital Cost Panel data.");
+            FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj.Id = ProjectId;
+            //--------------------------------------------------------------------------------------
+            //--- Add ShellAndTubeCapitalCost Data to DB using ShellAndTubeCapitalCost ViewModel ---
+            //--- returns Project ID for Foreign Key Relationships in DB                         ---
+            //--------------------------------------------------------------------------------------
+            ProjectId = ShellAndTubeCapitalCostViewModelObj.AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj);
+            if (ProjectId == null) throw new ArgumentNullException(
+                             nameof(ProjectId), "Project ID is null for ADD Shell And Tube Capital Cost Panel data.");
+            ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj.Id = ProjectId;
+            //------------------------------------------------------------------------------
+            //--- Add TotalAnnualizedCost Data to DB using TotalAnnualizedCost ViewModel ---
+            //--- returns Project ID for Foreign Key Relationships in DB                 ---
+            //------------------------------------------------------------------------------
+            ProjectId = TotalAnnualizedCostViewModelObj.AddTotalAnnualizedCost(TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj);
+            if (ProjectId == null) throw new ArgumentNullException(
+                             nameof(ProjectId), "Project ID is null for ADD Total Annualized Cost Panel data.");
+            TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj.Id = ProjectId;
+            //--------------------------------------------------------------
+            //--- Add UtilityCost Data to DB using UtilityCost ViewModel ---
+            //--- returns Project ID for Foreign Key Relationships in DB ---
+            //--------------------------------------------------------------
+            ProjectId = UtilityCostViewModelObj.AddUtilityCost(UtilityCostPanelDataObj.UtilityCostDtoObj);
+            if (ProjectId == null) throw new ArgumentNullException(
+                             nameof(ProjectId), "Project ID is null for ADD Utility Cost Panel data.");
+            UtilityCostPanelDataObj.UtilityCostDtoObj.Id = ProjectId;
+
+            #endregion  // PROJECT COST PARAMETERS PANELS DATA
+
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
             return ProjectId;
         }
-        #endregion  // CreateProjectWrapperData()
+        #endregion  // CreateProjectWrapperData() ... CREATE ... ADD ALL PROJECT DATA
 
-        #region ReadProjectWrapperData(Guid projectId)
+        #region ReadProjectWrapperData(Guid projectId) ... READ ... GET ALL PROJECT DATA
         /// <summary>
-        /// Retrieve (READ) the Project Wrapper Data for a Given Project ID. 
-        /// This method will be used to Populate the Project Wrapper Data Object 
-        /// with Data from the DB for a Given Project ID when the User Selects 
-        /// a Project from the UI.
+        /// Read (GET) the Project Wrapper Data from the HENSTUDIO DB using the specified Project ID.
         /// </summary>
         /// <param name="projectId">The ID of the project-related data to READ.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void ReadProjectWrapperData(Guid projectId)
         {
             //------------------------------------------------------------
             //--- Null Guard on User Supplied Project ID to Avoid Null ---
             //--- References in ViewModel Invocations                  ---
             //------------------------------------------------------------   
-            if (projectId == null) throw new ArgumentNullException(nameof(projectId), "Project ID cannot be null.");
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID cannot be null.");
             else ProjectId = projectId;
             //----------------------------------------------------------
             //--- READ Project Data from DB using Project ViewModels ---
             //--- NOTE: ViewModel Return DTO Objects, and PanelData  ---
             //--- Objects are Populated using the DTO Objects        ---
             //----------------------------------------------------------
-            ProjectPanelDataObj.ConvertToPanelData(ProjectViewModelObj.GetProjectById(projectId));
+            #region PROJECT PANEL DATA
+            ProjectPanelDataObj.Id = ProjectId;
+            ProjectPanelDataObj.ProjectDtoObj = ProjectViewModelObj.GetProjectById(projectId);
+            #endregion  // PROJECT PANEL DATA
 
-            ExchangerParamsPanelDataObj.ConvertToPanelData(ExchangerParamsViewModelObj.GetExchangerParamsByProjectId(projectId));
-            OptimizerParamsPanelDataObj.ConvertToPanelData(OptimizerParamsViewModelObj.GetOptimizerParamsByProjectId(projectId));
-            ProjectUnitsPanelDataObj.ConvertToPanelData(ProjectUnitsViewModelObj.GetProjectUnitsByProjectId(projectId));
+            #region PROJECT DEFAULT PARAMETERS PANELS DATA
+            ExchangerParamsPanelDataObj.ProjectId = ProjectId;
+            ExchangerParamsPanelDataObj.ExchangerParamsDtoObj = ExchangerParamsViewModelObj.GetExchangerParamsByProjectId(projectId);
 
-            CostMetadataPanelDataObj.ConvertToPanelData(CostMetadataViewModelObj.GetCostMetadataByProjectId(projectId));
-            FiredHeaterCapitalCostPanelDataObj.ConvertToPanelData(FiredHeaterCapitalCostViewModelObj.GetFiredHeaterCapitalCostByProjectId(projectId));
-            ShellAndTubeCapitalCostPanelDataObj.ConvertToPanelData(ShellAndTubeCapitalCostViewModelObj.GetShellAndTubeCapitalCostByProjectId(projectId));
-            TotalAnnualizedCostPanelDataObj.ConvertToPanelData(TotalAnnualizedCostViewModelObj.GetTotalAnnualizedCostByProjectId(projectId));
-            UtilityCostPanelDataObj.ConvertToPanelData(UtilityCostViewModelObj.GetUtilityCostByProjectId(projectId));
+            OptimizerParamsPanelDataObj.ProjectId = ProjectId;
+            OptimizerParamsPanelDataObj.OptimizerParamsDtoObj = OptimizerParamsViewModelObj.GetOptimizerParamsByProjectId(projectId);
+            
+            ProjectUnitsPanelDataObj.ProjectId = ProjectId;
+            ProjectUnitsPanelDataObj.ProjectUnitsDtoObj = ProjectUnitsViewModelObj.GetProjectUnitsByProjectId(projectId);
+            #endregion  // PROJECT DEFAULT PARAMETERS PANELS DATA
+
+            #region PROJECT COST PARAMETERS PANELS DATA
+            CostMetadataPanelDataObj.ProjectId = ProjectId;
+            CostMetadataPanelDataObj.CostMetadataDtoObj = CostMetadataViewModelObj.GetCostMetadataByProjectId(projectId);
+
+            FiredHeaterCapitalCostPanelDataObj.ProjectId = ProjectId;
+            FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj = FiredHeaterCapitalCostViewModelObj.GetFiredHeaterCapitalCostByProjectId(projectId);
+
+            ShellAndTubeCapitalCostPanelDataObj.ProjectId = ProjectId;
+            ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj = ShellAndTubeCapitalCostViewModelObj.GetShellAndTubeCapitalCostByProjectId(projectId);
+
+            TotalAnnualizedCostPanelDataObj.ProjectId = ProjectId;
+            TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj = TotalAnnualizedCostViewModelObj.GetTotalAnnualizedCostByProjectId(projectId);
+
+            UtilityCostPanelDataObj.ProjectId = ProjectId;
+            UtilityCostPanelDataObj.UtilityCostDtoObj = UtilityCostViewModelObj.GetUtilityCostByProjectId(projectId);            
+            #endregion  // PROJECT COST PARAMETERS PANELS DATA
         }
-        #endregion  // ReadProjectWrapperData(Guid projectId)
+        #endregion  // ReadProjectWrapperData(Guid projectId) ... READ ... GET ALL PROFILE DATA
 
-        #region UpdateProjectWrapperData(Guid projectId)
+        #region UpdateProjectWrapperData(Guid projectId) ... UPDATE ... UPDATE ALL PROJECT DATA
         /// <summary>
         /// Use the specified Project ID and the DTO and ViewModel object 
         /// properties of this class to UPDATE ALL the Project Subpanel 
@@ -333,96 +411,74 @@ namespace HenStudio.Data.Project
             //--- Null Guard on User Supplied Project ID to Avoid Null ---
             //--- References in ViewModel Invocations                  ---
             //------------------------------------------------------------   
-            if (projectId == null) throw new ArgumentNullException(nameof(projectId), "Project ID cannot be null.");
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID cannot be null.");
             else ProjectId = projectId;
-            //---------------------------------------------------------
-            //--- Convert PanelData Objects to EXTERNAL DTO Objects ---
-            //---------------------------------------------------------
-            var ProjectDto = ProjectPanelDataObj.ConvertFromPanelData();
+            //----------------------------------------------------------
+            //--- UPDATE Project Data from DB using Project ViewModels ---
+            //--- NOTE: ViewModel Return DTO Objects, and PanelData  ---
+            //--- Objects are Populated using the DTO Objects        ---
+            //----------------------------------------------------------
 
-            var ExchangerParamsDto = ExchangerParamsPanelDataObj.ConvertFromPanelData();
-            var OptimizerParamsDto = OptimizerParamsPanelDataObj.ConvertFromPanelData();
-            var ProjectUnitsDto = ProjectUnitsPanelDataObj.ConvertFromPanelData();
+            #region PROJECT PANEL DATA
+            ProjectPanelDataObj.Id = ProjectId;
+            ProjectViewModelObj.UpdateProject(ProjectPanelDataObj.ProjectDtoObj);
+            #endregion  // PROJECT PANEL DATA
 
-            var CostMetadataDto = CostMetadataPanelDataObj.ConvertFromPanelData();
-            var FiredHeaterCapitalCostDto = FiredHeaterCapitalCostPanelDataObj.ConvertFromPanelData();
-            var ShellAndTubeCapitalCostDto = ShellAndTubeCapitalCostPanelDataObj.ConvertFromPanelData();
-            var TotalAnnualizedCostDto = TotalAnnualizedCostPanelDataObj.ConvertFromPanelData();
-            var UtilityCostDto = UtilityCostPanelDataObj.ConvertFromPanelData();
+            #region PROJECT DEFAULT PARAMETERS PANEL DATA
+            ExchangerParamsPanelDataObj.Id = ProjectId;
+            ExchangerParamsViewModelObj.UpdateExchangerParams(ExchangerParamsPanelDataObj.ExchangerParamsDtoObj);
+            
+            OptimizerParamsPanelDataObj.Id = ProjectId;
+            OptimizerParamsViewModelObj.UpdateOptimizerParams(OptimizerParamsPanelDataObj.OptimizerParamsDtoObj);
+            
+            ProjectUnitsPanelDataObj.Id = ProjectId;
+            ProjectUnitsViewModelObj.UpdateProjectUnits(ProjectUnitsPanelDataObj.ProjectUnitsDtoObj);
+            #endregion  // PROJECT DEFAULT PARAMETERS PANEL DATA
 
-            //-----------------------------------------------------
-            //--- Use Project ID from Created Project to Ensure ---
-            //--- Proper Foreign Key Relationships in DB        ---
-            //--- NOTE: This is Done for All Subpanel Data to   ---
-            //--- Ensure Proper Foreign Key Relationships in DB ---
-            //-----------------------------------------------------
-            ProjectDto.Id = ProjectId;
+            #region PROJECT COST PARAMETERS PANEL DATA
+            CostMetadataPanelDataObj.Id = ProjectId;
+            CostMetadataViewModelObj.UpdateCostMetadata(CostMetadataPanelDataObj.CostMetadataDtoObj);
+            
+            FiredHeaterCapitalCostPanelDataObj.Id = ProjectId;
+            FiredHeaterCapitalCostViewModelObj.UpdateFiredHeaterCapitalCost(FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj);
+            
+            ShellAndTubeCapitalCostPanelDataObj.Id = ProjectId;
+            ShellAndTubeCapitalCostViewModelObj.UpdateShellAndTubeCapitalCost(ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj);
+           
+            TotalAnnualizedCostPanelDataObj.Id = ProjectId;
+            TotalAnnualizedCostViewModelObj.UpdateTotalAnnualizedCost(TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj);
+            
+            UtilityCostPanelDataObj.Id = ProjectId;
+            UtilityCostViewModelObj.UpdateUtilityCost(UtilityCostPanelDataObj.UtilityCostDtoObj);
+            #endregion  // PROJECT COST PARAMETERS PANEL DATA
 
-            ExchangerParamsDto.ProjectId = ProjectId;
-            OptimizerParamsDto.ProjectId = ProjectId;
-            ProjectUnitsDto.ProjectId = ProjectId;
-
-            CostMetadataDto.ProjectId = ProjectId;
-            FiredHeaterCapitalCostDto.ProjectId = ProjectId;
-            ShellAndTubeCapitalCostDto.ProjectId = ProjectId;
-            TotalAnnualizedCostDto.ProjectId = ProjectId;
-            UtilityCostDto.ProjectId = ProjectId;
-
-            //-------------------------------------------------------
-            //--- Use ViewModel to UPDATE EXTERNAL DTO Data in DB ---
-            //-------------------------------------------------------
-            ProjectViewModelObj.UpdateProject(ProjectDto);
-
-            ExchangerParamsViewModelObj.UpdateExchangerParams(ExchangerParamsDto);
-            OptimizerParamsViewModelObj.UpdateOptimizerParams(OptimizerParamsDto);
-            ProjectUnitsViewModelObj.UpdateProjectUnits(ProjectUnitsDto);
-
-            CostMetadataViewModelObj.UpdateCostMetadata(CostMetadataDto);
-            FiredHeaterCapitalCostViewModelObj.UpdateFiredHeaterCapitalCost(FiredHeaterCapitalCostDto);
-            ShellAndTubeCapitalCostViewModelObj.UpdateShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto);
-            TotalAnnualizedCostViewModelObj.UpdateTotalAnnualizedCost(TotalAnnualizedCostDto);
-            UtilityCostViewModelObj.UpdateUtilityCost(UtilityCostDto);
         }
-        #endregion  // UpdateProjectWrapperData(Guid projectId)
+        #endregion  // UpdateProjectWrapperData(Guid projectId) ... UPDATE ... UPDATE ALL PROJECT DATA
 
-        #region DeleteProjectWrapperData(Guid projectId)
+        #region DeleteProjectWrapperData(Guid projectId) ... DELETE ... DELETE ALL PROJECT DATA
         /// <summary>
-        /// Use the specified Project ID and the DTO and ViewModel object 
-        /// properties of this class to DELETE ALL the Project Subpanel 
-        /// data in the HENSTUDIO DB.
+        /// Use the specified Project ID and ViewModel object 
+        /// to DELETE ALL the Project Subpanel data in the HENSTUDIO DB.
+        /// Cascading Delete is Controlled in SQL.
         /// </summary>
         /// <param name="projectId">The ID of the project-related data to DELETE.</param>
         public void DeleteProjectWrapperData(Guid projectId)
         {
-            //------------------------------------------------------------
-            //--- Null Guard on User Supplied Project ID to Avoid Null ---
-            //--- References in ViewModel Invocations                  ---
-            //------------------------------------------------------------   
-            if (projectId == null) throw new ArgumentNullException(nameof(projectId), "Project ID cannot be null.");
+            //-------------------------------------------------------
+            //--- Null Guard on User Supplied Profile ID to Avoid ---
+            //--- Null References in ViewModel Invocations        ---
+            //-------------------------------------------------------   
+            if (projectId == null) throw new ArgumentNullException(
+                                         nameof(projectId), "Project ID cannot be null.");
             else ProjectId = projectId;
-
-            //---------------------------------------------------------
-            //--- Use ViewModel to DELETE EXTERNAL DTO Data from DB ---
-            //--- NOTE: Project Data MUST be Deleted LAST to Avoid  ---
-            //--- Foreign Key Constraint Violations in DB           ---
-            //---------------------------------------------------------
-            ExchangerParamsViewModelObj.DeleteExchangerParams(ProjectId);
-            OptimizerParamsViewModelObj.DeleteOptimizerParams(ProjectId);
-            ProjectUnitsViewModelObj.DeleteProjectUnits(ProjectId);
-
-            CostMetadataViewModelObj.DeleteCostMetadata(ProjectId);
-            FiredHeaterCapitalCostViewModelObj.DeleteFiredHeaterCapitalCost(ProjectId);
-            ShellAndTubeCapitalCostViewModelObj.DeleteShellAndTubeCapitalCost(ProjectId);
-            TotalAnnualizedCostViewModelObj.DeleteTotalAnnualizedCost(ProjectId);
-            UtilityCostViewModelObj.DeleteUtilityCost(ProjectId);
-
-            //-----------------------------------------------
-            //--- Project Table MUST BE LAST TO AVOID     ---
-            //--- FOREIGN KEY CONSTRAINT VIOLATIONS IN DB ---
-            //-----------------------------------------------
+            //----------------------------------------------------
+            //--- Use ViewModel to DELETE Data from DB         ---
+            //--- NOTE: Cascading Delete is controlled in SQL. ---
+            //----------------------------------------------------
             ProjectViewModelObj.DeleteProject(ProjectId);
         }
-        #endregion  // DeleteProjectWrapperData(Guid projectId)
+        #endregion  // DeleteProjectWrapperData(Guid projectId) ... DELETE ... DELETE ALL PROJECT DATA
 
         #endregion  // CRUD Methods
     }
