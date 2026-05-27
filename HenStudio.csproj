@@ -173,7 +173,7 @@
     <Folder Include="Data\Connection\" />
     <Folder Include="Data\Hen\Plots\" />
     <Folder Include="Data\Pinch\Plots\" />
-    <Folder Include="Data\System\" />
+    <Folder Include="Data\Root\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
