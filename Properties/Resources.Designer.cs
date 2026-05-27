@@ -473,6 +473,26 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap InValidLarge {
+            get {
+                object obj = ResourceManager.GetObject("InValidLarge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap InValidSmall {
+            get {
+                object obj = ResourceManager.GetObject("InValidSmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Metric_SI_Units_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Metric_SI_Units_32x32", resourceCulture);
@@ -793,6 +813,36 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RunningLarge {
+            get {
+                object obj = ResourceManager.GetObject("RunningLarge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RunningLarge1 {
+            get {
+                object obj = ResourceManager.GetObject("RunningLarge1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RunningSmall {
+            get {
+                object obj = ResourceManager.GetObject("RunningSmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Save_As_Project_DB_120_120 {
             get {
                 object obj = ResourceManager.GetObject("Save_As_Project_DB_120_120", resourceCulture);
@@ -986,6 +1036,26 @@ namespace HenStudio.Properties {
         internal static System.Drawing.Bitmap Validate_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Validate_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ValidLarge {
+            get {
+                object obj = ResourceManager.GetObject("ValidLarge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ValidSmall {
+            get {
+                object obj = ResourceManager.GetObject("ValidSmall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
