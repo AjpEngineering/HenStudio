@@ -1,4 +1,39 @@
-﻿using System;
+﻿#region HEADER
+//#####################################################################################################################
+//#############################  F o r m U s e r L i c e n s e A g r e e m e n t . c s  ###############################
+//#####################################################################################################################
+//  FILENAME:  FormUserLicenseAgreement.cs
+//  NAMESPACE: HenStudio
+//  CLASS(S):  FormUserLicenseAgreement
+//  COMPONENT: HenStudio.exe
+//=====================================================================================================================
+//  DESCRIPTION: 
+//    This file contains the code for the User License Agreement Form class.
+//=====================================================================================================================
+//  AUTHOR:
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//                                                                                                                   !!
+//                              A        JJJJJJJJ  PPPPPPP         EEEEEEE  NN     NN   GGGGGG                       !!
+//                             AAA          JJ     PP    PP        EE       NNN    NN  GG    GG                      !!
+//                            AA AA         JJ     PP    PP        EE       NNNN   NN  GG                            !!
+//                           AA   AA        JJ     PPPPPP          EEEEEEE  NN NN  NN  GG   GGGG                     !!
+//                          AAAAAAAA   JJ   JJ     PP              EE       NN  NN NN  GG    GG                      !!
+//                         AA      AA  JJ   JJ     PP              EE       NN    NNN  GG    GG                      !!
+//                        AA        AA  JJJJJJ     PP              EEEEEEE  NN     NN   GGGGGG                       !!
+//                                                                                                                   !!
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//    (c)Copyright 2026 AJP Engineering
+//    All rights reserved.
+//=====================================================================================================================
+//  HISTORY:
+//    01/01/26 .. pg .. Version 4.0
+//#####################################################################################################################
+//#####################################################################################################################
+//#####################################################################################################################
+#endregion      // HEADER
+
+#region REFERENCES
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,16 +42,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+#endregion  // REFERENCES
 
+#region namespace HenStudio
 namespace HenStudio
 {
+    #region partial class FormUserLicenseAgreement : Form
     public partial class FormUserLicenseAgreement : Form
     {
+        #region CTOR
+        /// <summary>
+        /// Default CTOR
+        /// </summary>
         public FormUserLicenseAgreement()
         {
             InitializeComponent();
         }
+        #endregion  //// CTOR
 
+        #region FormUserLicenseAgreement_Load
+        /// <summary>
+        /// Assign RTF text to the Rich Text Box control on the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormUserLicenseAgreement_Load(object sender, EventArgs e)
         {
             #region ASSIGN RTF TO RICH TEXT BOX
@@ -359,5 +408,12 @@ ffffffffffffffffffffffffffffffff52006f006f007400200045006e0074007200790000000000
 0000000000000000000000000000000000000000000000000105000000000000}}";
             #endregion  // ASSIGN RTF TO RICH TEXT BOX
         }
+        #endregion  // FormUserLicenseAgreement_Load
     }
+    #endregion  // partial class FormUserLicenseAgreement : Form
 }
+#endregion  // namespace HenStudio
+
+//=====================================================================================================================
+//---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
+//=====================================================================================================================

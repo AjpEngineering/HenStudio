@@ -3,9 +3,9 @@
 //#####################################  F o r m B u s i n e s s C a r d . c s  #######################################
 //#####################################################################################################################
 //  FILENAME:  FormBusinessCard.cs
-//  NAMESPACE: Pinch
+//  NAMESPACE: HenStudio
 //  CLASS(S):  FormBusinessCard
-//  COMPONENT: Pinch.exe
+//  COMPONENT: HenStudio.exe
 //=====================================================================================================================
 //  DESCRIPTION: 
 //    This file contains the code for the Business Card Form class.
