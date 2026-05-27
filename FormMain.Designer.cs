@@ -584,6 +584,7 @@
             this.textBoxHenBanner = new System.Windows.Forms.TextBox();
             this.pictureBoxOpenedHen = new System.Windows.Forms.PictureBox();
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
+            this.tabPageROOT_About = new System.Windows.Forms.TabPage();
             this.contextMenuStripProfile.SuspendLayout();
             this.contextMenuStripCurrProj.SuspendLayout();
             this.contextMenuStripProjectCatalog.SuspendLayout();
@@ -1305,6 +1306,7 @@
             this.tabControlROOT.Controls.Add(this.tabPageROOT_FactorSettings);
             this.tabControlROOT.Controls.Add(this.tabPageROOT_Database);
             this.tabControlROOT.Controls.Add(this.tabPageROOT_License);
+            this.tabControlROOT.Controls.Add(this.tabPageROOT_About);
             this.tabControlROOT.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlROOT.ItemSize = new System.Drawing.Size(161, 35);
             this.tabControlROOT.Location = new System.Drawing.Point(-3, 45);
@@ -5170,6 +5172,15 @@
             this.imageListProject.Images.SetKeyName(0, "Project Explorer...32x32.png");
             this.imageListProject.Images.SetKeyName(1, "Project...32x32.png");
             // 
+            // tabPageROOT_About
+            // 
+            this.tabPageROOT_About.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageROOT_About.Location = new System.Drawing.Point(4, 39);
+            this.tabPageROOT_About.Name = "tabPageROOT_About";
+            this.tabPageROOT_About.Size = new System.Drawing.Size(903, 527);
+            this.tabPageROOT_About.TabIndex = 4;
+            this.tabPageROOT_About.Text = "About";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -5633,6 +5644,7 @@
         private System.Windows.Forms.ColumnHeader columnHeaderProfileName;
         private System.Windows.Forms.ColumnHeader columnHeaderProfileUnits;
         private System.Windows.Forms.TextBox textBoxUnits;
+        private System.Windows.Forms.TabPage tabPageROOT_About;
     }
 }
 
