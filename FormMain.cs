@@ -491,14 +491,19 @@ namespace HenStudio
                 #endregion  // ASSIGN LICENSE TYPE ENUM VALUE IN SETTINGS OBJECT
 
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  DISPLAY LICENSE SCORECARD  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  ASSIGN LICENSE STATUS  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-                #region DISPLAY LICENSE SCORECARD
-                //------------------------------------------
-                //--- Display The License ScoreCard Form ---
-                //------------------------------------------
-                DisplayScoreCardForm(true);         // Display The License ScoreCard Form
-                #endregion  // DISPLAY LICENSE SCORECARD
+                ScoreCardTableData scoreCardTableDataObj = LicenseMgrObj.GetScoreCardTableData(HenFileSysObj.LicenseFolderPath);
+                if(scoreCardTableDataObj.NumInvalidProps > 0)
+                {
+                    HenSettingsObj.LicenseValidatedFlag = false;
+                    HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.INVALID;
+                }
+                else
+                {
+                    HenSettingsObj.LicenseValidatedFlag = true;
+                    HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.VALID;
+                }
 
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  UPDATE LICENSE STATUS BAR LABEL  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -774,14 +779,6 @@ namespace HenStudio
         }
         #endregion  // NEW MENU ITEM HANDLER
 
-        #region IMPORT PROJECT ZIP MENU ITEM HANDLER
-        private void importProjectZIPToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("Import Menu Item Selected!");
-            HandleImport();
-        }
-        #endregion  // IMPORT PROJECT ZIP MENU ITEM HANDLER
-
         #region EXIT AJP HEN STUDIO MEMU ITEM HANDLER
         private void exitAJPHENStudioToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -791,61 +788,9 @@ namespace HenStudio
 
         #endregion  // FILE MENU ITEMS
 
-        #region EDIT MENU ITEMS
-
-        #endregion  // EDIT MENU ITEMS
-
-        #region HELP MENU ITEMS
-
-        #region LICENSE
-        private void licenseViewerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //HenMsgDlg.DisplayWarningDlg("License Menu Item Selected!");
-            DisplayLicenseForm();
-        }
-        #endregion      // LICENSE
-
-        #region SCORECARD
-        private void licenseScoreCardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DisplayScoreCardForm();
-        }
-
-        #endregion  // SCORECARD
-
-        #region USER LICENSE AGREEMENT
-        private void userLicenseAgreementToolStripMenuItem1_Click_1(object sender, EventArgs e)
-        {
-            DisplayUserLicenseAgreementForm();
-        }
-        #endregion  // USER LICENSE AGREEMENT
-
-        #region ABOUT
-        private void aboutAJPHENStudioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DisplayAboutForm();
-        }
-        #endregion  // ABOUT
-
-        #endregion  // HELP MENU ITEMS
-
         #endregion  // MENU BAR EVENTS
 
         #region STATUS BAR EVENTS
-
-        #region LICENSE CLICK
-        private void toolStripStatusLabelLICENSE_Click(object sender, EventArgs e)
-        {
-            HandleLicenseStatus();
-        }
-        #endregion  // LICENSE CLICK
-
-        #region LICENSE DOUBLE CLICK
-        private void toolStripStatusLabelLICENSE_DoubleClick(object sender, EventArgs e)
-        {
-            HandleLicenseStatus();
-        }
-        #endregion  // LICENSE DOUBLE CLICK
 
         #region DB CONNECTION CLICK
         private void toolStripStatusLabelCAT_DB_Click(object sender, EventArgs e)
@@ -907,166 +852,6 @@ namespace HenStudio
         #endregion  // UpdateProjectNameUI()
 
         #region COMMON COMMAND HANDLERS
-
-        #region DisplayLicenseForm()
-        /// <summary>
-        /// Common Display License Form Handler
-        /// </summary>
-        private void DisplayLicenseForm()
-        {
-            string strMethod = "DisplayLicenseForm";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("Handle Common Display License Form Command!");
-                FormLicenseFile dlg = new FormLicenseFile();
-                dlg.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // DisplayLicenseForm()
-
-        #region DisplayScoreCardForm()
-        /// <summary>
-        /// Common Display License ScoreCard Form Handler
-        /// </summary>
-        /// <param name="bOnLaunch">On Launch Flag; true when method called on Constructor sequesce; otherwise false</param>
-        private void DisplayScoreCardForm(bool bOnLaunch=false)
-        {
-            string strMethod = "DisplayScoreCardForm";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Form");
-            try
-            {
-                ScoreCardTableData tableData;
-                try
-                {
-                    #region GET LICENSE STATUS
-                    tableData = LicenseMgrObj.GetScoreCardTableData(HenFileSysObj.AppExeFolderPath);
-
-                    if (tableData.NumInvalidProps > 0)
-                    {
-                        HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.INVALID;
-                        HenSettingsObj.LicenseValidatedFlag = false;
-                    }
-                    else if (tableData.DaysRemaining <= 0)
-                    {
-                        HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.EXPIRED;
-                        HenSettingsObj.LicenseValidatedFlag = false;
-                    }
-                    else
-                    {
-                        HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.VALID;
-                        HenSettingsObj.LicenseValidatedFlag = true;
-                    }
-
-                    #endregion  // GET LICENSE STATUS
-
-                    if ((bOnLaunch) && (HenSettingsObj.LicenseStatusEnum != HenTypes.LicenseStatus.VALID))
-                    {
-                        //--------------------------------------------
-                        //--- [ON LAUNCH AND NOT A VALID LICENSE:] ---
-                        //--- Show ScardCard and EXIT Application  ---
-                        //--------------------------------------------
-                        FormScoreCard dlg = new FormScoreCard(tableData);
-                        dlg.ShowDialog();
-                        Application.Exit();
-                    }
-                    else if(!bOnLaunch)
-                    {
-                        //----------------------------------------------------
-                        //--- [NOT ON LAUNCH - i.e., from Menu or Toolbar] ---
-                        //--- Show ScoreCard - DO NOT EXIT Application     ---
-                        //----------------------------------------------------
-                        FormScoreCard dlg = new FormScoreCard(tableData);
-                        dlg.ShowDialog();
-                    }
-
-                    //----------------------------------------
-                    //--- Log ScoreCard Data and Continue  ---
-                    //----------------------------------------
-                    LogScoreCardTable(tableData);    // Log ScoreCard Table Data
-                }
-                catch (Exception ex)
-                {
-                    HenLogger.WriteSeparatorLine('*');
-                    HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                    HenLogger.WriteSeparatorLine('*');
-                }
-                finally
-                {
-                }
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // DisplayScoreCardForm()
-
-        #region DisplayUserLicenseAgreementForm()
-        /// <summary>
-        /// Common Display About Form Handler
-        /// </summary>
-        private void DisplayUserLicenseAgreementForm()
-        {
-            string strMethod = "DisplayUserLicenseAgreementForm";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display User License Agreement Form");
-            try
-            {
-                FormUserLicenseAgreement dlg = new FormUserLicenseAgreement();
-                dlg.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // DisplayUserLicenseAgreementForm()
-
-        #region DisplayAboutForm()
-        /// <summary>
-        /// Common Display About Form Handler
-        /// </summary>
-        private void DisplayAboutForm()
-        {
-            string strMethod = "DisplayAboutForm";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display About Form");
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("Handle Common Display About Form Command!");
-                FormAboutPinch dlg = new FormAboutPinch();
-                dlg.HenTypesObj = this.HenTypesObj;     // Assign Global Types and Properties
-                dlg.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // DisplayAboutForm()
 
         #region DisplayBusinessCardForm()
         /// <summary>
@@ -1143,31 +928,6 @@ namespace HenStudio
         #endregion  // HandleExit
 
         //-------------------------
-
-        #region HandleLicenseStatus
-        /// <summary>
-        /// Common License State Handler
-        /// </summary>
-        private void HandleLicenseStatus()
-        {
-            string strMethod = "HandleLicenseStatus";
-            //HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Display License Viewer");
-            try
-            {
-                //HenMsgDlg.DisplayWarningDlg("Display License Viewer!");
-                DisplayLicenseForm();
-            }
-            catch (Exception ex)
-            {
-                HenLogger.WriteSeparatorLine('*');
-                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                HenLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-            }
-        }
-        #endregion  // HandleLicenseStatus
 
         #region HandleDBConnectionState
         /// <summary>
@@ -1501,10 +1261,10 @@ namespace HenStudio
         #endregion  // METHODS
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-        //----------------------------------------- CATALOG (Projects) Panel---
+        //--------------------------------------------- CATALOG (ROOT) Panel---
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-        #region CATALOG (Projects) Panel
+        #region CATALOG (Root) Panel
 
         #region CLICK CONNECTION BUTTON EVENT
         private void buttonConnection_Click(object sender, EventArgs e)
@@ -1551,14 +1311,26 @@ namespace HenStudio
         }
         #endregion  // CheckDbConnection()
 
-        #region AJP HEN STUDIO LOGO CLICK
-        private void pictureBoxProductLogo_Click(object sender, EventArgs e)
-        {
-            DisplayAboutForm();
-        }
-        #endregion  // AJP HEN STUDIO LOGO CLICK
+        #region PICTURE BOX CLICK EVENTS
 
-        #endregion  // CATALOG (Projects) Panel
+        #region CONTACT AJP CLICK
+        private void pictureBoxAjpContactInfo_Click(object sender, EventArgs e)
+        {
+            DisplayBusinessCardForm();
+        }
+        #endregion  // CONTACT AJP CLICK
+
+        #region LICENSE AGREEMENT CLICK
+        private void pictureBoxLicenseAgreement_Click(object sender, EventArgs e)
+        {
+            FormUserLicenseAgreement dlg = new FormUserLicenseAgreement();
+            dlg.ShowDialog();
+        }
+        #endregion  // LICENSE AGREEMENT CLICK
+
+        #endregion  // PICTURE BOX CLICK EVENTS
+
+        #endregion  // CATALOG (Root) Panel
 
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //----------------------------------------- Project Panel---
@@ -1622,6 +1394,7 @@ namespace HenStudio
         #region Profile Panel
 
         #endregion  // Profile Panel
+
     }
     #endregion      // class FormMain
 }

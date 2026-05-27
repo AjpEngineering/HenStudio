@@ -111,14 +111,14 @@ namespace AJP_License_File
         /// <summary>
         /// Get the ScoreCard Table Data based on XML License File, License Type, and Run-Time Environment
         /// </summary>
-        /// <param name="strFullPathAppStartupLoc">Full-Path Folder Location of App</param>
+        /// <param name="strLicenseFolder">Full-Path Folder Location of License</param>
         /// <returns>Populated ScoreCardTableData Object</returns>
-        public ScoreCardTableData GetScoreCardTableData(string strFullPathAppStartupLoc)
+        public ScoreCardTableData GetScoreCardTableData(string strLicenseFolder)
         {
             string strMethod = "GetScoreCardData";
             string strMsg = string.Empty;
 
-            string strLicenseFolder = string.Empty;
+            //string strLicenseFolder = string.Empty;
             string strLicenseFile = string.Empty;
             bool bMatch = false;
             string strDeviceNameValidFlag = String.Empty;
@@ -136,7 +136,7 @@ namespace AJP_License_File
                 //------------------------------------------
                 //--- Check if AJP License Folder Exists ---
                 //------------------------------------------
-                strLicenseFolder = string.Format(@"{0}\{1}", strFullPathAppStartupLoc, AJP_LICENSE_FOLDER);
+                //strLicenseFolder = string.Format(@"{0}\{1}", strFullPathAppStartupLoc, AJP_LICENSE_FOLDER);
                 if (!Directory.Exists(strLicenseFolder))
                 {
                     strMsg = string.Format(" *** AJP LICENSE Folder NOT FOUND!  [{0}]", strLicenseFolder);

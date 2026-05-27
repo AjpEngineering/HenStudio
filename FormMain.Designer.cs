@@ -30,214 +30,214 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Study: Pinch Analysis");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Study: HEN Analysis");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("HEN Studio", 10, 10, new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode18,
-            treeNode19});
-            System.Windows.Forms.ListViewItem listViewItem241 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Profile: Q1 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Profile: Q2 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Profile: Q3 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Profile: Q4 Setup", 3, 4);
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Study: Pinch Analysis");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Study: HEN Analysis");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Project: Deer Park", 1, 2, new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Project: Convent", 1, 2);
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Project: Norco", 1, 2);
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("HEN Studio", 10, 10, new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8,
+            treeNode9});
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "_AJP License File.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem242 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "_HenDomainModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem243 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "_HenGlobal.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem244 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "_HenModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem245 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "_HenStudioDatabase.dll"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem246 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "_HenViewModel.dll"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem247 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "HenStudio.exe"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem248 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "PRODUCT FULLNAME",
             "AJP HEN Studio 1.0"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem249 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "PRODUCT NAME",
             "AJP HEN Studio"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem250 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "PRODUCT VERSION",
             "1.0.1"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem251 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "PRODUCT SERIAL_NUMBER",
             "1022-789-1189"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem252 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "PRODUCT CODE",
             "{3D9721BA-003E-4711-B7AF-B579645F0AC9}"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem253 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "SUPPLIER NAME ",
             "AJP Engineering"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem254 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "SUPPLIER URL",
             "http:://www.AJPEngineering.com"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem255 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "DatabaseCreatedOn",
             "5/5/2026 8:38:41 PM"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem256 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "DefaultApproachTemperature",
             "10.00"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem257 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "DefaultEnglishU ",
             "35.20"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem258 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "DefaultMetricU ",
             "720.00"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem259 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
             "5",
             "DefaultOptimizer",
             "Genetic"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem260 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem(new string[] {
             "6",
             "EnableAreaEstimation",
             "True"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem261 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem(new string[] {
             "7",
             "ExternalMagnitudeUnits",
             "Mega"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem262 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem(new string[] {
             "8",
             "ExternalPressUnits",
             "psia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem263 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem(new string[] {
             "9",
             "ExternalSystemUnits",
             "English - Imperial"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem264 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem(new string[] {
             "10",
             "ExternalTempUnits",
             "°F"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem265 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem(new string[] {
             "11",
             "ExternalUnitsA",
             "ft²"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem266 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem(new string[] {
             "12",
             "ExternalUnitsEnergy",
             "MMBtu/hr"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem267 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem(new string[] {
             "13",
             "ExternalUnitsHeatCapacityFlowRate",
             "MMBtu/(hr·°F)"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem268 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem(new string[] {
             "14",
             "ExternalUnitsMassFlowrate ",
             "lbs/hr"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem269 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem29 = new System.Windows.Forms.ListViewItem(new string[] {
             "15",
             "ExternalUnitsSpecificHeatCapacity",
             "MMBTU/( lbs ·°F) "}, -1);
-            System.Windows.Forms.ListViewItem listViewItem270 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem30 = new System.Windows.Forms.ListViewItem(new string[] {
             "16",
             "ExternalUnitsU",
             "MMBtu/(hr·ft²·°F)"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem271 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem31 = new System.Windows.Forms.ListViewItem(new string[] {
             "17",
             "InternalMagnitudeUnits",
             "Kilo"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem272 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem32 = new System.Windows.Forms.ListViewItem(new string[] {
             "18",
             "InternalPressUnits",
             "Pa"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem273 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem33 = new System.Windows.Forms.ListViewItem(new string[] {
             "19",
             "InternalSystemUnits",
             "Metric - SI"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem274 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem34 = new System.Windows.Forms.ListViewItem(new string[] {
             "20",
             "InternalTempUnits",
             "°C"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem275 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem35 = new System.Windows.Forms.ListViewItem(new string[] {
             "21",
             "InternalUnitsA",
             "m²"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem276 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem36 = new System.Windows.Forms.ListViewItem(new string[] {
             "22",
             "InternalUnitsEnergy",
             "kW"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem277 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem37 = new System.Windows.Forms.ListViewItem(new string[] {
             "23",
             "InternalUnitsHeatCapacityFlowRate",
             "kW/K"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem278 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem38 = new System.Windows.Forms.ListViewItem(new string[] {
             "24",
             "InternalUnitsMassFlowrate",
             "kg/s"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem279 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem39 = new System.Windows.Forms.ListViewItem(new string[] {
             "25",
             "InternalUnitsSpecificHeatCapacity",
             "kJ/kg-K"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem280 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem40 = new System.Windows.Forms.ListViewItem(new string[] {
             "26",
             "InternalUnitsU",
             "kW/(m²·K)"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem281 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem41 = new System.Windows.Forms.ListViewItem(new string[] {
             "27",
             "LastMigrationApplied",
             "InitialCreate"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem282 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem42 = new System.Windows.Forms.ListViewItem(new string[] {
             "28",
             "ReportDefaultFont",
             "Segoe UI"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem283 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem43 = new System.Windows.Forms.ListViewItem(new string[] {
             "29",
             "ReportIncludeAuditSection",
             "True"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem284 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem44 = new System.Windows.Forms.ListViewItem(new string[] {
             "30",
             "ReportUnitsProfile",
             "Default"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.White, null);
-            System.Windows.Forms.ListViewItem listViewItem285 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem45 = new System.Windows.Forms.ListViewItem(new string[] {
             "31",
             "SchemaVersion",
             "1.0.0"}, -1);
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.ListViewItem listViewItem286 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewItem listViewItem46 = new System.Windows.Forms.ListViewItem(new string[] {
             "Heat Flow Rate (Duty)",
             "MMBtu/hr"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem287 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem47 = new System.Windows.Forms.ListViewItem(new string[] {
             "Heat Capacity Flow Rate (CP)",
             "MMBtu/(hr °F)"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Azure, null);
-            System.Windows.Forms.ListViewItem listViewItem288 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem48 = new System.Windows.Forms.ListViewItem(new string[] {
             "Temperature (Temp)",
             "°F"}, -1);
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contextMenuStripProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemProfileRename = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -266,13 +266,6 @@
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.exitAJPHENStudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.licenseViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.licenseScoreCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.userLicenseAgreementToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutAJPHENStudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -310,6 +303,7 @@
             this.panelHomeAJP = new System.Windows.Forms.Panel();
             this.pictureBoxHomeAjpLogo = new System.Windows.Forms.PictureBox();
             this.tabPageROOT_FactorSettings = new System.Windows.Forms.TabPage();
+            this.pictureBoxFactorySettingsAjpEngLogo = new System.Windows.Forms.PictureBox();
             this.panelAppComponents = new System.Windows.Forms.Panel();
             this.listViewAppComponents = new System.Windows.Forms.ListView();
             this.columnHeaderComponentsNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -328,6 +322,7 @@
             this.columnHeaderSettingsName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderSettingsValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageROOT_Database = new System.Windows.Forms.TabPage();
+            this.pictureBoxDbAjpEndLogo = new System.Windows.Forms.PictureBox();
             this.panelDatabaseTables = new System.Windows.Forms.Panel();
             this.textBoxDatabaseTablesTitle = new System.Windows.Forms.TextBox();
             this.listViewDatabaseTables = new System.Windows.Forms.ListView();
@@ -355,6 +350,31 @@
             this.buttonConnection = new System.Windows.Forms.Button();
             this.tabPageROOT_License = new System.Windows.Forms.TabPage();
             this.tabControlLicense = new System.Windows.Forms.TabControl();
+            this.tabPageLicenseScorecard = new System.Windows.Forms.TabPage();
+            this.pictureBoxAjpEngLogo = new System.Windows.Forms.PictureBox();
+            this.textBoxOverallStatus = new System.Windows.Forms.TextBox();
+            this.panelScorecardSummary = new System.Windows.Forms.Panel();
+            this.pictureBoxInvalid = new System.Windows.Forms.PictureBox();
+            this.labelInvalidTotal = new System.Windows.Forms.Label();
+            this.pictureBoxValid = new System.Windows.Forms.PictureBox();
+            this.labelVaildTotal = new System.Windows.Forms.Label();
+            this.textBoxScorecardSummary = new System.Windows.Forms.TextBox();
+            this.panelDeviceUser = new System.Windows.Forms.Panel();
+            this.labelFullname = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pictureBoxRunning = new System.Windows.Forms.PictureBox();
+            this.labelUser = new System.Windows.Forms.Label();
+            this.textBoxUser = new System.Windows.Forms.TextBox();
+            this.labelDevice = new System.Windows.Forms.Label();
+            this.textBoxDevice = new System.Windows.Forms.TextBox();
+            this.textBoxDeviceUserTITLE = new System.Windows.Forms.TextBox();
+            this.panelScorecardTable = new System.Windows.Forms.Panel();
+            this.dataGridViewScoreCard = new System.Windows.Forms.DataGridView();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnState = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnProperty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxLicenseScorecardTITLE = new System.Windows.Forms.TextBox();
             this.tabPageLicenseFile = new System.Windows.Forms.TabPage();
             this.panelLicenseType = new System.Windows.Forms.Panel();
             this.pictureBoxKeys = new System.Windows.Forms.PictureBox();
@@ -412,30 +432,26 @@
             this.textBoxDuration = new System.Windows.Forms.TextBox();
             this.labelDays = new System.Windows.Forms.Label();
             this.textBoxLicenseKey = new System.Windows.Forms.TextBox();
-            this.tabPageLicenseScorecard = new System.Windows.Forms.TabPage();
-            this.panelScorecardSummary = new System.Windows.Forms.Panel();
-            this.pictureBoxInvalid = new System.Windows.Forms.PictureBox();
-            this.labelInvalidTotal = new System.Windows.Forms.Label();
-            this.pictureBoxValid = new System.Windows.Forms.PictureBox();
-            this.labelVaildTotal = new System.Windows.Forms.Label();
-            this.textBoxScorecardSummary = new System.Windows.Forms.TextBox();
-            this.panelDeviceUser = new System.Windows.Forms.Panel();
-            this.labelFullname = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBoxRunning = new System.Windows.Forms.PictureBox();
-            this.labelUser = new System.Windows.Forms.Label();
-            this.textBoxUser = new System.Windows.Forms.TextBox();
-            this.labelDevice = new System.Windows.Forms.Label();
-            this.textBoxDevice = new System.Windows.Forms.TextBox();
-            this.textBoxDeviceUserTITLE = new System.Windows.Forms.TextBox();
-            this.panelScorecardTable = new System.Windows.Forms.Panel();
-            this.dataGridViewScoreCard = new System.Windows.Forms.DataGridView();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnState = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColumnProperty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxLicenseScorecardTITLE = new System.Windows.Forms.TextBox();
             this.tabPageROOT_About = new System.Windows.Forms.TabPage();
+            this.panelAbout = new System.Windows.Forms.Panel();
+            this.pictureBoxAjpContactInfo = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLicenseAgreement = new System.Windows.Forms.PictureBox();
+            this.pictureBoxHenStudio = new System.Windows.Forms.PictureBox();
+            this.pictureBoxProductWarning = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanelProduct = new System.Windows.Forms.TableLayoutPanel();
+            this.labelProductFullName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelProductFullNameValue = new System.Windows.Forms.Label();
+            this.labelProductNameValue = new System.Windows.Forms.Label();
+            this.labelProductVersion = new System.Windows.Forms.Label();
+            this.labelProductVersionValue = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelSerialNumberValue = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelProductCodeValue = new System.Windows.Forms.Label();
+            this.tableLayoutPanelSupplier = new System.Windows.Forms.TableLayoutPanel();
+            this.labelSuplierName = new System.Windows.Forms.Label();
+            this.labelSupplierNameValue = new System.Windows.Forms.Label();
             this.textBoxProjectsBanner = new System.Windows.Forms.TextBox();
             this.panelSELECTED_PROJECT = new System.Windows.Forms.Panel();
             this.tabControlProject = new System.Windows.Forms.TabControl();
@@ -617,10 +633,6 @@
             this.textBoxHenBanner = new System.Windows.Forms.TextBox();
             this.pictureBoxOpenedHen = new System.Windows.Forms.PictureBox();
             this.imageListProject = new System.Windows.Forms.ImageList(this.components);
-            this.textBoxOverallStatus = new System.Windows.Forms.TextBox();
-            this.pictureBoxAjpEngLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxDbAjpEndLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxFactorySettingsAjpEngLogo = new System.Windows.Forms.PictureBox();
             this.contextMenuStripProfile.SuspendLayout();
             this.contextMenuStripCurrProj.SuspendLayout();
             this.contextMenuStripProjectCatalog.SuspendLayout();
@@ -636,14 +648,25 @@
             this.panelHomeAJP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomeAjpLogo)).BeginInit();
             this.tabPageROOT_FactorSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactorySettingsAjpEngLogo)).BeginInit();
             this.panelAppComponents.SuspendLayout();
             this.panelAppMetadata.SuspendLayout();
             this.panelFactorySettings.SuspendLayout();
             this.tabPageROOT_Database.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDbAjpEndLogo)).BeginInit();
             this.panelDatabaseTables.SuspendLayout();
             this.panelProjectDbFileMetadata.SuspendLayout();
             this.tabPageROOT_License.SuspendLayout();
             this.tabControlLicense.SuspendLayout();
+            this.tabPageLicenseScorecard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjpEngLogo)).BeginInit();
+            this.panelScorecardSummary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInvalid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxValid)).BeginInit();
+            this.panelDeviceUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRunning)).BeginInit();
+            this.panelScorecardTable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScoreCard)).BeginInit();
             this.tabPageLicenseFile.SuspendLayout();
             this.panelLicenseType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxKeys)).BeginInit();
@@ -652,14 +675,14 @@
             this.panelCustomerContact.SuspendLayout();
             this.panelProduct.SuspendLayout();
             this.panelLicense.SuspendLayout();
-            this.tabPageLicenseScorecard.SuspendLayout();
-            this.panelScorecardSummary.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInvalid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxValid)).BeginInit();
-            this.panelDeviceUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRunning)).BeginInit();
-            this.panelScorecardTable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScoreCard)).BeginInit();
+            this.tabPageROOT_About.SuspendLayout();
+            this.panelAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjpContactInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLicenseAgreement)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHenStudio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductWarning)).BeginInit();
+            this.tableLayoutPanelProduct.SuspendLayout();
+            this.tableLayoutPanelSupplier.SuspendLayout();
             this.panelSELECTED_PROJECT.SuspendLayout();
             this.tabControlProject.SuspendLayout();
             this.tabPageDefaultParams.SuspendLayout();
@@ -688,9 +711,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedPinch)).BeginInit();
             this.panelSELECTED_HEN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjpEngLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDbAjpEndLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactorySettingsAjpEngLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStripProfile
@@ -866,8 +886,7 @@
             this.menuStripMainCatalog.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStripMainCatalog.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStripMainCatalog.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.catalogToolStripMenuItem,
-            this.helpToolStripMenuItem1});
+            this.catalogToolStripMenuItem});
             this.menuStripMainCatalog.Location = new System.Drawing.Point(0, 0);
             this.menuStripMainCatalog.Name = "menuStripMainCatalog";
             this.menuStripMainCatalog.Size = new System.Drawing.Size(1264, 24);
@@ -907,65 +926,6 @@
             this.exitAJPHENStudioToolStripMenuItem.Text = "Exit AJP HEN Studio";
             this.exitAJPHENStudioToolStripMenuItem.ToolTipText = "Exit Application";
             this.exitAJPHENStudioToolStripMenuItem.Click += new System.EventHandler(this.exitAJPHENStudioToolStripMenuItem_Click);
-            // 
-            // helpToolStripMenuItem1
-            // 
-            this.helpToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.licenseViewerToolStripMenuItem,
-            this.licenseScoreCardToolStripMenuItem,
-            this.toolStripSeparator7,
-            this.userLicenseAgreementToolStripMenuItem1,
-            this.toolStripSeparator8,
-            this.aboutAJPHENStudioToolStripMenuItem});
-            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(45, 20);
-            this.helpToolStripMenuItem1.Text = "Help";
-            // 
-            // licenseViewerToolStripMenuItem
-            // 
-            this.licenseViewerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("licenseViewerToolStripMenuItem.Image")));
-            this.licenseViewerToolStripMenuItem.Name = "licenseViewerToolStripMenuItem";
-            this.licenseViewerToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
-            this.licenseViewerToolStripMenuItem.Text = "License Viewer...";
-            this.licenseViewerToolStripMenuItem.ToolTipText = "Display License Viewer";
-            this.licenseViewerToolStripMenuItem.Click += new System.EventHandler(this.licenseViewerToolStripMenuItem_Click);
-            // 
-            // licenseScoreCardToolStripMenuItem
-            // 
-            this.licenseScoreCardToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("licenseScoreCardToolStripMenuItem.Image")));
-            this.licenseScoreCardToolStripMenuItem.Name = "licenseScoreCardToolStripMenuItem";
-            this.licenseScoreCardToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
-            this.licenseScoreCardToolStripMenuItem.Text = "License Score Card";
-            this.licenseScoreCardToolStripMenuItem.ToolTipText = "Display License Score Card";
-            this.licenseScoreCardToolStripMenuItem.Click += new System.EventHandler(this.licenseScoreCardToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(225, 6);
-            // 
-            // userLicenseAgreementToolStripMenuItem1
-            // 
-            this.userLicenseAgreementToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("userLicenseAgreementToolStripMenuItem1.Image")));
-            this.userLicenseAgreementToolStripMenuItem1.Name = "userLicenseAgreementToolStripMenuItem1";
-            this.userLicenseAgreementToolStripMenuItem1.Size = new System.Drawing.Size(228, 30);
-            this.userLicenseAgreementToolStripMenuItem1.Text = "User License Agreement...";
-            this.userLicenseAgreementToolStripMenuItem1.ToolTipText = "Display User-Software License Agreement";
-            this.userLicenseAgreementToolStripMenuItem1.Click += new System.EventHandler(this.userLicenseAgreementToolStripMenuItem1_Click_1);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(225, 6);
-            // 
-            // aboutAJPHENStudioToolStripMenuItem
-            // 
-            this.aboutAJPHENStudioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutAJPHENStudioToolStripMenuItem.Image")));
-            this.aboutAJPHENStudioToolStripMenuItem.Name = "aboutAJPHENStudioToolStripMenuItem";
-            this.aboutAJPHENStudioToolStripMenuItem.Size = new System.Drawing.Size(228, 30);
-            this.aboutAJPHENStudioToolStripMenuItem.Text = "About AJP HEN Studio...";
-            this.aboutAJPHENStudioToolStripMenuItem.ToolTipText = "About AJP HEN Pinch";
-            this.aboutAJPHENStudioToolStripMenuItem.Click += new System.EventHandler(this.aboutAJPHENStudioToolStripMenuItem_Click);
             // 
             // fileToolStripMenuItem
             // 
@@ -1148,8 +1108,6 @@
             this.toolStripStatusLabelLICENSE.Padding = new System.Windows.Forms.Padding(9, 3, 3, 3);
             this.toolStripStatusLabelLICENSE.Size = new System.Drawing.Size(105, 33);
             this.toolStripStatusLabelLICENSE.Text = "LICENSE ";
-            this.toolStripStatusLabelLICENSE.Click += new System.EventHandler(this.toolStripStatusLabelLICENSE_Click);
-            this.toolStripStatusLabelLICENSE.DoubleClick += new System.EventHandler(this.toolStripStatusLabelLICENSE_DoubleClick);
             // 
             // toolStripStatusLabelCAT_DB
             // 
@@ -1258,56 +1216,56 @@
             this.treeViewCurrentProjectExplorer.Location = new System.Drawing.Point(0, 0);
             this.treeViewCurrentProjectExplorer.Margin = new System.Windows.Forms.Padding(6);
             this.treeViewCurrentProjectExplorer.Name = "treeViewCurrentProjectExplorer";
-            treeNode11.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode11.ImageIndex = 3;
-            treeNode11.Name = "NodeProfile_01";
-            treeNode11.SelectedImageIndex = 4;
-            treeNode11.Text = "Profile: Q1 Setup";
-            treeNode12.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode12.ImageIndex = 3;
-            treeNode12.Name = "NodeProfile_02";
-            treeNode12.SelectedImageIndex = 4;
-            treeNode12.Text = "Profile: Q2 Setup";
-            treeNode13.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode13.ImageIndex = 3;
-            treeNode13.Name = "NodeProfile_03";
-            treeNode13.SelectedImageIndex = 4;
-            treeNode13.Text = "Profile: Q3 Setup";
-            treeNode14.ContextMenuStrip = this.contextMenuStripProfile;
-            treeNode14.ImageIndex = 3;
-            treeNode14.Name = "NodeProfile_04";
-            treeNode14.SelectedImageIndex = 4;
-            treeNode14.Text = "Profile: Q4 Setup";
-            treeNode15.ImageKey = "Pinch_16x16.ico";
-            treeNode15.Name = "Node0";
-            treeNode15.SelectedImageIndex = 6;
-            treeNode15.Text = "Study: Pinch Analysis";
-            treeNode16.ImageKey = "Pinch_16x16.ico";
-            treeNode16.Name = "Node1";
-            treeNode16.SelectedImageKey = "PinchSelected_16x16.ico";
-            treeNode16.Text = "Study: HEN Analysis";
-            treeNode17.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode17.ImageIndex = 1;
-            treeNode17.Name = "NodeProject02";
-            treeNode17.SelectedImageIndex = 2;
-            treeNode17.Text = "Project: Deer Park";
-            treeNode18.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode18.ImageIndex = 1;
-            treeNode18.Name = "NodeProject02";
-            treeNode18.SelectedImageIndex = 2;
-            treeNode18.Text = "Project: Convent";
-            treeNode19.ContextMenuStrip = this.contextMenuStripCurrProj;
-            treeNode19.ImageIndex = 1;
-            treeNode19.Name = "NodeProject03";
-            treeNode19.SelectedImageIndex = 2;
-            treeNode19.Text = "Project: Norco";
-            treeNode20.ContextMenuStrip = this.contextMenuStripProjectCatalog;
-            treeNode20.ImageIndex = 10;
-            treeNode20.Name = "NodeRootProjects";
-            treeNode20.SelectedImageIndex = 10;
-            treeNode20.Text = "HEN Studio";
+            treeNode1.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode1.ImageIndex = 3;
+            treeNode1.Name = "NodeProfile_01";
+            treeNode1.SelectedImageIndex = 4;
+            treeNode1.Text = "Profile: Q1 Setup";
+            treeNode2.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode2.ImageIndex = 3;
+            treeNode2.Name = "NodeProfile_02";
+            treeNode2.SelectedImageIndex = 4;
+            treeNode2.Text = "Profile: Q2 Setup";
+            treeNode3.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode3.ImageIndex = 3;
+            treeNode3.Name = "NodeProfile_03";
+            treeNode3.SelectedImageIndex = 4;
+            treeNode3.Text = "Profile: Q3 Setup";
+            treeNode4.ContextMenuStrip = this.contextMenuStripProfile;
+            treeNode4.ImageIndex = 3;
+            treeNode4.Name = "NodeProfile_04";
+            treeNode4.SelectedImageIndex = 4;
+            treeNode4.Text = "Profile: Q4 Setup";
+            treeNode5.ImageKey = "Pinch_16x16.ico";
+            treeNode5.Name = "Node0";
+            treeNode5.SelectedImageIndex = 6;
+            treeNode5.Text = "Study: Pinch Analysis";
+            treeNode6.ImageKey = "Pinch_16x16.ico";
+            treeNode6.Name = "Node1";
+            treeNode6.SelectedImageKey = "PinchSelected_16x16.ico";
+            treeNode6.Text = "Study: HEN Analysis";
+            treeNode7.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode7.ImageIndex = 1;
+            treeNode7.Name = "NodeProject02";
+            treeNode7.SelectedImageIndex = 2;
+            treeNode7.Text = "Project: Deer Park";
+            treeNode8.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode8.ImageIndex = 1;
+            treeNode8.Name = "NodeProject02";
+            treeNode8.SelectedImageIndex = 2;
+            treeNode8.Text = "Project: Convent";
+            treeNode9.ContextMenuStrip = this.contextMenuStripCurrProj;
+            treeNode9.ImageIndex = 1;
+            treeNode9.Name = "NodeProject03";
+            treeNode9.SelectedImageIndex = 2;
+            treeNode9.Text = "Project: Norco";
+            treeNode10.ContextMenuStrip = this.contextMenuStripProjectCatalog;
+            treeNode10.ImageIndex = 10;
+            treeNode10.Name = "NodeRootProjects";
+            treeNode10.SelectedImageIndex = 10;
+            treeNode10.Text = "HEN Studio";
             this.treeViewCurrentProjectExplorer.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode20});
+            treeNode10});
             this.treeViewCurrentProjectExplorer.SelectedImageIndex = 9;
             this.treeViewCurrentProjectExplorer.Size = new System.Drawing.Size(351, 619);
             this.treeViewCurrentProjectExplorer.TabIndex = 1;
@@ -1413,6 +1371,18 @@
             this.tabPageROOT_FactorSettings.TabIndex = 3;
             this.tabPageROOT_FactorSettings.Text = "  Factory Settings  ";
             // 
+            // pictureBoxFactorySettingsAjpEngLogo
+            // 
+            this.pictureBoxFactorySettingsAjpEngLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxFactorySettingsAjpEngLogo.BackColor = System.Drawing.Color.Azure;
+            this.pictureBoxFactorySettingsAjpEngLogo.Image = global::HenStudio.Properties.Resources.AJP_Engineering_Logo;
+            this.pictureBoxFactorySettingsAjpEngLogo.Location = new System.Drawing.Point(575, 393);
+            this.pictureBoxFactorySettingsAjpEngLogo.Name = "pictureBoxFactorySettingsAjpEngLogo";
+            this.pictureBoxFactorySettingsAjpEngLogo.Size = new System.Drawing.Size(320, 125);
+            this.pictureBoxFactorySettingsAjpEngLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFactorySettingsAjpEngLogo.TabIndex = 21;
+            this.pictureBoxFactorySettingsAjpEngLogo.TabStop = false;
+            // 
             // panelAppComponents
             // 
             this.panelAppComponents.BackColor = System.Drawing.Color.White;
@@ -1440,13 +1410,13 @@
             this.listViewAppComponents.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewAppComponents.HideSelection = false;
             this.listViewAppComponents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem241,
-            listViewItem242,
-            listViewItem243,
-            listViewItem244,
-            listViewItem245,
-            listViewItem246,
-            listViewItem247});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7});
             this.listViewAppComponents.Location = new System.Drawing.Point(10, 35);
             this.listViewAppComponents.Margin = new System.Windows.Forms.Padding(6);
             this.listViewAppComponents.Name = "listViewAppComponents";
@@ -1506,13 +1476,13 @@
             this.listViewAppMetadata.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewAppMetadata.HideSelection = false;
             this.listViewAppMetadata.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem248,
-            listViewItem249,
-            listViewItem250,
-            listViewItem251,
-            listViewItem252,
-            listViewItem253,
-            listViewItem254});
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14});
             this.listViewAppMetadata.Location = new System.Drawing.Point(8, 34);
             this.listViewAppMetadata.Margin = new System.Windows.Forms.Padding(6);
             this.listViewAppMetadata.Name = "listViewAppMetadata";
@@ -1596,37 +1566,37 @@
             this.listViewFactorySettings.GridLines = true;
             this.listViewFactorySettings.HideSelection = false;
             this.listViewFactorySettings.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem255,
-            listViewItem256,
-            listViewItem257,
-            listViewItem258,
-            listViewItem259,
-            listViewItem260,
-            listViewItem261,
-            listViewItem262,
-            listViewItem263,
-            listViewItem264,
-            listViewItem265,
-            listViewItem266,
-            listViewItem267,
-            listViewItem268,
-            listViewItem269,
-            listViewItem270,
-            listViewItem271,
-            listViewItem272,
-            listViewItem273,
-            listViewItem274,
-            listViewItem275,
-            listViewItem276,
-            listViewItem277,
-            listViewItem278,
-            listViewItem279,
-            listViewItem280,
-            listViewItem281,
-            listViewItem282,
-            listViewItem283,
-            listViewItem284,
-            listViewItem285});
+            listViewItem15,
+            listViewItem16,
+            listViewItem17,
+            listViewItem18,
+            listViewItem19,
+            listViewItem20,
+            listViewItem21,
+            listViewItem22,
+            listViewItem23,
+            listViewItem24,
+            listViewItem25,
+            listViewItem26,
+            listViewItem27,
+            listViewItem28,
+            listViewItem29,
+            listViewItem30,
+            listViewItem31,
+            listViewItem32,
+            listViewItem33,
+            listViewItem34,
+            listViewItem35,
+            listViewItem36,
+            listViewItem37,
+            listViewItem38,
+            listViewItem39,
+            listViewItem40,
+            listViewItem41,
+            listViewItem42,
+            listViewItem43,
+            listViewItem44,
+            listViewItem45});
             this.listViewFactorySettings.Location = new System.Drawing.Point(12, 35);
             this.listViewFactorySettings.Margin = new System.Windows.Forms.Padding(6);
             this.listViewFactorySettings.Name = "listViewFactorySettings";
@@ -1662,6 +1632,18 @@
             this.tabPageROOT_Database.Size = new System.Drawing.Size(903, 527);
             this.tabPageROOT_Database.TabIndex = 2;
             this.tabPageROOT_Database.Text = "  Database  ";
+            // 
+            // pictureBoxDbAjpEndLogo
+            // 
+            this.pictureBoxDbAjpEndLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxDbAjpEndLogo.BackColor = System.Drawing.Color.Azure;
+            this.pictureBoxDbAjpEndLogo.Image = global::HenStudio.Properties.Resources.AJP_Engineering_Logo;
+            this.pictureBoxDbAjpEndLogo.Location = new System.Drawing.Point(497, 356);
+            this.pictureBoxDbAjpEndLogo.Name = "pictureBoxDbAjpEndLogo";
+            this.pictureBoxDbAjpEndLogo.Size = new System.Drawing.Size(387, 162);
+            this.pictureBoxDbAjpEndLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxDbAjpEndLogo.TabIndex = 18;
+            this.pictureBoxDbAjpEndLogo.TabStop = false;
             // 
             // panelDatabaseTables
             // 
@@ -2027,6 +2009,379 @@
             this.tabControlLicense.Size = new System.Drawing.Size(897, 521);
             this.tabControlLicense.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControlLicense.TabIndex = 56;
+            // 
+            // tabPageLicenseScorecard
+            // 
+            this.tabPageLicenseScorecard.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageLicenseScorecard.Controls.Add(this.pictureBoxAjpEngLogo);
+            this.tabPageLicenseScorecard.Controls.Add(this.textBoxOverallStatus);
+            this.tabPageLicenseScorecard.Controls.Add(this.panelScorecardSummary);
+            this.tabPageLicenseScorecard.Controls.Add(this.panelDeviceUser);
+            this.tabPageLicenseScorecard.Controls.Add(this.panelScorecardTable);
+            this.tabPageLicenseScorecard.Location = new System.Drawing.Point(4, 32);
+            this.tabPageLicenseScorecard.Name = "tabPageLicenseScorecard";
+            this.tabPageLicenseScorecard.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageLicenseScorecard.Size = new System.Drawing.Size(889, 485);
+            this.tabPageLicenseScorecard.TabIndex = 1;
+            this.tabPageLicenseScorecard.Text = "  Scorecard  ";
+            // 
+            // pictureBoxAjpEngLogo
+            // 
+            this.pictureBoxAjpEngLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxAjpEngLogo.BackColor = System.Drawing.Color.Azure;
+            this.pictureBoxAjpEngLogo.Image = global::HenStudio.Properties.Resources.AJP_Engineering_Logo;
+            this.pictureBoxAjpEngLogo.Location = new System.Drawing.Point(498, 314);
+            this.pictureBoxAjpEngLogo.Name = "pictureBoxAjpEngLogo";
+            this.pictureBoxAjpEngLogo.Size = new System.Drawing.Size(387, 162);
+            this.pictureBoxAjpEngLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxAjpEngLogo.TabIndex = 12;
+            this.pictureBoxAjpEngLogo.TabStop = false;
+            // 
+            // textBoxOverallStatus
+            // 
+            this.textBoxOverallStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxOverallStatus.BackColor = System.Drawing.Color.Green;
+            this.textBoxOverallStatus.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxOverallStatus.ForeColor = System.Drawing.Color.Yellow;
+            this.textBoxOverallStatus.Location = new System.Drawing.Point(496, 217);
+            this.textBoxOverallStatus.Name = "textBoxOverallStatus";
+            this.textBoxOverallStatus.Size = new System.Drawing.Size(387, 33);
+            this.textBoxOverallStatus.TabIndex = 11;
+            this.textBoxOverallStatus.Text = "VALID LICENSE";
+            this.textBoxOverallStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelScorecardSummary
+            // 
+            this.panelScorecardSummary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelScorecardSummary.BackColor = System.Drawing.Color.White;
+            this.panelScorecardSummary.Controls.Add(this.pictureBoxInvalid);
+            this.panelScorecardSummary.Controls.Add(this.labelInvalidTotal);
+            this.panelScorecardSummary.Controls.Add(this.pictureBoxValid);
+            this.panelScorecardSummary.Controls.Add(this.labelVaildTotal);
+            this.panelScorecardSummary.Controls.Add(this.textBoxScorecardSummary);
+            this.panelScorecardSummary.Location = new System.Drawing.Point(496, 117);
+            this.panelScorecardSummary.Name = "panelScorecardSummary";
+            this.panelScorecardSummary.Size = new System.Drawing.Size(387, 90);
+            this.panelScorecardSummary.TabIndex = 2;
+            // 
+            // pictureBoxInvalid
+            // 
+            this.pictureBoxInvalid.Image = global::HenStudio.Properties.Resources.InValidLarge;
+            this.pictureBoxInvalid.Location = new System.Drawing.Point(223, 35);
+            this.pictureBoxInvalid.Name = "pictureBoxInvalid";
+            this.pictureBoxInvalid.Size = new System.Drawing.Size(40, 40);
+            this.pictureBoxInvalid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxInvalid.TabIndex = 45;
+            this.pictureBoxInvalid.TabStop = false;
+            // 
+            // labelInvalidTotal
+            // 
+            this.labelInvalidTotal.AutoSize = true;
+            this.labelInvalidTotal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInvalidTotal.ForeColor = System.Drawing.Color.OrangeRed;
+            this.labelInvalidTotal.Location = new System.Drawing.Point(269, 45);
+            this.labelInvalidTotal.Name = "labelInvalidTotal";
+            this.labelInvalidTotal.Size = new System.Drawing.Size(18, 20);
+            this.labelInvalidTotal.TabIndex = 44;
+            this.labelInvalidTotal.Text = "0";
+            this.labelInvalidTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBoxValid
+            // 
+            this.pictureBoxValid.Image = global::HenStudio.Properties.Resources.ValidLarge;
+            this.pictureBoxValid.Location = new System.Drawing.Point(121, 35);
+            this.pictureBoxValid.Name = "pictureBoxValid";
+            this.pictureBoxValid.Size = new System.Drawing.Size(40, 40);
+            this.pictureBoxValid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxValid.TabIndex = 43;
+            this.pictureBoxValid.TabStop = false;
+            // 
+            // labelVaildTotal
+            // 
+            this.labelVaildTotal.AutoSize = true;
+            this.labelVaildTotal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVaildTotal.ForeColor = System.Drawing.Color.Green;
+            this.labelVaildTotal.Location = new System.Drawing.Point(167, 45);
+            this.labelVaildTotal.Name = "labelVaildTotal";
+            this.labelVaildTotal.Size = new System.Drawing.Size(27, 20);
+            this.labelVaildTotal.TabIndex = 42;
+            this.labelVaildTotal.Text = "20";
+            this.labelVaildTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxScorecardSummary
+            // 
+            this.textBoxScorecardSummary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxScorecardSummary.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxScorecardSummary.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxScorecardSummary.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxScorecardSummary.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxScorecardSummary.Location = new System.Drawing.Point(3, 3);
+            this.textBoxScorecardSummary.Name = "textBoxScorecardSummary";
+            this.textBoxScorecardSummary.ReadOnly = true;
+            this.textBoxScorecardSummary.Size = new System.Drawing.Size(381, 22);
+            this.textBoxScorecardSummary.TabIndex = 40;
+            this.textBoxScorecardSummary.TabStop = false;
+            this.textBoxScorecardSummary.Text = "SUMMARY";
+            this.textBoxScorecardSummary.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelDeviceUser
+            // 
+            this.panelDeviceUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDeviceUser.BackColor = System.Drawing.Color.White;
+            this.panelDeviceUser.Controls.Add(this.labelFullname);
+            this.panelDeviceUser.Controls.Add(this.textBox2);
+            this.panelDeviceUser.Controls.Add(this.pictureBoxRunning);
+            this.panelDeviceUser.Controls.Add(this.labelUser);
+            this.panelDeviceUser.Controls.Add(this.textBoxUser);
+            this.panelDeviceUser.Controls.Add(this.labelDevice);
+            this.panelDeviceUser.Controls.Add(this.textBoxDevice);
+            this.panelDeviceUser.Controls.Add(this.textBoxDeviceUserTITLE);
+            this.panelDeviceUser.Location = new System.Drawing.Point(496, 4);
+            this.panelDeviceUser.Name = "panelDeviceUser";
+            this.panelDeviceUser.Size = new System.Drawing.Size(387, 103);
+            this.panelDeviceUser.TabIndex = 1;
+            // 
+            // labelFullname
+            // 
+            this.labelFullname.AutoSize = true;
+            this.labelFullname.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFullname.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelFullname.Location = new System.Drawing.Point(105, 74);
+            this.labelFullname.Name = "labelFullname";
+            this.labelFullname.Size = new System.Drawing.Size(81, 20);
+            this.labelFullname.TabIndex = 46;
+            this.labelFullname.Text = "Fullname: ";
+            this.labelFullname.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
+            this.textBox2.Location = new System.Drawing.Point(192, 74);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(180, 20);
+            this.textBox2.TabIndex = 45;
+            this.textBox2.Text = "NUC\\baseb";
+            // 
+            // pictureBoxRunning
+            // 
+            this.pictureBoxRunning.Image = global::HenStudio.Properties.Resources.RunningLarge1;
+            this.pictureBoxRunning.Location = new System.Drawing.Point(6, 31);
+            this.pictureBoxRunning.Name = "pictureBoxRunning";
+            this.pictureBoxRunning.Size = new System.Drawing.Size(93, 63);
+            this.pictureBoxRunning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxRunning.TabIndex = 44;
+            this.pictureBoxRunning.TabStop = false;
+            // 
+            // labelUser
+            // 
+            this.labelUser.AutoSize = true;
+            this.labelUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelUser.Location = new System.Drawing.Point(136, 54);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(50, 20);
+            this.labelUser.TabIndex = 43;
+            this.labelUser.Text = "User: ";
+            this.labelUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxUser
+            // 
+            this.textBoxUser.BackColor = System.Drawing.Color.White;
+            this.textBoxUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUser.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUser.ForeColor = System.Drawing.Color.Black;
+            this.textBoxUser.Location = new System.Drawing.Point(192, 54);
+            this.textBoxUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxUser.Name = "textBoxUser";
+            this.textBoxUser.ReadOnly = true;
+            this.textBoxUser.Size = new System.Drawing.Size(180, 20);
+            this.textBoxUser.TabIndex = 42;
+            this.textBoxUser.Text = "baseb";
+            // 
+            // labelDevice
+            // 
+            this.labelDevice.AutoSize = true;
+            this.labelDevice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDevice.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelDevice.Location = new System.Drawing.Point(123, 33);
+            this.labelDevice.Name = "labelDevice";
+            this.labelDevice.Size = new System.Drawing.Size(63, 20);
+            this.labelDevice.TabIndex = 41;
+            this.labelDevice.Text = "Device: ";
+            this.labelDevice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxDevice
+            // 
+            this.textBoxDevice.BackColor = System.Drawing.Color.White;
+            this.textBoxDevice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDevice.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDevice.ForeColor = System.Drawing.Color.Black;
+            this.textBoxDevice.Location = new System.Drawing.Point(192, 33);
+            this.textBoxDevice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxDevice.Name = "textBoxDevice";
+            this.textBoxDevice.ReadOnly = true;
+            this.textBoxDevice.Size = new System.Drawing.Size(180, 20);
+            this.textBoxDevice.TabIndex = 40;
+            this.textBoxDevice.Text = "NUC";
+            // 
+            // textBoxDeviceUserTITLE
+            // 
+            this.textBoxDeviceUserTITLE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDeviceUserTITLE.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxDeviceUserTITLE.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDeviceUserTITLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDeviceUserTITLE.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxDeviceUserTITLE.Location = new System.Drawing.Point(3, 3);
+            this.textBoxDeviceUserTITLE.Name = "textBoxDeviceUserTITLE";
+            this.textBoxDeviceUserTITLE.ReadOnly = true;
+            this.textBoxDeviceUserTITLE.Size = new System.Drawing.Size(381, 22);
+            this.textBoxDeviceUserTITLE.TabIndex = 39;
+            this.textBoxDeviceUserTITLE.TabStop = false;
+            this.textBoxDeviceUserTITLE.Text = "DEVICE - USER";
+            this.textBoxDeviceUserTITLE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelScorecardTable
+            // 
+            this.panelScorecardTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelScorecardTable.BackColor = System.Drawing.Color.White;
+            this.panelScorecardTable.Controls.Add(this.dataGridViewScoreCard);
+            this.panelScorecardTable.Controls.Add(this.textBoxLicenseScorecardTITLE);
+            this.panelScorecardTable.Location = new System.Drawing.Point(7, 4);
+            this.panelScorecardTable.Margin = new System.Windows.Forms.Padding(6);
+            this.panelScorecardTable.Name = "panelScorecardTable";
+            this.panelScorecardTable.Padding = new System.Windows.Forms.Padding(3);
+            this.panelScorecardTable.Size = new System.Drawing.Size(482, 472);
+            this.panelScorecardTable.TabIndex = 0;
+            // 
+            // dataGridViewScoreCard
+            // 
+            this.dataGridViewScoreCard.AllowUserToAddRows = false;
+            this.dataGridViewScoreCard.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewScoreCard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewScoreCard.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewScoreCard.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewScoreCard.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewScoreCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewScoreCard.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridViewScoreCard.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewScoreCard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewScoreCard.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnID,
+            this.ColumnState,
+            this.ColumnProperty,
+            this.ColumnValue});
+            this.dataGridViewScoreCard.GridColor = System.Drawing.Color.RoyalBlue;
+            this.dataGridViewScoreCard.Location = new System.Drawing.Point(6, 28);
+            this.dataGridViewScoreCard.Margin = new System.Windows.Forms.Padding(0);
+            this.dataGridViewScoreCard.Name = "dataGridViewScoreCard";
+            this.dataGridViewScoreCard.ReadOnly = true;
+            this.dataGridViewScoreCard.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewScoreCard.RowHeadersVisible = false;
+            this.dataGridViewScoreCard.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewScoreCard.Size = new System.Drawing.Size(470, 406);
+            this.dataGridViewScoreCard.TabIndex = 38;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.ColumnID.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnID.HeaderText = "ID";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.ToolTipText = "License Property ID";
+            this.ColumnID.Width = 50;
+            // 
+            // ColumnState
+            // 
+            this.ColumnState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.ColumnState.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnState.HeaderText = "STATUS";
+            this.ColumnState.MinimumWidth = 60;
+            this.ColumnState.Name = "ColumnState";
+            this.ColumnState.ReadOnly = true;
+            this.ColumnState.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnState.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnState.ToolTipText = "License Property Status";
+            this.ColumnState.Width = 88;
+            // 
+            // ColumnProperty
+            // 
+            this.ColumnProperty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.ColumnProperty.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumnProperty.HeaderText = "PROPERTY";
+            this.ColumnProperty.MinimumWidth = 60;
+            this.ColumnProperty.Name = "ColumnProperty";
+            this.ColumnProperty.ReadOnly = true;
+            this.ColumnProperty.ToolTipText = "License Property";
+            this.ColumnProperty.Width = 109;
+            // 
+            // ColumnValue
+            // 
+            this.ColumnValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.ColumnValue.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColumnValue.HeaderText = "VALUE";
+            this.ColumnValue.MinimumWidth = 60;
+            this.ColumnValue.Name = "ColumnValue";
+            this.ColumnValue.ReadOnly = true;
+            this.ColumnValue.ToolTipText = "License File Property Value";
+            // 
+            // textBoxLicenseScorecardTITLE
+            // 
+            this.textBoxLicenseScorecardTITLE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLicenseScorecardTITLE.BackColor = System.Drawing.Color.Yellow;
+            this.textBoxLicenseScorecardTITLE.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxLicenseScorecardTITLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLicenseScorecardTITLE.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.textBoxLicenseScorecardTITLE.Location = new System.Drawing.Point(6, 6);
+            this.textBoxLicenseScorecardTITLE.Name = "textBoxLicenseScorecardTITLE";
+            this.textBoxLicenseScorecardTITLE.ReadOnly = true;
+            this.textBoxLicenseScorecardTITLE.Size = new System.Drawing.Size(470, 22);
+            this.textBoxLicenseScorecardTITLE.TabIndex = 37;
+            this.textBoxLicenseScorecardTITLE.TabStop = false;
+            this.textBoxLicenseScorecardTITLE.Text = "LICENSE FILE SCORECARD";
+            this.textBoxLicenseScorecardTITLE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabPageLicenseFile
             // 
@@ -2822,370 +3177,300 @@
             this.textBoxLicenseKey.TabIndex = 16;
             this.textBoxLicenseKey.Text = "AJP-00000-00000-00000-00000-00000-ENG";
             // 
-            // tabPageLicenseScorecard
-            // 
-            this.tabPageLicenseScorecard.BackColor = System.Drawing.Color.Honeydew;
-            this.tabPageLicenseScorecard.Controls.Add(this.pictureBoxAjpEngLogo);
-            this.tabPageLicenseScorecard.Controls.Add(this.textBoxOverallStatus);
-            this.tabPageLicenseScorecard.Controls.Add(this.panelScorecardSummary);
-            this.tabPageLicenseScorecard.Controls.Add(this.panelDeviceUser);
-            this.tabPageLicenseScorecard.Controls.Add(this.panelScorecardTable);
-            this.tabPageLicenseScorecard.Location = new System.Drawing.Point(4, 32);
-            this.tabPageLicenseScorecard.Name = "tabPageLicenseScorecard";
-            this.tabPageLicenseScorecard.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLicenseScorecard.Size = new System.Drawing.Size(889, 485);
-            this.tabPageLicenseScorecard.TabIndex = 1;
-            this.tabPageLicenseScorecard.Text = "  Scorecard  ";
-            // 
-            // panelScorecardSummary
-            // 
-            this.panelScorecardSummary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelScorecardSummary.BackColor = System.Drawing.Color.White;
-            this.panelScorecardSummary.Controls.Add(this.pictureBoxInvalid);
-            this.panelScorecardSummary.Controls.Add(this.labelInvalidTotal);
-            this.panelScorecardSummary.Controls.Add(this.pictureBoxValid);
-            this.panelScorecardSummary.Controls.Add(this.labelVaildTotal);
-            this.panelScorecardSummary.Controls.Add(this.textBoxScorecardSummary);
-            this.panelScorecardSummary.Location = new System.Drawing.Point(496, 117);
-            this.panelScorecardSummary.Name = "panelScorecardSummary";
-            this.panelScorecardSummary.Size = new System.Drawing.Size(387, 90);
-            this.panelScorecardSummary.TabIndex = 2;
-            // 
-            // pictureBoxInvalid
-            // 
-            this.pictureBoxInvalid.Image = global::HenStudio.Properties.Resources.InValidLarge;
-            this.pictureBoxInvalid.Location = new System.Drawing.Point(223, 35);
-            this.pictureBoxInvalid.Name = "pictureBoxInvalid";
-            this.pictureBoxInvalid.Size = new System.Drawing.Size(40, 40);
-            this.pictureBoxInvalid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxInvalid.TabIndex = 45;
-            this.pictureBoxInvalid.TabStop = false;
-            // 
-            // labelInvalidTotal
-            // 
-            this.labelInvalidTotal.AutoSize = true;
-            this.labelInvalidTotal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInvalidTotal.ForeColor = System.Drawing.Color.OrangeRed;
-            this.labelInvalidTotal.Location = new System.Drawing.Point(269, 45);
-            this.labelInvalidTotal.Name = "labelInvalidTotal";
-            this.labelInvalidTotal.Size = new System.Drawing.Size(18, 20);
-            this.labelInvalidTotal.TabIndex = 44;
-            this.labelInvalidTotal.Text = "0";
-            this.labelInvalidTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pictureBoxValid
-            // 
-            this.pictureBoxValid.Image = global::HenStudio.Properties.Resources.ValidLarge;
-            this.pictureBoxValid.Location = new System.Drawing.Point(121, 35);
-            this.pictureBoxValid.Name = "pictureBoxValid";
-            this.pictureBoxValid.Size = new System.Drawing.Size(40, 40);
-            this.pictureBoxValid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxValid.TabIndex = 43;
-            this.pictureBoxValid.TabStop = false;
-            // 
-            // labelVaildTotal
-            // 
-            this.labelVaildTotal.AutoSize = true;
-            this.labelVaildTotal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVaildTotal.ForeColor = System.Drawing.Color.Green;
-            this.labelVaildTotal.Location = new System.Drawing.Point(167, 45);
-            this.labelVaildTotal.Name = "labelVaildTotal";
-            this.labelVaildTotal.Size = new System.Drawing.Size(27, 20);
-            this.labelVaildTotal.TabIndex = 42;
-            this.labelVaildTotal.Text = "20";
-            this.labelVaildTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBoxScorecardSummary
-            // 
-            this.textBoxScorecardSummary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxScorecardSummary.BackColor = System.Drawing.Color.Yellow;
-            this.textBoxScorecardSummary.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxScorecardSummary.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxScorecardSummary.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.textBoxScorecardSummary.Location = new System.Drawing.Point(3, 3);
-            this.textBoxScorecardSummary.Name = "textBoxScorecardSummary";
-            this.textBoxScorecardSummary.ReadOnly = true;
-            this.textBoxScorecardSummary.Size = new System.Drawing.Size(381, 22);
-            this.textBoxScorecardSummary.TabIndex = 40;
-            this.textBoxScorecardSummary.TabStop = false;
-            this.textBoxScorecardSummary.Text = "SUMMARY";
-            this.textBoxScorecardSummary.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panelDeviceUser
-            // 
-            this.panelDeviceUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelDeviceUser.BackColor = System.Drawing.Color.White;
-            this.panelDeviceUser.Controls.Add(this.labelFullname);
-            this.panelDeviceUser.Controls.Add(this.textBox2);
-            this.panelDeviceUser.Controls.Add(this.pictureBoxRunning);
-            this.panelDeviceUser.Controls.Add(this.labelUser);
-            this.panelDeviceUser.Controls.Add(this.textBoxUser);
-            this.panelDeviceUser.Controls.Add(this.labelDevice);
-            this.panelDeviceUser.Controls.Add(this.textBoxDevice);
-            this.panelDeviceUser.Controls.Add(this.textBoxDeviceUserTITLE);
-            this.panelDeviceUser.Location = new System.Drawing.Point(496, 4);
-            this.panelDeviceUser.Name = "panelDeviceUser";
-            this.panelDeviceUser.Size = new System.Drawing.Size(387, 103);
-            this.panelDeviceUser.TabIndex = 1;
-            // 
-            // labelFullname
-            // 
-            this.labelFullname.AutoSize = true;
-            this.labelFullname.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFullname.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelFullname.Location = new System.Drawing.Point(105, 74);
-            this.labelFullname.Name = "labelFullname";
-            this.labelFullname.Size = new System.Drawing.Size(81, 20);
-            this.labelFullname.TabIndex = 46;
-            this.labelFullname.Text = "Fullname: ";
-            this.labelFullname.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(192, 74);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(180, 20);
-            this.textBox2.TabIndex = 45;
-            this.textBox2.Text = "NUC\\baseb";
-            // 
-            // pictureBoxRunning
-            // 
-            this.pictureBoxRunning.Image = global::HenStudio.Properties.Resources.RunningLarge1;
-            this.pictureBoxRunning.Location = new System.Drawing.Point(6, 31);
-            this.pictureBoxRunning.Name = "pictureBoxRunning";
-            this.pictureBoxRunning.Size = new System.Drawing.Size(93, 63);
-            this.pictureBoxRunning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxRunning.TabIndex = 44;
-            this.pictureBoxRunning.TabStop = false;
-            // 
-            // labelUser
-            // 
-            this.labelUser.AutoSize = true;
-            this.labelUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUser.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelUser.Location = new System.Drawing.Point(136, 54);
-            this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(50, 20);
-            this.labelUser.TabIndex = 43;
-            this.labelUser.Text = "User: ";
-            this.labelUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBoxUser
-            // 
-            this.textBoxUser.BackColor = System.Drawing.Color.White;
-            this.textBoxUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUser.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUser.ForeColor = System.Drawing.Color.Black;
-            this.textBoxUser.Location = new System.Drawing.Point(192, 54);
-            this.textBoxUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxUser.Name = "textBoxUser";
-            this.textBoxUser.ReadOnly = true;
-            this.textBoxUser.Size = new System.Drawing.Size(180, 20);
-            this.textBoxUser.TabIndex = 42;
-            this.textBoxUser.Text = "baseb";
-            // 
-            // labelDevice
-            // 
-            this.labelDevice.AutoSize = true;
-            this.labelDevice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDevice.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelDevice.Location = new System.Drawing.Point(123, 33);
-            this.labelDevice.Name = "labelDevice";
-            this.labelDevice.Size = new System.Drawing.Size(63, 20);
-            this.labelDevice.TabIndex = 41;
-            this.labelDevice.Text = "Device: ";
-            this.labelDevice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBoxDevice
-            // 
-            this.textBoxDevice.BackColor = System.Drawing.Color.White;
-            this.textBoxDevice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDevice.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDevice.ForeColor = System.Drawing.Color.Black;
-            this.textBoxDevice.Location = new System.Drawing.Point(192, 33);
-            this.textBoxDevice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxDevice.Name = "textBoxDevice";
-            this.textBoxDevice.ReadOnly = true;
-            this.textBoxDevice.Size = new System.Drawing.Size(180, 20);
-            this.textBoxDevice.TabIndex = 40;
-            this.textBoxDevice.Text = "NUC";
-            // 
-            // textBoxDeviceUserTITLE
-            // 
-            this.textBoxDeviceUserTITLE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDeviceUserTITLE.BackColor = System.Drawing.Color.Yellow;
-            this.textBoxDeviceUserTITLE.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDeviceUserTITLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDeviceUserTITLE.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.textBoxDeviceUserTITLE.Location = new System.Drawing.Point(3, 3);
-            this.textBoxDeviceUserTITLE.Name = "textBoxDeviceUserTITLE";
-            this.textBoxDeviceUserTITLE.ReadOnly = true;
-            this.textBoxDeviceUserTITLE.Size = new System.Drawing.Size(381, 22);
-            this.textBoxDeviceUserTITLE.TabIndex = 39;
-            this.textBoxDeviceUserTITLE.TabStop = false;
-            this.textBoxDeviceUserTITLE.Text = "DEVICE - USER";
-            this.textBoxDeviceUserTITLE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panelScorecardTable
-            // 
-            this.panelScorecardTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelScorecardTable.BackColor = System.Drawing.Color.White;
-            this.panelScorecardTable.Controls.Add(this.dataGridViewScoreCard);
-            this.panelScorecardTable.Controls.Add(this.textBoxLicenseScorecardTITLE);
-            this.panelScorecardTable.Location = new System.Drawing.Point(7, 4);
-            this.panelScorecardTable.Margin = new System.Windows.Forms.Padding(6);
-            this.panelScorecardTable.Name = "panelScorecardTable";
-            this.panelScorecardTable.Padding = new System.Windows.Forms.Padding(3);
-            this.panelScorecardTable.Size = new System.Drawing.Size(482, 472);
-            this.panelScorecardTable.TabIndex = 0;
-            // 
-            // dataGridViewScoreCard
-            // 
-            this.dataGridViewScoreCard.AllowUserToAddRows = false;
-            this.dataGridViewScoreCard.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewScoreCard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle36;
-            this.dataGridViewScoreCard.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewScoreCard.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewScoreCard.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewScoreCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewScoreCard.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridViewScoreCard.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewScoreCard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewScoreCard.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnID,
-            this.ColumnState,
-            this.ColumnProperty,
-            this.ColumnValue});
-            this.dataGridViewScoreCard.GridColor = System.Drawing.Color.RoyalBlue;
-            this.dataGridViewScoreCard.Location = new System.Drawing.Point(6, 28);
-            this.dataGridViewScoreCard.Margin = new System.Windows.Forms.Padding(0);
-            this.dataGridViewScoreCard.Name = "dataGridViewScoreCard";
-            this.dataGridViewScoreCard.ReadOnly = true;
-            this.dataGridViewScoreCard.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewScoreCard.RowHeadersVisible = false;
-            this.dataGridViewScoreCard.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewScoreCard.Size = new System.Drawing.Size(470, 406);
-            this.dataGridViewScoreCard.TabIndex = 38;
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.Black;
-            this.ColumnID.DefaultCellStyle = dataGridViewCellStyle37;
-            this.ColumnID.HeaderText = "ID";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.ToolTipText = "License Property ID";
-            this.ColumnID.Width = 50;
-            // 
-            // ColumnState
-            // 
-            this.ColumnState.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle38.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle38.NullValue")));
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.Black;
-            this.ColumnState.DefaultCellStyle = dataGridViewCellStyle38;
-            this.ColumnState.HeaderText = "STATUS";
-            this.ColumnState.MinimumWidth = 60;
-            this.ColumnState.Name = "ColumnState";
-            this.ColumnState.ReadOnly = true;
-            this.ColumnState.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnState.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnState.ToolTipText = "License Property Status";
-            this.ColumnState.Width = 88;
-            // 
-            // ColumnProperty
-            // 
-            this.ColumnProperty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle39.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.Black;
-            this.ColumnProperty.DefaultCellStyle = dataGridViewCellStyle39;
-            this.ColumnProperty.HeaderText = "PROPERTY";
-            this.ColumnProperty.MinimumWidth = 60;
-            this.ColumnProperty.Name = "ColumnProperty";
-            this.ColumnProperty.ReadOnly = true;
-            this.ColumnProperty.ToolTipText = "License Property";
-            this.ColumnProperty.Width = 109;
-            // 
-            // ColumnValue
-            // 
-            this.ColumnValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Black;
-            this.ColumnValue.DefaultCellStyle = dataGridViewCellStyle40;
-            this.ColumnValue.HeaderText = "VALUE";
-            this.ColumnValue.MinimumWidth = 60;
-            this.ColumnValue.Name = "ColumnValue";
-            this.ColumnValue.ReadOnly = true;
-            this.ColumnValue.ToolTipText = "License File Property Value";
-            // 
-            // textBoxLicenseScorecardTITLE
-            // 
-            this.textBoxLicenseScorecardTITLE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLicenseScorecardTITLE.BackColor = System.Drawing.Color.Yellow;
-            this.textBoxLicenseScorecardTITLE.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxLicenseScorecardTITLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLicenseScorecardTITLE.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.textBoxLicenseScorecardTITLE.Location = new System.Drawing.Point(6, 6);
-            this.textBoxLicenseScorecardTITLE.Name = "textBoxLicenseScorecardTITLE";
-            this.textBoxLicenseScorecardTITLE.ReadOnly = true;
-            this.textBoxLicenseScorecardTITLE.Size = new System.Drawing.Size(470, 22);
-            this.textBoxLicenseScorecardTITLE.TabIndex = 37;
-            this.textBoxLicenseScorecardTITLE.TabStop = false;
-            this.textBoxLicenseScorecardTITLE.Text = "LICENSE FILE SCORECARD";
-            this.textBoxLicenseScorecardTITLE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // tabPageROOT_About
             // 
             this.tabPageROOT_About.BackColor = System.Drawing.Color.Honeydew;
+            this.tabPageROOT_About.Controls.Add(this.panelAbout);
             this.tabPageROOT_About.Location = new System.Drawing.Point(4, 39);
             this.tabPageROOT_About.Name = "tabPageROOT_About";
             this.tabPageROOT_About.Size = new System.Drawing.Size(903, 527);
             this.tabPageROOT_About.TabIndex = 4;
             this.tabPageROOT_About.Text = "About";
             // 
+            // panelAbout
+            // 
+            this.panelAbout.BackColor = System.Drawing.Color.Honeydew;
+            this.panelAbout.Controls.Add(this.pictureBoxAjpContactInfo);
+            this.panelAbout.Controls.Add(this.pictureBoxLicenseAgreement);
+            this.panelAbout.Controls.Add(this.pictureBoxHenStudio);
+            this.panelAbout.Controls.Add(this.pictureBoxProductWarning);
+            this.panelAbout.Controls.Add(this.tableLayoutPanelProduct);
+            this.panelAbout.Controls.Add(this.tableLayoutPanelSupplier);
+            this.panelAbout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAbout.Location = new System.Drawing.Point(0, 0);
+            this.panelAbout.Name = "panelAbout";
+            this.panelAbout.Size = new System.Drawing.Size(903, 527);
+            this.panelAbout.TabIndex = 0;
+            // 
+            // pictureBoxAjpContactInfo
+            // 
+            this.pictureBoxAjpContactInfo.Image = global::HenStudio.Properties.Resources.AjpContactInfo;
+            this.pictureBoxAjpContactInfo.Location = new System.Drawing.Point(50, 229);
+            this.pictureBoxAjpContactInfo.Name = "pictureBoxAjpContactInfo";
+            this.pictureBoxAjpContactInfo.Size = new System.Drawing.Size(337, 129);
+            this.pictureBoxAjpContactInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxAjpContactInfo.TabIndex = 12;
+            this.pictureBoxAjpContactInfo.TabStop = false;
+            this.pictureBoxAjpContactInfo.Click += new System.EventHandler(this.pictureBoxAjpContactInfo_Click);
+            // 
+            // pictureBoxLicenseAgreement
+            // 
+            this.pictureBoxLicenseAgreement.Image = global::HenStudio.Properties.Resources.AjpUserLicenseAgreement;
+            this.pictureBoxLicenseAgreement.Location = new System.Drawing.Point(515, 229);
+            this.pictureBoxLicenseAgreement.Name = "pictureBoxLicenseAgreement";
+            this.pictureBoxLicenseAgreement.Size = new System.Drawing.Size(337, 129);
+            this.pictureBoxLicenseAgreement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLicenseAgreement.TabIndex = 11;
+            this.pictureBoxLicenseAgreement.TabStop = false;
+            this.pictureBoxLicenseAgreement.Click += new System.EventHandler(this.pictureBoxLicenseAgreement_Click);
+            // 
+            // pictureBoxHenStudio
+            // 
+            this.pictureBoxHenStudio.BackColor = System.Drawing.Color.White;
+            this.pictureBoxHenStudio.Image = global::HenStudio.Properties.Resources.AJP_HEN_Studio_with_Graphic;
+            this.pictureBoxHenStudio.Location = new System.Drawing.Point(50, 17);
+            this.pictureBoxHenStudio.Name = "pictureBoxHenStudio";
+            this.pictureBoxHenStudio.Size = new System.Drawing.Size(297, 178);
+            this.pictureBoxHenStudio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxHenStudio.TabIndex = 10;
+            this.pictureBoxHenStudio.TabStop = false;
+            // 
+            // pictureBoxProductWarning
+            // 
+            this.pictureBoxProductWarning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.pictureBoxProductWarning.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxProductWarning.Image")));
+            this.pictureBoxProductWarning.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxProductWarning.InitialImage")));
+            this.pictureBoxProductWarning.Location = new System.Drawing.Point(50, 391);
+            this.pictureBoxProductWarning.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBoxProductWarning.Name = "pictureBoxProductWarning";
+            this.pictureBoxProductWarning.Size = new System.Drawing.Size(802, 119);
+            this.pictureBoxProductWarning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxProductWarning.TabIndex = 6;
+            this.pictureBoxProductWarning.TabStop = false;
+            // 
+            // tableLayoutPanelProduct
+            // 
+            this.tableLayoutPanelProduct.BackColor = System.Drawing.Color.DarkOrange;
+            this.tableLayoutPanelProduct.ColumnCount = 2;
+            this.tableLayoutPanelProduct.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.13609F));
+            this.tableLayoutPanelProduct.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.86391F));
+            this.tableLayoutPanelProduct.Controls.Add(this.labelProductFullName, 0, 0);
+            this.tableLayoutPanelProduct.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanelProduct.Controls.Add(this.labelProductFullNameValue, 1, 0);
+            this.tableLayoutPanelProduct.Controls.Add(this.labelProductNameValue, 1, 1);
+            this.tableLayoutPanelProduct.Controls.Add(this.labelProductVersion, 0, 2);
+            this.tableLayoutPanelProduct.Controls.Add(this.labelProductVersionValue, 1, 2);
+            this.tableLayoutPanelProduct.Controls.Add(this.label2, 0, 3);
+            this.tableLayoutPanelProduct.Controls.Add(this.labelSerialNumberValue, 1, 3);
+            this.tableLayoutPanelProduct.Controls.Add(this.label3, 0, 4);
+            this.tableLayoutPanelProduct.Controls.Add(this.labelProductCodeValue, 1, 4);
+            this.tableLayoutPanelProduct.Location = new System.Drawing.Point(373, 55);
+            this.tableLayoutPanelProduct.Name = "tableLayoutPanelProduct";
+            this.tableLayoutPanelProduct.RowCount = 5;
+            this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanelProduct.Size = new System.Drawing.Size(479, 140);
+            this.tableLayoutPanelProduct.TabIndex = 3;
+            // 
+            // labelProductFullName
+            // 
+            this.labelProductFullName.AutoSize = true;
+            this.labelProductFullName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelProductFullName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelProductFullName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProductFullName.Location = new System.Drawing.Point(3, 0);
+            this.labelProductFullName.Name = "labelProductFullName";
+            this.labelProductFullName.Size = new System.Drawing.Size(152, 28);
+            this.labelProductFullName.TabIndex = 0;
+            this.labelProductFullName.Text = "Product Full Name";
+            this.labelProductFullName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(152, 28);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Product Name";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelProductFullNameValue
+            // 
+            this.labelProductFullNameValue.AutoSize = true;
+            this.labelProductFullNameValue.BackColor = System.Drawing.Color.White;
+            this.labelProductFullNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelProductFullNameValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelProductFullNameValue.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProductFullNameValue.Location = new System.Drawing.Point(158, 0);
+            this.labelProductFullNameValue.Margin = new System.Windows.Forms.Padding(0);
+            this.labelProductFullNameValue.Name = "labelProductFullNameValue";
+            this.labelProductFullNameValue.Size = new System.Drawing.Size(321, 28);
+            this.labelProductFullNameValue.TabIndex = 3;
+            this.labelProductFullNameValue.Text = "  AJP HEN Studio 1.0";
+            this.labelProductFullNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelProductNameValue
+            // 
+            this.labelProductNameValue.AutoSize = true;
+            this.labelProductNameValue.BackColor = System.Drawing.Color.White;
+            this.labelProductNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelProductNameValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelProductNameValue.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProductNameValue.Location = new System.Drawing.Point(158, 28);
+            this.labelProductNameValue.Margin = new System.Windows.Forms.Padding(0);
+            this.labelProductNameValue.Name = "labelProductNameValue";
+            this.labelProductNameValue.Size = new System.Drawing.Size(321, 28);
+            this.labelProductNameValue.TabIndex = 4;
+            this.labelProductNameValue.Text = "  AJP HEN Studio";
+            this.labelProductNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelProductVersion
+            // 
+            this.labelProductVersion.AutoSize = true;
+            this.labelProductVersion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelProductVersion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelProductVersion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProductVersion.Location = new System.Drawing.Point(0, 56);
+            this.labelProductVersion.Margin = new System.Windows.Forms.Padding(0);
+            this.labelProductVersion.Name = "labelProductVersion";
+            this.labelProductVersion.Size = new System.Drawing.Size(158, 28);
+            this.labelProductVersion.TabIndex = 5;
+            this.labelProductVersion.Text = "Product Version";
+            this.labelProductVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelProductVersionValue
+            // 
+            this.labelProductVersionValue.AutoSize = true;
+            this.labelProductVersionValue.BackColor = System.Drawing.Color.White;
+            this.labelProductVersionValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelProductVersionValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelProductVersionValue.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProductVersionValue.Location = new System.Drawing.Point(158, 56);
+            this.labelProductVersionValue.Margin = new System.Windows.Forms.Padding(0);
+            this.labelProductVersionValue.Name = "labelProductVersionValue";
+            this.labelProductVersionValue.Size = new System.Drawing.Size(321, 28);
+            this.labelProductVersionValue.TabIndex = 6;
+            this.labelProductVersionValue.Text = "  1.0.1";
+            this.labelProductVersionValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(0, 84);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(158, 28);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Product Serial Number";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelSerialNumberValue
+            // 
+            this.labelSerialNumberValue.AutoSize = true;
+            this.labelSerialNumberValue.BackColor = System.Drawing.Color.White;
+            this.labelSerialNumberValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelSerialNumberValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelSerialNumberValue.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSerialNumberValue.Location = new System.Drawing.Point(158, 84);
+            this.labelSerialNumberValue.Margin = new System.Windows.Forms.Padding(0);
+            this.labelSerialNumberValue.Name = "labelSerialNumberValue";
+            this.labelSerialNumberValue.Size = new System.Drawing.Size(321, 28);
+            this.labelSerialNumberValue.TabIndex = 8;
+            this.labelSerialNumberValue.Text = "  1022-789-1189";
+            this.labelSerialNumberValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 112);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(158, 28);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Product Code";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelProductCodeValue
+            // 
+            this.labelProductCodeValue.AutoSize = true;
+            this.labelProductCodeValue.BackColor = System.Drawing.Color.White;
+            this.labelProductCodeValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelProductCodeValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelProductCodeValue.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProductCodeValue.Location = new System.Drawing.Point(158, 112);
+            this.labelProductCodeValue.Margin = new System.Windows.Forms.Padding(0);
+            this.labelProductCodeValue.Name = "labelProductCodeValue";
+            this.labelProductCodeValue.Size = new System.Drawing.Size(321, 28);
+            this.labelProductCodeValue.TabIndex = 10;
+            this.labelProductCodeValue.Text = "{3D9721BA-003E-4711-B7AF-B579645F0AC9}";
+            this.labelProductCodeValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanelSupplier
+            // 
+            this.tableLayoutPanelSupplier.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.tableLayoutPanelSupplier.ColumnCount = 2;
+            this.tableLayoutPanelSupplier.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.97872F));
+            this.tableLayoutPanelSupplier.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.02128F));
+            this.tableLayoutPanelSupplier.Controls.Add(this.labelSuplierName, 0, 0);
+            this.tableLayoutPanelSupplier.Controls.Add(this.labelSupplierNameValue, 1, 0);
+            this.tableLayoutPanelSupplier.Location = new System.Drawing.Point(373, 18);
+            this.tableLayoutPanelSupplier.Name = "tableLayoutPanelSupplier";
+            this.tableLayoutPanelSupplier.RowCount = 1;
+            this.tableLayoutPanelSupplier.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.93103F));
+            this.tableLayoutPanelSupplier.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.06897F));
+            this.tableLayoutPanelSupplier.Size = new System.Drawing.Size(479, 31);
+            this.tableLayoutPanelSupplier.TabIndex = 2;
+            // 
+            // labelSuplierName
+            // 
+            this.labelSuplierName.AutoSize = true;
+            this.labelSuplierName.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.labelSuplierName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelSuplierName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelSuplierName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSuplierName.Location = new System.Drawing.Point(3, 0);
+            this.labelSuplierName.Name = "labelSuplierName";
+            this.labelSuplierName.Padding = new System.Windows.Forms.Padding(3);
+            this.labelSuplierName.Size = new System.Drawing.Size(151, 31);
+            this.labelSuplierName.TabIndex = 0;
+            this.labelSuplierName.Text = "Supplier Name";
+            this.labelSuplierName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelSupplierNameValue
+            // 
+            this.labelSupplierNameValue.AutoSize = true;
+            this.labelSupplierNameValue.BackColor = System.Drawing.Color.White;
+            this.labelSupplierNameValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelSupplierNameValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelSupplierNameValue.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSupplierNameValue.Location = new System.Drawing.Point(157, 0);
+            this.labelSupplierNameValue.Margin = new System.Windows.Forms.Padding(0);
+            this.labelSupplierNameValue.Name = "labelSupplierNameValue";
+            this.labelSupplierNameValue.Size = new System.Drawing.Size(322, 31);
+            this.labelSupplierNameValue.TabIndex = 1;
+            this.labelSupplierNameValue.Text = "  AJP Engineering";
+            this.labelSupplierNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // textBoxProjectsBanner
             // 
             this.textBoxProjectsBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxProjectsBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.textBoxProjectsBanner.BackColor = System.Drawing.Color.RoyalBlue;
             this.textBoxProjectsBanner.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProjectsBanner.ForeColor = System.Drawing.Color.Yellow;
+            this.textBoxProjectsBanner.ForeColor = System.Drawing.Color.White;
             this.textBoxProjectsBanner.Location = new System.Drawing.Point(-1, 4);
             this.textBoxProjectsBanner.Name = "textBoxProjectsBanner";
             this.textBoxProjectsBanner.Size = new System.Drawing.Size(910, 33);
@@ -5009,9 +5294,9 @@
             this.listViewProfileUnits.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewProfileUnits.HideSelection = false;
             this.listViewProfileUnits.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem286,
-            listViewItem287,
-            listViewItem288});
+            listViewItem46,
+            listViewItem47,
+            listViewItem48});
             this.listViewProfileUnits.Location = new System.Drawing.Point(461, 67);
             this.listViewProfileUnits.Name = "listViewProfileUnits";
             this.listViewProfileUnits.Size = new System.Drawing.Size(414, 62);
@@ -5233,14 +5518,14 @@
             this.dataGridViewProcessStreams.Name = "dataGridViewProcessStreams";
             this.dataGridViewProcessStreams.ReadOnly = true;
             this.dataGridViewProcessStreams.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProcessStreams.RowHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProcessStreams.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewProcessStreams.RowTemplate.ReadOnly = true;
             this.dataGridViewProcessStreams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewProcessStreams.Size = new System.Drawing.Size(897, 373);
@@ -5403,14 +5688,14 @@
             this.dataGridViewUtilityStreams.Name = "dataGridViewUtilityStreams";
             this.dataGridViewUtilityStreams.ReadOnly = true;
             this.dataGridViewUtilityStreams.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewUtilityStreams.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewUtilityStreams.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewUtilityStreams.RowTemplate.ReadOnly = true;
             this.dataGridViewUtilityStreams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewUtilityStreams.Size = new System.Drawing.Size(897, 373);
@@ -5630,55 +5915,6 @@
             this.imageListProject.Images.SetKeyName(0, "Project Explorer...32x32.png");
             this.imageListProject.Images.SetKeyName(1, "Project...32x32.png");
             // 
-            // textBoxOverallStatus
-            // 
-            this.textBoxOverallStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxOverallStatus.BackColor = System.Drawing.Color.Green;
-            this.textBoxOverallStatus.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOverallStatus.ForeColor = System.Drawing.Color.Yellow;
-            this.textBoxOverallStatus.Location = new System.Drawing.Point(496, 217);
-            this.textBoxOverallStatus.Name = "textBoxOverallStatus";
-            this.textBoxOverallStatus.Size = new System.Drawing.Size(387, 33);
-            this.textBoxOverallStatus.TabIndex = 11;
-            this.textBoxOverallStatus.Text = "VALID LICENSE";
-            this.textBoxOverallStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pictureBoxAjpEngLogo
-            // 
-            this.pictureBoxAjpEngLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxAjpEngLogo.BackColor = System.Drawing.Color.Azure;
-            this.pictureBoxAjpEngLogo.Image = global::HenStudio.Properties.Resources.AJP_Engineering_Logo;
-            this.pictureBoxAjpEngLogo.Location = new System.Drawing.Point(498, 314);
-            this.pictureBoxAjpEngLogo.Name = "pictureBoxAjpEngLogo";
-            this.pictureBoxAjpEngLogo.Size = new System.Drawing.Size(387, 162);
-            this.pictureBoxAjpEngLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxAjpEngLogo.TabIndex = 12;
-            this.pictureBoxAjpEngLogo.TabStop = false;
-            // 
-            // pictureBoxDbAjpEndLogo
-            // 
-            this.pictureBoxDbAjpEndLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxDbAjpEndLogo.BackColor = System.Drawing.Color.Azure;
-            this.pictureBoxDbAjpEndLogo.Image = global::HenStudio.Properties.Resources.AJP_Engineering_Logo;
-            this.pictureBoxDbAjpEndLogo.Location = new System.Drawing.Point(497, 356);
-            this.pictureBoxDbAjpEndLogo.Name = "pictureBoxDbAjpEndLogo";
-            this.pictureBoxDbAjpEndLogo.Size = new System.Drawing.Size(387, 162);
-            this.pictureBoxDbAjpEndLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxDbAjpEndLogo.TabIndex = 18;
-            this.pictureBoxDbAjpEndLogo.TabStop = false;
-            // 
-            // pictureBoxFactorySettingsAjpEngLogo
-            // 
-            this.pictureBoxFactorySettingsAjpEngLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxFactorySettingsAjpEngLogo.BackColor = System.Drawing.Color.Azure;
-            this.pictureBoxFactorySettingsAjpEngLogo.Image = global::HenStudio.Properties.Resources.AJP_Engineering_Logo;
-            this.pictureBoxFactorySettingsAjpEngLogo.Location = new System.Drawing.Point(575, 393);
-            this.pictureBoxFactorySettingsAjpEngLogo.Name = "pictureBoxFactorySettingsAjpEngLogo";
-            this.pictureBoxFactorySettingsAjpEngLogo.Size = new System.Drawing.Size(320, 125);
-            this.pictureBoxFactorySettingsAjpEngLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxFactorySettingsAjpEngLogo.TabIndex = 21;
-            this.pictureBoxFactorySettingsAjpEngLogo.TabStop = false;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -5718,6 +5954,7 @@
             this.panelHomeAJP.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomeAjpLogo)).EndInit();
             this.tabPageROOT_FactorSettings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactorySettingsAjpEngLogo)).EndInit();
             this.panelAppComponents.ResumeLayout(false);
             this.panelAppComponents.PerformLayout();
             this.panelAppMetadata.ResumeLayout(false);
@@ -5725,12 +5962,26 @@
             this.panelFactorySettings.ResumeLayout(false);
             this.panelFactorySettings.PerformLayout();
             this.tabPageROOT_Database.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDbAjpEndLogo)).EndInit();
             this.panelDatabaseTables.ResumeLayout(false);
             this.panelDatabaseTables.PerformLayout();
             this.panelProjectDbFileMetadata.ResumeLayout(false);
             this.panelProjectDbFileMetadata.PerformLayout();
             this.tabPageROOT_License.ResumeLayout(false);
             this.tabControlLicense.ResumeLayout(false);
+            this.tabPageLicenseScorecard.ResumeLayout(false);
+            this.tabPageLicenseScorecard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjpEngLogo)).EndInit();
+            this.panelScorecardSummary.ResumeLayout(false);
+            this.panelScorecardSummary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInvalid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxValid)).EndInit();
+            this.panelDeviceUser.ResumeLayout(false);
+            this.panelDeviceUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRunning)).EndInit();
+            this.panelScorecardTable.ResumeLayout(false);
+            this.panelScorecardTable.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScoreCard)).EndInit();
             this.tabPageLicenseFile.ResumeLayout(false);
             this.panelLicenseType.ResumeLayout(false);
             this.panelLicenseType.PerformLayout();
@@ -5744,18 +5995,16 @@
             this.panelProduct.PerformLayout();
             this.panelLicense.ResumeLayout(false);
             this.panelLicense.PerformLayout();
-            this.tabPageLicenseScorecard.ResumeLayout(false);
-            this.tabPageLicenseScorecard.PerformLayout();
-            this.panelScorecardSummary.ResumeLayout(false);
-            this.panelScorecardSummary.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInvalid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxValid)).EndInit();
-            this.panelDeviceUser.ResumeLayout(false);
-            this.panelDeviceUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRunning)).EndInit();
-            this.panelScorecardTable.ResumeLayout(false);
-            this.panelScorecardTable.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScoreCard)).EndInit();
+            this.tabPageROOT_About.ResumeLayout(false);
+            this.panelAbout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjpContactInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLicenseAgreement)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHenStudio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductWarning)).EndInit();
+            this.tableLayoutPanelProduct.ResumeLayout(false);
+            this.tableLayoutPanelProduct.PerformLayout();
+            this.tableLayoutPanelSupplier.ResumeLayout(false);
+            this.tableLayoutPanelSupplier.PerformLayout();
             this.panelSELECTED_PROJECT.ResumeLayout(false);
             this.panelSELECTED_PROJECT.PerformLayout();
             this.tabControlProject.ResumeLayout(false);
@@ -5798,9 +6047,6 @@
             this.panelSELECTED_HEN.ResumeLayout(false);
             this.panelSELECTED_HEN.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenedHen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAjpEngLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDbAjpEndLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactorySettingsAjpEngLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5856,13 +6102,6 @@
         private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripMenuItem exitAJPHENStudioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem licenseViewerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem licenseScoreCardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripMenuItem userLicenseAgreementToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripMenuItem aboutAJPHENStudioToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLICENSE;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCAT_DB;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelAJP_LOGO;
@@ -6191,6 +6430,25 @@
         private System.Windows.Forms.TextBox textBoxOverallStatus;
         private System.Windows.Forms.PictureBox pictureBoxDbAjpEndLogo;
         private System.Windows.Forms.PictureBox pictureBoxFactorySettingsAjpEngLogo;
+        private System.Windows.Forms.Panel panelAbout;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelProduct;
+        private System.Windows.Forms.Label labelProductFullName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelProductFullNameValue;
+        private System.Windows.Forms.Label labelProductNameValue;
+        private System.Windows.Forms.Label labelProductVersion;
+        private System.Windows.Forms.Label labelProductVersionValue;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelSerialNumberValue;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelProductCodeValue;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSupplier;
+        private System.Windows.Forms.Label labelSuplierName;
+        private System.Windows.Forms.Label labelSupplierNameValue;
+        private System.Windows.Forms.PictureBox pictureBoxProductWarning;
+        private System.Windows.Forms.PictureBox pictureBoxHenStudio;
+        private System.Windows.Forms.PictureBox pictureBoxLicenseAgreement;
+        private System.Windows.Forms.PictureBox pictureBoxAjpContactInfo;
     }
 }
 

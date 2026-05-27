@@ -84,12 +84,6 @@
     <Compile Include="Data\Project\DefaultParameters\ProjectUnits\ProjectUnitsPanelData.cs" />
     <Compile Include="Data\Project\ProjectWrapperPanelData.cs" />
     <Compile Include="Data\Tag\DataTagDisplay.cs" />
-    <Compile Include="FormAboutPinch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAboutPinch.Designer.cs">
-      <DependentUpon>FormAboutPinch.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormBusinessCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,9 +120,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Data\Project\ProjectPanelData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAboutPinch.resx">
-      <DependentUpon>FormAboutPinch.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormBusinessCard.resx">
       <DependentUpon>FormBusinessCard.cs</DependentUpon>
     </EmbeddedResource>

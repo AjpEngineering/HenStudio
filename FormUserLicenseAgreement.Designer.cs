@@ -34,32 +34,30 @@
             // 
             // richTextBoxAgreement
             // 
-            this.richTextBoxAgreement.BackColor = System.Drawing.Color.NavajoWhite;
-            this.richTextBoxAgreement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBoxAgreement.DetectUrls = false;
-            this.richTextBoxAgreement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxAgreement.Font = new System.Drawing.Font("Cascadia Mono SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxAgreement.Location = new System.Drawing.Point(3, 3);
+            this.richTextBoxAgreement.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBoxAgreement.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxAgreement.Location = new System.Drawing.Point(12, 12);
             this.richTextBoxAgreement.Name = "richTextBoxAgreement";
-            this.richTextBoxAgreement.ReadOnly = true;
-            this.richTextBoxAgreement.Size = new System.Drawing.Size(778, 555);
+            this.richTextBoxAgreement.Size = new System.Drawing.Size(760, 437);
             this.richTextBoxAgreement.TabIndex = 0;
-            this.richTextBoxAgreement.Text = resources.GetString("richTextBoxAgreement.Text");
-            this.richTextBoxAgreement.ZoomFactor = 1.25F;
+            this.richTextBoxAgreement.Text = "";
             // 
             // FormUserLicenseAgreement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.richTextBoxAgreement);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(800, 600);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "FormUserLicenseAgreement";
-            this.Padding = new System.Windows.Forms.Padding(3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AJP User License Agreement";
+            this.Load += new System.EventHandler(this.FormUserLicenseAgreement_Load);
             this.ResumeLayout(false);
 
         }

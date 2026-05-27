@@ -193,6 +193,26 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AjpContactInfo {
+            get {
+                object obj = ResourceManager.GetObject("AjpContactInfo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AjpUserLicenseAgreement {
+            get {
+                object obj = ResourceManager.GetObject("AjpUserLicenseAgreement", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Business_Card_Einstein {
             get {
                 object obj = ResourceManager.GetObject("Business_Card_Einstein", resourceCulture);
