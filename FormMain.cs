@@ -688,15 +688,15 @@ namespace HenStudio
                     case HenTypes.LicenseStatus.EXPIRED:
                     case HenTypes.LicenseStatus.INVALID:
                         this.toolStripStatusLabelLICENSE.BackColor = Color.Red;
-                        this.toolStripStatusLabelLICENSE.Image = HenStudio.Properties.Resources.NotValid_32x32;
+                        this.toolStripStatusLabelLICENSE.Image = HenStudio.Properties.Resources.NotValid;
                         break;
                      case HenTypes.LicenseStatus.UNKNOWN:
                         this.toolStripStatusLabelLICENSE.BackColor = Color.Orange;
-                        this.toolStripStatusLabelLICENSE.Image = HenStudio.Properties.Resources.UNKNOWN_32x32;
+                        this.toolStripStatusLabelLICENSE.Image = HenStudio.Properties.Resources.UNKNOWN32;
                         break;
                    case HenTypes.LicenseStatus.VALID:
                         this.toolStripStatusLabelLICENSE.BackColor = Color.Green;
-                        this.toolStripStatusLabelLICENSE.Image = HenStudio.Properties.Resources.Valid_32x32;
+                        this.toolStripStatusLabelLICENSE.Image = HenStudio.Properties.Resources.Valid32;
                         break;
                     default:
                         throw new Exception("INVALID Licesne Status Enum Value!");
@@ -732,19 +732,19 @@ namespace HenStudio
                         strDbConnected = String.Format(" UNKNOWN ");
                         this.toolStripStatusLabelCAT_DB.BackColor = Color.Orange;
                         this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
-                        this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.UNKNOWN_32x32;
+                        this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.UNKNOWN32;
                         break;
                     case HenTypes.DbConnected.UNCONNECTED:
                         strDbConnected = String.Format(" DISCONNECTED ");
                         this.toolStripStatusLabelCAT_DB.BackColor = Color.Red;
                         this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
-                        this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.NotValid_32x32;
+                        this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.NotValid;
                         break;
                     case HenTypes.DbConnected.CONNECTED:
                         strDbConnected = String.Format(" CONNECTED ");
                         this.toolStripStatusLabelCAT_DB.BackColor = Color.Green;
                         this.toolStripStatusLabelCAT_DB.ForeColor = Color.White;
-                        this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.Valid_32x32;
+                        this.toolStripStatusLabelCAT_DB.Image = HenStudio.Properties.Resources.Valid32;
                         break;
                     default:
                         throw new Exception("INVALID HENSTUDIO DB Connected Enum Value!");
@@ -806,19 +806,12 @@ namespace HenStudio
         }
         #endregion  // DB CONNECTION DOUBLE CLICK
 
-        #region AJP LOGO CLICK
-        private void toolStripStatusLabelAJP_LOGO_Click(object sender, EventArgs e)
+        #region EXIT APP CLICK
+        private void toolStripStatusLabelExitApp_Click(object sender, EventArgs e)
         {
-            HandleAJPContactInfo();
+            HandleExit();    // Exit Pinch Application
         }
-        #endregion  // AJP LOGO CLICK
-
-        #region AJP LOGO DOUBLE CLICK
-        private void toolStripStatusLabelAJP_LOGO_DoubleClick(object sender, EventArgs e)
-        {
-            HandleAJPContactInfo();
-        }
-        #endregion  // AJP LOGO DOUBLE CLICK
+        #endregion  // EXIT APP CLICK
 
         #endregion  // STATUS BAR EVENTS
 
@@ -1314,7 +1307,25 @@ namespace HenStudio
         #region PICTURE BOX CLICK EVENTS
 
         #region CONTACT AJP CLICK
+        private void pictureBoxHomeAjpLogo_Click(object sender, EventArgs e)
+        {
+            DisplayBusinessCardForm();
+        }
         private void pictureBoxAjpContactInfo_Click(object sender, EventArgs e)
+        {
+            DisplayBusinessCardForm();
+        }
+        private void pictureBoxFactorySettingsAjpEngLogo_Click(object sender, EventArgs e)
+        {
+            DisplayBusinessCardForm();
+            }
+
+        private void pictureBoxDbAjpEndLogo_Click(object sender, EventArgs e)
+        {
+            DisplayBusinessCardForm();
+        }
+
+        private void pictureBoxAjpEngLogo_Click(object sender, EventArgs e)
         {
             DisplayBusinessCardForm();
         }

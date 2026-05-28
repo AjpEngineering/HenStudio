@@ -73,129 +73,89 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap AJP_Engineering_Logo {
-            get {
-                object obj = ResourceManager.GetObject("AJP_Engineering_Logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AJP_HEN_Studio_with_Graphic {
-            get {
-                object obj = ResourceManager.GetObject("AJP_HEN_Studio_with_Graphic", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AJP_HEN_Studio_with_Graphic_NO_BACKGROUND {
-            get {
-                object obj = ResourceManager.GetObject("AJP_HEN_Studio_with_Graphic_NO_BACKGROUND", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AJP_HEN_StudioGraphic_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("AJP_HEN_StudioGraphic_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AJP_HenStudio_Logo_No_Background_164x120 {
-            get {
-                object obj = ResourceManager.GetObject("AJP_HenStudio_Logo_No_Background_164x120", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] AJP_Pinch {
-            get {
-                object obj = ResourceManager.GetObject("AJP_Pinch", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] AJP_Pinch_no_background {
-            get {
-                object obj = ResourceManager.GetObject("AJP_Pinch_no_background", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AJP_Refinery {
-            get {
-                object obj = ResourceManager.GetObject("AJP_Refinery", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AJP_Refinery___1280x720 {
-            get {
-                object obj = ResourceManager.GetObject("AJP Refinery...1280x720", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AJP_Refinery_BACKGROUND_903x527 {
-            get {
-                object obj = ResourceManager.GetObject("AJP_Refinery_BACKGROUND_903x527", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AJP_Refinery_HOME___903x527 {
-            get {
-                object obj = ResourceManager.GetObject("AJP_Refinery_HOME...903x527", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap AJP_User_License_Agreement___600x600 {
-            get {
-                object obj = ResourceManager.GetObject("AJP_User_License_Agreement...600x600", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap AjpContactInfo {
             get {
                 object obj = ResourceManager.GetObject("AjpContactInfo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AJPEngineeringLogo {
+            get {
+                object obj = ResourceManager.GetObject("AJPEngineeringLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AJPHenStudioGraphic {
+            get {
+                object obj = ResourceManager.GetObject("AJPHenStudioGraphic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AJPHenStudioLogoNoBackground {
+            get {
+                object obj = ResourceManager.GetObject("AJPHenStudioLogoNoBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AJPHenStudioWithGraphic {
+            get {
+                object obj = ResourceManager.GetObject("AJPHenStudioWithGraphic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AJPHenStudioWithGraphicNoBackground {
+            get {
+                object obj = ResourceManager.GetObject("AJPHenStudioWithGraphicNoBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] AJPLogoHenColors {
+            get {
+                object obj = ResourceManager.GetObject("AJPLogoHenColors", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] AJPLogoHenColorsNoBackground {
+            get {
+                object obj = ResourceManager.GetObject("AJPLogoHenColorsNoBackground", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AJPRefineryThumbnail {
+            get {
+                object obj = ResourceManager.GetObject("AJPRefineryThumbnail", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,19 +173,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Business_Card_Einstein {
+        internal static System.Drawing.Bitmap BusinessCardwithEinsteinBlueBorder {
             get {
-                object obj = ResourceManager.GetObject("Business_Card_Einstein", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap BusinessCard_600x1035 {
-            get {
-                object obj = ResourceManager.GetObject("BusinessCard_600x1035", resourceCulture);
+                object obj = ResourceManager.GetObject("BusinessCardwithEinsteinBlueBorder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +193,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Catalog_16x16 {
+        internal static byte[] CatalogDBConnected {
             get {
-                object obj = ResourceManager.GetObject("Catalog_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("CatalogDBConnected", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -253,9 +203,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] CatalogDB_Connected_16x16 {
+        internal static byte[] CatalogDBUnConnected {
             get {
-                object obj = ResourceManager.GetObject("CatalogDB_Connected_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("CatalogDBUnConnected", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -263,9 +213,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] CatalogDB_UnConnected_16x16 {
+        internal static byte[] CatalogFolder {
             get {
-                object obj = ResourceManager.GetObject("CatalogDB_UnConnected_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("CatalogFolder", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -273,9 +223,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] CollapseAll_16x16 {
+        internal static byte[] CollapseAll {
             get {
-                object obj = ResourceManager.GetObject("CollapseAll_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("CollapseAll", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -283,19 +233,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Composite_32x32 {
+        internal static System.Drawing.Bitmap CostDollarSign {
             get {
-                object obj = ResourceManager.GetObject("Composite_32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Cost_32x32 {
-            get {
-                object obj = ResourceManager.GetObject("Cost_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("CostDollarSign", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,9 +243,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] DefaultSettings_16x16 {
+        internal static byte[] DefaultSettings {
             get {
-                object obj = ResourceManager.GetObject("DefaultSettings_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("DefaultSettings", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -313,9 +253,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Design_32x32 {
+        internal static System.Drawing.Bitmap EnglishImperialUnits {
             get {
-                object obj = ResourceManager.GetObject("Design_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("EnglishImperialUnits", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +263,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap English_Imperial_Units_32x32 {
+        internal static System.Drawing.Bitmap Exchanger {
             get {
-                object obj = ResourceManager.GetObject("English_Imperial_Units_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("Exchanger", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,9 +273,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Exchanger_32x32 {
+        internal static System.Drawing.Bitmap ExitRectangleLargeBlue {
             get {
-                object obj = ResourceManager.GetObject("Exchanger_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("ExitRectangleLargeBlue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,9 +283,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ExpandAll_16x16 {
+        internal static byte[] ExpandAll {
             get {
-                object obj = ResourceManager.GetObject("ExpandAll_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("ExpandAll", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -353,119 +293,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Export_Zip_120_120 {
+        internal static System.Drawing.Bitmap HENStudioBlockGraphic {
             get {
-                object obj = ResourceManager.GetObject("Export_Zip_120_120", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Export_Zip_32_32 {
-            get {
-                object obj = ResourceManager.GetObject("Export_Zip_32_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Export_Zip_64_64 {
-            get {
-                object obj = ResourceManager.GetObject("Export_Zip_64_64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap HEN {
-            get {
-                object obj = ResourceManager.GetObject("HEN", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap HEN_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("HEN_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap HEN_Studio_Graphic___32x32 {
-            get {
-                object obj = ResourceManager.GetObject("HEN Studio Graphic...32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap HenDelete_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("HenDelete_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] HENSelected_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("HENSelected_16x16", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap HenSELECTED_32x32 {
-            get {
-                object obj = ResourceManager.GetObject("HenSELECTED_32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Import_Zip_120_120 {
-            get {
-                object obj = ResourceManager.GetObject("Import_Zip_120_120", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Import_Zip_32_32 {
-            get {
-                object obj = ResourceManager.GetObject("Import_Zip_32_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Import_Zip_64_64 {
-            get {
-                object obj = ResourceManager.GetObject("Import_Zip_64_64", resourceCulture);
+                object obj = ResourceManager.GetObject("HENStudioBlockGraphic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -476,16 +306,6 @@ namespace HenStudio.Properties {
         internal static System.Drawing.Bitmap Input {
             get {
                 object obj = ResourceManager.GetObject("Input", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Interval {
-            get {
-                object obj = ResourceManager.GetObject("Interval", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -513,9 +333,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Metric_SI_Units_32x32 {
+        internal static System.Drawing.Bitmap MetricSIUnits {
             get {
-                object obj = ResourceManager.GetObject("Metric_SI_Units_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("MetricSIUnits", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -523,9 +343,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap New_Project_DB_120_120 {
+        internal static System.Drawing.Bitmap NewProjectDB120 {
             get {
-                object obj = ResourceManager.GetObject("New_Project_DB_120_120", resourceCulture);
+                object obj = ResourceManager.GetObject("NewProjectDB120", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -533,9 +353,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap New_Project_DB_32_32 {
+        internal static System.Drawing.Bitmap NewProjectDB32 {
             get {
-                object obj = ResourceManager.GetObject("New_Project_DB_32_32", resourceCulture);
+                object obj = ResourceManager.GetObject("NewProjectDB32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -543,9 +363,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap New_Project_DB_64_64 {
+        internal static System.Drawing.Bitmap NewProjectDB64 {
             get {
-                object obj = ResourceManager.GetObject("New_Project_DB_64_64", resourceCulture);
+                object obj = ResourceManager.GetObject("NewProjectDB64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -553,9 +373,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap NotValid_32x32 {
+        internal static System.Drawing.Bitmap NodeHEN {
             get {
-                object obj = ResourceManager.GetObject("NotValid_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("NodeHEN", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -563,49 +383,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Open_32x32 {
+        internal static System.Drawing.Bitmap NodeHenDelete {
             get {
-                object obj = ResourceManager.GetObject("Open_32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OPEN_Project_DB___120x120 {
-            get {
-                object obj = ResourceManager.GetObject("OPEN_Project DB...120x120", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OPEN_Project_DB_32_32 {
-            get {
-                object obj = ResourceManager.GetObject("OPEN_Project_DB_32_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OPEN_Project_DB_64_64 {
-            get {
-                object obj = ResourceManager.GetObject("OPEN_Project_DB_64_64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OpenedProject_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("OpenedProject_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("NodeHenDelete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -613,9 +393,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] OpenedProject_16x16_ICON {
+        internal static byte[] NodeHENSelected {
             get {
-                object obj = ResourceManager.GetObject("OpenedProject_16x16_ICON", resourceCulture);
+                object obj = ResourceManager.GetObject("NodeHENSelected", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -623,9 +403,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OpenedProject_32x32 {
+        internal static System.Drawing.Bitmap NodeHenSelectedLarge {
             get {
-                object obj = ResourceManager.GetObject("OpenedProject_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("NodeHenSelectedLarge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -633,9 +413,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OpenedProject64x64 {
+        internal static System.Drawing.Bitmap NotValid {
             get {
-                object obj = ResourceManager.GetObject("OpenedProject64x64", resourceCulture);
+                object obj = ResourceManager.GetObject("NotValid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -643,39 +423,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Optimize_32x32 {
+        internal static System.Drawing.Bitmap OpenedProject16 {
             get {
-                object obj = ResourceManager.GetObject("Optimize_32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pinch_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("Pinch_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pinch_32x32 {
-            get {
-                object obj = ResourceManager.GetObject("Pinch_32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap PinchDelete_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("PinchDelete_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("OpenedProject16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -683,9 +433,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] PinchSelected_16x16 {
+        internal static byte[] OpenedProject16ICON {
             get {
-                object obj = ResourceManager.GetObject("PinchSelected_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("OpenedProject16ICON", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -693,9 +443,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PinchSELECTED_32x32 {
+        internal static System.Drawing.Bitmap OpenedProject32 {
             get {
-                object obj = ResourceManager.GetObject("PinchSELECTED_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("OpenedProject32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -703,9 +453,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Profile_Input_16x16 {
+        internal static System.Drawing.Bitmap OpenedProject64 {
             get {
-                object obj = ResourceManager.GetObject("Profile_Input_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("OpenedProject64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -713,9 +463,79 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Profile_Input_32x32 {
+        internal static System.Drawing.Bitmap OpenFolder32 {
             get {
-                object obj = ResourceManager.GetObject("Profile_Input_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("OpenFolder32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OPENProjectDB120 {
+            get {
+                object obj = ResourceManager.GetObject("OPENProjectDB120", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OPENProjectDB32 {
+            get {
+                object obj = ResourceManager.GetObject("OPENProjectDB32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OPENProjectDB64 {
+            get {
+                object obj = ResourceManager.GetObject("OPENProjectDB64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Optimize32 {
+            get {
+                object obj = ResourceManager.GetObject("Optimize32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfileDelete16ICON {
+            get {
+                object obj = ResourceManager.GetObject("ProfileDelete16ICON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfileInput16ICON {
+            get {
+                object obj = ResourceManager.GetObject("ProfileInput16ICON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProfileInput32 {
+            get {
+                object obj = ResourceManager.GetObject("ProfileInput32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -723,20 +543,10 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Profile_Input_Selected_16x16 {
+        internal static byte[] ProfileInputSelected16 {
             get {
-                object obj = ResourceManager.GetObject("Profile_Input_Selected_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("ProfileInputSelected16", resourceCulture);
                 return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ProfileDelete_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("ProfileDelete_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -753,9 +563,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ProfileSELECTED_32x32 {
+        internal static System.Drawing.Bitmap ProfileSELECTED32 {
             get {
-                object obj = ResourceManager.GetObject("ProfileSELECTED_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("ProfileSELECTED32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -763,9 +573,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Project_16x16 {
+        internal static byte[] Project16ICON {
             get {
-                object obj = ResourceManager.GetObject("Project_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("Project16ICON", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -773,9 +583,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Project_32x32 {
+        internal static System.Drawing.Bitmap Project32 {
             get {
-                object obj = ResourceManager.GetObject("Project_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("Project32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -783,9 +593,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ProjectDelete_16x16 {
+        internal static System.Drawing.Bitmap ProjectDelete16ICON {
             get {
-                object obj = ResourceManager.GetObject("ProjectDelete_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("ProjectDelete16ICON", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -793,9 +603,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ProjectSelected_16x16 {
+        internal static byte[] ProjectSelected16ICON {
             get {
-                object obj = ResourceManager.GetObject("ProjectSelected_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("ProjectSelected16ICON", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -803,9 +613,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Refinery_Background_1080x600 {
+        internal static System.Drawing.Bitmap Rename16ICON {
             get {
-                object obj = ResourceManager.GetObject("Refinery_Background_1080x600", resourceCulture);
+                object obj = ResourceManager.GetObject("Rename16ICON", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -813,19 +623,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Rename_16x16 {
+        internal static System.Drawing.Bitmap Rename32 {
             get {
-                object obj = ResourceManager.GetObject("Rename_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Rename_32x32 {
-            get {
-                object obj = ResourceManager.GetObject("Rename_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("Rename32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -843,16 +643,6 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RunningLarge1 {
-            get {
-                object obj = ResourceManager.GetObject("RunningLarge1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap RunningSmall {
             get {
                 object obj = ResourceManager.GetObject("RunningSmall", resourceCulture);
@@ -863,9 +653,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Save_As_Project_DB_120_120 {
+        internal static System.Drawing.Bitmap ScorecardNoBackground32 {
             get {
-                object obj = ResourceManager.GetObject("Save_As_Project_DB_120_120", resourceCulture);
+                object obj = ResourceManager.GetObject("ScorecardNoBackground32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -873,9 +663,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Save_As_Project_DB_32_32 {
+        internal static System.Drawing.Bitmap ScorecardWhiteBackground32 {
             get {
-                object obj = ResourceManager.GetObject("Save_As_Project_DB_32_32", resourceCulture);
+                object obj = ResourceManager.GetObject("ScorecardWhiteBackground32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -883,9 +673,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Save_As_Project_DB_64_64 {
+        internal static System.Drawing.Bitmap Settings120 {
             get {
-                object obj = ResourceManager.GetObject("Save_As_Project_DB_64_64", resourceCulture);
+                object obj = ResourceManager.GetObject("Settings120", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -893,9 +683,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Save_Project_DB_120_120 {
+        internal static System.Drawing.Bitmap Settings32 {
             get {
-                object obj = ResourceManager.GetObject("Save_Project_DB_120_120", resourceCulture);
+                object obj = ResourceManager.GetObject("Settings32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -903,79 +693,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Save_Project_DB_32_32 {
+        internal static System.Drawing.Bitmap Settings64 {
             get {
-                object obj = ResourceManager.GetObject("Save_Project_DB_32_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Save_Project_DB_64_64 {
-            get {
-                object obj = ResourceManager.GetObject("Save_Project_DB_64_64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap SaveProject_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("SaveProject_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Scorecard_no_background_32x32 {
-            get {
-                object obj = ResourceManager.GetObject("Scorecard_no_background_32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Scorecard_white_background_32x32 {
-            get {
-                object obj = ResourceManager.GetObject("Scorecard_white_background_32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Settings_120x120 {
-            get {
-                object obj = ResourceManager.GetObject("Settings_120x120", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Settings_32x32 {
-            get {
-                object obj = ResourceManager.GetObject("Settings_32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Settings_64x64 {
-            get {
-                object obj = ResourceManager.GetObject("Settings_64x64", resourceCulture);
+                object obj = ResourceManager.GetObject("Settings64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -993,9 +713,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap StatusView_51x32 {
+        internal static System.Drawing.Bitmap Streams32 {
             get {
-                object obj = ResourceManager.GetObject("StatusView_51x32", resourceCulture);
+                object obj = ResourceManager.GetObject("Streams32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1003,9 +723,49 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Streams_32x32 {
+        internal static System.Drawing.Bitmap Study16ICON {
             get {
-                object obj = ResourceManager.GetObject("Streams_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("Study16ICON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Study32 {
+            get {
+                object obj = ResourceManager.GetObject("Study32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StudyDelete16ICON {
+            get {
+                object obj = ResourceManager.GetObject("StudyDelete16ICON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] StudySelected16ICON {
+            get {
+                object obj = ResourceManager.GetObject("StudySelected16ICON", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StudySELECTED32 {
+            get {
+                object obj = ResourceManager.GetObject("StudySELECTED32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1023,9 +783,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap UNKNOWN_32x32 {
+        internal static System.Drawing.Bitmap UNKNOWN32 {
             get {
-                object obj = ResourceManager.GetObject("UNKNOWN_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("UNKNOWN32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1033,9 +793,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] UnOpenedProject_16x16 {
+        internal static byte[] UnOpenedProject16ICON {
             get {
-                object obj = ResourceManager.GetObject("UnOpenedProject_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("UnOpenedProject16ICON", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1043,9 +803,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Utilities_32x32 {
+        internal static System.Drawing.Bitmap Utilities32 {
             get {
-                object obj = ResourceManager.GetObject("Utilities_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("Utilities32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1053,9 +813,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Valid_32x32 {
+        internal static System.Drawing.Bitmap Valid32 {
             get {
-                object obj = ResourceManager.GetObject("Valid_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("Valid32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1063,9 +823,9 @@ namespace HenStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Validate_32x32 {
+        internal static System.Drawing.Bitmap Validate32 {
             get {
-                object obj = ResourceManager.GetObject("Validate_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("Validate32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

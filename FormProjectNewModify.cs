@@ -637,14 +637,14 @@ namespace HenStudio
                 #region METRIC
                 if (NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.METRIC)
                 {
-                    pictureBoxUnitsSystem.Image = Resources.Metric_SI_Units_32x32;
+                    pictureBoxUnitsSystem.Image = Resources.MetricSIUnits;
                 }
                 #endregion  // METRIC
 
                 #region ENGLISH
                 else if (NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum == HenProjectUnits.ProjectSystemUnits.ENGLISH)
                 {
-                    pictureBoxUnitsSystem.Image = Resources.English_Imperial_Units_32x32;
+                    pictureBoxUnitsSystem.Image = Resources.EnglishImperialUnits;
                 }
                 #endregion  // ENGLISH        
             }
