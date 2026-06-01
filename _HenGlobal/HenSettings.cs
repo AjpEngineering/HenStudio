@@ -174,6 +174,20 @@ namespace HenGlobal
 
         #region LICENSE
 
+        #region LicenseFileDtoObj
+        /// <summary>
+        /// License File DTO Object for License Scorecard Panel
+        /// </summary>
+        public LicenseFileDto LicenseFileDtoObj { get; set; }
+        #endregion  // LicenseFileDtoObj
+
+        #region ScoreCardListObj
+        /// <summary>
+        /// ScoreCard List Object for License Scorecard Panel
+        /// </summary>
+        public ScoreCardList ScoreCardListObj { get; set; }
+        #endregion  // ScoreCardListObj
+
         #region LicenseValidatedFlag
         /// <summary>
         /// License Validation Flag
@@ -309,12 +323,21 @@ namespace HenGlobal
                 AJP_HEN_COMPONENTS.Add("_HenViewModel.dll");
                 AJP_HEN_COMPONENTS.Add("HenStudio.exe");
                 #endregion  // HEN COMPONENTS (ASSEMBLIES)
+                
+                #region LICENSE
+                LicenseFileDtoObj = new LicenseFileDto();
+                ScoreCardListObj = new ScoreCardList();
+                LicenseValidatedFlag = false;
+                LicenseTypeEnum = HenTypes.LicenseType.UNKNOWN;
+                LicenseStatusEnum = HenTypes.LicenseStatus.UNKNOWN;
 
                 #region LOG LICENSE DATA
                 WriteSupplierDataToLog();   // Write Supplier Data to Log
                 WriteCustomerDataToLog();   // Write Customer Data to Log
                 WriteProductDataToLog();    // Write Product  Data to Log
                 #endregion  // LOG LICENSE DATA
+                
+                #endregion  // LICENSE
 
                 #region SYSTEM DATA
                 //AppGlobalSettingsList = new List<AppGlobalSettingsDto>();

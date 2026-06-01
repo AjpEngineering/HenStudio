@@ -127,9 +127,9 @@ namespace HenStudio.Data.Profile
             //----------------------------------------------------------------
             ProjectId = Guid.Empty; //--- Project Unique Identifier
             ProfileId = Guid.Empty; //--- Profile Unique Identifier
-            //-----------------------------------------------------------------
+            //-----------------------------------------------------------------------
             //--- Initialize PanelData Objects to Avoid Null Reference Exceptions ---
-            //-----------------------------------------------------------------
+            //-----------------------------------------------------------------------
             ProjectPanelDataObj = new ProjectPanelData();
             ProjectUnitsPanelDataObj = new ProjectUnitsPanelData();
 

@@ -83,6 +83,16 @@
     <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerParamsPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ProjectUnits\ProjectUnitsPanelData.cs" />
     <Compile Include="Data\Project\ProjectWrapperPanelData.cs" />
+    <Compile Include="Data\Root\Database\DatabaseConnectionPanelData.cs" />
+    <Compile Include="Data\Root\Database\DatabaseTablesPanelData.cs" />
+    <Compile Include="Data\Root\FactorySettings\AppSettingsPanelData.cs" />
+    <Compile Include="Data\Root\FactorySettings\AppComponentsPanelData.cs" />
+    <Compile Include="Data\Root\FactorySettings\AppMetadataPanelData.cs" />
+    <Compile Include="Data\Root\License\DeviceUserPanelData.cs" />
+    <Compile Include="Data\Root\License\LicenseFilePanelData.cs" />
+    <Compile Include="Data\Root\License\SummaryPanelData.cs" />
+    <Compile Include="Data\Root\License\LicenseScorecardPanelData.cs" />
+    <Compile Include="Data\Root\RootWrapperPanelData.cs" />
     <Compile Include="Data\Tag\DataTagDisplay.cs" />
     <Compile Include="FormBusinessCard.cs">
       <SubType>Form</SubType>
@@ -165,9 +175,6 @@
     <Folder Include="Data\Hen\Plots\" />
     <Folder Include="Data\Pinch\Plots\" />
     <Folder Include="Data\Root\About\" />
-    <Folder Include="Data\Root\Database\" />
-    <Folder Include="Data\Root\FactorySettings\" />
-    <Folder Include="Data\Root\License\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

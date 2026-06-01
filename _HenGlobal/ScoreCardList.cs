@@ -1,15 +1,14 @@
 ﻿#region HEADER
 //#####################################################################################################################
-//###################################  S c o r e C a r d T a b l e D a t a . c s  #####################################
+//##############################3#########  S c o r e C a r d L i s t . c s  ##########################################
 //#####################################################################################################################
-//  FILENAME:  ScoreCardTableData.cs
-//  NAMESPACE: AJP_License_File
-//  CLASS(S):  ScoreCardTableData
-//  COMPONENT: _AJP License File.dll
+//  FILENAME:  ScoreCardList.cs
+//  NAMESPACE: HenGlobal
+//  CLASS(S):  ScoreCardList, ScoreCardRowData
+//  COMPONENT: _HenGlobal.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the License ScoreCard Table Data object.
-//    Manages collection of ScoreCardRowData objects.
+//    This file contains the code for the License ScoreCard List object.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -48,44 +47,45 @@ using HenGlobal;
 using static System.Windows.Forms.AxHost;
 #endregion  // REFERENCES
 
-#region namespace AJP_License_File
-namespace AJP_License_File
+#region namespace HenGlobal
+namespace HenGlobal
 {
-    #region public class ScoreCardTableData
-    public class ScoreCardTableData
+    #region public class ScoreCardList
+    //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= C l a s s   S c o r e C a r d L i s t =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    public class ScoreCardList  
     {
         #region CONSTANTS
-        const string NAMESPACE = "AJP_License_File";
-        const string CLASS = "ScoreCardTableData";
+        const string NAMESPACE = "HenGlobal";
+        const string CLASS = "ScoreCardList";
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public List<ScoreCardRowData> ScoreCardListObj { get; set; }  // List of ScoreCardRowData objects
+        public ArrayList ScoreCardListObj { get; set; }  // ArrayList of ScoreCardRowData objects
         public int NumProperties { get; set; }       // Number of Properties
         public int NumInvalidProps { get; set; }     // Number of INVALID Properties
         public int NumValidProps { get; set; }       // Number of VALID Properties
         public string ValidationState { get; set; }  // Overall Validation Status ["VALID LICENSE" | "INVALID LICENSE | EXPIRED LICENSE"]
         public int DaysRemaining { get; set; }       // Days Remaining on the License ... [End Date - Current Date]
-        public LicenseTypes.LicenseStatus LicenseStatusEnum { get; set; }     // License Status ... ["EXPIRED" | INVLAID" |"UNKNOWN" | "VALID"]
         #endregion  // PROPERTIES
 
         #region CTOR
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public ScoreCardTableData() 
+        public ScoreCardList() 
         {
             //-----------------------------
             //--- Initialize Properties ---
             //-----------------------------
-            ScoreCardListObj = new List<ScoreCardRowData>(); // List of ScoreCardRowData objects
+            ScoreCardListObj = new ArrayList(); // ArrayList of ScoreCardRowData objects
 
             NumProperties = 0;
             NumInvalidProps = 0;
             NumValidProps = 0;
             ValidationState = String.Empty;
             DaysRemaining = 0;
-            LicenseStatusEnum = LicenseTypes.LicenseStatus.UNKNOWN;
         }
         #endregion  // CTOR
 
@@ -103,8 +103,8 @@ namespace AJP_License_File
         /// <summary>
         /// Add row object to Table
         /// </summary>
-        /// <param name="rowObj">ScoreCardRowData Object</param>
-        public void AddRow(ScoreCardRowData rowObj)
+        /// <param name="rowObj">ScoreCardRow Object</param>
+        public void AddRow(ScoreCardRow rowObj)
         {
             ScoreCardListObj.Add(rowObj);
         }
@@ -119,7 +119,7 @@ namespace AJP_License_File
             NumProperties = ScoreCardListObj.Count;
             NumInvalidProps = 0;
             NumValidProps = 0;
-            foreach (ScoreCardRowData row in ScoreCardListObj)
+            foreach (ScoreCardRow row in ScoreCardListObj)
             {
                 if (String.Compare(row.PropertyState, "VALID") == 0) NumValidProps++;
                 else NumInvalidProps++;
@@ -127,22 +127,6 @@ namespace AJP_License_File
 
             DaysRemaining = GetDaysRemaining();
 
-            LicenseStatusEnum = GetLicenseStatus();
-            switch (LicenseStatusEnum)
-            {
-                case LicenseTypes.LicenseStatus.INVALID:
-                    ValidationState = "INVALID LICENSE";
-                    break;
-                case LicenseTypes.LicenseStatus.EXPIRED:
-                    ValidationState = "EXPIRED LICENSE";
-                    break;
-                case LicenseTypes.LicenseStatus.VALID:
-                    ValidationState = "VALID LICENSE";
-                    break;
-                default:
-                    ValidationState = "UNKNOWN LICENSE";
-                    break;
-            }
         }
         #endregion  // public void GetCounts()
 
@@ -165,7 +149,7 @@ namespace AJP_License_File
                 //-----------------------------
                 //--- Find License End Data ---
                 //-----------------------------
-                foreach(ScoreCardRowData row in ScoreCardListObj)
+                foreach(ScoreCardRow row in ScoreCardListObj)
                 {
                     if(String.Compare(row.PropertyName, strLicenseEndName, true) == 0) 
                     {
@@ -191,34 +175,6 @@ namespace AJP_License_File
         }
         #endregion  // GetDaysRemaining()
 
-        #region GetLicenseStatus()
-        /// <summary>
-        /// Get the License Status ... ["EXPIRED" | INVLAID" |"UNKNOWN" | "VALID"] 
-        /// </summary>
-        /// <returns>License Status on Success; otherwise UNKNOWN</returns>
-        private LicenseTypes.LicenseStatus GetLicenseStatus()
-        {
-            string strMethod = "GetLicenseStatus";
-            string strMsg = String.Empty;
-            LicenseTypes.LicenseStatus licStatus = LicenseTypes.LicenseStatus.UNKNOWN;
-            try
-            {
-                if (NumInvalidProps > 0) licStatus = LicenseTypes.LicenseStatus.INVALID;
-                else if (DaysRemaining <= 0) licStatus = LicenseTypes.LicenseStatus.EXPIRED;
-                else licStatus = LicenseTypes.LicenseStatus.VALID;
-            }
-            catch (Exception ex)
-            {
-                strMsg = String.Format("CLASS: {0}  METHOD: {1}  EXCEPTION: {2}", CLASS, strMethod, ex.Message);
-                Console.WriteLine(strMsg);
-            }
-            finally
-            {
-            }
-            return licStatus;
-        }
-        #endregion  // GetLicenseStatus()
-
         #region public void LogTable()
         /// <summary>
         /// Log the Table Contents
@@ -240,7 +196,7 @@ namespace AJP_License_File
                                        "ID", "STATE", "NAME", "VALUE");
                 Console.WriteLine(strMsg);
 
-                foreach (ScoreCardRowData row in ScoreCardListObj)
+                foreach (ScoreCardRow row in ScoreCardListObj)
                 {
                     strMsg = String.Format(" {0}  {1,-8}  {2,-22}  {3}",
                                            row.PropertyID,
@@ -268,8 +224,69 @@ namespace AJP_License_File
 
     }
     #endregion  // public class ScoreCardTableData
+
+    #region public class ScoreCardRow
+    //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= C l a s s   S c o r e C a r d R o w =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    public class ScoreCardRow
+    {
+        #region CONSTANTS
+        const string NAMESPACE = "HenGlobal";
+        const string CLASS = "ScoreCardRow";
+        #endregion      // CONSTANTS
+
+        #region PROPERTIES
+        public string PropertyID { get; set; }          // License File Property ID ...... e.g., "01"
+        public string PropertyName { get; set; }        // License File Property Name .... e.g., "Author"
+        public string PropertyValue { get; set; }       // License File Property Value ... e.g., "AJP Engineering"
+        public string PropertyState { get; set; }       // License File Property State ... e.g., "VALID"
+        public Bitmap PropertyStateImage { get; set; }  // License File Property State Bitmap Image
+        #endregion      // PROPERTIES
+
+        #region Default CTOR
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
+        public ScoreCardRow()
+        {
+            //-----------------------------
+            //--- Initialize Properties ---
+            //-----------------------------
+            PropertyID = "00";
+            PropertyName = "Name";
+            PropertyValue = "Value";
+            PropertyState = "State";
+        }
+        #endregion  // Default CTOR
+
+        #region Parameterized CTOR
+        /// <summary>
+        /// Parameterized Constructor
+        /// </summary>
+        public ScoreCardRow(string strPropID,
+                            string strPropName,
+                            string strPropValue,
+                            string strPropState)
+        {
+            //-----------------------------
+            //--- Initialize Properties ---
+            //-----------------------------
+            PropertyID = strPropID;
+            PropertyName = strPropName;
+            PropertyValue = strPropValue;
+            PropertyState = strPropState;
+        }
+        #endregion  // Parameterized CTOR
+
+    }
+    //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    #endregion  // public class ScoreCardRow
+
 }
-#endregion  // namespace AJP_License_File
+#endregion  // namespace HenGlobal
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

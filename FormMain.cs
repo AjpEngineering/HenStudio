@@ -114,6 +114,9 @@ using System.Xml.Linq;
 using static HenGlobal.HenTypes;
 
 using System.Runtime;
+using System.Runtime.InteropServices.ComTypes;
+
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 #endregion  // REFERENCES 
 
@@ -493,6 +496,8 @@ namespace HenStudio
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  ASSIGN LICENSE STATUS  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+                #region Get Scorecard Data
                 ScoreCardTableData scoreCardTableDataObj = LicenseMgrObj.GetScoreCardTableData(HenFileSysObj.LicenseFolderPath);
                 if(scoreCardTableDataObj.NumInvalidProps > 0)
                 {
@@ -504,6 +509,59 @@ namespace HenStudio
                     HenSettingsObj.LicenseValidatedFlag = true;
                     HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.VALID;
                 }
+
+                //-----------------------------------------------------------------------------------------
+                //--- Get Scorecard Data into Global HenSettings Object for use in UI and other methods ---
+                //-----------------------------------------------------------------------------------------
+                HenSettingsObj.ScoreCardListObj = new ScoreCardList();
+                foreach(ScoreCardRowData rowData in scoreCardTableDataObj.ScoreCardListObj)
+                {
+                    ScoreCardRow row = new ScoreCardRow(rowData.PropertyID, 
+                                                        rowData.PropertyName, 
+                                                        rowData.PropertyValue, 
+                                                        rowData.PropertyState);
+
+                    HenSettingsObj.ScoreCardListObj.AddRow(row);
+                }
+                #endregion  // Get Scorecard Data
+
+                #region Get License File Data
+                //--------------------------------------------------------------------------------------------
+                //--- Get License File Data into Global HenSettings Object for use in UI and other methods ---
+                //-------------------------------------------------------------------------------------------
+                HenSettingsObj.LicenseFileDtoObj.FileHash = licenseFileXmlObj.FileHash;
+
+                HenSettingsObj.LicenseFileDtoObj.RunTimeDeviceName = licenseFileXmlObj.RunTimeDeviceName;
+                HenSettingsObj.LicenseFileDtoObj.RunTimeUserName = licenseFileXmlObj.RunTimeUserName;
+
+                HenSettingsObj.LicenseFileDtoObj.Author = licenseFileXmlObj.Author;
+                HenSettingsObj.LicenseFileDtoObj.SupplierName = licenseFileXmlObj.SupplierName;
+                HenSettingsObj.LicenseFileDtoObj.SupplierUrl = licenseFileXmlObj.SupplierUrl;
+
+                HenSettingsObj.LicenseFileDtoObj.CustomerName = licenseFileXmlObj.CustomerName;
+                HenSettingsObj.LicenseFileDtoObj.CustomerEmail = licenseFileXmlObj.CustomerEmail;
+
+                HenSettingsObj.LicenseFileDtoObj.ProductName = licenseFileXmlObj.ProductName;
+                HenSettingsObj.LicenseFileDtoObj.ProductVersion = licenseFileXmlObj.ProductVersion; 
+                HenSettingsObj.LicenseFileDtoObj.SerialNumber = licenseFileXmlObj.SerialNumber;
+                HenSettingsObj.LicenseFileDtoObj.ProductCode = licenseFileXmlObj.ProductCode;
+
+                HenSettingsObj.LicenseFileDtoObj.LicenseType = licenseFileXmlObj.LicenseType;
+
+                HenSettingsObj.LicenseFileDtoObj.Corporation = licenseFileXmlObj.Corporation;
+                HenSettingsObj.LicenseFileDtoObj.Division = licenseFileXmlObj.Division;
+                HenSettingsObj.LicenseFileDtoObj.Group = licenseFileXmlObj.Group;
+
+                HenSettingsObj.LicenseFileDtoObj.DeviceName = licenseFileXmlObj.DeviceName;
+                HenSettingsObj.LicenseFileDtoObj.UserName = licenseFileXmlObj.UserName;
+
+                HenSettingsObj.LicenseFileDtoObj.FileLicenseKey = licenseFileXmlObj.FileLicenseKey;
+
+                HenSettingsObj.LicenseFileDtoObj.DurationDays = licenseFileXmlObj.DurationDays;
+                HenSettingsObj.LicenseFileDtoObj.StartDate = licenseFileXmlObj.StartDate;
+                HenSettingsObj.LicenseFileDtoObj.EndDate = licenseFileXmlObj.EndDate;
+                HenSettingsObj.LicenseFileDtoObj.RemainingDays = licenseFileXmlObj.RemainingDays;
+                #endregion  // Get License File Data
 
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
                 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  UPDATE LICENSE STATUS BAR LABEL  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

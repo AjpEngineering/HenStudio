@@ -53,6 +53,7 @@ namespace HenViewModel.System
     public class SystemViewModel : ViewModelBase
     {
         #region PROPERTIES
+        public ConnectionDataRepo ConnectionDataRepoObj { get; set; }
         public GlobalSettingsRepo GlobalSettingsRepoObj { get; set; }
         public DatabaseTableRepo DatabaseTableRepoObj { get; set; }
         #endregion      // PROPERTIES
@@ -70,10 +71,37 @@ namespace HenViewModel.System
             var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
             var ProjectRepoObj = new ProjectRepo(connFactoryObj);
 
+            ConnectionDataRepoObj = new ConnectionDataRepo(connFactoryObj);
             GlobalSettingsRepoObj = new GlobalSettingsRepo(connFactoryObj);
             DatabaseTableRepoObj = new DatabaseTableRepo(connFactoryObj);
         }
         #endregion  // CTOR
+
+        #region GetDatabaseConnectionData()
+        /// <summary>
+        /// Gets database connection data as a strongly-typed <see cref="ConnectionDataRepo"/> object 
+        /// by retrieving all connection data from the data store and mapping them to the corresponding 
+        /// properties on the DTO based on their setting keys.
+        /// </summary>
+        /// <returns>Populated <see cref="ConnectionDataDto"/> object.</returns>
+        /// <exception cref="InvalidOperationException">Unrecognized connection data key encountered while mapping connection data.</exception>
+        public ConnectionDataDto GetDatabaseConnectionData()
+        {
+            try
+            {
+                //-------------------------------------------------------------------------------------------
+                //--- No Conversion needed as the DTO is already in the desired format for the view model ---
+                //-------------------------------------------------------------------------------------------
+                return ConnectionDataRepoObj.GetConnectionData();
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                Console.WriteLine($"Error retrieving profile: {ex.Message}");
+                return null;
+            }
+        }
+        #endregion  // GetDatabaseConnectionData()
 
         #region GetAppGlobalSettings()
         /// <summary>
