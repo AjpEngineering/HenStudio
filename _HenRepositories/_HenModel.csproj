@@ -60,6 +60,7 @@
     <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\OptimizerMILP_Dto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\ProjectUnits\ProjectUnitsDto.cs" />
     <Compile Include="Dto\System\AppGlobalSettingsDto.cs" />
+    <Compile Include="Dto\Project\DefaultParameters\ExchangerParams\HeatTransferCoeffDto.cs" />
     <Compile Include="RepoImplementations\Project\CostParameters\UtilityCostRepo.cs" />
     <Compile Include="RepoImplementations\Project\CostParameters\TotalAnnualizedCostRepo.cs" />
     <Compile Include="RepoImplementations\Project\CostParameters\ShellAndTubeCapitalCostRepo.cs" />

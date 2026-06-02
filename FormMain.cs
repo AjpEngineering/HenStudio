@@ -1463,7 +1463,6 @@ namespace HenStudio
         #region Profile Panel
 
         #endregion  // Profile Panel
-
     }
     #endregion      // class FormMain
 }
