@@ -35,6 +35,9 @@
 #region REFERENCES
 using HenModel.Dto.Project.CostParameters;
 
+using HenViewModel.Project.CostParameters;
+using HenViewModel.Project.DefaultParameters.OptimizerParams;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,9 +57,14 @@ namespace HenStudio.Data.Project.CostParameters
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public Guid Id { get; set; }
+        public Guid CostMetadataId { get; set; }
         public Guid ProjectId { get; set; }
         public CostMetadataDto CostMetadataDtoObj { get; set; }
+
+        #region VIEW MODEL Object
+        public CostMetadataViewModel CostMetadataViewModelObj { get; set; }
+        #endregion  // VIEW MODEL Objects
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -66,11 +74,33 @@ namespace HenStudio.Data.Project.CostParameters
         /// </summary>
         public CostMetadataPanelData()
         {
-            Id = new Guid();
+            CostMetadataId = new Guid();
             ProjectId = new Guid();
             CostMetadataDtoObj = new CostMetadataDto();
         }
         #endregion  // CTOR
+
+        #region CRUD Methods
+
+        #region CREATE COST METADATA DATA METHOD
+        /// <summary>
+        /// Creates a new cost metadata data using the data in the CostMetadataDtoObj property 
+        /// and returns the ID of the newly created cost metadata data.
+        /// </summary>
+        /// <returns>The ID of the newly created cost metadata data.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the cost metadata ID is null after creation.</exception>
+        public Guid CreateCostMetadataData()
+        {
+            CostMetadataId = CostMetadataViewModelObj.AddCostMetadata(CostMetadataDtoObj);
+            if (CostMetadataId == null) throw new ArgumentNullException(
+                             nameof(CostMetadataId), "Cost metadata ID is null for ADD Cost Metadata Panel data.");
+            CostMetadataDtoObj.Id = CostMetadataId;
+            return CostMetadataId;  // CostMetadata ID
+        }
+        #endregion  // CREATE COST METADATA DATA METHOD
+
+
+        #endregion  // CRUD Methods
 
     }
     #endregion      // public class CostMetadataPanelData

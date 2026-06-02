@@ -35,6 +35,8 @@
 #region REFERENCES
 using HenModel.Dto.Project.CostParameters;
 
+using HenViewModel.Project.CostParameters;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,9 +56,14 @@ namespace HenStudio.Data.Project.CostParameters
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public Guid Id { get; set; }
+        public Guid UtilityCostId { get; set; }
         public Guid ProjectId { get; set; }
         public UtilityCostDto UtilityCostDtoObj { get; set; }
+
+        #region VIEW MODEL Object
+        public UtilityCostViewModel UtilityCostViewModelObj { get; set; }
+        #endregion  // VIEW MODEL Objects
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -66,11 +73,34 @@ namespace HenStudio.Data.Project.CostParameters
         /// </summary>
         public UtilityCostPanelData()
         {
-            Id = new Guid();
+            UtilityCostId = new Guid();
             ProjectId = new Guid();
             UtilityCostDtoObj = new UtilityCostDto();
         }
         #endregion  // CTOR
+
+        #region CRUD Methods
+
+        #region CREATE UTILITY COST DATA METHOD
+        /// <summary>
+        /// Creates a new utility cost data using the data in the UtilityCostDtoObj property 
+        /// and returns the ID of the newly created utility cost data.
+        /// </summary>
+        /// <returns>The ID of the newly created Utility Cost data.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the Utility Cost ID is null after creation.</exception>
+        public Guid CreateUtilityCostData()
+        {
+            UtilityCostId = UtilityCostViewModelObj.AddUtilityCost(UtilityCostDtoObj);
+            if (UtilityCostId == null) throw new ArgumentNullException(
+                             nameof(UtilityCostId),
+                             "Utility cost ID is null for ADD Utility Cost Panel data.");
+            UtilityCostDtoObj.Id = UtilityCostId;
+            return UtilityCostId;  // Total Annualized Cost ID
+        }
+        #endregion  // CREATE UTILITY COST DATA METHOD
+
+
+        #endregion  // CRUD Methods
 
     }
     #endregion      // public class UtilityCostPanelData

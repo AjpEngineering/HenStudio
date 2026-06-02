@@ -36,6 +36,8 @@
 #region REFERENCES
 using HenModel.Dto.Project.CostParameters;
 
+using HenViewModel.Project.CostParameters;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,9 +57,14 @@ namespace HenStudio.Data.Project.CostParameters
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public Guid Id { get; set; }
+        public Guid ShellAndTubeCapitalCostId { get; set; }
         public Guid ProjectId { get; set; }
         public ShellAndTubeCapitalCostDto ShellAndTubeCapitalCostDtoObj { get; set; }
+
+        #region VIEW MODEL Object
+        public ShellAndTubeCapitalCostViewModel ShellAndTubeCapitalCostViewModelObj { get; set; }
+        #endregion  // VIEW MODEL Objects
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -67,11 +74,34 @@ namespace HenStudio.Data.Project.CostParameters
         /// </summary>
         public ShellAndTubeCapitalCostPanelData()
         {
-            Id = new Guid();
+            ShellAndTubeCapitalCostId = new Guid();
             ProjectId = new Guid();
             ShellAndTubeCapitalCostDtoObj = new ShellAndTubeCapitalCostDto();
         }
         #endregion  // CTOR
+
+        #region CRUD Methods
+
+        #region CREATE SHELL AND TUBE CAPITAL COST DATA METHOD
+        /// <summary>
+        /// Creates a new shell and tube capital cost data using the data in the ShellAndTubeCapitalCostDtoObj property 
+        /// and returns the ID of the newly created shell and tube capital cost data.
+        /// </summary>
+        /// <returns>The ID of the newly created shell and tube capital cost data.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the shell and tube capital cost ID is null after creation.</exception>
+        public Guid CreateShellAndTubeCapitalCostData()
+        {
+            ShellAndTubeCapitalCostId = ShellAndTubeCapitalCostViewModelObj.AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDtoObj);
+            if (ShellAndTubeCapitalCostId == null) throw new ArgumentNullException(
+                             nameof(ShellAndTubeCapitalCostId), 
+                             "Shell and tube capital cost ID is null for ADD Shell And Tube Capital Cost Panel data.");
+            ShellAndTubeCapitalCostDtoObj.Id = ShellAndTubeCapitalCostId;
+            return ShellAndTubeCapitalCostId;  // Shell And Tube Capital Cost ID
+        }
+        #endregion  // CREATE SHELL AND TUBE CAPITAL COST DATA METHOD
+
+
+        #endregion  // CRUD Methods
 
     }
     #endregion      // public class ShellAndTubeCapitalCostPanelData

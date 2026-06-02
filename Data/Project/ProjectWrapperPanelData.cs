@@ -81,9 +81,17 @@ namespace HenStudio.Data.Project
     {
         #region PROPERTIES
 
-        #region PROJECT ID
-        public Guid ProjectId { get; set; }     //--- PROJECT Identifier
-        #endregion  // // PROJECT ID
+        #region PROJECT IDs
+        public Guid ProjectId { get; set; }         //--- PROJECT Identifier
+        public Guid ProjectUnitsId { get; set; }    //--- PROJECT Units Identifier
+        public Guid ExchangerParamsId { get; set; } //--- Exchanger Params Identifier
+        public Guid OptimizerParamsId { get; set; } //--- Optimizer Params Identifier
+        public Guid CostMetadataId { get; set; }    //--- Cost Metadata Identifier
+        public Guid FiredHeaterCapitalCostId { get; set; }   //--- Fired Heater Capital Cost Identifier
+        public Guid ShellAndTubeCapitalCostId { get; set; }  //--- Shell And Tube Capital Cost Identifier
+        public Guid TotalAnnualizedCostId { get; set; }      //--- Total Annualized Cost Identifier
+        public Guid UtilityCostId { get; set; }      //--- Utility Cost Identifier
+        #endregion  // // PROJECT IDs
 
         #region PanelData Objects
         public ProjectPanelData ProjectPanelDataObj { get; set; }
@@ -136,7 +144,18 @@ namespace HenStudio.Data.Project
         /// </summary>
         private void InitializeWrapperData()
         {
+            //------------------------------------------------------------------------
+            //--- Initialize IDs to Empty GUIDs to Avoid Null Reference Exceptions ---
+            //------------------------------------------------------------------------
             ProjectId = Guid.Empty;
+            ProjectUnitsId = Guid.Empty;
+            ExchangerParamsId = Guid.Empty;
+            OptimizerParamsId = Guid.Empty;
+            CostMetadataId = Guid.Empty;
+            FiredHeaterCapitalCostId = Guid.Empty;
+            ShellAndTubeCapitalCostId = Guid.Empty;
+            TotalAnnualizedCostId = Guid.Empty;
+            UtilityCostId = Guid.Empty;
             //-----------------------------------------------------------------
             //--- Initialize PanelData Objects to Avoid Null Reference Exceptions ---
             //-----------------------------------------------------------------
@@ -260,13 +279,15 @@ namespace HenStudio.Data.Project
         {
             #region PROJECT PANEL DATA
             //--------------------------------------------------------------
-            //--- Add Project Data to DB using Project ViewModel         ---
-            //--- returns Project ID for Foreign Key Relationships in DB ---
+            //--- Add Project Data to DB using PanelData Object          ---
+            //--- Returns Project ID for Foreign Key Relationships in DB ---
             //--------------------------------------------------------------
-            ProjectId = ProjectViewModelObj.AddProject(ProjectPanelDataObj.ProjectDtoObj);
-            if (ProjectId == null) throw new ArgumentNullException(
-                             nameof(ProjectId), "Project ID is null for ADD Project Panel data.");
-            ProjectPanelDataObj.ProjectDtoObj.Id = ProjectId;
+            ProjectId = ProjectPanelDataObj.CreateProjectData();
+
+            //ProjectId = ProjectViewModelObj.AddProject(ProjectPanelDataObj.ProjectDtoObj);
+            //if (ProjectId == null) throw new ArgumentNullException(
+            //                 nameof(ProjectId), "Project ID is null for ADD Project Panel data.");
+            //ProjectPanelDataObj.ProjectDtoObj.Id = ProjectId;
 
             #endregion  // PROJECT PANEL DATA
 
@@ -274,30 +295,45 @@ namespace HenStudio.Data.Project
 
             #region PROJECT DEFAULT PARAMETERS PANELS DATA
 
-            //----------------------------------------------------------------
-            //--- Add ProjectUnits Data to DB using ProjectUnits ViewModel ---
-            //--- returns Project ID for Foreign Key Relationships in DB   ---
-            //----------------------------------------------------------------
-            ProjectId = ProjectUnitsViewModelObj.AddProjectUnits(ProjectUnitsPanelDataObj.ProjectUnitsDtoObj);
-            if (ProjectId == null) throw new ArgumentNullException(
-                             nameof(ProjectId), "Project ID is null for ADD Project Units Panel data.");
-            ProjectUnitsPanelDataObj.ProjectUnitsDtoObj.Id = ProjectId;
-            //----------------------------------------------------------------------
-            //--- Add ExchangerParams Data to DB using ExchangerParams ViewModel ---
-            //--- returns Project ID for Foreign Key Relationships in DB         ---
-            //----------------------------------------------------------------------
-            ProjectId = ExchangerParamsViewModelObj.AddExchangerParams(ExchangerParamsPanelDataObj.ExchangerParamsDtoObj);
-            if (ProjectId == null) throw new ArgumentNullException(
-                             nameof(ProjectId), "Project ID is null for ADD Exchanger Params Panel data.");
-            ExchangerParamsPanelDataObj.ExchangerParamsDtoObj.Id = ProjectId;
-            //----------------------------------------------------------------------
-            //--- Add OptimizerParams Data to DB using OptimizerParams ViewModel ---
-            //--- returns Project ID for Foreign Key Relationships in DB         ---
-            //----------------------------------------------------------------------
-            ProjectId = OptimizerParamsViewModelObj.AddOptimizerParams(OptimizerParamsPanelDataObj.OptimizerParamsDtoObj);
-            if (ProjectId == null) throw new ArgumentNullException(
-                             nameof(ProjectId), "Project ID is null for ADD Optimizer Params Panel data.");
-            OptimizerParamsPanelDataObj.OptimizerParamsDtoObj.Id = ProjectId;
+            //----------------------------------------------------------
+            //--- Add ProjectUnits Data to DB using PanelData Object ---
+            //--- Returns Project Units ID                           ---
+            //--- Assign Project ID (ProjectPanelData)               ---
+            //----------------------------------------------------------
+            ProjectUnitsId = ProjectUnitsPanelDataObj.CreateProjectUnitsData();
+            ProjectUnitsPanelDataObj.ProjectId = ProjectId;
+
+            //ProjectId = ProjectUnitsViewModelObj.AddProjectUnits(ProjectUnitsPanelDataObj.ProjectUnitsDtoObj);
+            //if (ProjectId == null) throw new ArgumentNullException(
+            //                 nameof(ProjectId), "Project ID is null for ADD Project Units Panel data.");
+            //ProjectUnitsPanelDataObj.ProjectUnitsDtoObj.Id = ProjectId;
+
+            //-------------------------------------------------------------
+            //--- Add ExchangerParams Data to DB using PanelData Object ---
+            //--- Returns Exchanger Params ID                           ---
+            //--- Assign Project ID (ProjectPanelData)                  ---
+            //-------------------------------------------------------------
+            ExchangerParamsId = ExchangerParamsPanelDataObj.CreateExchangerParamsData();
+            ExchangerParamsPanelDataObj.ProjectId = ProjectId;
+
+            //ProjectId = ExchangerParamsViewModelObj.AddExchangerParams(ExchangerParamsPanelDataObj.ExchangerParamsDtoObj);
+            //if (ProjectId == null) throw new ArgumentNullException(
+            //                 nameof(ProjectId), "Project ID is null for ADD Exchanger Params Panel data.");
+            //ExchangerParamsPanelDataObj.ExchangerParamsDtoObj.Id = ProjectId;
+
+
+            //-------------------------------------------------------------
+            //--- Add OptimizerParams Data to DB using PanelData Object ---
+            //--- Returns Optimizer Params ID                           ---
+            //--- Assign Project ID (ProjectPanelData)                  ---
+            //-------------------------------------------------------------
+            OptimizerParamsId = OptimizerParamsPanelDataObj.CreateOptimizerParamsData();
+            OptimizerParamsPanelDataObj.ProjectId = ProjectId;
+
+            //ProjectId = OptimizerParamsViewModelObj.AddOptimizerParams(OptimizerParamsPanelDataObj.OptimizerParamsDtoObj);
+            //if (ProjectId == null) throw new ArgumentNullException(
+            //nameof(ProjectId), "Project ID is null for ADD Optimizer Params Panel data.");
+            //OptimizerParamsPanelDataObj.OptimizerParamsDtoObj.Id = ProjectId;
 
             #endregion  // PROJECT DEFAULT PARAMETERS PANELS DATA
 
@@ -305,46 +341,70 @@ namespace HenStudio.Data.Project
 
             #region PROJECT COST PARAMETERS PANELS DATA
 
-            //----------------------------------------------------------------
-            //--- Add CostMetadata Data to DB using CostMetadata ViewModel ---
-            //--- returns Project ID for Foreign Key Relationships in DB   ---
-            //----------------------------------------------------------------
-            ProjectId = CostMetadataViewModelObj.AddCostMetadata(CostMetadataPanelDataObj.CostMetadataDtoObj);
-            if (ProjectId == null) throw new ArgumentNullException(
-                             nameof(ProjectId), "Project ID is null for ADD Cost Metadata Panel data.");
-            CostMetadataPanelDataObj.CostMetadataDtoObj.Id = ProjectId;
-            //------------------------------------------------------------------------------------
-            //--- Add FiredHeaterCapitalCost Data to DB using FiredHeaterCapitalCost ViewModel ---
-            //--- returns Project ID for Foreign Key Relationships in DB                       ---
-            //------------------------------------------------------------------------------------
-            ProjectId = FiredHeaterCapitalCostViewModelObj.AddFiredHeaterCapitalCost(FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj);
-            if (ProjectId == null) throw new ArgumentNullException(
-                             nameof(ProjectId), "Project ID is null for ADD Fired Heater Capital Cost Panel data.");
-            FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj.Id = ProjectId;
-            //--------------------------------------------------------------------------------------
-            //--- Add ShellAndTubeCapitalCost Data to DB using ShellAndTubeCapitalCost ViewModel ---
-            //--- returns Project ID for Foreign Key Relationships in DB                         ---
-            //--------------------------------------------------------------------------------------
-            ProjectId = ShellAndTubeCapitalCostViewModelObj.AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj);
-            if (ProjectId == null) throw new ArgumentNullException(
-                             nameof(ProjectId), "Project ID is null for ADD Shell And Tube Capital Cost Panel data.");
-            ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj.Id = ProjectId;
+            //----------------------------------------------------------
+            //--- Add CostMetadata Data to DB using PanelData Object ---
+            //--- Returns Cost Metadata ID                           ---
+            //--- Assign Project ID (ProjectPanelData)               ---
+            //----------------------------------------------------------
+            CostMetadataId = CostMetadataPanelDataObj.CreateCostMetadataData();
+            CostMetadataPanelDataObj.ProjectId = ProjectId;
+
+            //ProjectId = CostMetadataViewModelObj.AddCostMetadata(CostMetadataPanelDataObj.CostMetadataDtoObj);
+            //if (ProjectId == null) throw new ArgumentNullException(
+            //                 nameof(ProjectId), "Project ID is null for ADD Cost Metadata Panel data.");
+            //CostMetadataPanelDataObj.CostMetadataDtoObj.Id = ProjectId;
+
+            //--------------------------------------------------------------------
+            //--- Add FiredHeaterCapitalCost Data to DB using PanelData Object ---
+            //--- Returns Fired heater Capital Cost ID                         ---
+            //--- Assign Project ID (ProjectPanelData)                         ---
+            //--------------------------------------------------------------------
+            FiredHeaterCapitalCostId = FiredHeaterCapitalCostPanelDataObj.CreateFiredHeaterCapitalCostData();
+            FiredHeaterCapitalCostPanelDataObj.ProjectId = ProjectId;
+
+            //ProjectId = FiredHeaterCapitalCostViewModelObj.AddFiredHeaterCapitalCost(FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj);
+            //if (ProjectId == null) throw new ArgumentNullException(
+            //                 nameof(ProjectId), "Project ID is null for ADD Fired Heater Capital Cost Panel data.");
+            //FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj.Id = ProjectId;
+
+            //---------------------------------------------------------------------
+            //--- Add ShellAndTubeCapitalCost Data to DB using PanelData Object ---
+            //--- Returns Fired heater Capital Cost ID                          ---
+            //--- Assign Project ID (ProjectPanelData)                          ---
+            //---------------------------------------------------------------------
+            ShellAndTubeCapitalCostId = ShellAndTubeCapitalCostPanelDataObj.CreateShellAndTubeCapitalCostData();
+            ShellAndTubeCapitalCostPanelDataObj.ProjectId = ProjectId;
+
+            //ProjectId = ShellAndTubeCapitalCostViewModelObj.AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj);
+            //if (ProjectId == null) throw new ArgumentNullException(
+            //                 nameof(ProjectId), "Project ID is null for ADD Shell And Tube Capital Cost Panel data.");
+            //ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj.Id = ProjectId;
+
             //------------------------------------------------------------------------------
             //--- Add TotalAnnualizedCost Data to DB using TotalAnnualizedCost ViewModel ---
             //--- returns Project ID for Foreign Key Relationships in DB                 ---
             //------------------------------------------------------------------------------
-            ProjectId = TotalAnnualizedCostViewModelObj.AddTotalAnnualizedCost(TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj);
-            if (ProjectId == null) throw new ArgumentNullException(
-                             nameof(ProjectId), "Project ID is null for ADD Total Annualized Cost Panel data.");
-            TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj.Id = ProjectId;
+            TotalAnnualizedCostId = TotalAnnualizedCostPanelDataObj.CreateTotalAnnualizedCostData();
+            TotalAnnualizedCostPanelDataObj.ProjectId = ProjectId;
+
+            //ProjectId = TotalAnnualizedCostViewModelObj.AddTotalAnnualizedCost(TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj);
+            //if (ProjectId == null) throw new ArgumentNullException(
+            //                 nameof(ProjectId), "Project ID is null for ADD Total Annualized Cost Panel data.");
+            //TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj.Id = ProjectId;
+
+
             //--------------------------------------------------------------
             //--- Add UtilityCost Data to DB using UtilityCost ViewModel ---
             //--- returns Project ID for Foreign Key Relationships in DB ---
             //--------------------------------------------------------------
-            ProjectId = UtilityCostViewModelObj.AddUtilityCost(UtilityCostPanelDataObj.UtilityCostDtoObj);
-            if (ProjectId == null) throw new ArgumentNullException(
-                             nameof(ProjectId), "Project ID is null for ADD Utility Cost Panel data.");
-            UtilityCostPanelDataObj.UtilityCostDtoObj.Id = ProjectId;
+            UtilityCostId = UtilityCostPanelDataObj.CreateUtilityCostData();
+            UtilityCostPanelDataObj.ProjectId = ProjectId;
+
+
+            //ProjectId = UtilityCostViewModelObj.AddUtilityCost(UtilityCostPanelDataObj.UtilityCostDtoObj);
+            //if (ProjectId == null) throw new ArgumentNullException(
+            //                 nameof(ProjectId), "Project ID is null for ADD Utility Cost Panel data.");
+            //UtilityCostPanelDataObj.UtilityCostDtoObj.Id = ProjectId;
 
             #endregion  // PROJECT COST PARAMETERS PANELS DATA
 
@@ -449,30 +509,30 @@ namespace HenStudio.Data.Project
             #endregion  // PROJECT PANEL DATA
 
             #region PROJECT DEFAULT PARAMETERS PANEL DATA
-            ExchangerParamsPanelDataObj.Id = ProjectId;
+            ExchangerParamsPanelDataObj.ProjectId = ProjectId;
             ExchangerParamsViewModelObj.UpdateExchangerParams(ExchangerParamsPanelDataObj.ExchangerParamsDtoObj);
             
-            OptimizerParamsPanelDataObj.Id = ProjectId;
+            OptimizerParamsPanelDataObj.ProjectId = ProjectId;
             OptimizerParamsViewModelObj.UpdateOptimizerParams(OptimizerParamsPanelDataObj.OptimizerParamsDtoObj);
             
-            ProjectUnitsPanelDataObj.Id = ProjectId;
+            ProjectUnitsPanelDataObj.ProjectId = ProjectId;
             ProjectUnitsViewModelObj.UpdateProjectUnits(ProjectUnitsPanelDataObj.ProjectUnitsDtoObj);
             #endregion  // PROJECT DEFAULT PARAMETERS PANEL DATA
 
             #region PROJECT COST PARAMETERS PANEL DATA
-            CostMetadataPanelDataObj.Id = ProjectId;
+            CostMetadataPanelDataObj.ProjectId = ProjectId;
             CostMetadataViewModelObj.UpdateCostMetadata(CostMetadataPanelDataObj.CostMetadataDtoObj);
             
-            FiredHeaterCapitalCostPanelDataObj.Id = ProjectId;
+            FiredHeaterCapitalCostPanelDataObj.ProjectId = ProjectId;
             FiredHeaterCapitalCostViewModelObj.UpdateFiredHeaterCapitalCost(FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj);
             
-            ShellAndTubeCapitalCostPanelDataObj.Id = ProjectId;
+            ShellAndTubeCapitalCostPanelDataObj.ProjectId = ProjectId;
             ShellAndTubeCapitalCostViewModelObj.UpdateShellAndTubeCapitalCost(ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj);
            
-            TotalAnnualizedCostPanelDataObj.Id = ProjectId;
+            TotalAnnualizedCostPanelDataObj.ProjectId = ProjectId;
             TotalAnnualizedCostViewModelObj.UpdateTotalAnnualizedCost(TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj);
             
-            UtilityCostPanelDataObj.Id = ProjectId;
+            UtilityCostPanelDataObj.ProjectId = ProjectId;
             UtilityCostViewModelObj.UpdateUtilityCost(UtilityCostPanelDataObj.UtilityCostDtoObj);
             #endregion  // PROJECT COST PARAMETERS PANEL DATA
 

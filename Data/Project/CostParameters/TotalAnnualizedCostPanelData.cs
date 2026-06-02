@@ -36,6 +36,8 @@
 #region REFERENCES
 using HenModel.Dto.Project.CostParameters;
 
+using HenViewModel.Project.CostParameters;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,9 +57,14 @@ namespace HenStudio.Data.Project.CostParameters
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public Guid Id { get; set; }
+        public Guid TotalAnnualizedCostId { get; set; }
         public Guid ProjectId { get; set; }
         public TotalAnnualizedCostDto TotalAnnualizedCostDtoObj { get; set; }
+
+        #region VIEW MODEL Object
+        public TotalAnnualizedCostViewModel TotalAnnualizedCostViewModelObj { get; set; }
+        #endregion  // VIEW MODEL Objects
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -67,11 +74,34 @@ namespace HenStudio.Data.Project.CostParameters
         /// </summary>
         public TotalAnnualizedCostPanelData()
         {
-            Id = new Guid();
+            TotalAnnualizedCostId = new Guid();
             ProjectId = new Guid();
             TotalAnnualizedCostDtoObj = new TotalAnnualizedCostDto();
         }
         #endregion  // CTOR
+
+        #region CRUD Methods
+
+        #region CREATE TOTAL ANNUALIZED COST DATA METHOD
+        /// <summary>
+        /// Creates a new total annualized cost data using the data in the TotalAnnualizedCostDtoObj property 
+        /// and returns the ID of the newly created total annualized cost data.
+        /// </summary>
+        /// <returns>The ID of the newly created total annualized cost data.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the total annualized cost ID is null after creation.</exception>
+        public Guid CreateTotalAnnualizedCostData()
+        {
+            TotalAnnualizedCostId = TotalAnnualizedCostViewModelObj.AddTotalAnnualizedCost(TotalAnnualizedCostDtoObj);
+            if (TotalAnnualizedCostId == null) throw new ArgumentNullException(
+                             nameof(TotalAnnualizedCostId),
+                             "Total annualized cost ID is null for ADD Total Annualized Cost Panel data.");
+            TotalAnnualizedCostDtoObj.Id = TotalAnnualizedCostId;
+            return TotalAnnualizedCostId;  // Total Annualized Cost ID
+        }
+        #endregion  // CREATE TOTAL ANNUALIZED COST DATA METHOD
+
+
+        #endregion  // CRUD Methods
 
     }
     #endregion      // public class TotalAnnualizedCostPanelData

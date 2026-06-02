@@ -35,6 +35,9 @@
 #region REFERENCES
 using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
+using HenViewModel.Project;
+using HenViewModel.Project.DefaultParameters.ProjectUnits;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,6 +60,11 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         public Guid Id { get; set; }
         public Guid ProjectId { get; set; }
         public ProjectUnitsDto ProjectUnitsDtoObj { get; set; }
+
+        #region VIEW MODEL Object
+        public ProjectUnitsViewModel ProjectUnitsViewModelObj { get; set; }
+        #endregion  // VIEW MODEL Objects
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -71,6 +79,27 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
             ProjectUnitsDtoObj = new ProjectUnitsDto();
         }
         #endregion  // CTOR
+
+        #region CRUD Methods
+
+        #region CREATE PROJECT UNITS DATA METHOD
+        /// <summary>
+        /// Creates a new project units data using the data in the ProjectUnitsDtoObj property 
+        /// and returns the ID of the newly created project.
+        /// </summary>
+        /// <returns>The ID of the newly created project units data.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the project units ID is null after creation.</exception>
+        public Guid CreateProjectUnitsData()
+        {
+            Id = ProjectUnitsViewModelObj.AddProjectUnits(ProjectUnitsDtoObj);
+            if (Id == null) throw new ArgumentNullException(
+                             nameof(Id), "Project units ID is null for ADD Project Units Panel data.");
+            ProjectUnitsDtoObj.Id = Id; 
+            return Id;  // ProjectUnits ID
+        }
+        #endregion  // CREATE PROJECT UNITS DATA METHOD
+
+        #endregion  // CRUD Methods
 
     }
     #endregion      // public class ProjectUnitsPanelData

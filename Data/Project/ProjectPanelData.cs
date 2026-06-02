@@ -35,6 +35,8 @@
 #region REFERENCES
 using HenModel.Dto.Project;
 
+using HenViewModel.Project;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +58,12 @@ namespace HenStudio.Data.Project
         #region PROPERTIES
         public Guid Id { get; set; }
         public ProjectDto ProjectDtoObj { get; set; }
+
+        #region VIEW MODEL Object
+        public ProjectViewModel ProjectViewModelObj { get; set; }
+        #endregion  // VIEW MODEL Objects
+
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -69,8 +77,31 @@ namespace HenStudio.Data.Project
         {
             Id = new Guid();
             ProjectDtoObj = new ProjectDto();
+
+            ProjectViewModelObj = new ProjectViewModel();
         }
         #endregion  // CTOR
+
+        #region CRUD Methods
+
+        #region CREATE PROJECT DATA METHOD
+        /// <summary>
+        /// Creates a new project using the data in the ProjectDtoObj property 
+        /// and returns the ID of the newly created project.
+        /// </summary>
+        /// <returns>The ID of the newly created project.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the project ID is null after creation.</exception>
+        public Guid CreateProjectData()
+        {
+            Id = ProjectViewModelObj.AddProject(ProjectDtoObj);
+            if (Id == null) throw new ArgumentNullException(
+                             nameof(Id), "Project ID is null for ADD Project Panel data.");
+            ProjectDtoObj.Id = Id;
+            return Id;
+        }
+        #endregion  // CREATE PROJECT DATA METHOD
+
+        #endregion  // CRUD Methods
 
     }
     #endregion      // public class ProjectPanelData

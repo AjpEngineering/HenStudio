@@ -35,6 +35,8 @@
 #region REFERENCES
 using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 
+using HenViewModel.Project.DefaultParameters.ExchangerParams;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,19 +56,45 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public Guid Id { get; set; }
+        public Guid ExchangerParamsId { get; set; }
         public Guid ProjectId { get; set; }
         public ExchangerParamsDto ExchangerParamsDtoObj { get; set; }
+
+        #region VIEW MODEL Object
+        public ExchangerParamsViewModel ExchangerParamsViewModelObj { get; set; }
+        #endregion  // VIEW MODEL Objects
+
         #endregion  // PROPERTIES
 
         #region CTOR
         public ExchangerParamsPanelData()
         {
-            Id = new Guid();
+            ExchangerParamsId = new Guid();
             ProjectId = new Guid();
             ExchangerParamsDtoObj = new ExchangerParamsDto();
         }
         #endregion  // CTOR
+
+        #region CRUD Methods
+
+        #region CREATE EXCHANGER PARAMS DATA METHOD
+        /// <summary>
+        /// Creates a new exchanger params data using the data in the ExchangerParamsDtoObj property 
+        /// and returns the ID of the newly created exchanger params data.
+        /// </summary>
+        /// <returns>The ID of the newly created exchanger params data.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the exchanger params ID is null after creation.</exception>
+        public Guid CreateExchangerParamsData()
+        {
+            ExchangerParamsId = ExchangerParamsViewModelObj.AddExchangerParams(ExchangerParamsDtoObj);
+            if (ExchangerParamsId == null) throw new ArgumentNullException(
+                             nameof(ExchangerParamsId), "Exchanger params ID is null for ADD Exchanger Params Panel data.");
+            ExchangerParamsDtoObj.Id = ExchangerParamsId;
+            return ExchangerParamsId;  // ExchangerParams ID
+        }
+        #endregion  // CREATE EXCHANGER PARAMS DATA METHOD
+
+        #endregion  // CRUD Methods
 
     }
     #endregion      // public class ExchangerParamsPanelData
