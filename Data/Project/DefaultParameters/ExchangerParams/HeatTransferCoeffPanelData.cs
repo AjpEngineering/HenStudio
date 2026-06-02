@@ -64,7 +64,6 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
 
         #region PROPERTIES
         public bool EnglishUnitsFlag { get; set; }
-        public string ProjectSystemUnits { get; set; }
         public string ProjectHeatTransferCoeffUnits { get; set; }
         public List<HeatTransferCoeffDto> HeatTransferCoeffDtoList { get; set; }
         #endregion  // PROPERTIES
@@ -77,8 +76,7 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
         /// <param name="projectUnits">The EXTERNAL units used in the project.</param>
         public HeatTransferCoeffPanelData(string projectSystemUnits)
         {
-            ProjectSystemUnits = projectSystemUnits;
-            EnglishUnitsFlag = string.Compare(ProjectSystemUnits, 
+            EnglishUnitsFlag = string.Compare(projectSystemUnits, 
                                               HenProjectUnits.ENGLISH_UNITS, true) == 0;
 
             //----------------------------------------------------------------------------
