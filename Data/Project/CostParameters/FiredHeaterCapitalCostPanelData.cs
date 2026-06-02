@@ -99,6 +99,21 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // CREATE FIRED HEATER CAPITAL COST DATA METHOD
 
+        #region READ FIRED HEATER CAPITAL COST DATA METHOD
+        /// <summary>
+        /// Reads the fired heater capital cost data for the specified project ID 
+        /// and populates the FiredHeaterCapitalCostDtoObj property with the retrieved data.
+        /// </summary>
+        /// <param name="projectId">The ID of the project to read.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
+        public void ReadFiredHeaterCapitalCostData(Guid projectId)
+        {
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID is null for READ Fired Heater Capital Cost Panel data.");
+            ProjectId = projectId;
+            FiredHeaterCapitalCostDtoObj = FiredHeaterCapitalCostViewModelObj.GetFiredHeaterCapitalCostByProjectId(projectId);
+        }
+        #endregion  // READ FIRED HEATER CAPITAL COST DATA METHOD
 
         #endregion  // CRUD Methods
 

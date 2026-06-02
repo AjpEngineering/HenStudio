@@ -99,6 +99,21 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // CREATE COST METADATA DATA METHOD
 
+        #region READ COST METADATA DATA METHOD
+        /// <summary>
+        /// Reads the cost metadata data for the specified project ID 
+        /// and populates the CostMetadataDtoObj property with the retrieved data.
+        /// </summary>
+        /// <param name="projectId">The ID of the project to read.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
+        public void ReadCostMetadataData(Guid projectId)
+        {
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID is null for READ Cost Metadata Panel data.");
+            ProjectId = projectId;
+            CostMetadataDtoObj = CostMetadataViewModelObj.GetCostMetadataByProjectId(projectId);
+        }
+        #endregion  // READ COST METADATA DATA METHOD
 
         #endregion  // CRUD Methods
 

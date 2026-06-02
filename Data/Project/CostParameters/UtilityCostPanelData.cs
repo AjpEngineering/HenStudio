@@ -99,6 +99,21 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // CREATE UTILITY COST DATA METHOD
 
+        #region READ UTILITY COST DATA METHOD
+        /// <summary>
+        /// Reads the utility cost data for the specified project ID 
+        /// and populates the UtilityCostDtoObj property with the retrieved data.
+        /// </summary>
+        /// <param name="projectId">The ID of the project to read.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
+        public void ReadUtilityCostData(Guid projectId)
+        {
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID is null for READ Utility Cost Panel data.");
+            ProjectId = projectId;
+            UtilityCostDtoObj = UtilityCostViewModelObj.GetUtilityCostByProjectId(projectId);
+        }
+        #endregion  // READ UTILITY COST DATA METHOD
 
         #endregion  // CRUD Methods
 

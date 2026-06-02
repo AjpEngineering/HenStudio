@@ -101,6 +101,23 @@ namespace HenStudio.Data.Project
         }
         #endregion  // CREATE PROJECT DATA METHOD
 
+        #region READ PROJECT DATA METHOD
+        /// <summary>
+        /// Reads the project data for the specified project ID 
+        /// and populates the ProjectDtoObj property with the retrieved data.
+        /// </summary>
+        /// <param name="projectId">The ID of the project to read.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
+        public void ReadProjectData(Guid projectId)
+        {
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID is null for READ Project Panel data.");
+            Id = projectId;
+            ProjectDtoObj = ProjectViewModelObj.GetProjectById(projectId);
+        }
+
+        #endregion  // READ PROJECT DATA METHOD
+
         #endregion  // CRUD Methods
 
     }

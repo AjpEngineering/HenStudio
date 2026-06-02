@@ -100,9 +100,23 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // CREATE TOTAL ANNUALIZED COST DATA METHOD
 
+        #region READ TOTAL ANNUALIZED COST DATA METHOD
+        /// <summary>
+        /// Reads the total annualized cost data for the specified project ID 
+        /// and populates the TotalAnnualizedCostDtoObj property with the retrieved data.
+        /// </summary>
+        /// <param name="projectId">The ID of the project to read.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
+        public void ReadTotalAnnualizedCostData(Guid projectId)
+        {
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID is null for READ Total Annualized Cost Panel data.");
+            ProjectId = projectId;
+            TotalAnnualizedCostDtoObj = TotalAnnualizedCostViewModelObj.GetTotalAnnualizedCostByProjectId(projectId);
+        }
+        #endregion  // READ TOTAL ANNUALIZED COST DATA METHOD
 
         #endregion  // CRUD Methods
-
     }
     #endregion      // public class TotalAnnualizedCostPanelData
 }

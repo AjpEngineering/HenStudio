@@ -100,6 +100,21 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // CREATE SHELL AND TUBE CAPITAL COST DATA METHOD
 
+        #region READ SHELL AND TUBE CAPITAL COST DATA METHOD
+        /// <summary>
+        /// Reads the shell and tube capital cost data for the specified project ID 
+        /// and populates the ShellAndTubeCapitalCostDtoObj property with the retrieved data.
+        /// </summary>
+        /// <param name="projectId">The ID of the project to read.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
+        public void ReadShellAndTubeCapitalCostData(Guid projectId)
+        {
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID is null for READ Shell And Tube Capital Cost Panel data.");
+            ProjectId = projectId;
+            ShellAndTubeCapitalCostDtoObj = ShellAndTubeCapitalCostViewModelObj.GetShellAndTubeCapitalCostByProjectId(projectId);
+        }
+        #endregion  // READ SHELL AND TUBE CAPITAL COST DATA METHOD
 
         #endregion  // CRUD Methods
 

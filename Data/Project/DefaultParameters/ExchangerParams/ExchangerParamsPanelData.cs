@@ -94,6 +94,23 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
         }
         #endregion  // CREATE EXCHANGER PARAMS DATA METHOD
 
+        #region READ EXCHANGER PARAMS DATA METHOD
+        /// <summary>
+        /// Reads the exchanger params data for the specified project ID 
+        /// and populates the ExchangerParamsDtoObj property with the retrieved data.
+        /// </summary>
+        /// <param name="projectId">The ID of the project to read.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
+        public void ReadExchangerParamsData(Guid projectId)
+        {
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID is null for READ Exchanger Params Panel data.");
+            ProjectId = projectId;
+            ExchangerParamsDtoObj = ExchangerParamsViewModelObj.GetExchangerParamsByProjectId(projectId);
+        }
+
+        #endregion  // READ EXCHANGER PARAMS DATA METHOD
+
         #endregion  // CRUD Methods
 
     }

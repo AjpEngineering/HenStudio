@@ -98,6 +98,21 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         }
         #endregion  // CREATE OPTIMIZER PARAMS DATA METHOD
 
+        #region READ OPTIMIZER PARAMS DATA METHOD
+        /// <summary>
+        /// Reads the optimizer params data for the specified project ID 
+        /// and populates the OptimizerParamsDtoObj property with the retrieved data.
+        /// </summary>
+        /// <param name="projectId">The ID of the project to read.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
+        public void ReadOptimizerParamsData(Guid projectId)
+        {
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID is null for READ Optimizer Params Panel data.");
+            ProjectId = projectId;
+            OptimizerParamsDtoObj = OptimizerParamsViewModelObj.GetOptimizerParamsByProjectId(projectId);
+        }
+        #endregion  // READ OPTIMIZER PARAMS DATA METHOD
 
         #endregion  // CRUD Methods
 
