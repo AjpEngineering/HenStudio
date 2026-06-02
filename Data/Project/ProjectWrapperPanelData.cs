@@ -88,9 +88,11 @@ namespace HenStudio.Data.Project
         #region PanelData Objects
         public ProjectPanelData ProjectPanelDataObj { get; set; }
 
-        public ExchangerParamsPanelData ExchangerParamsPanelDataObj{ get; set; }
+        public ExchangerParamsPanelData ExchangerParamsPanelDataObj { get; set; }
         public OptimizerParamsPanelData OptimizerParamsPanelDataObj { get; set; }
         public ProjectUnitsPanelData ProjectUnitsPanelDataObj { get; set; }
+
+        public HeatTransferCoeffPanelData HeatTransferCoeffPanelDataObj { get; set; }
 
         public CostMetadataPanelData CostMetadataPanelDataObj { get; set; }
         public FiredHeaterCapitalCostPanelData FiredHeaterCapitalCostPanelDataObj { get; set; }
@@ -143,6 +145,9 @@ namespace HenStudio.Data.Project
             ExchangerParamsPanelDataObj = new ExchangerParamsPanelData();
             OptimizerParamsPanelDataObj = new OptimizerParamsPanelData();
             ProjectUnitsPanelDataObj = new ProjectUnitsPanelData();
+
+            HeatTransferCoeffPanelDataObj = new HeatTransferCoeffPanelData("English");
+
             CostMetadataPanelDataObj = new CostMetadataPanelData();
             FiredHeaterCapitalCostPanelDataObj = new FiredHeaterCapitalCostPanelData();
             ShellAndTubeCapitalCostPanelDataObj = new ShellAndTubeCapitalCostPanelData();
@@ -231,7 +236,14 @@ namespace HenStudio.Data.Project
                                                      projectUnitsDtoObj.DefaultMagnitudeUnits,
                                                      projectUnitsDtoObj.DefaultTemperatureUnits,
                                                      projectUnitsDtoObj.DefaultPressureUnits);
-
+            //----------------------------------------------------------------------------------
+            //--- Initialize Heat Transfer Coefficient Panel Data based on Project Units     ---
+            //--- NOTE: Heat Transfer Coefficient Panel Data is Dependent on Project Units,  ---
+            //--- so it is initialized here after the Project Units data is retrieved.       ---
+            //--- NOTE: Heat Transfer Coefficient Panel Data is NOT stored in the DB, but is ---
+            //--- calculated based on the Project Units.                                     ---
+            //----------------------------------------------------------------------------------
+            HeatTransferCoeffPanelDataObj = new HeatTransferCoeffPanelData(projectUnitsDtoObj.DefaultSystemUnits);
         }
         #endregion  // FULL Parameterized CTOR
 
@@ -376,6 +388,17 @@ namespace HenStudio.Data.Project
             
             ProjectUnitsPanelDataObj.ProjectId = ProjectId;
             ProjectUnitsPanelDataObj.ProjectUnitsDtoObj = ProjectUnitsViewModelObj.GetProjectUnitsByProjectId(projectId);
+
+            //----------------------------------------------------------------------------------
+            //--- Initialize Heat Transfer Coefficient Panel Data based on Project Units     ---
+            //--- NOTE: Heat Transfer Coefficient Panel Data is Dependent on Project Units,  ---
+            //--- so it is initialized here after the Project Units data is retrieved.       ---
+            //--- NOTE: Heat Transfer Coefficient Panel Data is NOT stored in the DB, but is ---
+            //--- calculated based on the Project Units.                                     ---
+            //----------------------------------------------------------------------------------
+            HeatTransferCoeffPanelDataObj = new HeatTransferCoeffPanelData(
+                             ProjectUnitsPanelDataObj.ProjectUnitsDtoObj.DefaultSystemUnits);
+
             #endregion  // PROJECT DEFAULT PARAMETERS PANELS DATA
 
             #region PROJECT COST PARAMETERS PANELS DATA
