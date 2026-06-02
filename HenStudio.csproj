@@ -76,8 +76,8 @@
     <Compile Include="Data\Project\CostParameters\ShellAndTubeCapitalCostPanelData.cs" />
     <Compile Include="Data\Project\CostParameters\FiredHeaterCapitalCostPanelData.cs" />
     <Compile Include="Data\Project\CostParameters\CostMetadataPanelData.cs" />
-    <Compile Include="Data\Project\DefaultParameters\ExchangerParams\HeatTransferCoeffPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ExchangerParams\ExchangerParamsPanelData.cs" />
+    <Compile Include="Data\Project\DefaultParameters\ExchangerParams\HeatTransferCoeffPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerMILP_PanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerGreedyPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerGeneticPanelData.cs" />
