@@ -92,8 +92,10 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         public Guid CreateOptimizerParamsData()
         {
             OptimizerParamsId = OptimizerParamsViewModelObj.AddOptimizerParams(OptimizerParamsDtoObj);
+
             if (OptimizerParamsId == null) throw new ArgumentNullException(
                              nameof(OptimizerParamsId), "Optimizer params ID is null for ADD Optimizer Params Panel data.");
+
             OptimizerParamsDtoObj.Id = OptimizerParamsId;
             return OptimizerParamsId;  // OptimizerParams ID
         }

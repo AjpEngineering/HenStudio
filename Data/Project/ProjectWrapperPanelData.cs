@@ -44,13 +44,6 @@ using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
-using HenViewModel.Project;
-using HenViewModel.Project.CostParameters;
-using HenViewModel.Project.DefaultParameters;
-using HenViewModel.Project.DefaultParameters.ExchangerParams;
-using HenViewModel.Project.DefaultParameters.OptimizerParams;
-using HenViewModel.Project.DefaultParameters.ProjectUnits;
-
 using HenStudio.Data.Project;
 using HenStudio.Data.Project.CostParameters;
 using HenStudio.Data.Project.DefaultParameters;
@@ -79,20 +72,6 @@ namespace HenStudio.Data.Project
         //--- Project Wrapper Panel. [INTRA-VIEW LAYER] ---
         //-------------------------------------------------
         ProjectWrapperDto ProjectWrapperDtoObj { get; set; }
-
-        //#region PROJECT IDs
-        //public Guid ProjectId { get; set; } 
-        ////---------------------------------------------------------------------
-        //public Guid ProjectUnitsId { get; set; } 
-        //public Guid ExchangerParamsId { get; set; }
-        //public Guid OptimizerParamsId { get; set; }
-        ////---------------------------------------------------------------------
-        //public Guid CostMetadataId { get; set; }    
-        //public Guid FiredHeaterCapitalCostId { get; set; }   
-        //public Guid ShellAndTubeCapitalCostId { get; set; }  
-        //public Guid TotalAnnualizedCostId { get; set; }      
-        //public Guid UtilityCostId { get; set; }
-        //#endregion  // // PROJECT IDs
 
         #region PanelData Objects
         //---------------------------------- PROJECT Sub-PANEL DATA OBJECTS ---
@@ -140,18 +119,6 @@ namespace HenStudio.Data.Project
             //--- Wrapper Panel. [INTRA-VIEW LAYER]              ---
             //------------------------------------------------------
             ProjectWrapperDto projectWrapperDtoObj = new ProjectWrapperDto();
-            ////------------------------------------------------------------------------
-            ////--- Initialize IDs to Empty GUIDs to Avoid Null Reference Exceptions ---
-            ////------------------------------------------------------------------------
-            //ProjectId = Guid.Empty;
-            //ProjectUnitsId = Guid.Empty;
-            //ExchangerParamsId = Guid.Empty;
-            //OptimizerParamsId = Guid.Empty;
-            //CostMetadataId = Guid.Empty;
-            //FiredHeaterCapitalCostId = Guid.Empty;
-            //ShellAndTubeCapitalCostId = Guid.Empty;
-            //TotalAnnualizedCostId = Guid.Empty;
-            //UtilityCostId = Guid.Empty;
             //-----------------------------------------------------------------
             //--- Initialize PanelData Objects to Avoid Null Reference Exceptions ---
             //-----------------------------------------------------------------
@@ -167,20 +134,6 @@ namespace HenStudio.Data.Project
             ShellAndTubeCapitalCostPanelDataObj = new ShellAndTubeCapitalCostPanelData();
             TotalAnnualizedCostPanelDataObj = new TotalAnnualizedCostPanelData();
             UtilityCostPanelDataObj = new UtilityCostPanelData();
-            ////-----------------------------------------------------------------------
-            ////--- Initialize ViewModel Objects to Avoid Null Reference Exceptions ---
-            ////-----------------------------------------------------------------------
-            //ProjectViewModelObj = new ProjectViewModel();
-
-            //ExchangerParamsViewModelObj = new ExchangerParamsViewModel();
-            //OptimizerParamsViewModelObj = new OptimizerParamsViewModel();
-            //ProjectUnitsViewModelObj = new ProjectUnitsViewModel();
-
-            //CostMetadataViewModelObj = new CostMetadataViewModel();
-            //FiredHeaterCapitalCostViewModelObj = new FiredHeaterCapitalCostViewModel();
-            //ShellAndTubeCapitalCostViewModelObj = new ShellAndTubeCapitalCostViewModel();
-            //TotalAnnualizedCostViewModelObj = new TotalAnnualizedCostViewModel();
-            //UtilityCostViewModelObj = new UtilityCostViewModel();
             //----------------------------------------------------------------------------
             //--- Initialize HenProjectUnits Object to Avoid Null Reference Exceptions ---
             //----------------------------------------------------------------------------

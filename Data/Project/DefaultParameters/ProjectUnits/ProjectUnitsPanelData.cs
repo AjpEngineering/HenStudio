@@ -93,8 +93,11 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         public Guid CreateProjectUnitsData()
         {
             ProjectUnitsId = ProjectUnitsViewModelObj.AddProjectUnits(ProjectUnitsDtoObj);
+
             if (ProjectUnitsId == null) throw new ArgumentNullException(
-                             nameof(ProjectUnitsId), "Project units ID is null for ADD Project Units Panel data.");
+                             nameof(ProjectUnitsId), 
+                             "Project units ID is null for ADD Project Units Panel data.");
+
             ProjectUnitsDtoObj.Id = ProjectUnitsId;
             return ProjectUnitsId;  // ProjectUnits ID
         }
@@ -111,6 +114,7 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         {
             if (projectId == null) throw new ArgumentNullException(
                              nameof(projectId), "Project ID is null for READ Project Units Panel data.");
+
             ProjectId = projectId;
             ProjectUnitsDtoObj = ProjectUnitsViewModelObj.GetProjectUnitsByProjectId(projectId);
         }

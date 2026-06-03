@@ -79,8 +79,8 @@ namespace HenStudio.Data.Profile
         #region PROPERTIES
 
         #region IDs
-        public Guid ProjectId { get; set; }     //--- PROJECT Identifier
-        public Guid ProfileId { get; set; }     //--- PROFILE Identifier
+        public Guid ProjectId { get; set; }
+        public Guid ProfileId { get; set; }
         #endregion  // // IDs
 
         #region PANEL DATA Objects

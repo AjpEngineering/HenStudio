@@ -145,7 +145,7 @@ namespace HenStudio.Data.Project.CostParameters
             ShellAndTubeCapitalCostViewModelObj.UpdateShellAndTubeCapitalCost(shellAndTubeCapitalCostDtoObj);
             return ShellAndTubeCapitalCostDtoObj;
         }
-        #endregion  // UPDATE PROJECT DATA METHOD
+        #endregion  // UPDATE SHELL AND TUBE CAPITAL COST DATA METHOD
 
         #endregion  // CRUD Methods
 

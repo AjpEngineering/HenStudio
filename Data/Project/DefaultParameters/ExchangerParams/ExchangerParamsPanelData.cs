@@ -88,8 +88,11 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
         public Guid CreateExchangerParamsData()
         {
             ExchangerParamsId = ExchangerParamsViewModelObj.AddExchangerParams(ExchangerParamsDtoObj);
+
             if (ExchangerParamsId == null) throw new ArgumentNullException(
-                             nameof(ExchangerParamsId), "Exchanger params ID is null for ADD Exchanger Params Panel data.");
+                             nameof(ExchangerParamsId), 
+                             "Exchanger params ID is null for ADD Exchanger Params Panel data.");
+
             ExchangerParamsDtoObj.Id = ExchangerParamsId;
             return ExchangerParamsId;  // ExchangerParams ID
         }
@@ -106,6 +109,7 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
         {
             if (projectId == null) throw new ArgumentNullException(
                              nameof(projectId), "Project ID is null for READ Exchanger Params Panel data.");
+
             ProjectId = projectId;
             ExchangerParamsDtoObj = ExchangerParamsViewModelObj.GetExchangerParamsByProjectId(projectId);
         }
