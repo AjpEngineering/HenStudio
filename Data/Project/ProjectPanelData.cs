@@ -93,8 +93,11 @@ namespace HenStudio.Data.Project
         public Guid CreateProjectData()
         {
             ProjectId = ProjectViewModelObj.AddProject(ProjectDtoObj);
+
             if (ProjectId == null) throw new ArgumentNullException(
-                             nameof(ProjectId), "Project ID is null for ADD Project Panel data.");
+                             nameof(ProjectId), 
+                             "Project ID is null for ADD Project Panel data.");
+
             ProjectDtoObj.Id = ProjectId;
             return ProjectId;
         }
@@ -163,6 +166,48 @@ namespace HenStudio.Data.Project
         #endregion  // DELETE PROJECT DATA METHOD
 
         #endregion  // CRUD Methods
+
+        #region RENAME PROJECT METHOD
+        public ProjectDto RenameProject(Guid projectId, 
+                                        string newName,
+                                        string newDescription)
+        {
+            if (projectId == null) throw new ArgumentNullException(
+                 nameof(projectId), "Project ID is null for READ Project Panel data.");
+
+            if (string.IsNullOrEmpty(newName)) throw new ArgumentException(
+                 nameof(newName), "New project name is null or empty for RENAME Project Panel data.");
+
+            //--------------------------------
+            //--- Get Existing Project DTO ---
+            //--------------------------------
+            ProjectDto existingProjectDto = ProjectViewModelObj.GetProjectById(projectId);
+
+            if (existingProjectDto == null) throw new ArgumentNullException(
+                             nameof(existingProjectDto), 
+                             "Project DTO is null for RENAME [UPDATE] Project Panel data.");
+
+            //---------------------------------------
+            //--- Update Project Panel Project ID ---
+            //---------------------------------------
+            ProjectId = projectId;
+            //-----------------------------------------
+            //--- Update Project DTO with new name, ---
+            //--- description and modified date     ---
+            //-----------------------------------------
+            ProjectDtoObj = existingProjectDto;
+            ProjectDtoObj.Id = projectId;
+            ProjectDtoObj.Name = newName;
+            ProjectDtoObj.Description = newDescription;
+            ProjectDtoObj.ModifiedDate = DateTime.Now;
+            //-----------------------------------------
+            //--- Update DB with new project name,  ---
+            //--- description and modified Date     ---
+            //-----------------------------------------
+            ProjectViewModelObj.UpdateProject(ProjectDtoObj);
+            return ProjectDtoObj;
+        }
+        #endregion  // RENAME PROJECT METHOD
 
     }
     #endregion      // public class ProjectPanelData

@@ -53,6 +53,7 @@ using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
 #endregion  // HEN STUDIO REFERENCES
 
 using System;
+using System.Windows.Forms.DataVisualization.Charting;
 
 #endregion      // REFERENCES
 
@@ -66,14 +67,17 @@ namespace HenStudio.Data.Project
     public class ProjectWrapperPanelData
     {
         #region PROPERTIES
+
+        #region ProjectWrapperDto OBJECT
         //-------------------------------------------------
         //--- ProjectWrapperPanelData Object contains   ---
         //--- all the IDs, and DTO Objects, for the     ---
         //--- Project Wrapper Panel. [INTRA-VIEW LAYER] ---
         //-------------------------------------------------
         ProjectWrapperDto ProjectWrapperDtoObj { get; set; }
+        #endregion  // ProjectWrapperDto OBJECT
 
-        #region PanelData Objects
+        #region SUB-PanelData OBJECTS
         //---------------------------------- PROJECT Sub-PANEL DATA OBJECTS ---
         public ProjectPanelData ProjectPanelDataObj { get; set; }
         //---------------------------------------------------------------------
@@ -87,7 +91,7 @@ namespace HenStudio.Data.Project
         public ShellAndTubeCapitalCostPanelData ShellAndTubeCapitalCostPanelDataObj { get; set; }
         public TotalAnnualizedCostPanelData TotalAnnualizedCostPanelDataObj { get; set; }
         public UtilityCostPanelData UtilityCostPanelDataObj { get; set; }
-        #endregion      // PanelData Objects
+        #endregion      // SUB-PanelData OBJECTS
 
         #region HenProjectUnits OBJECT
         //------------------------------------------------------------------------
@@ -216,7 +220,7 @@ namespace HenStudio.Data.Project
         }
         #endregion  // FULL Parameterized CTOR
 
-        #region CRUD Methods
+        #region CRUD METHODS
 
         #region CreateProjectWrapperData() ... CREATE ... ADD ALL PROJECT DATA
         /// <summary>
@@ -369,7 +373,6 @@ namespace HenStudio.Data.Project
         /// data in the HENSTUDIO DB.
         /// </summary>
         /// <param name="projectId">The ID of the project-related data to UPDATE.</param>
-
         public void UpdateProjectWrapperData(Guid projectId)
         {
             //------------------------------------------------------------
@@ -472,7 +475,43 @@ namespace HenStudio.Data.Project
         }
         #endregion  // DeleteProjectWrapperData(Guid projectId) ... DELETE ... DELETE ALL PROJECT DATA
 
-        #endregion  // CRUD Methods
+        #endregion  // CRUD METHODS
+
+        #region RENAME PROJECT METHOD
+        /// <summary>
+        /// Use the specified Project ID and the new project name and 
+        /// description to RENAME the project in the HENSTUDIO DB.
+        /// </summary>
+        /// <param name="projectId">Project ID of project to rename</param>
+        /// <param name="newName">New Name</param>
+        /// <param name="newDescription">New Description</param>
+        /// <returns>Project DTO of renamed Project</returns>
+        /// <exception cref="ArgumentNullException">Check for null project id</exception>
+        /// <exception cref="ArgumentException">Check for empty name</exception>
+        public ProjectDto RenameProject(Guid projectId,
+                                        string newName,
+                                        string newDescription)
+        {
+            if (projectId == null) throw new ArgumentNullException(
+                 nameof(projectId), "Project ID is null for READ Project Panel data.");
+
+            if (string.IsNullOrEmpty(newName)) throw new ArgumentException(
+                 nameof(newName), "New project name is null or empty for RENAME Project Panel data.");
+
+
+            //------------------------------------------------
+            //--- Update Project Wrapper  Panel Project ID ---
+            //------------------------------------------------
+            ProjectWrapperDtoObj.ProjectId = projectId;
+
+            //--------------------------------------------
+            //--- Return the Project DTO updated in DB ---
+            //--------------------------------------------
+            return ProjectPanelDataObj.RenameProject(projectId,
+                                                     newName,
+                                                     newDescription);
+        }
+        #endregion  // RENAME PROJECT METHOD
     }
     #endregion      // public class ProjectWrapperDto
 }
