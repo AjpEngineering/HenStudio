@@ -35,6 +35,8 @@
 #region REFERENCES
 using HenModel.Dto.Profile.Streams;
 
+using HenViewModel.Profile.Streams;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +63,11 @@ namespace HenStudio.Data.Profile.Streams
         public int NumInvalidRows { get; set; }   // Number of Invalid Stream Rows ... (e.g., 3 invalid rows)
 
         public List<UtilityStreamDto> UtilityStreamDtoList { get; set; }   // List of Utility Stream DTO Objects
+
+        #region VIEW MODEL Object
+        public UtilityStreamViewModel UtilityStreamViewModelObj { get; set; }
+        #endregion  // VIEW MODEL Objects
+
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -82,6 +89,30 @@ namespace HenStudio.Data.Profile.Streams
         }
         #endregion  // CTOR
 
+        #region CRUD METHODS
+
+        #region CREATE UTILITY STREAM DATA METHOD
+        /// <summary>
+        /// Creates a new Utility Stream using the data in the UtilityStreamDtoList property
+        /// and returns the Profile ID associated with the newly created utility streams.
+        /// </summary>
+        /// <returns>The  Profile ID of the newly created utility streams.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the utility stream ID is null after creation.</exception>
+        public Guid CreateUtilityStreamsData()
+        {
+            Guid profileId = UtilityStreamViewModelObj.AddUtilityStream(UtilityStreamDtoList);
+
+            if (profileId == null) throw new ArgumentNullException(
+                             nameof(profileId),
+                             "Profile ID is null for ADD Utility Stream Panel data.");
+
+            ProfileId = profileId;
+            return ProfileId;
+        }
+        #endregion  // CREATE PROCESS STREAM DATA METHOD
+
+
+        #endregion  // CRUD METHODS
     }
     #endregion      // public class UtilityStreamPanelData
 }

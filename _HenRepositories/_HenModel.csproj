@@ -47,6 +47,7 @@
     <Compile Include="Connection\ConnectionString.cs" />
     <Compile Include="Connection\Interface\IDbConnectionFactory.cs" />
     <Compile Include="Connection\SqlConnectionFactory.cs" />
+    <Compile Include="Dto\Profile\ProfileWrapperDto.cs" />
     <Compile Include="Dto\Project\CostParameters\TotalAnnualizedCostDto.cs" />
     <Compile Include="Dto\Project\CostParameters\UtilityCostDto.cs" />
     <Compile Include="Dto\Project\CostParameters\FiredHeaterCapitalCostDto.cs" />

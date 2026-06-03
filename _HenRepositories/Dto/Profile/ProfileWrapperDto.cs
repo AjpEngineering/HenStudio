@@ -1,14 +1,14 @@
-﻿#region HEADER
+#region HEADER
 //#####################################################################################################################
-//#####################################  P r o f i l e P a n e l D a t a . c s  #######################################
+//#####################################  P r o f i l e W r a p p e r D t o . c s  #####################################
 //#####################################################################################################################
-//  FILENAME:  ProfilePanelData.cs
-//  NAMESPACE: HenStudio.Data.Profile
-//  CLASS(S):  ProfilePanelData
-//  COMPONENT: HenStudio.exe
+//  FILENAME:  ProfileWrapperDto.cs
+//  NAMESPACE: HenModel.Dto.Profile
+//  CLASS(S):  ProfileWrapperDto
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Profile Panel Data object - data needed for Profile Panel.
+//    This file contains the DTO class for the Profile Wrapper DTO.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -26,100 +26,89 @@
 //    All rights reserved.
 //=====================================================================================================================
 //  HISTORY:
-//    01/01/26 .. pg .. Version 4.0
+//    01/01/26 .. AJP Engineering .. Version 1.0
 //#####################################################################################################################
 //#####################################################################################################################
 //#####################################################################################################################
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.Hen.Plots;
 using HenModel.Dto.Profile;
-using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
-
-using HenViewModel.Profile;
-using HenViewModel.Profile.Streams;
+using HenModel.Dto.Profile.Streams;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-#endregion  // REFERENCES
+#endregion      // REFERENCES
 
-#region namespace HenStudio.Data.Profile
-namespace HenStudio.Data.Profile
+#region namespace HenModel.Dto.Profile
+namespace HenModel.Dto.Profile
 {
-    #region public class ProfilePanelData
-    public class ProfilePanelData
+    #region public class ProfileWrapperDto
+    /// <summary>
+    /// Profile Wrapper DTO Class
+    /// </summary>
+    public class ProfileWrapperDto
     {
-        #region CONSTANTS
-        const string NAMESPACE = "HenStudio.Data.Profile";
-        const string CLASS = "ProfilePanelData";
-        #endregion      // CONSTANTS
-
         #region PROPERTIES
-        public Guid ProjectId { get; set; } 
-        public Guid ProfileId { get; set; } 
+        //------------------------------------------------------------- IDs ---
+        public Guid ProjectId { get; set; }
+        public Guid ProfileId { get; set; }
 
-        public ProfileDto ProfileDtoObj { get; set; }  // Profile DTO Object ... EXTERN Units
+        public Guid ProcessStreamsId { get; set; }
+        public Guid UtilityStreamsId { get; set; }
 
-        #region VIEW MODEL Object
-        public ProfileViewModel ProfileViewModelObj { get; set; }
-        #endregion  // VIEW MODEL Objects
+        //------------------------------------------------------------ DTOs ---
+        public ProfileDto ProfileDtoObj { get; set; }
+        public ProcessStreamDto ProcessStreamDtoObj { get; set; }
 
-        #endregion  // PROPERTIES
+        public UtilityStreamDto UtilityStreamDtoObj { get; set; }
+
+        public List<ProcessStreamDto> ProcessStreamDtoList { get; set; }
+
+        public List<UtilityStreamDto> UtilityStreamDtoList { get; set; }
+
+        #endregion      // PROPERTIES
 
         #region CTOR
         /// <summary>
-        /// Initializes a new instance of the ProfilePanelData class with default values for all properties.
+        /// Default Constructor for ProfileWrapperDto Class
         /// </summary>
-        /// <remarks>All string properties are initialized to empty strings, date properties are set to
-        /// the current date and time, and the ProfileDtoObj property is initialized with a new ProfileDto instance.
-        /// This constructor ensures that the object is in a valid default state upon creation.</remarks>
-        public ProfilePanelData()
+        public ProfileWrapperDto()
         {
-            ProjectId = new Guid(); // Project Unique Identifier
-            ProfileId = new Guid(); // Profile Unique Identifier
-
-            ProfileDtoObj = new ProfileDto(); // Profile DTO Object ... EXTERN Units
+            InitializeDto();
         }
         #endregion  // CTOR
 
-        #region CRUD METHODS
-
-        #region CREATE PROFILE DATA METHOD
+        #region INITIALIZE DTO
         /// <summary>
-        /// Creates a new profile using the data in the ProfileDtoObj property 
-        /// and returns the ID of the newly created profile.
+        /// Method to Initialize DTO Properties to Avoid Null Reference Exceptions
         /// </summary>
-        /// <returns>The ID of the newly created profile.</returns>
-        /// <exception cref="ArgumentNullException">Thrown when the profile ID is null after creation.</exception>
-        public Guid CreateProfileData()
+        private void InitializeDto()
         {
-            ProfileId = ProfileViewModelObj.AddProfile(ProfileDtoObj);
+            //------------------------------------------------------------------------
+            //--- Initialize IDs to Empty GUIDs to Avoid Null Reference Exceptions ---
+            //------------------------------------------------------------------------
+            ProjectId = Guid.Empty;
+            ProfileId = Guid.Empty;
+            ProcessStreamsId = Guid.Empty;
+            UtilityStreamsId = Guid.Empty;
+            //----------------------------------------------------------
+            //--- Initialize DTOs to Avoid Null Reference Exceptions ---
+            //----------------------------------------------------------
+            ProfileDtoObj = new ProfileDto();
 
-            if (ProfileId == null) throw new ArgumentNullException(
-                             nameof(ProfileId),
-                             "Profile ID is null for ADD Profile Panel data.");
+            ProcessStreamDtoObj = new ProcessStreamDto();
+            UtilityStreamDtoObj = new UtilityStreamDto();
 
-            ProfileDtoObj.Id = ProfileId;
-            return ProfileId;
+            ProcessStreamDtoList = new List<ProcessStreamDto>();
+            UtilityStreamDtoList = new List<UtilityStreamDto>();
         }
-        #endregion  // CREATE PROFILE DATA METHOD
-
-
-        #endregion  // CRUD METHODS
-
-        #region RENAME PROFILE METHOD
-
-
-        #endregion  // RENAME PROFILE METHOD
+        #endregion  // INITIALIZE DTO
 
     }
-    #endregion      // public class ProfilePanelData
+    #endregion      // public class ProfileWrapperDto
 }
-#endregion  // namespace HenStudio.Data.Profile
+#endregion      // namespace HenModel.Dto.Profile
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -78,28 +78,32 @@ namespace HenStudio.Data.Profile
     {
         #region PROPERTIES
 
-        #region IDs
-        public Guid ProjectId { get; set; }
-        public Guid ProfileId { get; set; }
-        #endregion  // // IDs
+        #region ProfileWrapperDto OBJECT
+        //-------------------------------------------------
+        //--- ProfileWrapperPanelData Object contains   ---
+        //--- all the IDs, and DTO Objects, for the     ---
+        //--- Profile Wrapper Panel. [INTRA-VIEW LAYER] ---
+        //-------------------------------------------------
+        ProfileWrapperDto ProfileWrapperDtoObj { get; set; }
+        #endregion  // ProfileWrapperDto OBJECT
 
-        #region PANEL DATA Objects
+        #region SUB-PanelData OBJECTS
         public ProjectPanelData ProjectPanelDataObj { get; set; }
         public ProjectUnitsPanelData ProjectUnitsPanelDataObj { get; set; }
 
         public ProfilePanelData ProfilePanelDataObj { get; set; }
         public ProcessStreamPanelData ProcessStreamPanelDataObj { get; set; }
         public UtilityStreamPanelData UtilityStreamPanelDataObj { get; set; }
-        #endregion      // PANEL DATA Objects
+        #endregion  // SUB-PanelData OBJECTS
 
-        #region VIEW MODEL Objects
-        public ProjectViewModel ProjectViewModelObj { get; set; }
-        public ProjectUnitsViewModel ProjectUnitsViewModelObj { get; set; }
+        //#region VIEW MODEL Objects
+        //public ProjectViewModel ProjectViewModelObj { get; set; }
+        //public ProjectUnitsViewModel ProjectUnitsViewModelObj { get; set; }
 
-        public ProfileViewModel ProfileViewModelObj { get; set; }
-        public ProcessStreamViewModel ProcessStreamViewModelObj { get; set; }
-        public UtilityStreamViewModel UtilityStreamViewModelObj { get; set; }
-        #endregion  //  VIEW MODEL Objects
+        //public ProfileViewModel ProfileViewModelObj { get; set; }
+        //public ProcessStreamViewModel ProcessStreamViewModelObj { get; set; }
+        //public UtilityStreamViewModel UtilityStreamViewModelObj { get; set; }
+        //#endregion  //  VIEW MODEL Objects
 
         #region HenProjectUnits OBJECT
         //------------------------------------------------------------------------
@@ -122,11 +126,12 @@ namespace HenStudio.Data.Profile
         /// </summary>
         private void InitializeWrapperData()
         {
+            ProfileWrapperDtoObj = new ProfileWrapperDto();
             //----------------------------------------------------------------
             //--- Initialize Id Objects to Avoid Null Reference Exceptions ---
             //----------------------------------------------------------------
-            ProjectId = Guid.Empty; //--- Project Unique Identifier
-            ProfileId = Guid.Empty; //--- Profile Unique Identifier
+            ProfileWrapperDtoObj.ProjectId = Guid.Empty; 
+            ProfileWrapperDtoObj.ProfileId = Guid.Empty; 
             //-----------------------------------------------------------------------
             //--- Initialize PanelData Objects to Avoid Null Reference Exceptions ---
             //-----------------------------------------------------------------------
@@ -136,15 +141,15 @@ namespace HenStudio.Data.Profile
             ProfilePanelDataObj = new ProfilePanelData();
             ProcessStreamPanelDataObj = new ProcessStreamPanelData();
             UtilityStreamPanelDataObj = new UtilityStreamPanelData();
-            //-----------------------------------------------------------------------
-            //--- Initialize ViewModel Objects to Avoid Null Reference Exceptions ---
-            //-----------------------------------------------------------------------
-            ProjectViewModelObj = new ProjectViewModel();
-            ProjectUnitsViewModelObj = new ProjectUnitsViewModel();
+            ////-----------------------------------------------------------------------
+            ////--- Initialize ViewModel Objects to Avoid Null Reference Exceptions ---
+            ////-----------------------------------------------------------------------
+            //ProjectViewModelObj = new ProjectViewModel();
+            //ProjectUnitsViewModelObj = new ProjectUnitsViewModel();
 
-            ProfileViewModelObj = new ProfileViewModel();
-            ProcessStreamViewModelObj = new ProcessStreamViewModel();
-            UtilityStreamViewModelObj = new UtilityStreamViewModel();
+            //ProfileViewModelObj = new ProfileViewModel();
+            //ProcessStreamViewModelObj = new ProcessStreamViewModel();
+            //UtilityStreamViewModelObj = new UtilityStreamViewModel();
             //----------------------------------------------------------------------------
             //--- Initialize HenProjectUnits Object to Avoid Null Reference Exceptions ---
             //----------------------------------------------------------------------------
@@ -189,33 +194,35 @@ namespace HenStudio.Data.Profile
                 //--------------------------------------------------------------------------   
                 if (projectId == null) throw new ArgumentNullException(
                                              nameof(projectId), "Project ID cannot be null.");
-                else ProjectId = projectId;
+                else ProfileWrapperDtoObj.ProjectId = projectId;
 
                 if (profileId == null) throw new ArgumentNullException(
                                              nameof(profileId), "Profile ID cannot be null.");
-                else ProfileId = profileId;
+                else ProfileWrapperDtoObj.ProfileId = profileId;
                 //---------------------------------------------
                 //--- Assign PanelData Object Id Properties ---
                 //---------------------------------------------
-                ProjectPanelDataObj.ProjectId = ProjectId;
+                ProjectPanelDataObj.ProjectId = ProfileWrapperDtoObj.ProjectId;
 
-                ProjectUnitsPanelDataObj.ProjectId = ProjectId;
+                ProjectUnitsPanelDataObj.ProjectId = ProfileWrapperDtoObj.ProjectId;
 
-                ProfilePanelDataObj.ProjectId = ProjectId;
-                ProfilePanelDataObj.ProfileId = ProfileId;
+                ProfilePanelDataObj.ProjectId = ProfileWrapperDtoObj.ProjectId;
+                ProfilePanelDataObj.ProfileId = ProfileWrapperDtoObj.ProfileId;
 
-                ProcessStreamPanelDataObj.ProjectId = ProjectId;
-                ProcessStreamPanelDataObj.ProfileId = ProfileId;
+                ProcessStreamPanelDataObj.ProjectId = ProfileWrapperDtoObj.ProjectId;
+                ProcessStreamPanelDataObj.ProfileId = ProfileWrapperDtoObj.ProfileId;
 
-                UtilityStreamPanelDataObj.ProjectId = ProjectId;
-                UtilityStreamPanelDataObj.ProfileId = ProfileId;
+                UtilityStreamPanelDataObj.ProjectId = ProfileWrapperDtoObj.ProjectId;
+                UtilityStreamPanelDataObj.ProfileId = ProfileWrapperDtoObj.ProfileId;
                 //--------------------------------------------------
                 //--- Initialize Property HenProjectUnits Object ---
                 //--------------------------------------------------
-                ProjectUnitsDto projectUnitsDtoObj = 
-                                ProjectUnitsViewModelObj.GetProjectUnitsByProjectId(ProjectId);
-                if (projectUnitsDtoObj != null) 
-                    throw new Exception("Project Units DTO Object is null for Project ID: " + ProjectId);
+                ProjectUnitsPanelDataObj.ReadProjectUnitsData(projectId);
+                ProjectUnitsDto projectUnitsDtoObj = ProjectUnitsPanelDataObj.ProjectUnitsDtoObj;
+
+                if (projectUnitsDtoObj == null)
+                    throw new Exception("Project Units DTO Object is null for Project ID: " + projectId);
+
                 HenProjectUnitsObj = new HenProjectUnits(projectUnitsDtoObj.DefaultSystemUnits,
                                                          projectUnitsDtoObj.DefaultMagnitudeUnits,
                                                          projectUnitsDtoObj.DefaultTemperatureUnits,
@@ -242,40 +249,59 @@ namespace HenStudio.Data.Profile
         /// <exception cref="ArgumentNullException">Thrown when the add returned profile ID is null.</exception>
         public Guid CreateProfileWrapperData(Guid projectId)
         {
+            Guid profileId = Guid.Empty;
             //---------------------------------------------------------------------------------
             //--- Null Guard on User Supplied Project ID to Avoid Null Reference Exceptions ---
             //---------------------------------------------------------------------------------   
             if (projectId == null) throw new ArgumentNullException(
                                          nameof(projectId), "Project ID cannot be null.");
-            else ProjectId = projectId;
-            //----------------------------------------------------
-            //--- Add Profile Panel data to DB using ViewModel ---
-            //--- NOTE: Project ID is Used to Ensure Proper    ---
-            //--- Foreign Key Relationships in DB              ---
-            //----------------------------------------------------
-            ProfilePanelDataObj.ProfileDtoObj.ProjectId = ProjectId;
-            ProfileId = ProfileViewModelObj.AddProfile(ProfilePanelDataObj.ProfileDtoObj);
-            if (ProfileId == null) throw new ArgumentNullException(
-                             nameof(ProfileId), "Profile ID is null for ADD Profile Panel data.");
-            //-------------------------------------------------------------
-            //--- Add Process Stream Panel data to DB using ViewModel   ---
-            //--- NOTE: Project ID is Used to Ensure Proper Foreign Key ---
-            //--- Relationships in DB.                                  ---
+            else ProfileWrapperDtoObj.ProjectId = projectId;
             //--------------------------------------------------------------
-            ProcessStreamPanelDataObj.ProjectId = ProjectId;
-            ProfileId = ProcessStreamViewModelObj.AddProcessStreams(ProcessStreamPanelDataObj.ProcessStreamDtoList);
-            if (ProfileId == null) throw new ArgumentNullException(
-                             nameof(ProfileId), "Profile ID is null for ADD Process Stream Panel data.");
-            //-------------------------------------------------------------
-            //--- Add Utility Stream Panel data to DB using ViewModel   ---
-            //--- NOTE: Project ID is Used to Ensure Proper Foreign Key ---
-            //--- Relationships in DB.                                  ---
+            //--- Add Profile Data to DB using PanelData Object          ---
+            //--- Returns Profile ID for Foreign Key Relationships in DB ---
             //--------------------------------------------------------------
-            UtilityStreamPanelDataObj.ProjectId = ProjectId;
-            ProfileId = UtilityStreamViewModelObj.AddUtilityStream(UtilityStreamPanelDataObj.UtilityStreamDtoList);
-            if (ProfileId == null) throw new ArgumentNullException(
-                             nameof(ProfileId), "Profile ID is null for ADD Utility Stream Panel data.");
-            return ProfileId;
+            profileId = ProfilePanelDataObj.CreateProfileData();
+
+            if (profileId == null) throw new ArgumentNullException(
+                             nameof(profileId), "Profile ID is null for ADD Profile Panel data.");
+
+            ProfileWrapperDtoObj.ProfileId = profileId;
+            ProfilePanelDataObj.ProfileDtoObj.Id = profileId;
+            ProfilePanelDataObj.ProfileDtoObj.ProjectId = projectId;
+
+            //-------------------------------------------------------------------
+            //--- Add Process Stream Panel data to DB using PanelData Object  ---
+            //--- Returns Profile ID for Foreign Key Relationships in DB      ---
+            //--- NOTE: ViewModel Return DTO Objects, and PanelData           ---
+            //--- Objects. VIEW objects populate the WRAPPER DTO list Object. ---
+            //------------------------------------------------------------------
+            ProcessStreamPanelDataObj.ProjectId = projectId;
+            profileId = ProcessStreamPanelDataObj.CreateProcessStreamsData();
+
+            if (profileId == null) throw new ArgumentNullException(
+                             nameof(profileId), "Profile ID is null for ADD Process Stream Panel data.");
+
+            ProfileWrapperDtoObj.ProfileId = profileId;
+            ProfilePanelDataObj.ProfileDtoObj.Id = profileId;
+            ProfilePanelDataObj.ProfileDtoObj.ProjectId = projectId;
+
+            //-------------------------------------------------------------------
+            //--- Add Utility Stream Panel data to DB using PanelData Object  ---
+            //--- Returns Profile ID for Foreign Key Relationships in DB      ---
+            //--- NOTE: ViewModel Return DTO Objects, and PanelData           ---
+            //--- Objects. VIEW objects populate the WRAPPER DTO list Object. ---
+            //------------------------------------------------------------------
+            UtilityStreamPanelDataObj.ProjectId = projectId;
+            profileId = UtilityStreamPanelDataObj.CreateUtilityStreamsData();
+
+            if (profileId == null) throw new ArgumentNullException(
+                             nameof(profileId), "Profile ID is null for ADD Utility Stream Panel data.");
+
+            ProfileWrapperDtoObj.ProfileId = profileId;
+            ProfilePanelDataObj.ProfileDtoObj.Id = profileId;
+            ProfilePanelDataObj.ProfileDtoObj.ProjectId = projectId;
+
+            return profileId;
         }
         #endregion  // CreateProfileWrapperData(Guid projectId) ... CREATE ... ADD ALL PROFILE DATA
 
@@ -394,6 +420,41 @@ namespace HenStudio.Data.Profile
         #endregion  // DeleteProfileWrapperData(Guid profileId) ... DELETE ... DELETE ALL PROFILE DATA
 
         #endregion  // CRUD Methods
+
+        #region RENAME PROFILE METHOD
+        /// <summary>
+        /// Use the specified Profile ID and the new profile name and 
+        /// description to RENAME the profile in the HENSTUDIO DB.
+        /// </summary>
+        /// <param name="profileId">Profile ID of profile to rename</param>
+        /// <param name="newName">New Name</param>
+        /// <param name="newDescription">New Description</param>
+        /// <returns>Profile DTO of renamed Profile</returns>
+        /// <exception cref="ArgumentNullException">Check for null profile id</exception>
+        /// <exception cref="ArgumentException">Check for empty name</exception>
+        public ProfileDto RenameProfile(Guid profileId,
+                                        string newName,
+                                        string newDescription)
+        {
+            if (profileId == null) throw new ArgumentNullException(
+                 nameof(profileId), "Profile ID is null for READ Profile Panel data.");
+
+            if (string.IsNullOrEmpty(newName)) throw new ArgumentException(
+                 nameof(newName), "New profile name is null or empty for RENAME Profile Panel data.");
+
+            //------------------------------------------------
+            //--- Update Project Wrapper  Panel Project ID ---
+            //------------------------------------------------
+            ProfileWrapperDtoObj.ProfileId = profileId;
+
+            //--------------------------------------------
+            //--- Return the Profile DTO updated in DB ---
+            //--------------------------------------------
+            return ProfilePanelDataObj.RenameProfile(profileId,
+                                                     newName,
+                                                     newDescription);
+        }
+        #endregion  // RENAME PROFILE METHOD
     }
     #endregion      // public class ProfileWrapperDto
 }
