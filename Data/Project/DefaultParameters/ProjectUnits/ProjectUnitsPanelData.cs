@@ -149,9 +149,16 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         }
         #endregion  // UPDATE PROJECT DATA METHOD
 
+        #region DELETE PROJECT UNITS DATA METHOD
+        //---------------------------------------------------------------------
+        //--- DELETE method is not needed for Project Units data as it is a ---
+        //--- one-to-one relationship with the Project and should be        ---
+        //--- deleted when the Project is deleted.                          ---
+        //--- Part of Cascade DELETE functionality.                         ---
+        //---------------------------------------------------------------------
+        #endregion  // DELETE PROJECT UNITS DATA METHOD
 
         #endregion  // CRUD Methods
-
     }
     #endregion      // public class ProjectUnitsPanelData
 }

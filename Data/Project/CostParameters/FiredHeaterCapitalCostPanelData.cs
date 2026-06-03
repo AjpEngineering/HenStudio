@@ -146,6 +146,15 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // UPDATE PROJECT DATA METHOD
 
+        #region DELETE FIRED HEATER CAPITAL COST DATA METHOD
+        //--------------------------------------------------------------------
+        //--- DELETE method is not needed for Fired Heater Capital Cost    ---
+        //--- data as it is a one-to-one relationship with the Project and ---
+        //--- should be deleted when the Project is deleted.               ---
+        //--- Part of Cascade DELETE functionality.                        ---
+        //--------------------------------------------------------------------
+        #endregion  // DELETE FIRED HEATER CAPITAL COST DATA METHOD
+
         #endregion  // CRUD Methods
 
     }

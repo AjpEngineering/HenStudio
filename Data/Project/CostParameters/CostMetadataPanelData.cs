@@ -144,6 +144,15 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // UPDATE PROJECT DATA METHOD
 
+        #region DELETE COST METADATA DATA METHOD
+        //---------------------------------------------------------------
+        //--- DELETE method is not needed for Cost Metadata data      ---
+        //--- as it is a one-to-one relationship with the Project and ---
+        //--- should be deleted when the Project is deleted.          ---
+        //--- Part of Cascade DELETE functionality.                   ---
+        //---------------------------------------------------------------
+        #endregion  // DELETE COST METADATA DATA METHOD
+
         #endregion  // CRUD Methods
 
     }

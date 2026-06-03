@@ -147,6 +147,15 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // UPDATE SHELL AND TUBE CAPITAL COST DATA METHOD
 
+        #region DELETE SHELL AND TUBE CAPITAL COST DATA METHOD
+        //--------------------------------------------------------------------
+        //--- DELETE method is not needed for Shell And Tube Capital Cost  ---
+        //--- data as it is a one-to-one relationship with the Project and ---
+        //--- should be deleted when the Project is deleted.               ---
+        //--- Part of Cascade DELETE functionality.                        ---
+        //--------------------------------------------------------------------
+        #endregion  // DELETE SHELL AND TUBE CAPITAL COST DATA METHOD
+
         #endregion  // CRUD Methods
 
     }

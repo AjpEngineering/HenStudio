@@ -63,7 +63,6 @@ namespace HenStudio.Data.Project
         public ProjectViewModel ProjectViewModelObj { get; set; }
         #endregion  // VIEW MODEL Objects
 
-
         #endregion  // PROPERTIES
 
         #region CTOR

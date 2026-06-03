@@ -145,6 +145,15 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         }
         #endregion  // UPDATE PROJECT DATA METHOD
 
+        #region DELETE OPTIMIZER PARAMS DATA METHOD
+        //-------------------------------------------------------------------
+        //--- DELETE method is not needed for Optimizer Params data as it ---
+        //--- is a one-to-one relationship with the Project and should be ---
+        //--- deleted when the Project is deleted.                        ---
+        //--- Part of Cascade DELETE functionality.                       ---
+        //-------------------------------------------------------------------
+        #endregion  // DELETE OPTIMIZER PARAMS DATA METHOD
+
         #endregion  // CRUD Methods
 
     }
