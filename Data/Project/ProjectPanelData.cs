@@ -56,7 +56,7 @@ namespace HenStudio.Data.Project
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public Guid Id { get; set; }
+        public Guid ProjectId { get; set; }
         public ProjectDto ProjectDtoObj { get; set; }
 
         #region VIEW MODEL Object
@@ -75,7 +75,7 @@ namespace HenStudio.Data.Project
         /// This constructor ensures that the object is in a valid default state upon creation.</remarks>
         public ProjectPanelData()
         {
-            Id = new Guid();
+            ProjectId = new Guid();
             ProjectDtoObj = new ProjectDto();
 
             ProjectViewModelObj = new ProjectViewModel();
@@ -93,11 +93,11 @@ namespace HenStudio.Data.Project
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null after creation.</exception>
         public Guid CreateProjectData()
         {
-            Id = ProjectViewModelObj.AddProject(ProjectDtoObj);
-            if (Id == null) throw new ArgumentNullException(
-                             nameof(Id), "Project ID is null for ADD Project Panel data.");
-            ProjectDtoObj.Id = Id;
-            return Id;
+            ProjectId = ProjectViewModelObj.AddProject(ProjectDtoObj);
+            if (ProjectId == null) throw new ArgumentNullException(
+                             nameof(ProjectId), "Project ID is null for ADD Project Panel data.");
+            ProjectDtoObj.Id = ProjectId;
+            return ProjectId;
         }
         #endregion  // CREATE PROJECT DATA METHOD
 
@@ -112,11 +112,56 @@ namespace HenStudio.Data.Project
         {
             if (projectId == null) throw new ArgumentNullException(
                              nameof(projectId), "Project ID is null for READ Project Panel data.");
-            Id = projectId;
+            ProjectId = projectId;
             ProjectDtoObj = ProjectViewModelObj.GetProjectById(projectId);
+
+            if (ProjectDtoObj == null) throw new ArgumentNullException(
+                             nameof(ProjectDtoObj), "Project DTO is null for READ Project Panel data.");
+            ProjectDtoObj.Id = ProjectId;
         }
 
         #endregion  // READ PROJECT DATA METHOD
+
+        #region UPDATE PROJECT DATA METHOD
+        /// <summary>
+        /// Updates the project data using the provided ProjectDto object 
+        /// and returns the updated ProjectDto object.
+        /// </summary>
+        /// <param name="projectDtoObj">The ProjectDto object containing 
+        /// the updated project data.</param>
+        /// <returns>The updated ProjectDto object.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the project DTO or its ID is null.</exception>
+        public ProjectDto UpdateProjectData(ProjectDto projectDtoObj)
+        {
+            if (projectDtoObj == null) throw new ArgumentNullException(
+                             nameof(projectDtoObj), "Project DTO is null for UPDATE Project Panel data.");
+
+
+            if (projectDtoObj.Id == null) throw new ArgumentNullException(
+                             nameof(projectDtoObj), "Project DTO ID is null for UPDATE Project Panel data.");
+            
+            ProjectId = projectDtoObj.Id;
+            ProjectDtoObj = projectDtoObj;
+            ProjectViewModelObj.UpdateProject(projectDtoObj);
+            return ProjectDtoObj;
+        }
+        #endregion  // UPDATE PROJECT DATA METHOD
+
+        #region DELETE PROJECT DATA METHOD
+        /// <summary>
+        /// Deletes the project data for the specified project ID.
+        /// </summary>
+        /// <param name="projectId">The ID of the project to delete.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
+        public void DeleteProjectData(Guid projectId)
+        {
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID is null for DELETE Project Panel data.");
+
+            ProjectId = projectId;
+            ProjectViewModelObj.DeleteProject(projectId);
+        }
+        #endregion  // DELETE PROJECT DATA METHOD
 
         #endregion  // CRUD Methods
 

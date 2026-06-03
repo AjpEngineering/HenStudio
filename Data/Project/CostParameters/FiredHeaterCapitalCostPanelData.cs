@@ -115,6 +115,37 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // READ FIRED HEATER CAPITAL COST DATA METHOD
 
+        #region UPDATE FIRED HEATER CAPITAL COST DATA METHOD
+        /// <summary>
+        /// Updates the fired heater capital cost data using the provided FiredHeaterCapitalCostDto object 
+        /// and returns the updated FiredHeaterCapitalCostDto object.
+        /// </summary>
+        /// <param name="firedHeaterCapitalCostDtoObj">The FiredHeaterCapitalCostDto object containing 
+        /// the updated fired heater capital cost data.</param>
+        /// <returns>The updated FiredHeaterCapitalCostDto object.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the fired heater capital cost DTO or its ID is null.</exception>
+        public FiredHeaterCapitalCostDto UpdateFiredHeaterCapitalCostData(FiredHeaterCapitalCostDto firedHeaterCapitalCostDtoObj)
+        {
+            if (firedHeaterCapitalCostDtoObj == null) throw new ArgumentNullException(
+                             nameof(firedHeaterCapitalCostDtoObj), 
+                             "Fired Heater Capital Cost DTO is null for UPDATE Fired Heater Capital Cost Panel data.");
+
+            if (firedHeaterCapitalCostDtoObj.Id == null) throw new ArgumentNullException(
+                             nameof(firedHeaterCapitalCostDtoObj), 
+                             "Fired Heater Capital Cost DTO ID is null for UPDATE Fired Heater Capital Cost Panel data.");
+
+            if (firedHeaterCapitalCostDtoObj.ProjectId == null) throw new ArgumentNullException(
+                             nameof(firedHeaterCapitalCostDtoObj), 
+                             "Fired Heater Capital Cost DTO Project ID is null for UPDATE Fired Heater Capital Cost Panel data.");
+
+            FiredHeaterCapitalCostId = firedHeaterCapitalCostDtoObj.Id;
+            ProjectId = firedHeaterCapitalCostDtoObj.ProjectId;
+            FiredHeaterCapitalCostDtoObj = firedHeaterCapitalCostDtoObj;
+            FiredHeaterCapitalCostViewModelObj.UpdateFiredHeaterCapitalCost(firedHeaterCapitalCostDtoObj);
+            return FiredHeaterCapitalCostDtoObj;
+        }
+        #endregion  // UPDATE PROJECT DATA METHOD
+
         #endregion  // CRUD Methods
 
     }

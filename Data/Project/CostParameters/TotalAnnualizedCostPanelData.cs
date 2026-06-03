@@ -116,6 +116,37 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // READ TOTAL ANNUALIZED COST DATA METHOD
 
+        #region UPDATE TOTAL ANNUALIZED COST DATA METHOD
+        /// <summary>
+        /// Updates the total annualized cost data using the provided TotalAnnualizedCostDto object 
+        /// and returns the updated TotalAnnualizedCostDto object.
+        /// </summary>
+        /// <param name="totalAnnualizedCostDtoObj">The TotalAnnualizedCostDto object containing 
+        /// the updated total annualized cost data.</param>
+        /// <returns>The updated TotalAnnualizedCostDto object.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the total annualized cost DTO or its ID is null.</exception>
+        public TotalAnnualizedCostDto UpdateTotalAnnualizedCostData(TotalAnnualizedCostDto totalAnnualizedCostDtoObj)
+        {
+            if (totalAnnualizedCostDtoObj == null) throw new ArgumentNullException(
+                             nameof(totalAnnualizedCostDtoObj),
+                             "Total Annualized Cost DTO is null for UPDATE Total Annualized Cost Panel data.");
+
+            if (totalAnnualizedCostDtoObj.Id == null) throw new ArgumentNullException(
+                             nameof(totalAnnualizedCostDtoObj),
+                             "Total Annualized Cost DTO ID is null for UPDATE Total Annualized Cost Panel data.");
+
+            if (totalAnnualizedCostDtoObj.ProjectId == null) throw new ArgumentNullException(
+                             nameof(totalAnnualizedCostDtoObj),
+                             "Total Annualized Cost DTO Project ID is null for UPDATE Total Annualized Cost Panel data.");
+
+            TotalAnnualizedCostId = totalAnnualizedCostDtoObj.Id;
+            ProjectId = totalAnnualizedCostDtoObj.ProjectId;
+            TotalAnnualizedCostDtoObj = totalAnnualizedCostDtoObj;
+            TotalAnnualizedCostViewModelObj.UpdateTotalAnnualizedCost(totalAnnualizedCostDtoObj);
+            return TotalAnnualizedCostDtoObj;
+        }
+        #endregion  // UPDATE PROJECT DATA METHOD
+
         #endregion  // CRUD Methods
     }
     #endregion      // public class TotalAnnualizedCostPanelData

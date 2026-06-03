@@ -115,6 +115,37 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // READ UTILITY COST DATA METHOD
 
+        #region UPDATE UTILITY COST DATA METHOD
+        /// <summary>
+        /// Updates the utility cost data using the provided UtilityCostDto object 
+        /// and returns the updated UtilityCostDto object.
+        /// </summary>
+        /// <param name="utilityCostDtoObj">The UtilityCostDto object containing 
+        /// the updated utility cost data.</param>
+        /// <returns>The updated UtilityCostDto object.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the utility cost DTO or its ID is null.</exception>
+        public UtilityCostDto UpdateUtilityCostData(UtilityCostDto utilityCostDtoObj)
+        {
+            if (utilityCostDtoObj == null) throw new ArgumentNullException(
+                             nameof(utilityCostDtoObj),
+                             "Utility Cost DTO is null for UPDATE Utility Cost Panel data.");
+
+            if (utilityCostDtoObj.Id == null) throw new ArgumentNullException(
+                             nameof(utilityCostDtoObj),
+                             "Utility Cost DTO ID is null for UPDATE Utility Cost Panel data.");
+
+            if (utilityCostDtoObj.ProjectId == null) throw new ArgumentNullException(
+                             nameof(utilityCostDtoObj),
+                             "Utility Cost DTO Project ID is null for UPDATE Utility Cost Panel data.");
+
+            UtilityCostId = utilityCostDtoObj.Id;
+            ProjectId = utilityCostDtoObj.ProjectId;
+            UtilityCostDtoObj = utilityCostDtoObj;
+            UtilityCostViewModelObj.UpdateUtilityCost(utilityCostDtoObj);
+            return UtilityCostDtoObj;
+        }
+        #endregion  // UPDATE PROJECT DATA METHOD
+
         #endregion  // CRUD Methods
 
     }

@@ -54,19 +54,32 @@ namespace HenModel.Dto.Project
     public class ProjectWrapperDto
     {
         #region PROPERTIES
+        //------------------------------------------------------------- IDs ---
         public Guid ProjectId { get; set; }
 
+        public Guid ProjectUnitsId { get; set; }
+        public Guid ExchangerParamsId { get; set; }
+        public Guid OptimizerParamsId { get; set; }
+
+        public Guid CostMetadataId { get; set; }
+        public Guid FiredHeaterCapitalCostId { get; set; }
+        public Guid ShellAndTubeCapitalCostId { get; set; }
+        public Guid TotalAnnualizedCostId { get; set; }
+        public Guid UtilityCostId { get; set; }
+
+        //------------------------------------------------------------ DTOs ---
         public ProjectDto ProjectDtoObj { get; set; }
 
+        public ProjectUnitsDto ProjectUnitsDtoObj { get; set; }
         public ExchangerParamsDto ExchangerParamsDtoObj{ get; set; }
         public OptimizerParamsDto OptimizerParamsDtoObj { get; set; }
-        public ProjectUnitsDto ProjectUnitsDtoObj { get; set; }
 
         public CostMetadataDto CostMetadataDtoObj { get; set; }
-        public FiredHeaterCapitalCostDto FiredHeaterCaptialCostDtoObj { get; set; }
+        public FiredHeaterCapitalCostDto FiredHeaterCapitalCostDtoObj { get; set; }
         public ShellAndTubeCapitalCostDto ShellAndTubeCapitalCostDtoObj { get; set; }
         public TotalAnnualizedCostDto TotalAnnualizedCostDtoObj { get; set; }
         public UtilityCostDto UtilityCostDtoObj { get; set; }
+
         #endregion      // PROPERTIES
 
         #region CTOR
@@ -75,18 +88,44 @@ namespace HenModel.Dto.Project
         /// </summary>
         public ProjectWrapperDto()
         {
+            InitializeDto();
+        }
+        #endregion  // CTOR
+
+        #region INITIALIZE DTO
+        /// <summary>
+        /// Method to Initialize DTO Properties to Avoid Null Reference Exceptions
+        /// </summary>
+        private void InitializeDto()
+        {
+            //------------------------------------------------------------------------
+            //--- Initialize IDs to Empty GUIDs to Avoid Null Reference Exceptions ---
+            //------------------------------------------------------------------------
             ProjectId = Guid.Empty;
+            ProjectUnitsId = Guid.Empty;
+            ExchangerParamsId = Guid.Empty;
+            OptimizerParamsId = Guid.Empty;
+            CostMetadataId = Guid.Empty;
+            FiredHeaterCapitalCostId = Guid.Empty;
+            ShellAndTubeCapitalCostId = Guid.Empty;
+            TotalAnnualizedCostId = Guid.Empty;
+            UtilityCostId = Guid.Empty;
+            //----------------------------------------------------------
+            //--- Initialize DTOs to Avoid Null Reference Exceptions ---
+            //----------------------------------------------------------
             ProjectDtoObj = new ProjectDto();
+
             ExchangerParamsDtoObj = new ExchangerParamsDto();
             OptimizerParamsDtoObj = new OptimizerParamsDto();
             ProjectUnitsDtoObj = new ProjectUnitsDto();
+
             CostMetadataDtoObj = new CostMetadataDto();
-            FiredHeaterCaptialCostDtoObj = new FiredHeaterCapitalCostDto();
+            FiredHeaterCapitalCostDtoObj = new FiredHeaterCapitalCostDto();
             ShellAndTubeCapitalCostDtoObj = new ShellAndTubeCapitalCostDto();
             TotalAnnualizedCostDtoObj = new TotalAnnualizedCostDto();
             UtilityCostDtoObj = new UtilityCostDto();
         }
-        #endregion  // CTOR
+        #endregion  // INITIALIZE DTO
 
     }
     #endregion      // public class ProjectWrapperDto

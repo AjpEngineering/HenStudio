@@ -197,7 +197,7 @@ namespace HenStudio.Data.Profile
                 //---------------------------------------------
                 //--- Assign PanelData Object Id Properties ---
                 //---------------------------------------------
-                ProjectPanelDataObj.Id = ProjectId;
+                ProjectPanelDataObj.ProjectId = ProjectId;
 
                 ProjectUnitsPanelDataObj.ProjectId = ProjectId;
 
@@ -307,7 +307,7 @@ namespace HenStudio.Data.Profile
             //--- NOTE: ViewModel Return DTO Objects, and PanelData  ---
             //--- Objects are Populated using the DTO Objects        ---
             //----------------------------------------------------------
-            ProjectPanelDataObj.Id = ProjectId;
+            ProjectPanelDataObj.ProjectId = ProjectId;
             ProjectPanelDataObj.ProjectDtoObj = ProjectViewModelObj.GetProjectById(projectId);
             
             ProjectUnitsPanelDataObj.ProjectId = ProjectId;

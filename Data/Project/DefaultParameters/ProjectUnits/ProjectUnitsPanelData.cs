@@ -33,6 +33,7 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenModel.Dto.Project;
 using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
 using HenViewModel.Project;
@@ -57,7 +58,7 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public Guid Id { get; set; }
+        public Guid ProjectUnitsId { get; set; }
         public Guid ProjectId { get; set; }
         public ProjectUnitsDto ProjectUnitsDtoObj { get; set; }
 
@@ -74,7 +75,7 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         /// </summary>
         public ProjectUnitsPanelData()
         {
-            Id = new Guid();
+            ProjectUnitsId = new Guid();
             ProjectId = new Guid();
             ProjectUnitsDtoObj = new ProjectUnitsDto();
         }
@@ -91,11 +92,11 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         /// <exception cref="ArgumentNullException">Thrown when the project units ID is null after creation.</exception>
         public Guid CreateProjectUnitsData()
         {
-            Id = ProjectUnitsViewModelObj.AddProjectUnits(ProjectUnitsDtoObj);
-            if (Id == null) throw new ArgumentNullException(
-                             nameof(Id), "Project units ID is null for ADD Project Units Panel data.");
-            ProjectUnitsDtoObj.Id = Id;
-            return Id;  // ProjectUnits ID
+            ProjectUnitsId = ProjectUnitsViewModelObj.AddProjectUnits(ProjectUnitsDtoObj);
+            if (ProjectUnitsId == null) throw new ArgumentNullException(
+                             nameof(ProjectUnitsId), "Project units ID is null for ADD Project Units Panel data.");
+            ProjectUnitsDtoObj.Id = ProjectUnitsId;
+            return ProjectUnitsId;  // ProjectUnits ID
         }
         #endregion  // CREATE PROJECT UNITS DATA METHOD
 
@@ -115,6 +116,35 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         }
 
         #endregion  // READ PROJECT UNITS DATA METHOD
+
+        #region UPDATE PROJECT UNITS DATA METHOD
+        /// <summary>
+        /// Updates the project units data using the provided ProjectUnitsDto object 
+        /// and returns the updated ProjectUnitsDto object.
+        /// </summary>
+        /// <param name="projectUnitsDtoObj">The ProjectUnitsDto object containing 
+        /// the updated project units data.</param>
+        /// <returns>The updated ProjectUnitsDto object.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the project units DTO or its ID is null.</exception>
+        public ProjectUnitsDto UpdateProjectUnitsData(ProjectUnitsDto projectUnitsDtoObj)
+        {
+            if (projectUnitsDtoObj == null) throw new ArgumentNullException(
+                             nameof(projectUnitsDtoObj), "Project Units DTO is null for UPDATE Project Units Panel data.");
+
+            if (projectUnitsDtoObj.Id == null) throw new ArgumentNullException(
+                             nameof(projectUnitsDtoObj), "Project Units DTO ID is null for UPDATE Project Units Panel data.");
+
+            if (projectUnitsDtoObj.ProjectId == null) throw new ArgumentNullException(
+                             nameof(projectUnitsDtoObj), "Project Units DTO Project ID is null for UPDATE Project Units Panel data.");
+
+            ProjectUnitsId = projectUnitsDtoObj.Id;
+            ProjectId = projectUnitsDtoObj.ProjectId;
+            ProjectUnitsDtoObj = projectUnitsDtoObj;
+            ProjectUnitsViewModelObj.UpdateProjectUnits(projectUnitsDtoObj);
+            return ProjectUnitsDtoObj;
+        }
+        #endregion  // UPDATE PROJECT DATA METHOD
+
 
         #endregion  // CRUD Methods
 

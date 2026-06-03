@@ -33,6 +33,7 @@
 #endregion      // HEADER
 
 #region REFERENCES
+using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 
 using HenViewModel.Project.DefaultParameters.OptimizerParams;
@@ -113,6 +114,34 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             OptimizerParamsDtoObj = OptimizerParamsViewModelObj.GetOptimizerParamsByProjectId(projectId);
         }
         #endregion  // READ OPTIMIZER PARAMS DATA METHOD
+
+        #region UPDATE OPTIMIZER PARAMS DATA METHOD
+        /// <summary>
+        /// Updates the optimizer params data using the provided OptimizerParamsDto object 
+        /// and returns the updated OptimizerParamsDto object.
+        /// </summary>
+        /// <param name="optimizerParamsDtoObj">The OptimizerParamsDto object containing 
+        /// the updated optimizer params data.</param>
+        /// <returns>The updated OptimizerParamsDto object.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the optimizer params DTO or its ID is null.</exception>
+        public OptimizerParamsDto UpdateOptimizerParamsData(OptimizerParamsDto optimizerParamsDtoObj)
+        {
+            if (optimizerParamsDtoObj == null) throw new ArgumentNullException(
+                             nameof(optimizerParamsDtoObj), "Optimizer Params DTO is null for UPDATE Optimizer Params Panel data.");
+
+            if (optimizerParamsDtoObj.Id == null) throw new ArgumentNullException(
+                             nameof(optimizerParamsDtoObj), "Optimizer Params DTO ID is null for UPDATE Optimizer Params Panel data.");
+
+            if (optimizerParamsDtoObj.ProjectId == null) throw new ArgumentNullException(
+                             nameof(optimizerParamsDtoObj), "Optimizer Params DTO Project ID is null for UPDATE Optimizer Params Panel data.");
+
+            OptimizerParamsId = optimizerParamsDtoObj.Id;
+            ProjectId = optimizerParamsDtoObj.ProjectId;
+            OptimizerParamsDtoObj = optimizerParamsDtoObj;
+            OptimizerParamsViewModelObj.UpdateOptimizerParams(optimizerParamsDtoObj);
+            return OptimizerParamsDtoObj;
+        }
+        #endregion  // UPDATE PROJECT DATA METHOD
 
         #endregion  // CRUD Methods
 

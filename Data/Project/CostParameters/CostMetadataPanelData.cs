@@ -34,6 +34,7 @@
 
 #region REFERENCES
 using HenModel.Dto.Project.CostParameters;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 
 using HenViewModel.Project.CostParameters;
 using HenViewModel.Project.DefaultParameters.OptimizerParams;
@@ -114,6 +115,34 @@ namespace HenStudio.Data.Project.CostParameters
             CostMetadataDtoObj = CostMetadataViewModelObj.GetCostMetadataByProjectId(projectId);
         }
         #endregion  // READ COST METADATA DATA METHOD
+
+        #region UPDATE COST METADATA DATA METHOD
+        /// <summary>
+        /// Updates the cost metadata data using the provided CostMetadataDto object 
+        /// and returns the updated CostMetadataDto object.
+        /// </summary>
+        /// <param name="costMetadataDtoObj">The CostMetadataDto object containing 
+        /// the updated cost metadata data.</param>
+        /// <returns>The updated CostMetadataDto object.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the cost metadata DTO or its ID is null.</exception>
+        public CostMetadataDto UpdateCostMetadataData(CostMetadataDto costMetadataDtoObj)
+        {
+            if (costMetadataDtoObj == null) throw new ArgumentNullException(
+                             nameof(costMetadataDtoObj), "Cost Metadata DTO is null for UPDATE Cost Metadata Panel data.");
+
+            if (costMetadataDtoObj.Id == null) throw new ArgumentNullException(
+                             nameof(costMetadataDtoObj), "Cost Metadata DTO ID is null for UPDATE Cost Metadata Panel data.");
+
+            if (costMetadataDtoObj.ProjectId == null) throw new ArgumentNullException(
+                             nameof(costMetadataDtoObj), "Cost Metadata DTO Project ID is null for UPDATE Cost Metadata Panel data.");
+
+            CostMetadataId = costMetadataDtoObj.Id;
+            ProjectId = costMetadataDtoObj.ProjectId;
+            CostMetadataDtoObj = costMetadataDtoObj;
+            CostMetadataViewModelObj.UpdateCostMetadata(costMetadataDtoObj);
+            return CostMetadataDtoObj;
+        }
+        #endregion  // UPDATE PROJECT DATA METHOD
 
         #endregion  // CRUD Methods
 

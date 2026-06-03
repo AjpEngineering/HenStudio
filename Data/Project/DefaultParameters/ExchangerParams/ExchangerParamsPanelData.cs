@@ -34,6 +34,7 @@
 
 #region REFERENCES
 using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
+using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
 using HenViewModel.Project.DefaultParameters.ExchangerParams;
 
@@ -110,6 +111,34 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
         }
 
         #endregion  // READ EXCHANGER PARAMS DATA METHOD
+
+        #region UPDATE EXCHANGER PARAMS DATA METHOD
+        /// <summary>
+        /// Updates the exchanger params data using the provided ExchangerParamsDto object 
+        /// and returns the updated ExchangerParamsDto object.
+        /// </summary>
+        /// <param name="exchangerParamsDtoObj">The ExchangerParamsDto object containing 
+        /// the updated exchanger params data.</param>
+        /// <returns>The updated ExchangerParamsDto object.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the exchanger params DTO or its ID is null.</exception>
+        public ExchangerParamsDto UpdateExchangerParamsData(ExchangerParamsDto exchangerParamsDtoObj)
+        {
+            if (exchangerParamsDtoObj == null) throw new ArgumentNullException(
+                             nameof(exchangerParamsDtoObj), "Exchanger Params DTO is null for UPDATE Exchanger Params Panel data.");
+
+            if (exchangerParamsDtoObj.Id == null) throw new ArgumentNullException(
+                             nameof(exchangerParamsDtoObj), "Exchanger Params DTO ID is null for UPDATE Exchanger Params Panel data.");
+
+            if (exchangerParamsDtoObj.ProjectId == null) throw new ArgumentNullException(
+                             nameof(exchangerParamsDtoObj), "Exchanger Params DTO Project ID is null for UPDATE Exchanger Params Panel data.");
+
+            ExchangerParamsId = exchangerParamsDtoObj.Id;
+            ProjectId = exchangerParamsDtoObj.ProjectId;
+            ExchangerParamsDtoObj = exchangerParamsDtoObj;
+            ExchangerParamsViewModelObj.UpdateExchangerParams(exchangerParamsDtoObj);
+            return ExchangerParamsDtoObj;
+        }
+        #endregion  // UPDATE PROJECT DATA METHOD
 
         #endregion  // CRUD Methods
 

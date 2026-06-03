@@ -116,6 +116,37 @@ namespace HenStudio.Data.Project.CostParameters
         }
         #endregion  // READ SHELL AND TUBE CAPITAL COST DATA METHOD
 
+        #region UPDATE SHELL AND TUBE CAPITAL COST DATA METHOD
+        /// <summary>
+        /// Updates the shell and tube capital cost data using the provided ShellAndTubeCapitalCostDto object 
+        /// and returns the updated ShellAndTubeCapitalCostDto object.
+        /// </summary>
+        /// <param name="shellAndTubeCapitalCostDtoObj">The ShellAndTubeCapitalCostDto object containing 
+        /// the updated shell and tube capital cost data.</param>
+        /// <returns>The updated ShellAndTubeCapitalCostDto object.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the shell and tube capital cost DTO or its ID is null.</exception>
+        public ShellAndTubeCapitalCostDto UpdateShellAndTubeCapitalCostData(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDtoObj)
+        {
+            if (shellAndTubeCapitalCostDtoObj == null) throw new ArgumentNullException(
+                             nameof(shellAndTubeCapitalCostDtoObj),
+                             "Shell And Tube Capital Cost DTO is null for UPDATE Shell And Tube Capital Cost Panel data.");
+
+            if (shellAndTubeCapitalCostDtoObj.Id == null) throw new ArgumentNullException(
+                             nameof(shellAndTubeCapitalCostDtoObj),
+                             "Shell And Tube Capital Cost DTO ID is null for UPDATE Shell And Tube Capital Cost Panel data.");
+
+            if (shellAndTubeCapitalCostDtoObj.ProjectId == null) throw new ArgumentNullException(
+                             nameof(shellAndTubeCapitalCostDtoObj),
+                             "Shell And Tube Capital Cost DTO Project ID is null for UPDATE Shell And Tube Capital Cost Panel data.");
+
+            ShellAndTubeCapitalCostId = shellAndTubeCapitalCostDtoObj.Id;
+            ProjectId = shellAndTubeCapitalCostDtoObj.ProjectId;
+            ShellAndTubeCapitalCostDtoObj = shellAndTubeCapitalCostDtoObj;
+            ShellAndTubeCapitalCostViewModelObj.UpdateShellAndTubeCapitalCost(shellAndTubeCapitalCostDtoObj);
+            return ShellAndTubeCapitalCostDtoObj;
+        }
+        #endregion  // UPDATE PROJECT DATA METHOD
+
         #endregion  // CRUD Methods
 
     }
