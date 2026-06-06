@@ -161,7 +161,6 @@ namespace HenStudio.Data.Profile
             //--------------------------
             return ProfileDtoObj;
         }
-
         #endregion  // READ PROFILE DATA METHOD
 
         #region UPDATE PROFILE DATA METHOD

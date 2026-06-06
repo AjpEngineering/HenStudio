@@ -229,33 +229,32 @@ namespace HenStudio.Data.Project
 
         #region --> CREATE ... CreateProjectWrapperData(ProjectWrapperDto projecteWrapperDtoObj)
         /// <summary>
-        /// Create (ADD) the Project Wrapper Data to the HENSTUDIO DB using
-        /// the DTO and ViewModel object properties of this class.
+        /// Create (ADD) the Project data contained in the WRAPPER DTO to the HENSTUDIO DB
         /// </summary>
         /// <returns>Project ID of the newly created project-related data.</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public Guid CreateProjectWrapperData(ProjectWrapperDto projecteWrapperDtoObj)
+        public Guid CreateProjectWrapperData(ProjectWrapperDto projectWrapperDtoObj)
         {
-            if (projecteWrapperDtoObj == null) throw new ArgumentNullException(
-                                         nameof(projecteWrapperDtoObj),
+            if (projectWrapperDtoObj == null) throw new ArgumentNullException(
+                                         nameof(projectWrapperDtoObj),
                                          "Project Wrapper DTO can not be null");
             #region DTO DATA
             //-----------------------------------------------------------------------------
             //--- Get DTO Data for Adding to DB ... VIEW Objects populatle WRAPPER DTOs ---
             //-----------------------------------------------------------------------------
-            ProjectWrapperDtoObj = projecteWrapperDtoObj;
+            ProjectWrapperDtoObj = projectWrapperDtoObj;
 
-            ProjectDto projectDtoObj = projecteWrapperDtoObj.ProjectDtoObj;
+            ProjectDto projectDtoObj = projectWrapperDtoObj.ProjectDtoObj;
 
-            ProjectUnitsDto projectUnitsDtoObj = projecteWrapperDtoObj.ProjectUnitsDtoObj;
-            ExchangerParamsDto exchangerParamsDtoObj = projecteWrapperDtoObj.ExchangerParamsDtoObj;
-            OptimizerParamsDto optimizerParmasDtoObj = projecteWrapperDtoObj.OptimizerParamsDtoObj;
+            ProjectUnitsDto projectUnitsDtoObj = projectWrapperDtoObj.ProjectUnitsDtoObj;
+            ExchangerParamsDto exchangerParamsDtoObj = projectWrapperDtoObj.ExchangerParamsDtoObj;
+            OptimizerParamsDto optimizerParmasDtoObj = projectWrapperDtoObj.OptimizerParamsDtoObj;
 
-            CostMetadataDto costMetadataDtoObj = projecteWrapperDtoObj.CostMetadataDtoObj;
-            FiredHeaterCapitalCostDto firedHeaterCapitalCostDtoObj = projecteWrapperDtoObj.FiredHeaterCapitalCostDtoObj;
-            ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDtoObj = projecteWrapperDtoObj.ShellAndTubeCapitalCostDtoObj;
-            TotalAnnualizedCostDto totalAnnualizedCostDtoObj = projecteWrapperDtoObj.TotalAnnualizedCostDtoObj;
-            UtilityCostDto utilityCostDtoObj = projecteWrapperDtoObj.UtilityCostDtoObj;
+            CostMetadataDto costMetadataDtoObj = projectWrapperDtoObj.CostMetadataDtoObj;
+            FiredHeaterCapitalCostDto firedHeaterCapitalCostDtoObj = projectWrapperDtoObj.FiredHeaterCapitalCostDtoObj;
+            ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDtoObj = projectWrapperDtoObj.ShellAndTubeCapitalCostDtoObj;
+            TotalAnnualizedCostDto totalAnnualizedCostDtoObj = projectWrapperDtoObj.TotalAnnualizedCostDtoObj;
+            UtilityCostDto utilityCostDtoObj = projectWrapperDtoObj.UtilityCostDtoObj;
             #endregion  // DTO DATA
 
             #region PROJECT PANEL DATA
@@ -536,77 +535,311 @@ namespace HenStudio.Data.Project
         /// </summary>
         /// <param name="projecteWrapperDtoObj">Project WRAPPER DTO object containing data to update.</param>
         /// <returns>Project WRAPPER DTO including data updated</returns>
-        public ProjectWrapperDto UpdateProjectWrapperData(ProjectWrapperDto projecteWrapperDtoObj)
+        public ProjectWrapperDto UpdateProjectWrapperData(ProjectWrapperDto projectWrapperDtoObj)
         {
-            if (projecteWrapperDtoObj == null) throw new ArgumentNullException(
-                             nameof(projecteWrapperDtoObj), "Project ID cannot be null.");
+            if (projectWrapperDtoObj == null) throw new ArgumentNullException(
+                             nameof(projectWrapperDtoObj), "Project ID cannot be null.");
 
-            ProjectWrapperDtoObj = projecteWrapperDtoObj;
-            //------------------------------------------------------------
-            //--- UPDATE Project Data in DB using PanelData Object     ---
-            //--- NOTE: VIEW objects populate the WRAPPER DTO Objects. ---
-            //------------------------------------------------------------
+            #region DTO DATA
+            //--------------------------------------------------------------------------------
+            //--- Get DTO Data for Updating the DB ... VIEW Objects populatle WRAPPER DTOs ---
+            //--------------------------------------------------------------------------------
+            ProjectWrapperDtoObj = projectWrapperDtoObj;
+
+            ProjectDto projectDtoObj = projectWrapperDtoObj.ProjectDtoObj;
+
+            ProjectUnitsDto projectUnitsDtoObj = projectWrapperDtoObj.ProjectUnitsDtoObj;
+            ExchangerParamsDto exchangerParamsDtoObj = projectWrapperDtoObj.ExchangerParamsDtoObj;
+            OptimizerParamsDto optimizerParmasDtoObj = projectWrapperDtoObj.OptimizerParamsDtoObj;
+
+            CostMetadataDto costMetadataDtoObj = projectWrapperDtoObj.CostMetadataDtoObj;
+            FiredHeaterCapitalCostDto firedHeaterCapitalCostDtoObj = projectWrapperDtoObj.FiredHeaterCapitalCostDtoObj;
+            ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDtoObj = projectWrapperDtoObj.ShellAndTubeCapitalCostDtoObj;
+            TotalAnnualizedCostDto totalAnnualizedCostDtoObj = projectWrapperDtoObj.TotalAnnualizedCostDtoObj;
+            UtilityCostDto utilityCostDtoObj = projectWrapperDtoObj.UtilityCostDtoObj;
+            #endregion  // DTO DATA
+
             #region PROJECT PANEL DATA
-            //--- Copy WRAPPER to SubPanel Project ID ---
-            ProjectPanelDataObj.ProjectId = ProjectWrapperDtoObj.ProjectId;
-            //--- Update SubPanel Data to DB using PanelData Object ---
-            ProjectWrapperDtoObj.ProjectDtoObj = ProjectPanelDataObj.
-                           UpdateProjectData(ProjectPanelDataObj.ProjectDtoObj);
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //-------------------------- PROJECT DATA --------------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (projectDtoObj == null) throw new ArgumentNullException(
+                                 nameof(projectDtoObj),
+                                 "Project DTO Object cannot be null.");
+            //----------------------------------------------------------------------------------
+            //--- Extract Project ID from WRAPPER DTO object - supplied in method invocation ---
+            //----------------------------------------------------------------------------------
+            Guid projectId = projectWrapperDtoObj.ProjectId;    // Assign Project ID
+
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), 
+                             "Project ID cannot be null.");
+            //--------------------------------------------------------
+            //--- Update Project Data to DB using PanelData Object ---
+            //--- Returns Post-Update Project DTO object           ---
+            //--------------------------------------------------------
+            ProjectDto postUpdateProjectDto = 
+                       ProjectPanelDataObj.UpdateProjectData(projectDtoObj);
+
+            if (postUpdateProjectDto == null) throw new ArgumentNullException(
+                             nameof(postUpdateProjectDto), 
+                             "Post-Update Project DTO cannot be null.");
+            //-------------------------------------------
+            //--- Assign POST-UPDATE Project DTO Data ---
+            //-------------------------------------------
+            ProjectPanelDataObj.ProjectDtoObj = postUpdateProjectDto;
+            ProjectWrapperDtoObj.ProjectDtoObj = postUpdateProjectDto;
             #endregion  // PROJECT PANEL DATA
 
             #region PROJECT DEFAULT PARAMETERS PANEL DATA
-            //--- Copy WRAPPER to SubPanel DTO Object ---
-            ProjectUnitsPanelDataObj.ProjectUnitsDtoObj = ProjectWrapperDtoObj.ProjectUnitsDtoObj;
-            //--- Update SubPanel Data to DB using PanelData Object ---
-            ProjectUnitsPanelDataObj.ProjectUnitsDtoObj = ProjectUnitsPanelDataObj.
-                               UpdateProjectUnitsData(ProjectUnitsPanelDataObj.ProjectUnitsDtoObj);
 
-            //--- Copy WRAPPER to SubPanel DTO Object ---
-            ExchangerParamsPanelDataObj.ExchangerParamsDtoObj = ProjectWrapperDtoObj.ExchangerParamsDtoObj;
-            //--- Update SubPanel Data to DB using PanelData Object ---
-            ExchangerParamsPanelDataObj.ExchangerParamsDtoObj = ExchangerParamsPanelDataObj.
-                                  UpdateExchangerParamsData(ExchangerParamsPanelDataObj.ExchangerParamsDtoObj);
+            #region PROJECT UNITS DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //----------------------- PROJECT UNITS DATA -----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (projectUnitsDtoObj == null) throw new ArgumentNullException(
+                             nameof(projectUnitsDtoObj),
+                             "Project Units DTO Object cannot be null.");
 
-            //--- Copy WRAPPER to SubPanel DTO Object ---
-            OptimizerParamsPanelDataObj.OptimizerParamsDtoObj = ProjectWrapperDtoObj.OptimizerParamsDtoObj;
-            //--- Update SubPanel Data to DB using PanelData Object ---
-            OptimizerParamsPanelDataObj.OptimizerParamsDtoObj = OptimizerParamsPanelDataObj.
-                                  UpdateOptimizerParamsData(OptimizerParamsPanelDataObj.OptimizerParamsDtoObj);
+            projectUnitsDtoObj.ProjectId = projectId;   // Assign Project ID
+            //----------------------------------------------------------------------------------------
+            //--- Extract Project Units ID from WRAPPER DTO object - supplied in method invocation ---
+            //----------------------------------------------------------------------------------------
+            Guid projectUnitsId = projectWrapperDtoObj.ProjectUnitsId;
+            //-------------------------------------------------------------
+            //--- Update ProjectUnits Data to DB using PanelData Object ---
+            //--- Returns Post-Update ProjectUnits DTO object           ---
+            //-------------------------------------------------------------
+            ProjectUnitsDto postUpdateProjectUnitsDto =
+                    ProjectUnitsPanelDataObj.UpdateProjectUnitsData(projectUnitsDtoObj);
+
+            if (postUpdateProjectUnitsDto == null) throw new ArgumentNullException(
+                             nameof(postUpdateProjectUnitsDto), 
+                             "Post-Update Project Units DTO cannot be null.");
+            //-------------------------------------------------
+            //--- Assign POST-UPDATE Project Units DTO Data ---
+            //-------------------------------------------------
+            ProjectUnitsPanelDataObj.ProjectUnitsDtoObj = postUpdateProjectUnitsDto;
+            ProjectWrapperDtoObj.ProjectUnitsDtoObj = postUpdateProjectUnitsDto;
+            #endregion  // PROJECT UNITS DATA
+
+            #region EXCHANGER PARAMS DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //--------------------- EXCHANGER PARAMS DATA ----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (exchangerParamsDtoObj == null) throw new ArgumentNullException(
+                             nameof(exchangerParamsDtoObj),
+                             "Exchanger Params DTO Object cannot be null.");
+
+            exchangerParamsDtoObj.ProjectId = projectId;   // Assign Project ID
+            //-------------------------------------------------------------------------------------------
+            //--- Extract Exchanger Params ID from WRAPPER DTO object - supplied in method invocation ---
+            //-------------------------------------------------------------------------------------------
+            Guid exchangerParamsId = projectWrapperDtoObj.ExchangerParamsId;
+            //-----------------------------------------------------------------
+            //--- Update Exchanger Params Data to DB using PanelData Object ---
+            //--- Returns Post-Update Exchanger Params DTO object           ---
+            //-----------------------------------------------------------------
+            ExchangerParamsDto postUpdateExchangerParamsDto =
+                    ExchangerParamsPanelDataObj.UpdateExchangerParamsData(exchangerParamsDtoObj);
+
+            if (postUpdateExchangerParamsDto == null) throw new ArgumentNullException(
+                             nameof(postUpdateExchangerParamsDto),
+                             "Post-Update Exchanger Params DTO cannot be null.");
+            //----------------------------------------------------
+            //--- Assign POST-UPDATE Exchanger Params DTO Data ---
+            //----------------------------------------------------
+            ExchangerParamsPanelDataObj.ExchangerParamsDtoObj = postUpdateExchangerParamsDto;
+            ProjectWrapperDtoObj.ExchangerParamsDtoObj = postUpdateExchangerParamsDto;
+            #endregion  // EXCHANGER PARAMS DATA
+
+            #region OPTIMIZER PARAMS DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //--------------------- OPTIMIZER PARAMS DATA ----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (optimizerParmasDtoObj == null) throw new ArgumentNullException(
+                             nameof(optimizerParmasDtoObj),
+                             "Optimizer Params DTO Object cannot be null.");
+
+            optimizerParmasDtoObj.ProjectId = projectId;   // Assign Project ID
+            //-------------------------------------------------------------------------------------------
+            //--- Extract Optimizer Params ID from WRAPPER DTO object - supplied in method invocation ---
+            //-------------------------------------------------------------------------------------------
+            Guid optimizerParamsId = projectWrapperDtoObj.OptimizerParamsId;
+            //-----------------------------------------------------------------
+            //--- Update Optimizer Params Data to DB using PanelData Object ---
+            //--- Returns Post-Update Optimizer Params DTO object           ---
+            //-----------------------------------------------------------------
+            OptimizerParamsDto postUpdateOptimizerParamsDto =
+                    OptimizerParamsPanelDataObj.UpdateOptimizerParamsData(optimizerParmasDtoObj);
+
+            if (postUpdateOptimizerParamsDto == null) throw new ArgumentNullException(
+                             nameof(postUpdateOptimizerParamsDto),
+                             "Post-Update Optimizer Params DTO cannot be null.");
+            //----------------------------------------------------
+            //--- Assign POST-UPDATE Optimizer Params DTO Data ---
+            //----------------------------------------------------
+            OptimizerParamsPanelDataObj.OptimizerParamsDtoObj = postUpdateOptimizerParamsDto;
+            ProjectWrapperDtoObj.OptimizerParamsDtoObj = postUpdateOptimizerParamsDto;
+            #endregion  // OPTIMIZER PARAMS DATA
+
             #endregion  // PROJECT DEFAULT PARAMETERS PANEL DATA
 
             #region PROJECT COST PARAMETERS PANEL DATA
-            //--- Copy WRAPPER to SubPanel DTO Object ---
-            CostMetadataPanelDataObj.CostMetadataDtoObj = ProjectWrapperDtoObj.CostMetadataDtoObj;
-            //--- Update SubPanel Data to DB using PanelData Object ---
-            CostMetadataPanelDataObj.CostMetadataDtoObj = CostMetadataPanelDataObj.
-                               UpdateCostMetadataData(CostMetadataPanelDataObj.CostMetadataDtoObj);
 
-            //--- Copy WRAPPER to SubPanel DTO Object ---
-            FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj = ProjectWrapperDtoObj.FiredHeaterCapitalCostDtoObj;
-            //--- Update SubPanel Data to DB using PanelData Object ---
-            FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj = FiredHeaterCapitalCostPanelDataObj.
-                                         UpdateFiredHeaterCapitalCostData(FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj);
+            #region COST METADATA DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //----------------------- COST METADATA DATA -----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (costMetadataDtoObj == null) throw new ArgumentNullException(
+                 nameof(costMetadataDtoObj),
+                 "Cost Metadata DTO Object cannot be null.");
 
-            //--- Copy WRAPPER to SubPanel DTO Object ---
-            ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj = ProjectWrapperDtoObj.ShellAndTubeCapitalCostDtoObj;
-            //--- Update SubPanel Data to DB using PanelData Object ---
-            ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj = ShellAndTubeCapitalCostPanelDataObj.
-                                         UpdateShellAndTubeCapitalCostData(ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj);
+            costMetadataDtoObj.ProjectId = projectId;   // Assign Cost Metadata DTO Project ID
+            //----------------------------------------------------------------------------------------
+            //--- Extract Cost Metadata ID from WRAPPER DTO object - supplied in method invocation ---
+            //----------------------------------------------------------------------------------------
+            Guid costMetadataId = projectWrapperDtoObj.CostMetadataId;
+            //-------------------------------------------------------------
+            //--- Update CostMetadata Data to DB using PanelData Object ---
+            //--- Returns Post-Update CostMetadata DTO object           ---
+            //-------------------------------------------------------------
+            CostMetadataDto postUpdateCostMetadataDto =
+                    CostMetadataPanelDataObj.UpdateCostMetadataData(costMetadataDtoObj);
 
-            //--- Copy WRAPPER to SubPanel DTO Object ---
-            TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj = ProjectWrapperDtoObj.TotalAnnualizedCostDtoObj;
-            //--- Update SubPanel Data to DB using PanelData Object ---
-            TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj = TotalAnnualizedCostPanelDataObj.
-                                      UpdateTotalAnnualizedCostData(TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj);
+            if (postUpdateCostMetadataDto == null) throw new ArgumentNullException(
+                             nameof(postUpdateCostMetadataDto),
+                             "Post-Update Cost Metadata DTO cannot be null.");
+            //-------------------------------------------------
+            //--- Assign POST-UPDATE Cost Metadata DTO Data ---
+            //-------------------------------------------------
+            CostMetadataPanelDataObj.CostMetadataDtoObj = postUpdateCostMetadataDto;
+            ProjectWrapperDtoObj.CostMetadataDtoObj = postUpdateCostMetadataDto;
+            #endregion  // COST METADATA DATA
 
-            //--- Copy WRAPPER to SubPanel DTO Object ---
-            UtilityCostPanelDataObj.UtilityCostDtoObj = ProjectWrapperDtoObj.UtilityCostDtoObj;
-            //--- Update SubPanel Data to DB using PanelData Object ---
-            UtilityCostPanelDataObj.UtilityCostDtoObj = UtilityCostPanelDataObj.
-                                      UpdateUtilityCostData(UtilityCostPanelDataObj.UtilityCostDtoObj);
+            #region FIRED HEATER CAPITAL COST DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //----------------------- FIRED HEATER CAPITAL COST DATA -----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (firedHeaterCapitalCostDtoObj == null) throw new ArgumentNullException(
+                 nameof(firedHeaterCapitalCostDtoObj),
+                 "Fired Heater Capital Cost DTO Object cannot be null.");
+
+            firedHeaterCapitalCostDtoObj.ProjectId = projectId;   // Assign Fired Heater Capital Cost DTO Project ID
+            //----------------------------------------------------------------------------------------------------
+            //--- Extract Fired Heater Capital Cost ID from WRAPPER DTO object - supplied in method invocation ---
+            //----------------------------------------------------------------------------------------------------
+            Guid firedHeaterCapitalCostId = projectWrapperDtoObj.FiredHeaterCapitalCostId;
+            //--------------------------------------------------------------------------
+            //--- Update Fired Heater Capital Cost Data to DB using PanelData Object ---
+            //--- Returns Post-Update Fired Heater Capital Cost DTO object           ---
+            //--------------------------------------------------------------------------
+            FiredHeaterCapitalCostDto postUpdateFiredHeaterCapitalCostDto =
+                    FiredHeaterCapitalCostPanelDataObj.UpdateFiredHeaterCapitalCostData(firedHeaterCapitalCostDtoObj);
+
+            if (postUpdateFiredHeaterCapitalCostDto == null) throw new ArgumentNullException(
+                             nameof(postUpdateFiredHeaterCapitalCostDto),
+                             "Post-Update Fired Heater Capital Cost DTO cannot be null.");
+            //-------------------------------------------------------------
+            //--- Assign POST-UPDATE Fired Heater Capital Cost DTO Data ---
+            //-------------------------------------------------------------
+            FiredHeaterCapitalCostPanelDataObj.FiredHeaterCapitalCostDtoObj = postUpdateFiredHeaterCapitalCostDto;
+            ProjectWrapperDtoObj.FiredHeaterCapitalCostDtoObj = postUpdateFiredHeaterCapitalCostDto;
+            #endregion  // FIRED HEATER CAPITAL COST DATA
+
+            #region SHELL AND TUBE CAPITAL COST DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //---------------------- SHELL AND TUBE CAPITAL COST DATA ----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (shellAndTubeCapitalCostDtoObj == null) throw new ArgumentNullException(
+                 nameof(shellAndTubeCapitalCostDtoObj),
+                 "Shell And Tube Capital Cost DTO Object cannot be null.");
+
+            shellAndTubeCapitalCostDtoObj.ProjectId = projectId;   // Assign Shell And Tube Capital Cost DTO Project ID
+            //------------------------------------------------------------------------------------------------------
+            //--- Extract Shell And Tube Capital Cost ID from WRAPPER DTO object - supplied in method invocation ---
+            //------------------------------------------------------------------------------------------------------
+            Guid shellAndTubeCapitalCostId = projectWrapperDtoObj.ShellAndTubeCapitalCostId;
+            //----------------------------------------------------------------------------
+            //--- Update Shell And Tube Capital Cost Data to DB using PanelData Object ---
+            //--- Returns Post-Update Shell And Tube Capital Cost DTO object           ---
+            //----------------------------------------------------------------------------
+            ShellAndTubeCapitalCostDto postUpdateShellAndTubeCapitalCostDto =
+                    ShellAndTubeCapitalCostPanelDataObj.UpdateShellAndTubeCapitalCostData(shellAndTubeCapitalCostDtoObj);
+
+            if (postUpdateShellAndTubeCapitalCostDto == null) throw new ArgumentNullException(
+                             nameof(postUpdateShellAndTubeCapitalCostDto),
+                             "Post-Update Shell And Tube Capital Cost DTO cannot be null.");
+            //---------------------------------------------------------------
+            //--- Assign POST-UPDATE Shell And Tube Capital Cost DTO Data ---
+            //---------------------------------------------------------------
+            ShellAndTubeCapitalCostPanelDataObj.ShellAndTubeCapitalCostDtoObj = postUpdateShellAndTubeCapitalCostDto;
+            ProjectWrapperDtoObj.ShellAndTubeCapitalCostDtoObj = postUpdateShellAndTubeCapitalCostDto;
+            #endregion  // SHELL AND TUBE CAPITAL COST DATA
+
+            #region TOTAL ANNUALIZED COST DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //------------------------- TOTAL ANNUALIZED COST DATA -------------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (totalAnnualizedCostDtoObj == null) throw new ArgumentNullException(
+                                             nameof(totalAnnualizedCostDtoObj),
+                                             "Total Annualized Cost DTO Object cannot be null.");
+
+            totalAnnualizedCostDtoObj.ProjectId = projectId;   // Assign Total Annualized Cost DTO Project ID
+            //------------------------------------------------------------------------------------------------
+            //--- Extract Total Annualized Cost ID from WRAPPER DTO object - supplied in method invocation ---
+            //------------------------------------------------------------------------------------------------
+            Guid totalAnnualizedCostId = projectWrapperDtoObj.TotalAnnualizedCostId;
+            //----------------------------------------------------------------------
+            //--- Update Total Annualized Cost Data to DB using PanelData Object ---
+            //--- Returns Post-Update Total Annualized Cost DTO object           ---
+            //----------------------------------------------------------------------
+            TotalAnnualizedCostDto postUpdateTotalAnnualizedCostDto =
+                    TotalAnnualizedCostPanelDataObj.UpdateTotalAnnualizedCostData(totalAnnualizedCostDtoObj);
+
+            if (postUpdateTotalAnnualizedCostDto == null) throw new ArgumentNullException(
+                             nameof(postUpdateTotalAnnualizedCostDto),
+                             "Post-Update Total Annualized Cost DTO cannot be null.");
+            //---------------------------------------------------------
+            //--- Assign POST-UPDATE Total Annualized Cost DTO Data ---
+            //---------------------------------------------------------
+            TotalAnnualizedCostPanelDataObj.TotalAnnualizedCostDtoObj = postUpdateTotalAnnualizedCostDto;
+            ProjectWrapperDtoObj.TotalAnnualizedCostDtoObj = postUpdateTotalAnnualizedCostDto;
+            #endregion  // TOTAL ANNUALIZED COST DATA
+
+            #region UTILITY COST DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //------------------------------ UTILITY COST DATA ------------------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (utilityCostDtoObj == null) throw new ArgumentNullException(
+                                             nameof(utilityCostDtoObj),
+                                             "Utility Cost DTO Object cannot be null.");
+
+            utilityCostDtoObj.ProjectId = projectId;   // Assign Utility Cost DTO Project ID
+            //---------------------------------------------------------------------------------------
+            //--- Extract Utility Cost ID from WRAPPER DTO object - supplied in method invocation ---
+            //---------------------------------------------------------------------------------------
+            Guid utilityCostId = projectWrapperDtoObj.UtilityCostId;
+            //-------------------------------------------------------------
+            //--- Update Utility Cost Data to DB using PanelData Object ---
+            //--- Returns Post-Update Utility Cost DTO object           ---
+            //-------------------------------------------------------------
+            UtilityCostDto postUpdateUtilityCostDto =
+                    UtilityCostPanelDataObj.UpdateUtilityCostData(utilityCostDtoObj);
+
+            if (postUpdateUtilityCostDto == null) throw new ArgumentNullException(
+                             nameof(postUpdateUtilityCostDto),
+                             "Post-Update Utility Cost DTO cannot be null.");
+            //------------------------------------------------
+            //--- Assign POST-UPDATE Utility Cost DTO Data ---
+            //------------------------------------------------
+            UtilityCostPanelDataObj.UtilityCostDtoObj = postUpdateUtilityCostDto;
+            ProjectWrapperDtoObj.UtilityCostDtoObj = postUpdateUtilityCostDto;
+            #endregion  // UTILITY COST DATA
+
             #endregion  // PROJECT COST PARAMETERS PANEL DATA
 
-            return projecteWrapperDtoObj;
+            return projectWrapperDtoObj;
         }
         #endregion  // --> UPDATE ... UpdateProjectWrapperData(ProjectWrapperDto projecteWrapperDtoObj)
 
@@ -626,7 +859,7 @@ namespace HenStudio.Data.Project
             //--- Use Project ID to DELETE Data from DB        ---
             //--- NOTE: Cascading Delete is controlled in SQL. ---
             //----------------------------------------------------
-            ProjectPanelDataObj.DeleteProjectData(ProjectWrapperDtoObj.ProjectId);
+            ProjectPanelDataObj.DeleteProjectData(projectId);
         }
         #endregion  // --> DELETE ... DeleteProjectWrapperData(Guid projectId)
 
