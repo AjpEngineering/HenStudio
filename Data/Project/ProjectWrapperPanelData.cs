@@ -652,13 +652,10 @@ namespace HenStudio.Data.Project
 
             if (string.IsNullOrEmpty(newName)) throw new ArgumentException(
                  nameof(newName), "New project name is null or empty for RENAME Project Panel data.");
-
-
             //------------------------------------------------
             //--- Update Project Wrapper  Panel Project ID ---
             //------------------------------------------------
             ProjectWrapperDtoObj.ProjectId = projectId;
-
             //--------------------------------------------
             //--- Return the Project DTO updated in DB ---
             //--------------------------------------------

@@ -214,7 +214,7 @@ namespace HenStudio.Data.Profile
 
         #region CRUD Methods
 
-        #region CreateProfileWrapperData(Guid projectId, ProfileWrapperDto profileWrapperDtoObj)
+        #region --> CREATE ... CreateProfileWrapperData(Guid projectId, ProfileWrapperDto profileWrapperDtoObj)
         /// <summary>
         /// Add (CREATE) the Profile Data to the DB.  Client VIEW Objects populate the Wrapper DTO.
         /// The WRAPPER DTO contains all the DTOs for the SubPanel Data objects and lists
@@ -229,7 +229,8 @@ namespace HenStudio.Data.Profile
         /// <returns>The ID of the profile for which the profile wrapper data was created.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the provided project ID is null.</exception>
         /// <exception cref="ArgumentNullException">Thrown when the provided Profile Wrapper DTO is null.</exception>
-        public Guid CreateProfileWrapperData(Guid projectId, ProfileWrapperDto profileWrapperDtoObj)
+        public Guid CreateProfileWrapperData(Guid projectId, 
+                                             ProfileWrapperDto profileWrapperDtoObj)
         {
             if (projectId == null) throw new ArgumentNullException(
                              nameof(projectId), 
@@ -328,9 +329,9 @@ namespace HenStudio.Data.Profile
             //-------------------------
             return profileId;
         }
-        #endregion  // CreateProfileWrapperData(Guid projectId, ProfileWrapperDto profileWrapperDtoObj)
+        #endregion  // --> CREATE ... CreateProfileWrapperData(Guid projectId, ProfileWrapperDto profileWrapperDtoObj)
 
-        #region ReadProfileWrapperData(Guid projectId, Guid profileId)
+        #region --> READ ..... ReadProfileWrapperData(Guid projectId, Guid profileId)
         /// <summary>
         /// Retrieve (READ) the Profile Wrapper Data for a Given Project & Profile IDs. 
         /// This method will be used to Populate the Profile Wrapper Data Object 
@@ -340,7 +341,8 @@ namespace HenStudio.Data.Profile
         /// <param name="profileId">The ID of the profile-related data to READ.</param>
         /// <exception cref="ArgumentNullException">Thrown when the provided project ID is null.</exception>
         /// <exception cref="ArgumentNullException">Thrown when the provided profile ID is null.</exception>
-        public ProfileWrapperDto ReadProfileWrapperData(Guid projectId, Guid profileId)
+        public ProfileWrapperDto ReadProfileWrapperData(Guid projectId, 
+                                                        Guid profileId)
         {
             if (projectId == null) throw new ArgumentNullException(
                              nameof(projectId), 
@@ -384,9 +386,9 @@ namespace HenStudio.Data.Profile
             //---------------------------------
             return ProfileWrapperDtoObj;
         }
-        #endregion  // ReadProfileWrapperData(Guid projectId, Guid profileId) 
+        #endregion  // --> READ ..... ReadProfileWrapperData(Guid projectId, Guid profileId) 
 
-        #region UpdateProfileWrapperData(Guid projectId, Guid profileId, ProfileWrapperDto ProfileWrapperDtoObj)
+        #region --> UPDATE ... UpdateProfileWrapperData(Guid projectId, Guid profileId, ProfileWrapperDto ProfileWrapperDtoObj)
         /// <summary>
         /// Scrap Screen data and Populate the Profile Wrapper Object
         /// then use this method to UPDATE ALL the Profile Wrapper Data for a Given Project & Profile IDs.
@@ -454,9 +456,9 @@ namespace HenStudio.Data.Profile
             //-----------------------------------------
             return ProfileWrapperDtoObj;
         }
-        #endregion  // UpdateProfileWrapperData(Guid projectId, Guid profileId, ProfileWrapperDto ProfileWrapperDtoObj)
+        #endregion  // --> UPDATE ... UpdateProfileWrapperData(Guid projectId, Guid profileId, ProfileWrapperDto ProfileWrapperDtoObj)
 
-        #region DeleteProfileWrapperData(Guid projectId, Guid profileId)
+        #region --> DELETE ... DeleteProfileWrapperData(Guid projectId, Guid profileId)
         /// <summary>
         /// Use the specified Profile ID and ViewModel object 
         /// to DELETE ALL the Profile Subpanel data in the HENSTUDIO DB.
@@ -486,7 +488,7 @@ namespace HenStudio.Data.Profile
             //----------------------------------------------------
             ProfilePanelDataObj.DeleteProfileData(profileId);
         }
-        #endregion  // DeleteProfileWrapperData(Guid projectId, Guid profileId)
+        #endregion  // --> DELETE ... DeleteProfileWrapperData(Guid projectId, Guid profileId)
 
         #endregion  // CRUD Methods
 
