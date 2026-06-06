@@ -86,16 +86,32 @@ namespace HenStudio.Data.Project.CostParameters
         /// <summary>
         /// Creates a new fired heater capital cost data using the data in the FiredHeaterCapitalCostDtoObj property 
         /// and returns the ID of the newly created fired heater capital cost data.
+        /// NOTE: Project ID is assigned in FiredHeaterCapitalCost DTO object before method invocation
         /// </summary>
-        /// <returns>The ID of the newly created fired heater capital cost data.</returns>
+        /// <param name="firedHeaterCapitalCostDtoObj">Fired Heater Capital Cost DTO object</param>
+        /// <returns>The Fired Heater Capitql Cost ID of the newly created fired heater capital cost data.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the fired heater capital cost ID is null after creation.</exception>
-        public Guid CreateFiredHeaterCapitalCostData()
+        public Guid CreateFiredHeaterCapitalCostData(FiredHeaterCapitalCostDto firedHeaterCapitalCostDtoObj)
         {
-            FiredHeaterCapitalCostId = FiredHeaterCapitalCostViewModelObj.AddFiredHeaterCapitalCost(FiredHeaterCapitalCostDtoObj);
-            if (FiredHeaterCapitalCostId == null) throw new ArgumentNullException(
-                             nameof(FiredHeaterCapitalCostId), "Fired heater capital cost ID is null for ADD Fired Heater Capital Cost Panel data.");
-            FiredHeaterCapitalCostDtoObj.Id = FiredHeaterCapitalCostId;
-            return FiredHeaterCapitalCostId;  // Fired Heater Capital Cost ID
+            if (firedHeaterCapitalCostDtoObj == null) throw new ArgumentNullException(
+                      nameof(firedHeaterCapitalCostDtoObj),
+                      "Fired Heater Capital Cost DTO Object is null for Create Fired Heater Capital Cost Panel data.");
+            //-------------------------------------------------------------------------------
+            //--- Add Fired Heater Capital Cost data and get Fired Heater Capital Cost ID ---
+            //--- associated with the newly created Data                                  ---
+            //-------------------------------------------------------------------------------
+            Guid firedHeaterCapitalCostId = FiredHeaterCapitalCostViewModelObj.AddFiredHeaterCapitalCost(firedHeaterCapitalCostDtoObj);
+
+            if (firedHeaterCapitalCostId == null) throw new ArgumentNullException(
+                      nameof(firedHeaterCapitalCostId), 
+                      "Fired heater capital cost ID is null for ADD Fired Heater Capital Cost Panel data.");
+            //---------------------------------------------------------
+            //--- Assign the returned CostMetadata ID and return it ---
+            //---------------------------------------------------------
+            FiredHeaterCapitalCostId = firedHeaterCapitalCostId;
+            FiredHeaterCapitalCostDtoObj.Id = firedHeaterCapitalCostId;
+            FiredHeaterCapitalCostDtoObj = firedHeaterCapitalCostDtoObj;
+            return firedHeaterCapitalCostId;
         }
         #endregion  // CREATE FIRED HEATER CAPITAL COST DATA METHOD
 

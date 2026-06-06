@@ -41,6 +41,7 @@ using HenViewModel.Project.DefaultParameters.ExchangerParams;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 #endregion  // REFERENCES
@@ -82,19 +83,32 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
         /// <summary>
         /// Creates a new exchanger params data using the data in the ExchangerParamsDtoObj property 
         /// and returns the ID of the newly created exchanger params data.
+        /// NOTE: Project ID is assigned in ExchangerParams DTO object before method invocation
         /// </summary>
-        /// <returns>The ID of the newly created exchanger params data.</returns>
+        /// <param name="exchangerParmasDtoObj">Exchanger Params DTO</param>
+        /// <returns>The Exchanger Params ID of the newly created exchanger params data.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the exchanger params ID is null after creation.</exception>
-        public Guid CreateExchangerParamsData()
+        public Guid CreateExchangerParamsData(ExchangerParamsDto exchangerParmasDtoObj)
         {
-            ExchangerParamsId = ExchangerParamsViewModelObj.AddExchangerParams(ExchangerParamsDtoObj);
+            if (exchangerParmasDtoObj == null) throw new ArgumentNullException(
+                             nameof(exchangerParmasDtoObj),
+                             "Exchanger Params DTO Object is null for Create Exchanger Params data.");
+            //-------------------------------------------------------------
+            //--- Add Exchanger Params data and get Exchanger Params ID ---
+            //--- associated with the newly created Data                ---
+            //-------------------------------------------------------------
+            Guid exchangerParamsId = ExchangerParamsViewModelObj.AddExchangerParams(exchangerParmasDtoObj);
 
-            if (ExchangerParamsId == null) throw new ArgumentNullException(
-                             nameof(ExchangerParamsId), 
+            if (exchangerParamsId == null) throw new ArgumentNullException(
+                             nameof(exchangerParamsId), 
                              "Exchanger params ID is null for ADD Exchanger Params Panel data.");
-
-            ExchangerParamsDtoObj.Id = ExchangerParamsId;
-            return ExchangerParamsId;  // ExchangerParams ID
+            //-------------------------------------------------------------
+            //--- Assign the returned Exchanger Params ID and return it ---
+            //-------------------------------------------------------------
+            ExchangerParamsId = exchangerParamsId;
+            exchangerParmasDtoObj.Id = exchangerParamsId;
+            ExchangerParamsDtoObj = exchangerParmasDtoObj;
+            return exchangerParamsId;
         }
         #endregion  // CREATE EXCHANGER PARAMS DATA METHOD
 

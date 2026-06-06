@@ -36,6 +36,11 @@
 
 using HenGlobal;
 
+using HenModel.Dto.Profile;
+using HenModel.Dto.Profile.Streams;
+
+
+
 #region HEN STUDIO REFERENCES
 using HenModel.Dto.Project;
 using HenModel.Dto.Project.CostParameters;
@@ -53,6 +58,8 @@ using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
 #endregion  // HEN STUDIO REFERENCES
 
 using System;
+using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Windows.Forms.DataVisualization.Charting;
 
 #endregion      // REFERENCES
@@ -111,6 +118,8 @@ namespace HenStudio.Data.Project
         /// <summary>
         /// Initialize the Project Wrapper Data Object with Default Values 
         /// to Avoid Null Reference Exceptions.
+        /// NOTE: ProjectWrapperPanelData Object contains all the IDs, and 
+        /// DTO Objects, for the Project Wrapper Panel. [INTRA-VIEW LAYER]
         /// </summary>
         private void InitializeWrapperData()
         {
@@ -118,14 +127,10 @@ namespace HenStudio.Data.Project
             //--- Initialize ProjectWrapperPanelData Property to ---
             //--- Avoid Null Reference Exceptions                ---
             //------------------------------------------------------
-            //--- NOTE: ProjectWrapperPanelData Object contains  ---
-            //--- all the IDs, and DTO Objects, for the Project  ---
-            //--- Wrapper Panel. [INTRA-VIEW LAYER]              ---
-            //------------------------------------------------------
             ProjectWrapperDto projectWrapperDtoObj = new ProjectWrapperDto();
-            //-----------------------------------------------------------------
+            //-----------------------------------------------------------------------
             //--- Initialize PanelData Objects to Avoid Null Reference Exceptions ---
-            //-----------------------------------------------------------------
+            //-----------------------------------------------------------------------
             ProjectPanelDataObj = new ProjectPanelData();
 
             ProjectUnitsPanelDataObj = new ProjectUnitsPanelData();
@@ -222,90 +227,247 @@ namespace HenStudio.Data.Project
 
         #region CRUD METHODS
 
-        #region CreateProjectWrapperData() ... CREATE ... ADD ALL PROJECT DATA
+        #region --> CREATE ... CreateProjectWrapperData(ProjectWrapperDto projecteWrapperDtoObj)
         /// <summary>
         /// Create (ADD) the Project Wrapper Data to the HENSTUDIO DB using
         /// the DTO and ViewModel object properties of this class.
         /// </summary>
         /// <returns>Project ID of the newly created project-related data.</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public Guid CreateProjectWrapperData()
+        public Guid CreateProjectWrapperData(ProjectWrapperDto projecteWrapperDtoObj)
         {
+            if (projecteWrapperDtoObj == null) throw new ArgumentNullException(
+                                         nameof(projecteWrapperDtoObj),
+                                         "Project Wrapper DTO can not be null");
+            #region DTO DATA
+            //-----------------------------------------------------------------------------
+            //--- Get DTO Data for Adding to DB ... VIEW Objects populatle WRAPPER DTOs ---
+            //-----------------------------------------------------------------------------
+            ProjectWrapperDtoObj = projecteWrapperDtoObj;
+
+            ProjectDto projectDtoObj = projecteWrapperDtoObj.ProjectDtoObj;
+
+            ProjectUnitsDto projectUnitsDtoObj = projecteWrapperDtoObj.ProjectUnitsDtoObj;
+            ExchangerParamsDto exchangerParamsDtoObj = projecteWrapperDtoObj.ExchangerParamsDtoObj;
+            OptimizerParamsDto optimizerParmasDtoObj = projecteWrapperDtoObj.OptimizerParamsDtoObj;
+
+            CostMetadataDto costMetadataDtoObj = projecteWrapperDtoObj.CostMetadataDtoObj;
+            FiredHeaterCapitalCostDto firedHeaterCapitalCostDtoObj = projecteWrapperDtoObj.FiredHeaterCapitalCostDtoObj;
+            ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDtoObj = projecteWrapperDtoObj.ShellAndTubeCapitalCostDtoObj;
+            TotalAnnualizedCostDto totalAnnualizedCostDtoObj = projecteWrapperDtoObj.TotalAnnualizedCostDtoObj;
+            UtilityCostDto utilityCostDtoObj = projecteWrapperDtoObj.UtilityCostDtoObj;
+            #endregion  // DTO DATA
+
             #region PROJECT PANEL DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //-------------------------- PROJECT DATA --------------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (projectDtoObj == null) throw new ArgumentNullException(
+                                 nameof(projectDtoObj),
+                                 "Project DTO Object cannot be null.");
             //--------------------------------------------------------------
             //--- Add Project Data to DB using PanelData Object          ---
             //--- Returns Project ID for Foreign Key Relationships in DB ---
             //--------------------------------------------------------------
-            ProjectWrapperDtoObj.ProjectId = ProjectPanelDataObj.CreateProjectData();
+            Guid projectId = ProjectPanelDataObj.CreateProjectData(projectDtoObj);
+
+            if (projectId == null) throw new ArgumentNullException(
+                             nameof(projectId), "Project ID is null for ADD Project Panel data.");
+
+            projectDtoObj.Id = projectId;   // Assign Project DTO Project ID
+
+            ProjectWrapperDtoObj.ProjectId = projectId;          // Assign WRAPPER Project ID
+            ProjectWrapperDtoObj.ProjectDtoObj = projectDtoObj;  // Assign WRAPPER Project DTO
             #endregion  // PROJECT PANEL DATA
 
             #region PROJECT DEFAULT PARAMETERS PANELS DATA
+
+            #region PROJECT UNITS DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //----------------------- PROJECT UNITS DATA -----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (projectUnitsDtoObj == null) throw new ArgumentNullException(
+                             nameof(projectUnitsDtoObj),
+                             "Project Units DTO Object cannot be null.");
+
+            projectUnitsDtoObj.ProjectId = projectId;   // Assign ProjectUnits DTO Project ID
             //----------------------------------------------------------
             //--- Add ProjectUnits Data to DB using PanelData Object ---
             //--- Returns Project Units ID                           ---
-            //--- Assign Project ID (ProjectPanelData)               ---
             //----------------------------------------------------------
-            ProjectWrapperDtoObj.ProjectUnitsId = ProjectUnitsPanelDataObj.CreateProjectUnitsData();
-            ProjectUnitsPanelDataObj.ProjectId = ProjectWrapperDtoObj.ProjectId;
+            Guid projectUnitsId = ProjectUnitsPanelDataObj.CreateProjectUnitsData(projectUnitsDtoObj);
+            
+            projectUnitsDtoObj.Id = projectUnitsId;     // Assign ProjectUnits DTO ProjectUnits ID
+
+            ProjectWrapperDtoObj.ProjectUnitsId = projectUnitsId;           // Assign WRAPPER Project Units ID
+            ProjectWrapperDtoObj.ProjectUnitsDtoObj = projectUnitsDtoObj;   // Assign WRAPPER ProjectUnits DTO
+            #endregion  // PROJECT UNITS DATA
+
+            #region EXCHANGER PARAMS DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //--------------------- EXCHANGER PARAMS DATA ----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (exchangerParamsDtoObj == null) throw new ArgumentNullException(
+                             nameof(exchangerParamsDtoObj),
+                             "Exchanger Params DTO Object cannot be null.");
+
+            exchangerParamsDtoObj.ProjectId = projectId;   // Assign ExchangerParams DTO Project ID
             //-------------------------------------------------------------
             //--- Add ExchangerParams Data to DB using PanelData Object ---
             //--- Returns Exchanger Params ID                           ---
-            //--- Assign Project ID (ProjectPanelData)                  ---
             //-------------------------------------------------------------
-            ProjectWrapperDtoObj.ExchangerParamsId = ExchangerParamsPanelDataObj.CreateExchangerParamsData();
-            ExchangerParamsPanelDataObj.ProjectId = ProjectWrapperDtoObj.ProjectId;
+            Guid exchangerParamsId = ExchangerParamsPanelDataObj.CreateExchangerParamsData(exchangerParamsDtoObj);
+
+            exchangerParamsDtoObj.Id = exchangerParamsId;  // Assign ExchangerParams DTO ExchangerParams ID
+
+            ProjectWrapperDtoObj.ExchangerParamsId = exchangerParamsId;           // Assign WRAPPER ExchangerParams ID
+            ProjectWrapperDtoObj.ExchangerParamsDtoObj = exchangerParamsDtoObj;   // Assign WRAPPER ExchangerParams DTO
+            #endregion  // EXCHANGER PARAMS DATA
+
+            #region OPTIMIZER PARAMS DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //--------------------- OPTIMIZER PARAMS DATA ----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (optimizerParmasDtoObj == null) throw new ArgumentNullException(
+                             nameof(optimizerParmasDtoObj),
+                             "Optimizer Params DTO Object cannot be null.");
+
+            optimizerParmasDtoObj.ProjectId = projectId;   // Assign OptimizerParams DTO Project ID
             //-------------------------------------------------------------
             //--- Add OptimizerParams Data to DB using PanelData Object ---
             //--- Returns Optimizer Params ID                           ---
-            //--- Assign Project ID (ProjectPanelData)                  ---
             //-------------------------------------------------------------
-            ProjectWrapperDtoObj.OptimizerParamsId = OptimizerParamsPanelDataObj.CreateOptimizerParamsData();
-            OptimizerParamsPanelDataObj.ProjectId = ProjectWrapperDtoObj.ProjectId;
+            Guid optimizerParamsId = OptimizerParamsPanelDataObj.CreateOptimizerParamsData(optimizerParmasDtoObj);
+
+            optimizerParmasDtoObj.Id = optimizerParamsId;  // Assign OptimizerParams DTO ExchangerParams ID
+
+            ProjectWrapperDtoObj.OptimizerParamsId = optimizerParamsId;           // Assign WRAPPER OptimizerParams ID
+            ProjectWrapperDtoObj.OptimizerParamsDtoObj = optimizerParmasDtoObj;   // Assign WRAPPER OptimizerParams DTO
+            #endregion      //  OPTIMIZER PARAMS DATA
+
             #endregion  // PROJECT DEFAULT PARAMETERS PANELS DATA
 
             #region PROJECT COST PARAMETERS PANELS DATA
+
+            #region COST METADATA DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //----------------------- COST METADATA DATA -----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (costMetadataDtoObj == null) throw new ArgumentNullException(
+                 nameof(costMetadataDtoObj),
+                 "Cost Metadata DTO Object cannot be null.");
+
+            costMetadataDtoObj.ProjectId = projectId;   // Assign Cost Metadata DTO Project ID
             //----------------------------------------------------------
             //--- Add CostMetadata Data to DB using PanelData Object ---
             //--- Returns Cost Metadata ID                           ---
-            //--- Assign Project ID (ProjectPanelData)               ---
             //----------------------------------------------------------
-            ProjectWrapperDtoObj.CostMetadataId = CostMetadataPanelDataObj.CreateCostMetadataData();
-            CostMetadataPanelDataObj.ProjectId = ProjectWrapperDtoObj.ProjectId;
+            Guid costMetadataId = CostMetadataPanelDataObj.CreateCostMetadataData(costMetadataDtoObj);
+
+            costMetadataDtoObj.Id = costMetadataId;     // Assign Cost Metadata DTO Cost Metadata ID
+
+            ProjectWrapperDtoObj.CostMetadataId = projectUnitsId;           // Assign WRAPPER Cost Metadata ID
+            ProjectWrapperDtoObj.CostMetadataDtoObj = costMetadataDtoObj;   // Assign WRAPPER Cost Metadata DTO
+            #endregion  // COST METADATA DATA
+
+            #region FIRED HEATER CAPITAL COST DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //----------------------- FIRED HEATER CAPITAL COST DATA -----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (firedHeaterCapitalCostDtoObj == null) throw new ArgumentNullException(
+                 nameof(firedHeaterCapitalCostDtoObj),
+                 "Fired Heater Capital Cost DTO Object cannot be null.");
+
+            firedHeaterCapitalCostDtoObj.ProjectId = projectId;   // Assign Fired heater Capital Cost DTO Project ID
             //--------------------------------------------------------------------
             //--- Add FiredHeaterCapitalCost Data to DB using PanelData Object ---
             //--- Returns Fired heater Capital Cost ID                         ---
-            //--- Assign Project ID (ProjectPanelData)                         ---
             //--------------------------------------------------------------------
-            ProjectWrapperDtoObj.FiredHeaterCapitalCostId = FiredHeaterCapitalCostPanelDataObj.CreateFiredHeaterCapitalCostData();
-            FiredHeaterCapitalCostPanelDataObj.ProjectId = ProjectWrapperDtoObj.ProjectId;
+            Guid firedHeaterCapitalCostId = 
+                FiredHeaterCapitalCostPanelDataObj.CreateFiredHeaterCapitalCostData(firedHeaterCapitalCostDtoObj);
+
+            firedHeaterCapitalCostDtoObj.Id = firedHeaterCapitalCostId;    // Assign Fired Heater Capital Cost DTO Fired heater Capital Cost ID
+
+            ProjectWrapperDtoObj.FiredHeaterCapitalCostId = firedHeaterCapitalCostId;         // Assign WRAPPER Fired heater Capital Cost ID
+            ProjectWrapperDtoObj.FiredHeaterCapitalCostDtoObj = firedHeaterCapitalCostDtoObj; // Assign WRAPPER Fired heater Capital Cost DTO
+            #endregion  // FIRED HEATER CAPITAL COST DATA
+
+            #region SHELL AND TUBE CAPITAL COST DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //---------------------- SHELL AND TUBE CAPITAL COST DATA ----------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (shellAndTubeCapitalCostDtoObj == null) throw new ArgumentNullException(
+                 nameof(shellAndTubeCapitalCostDtoObj),
+                 "Shell And Tube Capital Cost DTO Object cannot be null.");
+
+            shellAndTubeCapitalCostDtoObj.ProjectId = projectId;   // Assign Shell And Tube Capital Cost DTO Project ID
             //---------------------------------------------------------------------
             //--- Add ShellAndTubeCapitalCost Data to DB using PanelData Object ---
-            //--- Returns Fired heater Capital Cost ID                          ---
-            //--- Assign Project ID (ProjectPanelData)                          ---
+            //--- Returns Shell And Tube Capital Cost ID                        ---
             //---------------------------------------------------------------------
-            ProjectWrapperDtoObj.ShellAndTubeCapitalCostId = ShellAndTubeCapitalCostPanelDataObj.CreateShellAndTubeCapitalCostData();
-            ShellAndTubeCapitalCostPanelDataObj.ProjectId = ProjectWrapperDtoObj.ProjectId;
+            Guid shellAndTubeCapitalCostId =
+                ShellAndTubeCapitalCostPanelDataObj.CreateShellAndTubeCapitalCostData(shellAndTubeCapitalCostDtoObj);
+
+            shellAndTubeCapitalCostDtoObj.Id = shellAndTubeCapitalCostId;    // Assign Shell And Tube Capital Cost DTO Shell And Tube Capital Cost ID
+
+            ProjectWrapperDtoObj.ShellAndTubeCapitalCostId = shellAndTubeCapitalCostId;         // Assign WRAPPER Shell And Tube Capital Cost ID
+            ProjectWrapperDtoObj.ShellAndTubeCapitalCostDtoObj = shellAndTubeCapitalCostDtoObj; // Assign WRAPPER Shell And Tube Capital Cost DTO
+            #endregion      // SHELL AND TUBE CAPITAL COST DATA
+
+            #region TOTAL ANNUALIZED COST DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //------------------------- TOTAL ANNUALIZED COST DATA -------------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (totalAnnualizedCostDtoObj == null) throw new ArgumentNullException(
+                                             nameof(totalAnnualizedCostDtoObj),
+                                             "Total Annualized Cost DTO Object cannot be null.");
+
+            totalAnnualizedCostDtoObj.ProjectId = projectId;   // Assign Total Annualized Cost DTO Project ID
             //-----------------------------------------------------------------
             //--- Add TotalAnnualizedCost Data to DB using PanelData Object ---
             //--- Returns Total Annualized Cost ID                          ---
-            //--- Assign Project ID (ProjectPanelData)                      ---
             //-----------------------------------------------------------------
-            ProjectWrapperDtoObj.TotalAnnualizedCostId = TotalAnnualizedCostPanelDataObj.CreateTotalAnnualizedCostData();
-            TotalAnnualizedCostPanelDataObj.ProjectId = ProjectWrapperDtoObj.ProjectId;
+            Guid totalAnnualizedCostId =
+                 TotalAnnualizedCostPanelDataObj.CreateTotalAnnualizedCostData(totalAnnualizedCostDtoObj);
+
+            totalAnnualizedCostDtoObj.Id = totalAnnualizedCostId;    // Assign Total Annualized Cost DTO Total Annualized Cost ID
+
+            ProjectWrapperDtoObj.TotalAnnualizedCostId = totalAnnualizedCostId;         // Assign WRAPPER Total Annualized Cost ID
+            ProjectWrapperDtoObj.TotalAnnualizedCostDtoObj = totalAnnualizedCostDtoObj; // Assign WRAPPER Total Annualized Cost DTO
+            #endregion  // TOTAL ANNUALIZED COST DATA
+
+            #region UTILITY COST DATA
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            //------------------------------ UTILITY COST DATA ------------------------------
+            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+            if (utilityCostDtoObj == null) throw new ArgumentNullException(
+                                             nameof(utilityCostDtoObj),
+                                             "Utility Cost DTO Object cannot be null.");
+
+            utilityCostDtoObj.ProjectId = projectId;   // Assign Utility Cost DTO Project ID
             //---------------------------------------------------------
             //--- Add UtilityCost Data to DB using PanelData Object ---
             //--- Returns Utility Cost ID                           ---
-            //--- Assign Project ID (ProjectPanelData)              ---
             //---------------------------------------------------------
-            ProjectWrapperDtoObj.UtilityCostId = UtilityCostPanelDataObj.CreateUtilityCostData();
-            UtilityCostPanelDataObj.ProjectId = ProjectWrapperDtoObj.ProjectId;
+            Guid utilityCostId = UtilityCostPanelDataObj.CreateUtilityCostData(utilityCostDtoObj);
+
+            utilityCostDtoObj.Id = utilityCostId;    // Assign Utility Cost DTO Utility Cost ID
+
+            ProjectWrapperDtoObj.UtilityCostId = utilityCostId;         // Assign WRAPPER Utility Cost ID
+            ProjectWrapperDtoObj.UtilityCostDtoObj = utilityCostDtoObj; // Assign WRAPPER Utility Cost DTO
+
+            #endregion  // UTILITY COST DATA
+
             #endregion  // PROJECT COST PARAMETERS PANELS DATA
 
-            return ProjectWrapperDtoObj.ProjectId;
+            //-------------------------
+            //--- Return Project ID ---
+            //-------------------------
+            return projectId;
         }
-        #endregion  // CreateProjectWrapperData() ... CREATE ... ADD ALL PROJECT DATA
+        #endregion  // --> CREATE ... CreateProjectWrapperData(ProjectWrapperDto projecteWrapperDtoObj)
 
-        #region ReadProjectWrapperData(Guid projectId) ... READ ... GET ALL PROJECT DATA
+        #region --> READ ..... ReadProjectWrapperData(Guid projectId)
         /// <summary>
         /// Read (GET) the Project Wrapper Data from the HENSTUDIO DB using the specified Project ID.
         /// </summary>
@@ -364,29 +526,26 @@ namespace HenStudio.Data.Project
             UtilityCostPanelDataObj.ReadUtilityCostData(ProjectWrapperDtoObj.ProjectId);
             #endregion  // PROJECT COST PARAMETERS PANELS DATA
         }
-        #endregion  // ReadProjectWrapperData(Guid projectId) ... READ ... GET ALL PROFILE DATA
+        #endregion  // --> READ ..... ReadProjectWrapperData(Guid projectId)
 
-        #region UpdateProjectWrapperData(Guid projectId) ... UPDATE ... UPDATE ALL PROJECT DATA
+        #region --> UPDATE ... UpdateProjectWrapperData(ProjectWrapperDto projecteWrapperDtoObj)
         /// <summary>
-        /// Use the specified Project ID and the DTO and ViewModel object 
-        /// properties of this class to UPDATE ALL the Project Subpanel 
+        /// Use the specified Project Wrapper DTO Properties to UPDATE ALL the Project Subpanel 
         /// data in the HENSTUDIO DB.
+        /// NOTE: The Project ID used in assigned in the WRAPPER DTO
         /// </summary>
-        /// <param name="projectId">The ID of the project-related data to UPDATE.</param>
-        public void UpdateProjectWrapperData(Guid projectId)
+        /// <param name="projecteWrapperDtoObj">Project WRAPPER DTO object containing data to update.</param>
+        /// <returns>Project WRAPPER DTO including data updated</returns>
+        public ProjectWrapperDto UpdateProjectWrapperData(ProjectWrapperDto projecteWrapperDtoObj)
         {
+            if (projecteWrapperDtoObj == null) throw new ArgumentNullException(
+                             nameof(projecteWrapperDtoObj), "Project ID cannot be null.");
+
+            ProjectWrapperDtoObj = projecteWrapperDtoObj;
             //------------------------------------------------------------
-            //--- Null Guard on User Supplied Project ID to Avoid Null ---
-            //--- References in ViewModel Invocations                  ---
-            //------------------------------------------------------------   
-            if (projectId == null) throw new ArgumentNullException(
-                             nameof(projectId), "Project ID cannot be null.");
-            else ProjectWrapperDtoObj.ProjectId = projectId;
-            //---------------------------------------------------------------
-            //--- UPDATE Project Data to DB using PanelData Object        ---
-            //--- NOTE: ViewModel Return DTO Objects, and PanelData       ---
-            //--- Objects. VIEW objects populate the WRAPPER DTO Objects. ---
-            //---------------------------------------------------------------
+            //--- UPDATE Project Data in DB using PanelData Object     ---
+            //--- NOTE: VIEW objects populate the WRAPPER DTO Objects. ---
+            //------------------------------------------------------------
             #region PROJECT PANEL DATA
             //--- Copy WRAPPER to SubPanel Project ID ---
             ProjectPanelDataObj.ProjectId = ProjectWrapperDtoObj.ProjectId;
@@ -447,33 +606,29 @@ namespace HenStudio.Data.Project
                                       UpdateUtilityCostData(UtilityCostPanelDataObj.UtilityCostDtoObj);
             #endregion  // PROJECT COST PARAMETERS PANEL DATA
 
+            return projecteWrapperDtoObj;
         }
-        #endregion  // UpdateProjectWrapperData(Guid projectId) ... UPDATE ... UPDATE ALL PROJECT DATA
+        #endregion  // --> UPDATE ... UpdateProjectWrapperData(ProjectWrapperDto projecteWrapperDtoObj)
 
-        #region DeleteProjectWrapperData(Guid projectId) ... DELETE ... DELETE ALL PROJECT DATA
+        #region --> DELETE ... DeleteProjectWrapperData(Guid projectId)
         /// <summary>
-        /// Use the specified Project ID and ViewModel object 
-        /// to DELETE ALL the Project Subpanel data in the HENSTUDIO DB.
+        /// Use the specified Project ID to DELETE ALL the Project Subpanel data in the HENSTUDIO DB.
         /// Cascading Delete is Controlled in SQL.
         /// </summary>
         /// <param name="projectId">The ID of the project-related data to DELETE.</param>
         public void DeleteProjectWrapperData(Guid projectId)
         {
-            //-------------------------------------------------------
-            //--- Null Guard on User Supplied Profile ID to Avoid ---
-            //--- Null References in ViewModel Invocations        ---
-            //-------------------------------------------------------   
             if (projectId == null) throw new ArgumentNullException(
                                          nameof(projectId), "Project ID cannot be null.");
 
-            else ProjectWrapperDtoObj.ProjectId = projectId;
+            ProjectWrapperDtoObj.ProjectId = projectId;
             //----------------------------------------------------
             //--- Use Project ID to DELETE Data from DB        ---
             //--- NOTE: Cascading Delete is controlled in SQL. ---
             //----------------------------------------------------
             ProjectPanelDataObj.DeleteProjectData(ProjectWrapperDtoObj.ProjectId);
         }
-        #endregion  // DeleteProjectWrapperData(Guid projectId) ... DELETE ... DELETE ALL PROJECT DATA
+        #endregion  // --> DELETE ... DeleteProjectWrapperData(Guid projectId)
 
         #endregion  // CRUD METHODS
 

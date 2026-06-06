@@ -85,17 +85,32 @@ namespace HenStudio.Data.Project.CostParameters
         /// <summary>
         /// Creates a new utility cost data using the data in the UtilityCostDtoObj property 
         /// and returns the ID of the newly created utility cost data.
+        /// NOTE: Project ID is assigned in UtilityCost DTO 
         /// </summary>
-        /// <returns>The ID of the newly created Utility Cost data.</returns>
+        /// <param name="utilityCostDtoObj">Utility Cost DTO object</param>
+        /// <returns>The Utility Cost ID of the newly created Utility Cost data.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the Utility Cost ID is null after creation.</exception>
-        public Guid CreateUtilityCostData()
+        public Guid CreateUtilityCostData(UtilityCostDto utilityCostDtoObj)
         {
-            UtilityCostId = UtilityCostViewModelObj.AddUtilityCost(UtilityCostDtoObj);
-            if (UtilityCostId == null) throw new ArgumentNullException(
-                             nameof(UtilityCostId),
-                             "Utility cost ID is null for ADD Utility Cost Panel data.");
-            UtilityCostDtoObj.Id = UtilityCostId;
-            return UtilityCostId;  // Total Annualized Cost ID
+            if (utilityCostDtoObj == null) throw new ArgumentNullException(
+                      nameof(utilityCostDtoObj),
+                      "Utility Cost DTO Object is null for Create Utility Cost Panel data.");
+            //-----------------------------------------------------
+            //--- Add Utility Cost data and get Utility Cost ID ---
+            //--- associated with the newly created Data        ---
+            //-----------------------------------------------------
+            Guid utilityCostId = UtilityCostViewModelObj.AddUtilityCost(utilityCostDtoObj);
+
+            if (utilityCostId == null) throw new ArgumentNullException(
+                                 nameof(utilityCostId),
+                                 "Utility cost ID is null for ADD Utility Cost Panel data.");
+            //-----------------------------------------------------------------
+            //--- Assign the returned Total Annualize Cost ID and return it ---
+            //-----------------------------------------------------------------
+            UtilityCostId = utilityCostId;
+            UtilityCostDtoObj.Id = utilityCostId;
+            UtilityCostDtoObj = utilityCostDtoObj;
+            return utilityCostId;
         }
         #endregion  // CREATE UTILITY COST DATA METHOD
 

@@ -87,19 +87,32 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         /// <summary>
         /// Creates a new project units data using the data in the ProjectUnitsDtoObj property 
         /// and returns the ID of the newly created project.
+        /// NOTE: Project ID is assigned in ProjectUnits DTO object before method invocation
         /// </summary>
-        /// <returns>The ID of the newly created project units data.</returns>
+        /// <param name="projectUnitsDtoObj">ProjectUnits DTO Object</param>
+        /// <returns>The Project Units ID of the newly created project units data.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the project units ID is null after creation.</exception>
-        public Guid CreateProjectUnitsData()
+        public Guid CreateProjectUnitsData(ProjectUnitsDto projectUnitsDtoObj)
         {
-            ProjectUnitsId = ProjectUnitsViewModelObj.AddProjectUnits(ProjectUnitsDtoObj);
+            if (projectUnitsDtoObj == null) throw new ArgumentNullException(
+                                  nameof(projectUnitsDtoObj),
+                                  "Project Units DTO Object is null for Create Project Units Panel data.");
+            //-------------------------------------------------------
+            //--- Add Project Units data and get Project Units ID ---
+            //--- associated with the newly created Data          ---
+            //-------------------------------------------------------
+            Guid projectUnitsId = ProjectUnitsViewModelObj.AddProjectUnits(projectUnitsDtoObj);
 
-            if (ProjectUnitsId == null) throw new ArgumentNullException(
-                             nameof(ProjectUnitsId), 
-                             "Project units ID is null for ADD Project Units Panel data.");
-
-            ProjectUnitsDtoObj.Id = ProjectUnitsId;
-            return ProjectUnitsId;  // ProjectUnits ID
+            if (projectUnitsId == null) throw new ArgumentNullException(
+                                  nameof(projectUnitsId), 
+                                  "Project Units ID is null for ADD Project Units Panel data.");
+            //---------------------------------------------------------
+            //--- Assign the returned ProjectUnits ID and return it ---
+            //---------------------------------------------------------
+            ProjectUnitsId = projectUnitsId;
+            projectUnitsDtoObj.Id = projectUnitsId;
+            ProjectUnitsDtoObj = projectUnitsDtoObj;
+            return projectUnitsId;
         }
         #endregion  // CREATE PROJECT UNITS DATA METHOD
 

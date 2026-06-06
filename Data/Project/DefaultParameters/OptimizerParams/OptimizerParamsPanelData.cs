@@ -86,18 +86,32 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         /// <summary>
         /// Creates a new optimizer params data using the data in the OptimizerParamsDtoObj property 
         /// and returns the ID of the newly created optimizer params data.
+        /// NOTE: Project ID is assigned in OptimizerParams DTO object before method invocation
         /// </summary>
-        /// <returns>The ID of the newly created optimizer params data.</returns>
+        /// <param name="optimizerParmasDtoObj">Optimizer DTO object</param>
+        /// <returns>The Optimizer Params ID of the newly created optimizer params data.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the optimizer params ID is null after creation.</exception>
-        public Guid CreateOptimizerParamsData()
+        public Guid CreateOptimizerParamsData(OptimizerParamsDto optimizerParmasDtoObj)
         {
-            OptimizerParamsId = OptimizerParamsViewModelObj.AddOptimizerParams(OptimizerParamsDtoObj);
+            if (optimizerParmasDtoObj == null) throw new ArgumentNullException(
+                      nameof(optimizerParmasDtoObj),
+                      "Optimizer Params DTO Object is null for Create Optimizer Params data.");
+            //-------------------------------------------------------------
+            //--- Add Optimizer Params data and get Optimizer Params ID ---
+            //--- associated with the newly created Data                ---
+            //-------------------------------------------------------------
+            Guid optimizerParamsId = OptimizerParamsViewModelObj.AddOptimizerParams(optimizerParmasDtoObj);
 
-            if (OptimizerParamsId == null) throw new ArgumentNullException(
-                             nameof(OptimizerParamsId), "Optimizer params ID is null for ADD Optimizer Params Panel data.");
-
-            OptimizerParamsDtoObj.Id = OptimizerParamsId;
-            return OptimizerParamsId;  // OptimizerParams ID
+            if (optimizerParamsId == null) throw new ArgumentNullException(
+                             nameof(optimizerParamsId), 
+                             "Optimizer params ID is null for ADD Optimizer Params Panel data.");
+            //-------------------------------------------------------------
+            //--- Assign the returned Optimizer Params ID and return it ---
+            //-------------------------------------------------------------
+            OptimizerParamsId = optimizerParamsId;
+            optimizerParmasDtoObj.Id = optimizerParamsId;
+            OptimizerParamsDtoObj = optimizerParmasDtoObj;
+            return optimizerParamsId;
         }
         #endregion  // CREATE OPTIMIZER PARAMS DATA METHOD
 

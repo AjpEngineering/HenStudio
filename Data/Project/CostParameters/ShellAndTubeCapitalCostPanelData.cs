@@ -84,19 +84,37 @@ namespace HenStudio.Data.Project.CostParameters
 
         #region CREATE SHELL AND TUBE CAPITAL COST DATA METHOD
         /// <summary>
-        /// Creates a new shell and tube capital cost data using the data in the ShellAndTubeCapitalCostDtoObj property 
+        /// Creates a new shell and tube capital cost data using 
+        /// the data in the ShellAndTubeCapitalCostDtoObj property 
         /// and returns the ID of the newly created shell and tube capital cost data.
+        /// NOTE: Project ID is assigned in ShellAndTubeCapitalCost DTO 
+        /// object before method invocation
         /// </summary>
-        /// <returns>The ID of the newly created shell and tube capital cost data.</returns>
+        /// <param name="shellAndTubeCapitalCostDtoObj">Shell and Tube Capital Cost DTO object</param>
+        /// <returns>The shell and tube capital cost ID of the newly created shell and tube capital cost data.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the shell and tube capital cost ID is null after creation.</exception>
-        public Guid CreateShellAndTubeCapitalCostData()
+        public Guid CreateShellAndTubeCapitalCostData(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDtoObj)
         {
-            ShellAndTubeCapitalCostId = ShellAndTubeCapitalCostViewModelObj.AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDtoObj);
-            if (ShellAndTubeCapitalCostId == null) throw new ArgumentNullException(
-                             nameof(ShellAndTubeCapitalCostId), 
-                             "Shell and tube capital cost ID is null for ADD Shell And Tube Capital Cost Panel data.");
-            ShellAndTubeCapitalCostDtoObj.Id = ShellAndTubeCapitalCostId;
-            return ShellAndTubeCapitalCostId;  // Shell And Tube Capital Cost ID
+            if (shellAndTubeCapitalCostDtoObj == null) throw new ArgumentNullException(
+                      nameof(shellAndTubeCapitalCostDtoObj),
+                      "Shell and Tube Capital Cost DTO Object is null for Create Shell and Tube Capital Capital Cost Panel data.");
+            //------------------------------------------------
+            //--- Add Shell and Tube Capital Cost data and ---
+            //--- get Shell and Tube Capital  Cost ID      ---
+            //--- associated with the newly created Data   ---
+            //------------------------------------------------
+            Guid shellAndTubeCapitalCostId = ShellAndTubeCapitalCostViewModelObj.AddShellAndTubeCapitalCost(shellAndTubeCapitalCostDtoObj);
+
+            if (shellAndTubeCapitalCostId == null) throw new ArgumentNullException(
+                     nameof(ShellAndTubeCapitalCostId), 
+                     "Shell and tube capital cost ID is null for ADD Shell And Tube Capital Cost Panel data.");
+            //--------------------------------------------------------------------
+            //--- Assign the returned ShellAndTubeCapitalCost ID and return it ---
+            //--------------------------------------------------------------------
+            ShellAndTubeCapitalCostId = shellAndTubeCapitalCostId;
+            ShellAndTubeCapitalCostDtoObj.Id = shellAndTubeCapitalCostId;
+            ShellAndTubeCapitalCostDtoObj = shellAndTubeCapitalCostDtoObj;
+            return shellAndTubeCapitalCostId;
         }
         #endregion  // CREATE SHELL AND TUBE CAPITAL COST DATA METHOD
 

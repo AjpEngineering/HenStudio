@@ -87,16 +87,32 @@ namespace HenStudio.Data.Project.CostParameters
         /// <summary>
         /// Creates a new cost metadata data using the data in the CostMetadataDtoObj property 
         /// and returns the ID of the newly created cost metadata data.
+        /// NOTE: Project ID is assigned in CostMetadata DTO object before method invocation
         /// </summary>
-        /// <returns>The ID of the newly created cost metadata data.</returns>
+        /// <param name="costMetadataDtoObj">Cost Metadata DTO Object</param>
+        /// <returns>The CostMetadata ID of the newly created cost metadata data.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the cost metadata ID is null after creation.</exception>
-        public Guid CreateCostMetadataData()
+        public Guid CreateCostMetadataData(CostMetadataDto costMetadataDtoObj)
         {
-            CostMetadataId = CostMetadataViewModelObj.AddCostMetadata(CostMetadataDtoObj);
-            if (CostMetadataId == null) throw new ArgumentNullException(
-                             nameof(CostMetadataId), "Cost metadata ID is null for ADD Cost Metadata Panel data.");
-            CostMetadataDtoObj.Id = CostMetadataId;
-            return CostMetadataId;  // CostMetadata ID
+            if (costMetadataDtoObj == null) throw new ArgumentNullException(
+                                  nameof(costMetadataDtoObj),
+                                  "Cost Metadata DTO Object is null for Create Cost Metadata Panel data.");
+            //-------------------------------------------------------
+            //--- Add Cost Metadata data and get Cost Metadata ID ---
+            //--- associated with the newly created Data          ---
+            //-------------------------------------------------------
+            Guid costMetadataId = CostMetadataViewModelObj.AddCostMetadata(costMetadataDtoObj);
+
+            if (costMetadataId == null) throw new ArgumentNullException(
+                                  nameof(costMetadataId), 
+                                  "Cost metadata ID is null for ADD Cost Metadata Panel data.");
+            //---------------------------------------------------------
+            //--- Assign the returned CostMetadata ID and return it ---
+            //---------------------------------------------------------
+            CostMetadataId = costMetadataId;
+            costMetadataDtoObj.Id = costMetadataId;
+            CostMetadataDtoObj = costMetadataDtoObj;
+            return costMetadataId;
         }
         #endregion  // CREATE COST METADATA DATA METHOD
 

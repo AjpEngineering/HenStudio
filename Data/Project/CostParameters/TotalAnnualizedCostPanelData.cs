@@ -84,19 +84,38 @@ namespace HenStudio.Data.Project.CostParameters
 
         #region CREATE TOTAL ANNUALIZED COST DATA METHOD
         /// <summary>
-        /// Creates a new total annualized cost data using the data in the TotalAnnualizedCostDtoObj property 
-        /// and returns the ID of the newly created total annualized cost data.
+        /// Creates a new total annualized cost data using 
+        /// the data in the TotalAnnualizedCostDtoObj property 
+        /// and returns the Total Annualize CostID of the newly created total annualized cost data.
+        /// NOTE: Project ID is assigned in TotalAnnualizedCost DTO 
+        /// object before method invocation
         /// </summary>
-        /// <returns>The ID of the newly created total annualized cost data.</returns>
-        /// <exception cref="ArgumentNullException">Thrown when the total annualized cost ID is null after creation.</exception>
-        public Guid CreateTotalAnnualizedCostData()
+        /// <param name="totalAnnualizedCostDtoObj">Total Annualize Cost DTO object</param>
+        /// <returns>The Total Annualize Cost ID of the newly created total annualized cost data.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the
+        /// total annualized cost ID is null after creation.</exception>
+        public Guid CreateTotalAnnualizedCostData(TotalAnnualizedCostDto totalAnnualizedCostDtoObj)
         {
-            TotalAnnualizedCostId = TotalAnnualizedCostViewModelObj.AddTotalAnnualizedCost(TotalAnnualizedCostDtoObj);
-            if (TotalAnnualizedCostId == null) throw new ArgumentNullException(
-                             nameof(TotalAnnualizedCostId),
-                             "Total annualized cost ID is null for ADD Total Annualized Cost Panel data.");
-            TotalAnnualizedCostDtoObj.Id = TotalAnnualizedCostId;
-            return TotalAnnualizedCostId;  // Total Annualized Cost ID
+            if (totalAnnualizedCostDtoObj == null) throw new ArgumentNullException(
+                      nameof(totalAnnualizedCostDtoObj),
+                      "Total Annualize Cost DTO Object is null for Create Total Annualize Cost Panel data.");
+            //----------------------------------------------
+            //--- Add Total Annualize Cost data and      ---
+            //--- get Total Annualize Cost ID            ---
+            //--- associated with the newly created Data ---
+            //----------------------------------------------
+            Guid totalAnnualizedCostId = TotalAnnualizedCostViewModelObj.AddTotalAnnualizedCost(totalAnnualizedCostDtoObj);
+
+            if (totalAnnualizedCostId == null) throw new ArgumentNullException(
+                      nameof(totalAnnualizedCostId),
+                      "Total annualized cost ID is null for ADD Total Annualized Cost Panel data.");
+            //-----------------------------------------------------------------
+            //--- Assign the returned Total Annualize Cost ID and return it ---
+            //-----------------------------------------------------------------
+            TotalAnnualizedCostId = totalAnnualizedCostId;
+            TotalAnnualizedCostDtoObj.Id = totalAnnualizedCostId;
+            TotalAnnualizedCostDtoObj = totalAnnualizedCostDtoObj;
+            return totalAnnualizedCostId;
         }
         #endregion  // CREATE TOTAL ANNUALIZED COST DATA METHOD
 

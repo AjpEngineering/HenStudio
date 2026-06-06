@@ -35,6 +35,7 @@
 #region REFERENCES
 using HenModel.Dto.Hen.Plots;
 using HenModel.Dto.Profile;
+using HenModel.Dto.Project;
 using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
 using HenViewModel.Profile;
@@ -70,19 +71,28 @@ namespace HenStudio.Data.Profile
 
         #endregion  // PROPERTIES
 
-        #region CTOR
+        #region INITIALIZE PANEL DATA
         /// <summary>
-        /// Initializes a new instance of the ProfilePanelData class with default values for all properties.
+        /// Initializes the properties of the ProfilePanelData object to their default values.
         /// </summary>
-        /// <remarks>All string properties are initialized to empty strings, date properties are set to
-        /// the current date and time, and the ProfileDtoObj property is initialized with a new ProfileDto instance.
-        /// This constructor ensures that the object is in a valid default state upon creation.</remarks>
-        public ProfilePanelData()
+        private void InitializePanelData()
         {
             ProjectId = new Guid(); // Project Unique Identifier
             ProfileId = new Guid(); // Profile Unique Identifier
-
             ProfileDtoObj = new ProfileDto(); // Profile DTO Object ... EXTERN Units
+            ProfileViewModelObj = new ProfileViewModel(); // ViewModel Object
+        }
+        #endregion  // INITIALIZE PANEL DATA
+
+        #region CTOR
+        /// <summary>
+        /// Default Constructor for ProfilePanelData Class. 
+        /// Initializes the properties of the ProfilePanelData object to their 
+        /// default values by calling the InitializePanelData method.
+        /// </summary>
+        public ProfilePanelData()
+        {
+            InitializePanelData();
         }
         #endregion  // CTOR
 
@@ -90,32 +100,171 @@ namespace HenStudio.Data.Profile
 
         #region CREATE PROFILE DATA METHOD
         /// <summary>
-        /// Creates a new profile using the data in the ProfileDtoObj property 
-        /// and returns the ID of the newly created profile.
+        /// Creates a new profile using the provided ProfileDto object and returns the
+        /// ID of the newly created profile.
         /// </summary>
+        /// <param name="profileDtoObj">The ProfileDto object containing the profile data.</param>
         /// <returns>The ID of the newly created profile.</returns>
-        /// <exception cref="ArgumentNullException">Thrown when the profile ID is null after creation.</exception>
-        public Guid CreateProfileData()
+        /// <exception cref="ArgumentNullException">Thrown when the profileDtoObj is null.</exception>
+        public Guid CreateProfileData(ProfileDto profileDtoObj)
         {
-            ProfileId = ProfileViewModelObj.AddProfile(ProfileDtoObj);
+            if (profileDtoObj == null) throw new ArgumentNullException(
+                            nameof(profileDtoObj),
+                            "ProfileDtoObj is null for Create Profile Panel data.");            
+            //-------------------------------------------------------------------------------------
+            //--- Add Profile data and get Profile ID associated with the newly created profile ---
+            //-------------------------------------------------------------------------------------
+            ProfileId = ProfileViewModelObj.AddProfile(profileDtoObj);
 
             if (ProfileId == null) throw new ArgumentNullException(
                              nameof(ProfileId),
-                             "Profile ID is null for ADD Profile Panel data.");
-
+                             "Profile ID is null for Create Profile Panel data.");
+            //------------------------------------------------------------------------------
+            //--- Assign the returned Profile ID to the ProfileId property and return it ---
+            //------------------------------------------------------------------------------
+            ProfileDtoObj = profileDtoObj;
             ProfileDtoObj.Id = ProfileId;
             return ProfileId;
         }
         #endregion  // CREATE PROFILE DATA METHOD
 
+        #region READ PROFILE DATA METHOD
+        /// <summary>
+        /// Reads the profile data for the specified profile ID 
+        /// and populates the ProfileDtoObj property with the retrieved data.
+        /// </summary>
+        /// <param name="profileId">The ID of the profile to read.</param>
+        /// <returns>Profile DTO object</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the profile ID is null.</exception>
+        public ProfileDto ReadProfileData(Guid profileId)
+        {
+            if (profileId == null) throw new ArgumentNullException(
+                             nameof(profileId), 
+                             "Profile ID is null for READ Profile Panel data.");
+            //------------------------------------------------------------
+            //--- Get Profile data for the specified profile ID and    ---     
+            //--- assign it to the ProfileDtoObj property              ---
+            //--- Also assign the profile ID to the ProfileId property ---
+            //------------------------------------------------------------
+            ProfileId = profileId;
+            ProfileDtoObj = ProfileViewModelObj.GetProfileById(profileId);
+
+            if (ProfileDtoObj == null) throw new ArgumentNullException(
+                                 nameof(ProfileDtoObj), 
+                                 "Profile DTO is null for READ Profile Panel data.");
+            //----------------------------------------------------------------
+            //--- Assign the returned Profile ID to the ProfileId property ---
+            //----------------------------------------------------------------
+            ProfileDtoObj.Id = ProfileId;
+            //--------------------------
+            //--- Return Profile DTO ---
+            //--------------------------
+            return ProfileDtoObj;
+        }
+
+        #endregion  // READ PROFILE DATA METHOD
+
+        #region UPDATE PROFILE DATA METHOD
+        /// <summary>
+        /// Updates the profile data using the provided ProfileDto object 
+        /// and returns the updated ProfileDto object.
+        /// </summary>
+        /// <param name="profileDtoObj">The ProfileDto object containing 
+        /// the updated profile data.</param>
+        /// <returns>The updated ProfileDto object.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the profile DTO or its ID is null.</exception>
+        public ProfileDto UpdateProfileData(ProfileDto profileDtoObj)
+        {
+            if (profileDtoObj == null) throw new ArgumentNullException(
+                                 nameof(profileDtoObj),
+                                 "Profile DTO is null for UPDATE Profile Panel data.");
+
+
+            if (profileDtoObj.Id == null) throw new ArgumentNullException(
+                                    nameof(profileDtoObj),
+                                    "Profile DTO ID is null for UPDATE Profile Panel data.");
+
+            //-----------------------------------------------------------
+            //--- Update the ProfileId property with the ID from the  ---
+            //--- provided Profile DTO object                         ---
+            //-----------------------------------------------------------
+            ProfileId = profileDtoObj.Id;
+            ProfileDtoObj = profileDtoObj;
+            //-----------------------------------------------------------
+            //--- Update the profile data in the database using the   ---
+            //--- ProfileViewModelObj's UpdateProfile method          ---
+            //-----------------------------------------------------------
+            ProfileViewModelObj.UpdateProfile(profileDtoObj);
+            //---------------------------------------------
+            //--- Return the updated Profile DTO object ---
+            //---------------------------------------------
+            return ProfileDtoObj;
+        }
+        #endregion  // UPDATE PROFILE DATA METHOD
+
+        #region DELETE PROFILE DATA METHOD
+        /// <summary>
+        /// Deletes the profile data for the specified profile ID.
+        /// The DeleteProfile method is expected to handle the 
+        /// deletion of the profile data from the database 
+        /// [CASCADE DELETE].
+        /// </summary>
+        /// <param name="profileId">The ID of the profile to delete.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the profile ID is null.</exception>
+        public void DeleteProfileData(Guid profileId)
+        {
+            if (profileId == null) throw new ArgumentNullException(
+                             nameof(profileId), 
+                             "Profile ID is null for DELETE Profile Panel data.");
+            //------------------------------------------------------
+            //--- Delete the profile data in the database using  ---
+            //--- the ProfileViewModelObj's DeleteProfile method ---
+            //--- Also assign the profile ID to the ProfileId    ---
+            //--- property for reference                         ---
+            //------------------------------------------------------
+            ProfileId = profileId;
+            ProfileViewModelObj.DeleteProfile(profileId);
+        }
+        #endregion  // DELETE PROFILE DATA METHOD
 
         #endregion  // CRUD METHODS
 
         #region RENAME PROFILE METHOD
+        public ProfileDto RenameProfile(Guid profileId,
+                                        string newName,
+                                        string newDescription)
+        {
+            if (profileId == null) throw new ArgumentNullException(
+                 nameof(profileId), "Profile ID is null for READ Profile Panel data.");
 
+            if (string.IsNullOrEmpty(newName)) throw new ArgumentException(
+                 nameof(newName), "New profile name is null or empty for RENAME Profile Panel data.");
+            //--------------------------------
+            //--- Get Existing Profile DTO ---
+            //--------------------------------
+            ProfileDto existingProfileDto = ProfileViewModelObj.GetProfileById(profileId);
 
+            if (existingProfileDto == null) throw new ArgumentNullException(
+                             nameof(existingProfileDto),
+                             "Profile DTO is null for RENAME [UPDATE] Profile Panel data.");
+            //---------------------------------------
+            //--- Update Profile Panel Profile ID ---
+            //---------------------------------------
+            ProfileId = profileId;
+            //---------------------------------------------------------
+            //--- Update Profile DTO with new name, and description ---
+            //---------------------------------------------------------
+            ProfileDtoObj = existingProfileDto;
+            ProfileDtoObj.Id = profileId;
+            ProfileDtoObj.Name = newName;
+            ProfileDtoObj.Description = newDescription;
+            //--------------------------------------------------------
+            //--- Update DB with new profile name, and description ---
+            //--------------------------------------------------------
+            ProfileViewModelObj.UpdateProfile(ProfileDtoObj);
+            return ProfileDtoObj;
+        }
         #endregion  // RENAME PROFILE METHOD
-
     }
     #endregion      // public class ProfilePanelData
 }
