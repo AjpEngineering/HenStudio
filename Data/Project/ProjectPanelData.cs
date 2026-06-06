@@ -211,6 +211,16 @@ namespace HenStudio.Data.Project
         #endregion  // CRUD Methods
 
         #region RENAME PROJECT METHOD
+        /// <summary>
+        /// Rename Project Name, Description and Modified Date 
+        /// data values in the Project table in the DB
+        /// </summary>
+        /// <param name="projectId">Project ID of project to update</param>
+        /// <param name="newName">New Project Name</param>
+        /// <param name="newDescription">New Project Description</param>
+        /// <returns>Project DTO object containing new Name, Description and Modified date</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public ProjectDto RenameProject(Guid projectId, 
                                         string newName,
                                         string newDescription)

@@ -230,6 +230,16 @@ namespace HenStudio.Data.Profile
         #endregion  // CRUD METHODS
 
         #region RENAME PROFILE METHOD
+        /// <summary>
+        /// Rename Profile Name and Description 
+        /// data values in the Profile table in the DB
+        /// </summary>
+        /// <param name="profileId">Profile ID of profile to update</param>
+        /// <param name="newName">New Profile Name</param>
+        /// <param name="newDescription">New Profile Description</param>
+        /// <returns>Profile DTO object containing new Name and Description</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public ProfileDto RenameProfile(Guid profileId,
                                         string newName,
                                         string newDescription)
