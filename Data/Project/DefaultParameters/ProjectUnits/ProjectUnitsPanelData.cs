@@ -122,16 +122,23 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         /// and populates the ProjectUnitsDtoObj property with the retrieved data.
         /// </summary>
         /// <param name="projectId">The ID of the project to read.</param>
+        /// <returns>Project Units DTO object</returns>
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
-        public void ReadProjectUnitsData(Guid projectId)
+        public ProjectUnitsDto ReadProjectUnitsData(Guid projectId)
         {
             if (projectId == null) throw new ArgumentNullException(
-                             nameof(projectId), "Project ID is null for READ Project Units Panel data.");
+                             nameof(projectId), 
+                             "Project ID is null for READ Project Units Panel data.");
+            //------------------------------
+            //--- Read ProjectUnits Data ---
+            //------------------------------
+            ProjectUnitsDto projectUnitsDtoObj = 
+                    ProjectUnitsViewModelObj.GetProjectUnitsByProjectId(projectId);
 
             ProjectId = projectId;
-            ProjectUnitsDtoObj = ProjectUnitsViewModelObj.GetProjectUnitsByProjectId(projectId);
+            ProjectUnitsDtoObj = projectUnitsDtoObj;
+            return projectUnitsDtoObj;
         }
-
         #endregion  // READ PROJECT UNITS DATA METHOD
 
         #region UPDATE PROJECT UNITS DATA METHOD

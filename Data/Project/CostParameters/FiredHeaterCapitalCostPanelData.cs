@@ -121,13 +121,25 @@ namespace HenStudio.Data.Project.CostParameters
         /// and populates the FiredHeaterCapitalCostDtoObj property with the retrieved data.
         /// </summary>
         /// <param name="projectId">The ID of the project to read.</param>
+        /// <returns>Fired Heater Capital Cost DTO object</returns>
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
-        public void ReadFiredHeaterCapitalCostData(Guid projectId)
+        public FiredHeaterCapitalCostDto ReadFiredHeaterCapitalCostData(Guid projectId)
         {
             if (projectId == null) throw new ArgumentNullException(
-                             nameof(projectId), "Project ID is null for READ Fired Heater Capital Cost Panel data.");
+                             nameof(projectId), 
+                             "Project ID is null for READ Fired Heater Capital Cost Panel data.");
+
             ProjectId = projectId;
-            FiredHeaterCapitalCostDtoObj = FiredHeaterCapitalCostViewModelObj.GetFiredHeaterCapitalCostByProjectId(projectId);
+
+            FiredHeaterCapitalCostDto firedHeaterCapitalCostDtoObj = 
+                    FiredHeaterCapitalCostViewModelObj.GetFiredHeaterCapitalCostByProjectId(projectId);
+
+            if (firedHeaterCapitalCostDtoObj == null) throw new ArgumentNullException(
+                    nameof(firedHeaterCapitalCostDtoObj),
+                    "Fired Heater Capital Cost is null for READ Fired Heater Capital Cost Panel data.");
+
+            FiredHeaterCapitalCostDtoObj = firedHeaterCapitalCostDtoObj;
+            return firedHeaterCapitalCostDtoObj;
         }
         #endregion  // READ FIRED HEATER CAPITAL COST DATA METHOD
 

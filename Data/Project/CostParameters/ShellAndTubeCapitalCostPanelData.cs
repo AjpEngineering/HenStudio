@@ -124,13 +124,21 @@ namespace HenStudio.Data.Project.CostParameters
         /// and populates the ShellAndTubeCapitalCostDtoObj property with the retrieved data.
         /// </summary>
         /// <param name="projectId">The ID of the project to read.</param>
+        /// <returns>Shell And Tube Capital Cost DTO object</returns>
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
-        public void ReadShellAndTubeCapitalCostData(Guid projectId)
+        public ShellAndTubeCapitalCostDto ReadShellAndTubeCapitalCostData(Guid projectId)
         {
             if (projectId == null) throw new ArgumentNullException(
-                             nameof(projectId), "Project ID is null for READ Shell And Tube Capital Cost Panel data.");
+                    nameof(projectId), 
+                    "Project ID is null for READ Shell And Tube Capital Cost Panel data.");
+
             ProjectId = projectId;
-            ShellAndTubeCapitalCostDtoObj = ShellAndTubeCapitalCostViewModelObj.GetShellAndTubeCapitalCostByProjectId(projectId);
+
+            ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDtoObj = 
+                    ShellAndTubeCapitalCostViewModelObj.GetShellAndTubeCapitalCostByProjectId(projectId);
+
+            ShellAndTubeCapitalCostDtoObj = shellAndTubeCapitalCostDtoObj;
+            return shellAndTubeCapitalCostDtoObj;
         }
         #endregion  // READ SHELL AND TUBE CAPITAL COST DATA METHOD
 
