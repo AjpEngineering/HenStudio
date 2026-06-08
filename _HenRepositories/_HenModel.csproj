@@ -151,6 +151,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />
+    <Content Include="Tables_SQLite\CompositeCurve.sqlite.sql" />
+    <Content Include="Tables_SQLite\CompositeCurvePointID.sqlite.sql" />
+    <Content Include="Tables_SQLite\CostMetaData.sqlite.sql" />
+    <Content Include="Tables_SQLite\Exchanger.sqlite.sql" />
+    <Content Include="Tables_SQLite\ExchangerParams.sqlite.sql" />
+    <Content Include="Tables_SQLite\FiredHeaterCapitalCost.sqlite.sql" />
+    <Content Include="Tables_SQLite\GlobalSettings.sqlite.sql" />
+    <Content Include="Tables_SQLite\GrandCompositeCurve.sqlite.sql" />
+    <Content Include="Tables_SQLite\GrandCompositeCurvePointID.sqlite.sql" />
+    <Content Include="Tables_SQLite\GridDiagram.sqlite.sql" />
+    <Content Include="Tables_SQLite\GridDiagramPointID.sqlite.sql" />
+    <Content Include="Tables_SQLite\HeatReleaseCurve.sqlite.sql" />
+    <Content Include="Tables_SQLite\HeatReleaseCurvePointID.sqlite.sql" />
+    <Content Include="Tables_SQLite\Hen.sqlite.sql" />
+    <Content Include="Tables_SQLite\OptimizerGeneticParams.sqlite.sql" />
+    <Content Include="Tables_SQLite\OptimizerGreedyParams.sqlite.sql" />
+    <Content Include="Tables_SQLite\OptimizerMILP_Params.sqlite.sql" />
+    <Content Include="Tables_SQLite\OptimizerParams.sqlite.sql" />
+    <Content Include="Tables_SQLite\Pinch.sqlite.sql" />
+    <Content Include="Tables_SQLite\ProcessStreams.sqlite.sql" />
+    <Content Include="Tables_SQLite\Profile.sqlite.sql" />
+    <Content Include="Tables_SQLite\Project.sqlite.sql" />
+    <Content Include="Tables_SQLite\ProjectUnits.sqlite.sql" />
+    <Content Include="Tables_SQLite\ShellAndTubeCapitalCost.sqlite.sql" />
+    <Content Include="Tables_SQLite\Targets.sqlite.sql" />
+    <Content Include="Tables_SQLite\THDiagram.sqlite.sql" />
+    <Content Include="Tables_SQLite\THDiagramPoint.sqlite.sql" />
+    <Content Include="Tables_SQLite\TotalAnnualizedCost.sqlite.sql" />
+    <Content Include="Tables_SQLite\UtilityCost.sqlite.sql" />
+    <Content Include="Tables_SQLite\UtilityStreams.sqlite.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
