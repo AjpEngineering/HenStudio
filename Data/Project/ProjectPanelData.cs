@@ -101,9 +101,9 @@ namespace HenStudio.Data.Project
             //-------------------------------------------------------------------------------------
             ProjectId = ProjectViewModelObj.AddProject(projectDtoObj);
 
-            if (ProjectId == null) throw new ArgumentNullException(
+            if (ProjectId == Guid.Empty) throw new ArgumentException(
                              nameof(ProjectId), 
-                             "Project ID is null for Create Project Panel data.");
+                             "Project ID is Empty for Create Project Panel data.");
             //------------------------------------------------------------------------------
             //--- Assign the returned Project ID to the ProjectId property and return it ---
             //------------------------------------------------------------------------------
@@ -123,9 +123,9 @@ namespace HenStudio.Data.Project
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
         public ProjectDto ReadProjectData(Guid projectId)
         {
-            if (projectId == null) throw new ArgumentNullException(
+            if (projectId == Guid.Empty) throw new ArgumentException(
                              nameof(projectId), 
-                             "Project ID is null for READ Project Panel data.");
+                             "Project ID is Empty for READ Project Panel data.");
             //------------------------------------------------------------
             //--- Get Project data for the specified project ID and    ---     
             //--- assign it to the ProjectDtoObj property              ---
@@ -163,9 +163,9 @@ namespace HenStudio.Data.Project
                             nameof(projectDtoObj), 
                             "Project DTO is null for UPDATE Project Panel data.");
 
-            if (projectDtoObj.Id == null) throw new ArgumentNullException(
+            if (projectDtoObj.Id == Guid.Empty) throw new ArgumentException(
                             nameof(projectDtoObj), 
-                            "Project DTO ID is null for UPDATE Project Panel data.");
+                            "Project DTO ID is Empty for UPDATE Project Panel data.");
             //-----------------------------------------------------------
             //--- Update the ProjectId property with the ID from the  ---
             //--- provided Project DTO object                         ---
@@ -194,9 +194,9 @@ namespace HenStudio.Data.Project
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
         public void DeleteProjectData(Guid projectId)
         {
-            if (projectId == null) throw new ArgumentNullException(
+            if (projectId == Guid.Empty) throw new ArgumentException(
                              nameof(projectId), 
-                             "Project ID is null for DELETE Project Panel data.");
+                             "Project ID is Empty for DELETE Project Panel data.");
             //------------------------------------------------------
             //--- Delete the project data in the database using  ---
             //--- the ProjectViewModelObj's DeleteProject method ---
@@ -225,9 +225,9 @@ namespace HenStudio.Data.Project
                                         string newName,
                                         string newDescription)
         {
-            if (projectId == null) throw new ArgumentNullException(
+            if (projectId == Guid.Empty) throw new ArgumentException(
                              nameof(projectId), 
-                             "Project ID is null for READ Project Panel data.");
+                             "Project ID is Empty for READ Project Panel data.");
 
             if (string.IsNullOrEmpty(newName)) throw new ArgumentException(
                              nameof(newName), 

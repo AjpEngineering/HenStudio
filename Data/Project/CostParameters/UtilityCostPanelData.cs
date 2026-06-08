@@ -101,9 +101,9 @@ namespace HenStudio.Data.Project.CostParameters
             //-----------------------------------------------------
             Guid utilityCostId = UtilityCostViewModelObj.AddUtilityCost(utilityCostDtoObj);
 
-            if (utilityCostId == null) throw new ArgumentNullException(
+            if (utilityCostId == Guid.Empty) throw new ArgumentException(
                                  nameof(utilityCostId),
-                                 "Utility cost ID is null for ADD Utility Cost Panel data.");
+                                 "Utility cost ID is Empty for ADD Utility Cost Panel data.");
             //-----------------------------------------------------------------
             //--- Assign the returned Total Annualize Cost ID and return it ---
             //-----------------------------------------------------------------
@@ -124,14 +124,18 @@ namespace HenStudio.Data.Project.CostParameters
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
         public UtilityCostDto ReadUtilityCostData(Guid projectId)
         {
-            if (projectId == null) throw new ArgumentNullException(
+            if (projectId == Guid.Empty) throw new ArgumentException(
                              nameof(projectId), 
-                             "Project ID is null for READ Utility Cost Panel data.");
+                             "Project ID is Empty for READ Utility Cost Panel data.");
 
             ProjectId = projectId;
 
             UtilityCostDto utilityCostDtoObj =
                     UtilityCostDtoObj = UtilityCostViewModelObj.GetUtilityCostByProjectId(projectId);
+
+            if (utilityCostDtoObj == null) throw new ArgumentNullException(
+                             nameof(utilityCostDtoObj),
+                             "Utility Cost DTO is null for READ Utility Cost Panel data.");
 
             UtilityCostDtoObj = utilityCostDtoObj;
             return utilityCostDtoObj;            
@@ -153,13 +157,13 @@ namespace HenStudio.Data.Project.CostParameters
                              nameof(utilityCostDtoObj),
                              "Utility Cost DTO is null for UPDATE Utility Cost Panel data.");
 
-            if (utilityCostDtoObj.Id == null) throw new ArgumentNullException(
+            if (utilityCostDtoObj.Id == Guid.Empty) throw new ArgumentException(
                              nameof(utilityCostDtoObj),
-                             "Utility Cost DTO ID is null for UPDATE Utility Cost Panel data.");
+                             "Utility Cost DTO ID is Empty for UPDATE Utility Cost Panel data.");
 
-            if (utilityCostDtoObj.ProjectId == null) throw new ArgumentNullException(
+            if (utilityCostDtoObj.ProjectId == Guid.Empty) throw new ArgumentException(
                              nameof(utilityCostDtoObj),
-                             "Utility Cost DTO Project ID is null for UPDATE Utility Cost Panel data.");
+                             "Utility Cost DTO Project ID is EMpty for UPDATE Utility Cost Panel data.");
 
             UtilityCostId = utilityCostDtoObj.Id;
             ProjectId = utilityCostDtoObj.ProjectId;

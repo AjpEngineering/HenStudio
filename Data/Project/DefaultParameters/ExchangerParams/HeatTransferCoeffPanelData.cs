@@ -178,7 +178,6 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
             else row.Range = "10 - 100";
             row.Note = "Air, flue gas";
             HeatTransferCoeffDtoList.Add(row);
-
         }
         #endregion      // LoadTable()
     }

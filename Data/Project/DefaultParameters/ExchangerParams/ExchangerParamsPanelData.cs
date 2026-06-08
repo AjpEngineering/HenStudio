@@ -99,9 +99,9 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
             //-------------------------------------------------------------
             Guid exchangerParamsId = ExchangerParamsViewModelObj.AddExchangerParams(exchangerParmasDtoObj);
 
-            if (exchangerParamsId == null) throw new ArgumentNullException(
+            if (exchangerParamsId == Guid.Empty) throw new ArgumentException(
                              nameof(exchangerParamsId), 
-                             "Exchanger params ID is null for ADD Exchanger Params Panel data.");
+                             "Exchanger params ID is Empty for ADD Exchanger Params Panel data.");
             //-------------------------------------------------------------
             //--- Assign the returned Exchanger Params ID and return it ---
             //-------------------------------------------------------------
@@ -122,9 +122,9 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
         public ExchangerParamsDto ReadExchangerParamsData(Guid projectId)
         {
-            if (projectId == null) throw new ArgumentNullException(
+            if (projectId == Guid.Empty) throw new ArgumentException(
                              nameof(projectId), 
-                             "Project ID is null for READ Exchanger Params Panel data.");
+                             "Project ID is Empty for READ Exchanger Params Panel data.");
 
             ProjectId = projectId;
 
@@ -152,13 +152,16 @@ namespace HenStudio.Data.Project.DefaultParameters.ExchangerParams
         public ExchangerParamsDto UpdateExchangerParamsData(ExchangerParamsDto exchangerParamsDtoObj)
         {
             if (exchangerParamsDtoObj == null) throw new ArgumentNullException(
-                             nameof(exchangerParamsDtoObj), "Exchanger Params DTO is null for UPDATE Exchanger Params Panel data.");
+                             nameof(exchangerParamsDtoObj), 
+                             "Exchanger Params DTO is null for UPDATE Exchanger Params Panel data.");
 
-            if (exchangerParamsDtoObj.Id == null) throw new ArgumentNullException(
-                             nameof(exchangerParamsDtoObj), "Exchanger Params DTO ID is null for UPDATE Exchanger Params Panel data.");
+            if (exchangerParamsDtoObj.Id == Guid.Empty) throw new ArgumentException(
+                             nameof(exchangerParamsDtoObj), 
+                             "Exchanger Params DTO ID is Empty for UPDATE Exchanger Params Panel data.");
 
-            if (exchangerParamsDtoObj.ProjectId == null) throw new ArgumentNullException(
-                             nameof(exchangerParamsDtoObj), "Exchanger Params DTO Project ID is null for UPDATE Exchanger Params Panel data.");
+            if (exchangerParamsDtoObj.ProjectId == Guid.Empty) throw new ArgumentException(
+                             nameof(exchangerParamsDtoObj), 
+                             "Exchanger Params DTO Project ID is Empty for UPDATE Exchanger Params Panel data.");
 
             ExchangerParamsId = exchangerParamsDtoObj.Id;
             ProjectId = exchangerParamsDtoObj.ProjectId;

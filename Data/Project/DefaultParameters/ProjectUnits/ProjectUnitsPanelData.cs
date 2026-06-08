@@ -103,9 +103,9 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
             //-------------------------------------------------------
             Guid projectUnitsId = ProjectUnitsViewModelObj.AddProjectUnits(projectUnitsDtoObj);
 
-            if (projectUnitsId == null) throw new ArgumentNullException(
+            if (projectUnitsId == Guid.Empty) throw new ArgumentException(
                                   nameof(projectUnitsId), 
-                                  "Project Units ID is null for ADD Project Units Panel data.");
+                                  "Project Units ID is Empty for ADD Project Units Panel data.");
             //---------------------------------------------------------
             //--- Assign the returned ProjectUnits ID and return it ---
             //---------------------------------------------------------
@@ -126,9 +126,9 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
         public ProjectUnitsDto ReadProjectUnitsData(Guid projectId)
         {
-            if (projectId == null) throw new ArgumentNullException(
+            if (projectId == Guid.Empty) throw new ArgumentException(
                              nameof(projectId), 
-                             "Project ID is null for READ Project Units Panel data.");
+                             "Project ID is Empty for READ Project Units Panel data.");
             //------------------------------
             //--- Read ProjectUnits Data ---
             //------------------------------
@@ -153,13 +153,16 @@ namespace HenStudio.Data.Project.DefaultParameters.ProjectUnits
         public ProjectUnitsDto UpdateProjectUnitsData(ProjectUnitsDto projectUnitsDtoObj)
         {
             if (projectUnitsDtoObj == null) throw new ArgumentNullException(
-                             nameof(projectUnitsDtoObj), "Project Units DTO is null for UPDATE Project Units Panel data.");
+                             nameof(projectUnitsDtoObj), 
+                             "Project Units DTO is null for UPDATE Project Units Panel data.");
 
-            if (projectUnitsDtoObj.Id == null) throw new ArgumentNullException(
-                             nameof(projectUnitsDtoObj), "Project Units DTO ID is null for UPDATE Project Units Panel data.");
+            if (projectUnitsDtoObj.Id == Guid.Empty) throw new ArgumentException(
+                             nameof(projectUnitsDtoObj), 
+                             "Project Units DTO ID is Empty for UPDATE Project Units Panel data.");
 
             if (projectUnitsDtoObj.ProjectId == null) throw new ArgumentNullException(
-                             nameof(projectUnitsDtoObj), "Project Units DTO Project ID is null for UPDATE Project Units Panel data.");
+                             nameof(projectUnitsDtoObj), 
+                             "Project Units DTO Project ID is null for UPDATE Project Units Panel data.");
 
             ProjectUnitsId = projectUnitsDtoObj.Id;
             ProjectId = projectUnitsDtoObj.ProjectId;

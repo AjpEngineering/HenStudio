@@ -106,9 +106,9 @@ namespace HenStudio.Data.Project.CostParameters
             //----------------------------------------------
             Guid totalAnnualizedCostId = TotalAnnualizedCostViewModelObj.AddTotalAnnualizedCost(totalAnnualizedCostDtoObj);
 
-            if (totalAnnualizedCostId == null) throw new ArgumentNullException(
+            if (totalAnnualizedCostId == Guid.Empty) throw new ArgumentException(
                       nameof(totalAnnualizedCostId),
-                      "Total annualized cost ID is null for ADD Total Annualized Cost Panel data.");
+                      "Total annualized cost ID is Empty for ADD Total Annualized Cost Panel data.");
             //-----------------------------------------------------------------
             //--- Assign the returned Total Annualize Cost ID and return it ---
             //-----------------------------------------------------------------
@@ -129,9 +129,9 @@ namespace HenStudio.Data.Project.CostParameters
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
         public TotalAnnualizedCostDto ReadTotalAnnualizedCostData(Guid projectId)
         {
-            if (projectId == null) throw new ArgumentNullException(
+            if (projectId == Guid.Empty) throw new ArgumentException(
                              nameof(projectId), 
-                             "Project ID is null for READ Total Annualized Cost Panel data.");
+                             "Project ID is Empty for READ Total Annualized Cost Panel data.");
 
             ProjectId = projectId;
 
@@ -162,13 +162,13 @@ namespace HenStudio.Data.Project.CostParameters
                              nameof(totalAnnualizedCostDtoObj),
                              "Total Annualized Cost DTO is null for UPDATE Total Annualized Cost Panel data.");
 
-            if (totalAnnualizedCostDtoObj.Id == null) throw new ArgumentNullException(
+            if (totalAnnualizedCostDtoObj.Id == Guid.Empty) throw new ArgumentException(
                              nameof(totalAnnualizedCostDtoObj),
-                             "Total Annualized Cost DTO ID is null for UPDATE Total Annualized Cost Panel data.");
+                             "Total Annualized Cost DTO ID is Empty for UPDATE Total Annualized Cost Panel data.");
 
-            if (totalAnnualizedCostDtoObj.ProjectId == null) throw new ArgumentNullException(
+            if (totalAnnualizedCostDtoObj.ProjectId == Guid.Empty) throw new ArgumentException(
                              nameof(totalAnnualizedCostDtoObj),
-                             "Total Annualized Cost DTO Project ID is null for UPDATE Total Annualized Cost Panel data.");
+                             "Total Annualized Cost DTO Project ID is EMpty for UPDATE Total Annualized Cost Panel data.");
 
             TotalAnnualizedCostId = totalAnnualizedCostDtoObj.Id;
             ProjectId = totalAnnualizedCostDtoObj.ProjectId;

@@ -105,9 +105,9 @@ namespace HenStudio.Data.Project.CostParameters
             //------------------------------------------------
             Guid shellAndTubeCapitalCostId = ShellAndTubeCapitalCostViewModelObj.AddShellAndTubeCapitalCost(shellAndTubeCapitalCostDtoObj);
 
-            if (shellAndTubeCapitalCostId == null) throw new ArgumentNullException(
+            if (shellAndTubeCapitalCostId == Guid.Empty) throw new ArgumentException(
                      nameof(ShellAndTubeCapitalCostId), 
-                     "Shell and tube capital cost ID is null for ADD Shell And Tube Capital Cost Panel data.");
+                     "Shell and tube capital cost ID is Empty for ADD Shell And Tube Capital Cost Panel data.");
             //--------------------------------------------------------------------
             //--- Assign the returned ShellAndTubeCapitalCost ID and return it ---
             //--------------------------------------------------------------------
@@ -128,14 +128,18 @@ namespace HenStudio.Data.Project.CostParameters
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
         public ShellAndTubeCapitalCostDto ReadShellAndTubeCapitalCostData(Guid projectId)
         {
-            if (projectId == null) throw new ArgumentNullException(
+            if (projectId == Guid.Empty) throw new ArgumentException(
                     nameof(projectId), 
-                    "Project ID is null for READ Shell And Tube Capital Cost Panel data.");
+                    "Project ID is Empty for READ Shell And Tube Capital Cost Panel data.");
 
             ProjectId = projectId;
 
             ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDtoObj = 
                     ShellAndTubeCapitalCostViewModelObj.GetShellAndTubeCapitalCostByProjectId(projectId);
+
+            if (shellAndTubeCapitalCostDtoObj == null) throw new ArgumentNullException(
+                nameof(shellAndTubeCapitalCostDtoObj),
+                "Shell And Tube Capital Cost is null for READ Shell And Tube Capital Cost Panel data.");
 
             ShellAndTubeCapitalCostDtoObj = shellAndTubeCapitalCostDtoObj;
             return shellAndTubeCapitalCostDtoObj;
@@ -154,16 +158,16 @@ namespace HenStudio.Data.Project.CostParameters
         public ShellAndTubeCapitalCostDto UpdateShellAndTubeCapitalCostData(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDtoObj)
         {
             if (shellAndTubeCapitalCostDtoObj == null) throw new ArgumentNullException(
-                             nameof(shellAndTubeCapitalCostDtoObj),
-                             "Shell And Tube Capital Cost DTO is null for UPDATE Shell And Tube Capital Cost Panel data.");
+                nameof(shellAndTubeCapitalCostDtoObj),
+                 "Shell And Tube Capital Cost DTO is null for UPDATE Shell And Tube Capital Cost Panel data.");
 
-            if (shellAndTubeCapitalCostDtoObj.Id == null) throw new ArgumentNullException(
-                             nameof(shellAndTubeCapitalCostDtoObj),
-                             "Shell And Tube Capital Cost DTO ID is null for UPDATE Shell And Tube Capital Cost Panel data.");
+            if (shellAndTubeCapitalCostDtoObj.Id == Guid.Empty) throw new ArgumentException(
+                nameof(shellAndTubeCapitalCostDtoObj),
+                "Shell And Tube Capital Cost DTO ID is Empty for UPDATE Shell And Tube Capital Cost Panel data.");
 
-            if (shellAndTubeCapitalCostDtoObj.ProjectId == null) throw new ArgumentNullException(
-                             nameof(shellAndTubeCapitalCostDtoObj),
-                             "Shell And Tube Capital Cost DTO Project ID is null for UPDATE Shell And Tube Capital Cost Panel data.");
+            if (shellAndTubeCapitalCostDtoObj.ProjectId == Guid.Empty) throw new ArgumentException(
+                nameof(shellAndTubeCapitalCostDtoObj),
+                "Shell And Tube Capital Cost DTO Project ID is Empty for UPDATE Shell And Tube Capital Cost Panel data.");
 
             ShellAndTubeCapitalCostId = shellAndTubeCapitalCostDtoObj.Id;
             ProjectId = shellAndTubeCapitalCostDtoObj.ProjectId;

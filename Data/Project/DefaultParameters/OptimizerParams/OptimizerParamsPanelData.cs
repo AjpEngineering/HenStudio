@@ -102,9 +102,9 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
             //-------------------------------------------------------------
             Guid optimizerParamsId = OptimizerParamsViewModelObj.AddOptimizerParams(optimizerParmasDtoObj);
 
-            if (optimizerParamsId == null) throw new ArgumentNullException(
+            if (optimizerParamsId == Guid.Empty) throw new ArgumentException(
                              nameof(optimizerParamsId), 
-                             "Optimizer params ID is null for ADD Optimizer Params Panel data.");
+                             "Optimizer params ID is Empty for ADD Optimizer Params Panel data.");
             //-------------------------------------------------------------
             //--- Assign the returned Optimizer Params ID and return it ---
             //-------------------------------------------------------------
@@ -125,9 +125,9 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
         public OptimizerParamsDto ReadOptimizerParamsData(Guid projectId)
         {
-            if (projectId == null) throw new ArgumentNullException(
+            if (projectId == Guid.Empty) throw new ArgumentException(
                              nameof(projectId), 
-                             "Project ID is null for READ Optimizer Params Panel data.");
+                             "Project ID is Empty for READ Optimizer Params Panel data.");
 
             ProjectId = projectId;
 
@@ -155,13 +155,16 @@ namespace HenStudio.Data.Project.DefaultParameters.OptimizerParams
         public OptimizerParamsDto UpdateOptimizerParamsData(OptimizerParamsDto optimizerParamsDtoObj)
         {
             if (optimizerParamsDtoObj == null) throw new ArgumentNullException(
-                             nameof(optimizerParamsDtoObj), "Optimizer Params DTO is null for UPDATE Optimizer Params Panel data.");
+                             nameof(optimizerParamsDtoObj), 
+                             "Optimizer Params DTO is null for UPDATE Optimizer Params Panel data.");
 
-            if (optimizerParamsDtoObj.Id == null) throw new ArgumentNullException(
-                             nameof(optimizerParamsDtoObj), "Optimizer Params DTO ID is null for UPDATE Optimizer Params Panel data.");
+            if (optimizerParamsDtoObj.Id == Guid.Empty) throw new ArgumentException(
+                             nameof(optimizerParamsDtoObj), 
+                             "Optimizer Params DTO ID is Empty for UPDATE Optimizer Params Panel data.");
 
-            if (optimizerParamsDtoObj.ProjectId == null) throw new ArgumentNullException(
-                             nameof(optimizerParamsDtoObj), "Optimizer Params DTO Project ID is null for UPDATE Optimizer Params Panel data.");
+            if (optimizerParamsDtoObj.ProjectId == Guid.Empty) throw new ArgumentException(
+                             nameof(optimizerParamsDtoObj), 
+                             "Optimizer Params DTO Project ID is Empty for UPDATE Optimizer Params Panel data.");
 
             OptimizerParamsId = optimizerParamsDtoObj.Id;
             ProjectId = optimizerParamsDtoObj.ProjectId;

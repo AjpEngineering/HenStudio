@@ -102,9 +102,9 @@ namespace HenStudio.Data.Project.CostParameters
             //-------------------------------------------------------------------------------
             Guid firedHeaterCapitalCostId = FiredHeaterCapitalCostViewModelObj.AddFiredHeaterCapitalCost(firedHeaterCapitalCostDtoObj);
 
-            if (firedHeaterCapitalCostId == null) throw new ArgumentNullException(
+            if (firedHeaterCapitalCostId == Guid.Empty) throw new ArgumentException(
                       nameof(firedHeaterCapitalCostId), 
-                      "Fired heater capital cost ID is null for ADD Fired Heater Capital Cost Panel data.");
+                      "Fired heater capital cost ID is Empty for ADD Fired Heater Capital Cost Panel data.");
             //---------------------------------------------------------
             //--- Assign the returned CostMetadata ID and return it ---
             //---------------------------------------------------------
@@ -125,9 +125,9 @@ namespace HenStudio.Data.Project.CostParameters
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
         public FiredHeaterCapitalCostDto ReadFiredHeaterCapitalCostData(Guid projectId)
         {
-            if (projectId == null) throw new ArgumentNullException(
+            if (projectId == Guid.Empty) throw new ArgumentException(
                              nameof(projectId), 
-                             "Project ID is null for READ Fired Heater Capital Cost Panel data.");
+                             "Project ID is Empty for READ Fired Heater Capital Cost Panel data.");
 
             ProjectId = projectId;
 
@@ -155,16 +155,16 @@ namespace HenStudio.Data.Project.CostParameters
         public FiredHeaterCapitalCostDto UpdateFiredHeaterCapitalCostData(FiredHeaterCapitalCostDto firedHeaterCapitalCostDtoObj)
         {
             if (firedHeaterCapitalCostDtoObj == null) throw new ArgumentNullException(
-                             nameof(firedHeaterCapitalCostDtoObj), 
-                             "Fired Heater Capital Cost DTO is null for UPDATE Fired Heater Capital Cost Panel data.");
+                nameof(firedHeaterCapitalCostDtoObj), 
+                "Fired Heater Capital Cost DTO is null for UPDATE Fired Heater Capital Cost Panel data.");
 
-            if (firedHeaterCapitalCostDtoObj.Id == null) throw new ArgumentNullException(
-                             nameof(firedHeaterCapitalCostDtoObj), 
-                             "Fired Heater Capital Cost DTO ID is null for UPDATE Fired Heater Capital Cost Panel data.");
+            if (firedHeaterCapitalCostDtoObj.Id == Guid.Empty) throw new ArgumentException(
+                nameof(firedHeaterCapitalCostDtoObj), 
+                "Fired Heater Capital Cost DTO ID is Empty for UPDATE Fired Heater Capital Cost Panel data.");
 
-            if (firedHeaterCapitalCostDtoObj.ProjectId == null) throw new ArgumentNullException(
-                             nameof(firedHeaterCapitalCostDtoObj), 
-                             "Fired Heater Capital Cost DTO Project ID is null for UPDATE Fired Heater Capital Cost Panel data.");
+            if (firedHeaterCapitalCostDtoObj.ProjectId == Guid.Empty) throw new ArgumentException(
+                nameof(firedHeaterCapitalCostDtoObj), 
+                "Fired Heater Capital Cost DTO Project ID is Empty for UPDATE Fired Heater Capital Cost Panel data.");
 
             FiredHeaterCapitalCostId = firedHeaterCapitalCostDtoObj.Id;
             ProjectId = firedHeaterCapitalCostDtoObj.ProjectId;

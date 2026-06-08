@@ -95,17 +95,17 @@ namespace HenStudio.Data.Project.CostParameters
         public Guid CreateCostMetadataData(CostMetadataDto costMetadataDtoObj)
         {
             if (costMetadataDtoObj == null) throw new ArgumentNullException(
-                                  nameof(costMetadataDtoObj),
-                                  "Cost Metadata DTO Object is null for Create Cost Metadata Panel data.");
+                nameof(costMetadataDtoObj),
+                "Cost Metadata DTO Object is null for Create Cost Metadata Panel data.");
             //-------------------------------------------------------
             //--- Add Cost Metadata data and get Cost Metadata ID ---
             //--- associated with the newly created Data          ---
             //-------------------------------------------------------
             Guid costMetadataId = CostMetadataViewModelObj.AddCostMetadata(costMetadataDtoObj);
 
-            if (costMetadataId == null) throw new ArgumentNullException(
-                                  nameof(costMetadataId), 
-                                  "Cost metadata ID is null for ADD Cost Metadata Panel data.");
+            if (costMetadataId == Guid.Empty) throw new ArgumentException(
+                nameof(costMetadataId), 
+                "Cost metadata ID is Empty for ADD Cost Metadata Panel data.");
             //---------------------------------------------------------
             //--- Assign the returned CostMetadata ID and return it ---
             //---------------------------------------------------------
@@ -126,9 +126,9 @@ namespace HenStudio.Data.Project.CostParameters
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null.</exception>
         public CostMetadataDto ReadCostMetadataData(Guid projectId)
         {
-            if (projectId == null) throw new ArgumentNullException(
-                             nameof(projectId), 
-                             "Project ID is null for READ Cost Metadata Panel data.");
+            if (projectId == Guid.Empty) throw new ArgumentException(
+                nameof(projectId), 
+                "Project ID is Empty for READ Cost Metadata Panel data.");
             
             ProjectId = projectId;
 
@@ -136,8 +136,8 @@ namespace HenStudio.Data.Project.CostParameters
                             CostMetadataViewModelObj.GetCostMetadataByProjectId(projectId);
 
             if (costMetadataDtoObj == null) throw new ArgumentNullException(
-                             nameof(costMetadataDtoObj),
-                             "Cost Metadata is null for READ Cost Metadata Panel data.");
+                nameof(costMetadataDtoObj),
+                "Cost Metadata is null for READ Cost Metadata Panel data.");
 
             CostMetadataDtoObj = costMetadataDtoObj;
             return costMetadataDtoObj;
@@ -156,13 +156,16 @@ namespace HenStudio.Data.Project.CostParameters
         public CostMetadataDto UpdateCostMetadataData(CostMetadataDto costMetadataDtoObj)
         {
             if (costMetadataDtoObj == null) throw new ArgumentNullException(
-                             nameof(costMetadataDtoObj), "Cost Metadata DTO is null for UPDATE Cost Metadata Panel data.");
+                nameof(costMetadataDtoObj), 
+                "Cost Metadata DTO is null for UPDATE Cost Metadata Panel data.");
 
-            if (costMetadataDtoObj.Id == null) throw new ArgumentNullException(
-                             nameof(costMetadataDtoObj), "Cost Metadata DTO ID is null for UPDATE Cost Metadata Panel data.");
+            if (costMetadataDtoObj.Id == Guid.Empty) throw new ArgumentException(
+                nameof(costMetadataDtoObj), 
+                "Cost Metadata DTO ID is Empty for UPDATE Cost Metadata Panel data.");
 
-            if (costMetadataDtoObj.ProjectId == null) throw new ArgumentNullException(
-                             nameof(costMetadataDtoObj), "Cost Metadata DTO Project ID is null for UPDATE Cost Metadata Panel data.");
+            if (costMetadataDtoObj.ProjectId == Guid.Empty) throw new ArgumentException(
+                nameof(costMetadataDtoObj), 
+                "Cost Metadata DTO Project ID is Empty for UPDATE Cost Metadata Panel data.");
 
             CostMetadataId = costMetadataDtoObj.Id;
             ProjectId = costMetadataDtoObj.ProjectId;
