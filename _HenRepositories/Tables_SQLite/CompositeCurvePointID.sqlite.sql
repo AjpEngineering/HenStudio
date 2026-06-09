@@ -10,10 +10,10 @@
 --    CompositeCurvePointID includes fields for ...
 --      + PK (GUID)
 --      + FK to CompositeCurve (GUID)
---      + Point Curve Type Hot|Cold
+--      + Point Curve Type [Hot | Cold]
 --      + Point Sequence Number
---      + Point Enthalpy Value (External Units)
---      + Point Temperature Value (External Units)
+--      + Point Enthalpy Value (EXTERNAL Units)
+--      + Point Temperature Value (EXTERNAL Units)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -31,19 +31,25 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id               TEXT NOT NULL ,
-	CompositeCurveId TEXT NOT NULL,
-	PointCurveType   TEXT      NOT NULL DEFAULT N'Hot',
-	PointSequence    INTEGER              NOT NULL,
-	EnthalpyValue    REAL            NOT NULL DEFAULT 0.0,
-	TemperatureValue REAL            NOT NULL DEFAULT 0.0,
+CREATE TABLE CompositeCurvePointID (
+    Id               TEXT    NOT NULL,
+	CompositeCurveId TEXT    NOT NULL,
+	PointCurveType   TEXT    NOT NULL DEFAULT 'Hot',
+	PointSequence    INTEGER NOT NULL,
+	EnthalpyValue    REAL    NOT NULL DEFAULT 0.0,
+	TemperatureValue REAL    NOT NULL DEFAULT 0.0,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (CompositeCurveId) REFERENCES CompositeCurve(Id)
-	CONSTRAINT CK_CompositeCurvePointID_PointCurveType CHECK (PointCurveType IN (N'Hot', N'Cold')),
+	PRIMARY KEY(Id),
+	FOREIGN KEY (CompositeCurveId) REFERENCES CompositeCurve(Id),
+
+	CONSTRAINT CK_CompositeCurvePointID_PointCurveType CHECK (PointCurveType IN ('Hot', 'Cold')),
 	CONSTRAINT UQ_CompositeCurvePointID_CompositeCurveId_PointCurveType_PointSequence UNIQUE (CompositeCurveId, PointCurveType, PointSequence)
-)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

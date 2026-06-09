@@ -1,16 +1,16 @@
 -- --------------------------------------------------------------------------------
 --  Table: GlobalSettings
---  File : GlobalSettings.sql
+--  File : GlobalSettings.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
---    Global Settings entity for HEN Studio.
---    Root configuration table for database-wide application settings.
+--    Global Settings entity for HEN Studio -> HenStudio.db [Database file].
+--    Contains AJP HEN Studio application settings.
 --    GlobalSettings includes fields for ...
 --      + Setting Key (PK)
 --      + Setting Value
---      + Value Type e.g., INTEGER|string|bool|double
+--      + Value Type e.g., ["INTEGER" | "TEXT" | "REAL"]
 --      + Setting Description
---      + Updated On
+--      + Revision e.g, 1.0
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -28,14 +28,24 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-	SettingKey   TEXT   NOT NULL,
-	SettingValue TEXT  NULL,
-	ValueType    TEXT    NOT NULL,
-	Description  TEXT  NULL,
-	UpdatedOn    TEXT(7)    NOT NULL DEFAULT SYSUTCDATETIME(),
+CREATE TABLE GlobalSettings (
+    Id           TEXT NOT NULL,
+	SettingKey   TEXT NOT NULL,
+	SettingValue TEXT NULL,
+	ValueType    TEXT NOT NULL DEFAULT 'TEXT',
+	Description  TEXT NULL,
+	Revision     REAL NOT NULL DEFAULT 1.0,
 
-	PRIMARY KEY(SettingKey))
+	PRIMARY KEY(Id),
+
+	CONSTRAINT CK_GlobalSettings_ValueType CHECK (ValueType IN ('INTEGER', 'TEXT', 'REAL'))
+
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

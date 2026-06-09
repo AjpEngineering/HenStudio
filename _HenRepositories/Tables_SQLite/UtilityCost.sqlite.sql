@@ -1,12 +1,11 @@
 -- --------------------------------------------------------------------------------
 --  Table: UtilityCost
---  File : UtilityCost.sql
+--  File : UtilityCost.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Utility Cost entity for HEN Studio. 
 --    Parent entity is Project. Leaf entity.
---    UtilityCost contains utility cost values
---    data used by Pinch & Hen engines.
+--    UtilityCost contains utility cost values data used by Pinch & Hen engines.
 --    
 --    Conceptual Cost Configuration Utility Cost includes ...
 --      Utility HP Steam Cost ........ 40.94 | 12.00
@@ -15,7 +14,7 @@
 --      Utility Cooling Water Cost ...  0.34 |  0.10
 --      Utility Chilled Water Cost ... 68.24 | 20.00
 --      Utility Fuel Gas Cost ........ 20.47 |  6.00
---      Utility Cost Duty Units ........ MWh | MMBtu
+--      Utility Cost Duty Units ........ MWh | MMBtu  ... [EXTERNAL Units]
 --
 --    UtilityCost includes fields for ...
 --      + Id         PK (GUID)
@@ -51,26 +50,32 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id                       TEXT NOT NULL ,
+CREATE TABLE UtilityCost (
+    Id                       TEXT NOT NULL,
 	ProjectId                TEXT NOT NULL,
-	HP_SteamCost_Metric      REAL            NOT NULL DEFAULT 40.94,
-	MP_SteamCost_Metric      REAL            NOT NULL DEFAULT 34.12,
-	LP_SteamCost_Metric      REAL            NOT NULL DEFAULT 27.30,
-	CoolingWaterCost_Metric  REAL            NOT NULL DEFAULT 0.34,
-	ChilledWaterCost_Metric  REAL            NOT NULL DEFAULT 68.24,
-	FuelGasCost_Metric       REAL            NOT NULL DEFAULT 20.47,
-	HP_SteamCost_English     REAL            NOT NULL DEFAULT 12.00,
-	MP_SteamCost_English     REAL            NOT NULL DEFAULT 10.00,
-	LP_SteamCost_English     REAL            NOT NULL DEFAULT 8.00,
-	CoolingWaterCost_English REAL            NOT NULL DEFAULT 0.10,
-	ChilledWaterCost_English REAL            NOT NULL DEFAULT 20.00,
-	FuelGasCost_English      REAL            NOT NULL DEFAULT 6.00,
-	DutyUnits_Metric         TEXT      NOT NULL DEFAULT N'MWh',
-	DutyUnits_English        TEXT      NOT NULL DEFAULT N'MMBtu',
+	HP_SteamCost_Metric      REAL NOT NULL DEFAULT 40.94,
+	MP_SteamCost_Metric      REAL NOT NULL DEFAULT 34.12,
+	LP_SteamCost_Metric      REAL NOT NULL DEFAULT 27.30,
+	CoolingWaterCost_Metric  REAL NOT NULL DEFAULT 0.34,
+	ChilledWaterCost_Metric  REAL NOT NULL DEFAULT 68.24,
+	FuelGasCost_Metric       REAL NOT NULL DEFAULT 20.47,
+	HP_SteamCost_English     REAL NOT NULL DEFAULT 12.00,
+	MP_SteamCost_English     REAL NOT NULL DEFAULT 10.00,
+	LP_SteamCost_English     REAL NOT NULL DEFAULT 8.00,
+	CoolingWaterCost_English REAL NOT NULL DEFAULT 0.10,
+	ChilledWaterCost_English REAL NOT NULL DEFAULT 20.00,
+	FuelGasCost_English      REAL NOT NULL DEFAULT 6.00,
+	DutyUnits_Metric         TEXT NOT NULL DEFAULT 'MWh',
+	DutyUnits_English        TEXT NOT NULL DEFAULT 'MMBtu',
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (ProjectId) REFERENCES Project(Id))
+	PRIMARY KEY(Id),
+	FOREIGN KEY (ProjectId) REFERENCES Project(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

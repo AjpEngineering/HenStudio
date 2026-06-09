@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: Pinch
---  File : Pinch.sql
+--  File : Pinch.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Pinch entity for HEN Studio. 
@@ -11,7 +11,7 @@
 --      + FK to Profile (GUID)
 --      + Pinch Name
 --      + Pinch Description
--- 	    + Pinch Delta Tmin (Internal Units)
+-- 	    + Pinch Delta Tmin (INTERNAL Units)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -29,15 +29,21 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id            TEXT NOT NULL ,
+CREATE TABLE Pinch (
+    Id            TEXT NOT NULL,
 	ProfileId     TEXT NOT NULL,
-	Name          TEXT    NOT NULL,
-	Description   TEXT   NULL,
-    DeltaTmin     REAL            NOT NULL DEFAULT 10.0,
+	Name          TEXT NOT NULL,
+	Description   TEXT NULL,
+    DeltaTmin     REAL NOT NULL DEFAULT 10.0,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (ProfileId) REFERENCES Profile(Id))
+	PRIMARY KEY(Id),
+	FOREIGN KEY (ProfileId) REFERENCES Profile(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

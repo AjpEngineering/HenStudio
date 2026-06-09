@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: CostMetaData
---  File : CostMetaData.sql
+--  File : CostMetaData.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Cost Metadata entity for HEN Studio. 
@@ -39,17 +39,23 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id                        TEXT NOT NULL ,
-	ProjectId                 TEXT NOT NULL,
-	CostIndexBaseYear         TEXT      NOT NULL DEFAULT N'2026',
-	CostIndexName				TEXT      NOT NULL DEFAULT N'CEPCI',
-	CostIndexValue			REAL            NOT NULL DEFAULT 820.0,
-	CostIndexCurrency		    TEXT      NOT NULL DEFAULT N'USD',
-    CostIndexInstalledCost	REAL            NOT NULL DEFAULT 3.0,
+CREATE TABLE CostMetaData (
+    Id                      TEXT NOT NULL,
+	ProjectId               TEXT NOT NULL,
+	CostIndexBaseYear       TEXT NOT NULL DEFAULT '2026',
+	CostIndexName			TEXT NOT NULL DEFAULT 'CEPCI',
+	CostIndexValue			REAL NOT NULL DEFAULT 820.0,
+	CostIndexCurrency		TEXT NOT NULL DEFAULT 'USD',
+    CostIndexInstalledCost	REAL NOT NULL DEFAULT 3.0,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (ProjectId) REFERENCES Project(Id))
+	PRIMARY KEY(Id),
+	FOREIGN KEY (ProjectId) REFERENCES Project(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

@@ -1,19 +1,20 @@
 -- --------------------------------------------------------------------------------
 --  Table: GrandCompositeCurve
---  File : GrandCompositeCurve.sql
+--  File : GrandCompositeCurve.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    GrandCompositeCurve Data entity for HEN Studio. 
---    Parent entity is Pinch. Contains zero or more GrandCompositeCurvePointID child entities.
+--    Parent entity is Study. 
+--    Contains zero or more GrandCompositeCurvePointID child entities.
 --    GrandCompositeCurve contains Grand Composite Curve data used to visualize 
 --    Pinch Minimum Utility Loads and Pinch Temperatures.
 --    GrandCompositeCurve includes fields for ...
 --      + PK (GUID)
---      + FK to Pinch (GUID)
---      + Curve Subtype Raw|Shifted
+--      + FK to Study (GUID)
+--      + Curve Subtype [Raw | Shifted]
 --      + Curve Title (e.g., "Grand Composite Curve")
---	    + Curve X-Axis Label (e.g.,"Enthalpy (MMBtu/hr)") ... External Units
---      + Curve Y-Axis Label (e.g.,"Temperature (°F)") ...... External Units
+--	    + Curve X-Axis Label (e.g.,"Enthalpy (MMBtu/hr)") ... EXTERNAL Units
+--      + Curve Y-Axis Label (e.g.,"Temperature (°F)") ...... EXTERNAL Units
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -31,18 +32,24 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id           TEXT NOT NULL ,
-	PinchId      TEXT NOT NULL,
-	CurveSubtype TEXT     NOT NULL DEFAULT N'Raw',
-	Title        TEXT    NOT NULL,
-	XAxisLabel   TEXT    NOT NULL,
-	YAxisLabel   TEXT    NOT NULL,
+CREATE TABLE GrandCompositeCurve (
+    Id           TEXT NOT NULL,
+	StudyId      TEXT NOT NULL,
+	CurveSubtype TEXT NOT NULL DEFAULT 'Raw',
+	Title        TEXT NOT NULL DEFAULT 'Grand Composite Curve',
+	XAxisLabel   TEXT NOT NULL DEFAULT 'Duty',
+	YAxisLabel   TEXT NOT NULL DEFAULT 'Temperature',
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (PinchId) REFERENCES Pinch(Id)
-	CONSTRAINT CK_GrandCompositeCurve_CurveSubtype CHECK (CurveSubtype IN (N'Raw', N'Shifted'))
-)
+	PRIMARY KEY(Id),
+	FOREIGN KEY (StudyId) REFERENCES Study(Id),
+
+	CONSTRAINT CK_GrandCompositeCurve_CurveSubtype CHECK (CurveSubtype IN ('Raw', 'Shifted'))
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

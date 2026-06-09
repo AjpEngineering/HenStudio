@@ -16,10 +16,10 @@
 --      + Stream Name e.g., Naptha Top Condenser
 --      + Utility Type HP Steam| MP Steam| LP Steam | Cold Water | Chilled Water | Fuel Gas
 --      + Stream Subtype Liquid|Vapor|Mixed
---	    + Stream Isothermal Temperature (Internal Units)
---	    + Stream Supply Pressure (Internal Units)
---	    + Stream Target Pressure (Internal Units)
---	    + Stream Enthalpy Flow Rate - H - Duty (Internal Units)
+--	    + Stream Isothermal Temperature (INTERNAL Units)
+--	    + Stream Supply Pressure (INTERNAL Units)
+--	    + Stream Target Pressure (INTERNAL Units)
+--	    + Stream Enthalpy Flow Rate - H - Duty (INTERNAL Units)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -40,6 +40,7 @@
 --    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
 --    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
+
 CREATE TABLE UtilityStreams (
     Id                    TEXT NOT NULL,
 	ProfileId             TEXT NOT NULL,
@@ -64,3 +65,7 @@ CREATE TABLE UtilityStreams (
 	CONSTRAINT CK_UtilityStreams_UtilityType CHECK (UtilityType IN ('Chilled Water', 'Cold Water', 'Fuel Gas', 'LP Steam', 'MP Steam', 'HP Steam')),
 	CONSTRAINT CK_UtilityStreams_StreamSubtype CHECK (StreamSubtype IN ('Liquid', 'Vapor', 'Mixed'))
 );
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

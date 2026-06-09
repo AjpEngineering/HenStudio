@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: OptimizerParams
---  File : OptimizerParams.sql
+--  File : OptimizerParams.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Optimizer parameters for HEN Studio. Parent table.
@@ -9,8 +9,8 @@
 --      + FK to Project (GUID)
 --      + Optimizer Name
 --      + Optimizer Description
---      + Optimizer Type Genetic|Greedy|MILP
---      + Default Optimizer Objective Total Annual Cost|Total Energy Consumption
+--      + Optimizer Type [Gurobi| CPLEX | GLPK]
+--      + Default Optimizer Objective [Total Annual Cost | Capital Cost | Utility Cost]
 --      + Default Max Number of Optimizer Iterations
 --      + Default Optimizer Convergence Tolerance
 --      + Genetic specific fields in OptimizerGeneticParams
@@ -33,20 +33,27 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
-CREATE TABLE (
-    Id                          TEXT NOT NULL ,
-	ProjectId                   TEXT NOT NULL,
-	Name                        TEXT    NOT NULL,
-	Description                 TEXT   NULL,
-	OptimizerType               TEXT     NOT NULL DEFAULT N'Genetic',
-	DefaultObjective            TEXT     NOT NULL DEFAULT N'Total Annual Cost',
-	DefaultMaxIterations        INTEGER              NOT NULL DEFAULT 1000,
-	DefaultConvergenceTolerance REAL            NOT NULL DEFAULT 0.001,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (ProjectId) REFERENCES Project(Id)
-	CONSTRAINT CK_OptimizerParams_OptimizerType CHECK (OptimizerType IN (N'Genetic', N'Greedy', N'MILP')),
-	CONSTRAINT CK_OptimizerParams_DefaultObjective CHECK (DefaultObjective IN (N'Total Annual Cost', N'Total Energy Consumption'))
-)
+CREATE TABLE OptimizerParams (
+    Id                          TEXT    NOT NULL,
+	ProjectId                   TEXT    NOT NULL,
+	Name                        TEXT    NOT NULL,
+	Description                 TEXT    NULL,
+	OptimizerType               TEXT    NOT NULL DEFAULT 'Gurobi',
+	DefaultObjective            TEXT    NOT NULL DEFAULT 'Total Annual Cost',
+	DefaultMaxIterations        INTEGER NOT NULL DEFAULT 1000,
+	DefaultConvergenceTolerance REAL    NOT NULL DEFAULT 0.001,
+
+	PRIMARY KEY(Id),
+	FOREIGN KEY (ProjectId) REFERENCES Project(Id),
+
+	CONSTRAINT CK_OptimizerParams_OptimizerType CHECK (OptimizerType IN ('Gurobi', 'CPLEX', 'GLPK')),
+	CONSTRAINT CK_OptimizerParams_DefaultObjective CHECK (DefaultObjective IN ('Total Annual Cost', 'Capital Cost', ' Utility Cost'))
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

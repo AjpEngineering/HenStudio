@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: Exchanger
---  File : Exchanger.sql
+--  File : Exchanger.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Exchanger entity for HEN Studio. 
@@ -14,22 +14,22 @@
 --	    + Exchanger Is Utility (Boolean)
 --	    + Exchanger Type e.g., Shell-Tube
 --	    + Exchanger Shells e.g., 1, 2, 4, 6, 8
---      + Exchanger Area (Internal Units)
---	    + Exchanger Hot Temperature In (Internal Units)
---	    + Exchanger Hot Temperature Out (Internal Units)
---      + Exchanger Hot Pressure In (Internal Units)
---	    + Exchanger Hot Pressure Out (Internal Units)
---	    + Exchanger Cold Temperature In (Internal Units)
---	    + Exchanger Cold Temperature Out (Internal Units)
---      + Exchanger Cold Pressure In (Internal Units)
---	    + Exchanger Cold Pressure Out (Internal Units)
---      + Exchanger Pressure Drop (Internal Units)
---  	+ Exchanger Heat Duty (Internal Units)
---	    + Exchanger LMTD Correction Factor (Internal Units)
---	    + Exchanger Heat Transfer Coefficient - U (Internal Units)
---	    + Exchanger Capital Cost (Internal Units)
---	    + Exchanger Annualized Cost (Internal Units)
---	    + Exchanger Fouling Factor (Internal Units)
+--      + Exchanger Area (INTERNAL Units)
+--	    + Exchanger Hot Temperature In (INTERNAL Units)
+--	    + Exchanger Hot Temperature Out (INTERNAL Units)
+--      + Exchanger Hot Pressure In (INTERNAL Units)
+--	    + Exchanger Hot Pressure Out (INTERNAL Units)
+--	    + Exchanger Cold Temperature In (INTERNAL Units)
+--	    + Exchanger Cold Temperature Out (INTERNAL Units)
+--      + Exchanger Cold Pressure In (INTERNAL Units)
+--	    + Exchanger Cold Pressure Out (INTERNAL Units)
+--      + Exchanger Pressure Drop (INTERNAL Units)
+--  	+ Exchanger Heat Duty (INTERNAL Units)
+--	    + Exchanger LMTD Correction Factor (INTERNAL Units)
+--	    + Exchanger Heat Transfer Coefficient - U (INTERNAL Units)
+--	    + Exchanger Capital Cost (INTERNAL Units)
+--	    + Exchanger Annualized Cost (INTERNAL Units)
+--	    + Exchanger Fouling Factor (INTERNAL Units)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -47,33 +47,39 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id                     TEXT NOT NULL ,
-	HenId                  TEXT NOT NULL,
-	ExchangerId            TEXT     NOT NULL,
-	Name                   TEXT    NOT NULL,
-	IsUtility              INTEGER              NOT NULL DEFAULT 0,
-	ExchangerType          TEXT     NOT NULL DEFAULT N'Shell-Tube',
-	Shells                 INTEGER              NOT NULL DEFAULT 1,
-	Area                   REAL            NOT NULL DEFAULT 0.0,
-	HotTemperatureIn       REAL            NOT NULL DEFAULT 0.0,
-	HotTemperatureOut      REAL            NOT NULL DEFAULT 0.0,
-	HotPressureIn          REAL            NOT NULL DEFAULT 0.0,
-	HotPressureOut         REAL            NOT NULL DEFAULT 0.0,
-	ColdTemperatureIn      REAL            NOT NULL DEFAULT 0.0,
-	ColdTemperatureOut     REAL            NOT NULL DEFAULT 0.0,
-	ColdPressureIn         REAL            NOT NULL DEFAULT 0.0,
-	ColdPressureOut        REAL            NOT NULL DEFAULT 0.0,
-	PressureDrop           REAL            NOT NULL DEFAULT 0.0,
-	HeatDuty               REAL            NOT NULL DEFAULT 0.0,
-	LmtdCorrectionFactor   REAL            NOT NULL DEFAULT 0.8,
-	HeatTransferCoefficient REAL           NOT NULL DEFAULT 0.0,
-	CapitalCost            REAL            NOT NULL DEFAULT 0.0,
-	AnnualizedCost         REAL            NOT NULL DEFAULT 0.0,
-	FoulingFactor          REAL            NOT NULL DEFAULT 0.0,
+CREATE TABLE Exchanger (
+    Id                      TEXT    NOT NULL ,
+	HenId                   TEXT    NOT NULL,
+	ExchangerId             TEXT    NOT NULL,
+	Name                    TEXT    NOT NULL,
+	IsUtility               INTEGER NOT NULL DEFAULT 0,
+	ExchangerType           TEXT    NOT NULL DEFAULT 'Shell-Tube',
+	Shells                  INTEGER NOT NULL DEFAULT 1,
+	Area                    REAL    NOT NULL DEFAULT 0.0,
+	HotTemperatureIn        REAL    NOT NULL DEFAULT 0.0,
+	HotTemperatureOut       REAL    NOT NULL DEFAULT 0.0,
+	HotPressureIn           REAL    NOT NULL DEFAULT 0.0,
+	HotPressureOut          REAL    NOT NULL DEFAULT 0.0,
+	ColdTemperatureIn       REAL    NOT NULL DEFAULT 0.0,
+	ColdTemperatureOut      REAL    NOT NULL DEFAULT 0.0,
+	ColdPressureIn          REAL    NOT NULL DEFAULT 0.0,
+	ColdPressureOut         REAL    NOT NULL DEFAULT 0.0,
+	PressureDrop            REAL    NOT NULL DEFAULT 0.0,
+	HeatDuty                REAL    NOT NULL DEFAULT 0.0,
+	LmtdCorrectionFactor    REAL    NOT NULL DEFAULT 0.8,
+	HeatTransferCoefficient REAL    NOT NULL DEFAULT 0.0,
+	CapitalCost             REAL    NOT NULL DEFAULT 0.0,
+	AnnualizedCost          REAL    NOT NULL DEFAULT 0.0,
+	FoulingFactor           REAL    NOT NULL DEFAULT 0.0,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (HenId) REFERENCES Hen(Id))
+	PRIMARY KEY(Id),
+	FOREIGN KEY (HenId) REFERENCES Hen(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

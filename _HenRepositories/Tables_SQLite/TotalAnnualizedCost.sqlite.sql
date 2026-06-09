@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: TotalAnnualizedCost
---  File : TotalAnnualizedCost.sql
+--  File : TotalAnnualizedCost.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Total Annualized Cost (TAC) entity for HEN Studio. 
@@ -38,16 +38,22 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id                      TEXT NOT NULL ,
+CREATE TABLE TotalAnnualizedCost (
+    Id                      TEXT NOT NULL,
 	ProjectId               TEXT NOT NULL,
-	TAC_InterestRate        REAL            NOT NULL DEFAULT 0.10,
-	TAC_LifeYears           REAL            NOT NULL DEFAULT 10.00,
-	TAC_MaintenanceFraction REAL            NOT NULL DEFAULT 0.03,
-	TAC_OperatingHours      REAL            NOT NULL DEFAULT 8000.0,
+	TAC_InterestRate        REAL NOT NULL DEFAULT 0.10,
+	TAC_LifeYears           REAL NOT NULL DEFAULT 10.00,
+	TAC_MaintenanceFraction REAL NOT NULL DEFAULT 0.03,
+	TAC_OperatingHours      REAL NOT NULL DEFAULT 8000.0,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (ProjectId) REFERENCES Project(Id))
+	PRIMARY KEY(Id),
+	FOREIGN KEY (ProjectId) REFERENCES Project(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

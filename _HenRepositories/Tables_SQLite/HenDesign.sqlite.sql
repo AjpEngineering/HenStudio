@@ -1,14 +1,17 @@
 -- --------------------------------------------------------------------------------
---  Table: OptimizerGeneticParams
---  File : OptimizerGeneticParams.sql
+--  Table: HenDesign
+--  File : HenDesign.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
---    Genetic Optimizer subtype entity for HEN Studio.
---    Parent entity is OptimizerParams. Leaf table.
---    OptimizerGeneticParams includes fields for ...
---      + PK to OptimizerGeneticParams (GUID)
---      + FK to OptimizerParams (GUID)
---      + Genetic specific optimizer fields (TBD)
+--    Hen design data for HEN Studio. 
+--    Parent entity is Results [under Study]. Leaf entity.
+--    HenDesign contains the Hen engine results.
+--    HenDesign includes fields for ...
+--      + PK (GUID)
+--      + FK to Study (GUID)
+--      + HenDesign Name
+--      + HenDesign Description
+--      + Feasible Design Flag (INTEGER ... [0=false ; 1=true] )
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -26,14 +29,21 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-	Id                TEXT NOT NULL ,
-	OptimizerParamsId TEXT NOT NULL,
-	Name              TEXT    NOT NULL,
-	Description       TEXT   NULL,
+CREATE TABLE HenDesign (
+    Id                 TEXT NOT NULL,
+	ResultsId          TEXT NOT NULL,
+	Name               TEXT NOT NULL,
+	Description        TEXT NULL,
+	FeasibleDesignFlag INTEGER NOT NULL DEFAULT 0 CHECK (FeasibleDesignFlag IN (0,1)),
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (OptimizerParamsId) REFERENCES OptimizerParams(Id))
+	PRIMARY KEY(Id),
+	FOREIGN KEY (ResultsId) REFERENCES Results(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

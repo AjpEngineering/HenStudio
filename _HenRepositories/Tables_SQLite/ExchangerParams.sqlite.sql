@@ -1,6 +1,6 @@
 -- ============================================================================
 --  Table: ExchangerParams
---  File : ExchangerParams.sql
+--  File : ExchangerParams.sqlite.sql
 -- ============================================================================
 --
 --  Description:
@@ -20,13 +20,20 @@
 --  All rights reserved.
 -- ============================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
--- ============================================================================
-CREATE TABLE (
-    Id                             TEXT NOT NULL ,
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
+-- ================================================================================
+
+CREATE TABLE ExchangerParams (
+    Id                             TEXT NOT NULL,
     ProjectId                      TEXT NOT NULL,
     DefaultHeatTransferCoefficient REAL NOT NULL DEFAULT 0.0,
     DefaultCorrectionFactor        REAL NOT NULL DEFAULT 0.85,
 
-    PRIMARY KEY(Id)
-	FOREIGN KEY (ProjectId) REFERENCES Project(Id));
+    PRIMARY KEY(Id),
+	FOREIGN KEY (ProjectId) REFERENCES Project(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

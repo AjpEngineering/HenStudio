@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: HeatReleaseCurvePointID
---  File : HeatReleaseCurvePointID.sql
+--  File : HeatReleaseCurvePointID.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Heat Release Curve Point entity for HEN Studio. 
@@ -11,8 +11,8 @@
 --      + PK (GUID)
 --      + FK to HeatReleaseCurve (GUID)
 --      + Point Sequence Number
---      + Point Duty Value (External Units)
---      + Point Temperature Value (External Units)
+--      + Point Duty Value (EXTERNAL Units)
+--      + Point Temperature Value (EXTERNAL Units)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -30,17 +30,23 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id                 TEXT NOT NULL ,
-	HeatReleaseCurveId TEXT NOT NULL,
-	PointSequence      INTEGER              NOT NULL,
-	DutyValue          REAL            NOT NULL DEFAULT 0.0,
-	TemperatureValue   REAL            NOT NULL DEFAULT 0.0,
+CREATE TABLE HeatReleaseCurvePointID (
+    Id                 TEXT    NOT NULL,
+	HeatReleaseCurveId TEXT    NOT NULL,
+	PointSequence      INTEGER NOT NULL,
+	DutyValue          REAL    NOT NULL DEFAULT 0.0,
+	TemperatureValue   REAL    NOT NULL DEFAULT 0.0,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (HeatReleaseCurveId) REFERENCES HeatReleaseCurve(Id)
+	PRIMARY KEY(Id),
+	FOREIGN KEY (HeatReleaseCurveId) REFERENCES HeatReleaseCurve(Id),
+
 	CONSTRAINT UQ_HeatReleaseCurvePointID_HeatReleaseCurveId_PointSequence UNIQUE (HeatReleaseCurveId, PointSequence)
-)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

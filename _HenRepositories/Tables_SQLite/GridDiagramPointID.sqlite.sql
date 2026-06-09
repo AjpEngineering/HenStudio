@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: GridDiagramPointID
---  File : GridDiagramPointID.sql
+--  File : GridDiagramPointID.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Grid Diagram Point entity for HEN Studio. 
@@ -31,18 +31,24 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id            TEXT NOT NULL ,
-	GridDiagramId TEXT NOT NULL,
-	PointSequence INTEGER              NOT NULL,
-	XCoordinate   REAL            NOT NULL DEFAULT 0.0,
-	YCoordinate   REAL            NOT NULL DEFAULT 0.0,
+CREATE TABLE GridDiagramPointID (
+    Id            TEXT    NOT NULL,
+	GridDiagramId TEXT    NOT NULL,
+	PointSequence INTEGER NOT NULL,
+	XCoordinate   REAL    NOT NULL DEFAULT 0.0,
+	YCoordinate   REAL    NOT NULL DEFAULT 0.0,
 	Label         TEXT    NULL,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (GridDiagramId) REFERENCES GridDiagram(Id)
+	PRIMARY KEY(Id),
+	FOREIGN KEY (GridDiagramId) REFERENCES GridDiagram(Id),
+
 	CONSTRAINT UQ_GridDiagramPointID_GridDiagramId_PointSequence UNIQUE (GridDiagramId, PointSequence)
-)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

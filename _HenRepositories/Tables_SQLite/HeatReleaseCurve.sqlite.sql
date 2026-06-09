@@ -1,18 +1,19 @@
 -- --------------------------------------------------------------------------------
 --  Table: HeatReleaseCurve
---  File : HeatReleaseCurve.sql
+--  File : HeatReleaseCurve.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    HeatReleaseCurve Data entity for HEN Studio. 
---    Parent entity is Exchanger. Contains zero or more HeatReleaseCurvePointID child entities.
+--    Parent entity is Exchanger. 
+--    Contains zero or more HeatReleaseCurvePointID child entities.
 --    HeatReleaseCurve contains Heat Release curve data used to visualize 
 --    Exchanger Duty - Temp relationship.
 --    HeatReleaseCurve includes fields for ...
 --      + PK (GUID)
 --      + FK to Exchanger (GUID)
 --      + Curve Title (e.g. "E-101 Heat Release Curve")
---	    + Diagram X-Axis Label (e.g.,"Duty (MMBtu/hr)") .... External Units
---      + Diagram Y-Axis Label (e.g.,"Temperature (°F)") ... External Units
+--	    + Diagram X-Axis Label (e.g.,"Duty (MMBtu/hr)") .... EXTERNAL Units
+--      + Diagram Y-Axis Label (e.g.,"Temperature (°F)") ... EXTERNAL Units
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -30,15 +31,21 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id           TEXT NOT NULL ,
+CREATE TABLE HeatReleaseCurve (
+    Id           TEXT NOT NULL,
 	ExchangerId  TEXT NOT NULL,
-	Title        TEXT    NOT NULL,
-	XAxisLabel   TEXT    NOT NULL,
-	YAxisLabel   TEXT    NOT NULL,
+	Title        TEXT NOT NULL DEFAULT 'Heat Release Curve',
+	XAxisLabel   TEXT NOT NULL DEFAULT 'Duty',
+	YAxisLabel   TEXT NOT NULL DEFAULT 'Temperature',
 
-   PRIMARY KEY(Id)
-	FOREIGN KEY (ExchangerId) REFERENCES Exchanger(Id))
+    PRIMARY KEY(Id),
+	FOREIGN KEY (ExchangerId) REFERENCES Exchanger(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

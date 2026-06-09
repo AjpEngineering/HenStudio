@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: THDiagram
---  File : THDiagram.sql
+--  File : THDiagram.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Temperature-Enthalpy Diagram Data entity for HEN Studio. 
@@ -12,8 +12,8 @@
 --      + FK to Profile (GUID)
 --      + Diagram Type Hot|Cold
 --      + Diagram Title (e.g. "Hot T-H Diagram")
---	    + Diagram X-Axis Label (e.g.,"Enthalpy (MMBtu/hr)") ... External Units
---      + Diagram Y-Axis Label (e.g.,"Temperature (°F)") ...... External Units
+--	    + Diagram X-Axis Label (e.g.,"Enthalpy (MMBtu/hr)") ... EXTERNAL Units
+--      + Diagram Y-Axis Label (e.g.,"Temperature (°F)") ...... EXTERNAL Units
 --      + Zero or more THDiagramPoint child entities containing T-H data points
 -- ================================================================================
 -- 
@@ -32,18 +32,23 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id             TEXT NOT NULL ,
+CREATE TABLE THDiagram (
+    Id             TEXT NOT NULL,
 	ProfileId      TEXT NOT NULL,
-	DiagramType    TEXT      NOT NULL DEFAULT N'Hot',
-	Title          TEXT    NOT NULL,
-	XAxisLabel     TEXT    NOT NULL,
-	YAxisLabel     TEXT    NOT NULL,
+	DiagramType    TEXT NOT NULL DEFAULT 'Hot',
+	Title          TEXT NOT NULL,
+	XAxisLabel     TEXT NOT NULL DEFAULT 'Duty',
+	YAxisLabel     TEXT NOT NULL DEFAULT 'Temperature',
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (ProfileId) REFERENCES Profile(Id)
-	CONSTRAINT CK_THDiagram_DiagramType CHECK (DiagramType IN (N'Hot', N'Cold'))
-)
+	PRIMARY KEY(Id),
+	FOREIGN KEY (ProfileId) REFERENCES Profile(Id),
+	CONSTRAINT CK_THDiagram_DiagramType CHECK (DiagramType IN ('Hot', 'Cold'))
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

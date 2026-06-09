@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: GrandCompositeCurvePointID
---  File : GrandCompositeCurvePointID.sql
+--  File : GrandCompositeCurvePointID.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Grand Composite Curve Point entity for HEN Studio. 
@@ -11,8 +11,8 @@
 --      + PK (GUID)
 --      + FK to GrandCompositeCurve (GUID)
 --      + Point Sequence Number
---      + Point Enthalpy Value (External Units)
---      + Point Temperature Value (External Units)
+--      + Point Enthalpy Value (EXTERNAL Units)
+--      + Point Temperature Value (EXTERNAL Units)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -30,17 +30,23 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id                    TEXT NOT NULL ,
-	GrandCompositeCurveId TEXT NOT NULL,
-	PointSequence         INTEGER              NOT NULL,
-	EnthalpyValue         REAL            NOT NULL DEFAULT 0.0,
-	TemperatureValue      REAL            NOT NULL DEFAULT 0.0,
+CREATE TABLE GrandCompositeCurvePointID (
+    Id                    TEXT    NOT NULL,
+	GrandCompositeCurveId TEXT    NOT NULL,
+	PointSequence         INTEGER NOT NULL,
+	EnthalpyValue         REAL    NOT NULL DEFAULT 0.0,
+	TemperatureValue      REAL    NOT NULL DEFAULT 0.0,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (GrandCompositeCurveId) REFERENCES GrandCompositeCurve(Id)
+	PRIMARY KEY(Id),
+	FOREIGN KEY (GrandCompositeCurveId) REFERENCES GrandCompositeCurve(Id),
+
 	CONSTRAINT UQ_GrandCompositeCurvePointID_GrandCompositeCurveId_PointSequence UNIQUE (GrandCompositeCurveId, PointSequence)
-)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

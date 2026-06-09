@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: ShellAndTubeCapitalCost
---  File : ShellAndTubeCapitalCost.sql
+--  File : ShellAndTubeCapitalCost.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Shell and Tube Capital Cost entity for HEN Studio. 
@@ -13,7 +13,7 @@
 --      Shell & Tube Capital Cost b Parameter ..... 800.00 | 170.73
 --      Shell & Tube Capital Cost n Parameter ....... 0.65
 --      Shell & Tube Capital Cost Material Factor ... 1.00
---      Shell & Tube Capital Cost Area Units ......... m2 | ft2
+--      Shell & Tube Capital Cost Area Units ......... m2 | ft2 ... [EXTERNAL Units]
 --
 --    ShellAndTubeCapitalCost includes fields for ...
 --      + Id PK (GUID)
@@ -42,19 +42,25 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id                  TEXT NOT NULL ,
+CREATE TABLE ShellAndTubeCapitalCost (
+    Id                  TEXT NOT NULL,
 	ProjectId           TEXT NOT NULL,
-	ParameterA          REAL            NOT NULL DEFAULT 10000.00,
-	ParameterB_Metric   REAL            NOT NULL DEFAULT 800.00,
-	ParameterB_English  REAL            NOT NULL DEFAULT 170.73,
-	ParameterN          REAL            NOT NULL DEFAULT 0.65,
-	MaterialFactor      REAL            NOT NULL DEFAULT 1.00,
-	AreaUnits_Metric    TEXT      NOT NULL DEFAULT N'm2',
-	AreaUnits_English   TEXT      NOT NULL DEFAULT N'ft2',
+	ParameterA          REAL NOT NULL DEFAULT 10000.00,
+	ParameterB_Metric   REAL NOT NULL DEFAULT 800.00,
+	ParameterB_English  REAL NOT NULL DEFAULT 170.73,
+	ParameterN          REAL NOT NULL DEFAULT 0.65,
+	MaterialFactor      REAL NOT NULL DEFAULT 1.00,
+	AreaUnits_Metric    TEXT NOT NULL DEFAULT 'm2',
+	AreaUnits_English   TEXT NOT NULL DEFAULT 'ft2',
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (ProjectId) REFERENCES Project(Id))
+	PRIMARY KEY(Id),
+	FOREIGN KEY (ProjectId) REFERENCES Project(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

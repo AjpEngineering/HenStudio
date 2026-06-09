@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: GridDiagram
---  File : GridDiagram.sql
+--  File : GridDiagram.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    GridDiagram Data entity for HEN Studio. 
@@ -9,7 +9,7 @@
 --    (stream matches).
 --    GridDiagram includes fields for ...
 --      + PK (GUID)
---      + FK to Hen (GUID)
+--      + FK to HenDesign (GUID)
 --      + Diagram Title (e.g., "Grid Diagram")
 -- ================================================================================
 -- 
@@ -28,13 +28,19 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id         TEXT NOT NULL ,
-	HenId      TEXT NOT NULL,
-	Title      TEXT    NOT NULL,
+CREATE TABLE GridDiagram (
+    Id          TEXT NOT NULL,
+	HenDesignId TEXT NOT NULL,
+	Title       TEXT NOT NULL DEFAULT 'Grid Diagram',
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (HenId) REFERENCES Hen(Id))
+	PRIMARY KEY(Id),
+	FOREIGN KEY (HenDesignId) REFERENCES HenDesign(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

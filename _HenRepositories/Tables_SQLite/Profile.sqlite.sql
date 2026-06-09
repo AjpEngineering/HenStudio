@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: Profile
---  File : Profile.sql
+--  File : Profile.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Input Profile entity for HEN Studio. 
@@ -28,14 +28,20 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id            TEXT NOT NULL ,
+CREATE TABLE Profile (
+    Id            TEXT NOT NULL,
 	ProjectId     TEXT NOT NULL,
-	Name          TEXT    NOT NULL,
-	Description   TEXT   NULL,
+	Name          TEXT NOT NULL,
+	Description   TEXT NULL,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (ProjectId) REFERENCES Project(Id))
+	PRIMARY KEY(Id),
+	FOREIGN KEY (ProjectId) REFERENCES Project(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

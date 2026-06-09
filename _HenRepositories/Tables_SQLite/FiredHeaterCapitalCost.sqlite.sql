@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: FiredHeaterCapitalCost
---  File : FiredHeaterCapitalCost.sql
+--  File : FiredHeaterCapitalCost.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Fired Heater Capital Cost entity for HEN Studio. 
@@ -21,8 +21,8 @@
 --      + Parameter  alpha English (e.g.,  74924.31)
 --      + Parameter  beta		   (e.g.,      0.80)
 --      + Parameter  Efficiency    (e.g.,      0.85)
---      + Duty Units Metric        (e.g.,       MWh)
---      + Duty Units English       (e.g.,     MMBtu)
+--      + Duty Units Metric        (e.g.,       MWh) ... EXTERNAL Units
+--      + Duty Units English       (e.g.,     MMBtu) ... EXTERNAL Units
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -40,18 +40,24 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id                      TEXT NOT NULL ,
+CREATE TABLE FiredHeaterCapitalCost (
+    Id                      TEXT NOT NULL,
 	ProjectId               TEXT NOT NULL,
-	ParameterAlpha_Metric   REAL            NOT NULL DEFAULT 200000.00,
-	ParameterAlpha_English  REAL            NOT NULL DEFAULT 74924.31,
-	ParameterBeta           REAL            NOT NULL DEFAULT 0.80,
-	Efficiency              REAL            NOT NULL DEFAULT 0.85,
-	DutyUnits_Metric        TEXT      NOT NULL DEFAULT N'MWh',
-	DutyUnits_English       TEXT      NOT NULL DEFAULT N'MMBtu',
+	ParameterAlpha_Metric   REAL NOT NULL DEFAULT 200000.00,
+	ParameterAlpha_English  REAL NOT NULL DEFAULT 74924.31,
+	ParameterBeta           REAL NOT NULL DEFAULT 0.80,
+	Efficiency              REAL NOT NULL DEFAULT 0.85,
+	DutyUnits_Metric        TEXT NOT NULL DEFAULT 'MWh',
+	DutyUnits_English       TEXT NOT NULL DEFAULT 'MMBtu',
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (ProjectId) REFERENCES Project(Id))
+	PRIMARY KEY(Id),
+	FOREIGN KEY (ProjectId) REFERENCES Project(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

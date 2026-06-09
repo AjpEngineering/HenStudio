@@ -168,6 +168,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="tools\ConvertSqlServerToSqlite.ps1" />
+    <None Include="_HenModel.csproj" />
+    <None Include="_HenModel\_HenModel.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

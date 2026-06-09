@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: CompositeCurve
---  File : CompositeCurve.sql
+--  File : CompositeCurve.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    CompositeCurve Data entity for HEN Studio. 
@@ -12,11 +12,11 @@
 --    CompositeCurve includes fields for ...
 --      + PK (GUID)
 --      + FK to Pinch (GUID)
---      + Curve Type Hot|Cold|Combined
---      + Curve Subtype Raw|Shifted
+--      + Curve Type    [Hot | Cold  |Combined]
+--      + Curve Subtype [Raw | Shifted]
 --      + Curve Title (e.g., "Hot Composite Curve")
---	    + Curve X-Axis Label (e.g.,"Enthalpy (MMBtu/hr)") ... External Units
---      + Curve Y-Axis Label (e.g.,"Temperature (°F)") ...... External Units
+--	    + Curve X-Axis Label (e.g.,"Enthalpy (MMBtu/hr)") ... EXTERNAL Units
+--      + Curve Y-Axis Label (e.g.,"Temperature (°F)") ...... EXTERNAL Units
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -34,20 +34,26 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id           TEXT NOT NULL ,
+CREATE TABLE CompositeCurve (
+    Id           TEXT NOT NULL,
 	PinchId      TEXT NOT NULL,
-	CurveType    TEXT     NOT NULL DEFAULT N'Hot',
-	CurveSubtype TEXT     NOT NULL DEFAULT N'Raw',
-	Title        TEXT    NOT NULL,
-	XAxisLabel   TEXT    NOT NULL,
-	YAxisLabel   TEXT    NOT NULL,
+	CurveType    TEXT NOT NULL DEFAULT 'Hot',
+	CurveSubtype TEXT NOT NULL DEFAULT 'Raw',
+	Title        TEXT NOT NULL DEFAULT 'Hot Composite Curve',
+	XAxisLabel   TEXT NOT NULL DEFAULT 'Duty',
+	YAxisLabel   TEXT NOT NULL DEFAULT 'Temperature',
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (PinchId) REFERENCES Pinch(Id)
-	CONSTRAINT CK_CompositeCurve_CurveType CHECK (CurveType IN (N'Hot', N'Cold', N'Combined')),
-	CONSTRAINT CK_CompositeCurve_CurveSubtype CHECK (CurveSubtype IN (N'Raw', N'Shifted'))
-)
+	PRIMARY KEY(Id),
+	FOREIGN KEY (PinchId) REFERENCES Pinch(Id),
+
+	CONSTRAINT CK_CompositeCurve_CurveType CHECK (CurveType IN ('Hot', 'Cold', 'Combined')),
+	CONSTRAINT CK_CompositeCurve_CurveSubtype CHECK (CurveSubtype IN ('Raw', 'Shifted'))
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

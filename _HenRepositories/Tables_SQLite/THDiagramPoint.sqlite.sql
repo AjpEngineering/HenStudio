@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: THDiagramPoint
---  File : THDiagramPoint.sql
+--  File : THDiagramPoint.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Temperature-Enthalpy Diagram Point entity for HEN Studio. 
@@ -11,8 +11,8 @@
 --      + PK (GUID)
 --      + FK to THDiagram (GUID)
 --      + Point Sequence Number
---      + Point Enthalpy Value (External Units)
---      + Point Temperature Value (External Units)
+--      + Point Enthalpy Value (EXTERNAL Units)
+--      + Point Temperature Value (EXTERNAL Units)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -30,17 +30,22 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id               TEXT NOT NULL ,
-	THDiagramId      TEXT NOT NULL,
-	PointSequence    INTEGER              NOT NULL,
-	EnthalpyValue    REAL            NOT NULL DEFAULT 0.0,
-	TemperatureValue REAL            NOT NULL DEFAULT 0.0,
+CREATE TABLE THDiagramPoint (
+    Id               TEXT    NOT NULL,
+	THDiagramId      TEXT    NOT NULL,
+	PointSequence    INTEGER NOT NULL,
+	EnthalpyValue    REAL    NOT NULL DEFAULT 0.0,
+	TemperatureValue REAL    NOT NULL DEFAULT 0.0,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (THDiagramId) REFERENCES THDiagram(Id)
+	PRIMARY KEY(Id),
+	FOREIGN KEY (THDiagramId) REFERENCES THDiagram(Id),
 	CONSTRAINT UQ_THDiagramPoint_THDiagramId_PointSequence UNIQUE (THDiagramId, PointSequence)
-)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

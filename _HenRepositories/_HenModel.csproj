@@ -47,6 +47,7 @@
     <Compile Include="Connection\ConnectionString.cs" />
     <Compile Include="Connection\Interface\IDbConnectionFactory.cs" />
     <Compile Include="Connection\SqlConnectionFactory.cs" />
+    <Compile Include="Connection\SQLiteConnectionFactory.cs" />
     <Compile Include="Dto\Profile\ProfileWrapperDto.cs" />
     <Compile Include="Dto\Project\CostParameters\TotalAnnualizedCostDto.cs" />
     <Compile Include="Dto\Project\CostParameters\UtilityCostDto.cs" />
@@ -164,10 +165,7 @@
     <Content Include="Tables_SQLite\GridDiagramPointID.sqlite.sql" />
     <Content Include="Tables_SQLite\HeatReleaseCurve.sqlite.sql" />
     <Content Include="Tables_SQLite\HeatReleaseCurvePointID.sqlite.sql" />
-    <Content Include="Tables_SQLite\Hen.sqlite.sql" />
-    <Content Include="Tables_SQLite\OptimizerGeneticParams.sqlite.sql" />
-    <Content Include="Tables_SQLite\OptimizerGreedyParams.sqlite.sql" />
-    <Content Include="Tables_SQLite\OptimizerMILP_Params.sqlite.sql" />
+    <Content Include="Tables_SQLite\HenDesign.sqlite.sql" />
     <Content Include="Tables_SQLite\OptimizerParams.sqlite.sql" />
     <Content Include="Tables_SQLite\Pinch.sqlite.sql" />
     <Content Include="Tables_SQLite\ProcessStreams.sqlite.sql" />

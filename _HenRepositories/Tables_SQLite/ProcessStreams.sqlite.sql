@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: ProcessStreams
---  File : ProcessStreams.sql
+--  File : ProcessStreams.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Process Streams entity for HEN Studio. 
@@ -16,11 +16,11 @@
 --      + Stream Name e.g., Naptha Feed
 --      + Stream Type Hot|Cold
 --      + Stream Subtype Liquid|Vapor|Mixed
---	    + Stream Supply Temperature (Internal Units)
---	    + Stream Supply Pressure (Internal Units)
---	    + Stream Target Temperature (Internal Units)
---	    + Stream Target Pressure (Internal Units)
---	    + Stream Heat Capacity Flow Rate - CP (Internal Units)
+--	    + Stream Supply Temperature (INTERNAL Units)
+--	    + Stream Supply Pressure (INTERNAL Units)
+--	    + Stream Target Temperature (INTERNAL Units)
+--	    + Stream Target Pressure (INTERNAL Units)
+--	    + Stream Heat Capacity Flow Rate - CP (INTERNAL Units)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -38,28 +38,34 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
-    Id                               TEXT NOT NULL ,
-	ProfileId                        TEXT NOT NULL,
-	StreamCategory                   TEXT     NOT NULL DEFAULT N'Process',
-	StreamHeat                       TEXT     NOT NULL DEFAULT N'Sensible',
-	StreamId                         TEXT     NOT NULL,
-	Name                             TEXT    NOT NULL,
-	StreamType                       TEXT      NOT NULL DEFAULT N'Hot',
-	StreamSubtype                    TEXT      NOT NULL DEFAULT N'Liquid',
-	SupplyTemperature                REAL            NOT NULL DEFAULT 0.0,
-	SupplyPressure                   REAL            NOT NULL DEFAULT 0.0,
-	TargetTemperature                REAL            NOT NULL DEFAULT 0.0,
-	TargetPressure                   REAL            NOT NULL DEFAULT 0.0,
-	HeatCapacityFlowRate             REAL            NOT NULL DEFAULT 0.0,
+CREATE TABLE ProcessStreams (
+    Id                    TEXT NOT NULL,
+	ProfileId             TEXT NOT NULL,
+	StreamCategory        TEXT NOT NULL DEFAULT 'Process',
+	StreamHeat            TEXT NOT NULL DEFAULT 'Sensible',
+	StreamId              TEXT NOT NULL,
+	Name                  TEXT NOT NULL,
+	StreamType            TEXT NOT NULL DEFAULT 'Hot',
+	StreamSubtype         TEXT NOT NULL DEFAULT 'Liquid',
+	SupplyTemperature     REAL NOT NULL DEFAULT 0.0,
+	SupplyPressure        REAL NOT NULL DEFAULT 0.0,
+	TargetTemperature     REAL NOT NULL DEFAULT 0.0,
+	TargetPressure        REAL NOT NULL DEFAULT 0.0,
+	HeatCapacityFlowRate  REAL NOT NULL DEFAULT 0.0,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (ProfileId) REFERENCES Profile(Id)
-	CONSTRAINT CK_ProcessStreams_StreamCategory CHECK (StreamCategory IN (N'Process', N'Utility')),
-	CONSTRAINT CK_ProcessStreams_StreamHeat CHECK (StreamHeat IN (N'Sensible', N'Latent')),
-	CONSTRAINT CK_ProcessStreams_StreamType CHECK (StreamType IN (N'Hot', N'Cold')),
-	CONSTRAINT CK_ProcessStreams_StreamSubtype CHECK (StreamSubtype IN (N'Liquid', N'Vapor', N'Mixed'))
-)
+	PRIMARY KEY(Id),
+	FOREIGN KEY (ProfileId) REFERENCES Profile(Id),
+
+	CONSTRAINT CK_ProcessStreams_StreamCategory CHECK (StreamCategory IN ('Process', 'Utility')),
+	CONSTRAINT CK_ProcessStreams_StreamHeat CHECK (StreamHeat IN ('Sensible', 'Latent')),
+	CONSTRAINT CK_ProcessStreams_StreamType CHECK (StreamType IN ('Hot', 'Cold')),
+	CONSTRAINT CK_ProcessStreams_StreamSubtype CHECK (StreamSubtype IN ('Liquid', 'Vapor', 'Mixed'))
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

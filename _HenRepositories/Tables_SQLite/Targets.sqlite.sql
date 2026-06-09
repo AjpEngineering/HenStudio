@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 --  Table: Targets
---  File : Targets.sql
+--  File : Targets.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Targets entity for HEN Studio. 
@@ -9,11 +9,11 @@
 --    Pinch includes fields for ...
 --      + PK (GUID)
 --      + FK to Pinch (GUID)
---      + Minimum Hot Utility Load (Internal Units)
---      + Minimum Cold Utility Load (Internal Units)
+--      + Minimum Hot Utility Load (INTERNAL Units)
+--      + Minimum Cold Utility Load (INTERNAL Units)
 -- 	    + Minimum Number of Heat Exchangers (Integer)
---      + Hot Pinch Target Temperature (Internal Units)
---	    + Cold Pinch Target Temperature (Internal Units)
+--      + Hot Pinch Target Temperature (INTERNAL Units)
+--	    + Cold Pinch Target Temperature (INTERNAL Units)
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -31,17 +31,23 @@
 --    All rights reserved.
 -- ================================================================================
 --  HISTORY:
---    01/01/26 .. AJP Engineering .. Version 1.0
+--    01/01/26 .. AJP Engineering .. Version 1.0 : SQL Server Version
+--    06/01/26 .. AJP Engineering .. Version 1.1 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE (
+CREATE TABLE Targets (
     Id                            TEXT NOT NULL ,
 	PinchId                       TEXT NOT NULL,
-	MinimumHotUtilityLoad         REAL            NOT NULL DEFAULT 0.0,
-	MinimumColdUtilityLoad        REAL            NOT NULL DEFAULT 0.0,
-	MinimumNumberOfExchangers     INTEGER              NOT NULL DEFAULT 1,
-	HotPinchTargetTemperature     REAL            NOT NULL DEFAULT 0.0,
-	ColdPinchTargetTemperature    REAL            NOT NULL DEFAULT 0.0,
+	MinimumHotUtilityLoad         REAL    NOT NULL DEFAULT 0.0,
+	MinimumColdUtilityLoad        REAL    NOT NULL DEFAULT 0.0,
+	MinimumNumberOfExchangers     INTEGER NOT NULL DEFAULT 1,
+	HotPinchTargetTemperature     REAL    NOT NULL DEFAULT 0.0,
+	ColdPinchTargetTemperature    REAL    NOT NULL DEFAULT 0.0,
 
-	PRIMARY KEY(Id)
-	FOREIGN KEY (PinchId) REFERENCES Pinch(Id))
+	PRIMARY KEY(Id),
+	FOREIGN KEY (PinchId) REFERENCES Pinch(Id)
+);
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================
