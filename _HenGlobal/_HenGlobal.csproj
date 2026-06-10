@@ -62,7 +62,7 @@
     <Content Include="AJP Pinch.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\_HenRepositories\_HenModel.csproj">
+    <ProjectReference Include="..\_HenModel\_HenModel.csproj">
       <Project>{42a404ca-256f-47c8-82fd-319c99292c74}</Project>
       <Name>_HenModel</Name>
     </ProjectReference>

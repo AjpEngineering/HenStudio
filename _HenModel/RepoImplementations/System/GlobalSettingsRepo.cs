@@ -77,7 +77,7 @@ namespace HenModel.RepoImplementations.System
                                                            int settingValueOrdinal, 
                                                            int valueTypeOrdinal, 
                                                            int descriptionOrdinal, 
-                                                           int updatedOnOrdinal)
+                                                           int revisionOrdinal)
         {
             return new GlobalSettingsDto
             {
@@ -85,7 +85,7 @@ namespace HenModel.RepoImplementations.System
                 SettingValue = record.IsDBNull(settingValueOrdinal) ? null : record.GetString(settingValueOrdinal),
                 ValueType = record.IsDBNull(valueTypeOrdinal) ? null : record.GetString(valueTypeOrdinal),
                 Description = record.IsDBNull(descriptionOrdinal) ? null : record.GetString(descriptionOrdinal),
-                UpdatedOn = record.GetDateTime(updatedOnOrdinal)
+                Revision = record.GetDouble(revisionOrdinal),
             };
         }
         #endregion  // MapGlobalSettings()
@@ -246,7 +246,7 @@ namespace HenModel.RepoImplementations.System
                                         SettingValue,
                                         ValueType,
                                         Description,
-                                        UpdatedOn
+                                        Revision
                                  FROM dbo.GlobalSettings
                                  ORDER BY SettingKey;";
 
@@ -267,7 +267,7 @@ namespace HenModel.RepoImplementations.System
                         int settingValueOrdinal = reader.GetOrdinal("SettingValue");
                         int valueTypeOrdinal = reader.GetOrdinal("ValueType");
                         int descriptionOrdinal = reader.GetOrdinal("Description");
-                        int updatedOnOrdinal = reader.GetOrdinal("UpdatedOn");
+                        int revisionOrdinal = reader.GetOrdinal("Revision");
 
                         while (reader.Read())
                         {
@@ -275,8 +275,8 @@ namespace HenModel.RepoImplementations.System
                                                            settingKeyOrdinal, 
                                                            settingValueOrdinal, 
                                                            valueTypeOrdinal, 
-                                                           descriptionOrdinal, 
-                                                           updatedOnOrdinal));
+                                                           descriptionOrdinal,
+                                                           revisionOrdinal));
                         }
                     }
                 }
@@ -303,7 +303,7 @@ namespace HenModel.RepoImplementations.System
                                         SettingValue,
                                         ValueType,
                                         Description,
-                                        UpdatedOn
+                                        Revision
                                  FROM dbo.GlobalSettings
                                  WHERE SettingKey = @SettingKey;";
 
@@ -333,9 +333,9 @@ namespace HenModel.RepoImplementations.System
                         int settingValueOrdinal = reader.GetOrdinal("SettingValue");
                         int valueTypeOrdinal = reader.GetOrdinal("ValueType");
                         int descriptionOrdinal = reader.GetOrdinal("Description");
-                        int updatedOnOrdinal = reader.GetOrdinal("UpdatedOn");
+                        int revisionOrdinal = reader.GetOrdinal("Revision");
 
-                        return MapGlobalSettings(reader, settingKeyOrdinal, settingValueOrdinal, valueTypeOrdinal, descriptionOrdinal, updatedOnOrdinal);
+                        return MapGlobalSettings(reader, settingKeyOrdinal, settingValueOrdinal, valueTypeOrdinal, descriptionOrdinal, revisionOrdinal);
                     }
                 }
             }

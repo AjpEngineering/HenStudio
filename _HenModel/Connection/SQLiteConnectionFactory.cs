@@ -15,8 +15,9 @@ using System;
 using System.Data;
 using System.Data.Common;
 using System.Data.SQLite;
-#endregion
+#endregion  // REFERENCES
 
+#region namespace HenModel.Connection
 namespace HenModel.Connection
 {
     #region public class SQLiteConnectionFactory
@@ -78,4 +79,10 @@ namespace HenModel.Connection
         }
         #endregion  // CloseConnection()
     }
+    #endregion  // public class SQLiteConnectionFactory
 }
+#endregion  // namespace HenModel.Connection
+
+//=====================================================================================================================
+//---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
+//=====================================================================================================================

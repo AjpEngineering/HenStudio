@@ -1,14 +1,14 @@
-﻿#region HEADER
+#region HEADER
 //#####################################################################################################################
-//############################################  R e p o r t M g r . c s  ##############################################
+//#####################################  G l o b a l S e t t i n g s D t o . c s  #####################################
 //#####################################################################################################################
-//  FILENAME:  ReportMgr.cs
-//  NAMESPACE: PinchReports
-//  CLASS(S):  ReportMgr
-//  COMPONENT: _PinchReports.dll
+//  FILENAME:  GlobalSettingsDto.cs
+//  NAMESPACE: HenModel.Dto.System
+//  CLASS(S):  GlobalSettingsDto
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the Reports Manager class.
+//    This file contains the DTO class for the Application Global Settings table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -26,7 +26,7 @@
 //    All rights reserved.
 //=====================================================================================================================
 //  HISTORY:
-//    01/01/26 .. pg .. Version 4.0
+//    01/01/26 .. AJP Engineering .. Version 1.0
 //#####################################################################################################################
 //#####################################################################################################################
 //#####################################################################################################################
@@ -34,63 +34,28 @@
 
 #region REFERENCES
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+#endregion      // REFERENCES
 
-using PinchGlobal;
-#endregion  // REFERENCES
-
-#region namespace PinchReports
-namespace PinchReports
+#region namespace HenModel.Dto.System
+namespace HenModel.Dto.System
 {
-    #region public class ReportMgr
+    #region public class GlobalSettingsDto
     /// <summary>
-    /// Reports Manager Class
+    /// GlobalSettings DTO Class
     /// </summary>
-    public class ReportMgr
+    public class GlobalSettingsDto
     {
-        #region CONSTANTS
-        const string NAMESPACE = "PinchReports";
-        const string CLASS = "ReportMgr";
-        #endregion      // CONSTANTS
-
         #region PROPERTIES
-
+        public string SettingKey { get; set; }
+        public string SettingValue { get; set; }
+        public string ValueType { get; set; }
+        public string Description { get; set; }
+        public double Revision { get; set; }
         #endregion      // PROPERTIES
-
-        #region CTOR
-        /// <summary>
-        /// Default Constructor
-        /// </summary>
-        public ReportMgr()
-        {
-            string strMethod = "CTOR";
-            PinchLogger.WriteSeparatorLine(' ');
-            PinchLogger.WriteSeparatorLine('>');
-            PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "Creating HenEngine Object");
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                PinchLogger.WriteSeparatorLine('*');
-                PinchLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
-                PinchLogger.WriteSeparatorLine('*');
-            }
-            finally
-            {
-                PinchLogger.LogInfo(NAMESPACE, CLASS, strMethod, "TargetsDataMgr Object CREATED");
-                PinchLogger.WriteSeparatorLine('<');
-            }
-        }
-        #endregion      // CTOR
     }
-    #endregion      // public class ReportMgr
+    #endregion      // public class GlobalSettingsDto
 }
-#endregion      // namespace PinchReports
+#endregion      // namespace HenModel.Dto.System
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

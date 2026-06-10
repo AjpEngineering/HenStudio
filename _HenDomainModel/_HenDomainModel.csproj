@@ -57,6 +57,10 @@
       <Project>{c73899c1-09e9-4981-a906-f33c3ae4078a}</Project>
       <Name>_HenGlobal</Name>
     </ProjectReference>
+    <ProjectReference Include="..\_HenModel\_HenModel.csproj">
+      <Project>{42a404ca-256f-47c8-82fd-319c99292c74}</Project>
+      <Name>_HenModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
