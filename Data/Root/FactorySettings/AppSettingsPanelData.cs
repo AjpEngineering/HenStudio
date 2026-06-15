@@ -58,7 +58,7 @@ namespace HenStudio.Data.Root.FactorySettings
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public SystemViewModel SystemViewModelObj { get; set; }
+        public ApplicationViewModel SystemViewModelObj { get; set; }
 
         public AppGlobalSettingsDto AppGlobalSettingsList { get; set; }
         #endregion  // PROPERTIES
@@ -70,7 +70,7 @@ namespace HenStudio.Data.Root.FactorySettings
         /// </summary>
         public AppSettingsPanelData()
         {
-            SystemViewModelObj = new SystemViewModel();
+            SystemViewModelObj = new ApplicationViewModel();
             AppGlobalSettingsList = new AppGlobalSettingsDto();
         }
         #endregion  // CTOR

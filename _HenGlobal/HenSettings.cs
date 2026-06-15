@@ -80,7 +80,7 @@ namespace HenGlobal
         #endregion      // CONSTANTS
 
         #region CONNECTION STRINGS
-        public const string HenStudio = HenModel.Connection.ConnectionStrings.HenStudio;
+        //public const string HenStudio = HenModel.Connection.ConnectionString;
         //public const string HenStudio = "Server=localhost\\HENSTUDIO;Database=HenStudio;Trusted_Connection=True;";
         #endregion  // CONNECTION STRINGS
 

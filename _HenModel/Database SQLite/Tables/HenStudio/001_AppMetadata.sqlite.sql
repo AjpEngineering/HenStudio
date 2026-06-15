@@ -1,0 +1,53 @@
+-- --------------------------------------------------------------------------------
+--  Table: AppMetadata
+--  File : 001_AppMetadata.sqlite.sql
+-- --------------------------------------------------------------------------------
+--  Description: 
+--    Application Metadata entity for HEN Studio -> HenStudio.db [Database file].
+--    Contains AJP HEN Studio Application Metadata settings.
+-- --------------------------------------------------------------------------------
+--    Table is seeded at Creation as follows.
+-- --------------------------------------------------------------------------------
+--    1 ... PRODUCT FULLNAME ........ AJP HEN Studio 1.0
+--    2 ... PRODUCT NAME ............ AJP HEN Studio
+--    3 ... PRODUCT VERSION ......... 1.0
+--    4 ... PRODUCT SERIAL NUMBER ... 1022-789-1189
+--    5 ... PRODUCT CODE ............ {3D9721BA-003E-4711-B7AF-B579645F0AC9}
+--    6 ... PRODUCT SUPPLIER NAME ... AJP Engineering
+--    7 ... PRODUCT SUPPLIER URL .... http://www.AJPEngineering.com
+-- --------------------------------------------------------------------------------
+--    AppMetadata includes fields for ...
+--      + AppMetadataId (PK) ........ e.g., 1
+--      + AppMetadataName ........... e.g., PRODUCT FULLNAME
+--      + AppMetadataValue .......... e.g., AJP HEN Studio 1.0
+-- ================================================================================
+-- 
+-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+--                                                                               !!
+--           A        JJJJJJJJ  PPPPPPP         EEEEEEE  NN     NN   GGGGGG      !!
+--          AAA          JJ     PP    PP        EE       NNN    NN  GG    GG     !!
+--         AA AA         JJ     PP    PP        EE       NNNN   NN  GG           !!
+--        AA   AA        JJ     PPPPPP          EEEEEEE  NN NN  NN  GG   GGGG    !!
+--       AAAAAAAA   JJ   JJ     PP              EE       NN  NN NN  GG    GG     !!
+--      AA      AA  JJ   JJ     PP              EE       NN    NNN  GG    GG     !!
+--     AA        AA  JJJJJJ     PP              EEEEEEE  NN     NN   GGGGGG      !!
+--                                                                               !!
+-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+--    (c)Copyright 2026 AJP Engineering
+--    All rights reserved.
+-- ================================================================================
+--  HISTORY:
+--    06/01/26 .. AJP Engineering .. Version 1.0 : SQLite Version
+-- ================================================================================
+
+CREATE TABLE AppMetadata (
+    AppMetadataId     INTEGER NOT NULL,
+	AppMetadataName   TEXT    NOT NULL,
+	AppMetadataValue  TEXT    NOT NULL,
+
+	PRIMARY KEY(AppMetadataId),
+) STRICT;
+
+-- ================================================================================
+-- ---------------------------  E N D   O F   F I L E  ----------------------------
+-- ================================================================================

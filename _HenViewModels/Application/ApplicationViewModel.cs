@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//########################################  S y s t e m V i e w M o d e l . c s  ######################################
+//################################### A p p l i c a t i o n V i e w M o d e l . c s  ##################################
 //#####################################################################################################################
-//  FILENAME:  SystemViewModel.cs
+//  FILENAME:  ApplicationViewModel.cs
 //  NAMESPACE: HenViewModel.System
-//  CLASS(S):  SystemViewModel
+//  CLASS(S):  ApplicationViewModel
 //  COMPONENT: _HenViewModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the view model class for the system DTO objects.
+//    This file contains the view model class for the Application Database DTO objects.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -50,7 +50,7 @@ namespace HenViewModel.System
     /// <summary>
     /// System view model class.
     /// </summary>
-    public class SystemViewModel : ViewModelBase
+    public class ApplicationViewModel : ViewModelBase
     {
         #region PROPERTIES
         public ConnectionDataRepo ConnectionDataRepoObj { get; set; }
@@ -60,16 +60,16 @@ namespace HenViewModel.System
 
         #region CTOR
         /// <summary>
-        /// Initializes a new instance of the SystemViewModel class and sets up repository dependencies required for
-        /// system operations.
+        /// Initializes a new instance of the ApplicationViewModel class 
+        /// and sets up APPLICATION repository dependencies.
         /// </summary>
         /// <remarks>This constructor creates and configures repository objects using the default
         /// connection string for the Hen Studio database. The repositories are initialized and ready for use after
         /// construction.</remarks>
-        public SystemViewModel() 
+        public ApplicationViewModel() 
         {
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
-            var ProjectRepoObj = new ProjectRepo(connFactoryObj);
+            SQLiteConnectionFactory connFactoryObj = 
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString() );
 
             ConnectionDataRepoObj = new ConnectionDataRepo(connFactoryObj);
             GlobalSettingsRepoObj = new GlobalSettingsRepo(connFactoryObj);

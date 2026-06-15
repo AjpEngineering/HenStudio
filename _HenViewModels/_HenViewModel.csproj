@@ -64,7 +64,7 @@
     <Compile Include="Pinch\Plots\THDiagramPointViewModel.cs" />
     <Compile Include="Pinch\PinchViewModel.cs" />
     <Compile Include="Hen\HenViewModel.cs" />
-    <Compile Include="System\SystemViewModel.cs" />
+    <Compile Include="Application\ApplicationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

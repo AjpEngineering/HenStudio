@@ -38,6 +38,8 @@ using HenGlobal;
 using System;
 using System.IO;
 using System.Windows.Forms;
+
+using Microsoft.Data.Sqlite;
 #endregion  // REFERENCES
 
 #region namespace HenStudio

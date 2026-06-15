@@ -37,10 +37,32 @@
     <ApplicationIcon>AJP Pinch.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Data.Sqlite, Version=10.0.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Sqlite.Core.10.0.9\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.1.11.2622, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.2.1.11\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.1.11.2622, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.2.1.11\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.1.11.2622, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.1.11\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SQLite, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,7 +74,6 @@
   <ItemGroup>
     <Compile Include="Connection\ConnectionString.cs" />
     <Compile Include="Connection\Interface\IDbConnectionFactory.cs" />
-    <Compile Include="Connection\SqlConnectionFactory.cs" />
     <Compile Include="Connection\SQLiteConnectionFactory.cs" />
     <Compile Include="Dto\Profile\ProfileWrapperDto.cs" />
     <Compile Include="Dto\Project\CostParameters\TotalAnnualizedCostDto.cs" />
@@ -158,43 +179,40 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />
-    <Content Include="Tables_SQLite\CompositeCurve.sqlite.sql" />
-    <Content Include="Tables_SQLite\CompositeCurvePointID.sqlite.sql" />
-    <Content Include="Tables_SQLite\CostMetaData.sqlite.sql" />
-    <Content Include="Tables_SQLite\Exchanger.sqlite.sql" />
-    <Content Include="Tables_SQLite\ExchangerParams.sqlite.sql" />
-    <Content Include="Tables_SQLite\FiredHeaterCapitalCost.sqlite.sql" />
-    <Content Include="Tables_SQLite\GlobalSettings.sqlite.sql" />
-    <Content Include="Tables_SQLite\GrandCompositeCurve.sqlite.sql" />
-    <Content Include="Tables_SQLite\GrandCompositeCurvePointID.sqlite.sql" />
-    <Content Include="Tables_SQLite\GridDiagram.sqlite.sql" />
-    <Content Include="Tables_SQLite\GridDiagramPointID.sqlite.sql" />
-    <Content Include="Tables_SQLite\HeatReleaseCurve.sqlite.sql" />
-    <Content Include="Tables_SQLite\HeatReleaseCurvePointID.sqlite.sql" />
-    <Content Include="Tables_SQLite\HenDesign.sqlite.sql" />
-    <Content Include="Tables_SQLite\OptimizerParams.sqlite.sql" />
-    <Content Include="Tables_SQLite\Pinch.sqlite.sql" />
-    <Content Include="Tables_SQLite\ProcessStreams.sqlite.sql" />
-    <Content Include="Tables_SQLite\Profile.sqlite.sql" />
-    <Content Include="Tables_SQLite\Project.sqlite.sql" />
-    <Content Include="Tables_SQLite\ProjectUnits.sqlite.sql" />
-    <Content Include="Tables_SQLite\ShellAndTubeCapitalCost.sqlite.sql" />
-    <Content Include="Tables_SQLite\Targets.sqlite.sql" />
-    <Content Include="Tables_SQLite\THDiagram.sqlite.sql" />
-    <Content Include="Tables_SQLite\THDiagramPoint.sqlite.sql" />
-    <Content Include="Tables_SQLite\TotalAnnualizedCost.sqlite.sql" />
-    <Content Include="Tables_SQLite\UtilityCost.sqlite.sql" />
-    <Content Include="Tables_SQLite\UtilityStreams.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\HenStudio\002_AppComponents.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\HenStudio\001_AppMetadata.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\HenStudio\003_AppSettings.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\HenStudio\103_SeedAppSettings.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\CompositeCurve.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\CompositeCurvePointID.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\CostMetaData.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\Exchanger.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\ExchangerParams.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\FiredHeaterCapitalCost.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\HenStudio\xx_GlobalSettings.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\GrandCompositeCurve.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\GrandCompositeCurvePointID.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\GridDiagram.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\GridDiagramPointID.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\HeatReleaseCurve.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\HeatReleaseCurvePointID.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\HenDesign.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\OptimizerParams.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\Pinch.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\ProcessStreams.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\Profile.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\Project.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\ProjectUnits.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\ShellAndTubeCapitalCost.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\Targets.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\THDiagram.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\THDiagramPoint.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\TotalAnnualizedCost.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\UtilityCost.sqlite.sql" />
+    <Content Include="Database SQLite\Tables\Project\UtilityStreams.sqlite.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
-  </Target>
 </Project>

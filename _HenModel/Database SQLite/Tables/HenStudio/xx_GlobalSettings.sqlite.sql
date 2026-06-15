@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
---  Table: GlobalSettings
---  File : GlobalSettings.sqlite.sql
+--  Table: GlobalSettings   [DEPECRATED ... now 03_AppSettings TABLE]
+--  File : xx_GlobalSettings.sqlite.sql
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Global Settings entity for HEN Studio -> HenStudio.db [Database file].
@@ -44,7 +44,7 @@ CREATE TABLE GlobalSettings (
 
 	CONSTRAINT CK_GlobalSettings_ValueType CHECK (ValueType IN ('INTEGER', 'TEXT', 'REAL'))
 
-);
+) STRICT;
 
 -- ================================================================================
 -- ---------------------------  E N D   O F   F I L E  ----------------------------

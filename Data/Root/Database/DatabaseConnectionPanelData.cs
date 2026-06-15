@@ -59,7 +59,7 @@ namespace HenStudio.Data.Root.Database
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public SystemViewModel SystemViewModelObj { get; set; }
+        public ApplicationViewModel SystemViewModelObj { get; set; }
 
         public ConnectionDataDto ConnectionDataDtoObj { get; set; }
         #endregion  // PROPERTIES
@@ -71,7 +71,7 @@ namespace HenStudio.Data.Root.Database
         /// </summary>
         public DatabaseConnectionPanelData()
         {
-            SystemViewModelObj = new SystemViewModel();
+            SystemViewModelObj = new ApplicationViewModel();
             ConnectionDataDtoObj = new ConnectionDataDto();
         }
         #endregion  // CTOR

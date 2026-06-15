@@ -101,7 +101,7 @@ namespace HenStudio.Data.Root
         #endregion      // PanelData Objects
 
         #region VIEW MODEL Objects
-        public SystemViewModel SystemViewModelObj { get; set; }
+        public ApplicationViewModel SystemViewModelObj { get; set; }
         #endregion  //  VIEW MODEL Objects
 
         #endregion      // PROPERTIES
@@ -132,7 +132,7 @@ namespace HenStudio.Data.Root
             //-----------------------------------------------------------------------
             //--- Initialize ViewModel Objects to Avoid Null Reference Exceptions ---
             //-----------------------------------------------------------------------
-            SystemViewModelObj = new SystemViewModel();
+            SystemViewModelObj = new ApplicationViewModel();
         }
         #endregion  // InitializeWrapperData()
 

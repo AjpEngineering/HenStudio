@@ -13,8 +13,7 @@ using HenModel.Connection.Interface;
 
 using System;
 using System.Data;
-using System.Data.Common;
-using System.Data.SQLite;
+using Microsoft.Data.Sqlite;
 #endregion  // REFERENCES
 
 #region namespace HenModel.Connection
@@ -56,7 +55,7 @@ namespace HenModel.Connection
         /// <returns>An <see cref="IDbConnection"/> instance.</returns>
         public IDbConnection CreateConnection()
         {
-            dbConnection = new SQLiteConnection(_connectionString);
+            dbConnection = new SqliteConnection(_connectionString);
             return dbConnection;
         }
         #endregion  // CreateConnection()

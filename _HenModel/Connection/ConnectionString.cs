@@ -8,7 +8,26 @@
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the database connection string constants for the persistence layer.
+//    This file contains the database connection string constants parameters for the MODEL layer SQLite DB connections.
+//    PARAMETERS
+//---------------------------------------------------------------------------------------------------------------------
+//      Data Source          → Database file name
+//---------------------------------------------------------------------------------------------------------------------
+//    CONNECTION PARAMS
+//      Cache=Shared         → allows multiple connections to the same DB
+//      Mode=ReadWriteCreate → ensures DB file is created if missing
+//      Pooling=True         → improves performance
+//---------------------------------------------------------------------------------------------------------------------
+//    EXAMPLES OF THE TWO DATBASE TYPES ... APPLICATION (HenStudio) and PROJECT (ProjectName):
+//          HenStudio   = "Data Source=HenStudio.db;Cache=Shared;Mode=ReadWriteCreate;Pooling=True;"
+//          Project = "Data Source={ProjectName}.db;Cache=Shared;Mode=ReadWriteCreate;Pooling=True;"
+//---------------------------------------------------------------------------------------------------------------------
+//    NOTE:
+//      The Data Source Parameter is the name of the database.  For ...
+//          HenStudio the Data Source is "HenStudio.db" ........... APPLICATION DATABASE
+//          Project   the Data Source is the "ProjectName.db" ..... PROJECT     DATABASE
+//---------------------------------------------------------------------------------------------------------------------
+//      The Data Source Parameter is provided by the client in the GetConnectionString() Static Method
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -35,17 +54,53 @@
 #region namespace HenModel.Connection
 namespace HenModel.Connection
 {
-    #region public static class ConnectionStrings
+    #region public static class ConnectionString
     /// <summary>
     /// Database connection string constants class.
     /// </summary>
-    public static class ConnectionStrings
+    public static class ConnectionString
     {
         #region CONSTANTS
-        public const string HenStudio = "Server=localhost\\HENSTUDIO;Database=HenStudio;Trusted_Connection=True;";
+        public const string APP_DB_FILENAME = "HenStudio.db";
+        public const string CONN_PARAMS = "Cache=Shared;Mode=ReadWriteCreate;Pooling=True;";
         #endregion      // CONSTANTS
+
+        #region GetSqliteAppConnectionString(string strAppDatabaseFilename)
+        /// <summary>
+        /// Get SQLite Connection String for APPLICATION (e.g., HenStudio.db) Database Filename
+        /// </summary>
+        /// <param name="strDatabaseFilename">Application Database Filename.  DEFAULT is APP_DB_FILENAME</param>
+        /// <returns>Connection String to APPLICATION Database</returns>
+        public static string GetSqliteAppConnectionString(string strAppDatabaseFilename = APP_DB_FILENAME)
+        {
+            //--------------------------------------------------------------------------------------------------
+            //----------------------------------------------- EXAMPLE ------------------------------------------
+            //--------------------------------------------------------------------------------------------------
+            //---     HenStudio: "Data Source=HenStudio.db;Cache=Shared;Mode=ReadWriteCreate;Pooling=True;"; ---
+            //--------------------------------------------------------------------------------------------------
+            return string.Format("Data Source={0}{1]", strAppDatabaseFilename, CONN_PARAMS);
+        }
+        #endregion  // GetSqliteAppConnectionString(string strDatabaseFilename)
+
+        #region GetSqliteProjectConnectionString(string strProjectDatabaseFilename)
+        /// <summary>
+        /// Get SQLite Connection String for PROJECT (e.g., Exxon.db) Database Filename
+        /// </summary>
+        /// <param name="strProjectDatabaseFilename">Database Filename.  NO DEFAULT ALLOWED</param>
+        /// <returns>Connection String to PROJECT Database</returns>
+        public static string GetSqliteProjectConnectionString(string strProjectDatabaseFilename)
+        {
+            //---------------------------------------------------------------------------------------------
+            //------------------------------------------- EXAMPLE -----------------------------------------
+            //---------------------------------------------------------------------------------------------
+            //---     Project : "Data Source=Exxon.db;Cache=Shared;Mode=ReadWriteCreate;Pooling=True;"; ---
+            //---------------------------------------------------------------------------------------------
+            return string.Format("Data Source={0}{1]", strProjectDatabaseFilename, CONN_PARAMS);
+        }
+        #endregion  // GetSqliteProjectConnectionString(string strDatabaseFilename)
+
     }
-    #endregion      // public static class ConnectionStrings
+    #endregion      // public static class ConnectionString
 }
 #endregion      // namespace HenModel.Connection
 

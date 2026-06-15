@@ -658,7 +658,7 @@ namespace HenStudio
             //---------------------------------------------------------
             //--- Create ViewModel Repo Objects to Retrieve DB Data ---
             //---------------------------------------------------------
-            SystemViewModel systemViewModelObj = new SystemViewModel();
+            ApplicationViewModel systemViewModelObj = new ApplicationViewModel();
 
             SqlConnectionFactory connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
             ConnectionDataRepo connDataRepo = new ConnectionDataRepo(connFactoryObj);
