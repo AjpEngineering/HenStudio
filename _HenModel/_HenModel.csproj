@@ -50,19 +50,19 @@
       <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.1.11\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -179,40 +179,48 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />
-    <Content Include="Database SQLite\Tables\HenStudio\002_AppComponents.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\HenStudio\001_AppMetadata.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\HenStudio\003_AppSettings.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\HenStudio\103_SeedAppSettings.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\CompositeCurve.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\CompositeCurvePointID.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\CostMetaData.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\Exchanger.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\ExchangerParams.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\FiredHeaterCapitalCost.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\HenStudio\xx_GlobalSettings.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\GrandCompositeCurve.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\GrandCompositeCurvePointID.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\GridDiagram.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\GridDiagramPointID.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\HeatReleaseCurve.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\HeatReleaseCurvePointID.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\HenDesign.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\OptimizerParams.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\Pinch.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\ProcessStreams.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\Profile.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\Project.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\ProjectUnits.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\ShellAndTubeCapitalCost.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\Targets.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\THDiagram.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\THDiagramPoint.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\TotalAnnualizedCost.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\UtilityCost.sqlite.sql" />
-    <Content Include="Database SQLite\Tables\Project\UtilityStreams.sqlite.sql" />
+    <None Include="Database\HenStudio\Scripts\Build\CombineHenStudioScripts.ps1" />
+    <None Include="Database\HenStudio\Scripts\Create\002_AppComponents.sqlite" />
+    <None Include="Database\HenStudio\Scripts\Create\001_AppMetadata.sqlite" />
+    <None Include="Database\HenStudio\Scripts\Create\003_AppSettings.sqlite" />
+    <None Include="Database\HenStudio\Scripts\Seed\003_SeedAppSettings.sqlite" />
+    <Content Include="Database\HenStudio\Scripts\Build\Output\00_create_all_henstudio.sql" />
+    <Content Include="Database\HenStudio\Scripts\Build\Output\01_seed_all_henstudio.sql" />
+    <Content Include="Database\Project\Tables\CompositeCurve.sqlite.sql" />
+    <Content Include="Database\Project\Tables\CompositeCurvePointID.sqlite.sql" />
+    <Content Include="Database\Project\Tables\CostMetaData.sqlite.sql" />
+    <Content Include="Database\Project\Tables\Exchanger.sqlite.sql" />
+    <Content Include="Database\Project\Tables\ExchangerParams.sqlite.sql" />
+    <Content Include="Database\Project\Tables\FiredHeaterCapitalCost.sqlite.sql" />
+    <Content Include="Database\Project\Tables\GrandCompositeCurve.sqlite.sql" />
+    <Content Include="Database\Project\Tables\GrandCompositeCurvePointID.sqlite.sql" />
+    <Content Include="Database\Project\Tables\GridDiagram.sqlite.sql" />
+    <Content Include="Database\Project\Tables\GridDiagramPointID.sqlite.sql" />
+    <Content Include="Database\Project\Tables\HeatReleaseCurve.sqlite.sql" />
+    <Content Include="Database\Project\Tables\HeatReleaseCurvePointID.sqlite.sql" />
+    <Content Include="Database\Project\Tables\HenDesign.sqlite.sql" />
+    <Content Include="Database\Project\Tables\OptimizerParams.sqlite.sql" />
+    <Content Include="Database\Project\Tables\Pinch.sqlite.sql" />
+    <Content Include="Database\Project\Tables\ProcessStreams.sqlite.sql" />
+    <Content Include="Database\Project\Tables\Profile.sqlite.sql" />
+    <Content Include="Database\Project\Tables\Project.sqlite.sql" />
+    <Content Include="Database\Project\Tables\ProjectUnits.sqlite.sql" />
+    <Content Include="Database\Project\Tables\ShellAndTubeCapitalCost.sqlite.sql" />
+    <Content Include="Database\Project\Tables\Targets.sqlite.sql" />
+    <Content Include="Database\Project\Tables\THDiagram.sqlite.sql" />
+    <Content Include="Database\Project\Tables\THDiagramPoint.sqlite.sql" />
+    <Content Include="Database\Project\Tables\TotalAnnualizedCost.sqlite.sql" />
+    <Content Include="Database\Project\Tables\UtilityCost.sqlite.sql" />
+    <Content Include="Database\Project\Tables\UtilityStreams.sqlite.sql" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database\Project\Scripts\Build\Output\" />
+    <Folder Include="Database\Project\Scripts\Create\" />
+    <Folder Include="Database\Project\Scripts\Seed\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

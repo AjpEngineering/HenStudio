@@ -1,25 +1,35 @@
 -- --------------------------------------------------------------------------------
---  Table: AppMetadata
---  File : 001_AppMetadata.sqlite.sql
+--  Table: AppComponents
+--  File : 002_AppComponents.sqlite
 -- --------------------------------------------------------------------------------
 --  Description: 
---    Application Metadata entity for HEN Studio -> HenStudio.db [Database file].
---    Contains AJP HEN Studio Application Metadata settings.
+--    Application Components entity for HEN Studio -> HenStudio.db [Database file].
+--    Contains AJP HEN Studio Application Components list.
 -- --------------------------------------------------------------------------------
---    Table is seeded at Creation as follows.
+--    Table is seeded at Creation (EXPECTED VALUES) as follows.
+--    The last field shows EXPECTED vs. ACTUAL result [FOUND | MISSING | NONE]. 
 -- --------------------------------------------------------------------------------
---    1 ... PRODUCT FULLNAME ........ AJP HEN Studio 1.0
---    2 ... PRODUCT NAME ............ AJP HEN Studio
---    3 ... PRODUCT VERSION ......... 1.0
---    4 ... PRODUCT SERIAL NUMBER ... 1022-789-1189
---    5 ... PRODUCT CODE ............ {3D9721BA-003E-4711-B7AF-B579645F0AC9}
---    6 ... PRODUCT SUPPLIER NAME ... AJP Engineering
---    7 ... PRODUCT SUPPLIER URL .... http://www.AJPEngineering.com
+--    1 ... _AJP License File ......... dll ...... FOUND
+--    2 ... _HenDomainModel ........... dll ...... FOUND
+--    3 ... _HenGlobal ................ dll ...... FOUND
+--    4 ... _HenModel ................. dll ...... FOUND
+--    5 ... _HenViewModel ............. dll ...... FOUND
+--    6 ... HenStudio ................. exe ...... FOUND
+--    7 ... HenStudio.config .......... config ... FOUND
+--    8 ... HenStudio: {Table Name} ... script ... FOUND
+--    x ...     :                        :           :  
+--    x ... HenStudio: Seed ........... script ... FOUND
+--    x ... Project: {Table Name} ..... script ... FOUND
+--    x ...     :                        :           :  
+--    x ... Project: Seed ............. script ... FOUND
+--    x ... Migration:{Name} .......... script ... FOUND
+--    x ...     :                        :           :  
 -- --------------------------------------------------------------------------------
---    AppMetadata includes fields for ...
---      + AppMetadataId (PK) ........ e.g., 1
---      + AppMetadataName ........... e.g., PRODUCT FULLNAME
---      + AppMetadataValue .......... e.g., AJP HEN Studio 1.0
+--    AppComponents includes fields for ...
+--      + ComponentId (PK) ............ e.g., 1
+--      + ComponentName ............... e.g., _HenModel
+--      + ComponentType ............... e.g., dll
+--      + ComponentStatus ............. e.g., FOUND
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -40,12 +50,15 @@
 --    06/01/26 .. AJP Engineering .. Version 1.0 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE AppMetadata (
-    AppMetadataId     INTEGER NOT NULL,
-	AppMetadataName   TEXT    NOT NULL,
-	AppMetadataValue  TEXT    NOT NULL,
+CREATE TABLE AppComponents (
+    ComponentId      INTEGER NOT NULL,
+	ComponentName    TEXT    NOT NULL,
+	ComponentType    TEXT    NOT NULL,
+	ComponentStatus  TEXT    NOT NULL,
 
-	PRIMARY KEY(AppMetadataId),
+	PRIMARY KEY(ComponentId),
+	CONSTRAINT CK_AppComponents_ComponentType CHECK (ComponentType IN ('dll', 'exe', 'config', 'script')),
+	CONSTRAINT CK_AppComponents_ComponentStatus CHECK (ComponentStatus IN ('FOUND', 'MISSING', 'NONE'))
 ) STRICT;
 
 -- ================================================================================

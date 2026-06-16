@@ -1,6 +1,6 @@
 ﻿-- --------------------------------------------------------------------------------
---  SCRIPT: 103_SeedAppSettings
---  File  : 103_SeedAppSettings.sqlite.sql
+--  SCRIPT: 003_SeedAppSettings
+--  File  : 003_SeedAppSettings.sqlite
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Script to seed the AppSettings Table.
@@ -28,8 +28,6 @@
 --  HISTORY:
 --    06/01/26 .. AJP Engineering .. Version 1.0 : SQLite Version
 -- ================================================================================
-
-PRINT 'Seeding AppSettings...';
 
 BEGIN TRANSACTION;
 
