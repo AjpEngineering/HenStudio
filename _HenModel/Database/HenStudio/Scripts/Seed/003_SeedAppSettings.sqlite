@@ -4,6 +4,8 @@
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Script to seed the AppSettings Table.
+--    The BEGIN TRANSACTION - COMMIT block is contained in the combined seed
+--    it will not be included here.
 -- --------------------------------------------------------------------------------
 --    AppSettings includes fields for ...
 --      + App Setting Id (PK) ... INTEGER
@@ -28,8 +30,6 @@
 --  HISTORY:
 --    06/01/26 .. AJP Engineering .. Version 1.0 : SQLite Version
 -- ================================================================================
-
-BEGIN TRANSACTION;
 
 -- Reset AppSettings then insert canonical seed values (integer AppSettingId)
 DELETE FROM AppSettings;
@@ -63,8 +63,6 @@ INSERT INTO AppSettings (AppSettingId, AppSettingName, AppSettingValue) VALUES
   (26, 'ReportDefaultFont', 'Segoe Ul'),
   (27, 'ReportDefaultFontSize', '11'),
   (28, 'SchemaVersion', '1.0.0');
-
-COMMIT;
 
 -- ================================================================================
 -- ---------------------------  E N D   O F   F I L E  ----------------------------

@@ -4,6 +4,8 @@
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Script to seed the AppMetadata Table.
+--    The BEGIN TRANSACTION - COMMIT block is contained in the combined seed
+--    it will not be included here.
 -- --------------------------------------------------------------------------------
 --    AppMetadata includes fields for ...
 --      + App Metadata Id (PK) ... INTEGER
@@ -29,8 +31,6 @@
 --    06/01/26 .. AJP Engineering .. Version 1.0 : SQLite Version
 -- ================================================================================
 
-BEGIN TRANSACTION;
-
 -- Reset AppMetadata then insert canonical seed values (integer AppMetadataId)
 DELETE FROM AppMetadata;
 
@@ -41,9 +41,7 @@ INSERT INTO AppMetadata (AppMetadataId, AppMetadataName, AppMetadataValue) VALUE
   (4, 'PRODUCT SERIAL NUMBER', '1022-789-1189'),
   (5, 'PRODUCT CODE', '{3D9721BA-003E-4711-B7AF-B579645F0AC9}'),
   (6, 'PRODUCT SUPPLIER NAME', 'AJP Engineering'),
-  (7, 'PRODUCT SUPPLIER URLs', 'http://www.AJPEngineering.com'),
-
-COMMIT;
+  (7, 'PRODUCT SUPPLIER URLs', 'http://www.AJPEngineering.com');
 
 -- ================================================================================
 -- ---------------------------  E N D   O F   F I L E  ----------------------------

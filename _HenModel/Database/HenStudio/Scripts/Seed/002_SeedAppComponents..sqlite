@@ -4,6 +4,8 @@
 -- --------------------------------------------------------------------------------
 --  Description: 
 --    Script to seed the AppComponents Table.
+--    The BEGIN TRANSACTION - COMMIT block is contained in the combined seed
+--    it will not be included here.
 -- --------------------------------------------------------------------------------
 --    AppComponents includes fields for ...
 --      + App Component Id (PK) ... INTEGER
@@ -29,8 +31,6 @@
 --    06/01/26 .. AJP Engineering .. Version 1.0 : SQLite Version
 -- ================================================================================
 
-BEGIN TRANSACTION;
-
 -- Reset AppComponents then insert canonical seed values (integer ComponentId)
 DELETE FROM AppComponents;
 
@@ -41,9 +41,7 @@ INSERT INTO AppComponents (ComponentId, ComponentName, ComponentType) VALUES
   (4, '_HenModel', 'dll'),
   (5, '_HenViewModel', 'dll'),
   (6, 'HenStudio', 'exe'),
-  (7, 'HenStudio.config', 'config'),
-
-COMMIT;
+  (7, 'HenStudio.config', 'config');
 
 -- ================================================================================
 -- ---------------------------  E N D   O F   F I L E  ----------------------------
