@@ -3,7 +3,7 @@
 //######################################  D a t a b a s e T a b l e R e p o . c s  ####################################
 //#####################################################################################################################
 //  FILENAME:  DatabaseTableRepo.cs
-//  NAMESPACE: HenModel.RepoImplementations.System
+//  NAMESPACE: HenModel.RepoImplementations.Application
 //  CLASS(S):  DatabaseTableRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -36,16 +36,16 @@
 using HenModel.Connection;
 using HenModel.Connection.Interface;
 
-using HenModel.Dto.System;
-using HenModel.RepoInterfaces.System;
+using HenModel.Dto.Application;
+using HenModel.RepoInterfaces.Application;
 
 using System;
 using System.Collections.Generic;
 using System.Data;
 #endregion      // REFERENCES
 
-#region namespace HenModel.RepoImplementations.System
-namespace HenModel.RepoImplementations.System
+#region namespace HenModel.RepoImplementations.Application
+namespace HenModel.RepoImplementations.Application
 {
     #region public class DatabaseTableRepo
     /// <summary>
@@ -77,18 +77,23 @@ namespace HenModel.RepoImplementations.System
 
         #region GetDatabaseTables()
         /// <summary>
-        /// Retrieves a list of all base tables in the database, including their schema and table names.
+        /// Retrieves a list of all base tables in the database, including their 
+        /// schema and table names.
         /// </summary>
-        /// <returns>A list of <see cref="DatabaseTableDto"/> objects representing the schema and name of each base table in the
-        /// database. The list is empty if no base tables are found.</returns>
+        /// <returns>A list of <see cref="DatabaseTableDto"/> objects representing 
+        /// the schema and name of each base table in the database. The list is 
+        /// empty if no base tables are found.</returns>
         public IList<DatabaseTableDto> GetDatabaseTables()
         {
-            const string sql = @"SELECT TABLE_SCHEMA,
-                                        TABLE_NAME
-                                 FROM INFORMATION_SCHEMA.TABLES
-                                 WHERE TABLE_TYPE = 'BASE TABLE'
-                                 ORDER BY TABLE_SCHEMA,
-                                          TABLE_NAME;";
+            //----------------------------------------------------
+            //--- SQLite: list user tables from sqlite_master. ---
+            //--- Exclude internal sqlite_ tables.             ---
+            //----------------------------------------------------
+            const string sql = @"SELECT name AS TABLE_NAME
+                                  FROM sqlite_master
+                                  WHERE type = 'table'
+                                    AND name NOT LIKE 'sqlite_%'
+                                  ORDER BY name;";
 
             List<DatabaseTableDto> tables = new List<DatabaseTableDto>();
 
@@ -103,14 +108,16 @@ namespace HenModel.RepoImplementations.System
 
                     using (IDataReader reader = command.ExecuteReader())
                     {
-                        int schemaNameOrdinal = reader.GetOrdinal("TABLE_SCHEMA");
                         int tableNameOrdinal = reader.GetOrdinal("TABLE_NAME");
 
                         while (reader.Read())
                         {
                             tables.Add(new DatabaseTableDto
                             {
-                                SchemaName = reader.IsDBNull(schemaNameOrdinal) ? String.Empty : reader.GetString(schemaNameOrdinal),
+                                //---------------------------------------------------
+                                //--- SchemaName not used for SQLite; Assign "NA" ---
+                                //---------------------------------------------------
+                                SchemaName = "NA",
                                 TableName = reader.IsDBNull(tableNameOrdinal) ? String.Empty : reader.GetString(tableNameOrdinal)
                             });
                         }
@@ -126,7 +133,7 @@ namespace HenModel.RepoImplementations.System
     }
     #endregion      // public class DatabaseTableRepo
 }
-#endregion      // namespace HenModel.RepoImplementations.System
+#endregion      // namespace HenModel.RepoImplementations.Application
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

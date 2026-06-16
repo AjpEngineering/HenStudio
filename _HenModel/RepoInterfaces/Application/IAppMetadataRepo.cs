@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//####################################  I C o n n e c t i o n D a t a R e p o . c s  ##################################
+//#######################################  I A p p M e t a d a t a R e p o . c s  #####################################
 //#####################################################################################################################
-//  FILENAME:  IConnectionDataRepo.cs
+//  FILENAME:  IAppMetadataRepo.cs
 //  NAMESPACE: HenModel.RepoInterfaces.System
-//  INTERFACE: IConnectionDataRepo
+//  INTERFACE: IAppMetadataRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for database connection metadata queries.
+//    This file contains the repo interface for the App Metadata.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,25 +33,27 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.System;
+using HenModel.Dto.Application;
+
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.RepoInterfaces.System
-namespace HenModel.RepoInterfaces.System
+#region namespace HenModel.RepoInterfaces.Application
+namespace HenModel.RepoInterfaces.Application
 {
-    #region public interface IConnectionDataRepo
+    #region public interface IAppMetadataRepo
     /// <summary>
-    /// ConnectionData Repo Interface
+    /// AppComponents Repo Interface
     /// </summary>
-    public interface IConnectionDataRepo
+    public interface IAppMetadataRepo
     {
         #region METHODS
-        ConnectionDataDto GetConnectionData();
+        List<AppMetadataDto> GetAppMetadataList();
         #endregion      // METHODS
     }
-    #endregion      // public interface IConnectionDataRepo
+    #endregion      // public interface IAppMetadataRepo
 }
-#endregion      // namespace HenModel.RepoInterfaces.System
+#endregion      // namespace HenModel.RepoInterfaces.Application
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

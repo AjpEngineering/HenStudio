@@ -38,9 +38,9 @@ using AJP_License_File;
 
 using HenGlobal;
 
-using HenModel.Dto.System;
+using HenModel.Dto.Application;
 
-using HenViewModel.System;
+using HenViewModel.Application;
 
 using System;
 using System.Collections.Generic;

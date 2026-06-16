@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//####################################  I G l o b a l S e t t i n g s R e p o . c s  ##################################
+//####################################  I D a t a b a s e T a b l e R e p o . c s  ####################################
 //#####################################################################################################################
-//  FILENAME:  IGlobalSettingsRepo.cs
+//  FILENAME:  IDatabaseTableRepo.cs
 //  NAMESPACE: HenModel.RepoInterfaces.System
-//  INTERFACE: IGlobalSettingsRepo
+//  INTERFACE: IDatabaseTableRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for the Global Settings table.
+//    This file contains the repo interface for database table name queries.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,28 +33,27 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.System;
+using HenModel.Dto.Application;
 
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.RepoInterfaces.System
-namespace HenModel.RepoInterfaces.System
+#region namespace HenModel.RepoInterfaces.Application
+namespace HenModel.RepoInterfaces.Application
 {
-    #region public interface IGlobalSettingsRepo
+    #region public interface IDatabaseTableRepo
     /// <summary>
-    /// GlobalSettings Repo Interface
+    /// DatabaseTable Repo Interface
     /// </summary>
-    public interface IGlobalSettingsRepo
+    public interface IDatabaseTableRepo
     {
         #region METHODS
-        IList<GlobalSettingsDto> GetGlobalSettings();
-        GlobalSettingsDto GetGlobalSettingsByKey(string settingKey);
+        IList<DatabaseTableDto> GetDatabaseTables();
         #endregion      // METHODS
     }
-    #endregion      // public interface IGlobalSettingsRepo
+    #endregion      // public interface IDatabaseTableRepo
 }
-#endregion      // namespace HenModel.RepoInterfaces.System
+#endregion      // namespace HenModel.RepoInterfaces.Application
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

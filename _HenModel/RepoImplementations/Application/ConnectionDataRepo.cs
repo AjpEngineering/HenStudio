@@ -3,7 +3,7 @@
 //######################################  C o n n e c t i o n D a t a R e p o . c s  ##################################
 //#####################################################################################################################
 //  FILENAME:  ConnectionDataRepo.cs
-//  NAMESPACE: HenModel.RepoImplementations.System
+//  NAMESPACE: HenModel.RepoImplementations.Application
 //  CLASS(S):  ConnectionDataRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
@@ -36,8 +36,8 @@
 using HenModel.Connection;
 using HenModel.Connection.Interface;
 
-using HenModel.Dto.System;
-using HenModel.RepoInterfaces.System;
+using HenModel.Dto.Application;
+using HenModel.RepoInterfaces.Application;
 
 using System;
 using System.Data;
@@ -45,8 +45,8 @@ using System.Data.Common;
 using System.Data.SqlClient;
 #endregion      // REFERENCES
 
-#region namespace HenModel.RepoImplementations.System
-namespace HenModel.RepoImplementations.System
+#region namespace HenModel.RepoImplementations.Application
+namespace HenModel.RepoImplementations.Application
 {
     #region public class ConnectionDataRepo
     /// <summary>
@@ -176,7 +176,7 @@ namespace HenModel.RepoImplementations.System
     }
     #endregion      // public class ConnectionDataRepo
 }
-#endregion      // namespace HenModel.RepoImplementations.System
+#endregion      // namespace HenModel.RepoImplementations.Application
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -75,6 +75,8 @@
     <Compile Include="Connection\ConnectionString.cs" />
     <Compile Include="Connection\Interface\IDbConnectionFactory.cs" />
     <Compile Include="Connection\SQLiteConnectionFactory.cs" />
+    <Compile Include="Dto\Application\AppComponentsDto.cs" />
+    <Compile Include="Dto\Application\AppMetadataDto.cs" />
     <Compile Include="Dto\Profile\ProfileWrapperDto.cs" />
     <Compile Include="Dto\Project\CostParameters\TotalAnnualizedCostDto.cs" />
     <Compile Include="Dto\Project\CostParameters\UtilityCostDto.cs" />
@@ -88,12 +90,15 @@
     <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\OptimizerGreedyDto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\OptimizerMILP_Dto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\ProjectUnits\ProjectUnitsDto.cs" />
-    <Compile Include="Dto\System\AppGlobalSettingsDto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\ExchangerParams\HeatTransferCoeffDto.cs" />
+    <Compile Include="RepoImplementations\Application\AppComponentsRepo.cs" />
+    <Compile Include="RepoImplementations\Application\AppMetadataRepo.cs" />
     <Compile Include="RepoImplementations\Project\CostParameters\UtilityCostRepo.cs" />
     <Compile Include="RepoImplementations\Project\CostParameters\TotalAnnualizedCostRepo.cs" />
     <Compile Include="RepoImplementations\Project\CostParameters\ShellAndTubeCapitalCostRepo.cs" />
     <Compile Include="RepoImplementations\Project\CostParameters\FiredHeaterCapitalCostRepo.cs" />
+    <Compile Include="RepoInterfaces\Application\IAppMetadataRepo.cs" />
+    <Compile Include="RepoInterfaces\Application\IAppComponentsRepo.cs" />
     <Compile Include="RepoInterfaces\Project\CostParameters\ITotalAnnualizedCostRepo.cs" />
     <Compile Include="RepoInterfaces\Project\CostParameters\IUtilityCostRepo.cs" />
     <Compile Include="RepoInterfaces\Project\CostParameters\IFiredHeaterCapitalCostRepo.cs" />
@@ -140,13 +145,13 @@
     <Compile Include="RepoInterfaces\Hen\Plots\IGridDiagramPointIDRepo.cs" />
     <Compile Include="RepoInterfaces\Hen\Plots\IHeatReleaseCurveRepo.cs" />
     <Compile Include="RepoInterfaces\Hen\Plots\IHeatReleaseCurvePointIDRepo.cs" />
-    <Compile Include="Dto\System\DatabaseTableDto.cs" />
-    <Compile Include="Dto\System\GlobalSettingsDto.cs" />
+    <Compile Include="Dto\Application\DatabaseTableDto.cs" />
+    <Compile Include="Dto\Application\AppSettingsDto.cs" />
     <Compile Include="RepoInterfaces\Project\DefaultParameters\ProjectUnits\IProjectUnitsRepo.cs" />
-    <Compile Include="RepoInterfaces\System\IDatabaseTableRepo.cs" />
-    <Compile Include="RepoInterfaces\System\IGlobalSettingsRepo.cs" />
-    <Compile Include="Dto\System\ConnectionDataDto.cs" />
-    <Compile Include="RepoInterfaces\System\IConnectionDataRepo.cs" />
+    <Compile Include="RepoInterfaces\Application\IDatabaseTableRepo.cs" />
+    <Compile Include="RepoInterfaces\Application\IAppSettingsRepo.cs" />
+    <Compile Include="Dto\Application\ConnectionDataDto.cs" />
+    <Compile Include="RepoInterfaces\Application\IConnectionDataRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepoImplementations\Hen\ExchangerRepo.cs" />
     <Compile Include="RepoImplementations\Hen\Plots\GridDiagramPointIDRepo.cs" />
@@ -173,9 +178,9 @@
     <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerParamsRepo.cs" />
     <Compile Include="RepoImplementations\Project\ProjectRepo.cs" />
     <Compile Include="RepoImplementations\Project\DefaultParameters\ProjectUnits\ProjectUnitsRepo.cs" />
-    <Compile Include="RepoImplementations\System\ConnectionDataRepo.cs" />
-    <Compile Include="RepoImplementations\System\DatabaseTableRepo.cs" />
-    <Compile Include="RepoImplementations\System\GlobalSettingsRepo.cs" />
+    <Compile Include="RepoImplementations\Application\ConnectionDataRepo.cs" />
+    <Compile Include="RepoImplementations\Application\DatabaseTableRepo.cs" />
+    <Compile Include="RepoImplementations\Application\AppSettingsRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AJP Pinch.ico" />

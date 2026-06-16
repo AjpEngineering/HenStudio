@@ -57,7 +57,7 @@ using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
-using HenModel.Dto.System;
+using HenModel.Dto.Application;
 #endregion  // REFERENCES
 
 #region namespace HenGlobal

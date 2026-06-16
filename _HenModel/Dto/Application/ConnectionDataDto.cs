@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//####################################  I D a t a b a s e T a b l e R e p o . c s  ####################################
+//######################################  C o n n e c t i o n D a t a D t o . c s  ####################################
 //#####################################################################################################################
-//  FILENAME:  IDatabaseTableRepo.cs
-//  NAMESPACE: HenModel.RepoInterfaces.System
-//  INTERFACE: IDatabaseTableRepo
+//  FILENAME:  ConnectionDataDto.cs
+//  NAMESPACE: HenModel.Dto.System
+//  CLASS(S):  ConnectionDataDto
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for database table name queries.
+//    This file contains the DTO class for database connection metadata query results.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -32,28 +32,29 @@
 //#####################################################################################################################
 #endregion      // HEADER
 
-#region REFERENCES
-using HenModel.Dto.System;
-
-using System.Collections.Generic;
-#endregion      // REFERENCES
-
-#region namespace HenModel.RepoInterfaces.System
-namespace HenModel.RepoInterfaces.System
+#region namespace HenModel.Dto.Application
+namespace HenModel.Dto.Application
 {
-    #region public interface IDatabaseTableRepo
+    #region public class ConnectionDataDto
     /// <summary>
-    /// DatabaseTable Repo Interface
+    /// ConnectionData DTO Class
     /// </summary>
-    public interface IDatabaseTableRepo
+    public class ConnectionDataDto
     {
-        #region METHODS
-        IList<DatabaseTableDto> GetDatabaseTables();
-        #endregion      // METHODS
+        #region PROPERTIES
+        public string DataSource { get; set; }
+        public string UserId { get; set; }
+        public string WorkstationId { get; set; }
+        public string InitialCatalog { get; set; }
+        public int Timeout { get; set; }
+        public int PacketSize { get; set; }
+        public string ServerVersion { get; set; }
+        public string ConnectionState { get; set; }
+        #endregion      // PROPERTIES
     }
-    #endregion      // public interface IDatabaseTableRepo
+    #endregion      // public class ConnectionDataDto
 }
-#endregion      // namespace HenModel.RepoInterfaces.System
+#endregion      // namespace HenModel.Dto.Application
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -35,9 +35,9 @@
 #region REFERENCES
 using HenGlobal;
 
-using HenModel.Dto.System;
+using HenModel.Dto.Application;
 
-using HenViewModel.System;
+using HenViewModel.Application;
 
 using System;
 using System.Collections.Generic;
@@ -58,9 +58,9 @@ namespace HenStudio.Data.Root.FactorySettings
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public ApplicationViewModel SystemViewModelObj { get; set; }
+        public ApplicationViewModel ApplicationViewModelObj { get; set; }
 
-        public AppGlobalSettingsDto AppGlobalSettingsList { get; set; }
+        public List<AppSettingsDto> AppFactorySettingsList { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -70,8 +70,8 @@ namespace HenStudio.Data.Root.FactorySettings
         /// </summary>
         public AppSettingsPanelData()
         {
-            SystemViewModelObj = new ApplicationViewModel();
-            AppGlobalSettingsList = new AppGlobalSettingsDto();
+            ApplicationViewModelObj = new ApplicationViewModel();
+            AppFactorySettingsList = new List<AppSettingsDto>();
         }
         #endregion  // CTOR
 
@@ -85,7 +85,7 @@ namespace HenStudio.Data.Root.FactorySettings
             //--------------------------------
             //--- Load App Global Settings ---
             //--------------------------------
-            AppGlobalSettingsList = SystemViewModelObj.GetAppGlobalSettings();
+            AppFactorySettingsList = ApplicationViewModelObj.GetFactorySettingsList();
         }
         #endregion  // LoadAppSettingsData()
 

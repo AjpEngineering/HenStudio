@@ -37,13 +37,13 @@
 #region AJP HEN NAMESPACES
 using HenGlobal;
 
-using HenModel.Dto.System;
+using HenModel.Dto.Application;
 using HenModel.Dto.Project;
 using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
-using HenViewModel.System;
+using HenViewModel.Application;
 using HenViewModel.Project;
 using HenViewModel.Project.DefaultParameters.ExchangerParams;
 using HenViewModel.Project.DefaultParameters.OptimizerParams;
@@ -114,71 +114,71 @@ namespace HenStudio
         /// <summary>
         /// NEW Parameterized Constructor
         /// </summary>
-        public FormProjectNewModify(AppGlobalSettingsDto appGlobalSettingsObj)
+        public FormProjectNewModify( ) //AppGlobalSettingsDto appGlobalSettingsObj)
         {
-            OrigProjectName = string.Empty;
-            NewProjectFlag = true; // NEW Project
+            //OrigProjectName = string.Empty;
+            //NewProjectFlag = true; // NEW Project
 
-            //------------------------------------------------
-            //--- Initialize New Project Settings Property ---
-            //------------------------------------------------
-            NewProjectSettingsObj = new DefaultProjectSettings();
-            ProjectPanelDataObj = new ProjectPanelData();
+            ////------------------------------------------------
+            ////--- Initialize New Project Settings Property ---
+            ////------------------------------------------------
+            //NewProjectSettingsObj = new DefaultProjectSettings();
+            //ProjectPanelDataObj = new ProjectPanelData();
 
-            InitializeComponent();
+            //InitializeComponent();
 
-            //-----------------------------------
-            //--- Set Initial Form Title Text ---
-            //-----------------------------------
-            this.Text = string.Format("NEW Project Data : Project_Name");
+            ////-----------------------------------
+            ////--- Set Initial Form Title Text ---
+            ////-----------------------------------
+            //this.Text = string.Format("NEW Project Data : Project_Name");
 
-            //----------------------------------
-            //--- Initialize Textbox Strings ---
-            //----------------------------------
-            this.textBoxProjectNameValue.Text = "Project_Name";
-            this.textBoxProjectDescriptionValue.Text = "Enter Project Description";
+            ////----------------------------------
+            ////--- Initialize Textbox Strings ---
+            ////----------------------------------
+            //this.textBoxProjectNameValue.Text = "Project_Name";
+            //this.textBoxProjectDescriptionValue.Text = "Enter Project Description";
 
-            this.textBoxDefaultF_Value.Text = DEFAULT_F_CORRECTION_FACTOR.ToString();
+            //this.textBoxDefaultF_Value.Text = DEFAULT_F_CORRECTION_FACTOR.ToString();
 
-            if (string.Compare(appGlobalSettingsObj.ExternalSystemUnits, "English - Imperial", true)==0)
-            {
-                //-----------------------
-                //--- Set Enum Values ---
-                //-----------------------
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishTempEnum = ProjectEnglishTemp.DEG_F;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishPressEnum = ProjectEnglishPress.PSIA;
+            //if (string.Compare(appGlobalSettingsObj.ExternalSystemUnits, "English - Imperial", true)==0)
+            //{
+            //    //-----------------------
+            //    //--- Set Enum Values ---
+            //    //-----------------------
+            //    NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.ENGLISH;
+            //    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.MEGA;
+            //    NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishTempEnum = ProjectEnglishTemp.DEG_F;
+            //    NewProjectSettingsObj.ExternalUnitsObj.ProjectEnglishPressEnum = ProjectEnglishPress.PSIA;
 
-                this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_MEGA.ToString();
+            //    this.textBoxDefaultU_Value.Text = DEFAULT_U_ENGLISH_MEGA.ToString();
 
-                //--------------------------------------------
-                //--- Initialize with ENGLISH System Units ---
-                //--------------------------------------------
-                SetDefaultEngslishSettings();
-            }
-            else if (string.Compare(appGlobalSettingsObj.ExternalSystemUnits, "Metric - SI", true) == 0)
-            {
-                //-----------------------
-                //--- Set Enum Values ---
-                //-----------------------
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.METRIC;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.KILO;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricTempEnum = ProjectMetricTemp.KELVIN;
-                NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricPressEnum = ProjectMetricPress.Pa;
+            //    //--------------------------------------------
+            //    //--- Initialize with ENGLISH System Units ---
+            //    //--------------------------------------------
+            //    SetDefaultEngslishSettings();
+            //}
+            //else if (string.Compare(appGlobalSettingsObj.ExternalSystemUnits, "Metric - SI", true) == 0)
+            //{
+            //    //-----------------------
+            //    //--- Set Enum Values ---
+            //    //-----------------------
+            //    NewProjectSettingsObj.ExternalUnitsObj.ProjectSystemUnitsEnum = ProjectSystemUnits.METRIC;
+            //    NewProjectSettingsObj.ExternalUnitsObj.ProjectMagnitudeEnum = ProjectMagnitude.KILO;
+            //    NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricTempEnum = ProjectMetricTemp.KELVIN;
+            //    NewProjectSettingsObj.ExternalUnitsObj.ProjectMetricPressEnum = ProjectMetricPress.Pa;
 
-                this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_KILO.ToString();
+            //    this.textBoxDefaultU_Value.Text = DEFAULT_U_METRIC_KILO.ToString();
 
-                //------------------------------------------
-                //---Initialize with METRIC System Units ---
-                //------------------------------------------
-                SetDefaultMetricSettings();
-            }
+            //    //------------------------------------------
+            //    //---Initialize with METRIC System Units ---
+            //    //------------------------------------------
+            //    SetDefaultMetricSettings();
+            //}
 
-            //--------------------------
-            //--- Load HEN Optimizer ---
-            //--------------------------
-            LoadHenOptimizer();
+            ////--------------------------
+            ////--- Load HEN Optimizer ---
+            ////--------------------------
+            //LoadHenOptimizer();
         }
         #endregion  // CTOR ... NEW
 

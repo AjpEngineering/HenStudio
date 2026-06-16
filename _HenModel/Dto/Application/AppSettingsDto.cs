@@ -1,15 +1,14 @@
-﻿#region HEADER
+#region HEADER
 //#####################################################################################################################
-//#####################################  S u m m a r y P a n e l D a t a . c s  #######################################
+//########################################  A p p S e t t i n g s D t o . c s  ########################################
 //#####################################################################################################################
-//  FILENAME:  SummaryPanelData.cs
-//  NAMESPACE: HenStudio.Data.Root.License
-//  CLASS(S):  SummaryPanelData
-//  COMPONENT: HenStudio.exe
+//  FILENAME:  AppSettingsDto.cs
+//  NAMESPACE: HenModel.Dto.Application
+//  CLASS(S):  AppSettingsDto
+//  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the code for the License Scorecard Summary Panel Data object -
-//    data needed for License Scorecard Summary Panel.
+//    This file contains the DTO class for the Application Settings table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -27,91 +26,34 @@
 //    All rights reserved.
 //=====================================================================================================================
 //  HISTORY:
-//    01/01/26 .. pg .. Version 4.0
+//    01/01/26 .. AJP Engineering .. Version 1.0
 //#####################################################################################################################
 //#####################################################################################################################
 //#####################################################################################################################
 #endregion      // HEADER
 
 #region REFERENCES
-using HenGlobal;
-
-using HenModel.Dto.Application;
-
-using HenViewModel.Application;
-
-using AJP_License_File;
-
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-#endregion  // REFERENCES
+#endregion      // REFERENCES
 
-#region namespace HenStudio.Data.Root.License
-namespace HenStudio.Data.Root.License
+#region namespace HenModel.Dto.Application
+namespace HenModel.Dto.Application
 {
-    #region public class SummaryPanelData
-    public class SummaryPanelData
+    #region public class AppSettingsDto
+    /// <summary>
+    /// AppSettings DTO Class
+    /// </summary>
+    public class AppSettingsDto
     {
-        #region CONSTANTS
-        const string NAMESPACE = "HenStudio.Data.Root.License";
-        const string CLASS = "SummaryPanelDataObj";
-        #endregion      // CONSTANTS
-
         #region PROPERTIES
-        HenSettings HenSettingsObj { get; set; }
-        public ScoreCardList ScoreCardListObj { get; set; }
-        public int NumValidProps { get; set; }
-        public int NumInvalidProps { get; set; }
-        public string ValidState { get; set; }
-        #endregion  // PROPERTIES
-
-        #region CTOR
-        /// <summary>
-        /// Default constructor for SummaryPanelData. 
-        /// Initializes all properties to their default values.
-        /// </summary>
-        public SummaryPanelData(HenSettings henSettingsObj)
-        {
-            HenSettingsObj = henSettingsObj;
-            ScoreCardListObj = new ScoreCardList();
-
-            NumValidProps = 0;
-            NumInvalidProps = 0;
-            ValidState = string.Empty;
-        }
-        #endregion  // CTOR
-
-        #region LoadSummaryData()
-        /// <summary>
-        /// Loads the summary data.
-        /// </summary>
-        public void LoadSummaryData()
-        {
-            //-------------------------
-            //--- Load Summary Data ---
-            //-------------------------
-            NumValidProps = HenSettingsObj.ScoreCardListObj.NumValidProps;
-            NumInvalidProps = HenSettingsObj.ScoreCardListObj.NumInvalidProps;
-
-            if (NumInvalidProps > 0)
-            {
-                ValidState = "INVALID LICENSE";
-                HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.INVALID;
-            }
-            else
-            {
-                ValidState = "VALID LICENSE";
-                HenSettingsObj.LicenseStatusEnum = HenTypes.LicenseStatus.VALID;
-            }
-        }
-        #endregion  // LoadSummaryData()
+        public int AppSettingId { get; set; }
+        public string AppSettingName { get; set; }
+        public string AppSettingValue { get; set; }
+        #endregion      // PROPERTIES
     }
-    #endregion      // public class SummaryPanelData     
+    #endregion      // public class AppSettingsDto
 }
-#endregion  // namespace HenStudio.Data.Root.License
+#endregion      // namespace HenModel.Dto.Application
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

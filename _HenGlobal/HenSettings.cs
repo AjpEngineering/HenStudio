@@ -60,7 +60,7 @@ using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
-using HenModel.Dto.System;
+using HenModel.Dto.Application;
 
 using static HenGlobal.HenTypes;
 #endregion  // REFERENCES
@@ -217,7 +217,7 @@ namespace HenGlobal
         //public List<AppGlobalSettingsDto> AppGlobalSettingsList { get; set; }
         public ConnectionDataDto ConnectionDataDtoObj { get; set; }
         public IList<DatabaseTableDto> DatabaseTableDtoList { get; set; }
-        public IList<GlobalSettingsDto> GlobalSettingsDtoList { get; set; }
+        public IList<AppSettingsDto> GlobalSettingsDtoList { get; set; }
         #endregion  // SYSTEM DATA
 
         #region ROOT - PROJECT - PROFILE - STUDY ... STATE PROPERTIES
@@ -344,7 +344,7 @@ namespace HenGlobal
                 ConnectionDataDtoObj = new ConnectionDataDto();
 
                 DatabaseTableDtoList = new List<DatabaseTableDto>();
-                GlobalSettingsDtoList = new List<GlobalSettingsDto>();
+                GlobalSettingsDtoList = new List<AppSettingsDto>();
                 #endregion  // SYSTEM DATA
 
                 #region INITIAL ROOT-PROJECT-PROFILE-STUDY STATE

@@ -50,7 +50,7 @@ using HenModel.Connection;
 using HenModel.Connection.Interface;
 
 using HenModel.Dto;
-using HenModel.Dto.System;
+using HenModel.Dto.Application;
 
 using HenModel.Dto.Project;
 using HenModel.Dto.Project.CostParameters;
@@ -67,14 +67,14 @@ using HenModel.Dto.Pinch.Plots;
 using HenModel.Dto.Hen;
 using HenModel.Dto.Hen.Plots;
 
-using HenModel.RepoImplementations.System;
+using HenModel.RepoImplementations.Application;
 using HenModel.RepoImplementations.Project;
 using HenModel.RepoImplementations.Profile;
 using HenModel.RepoImplementations.Pinch;
 using HenModel.RepoImplementations.Hen;
 
 using HenViewModel;
-using HenViewModel.System;
+using HenViewModel.Application;
 
 using HenViewModel.Project;
 using HenViewModel.Project.CostParameters;
@@ -700,20 +700,20 @@ namespace HenStudio
                 #endregion  // DATABASE TABLES
 
                 #region GLOBAL SETTINGS
-                //----------------------------------------------------------
-                //--- Get Global Settings Data from DB using Repo Method ---
-                //----------------------------------------------------------
-                HenSettingsObj.GlobalSettingsDtoList = systemViewModelObj.GetGlobalSettings();
-                //-------------------------------------------------------------
-                //--- Log Global Settings Key-Value Pairs Retrieved from DB ---
-                //-------------------------------------------------------------
-                foreach (var nameValuePair in HenSettingsObj.GlobalSettingsDtoList)
-                {
-                    strMsg = string.Format("  + KEY: {0,-40} ... VALUE: {1}",
-                                           nameValuePair.SettingKey,
-                                           nameValuePair.SettingValue);
-                    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                }
+                ////----------------------------------------------------------
+                ////--- Get Global Settings Data from DB using Repo Method ---
+                ////----------------------------------------------------------
+                //HenSettingsObj.GlobalSettingsDtoList = systemViewModelObj.GetGlobalSettings();
+                ////-------------------------------------------------------------
+                ////--- Log Global Settings Key-Value Pairs Retrieved from DB ---
+                ////-------------------------------------------------------------
+                //foreach (var nameValuePair in HenSettingsObj.GlobalSettingsDtoList)
+                //{
+                //    strMsg = string.Format("  + KEY: {0,-40} ... VALUE: {1}",
+                //                           nameValuePair.SettingKey,
+                //                           nameValuePair.SettingValue);
+                //    HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
+                //}
                 #endregion  // GLOBAL SETTINGS
 
             }

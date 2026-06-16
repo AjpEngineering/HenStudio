@@ -48,7 +48,7 @@ using HenModel.Connection;
 using HenModel.Connection.Interface;
 
 using HenModel.Dto;
-using HenModel.Dto.System;
+using HenModel.Dto.Application;
 
 using HenModel.Dto.Project;
 using HenModel.Dto.Project.CostParameters;
@@ -65,14 +65,14 @@ using HenModel.Dto.Pinch.Plots;
 using HenModel.Dto.Hen;
 using HenModel.Dto.Hen.Plots;
 
-using HenModel.RepoImplementations.System;
+using HenModel.RepoImplementations.Application;
 using HenModel.RepoImplementations.Project;
 using HenModel.RepoImplementations.Profile;
 using HenModel.RepoImplementations.Pinch;
 using HenModel.RepoImplementations.Hen;
 
 using HenViewModel;
-using HenViewModel.System;
+using HenViewModel.Application;
 
 using HenViewModel.Project;
 using HenViewModel.Project.CostParameters;

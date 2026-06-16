@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//######################################  D a t a b a s e T a b l e D t o . c s  ######################################
+//#####################################  I A p p C o m p o n e n t s R e p o . c s  ###################################
 //#####################################################################################################################
-//  FILENAME:  DatabaseTableDto.cs
-//  NAMESPACE: HenModel.Dto.System
-//  CLASS(S):  DatabaseTableDto
+//  FILENAME:  IAppComponentsRepo.cs
+//  NAMESPACE: HenModel.RepoInterfaces.System
+//  INTERFACE: IAppComponentsRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for database table name query results.
+//    This file contains the repo interface for the App Components.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -32,23 +32,28 @@
 //#####################################################################################################################
 #endregion      // HEADER
 
-#region namespace HenModel.Dto.System
-namespace HenModel.Dto.System
+#region REFERENCES
+using HenModel.Dto.Application;
+
+using System.Collections.Generic;
+#endregion      // REFERENCES
+
+#region namespace HenModel.RepoInterfaces.Application
+namespace HenModel.RepoInterfaces.Application
 {
-    #region public class DatabaseTableDto
+    #region public interface IAppComponentsRepo
     /// <summary>
-    /// DatabaseTable DTO Class
+    /// AppComponents Repo Interface
     /// </summary>
-    public class DatabaseTableDto
+    public interface IAppComponentsRepo
     {
-        #region PROPERTIES
-        public string SchemaName { get; set; }
-        public string TableName { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        List<AppComponentsDto> GetAppComponentsList();
+        #endregion      // METHODS
     }
-    #endregion      // public class DatabaseTableDto
+    #endregion      // public interface IAppComponentsRepo
 }
-#endregion      // namespace HenModel.Dto.System
+#endregion      // namespace HenModel.RepoInterfaces.Application
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

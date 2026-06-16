@@ -34,19 +34,19 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Dto.System;
+using HenModel.Dto.Application;
 using HenModel.Dto.Project;
-using HenModel.RepoImplementations.System;
+using HenModel.RepoImplementations.Application;
 using HenModel.RepoImplementations.Project;
 
 using System;
 using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenViewModel.System
-namespace HenViewModel.System
+#region namespace HenViewModel.Application
+namespace HenViewModel.Application
 {
-    #region public class SystemViewModel
+    #region public class ApplicationViewModel
     /// <summary>
     /// System view model class.
     /// </summary>
@@ -54,7 +54,7 @@ namespace HenViewModel.System
     {
         #region PROPERTIES
         public ConnectionDataRepo ConnectionDataRepoObj { get; set; }
-        public GlobalSettingsRepo GlobalSettingsRepoObj { get; set; }
+        public AppSettingsRepo AppSettingsRepoObj { get; set; }
         public DatabaseTableRepo DatabaseTableRepoObj { get; set; }
         #endregion      // PROPERTIES
 
@@ -72,7 +72,7 @@ namespace HenViewModel.System
                 new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString() );
 
             ConnectionDataRepoObj = new ConnectionDataRepo(connFactoryObj);
-            GlobalSettingsRepoObj = new GlobalSettingsRepo(connFactoryObj);
+            AppSettingsRepoObj = new AppSettingsRepo(connFactoryObj);
             DatabaseTableRepoObj = new DatabaseTableRepo(connFactoryObj);
         }
         #endregion  // CTOR
@@ -103,46 +103,20 @@ namespace HenViewModel.System
         }
         #endregion  // GetDatabaseConnectionData()
 
-        #region GetAppGlobalSettings()
+        #region GetFactorySettingsList()
         /// <summary>
-        /// Gets application global settings as a strongly-typed <see cref="AppGlobalSettingsDto"/> object 
-        /// by retrieving all global settings from the data store and mapping them to the corresponding 
-        /// properties on the DTO based on their setting keys.
+        /// Retrieves a list of all Application Factory Settings Name-Value pairs.
         /// </summary>
-        /// <returns>Populated <see cref="AppGlobalSettingsDto"/> object.</returns>
-        /// <exception cref="InvalidOperationException">Unrecognized global setting key encountered while mapping application global settings.</exception>
-        public AppGlobalSettingsDto GetAppGlobalSettings()
-        {
-            try
-            {
-                //-------------------------------------------------------------------------------------------
-                //--- No Conversion needed as the DTO is already in the desired format for the view model ---
-                //-------------------------------------------------------------------------------------------
-                return GlobalSettingsRepoObj.GetAppGlobalSettings();
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions (e.g., log the error, rethrow, or return null)
-                Console.WriteLine($"Error retrieving profile: {ex.Message}");
-                return null;
-            }
-        }
-        #endregion  // GetAppGlobalSettings()
-
-        #region GetGlobalSettings()
-        /// <summary>
-        /// Retrieves a list of all Global Settings Name-Value pairs.
-        /// </summary>
-        /// <returns>A list of <see cref="GlobalSettingsDto"/> objects representing the available Global Settings, 
+        /// <returns>A list of <see cref="AppSettingsDto"/> objects representing the available Global Settings, 
         /// or an empty list if no Global Settings found.</returns>
-        public IList<GlobalSettingsDto> GetGlobalSettings()
+        public List<AppSettingsDto> GetFactorySettingsList()
         {
             try
             {
                 //-------------------------------------------------------------------------------------------
                 //--- No Conversion needed as the DTO is already in the desired format for the view model ---
                 //-------------------------------------------------------------------------------------------
-                return GlobalSettingsRepoObj.GetGlobalSettings();
+                return AppSettingsRepoObj.GetAppSettingsList();
             }
             catch (Exception ex)
             {
@@ -151,7 +125,7 @@ namespace HenViewModel.System
                 return null;
             }
         }
-        #endregion  // GetGlobalSettings()
+        #endregion  // GetFactorySettingsList()
 
         #region GetDatabaseTables()
         /// <summary>
@@ -178,9 +152,9 @@ namespace HenViewModel.System
         #endregion  // GetDatabaseTables()
 
     }
-    #endregion      // public class SystemViewModel
+    #endregion      // public class ApplicationViewModel
 }
-#endregion      // namespace HenViewModel.System
+#endregion      // namespace HenViewModel.Application
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

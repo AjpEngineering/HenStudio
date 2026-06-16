@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//#####################################  G l o b a l S e t t i n g s D t o . c s  #####################################
+//####################################  I G l o b a l S e t t i n g s R e p o . c s  ##################################
 //#####################################################################################################################
-//  FILENAME:  GlobalSettingsDto.cs
-//  NAMESPACE: HenModel.Dto.System
-//  CLASS(S):  GlobalSettingsDto
+//  FILENAME:  IGlobalSettingsRepo.cs
+//  NAMESPACE: HenModel.RepoInterfaces.System
+//  INTERFACE: IGlobalSettingsRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for the Application Global Settings table.
+//    This file contains the repo interface for the Global Settings table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,29 +33,28 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using System;
+using HenModel.Dto.Application;
+
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
-#region namespace HenModel.Dto.System
-namespace HenModel.Dto.System
+#region namespace HenModel.RepoInterfaces.Application
+namespace HenModel.RepoInterfaces.Application
 {
-    #region public class GlobalSettingsDto
+    #region public interface IAppSettingsRepo
     /// <summary>
-    /// GlobalSettings DTO Class
+    /// AppSettings Repo Interface
     /// </summary>
-    public class GlobalSettingsDto
+    public interface IAppSettingsRepo
     {
-        #region PROPERTIES
-        public string SettingKey { get; set; }
-        public string SettingValue { get; set; }
-        public string ValueType { get; set; }
-        public string Description { get; set; }
-        public double Revision { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        List<AppSettingsDto> GetAppSettingsList();
+        AppSettingsDto GetAppSettingsByName(string settingName);
+        #endregion      // METHODS
     }
-    #endregion      // public class GlobalSettingsDto
+    #endregion      // public interface IAppSettingsRepo
 }
-#endregion      // namespace HenModel.Dto.System
+#endregion      // namespace HenModel.RepoInterfaces.Application
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
