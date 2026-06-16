@@ -63,7 +63,11 @@ namespace HenViewModel.Pinch.Plots
         /// </summary>
         public THDiagramViewModel()
         {
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
+            //********************************************************************************
+
             var thDiagramRepoObj = new THDiagramRepo(connFactoryObj);
 
             THDiagramRepoObj = thDiagramRepoObj;

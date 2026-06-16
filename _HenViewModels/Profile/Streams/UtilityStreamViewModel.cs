@@ -64,7 +64,11 @@ namespace HenViewModel.Profile.Streams
         /// </summary>
         public UtilityStreamViewModel()
         {
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
+            //********************************************************************************
+
             var utilityStreamRepoObj = new UtilityStreamRepo(connFactoryObj);
 
             UtilityStreamRepoObj = utilityStreamRepoObj;

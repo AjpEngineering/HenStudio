@@ -65,7 +65,7 @@ namespace HenModel.Connection
         public const string CONN_PARAMS = "Cache=Shared;Mode=ReadWriteCreate;Pooling=True;";
         #endregion      // CONSTANTS
 
-        #region GetSqliteAppConnectionString(string strAppDatabaseFilename)
+        #region GetSqliteAppConnectionString(string strAppDatabaseFilename = APP_DB_FILENAME)
         /// <summary>
         /// Get SQLite Connection String for APPLICATION (e.g., HenStudio.db) Database Filename
         /// </summary>
@@ -73,14 +73,14 @@ namespace HenModel.Connection
         /// <returns>Connection String to APPLICATION Database</returns>
         public static string GetSqliteAppConnectionString(string strAppDatabaseFilename = APP_DB_FILENAME)
         {
-            //--------------------------------------------------------------------------------------------------
-            //----------------------------------------------- EXAMPLE ------------------------------------------
-            //--------------------------------------------------------------------------------------------------
-            //---     HenStudio: "Data Source=HenStudio.db;Cache=Shared;Mode=ReadWriteCreate;Pooling=True;"; ---
-            //--------------------------------------------------------------------------------------------------
+            //----------------------------------------------------------------------------------------------
+            //--------------------------------------------- EXAMPLE ----------------------------------------
+            //----------------------------------------------------------------------------------------------
+            //--- HenStudio: "Data Source=HenStudio.db;Cache=Shared;Mode=ReadWriteCreate;Pooling=True;"; ---
+            //----------------------------------------------------------------------------------------------
             return string.Format("Data Source={0}{1]", strAppDatabaseFilename, CONN_PARAMS);
         }
-        #endregion  // GetSqliteAppConnectionString(string strDatabaseFilename)
+        #endregion  // GetSqliteAppConnectionString(string strAppDatabaseFilename = APP_DB_FILENAME)
 
         #region GetSqliteProjectConnectionString(string strProjectDatabaseFilename)
         /// <summary>
@@ -90,11 +90,11 @@ namespace HenModel.Connection
         /// <returns>Connection String to PROJECT Database</returns>
         public static string GetSqliteProjectConnectionString(string strProjectDatabaseFilename)
         {
-            //---------------------------------------------------------------------------------------------
-            //------------------------------------------- EXAMPLE -----------------------------------------
-            //---------------------------------------------------------------------------------------------
-            //---     Project : "Data Source=Exxon.db;Cache=Shared;Mode=ReadWriteCreate;Pooling=True;"; ---
-            //---------------------------------------------------------------------------------------------
+            //-----------------------------------------------------------------------------------------
+            //----------------------------------------- EXAMPLE ---------------------------------------
+            //-----------------------------------------------------------------------------------------
+            //--- Project : "Data Source=Exxon.db;Cache=Shared;Mode=ReadWriteCreate;Pooling=True;"; ---
+            //-----------------------------------------------------------------------------------------
             return string.Format("Data Source={0}{1]", strProjectDatabaseFilename, CONN_PARAMS);
         }
         #endregion  // GetSqliteProjectConnectionString(string strDatabaseFilename)

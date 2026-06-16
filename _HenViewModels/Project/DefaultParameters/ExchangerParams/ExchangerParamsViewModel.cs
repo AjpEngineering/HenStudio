@@ -64,7 +64,11 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
         /// </summary>
         public ExchangerParamsViewModel()
         {
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
+            //********************************************************************************
+
             var exchangerParamsRepoObj = new ExchangerParamsRepo(connFactoryObj);
 
             ExchangerParamsRepoObj = exchangerParamsRepoObj;

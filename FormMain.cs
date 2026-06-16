@@ -660,7 +660,9 @@ namespace HenStudio
             //---------------------------------------------------------
             ApplicationViewModel systemViewModelObj = new ApplicationViewModel();
 
-            SqlConnectionFactory connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
+
             ConnectionDataRepo connDataRepo = new ConnectionDataRepo(connFactoryObj);
 
             try

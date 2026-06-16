@@ -63,7 +63,11 @@ namespace HenViewModel.Project.CostParameters
         /// </summary>
         public TotalAnnualizedCostViewModel()
         {
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
+            //********************************************************************************
+
             var totalAnnualizedCostRepoObj = new TotalAnnualizedCostRepo(connFactoryObj);
 
             TotalAnnualizedCostRepoObj = totalAnnualizedCostRepoObj;

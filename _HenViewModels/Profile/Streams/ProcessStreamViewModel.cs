@@ -63,7 +63,11 @@ namespace HenViewModel.Profile.Streams
         /// </summary>
         public ProcessStreamViewModel()
         {
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
+            //********************************************************************************
+
             var processStreamRepoObj = new ProcessStreamRepo(connFactoryObj);
 
             ProcessStreamRepoObj = processStreamRepoObj;

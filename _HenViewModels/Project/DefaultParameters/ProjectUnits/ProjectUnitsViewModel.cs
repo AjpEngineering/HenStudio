@@ -63,7 +63,11 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
         /// </summary>
         public ProjectUnitsViewModel()
         {
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
+            //********************************************************************************
+
             var projectUnitsRepoObj = new ProjectUnitsRepo(connFactoryObj);
 
             ProjectUnitsRepoObj = projectUnitsRepoObj;

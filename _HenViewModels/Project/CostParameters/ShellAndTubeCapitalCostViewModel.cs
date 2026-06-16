@@ -63,7 +63,11 @@ namespace HenViewModel.Project.CostParameters
         /// </summary>
         public ShellAndTubeCapitalCostViewModel()
         {
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
+            //********************************************************************************
+
             var shellAndTubeCapitalCostRepoObj = new ShellAndTubeCapitalCostRepo(connFactoryObj);
 
             ShellAndTubeCapitalCostRepoObj = shellAndTubeCapitalCostRepoObj;

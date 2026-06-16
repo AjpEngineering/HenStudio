@@ -63,7 +63,11 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         /// </summary>
         public OptimizerParamsViewModel()
         {
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
+            //********************************************************************************
+
             var optimizerParamsRepoObj = new OptimizerParamsRepo(connFactoryObj);
 
             OptimizerParamsRepoObj = optimizerParamsRepoObj;

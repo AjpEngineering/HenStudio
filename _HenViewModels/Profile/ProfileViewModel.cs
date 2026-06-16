@@ -65,7 +65,11 @@ namespace HenViewModel.Profile
         /// </summary>
         public ProfileViewModel()
         {
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
+            //********************************************************************************
+
             var profileRepoObj = new ProfileRepo(connFactoryObj);
 
             ProfileRepoObj = profileRepoObj;

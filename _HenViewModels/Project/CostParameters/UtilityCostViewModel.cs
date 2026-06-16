@@ -64,7 +64,11 @@ namespace HenViewModel.Project.CostParameters
         /// </summary>
         public UtilityCostViewModel()
         {
-            var connFactoryObj = new SqlConnectionFactory(ConnectionStrings.HenStudio);
+            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
+            //********************************************************************************
+
             var utilityCostRepoObj = new UtilityCostRepo(connFactoryObj);
 
             UtilityCostRepoObj = utilityCostRepoObj;

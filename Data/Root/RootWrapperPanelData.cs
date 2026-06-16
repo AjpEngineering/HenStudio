@@ -113,6 +113,7 @@ namespace HenStudio.Data.Root
         /// </summary>
         private void InitializeWrapperData()
         {
+
             //-----------------------------------------------------------------------
             //--- Initialize PanelData Objects to Avoid Null Reference Exceptions ---
             //-----------------------------------------------------------------------
