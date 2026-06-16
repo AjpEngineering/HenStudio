@@ -1,25 +1,14 @@
--- --------------------------------------------------------------------------------
---  Table: AppComponents
---  File : 002_AppComponents.sqlite
+﻿-- --------------------------------------------------------------------------------
+--  SCRIPT: 002_SeedAppComponents
+--  File  : 002_SeedAppComponents.sqlite
 -- --------------------------------------------------------------------------------
 --  Description: 
---    Application Components entity for HEN Studio -> HenStudio.db [Database file].
---    Contains AJP HEN Studio Application Components list.
--- --------------------------------------------------------------------------------
---    Table is seeded at Creation (EXPECTED VALUES) as follows.
--- --------------------------------------------------------------------------------
---    1 ... _AJP License File ......... dll
---    2 ... _HenDomainModel ........... dll
---    3 ... _HenGlobal ................ dll
---    4 ... _HenModel ................. dll
---    5 ... _HenViewModel ............. dll
---    6 ... HenStudio ................. exe
---    7 ... HenStudio.config .......... config
+--    Script to seed the AppComponents Table.
 -- --------------------------------------------------------------------------------
 --    AppComponents includes fields for ...
---      + ComponentId (PK) ............ e.g., 1
---      + ComponentName ............... e.g., _HenModel
---      + ComponentType ............... e.g., dll
+--      + App Component Id (PK) ... INTEGER
+--      + App Component Name ...... TEXT
+--      + App Component Type ...... TEXT ['dll' | 'exe' | 'config' | 'script']
 -- ================================================================================
 -- 
 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -40,14 +29,21 @@
 --    06/01/26 .. AJP Engineering .. Version 1.0 : SQLite Version
 -- ================================================================================
 
-CREATE TABLE AppComponents (
-    ComponentId      INTEGER NOT NULL,
-	ComponentName    TEXT    NOT NULL,
-	ComponentType    TEXT    NOT NULL,
+BEGIN TRANSACTION;
 
-	PRIMARY KEY(ComponentId),
-	CONSTRAINT CK_AppComponents_ComponentType CHECK (ComponentType IN ('dll', 'exe', 'config', 'script'))
-) STRICT;
+-- Reset AppComponents then insert canonical seed values (integer ComponentId)
+DELETE FROM AppComponents;
+
+INSERT INTO AppComponents (ComponentId, ComponentName, ComponentType) VALUES
+  (1, '_AJP License File', 'dll'),
+  (2, '_HenDomainModel', 'dll'),
+  (3, '_HenGlobal', 'dll'),
+  (4, '_HenModel', 'dll'),
+  (5, '_HenViewModel', 'dll'),
+  (6, 'HenStudio', 'exe'),
+  (7, 'HenStudio.config', 'config'),
+
+COMMIT;
 
 -- ================================================================================
 -- ---------------------------  E N D   O F   F I L E  ----------------------------

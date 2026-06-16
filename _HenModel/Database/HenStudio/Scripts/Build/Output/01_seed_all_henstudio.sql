@@ -1,11 +1,53 @@
 ﻿-- -----------------------------------------------------------------------------
 -- Combined SEED script for HenStudio
--- Generated: 2026-06-16 10:34:36Z
+-- Generated: 2026-06-16 11:15:51Z
 -- Source folder: C:\_AJP\git\HenStudio\_HenModel\Database\HenStudio\Scripts\Build
 -- -----------------------------------------------------------------------------
 
 PRAGMA foreign_keys = ON;
 BEGIN TRANSACTION;
+
+
+-- Start: 001_SeedAppMetadata.sqlite
+
+BEGIN TRANSACTION;
+
+-- Reset AppMetadata then insert canonical seed values (integer AppMetadataId)
+DELETE FROM AppMetadata;
+
+INSERT INTO AppMetadata (AppMetadataId, AppMetadataName, AppMetadataValue) VALUES
+  (1, 'PRODUCT FULLNAME', 'AJP HEN Studio 1.0'),
+  (2, 'PRODUCT NAME', 'AJP HEN Studio'),
+  (3, 'PRODUCT VERSION', '1.0'),
+  (4, 'PRODUCT SERIAL NUMBER', '1022-789-1189'),
+  (5, 'PRODUCT CODE', '{3D9721BA-003E-4711-B7AF-B579645F0AC9}'),
+  (6, 'PRODUCT SUPPLIER NAME', 'AJP Engineering'),
+  (7, 'PRODUCT SUPPLIER URLs', 'http://www.AJPEngineering.com'),
+
+COMMIT;
+
+-- End: 001_SeedAppMetadata.sqlite
+
+
+-- Start: 002_SeedAppComponents..sqlite
+
+BEGIN TRANSACTION;
+
+-- Reset AppComponents then insert canonical seed values (integer ComponentId)
+DELETE FROM AppComponents;
+
+INSERT INTO AppComponents (ComponentId, ComponentName, ComponentType) VALUES
+  (1, '_AJP License File', 'dll'),
+  (2, '_HenDomainModel', 'dll'),
+  (3, '_HenGlobal', 'dll'),
+  (4, '_HenModel', 'dll'),
+  (5, '_HenViewModel', 'dll'),
+  (6, 'HenStudio', 'exe'),
+  (7, 'HenStudio.config', 'config'),
+
+COMMIT;
+
+-- End: 002_SeedAppComponents..sqlite
 
 
 -- Start: 003_SeedAppSettings.sqlite

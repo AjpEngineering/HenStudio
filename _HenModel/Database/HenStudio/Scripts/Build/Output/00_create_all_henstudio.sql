@@ -1,6 +1,6 @@
 ﻿-- -----------------------------------------------------------------------------
 -- Combined CREATE script for HenStudio
--- Generated: 2026-06-16 10:34:36Z
+-- Generated: 2026-06-16 11:15:51Z
 -- Source folder: C:\_AJP\git\HenStudio\_HenModel\Database\HenStudio\Scripts\Build
 -- -----------------------------------------------------------------------------
 
@@ -27,11 +27,9 @@ CREATE TABLE AppComponents (
     ComponentId      INTEGER NOT NULL,
 	ComponentName    TEXT    NOT NULL,
 	ComponentType    TEXT    NOT NULL,
-	ComponentStatus  TEXT    NOT NULL,
 
 	PRIMARY KEY(ComponentId),
-	CONSTRAINT CK_AppComponents_ComponentType CHECK (ComponentType IN ('dll', 'exe', 'config', 'script')),
-	CONSTRAINT CK_AppComponents_ComponentStatus CHECK (ComponentStatus IN ('FOUND', 'MISSING', 'NONE'))
+	CONSTRAINT CK_AppComponents_ComponentType CHECK (ComponentType IN ('dll', 'exe', 'config', 'script'))
 ) STRICT;
 
 -- End: 002_AppComponents.sqlite

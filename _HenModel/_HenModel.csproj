@@ -183,6 +183,8 @@
     <None Include="Database\HenStudio\Scripts\Create\002_AppComponents.sqlite" />
     <None Include="Database\HenStudio\Scripts\Create\001_AppMetadata.sqlite" />
     <None Include="Database\HenStudio\Scripts\Create\003_AppSettings.sqlite" />
+    <None Include="Database\HenStudio\Scripts\Seed\002_SeedAppComponents..sqlite" />
+    <None Include="Database\HenStudio\Scripts\Seed\001_SeedAppMetadata.sqlite" />
     <None Include="Database\HenStudio\Scripts\Seed\003_SeedAppSettings.sqlite" />
     <Content Include="Database\HenStudio\Scripts\Build\Output\00_create_all_henstudio.sql" />
     <Content Include="Database\HenStudio\Scripts\Build\Output\01_seed_all_henstudio.sql" />
