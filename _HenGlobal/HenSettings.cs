@@ -215,7 +215,7 @@ namespace HenGlobal
 
         #region SYSTEM DATA
         //public List<AppGlobalSettingsDto> AppGlobalSettingsList { get; set; }
-        public ConnectionDataDto ConnectionDataDtoObj { get; set; }
+        public AppConnectionDataDto AppConnectionDataDtoObj { get; set; }
         public IList<DatabaseTableDto> DatabaseTableDtoList { get; set; }
         public IList<AppSettingsDto> GlobalSettingsDtoList { get; set; }
         #endregion  // SYSTEM DATA
@@ -336,16 +336,16 @@ namespace HenGlobal
                 WriteCustomerDataToLog();   // Write Customer Data to Log
                 WriteProductDataToLog();    // Write Product  Data to Log
                 #endregion  // LOG LICENSE DATA
-                
+
                 #endregion  // LICENSE
 
-                #region SYSTEM DATA
+                #region APPLICATION (ROOT PANEL) DATA
                 //AppGlobalSettingsList = new List<AppGlobalSettingsDto>();
-                ConnectionDataDtoObj = new ConnectionDataDto();
+                //AppConnectionDataDtoObj = new AppConnectionDataDto();
 
                 DatabaseTableDtoList = new List<DatabaseTableDto>();
                 GlobalSettingsDtoList = new List<AppSettingsDto>();
-                #endregion  // SYSTEM DATA
+                #endregion  // APPLICATION (ROOT PANEL) DATA
 
                 #region INITIAL ROOT-PROJECT-PROFILE-STUDY STATE
                 ExplorerSelectedNodeIdEnum = ExplorerNodeIdType.CATALOG;

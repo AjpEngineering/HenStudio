@@ -53,7 +53,7 @@ namespace HenViewModel.Application
     public class ApplicationViewModel : ViewModelBase
     {
         #region PROPERTIES
-        public ConnectionDataRepo ConnectionDataRepoObj { get; set; }
+        public AppConnectionDataRepo ConnectionDataRepoObj { get; set; }
         public AppSettingsRepo AppSettingsRepoObj { get; set; }
         public DatabaseTableRepo DatabaseTableRepoObj { get; set; }
         #endregion      // PROPERTIES
@@ -71,7 +71,7 @@ namespace HenViewModel.Application
             SQLiteConnectionFactory connFactoryObj = 
                 new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString() );
 
-            ConnectionDataRepoObj = new ConnectionDataRepo(connFactoryObj);
+            ConnectionDataRepoObj = new AppConnectionDataRepo(connFactoryObj);
             AppSettingsRepoObj = new AppSettingsRepo(connFactoryObj);
             DatabaseTableRepoObj = new DatabaseTableRepo(connFactoryObj);
         }
@@ -79,20 +79,19 @@ namespace HenViewModel.Application
 
         #region GetDatabaseConnectionData()
         /// <summary>
-        /// Gets database connection data as a strongly-typed <see cref="ConnectionDataRepo"/> object 
-        /// by retrieving all connection data from the data store and mapping them to the corresponding 
-        /// properties on the DTO based on their setting keys.
+        /// Gets APPLICATION (HenStudio SQLite database connection data as a 
+        /// strongly-typed <see cref="AppConnectionDataRepo"/> object.
         /// </summary>
-        /// <returns>Populated <see cref="ConnectionDataDto"/> object.</returns>
+        /// <returns>Populated <see cref="AppConnectionDataDto"/> object.</returns>
         /// <exception cref="InvalidOperationException">Unrecognized connection data key encountered while mapping connection data.</exception>
-        public ConnectionDataDto GetDatabaseConnectionData()
+        public AppConnectionDataDto GetDatabaseConnectionData()
         {
             try
             {
                 //-------------------------------------------------------------------------------------------
                 //--- No Conversion needed as the DTO is already in the desired format for the view model ---
                 //-------------------------------------------------------------------------------------------
-                return ConnectionDataRepoObj.GetConnectionData();
+                return ConnectionDataRepoObj.GetAppConnectionData();
             }
             catch (Exception ex)
             {

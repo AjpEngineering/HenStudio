@@ -602,38 +602,38 @@ namespace HenStudio
             string strMethod = "PopulateConnectionStringControls";            
             try
             {
-                ConnectionDataDto connDataDto = HenSettingsObj.ConnectionDataDtoObj;
+                //ConnectionDataDto connDataDto = HenSettingsObj.ConnectionDataDtoObj;
 
-                textBoxConnDataSourceValue.Text = connDataDto.DataSource;
-                textBoxConnUserIDValue.Text = connDataDto.UserId;
-                textBoxConnWorkstationIDValue.Text = connDataDto.WorkstationId;
-                textBoxConnInitCatalogValue.Text = connDataDto.InitialCatalog;
-                textBoxConnTimeoutValue.Text = connDataDto.Timeout.ToString();
-                textBoxConnPacketSizeValue.Text = (connDataDto.PacketSize.ToString() + " Kb");
-                textBoxConnServerVersionValue.Text = connDataDto.ServerVersion;
-                textBoxConnStateValue.Text = connDataDto.ConnectionState;
-                //------------------------------------------------------------------------------------------------
-                //--- SET GLOBAL DB CONNECTED FLAG AND ENUM VALUE IN SETTINGS OBJECT BASED ON CONNECTION STATE ---
-                //------------------------------------------------------------------------------------------------
-                if (string.Compare(connDataDto.ConnectionState, "Open",true) == 0)
-                {
-                    //-----------------------------
-                    //--- OPEN Connection State ---
-                    //-----------------------------
-                    HenSettingsObj.DbConnectedEnum = DbConnected.CONNECTED;
-                }
-                else
-                {
-                    //---------------------------------
-                    //--- NOT OPEN Connection State ---
-                    //---------------------------------
-                    HenSettingsObj.DbConnectedEnum = DbConnected.UNCONNECTED;
-                }
+                //textBoxConnDataSourceValue.Text = connDataDto.DataSource;
+                //textBoxConnUserIDValue.Text = connDataDto.UserId;
+                //textBoxConnWorkstationIDValue.Text = connDataDto.WorkstationId;
+                //textBoxConnInitCatalogValue.Text = connDataDto.InitialCatalog;
+                //textBoxConnTimeoutValue.Text = connDataDto.Timeout.ToString();
+                //textBoxConnPacketSizeValue.Text = (connDataDto.PacketSize.ToString() + " Kb");
+                //textBoxConnServerVersionValue.Text = connDataDto.ServerVersion;
+                //textBoxConnStateValue.Text = connDataDto.ConnectionState;
+                ////------------------------------------------------------------------------------------------------
+                ////--- SET GLOBAL DB CONNECTED FLAG AND ENUM VALUE IN SETTINGS OBJECT BASED ON CONNECTION STATE ---
+                ////------------------------------------------------------------------------------------------------
+                //if (string.Compare(connDataDto.ConnectionState, "Open",true) == 0)
+                //{
+                //    //-----------------------------
+                //    //--- OPEN Connection State ---
+                //    //-----------------------------
+                //    HenSettingsObj.DbConnectedEnum = DbConnected.CONNECTED;
+                //}
+                //else
+                //{
+                //    //---------------------------------
+                //    //--- NOT OPEN Connection State ---
+                //    //---------------------------------
+                //    HenSettingsObj.DbConnectedEnum = DbConnected.UNCONNECTED;
+                //}
 
-                //-----------------------------------------------------------------
-                //--- Update DB Connected Status Bar Label using Global Setting ---
-                //-----------------------------------------------------------------
-                UpdateDbConnectLabel();
+                ////-----------------------------------------------------------------
+                ////--- Update DB Connected Status Bar Label using Global Setting ---
+                ////-----------------------------------------------------------------
+                //UpdateDbConnectLabel();
             }
             catch (Exception ex)
             {
@@ -663,7 +663,7 @@ namespace HenStudio
             SQLiteConnectionFactory connFactoryObj =
                 new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
 
-            ConnectionDataRepo connDataRepo = new ConnectionDataRepo(connFactoryObj);
+            AppConnectionDataRepo appConnDataRepo = new AppConnectionDataRepo(connFactoryObj);
 
             try
             {
@@ -674,11 +674,11 @@ namespace HenStudio
                 #endregion  // APP GLOBAL SETTINGS
 
                 #region CONNECTION DATA
-                ConnectionDataDto connDataDto = connDataRepo.GetConnectionData();
+                AppConnectionDataDto appConnDataDto = appConnDataRepo.GetAppConnectionData();
 
-                HenSettingsObj.ConnectionDataDtoObj = connDataDto;
+                HenSettingsObj.AppConnectionDataDtoObj = appConnDataDto;
 
-                LogConnectionState(connDataDto);
+                LogAppConnectionState(appConnDataDto);
                 connFactoryObj.CloseConnection(connFactoryObj.dbConnection);
                 #endregion  // CONNECTION DATA
 
@@ -1142,30 +1142,26 @@ namespace HenStudio
 
         #region LOG METHODS
 
-        #region LogConnectionState()
-        private void LogConnectionState(ConnectionDataDto connDataDto)
+        #region LogAppConnectionState()
+        private void LogAppConnectionState(AppConnectionDataDto appConnDataDto)
         {
-            string strMethod = "LogConnectionState";
+            string strMethod = "LogAppConnectionState";
             string strMsg = string.Empty;
             try
             {
                 HenLogger.WriteSection("HENSTUDIO DATABASE CONNECTION STATE");
 
-                strMsg = string.Format("  + DATA SOURCE      : {0}", connDataDto.DataSource);
+                strMsg = string.Format("  + DATA SOURCE      : {0}", appConnDataDto.DataSource);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + USER ID          : {0}", connDataDto.UserId);
+                strMsg = string.Format("  + CACHE            : {0}", appConnDataDto.Cache);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + WORKSTATION ID   : {0}", connDataDto.WorkstationId);
+                strMsg = string.Format("  + MODE             : {0}", appConnDataDto.Mode);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + INITIAL CATALOG  : {0}", connDataDto.InitialCatalog);
+                strMsg = string.Format("  + POOLING          : {0}", appConnDataDto.Pooling);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + TIME OUT         : {0}", connDataDto.Timeout.ToString());
+                strMsg = string.Format("  + SQLITE VERSION   : {0}", appConnDataDto.SQLiteVersion);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + PACKET SIZE      : {0}", (connDataDto.PacketSize.ToString() + " Kb"));
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + SERVER VERSION   : {0}", connDataDto.ServerVersion);
-                HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
-                strMsg = string.Format("  + CONNECTION STATE : {0}", connDataDto.ConnectionState);
+                strMsg = string.Format("  + CONNECTION STATE : {0}", appConnDataDto.ConnectionState);
                 HenLogger.LogInfo(NAMESPACE, CLASS, strMethod, strMsg);
             }
             catch (Exception ex)
@@ -1178,7 +1174,7 @@ namespace HenStudio
             {
             }
         }
-        #endregion  // LogConnectionState()
+        #endregion  // LogAppConnectionState()
 
         #region LogLicenseStatus()
         /// <summary>

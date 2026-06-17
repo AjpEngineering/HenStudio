@@ -1,10 +1,10 @@
 #region HEADER
 //#####################################################################################################################
-//######################################  C o n n e c t i o n D a t a R e p o . c s  ##################################
+//###################################  A p p C o n n e c t i o n D a t a R e p o . c s  ###############################
 //#####################################################################################################################
-//  FILENAME:  ConnectionDataRepo.cs
+//  FILENAME:  AppConnectionDataRepo.cs
 //  NAMESPACE: HenModel.RepoImplementations.Application
-//  CLASS(S):  ConnectionDataRepo
+//  CLASS(S):  AppConnectionDataRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
@@ -48,11 +48,11 @@ using System.Data.SqlClient;
 #region namespace HenModel.RepoImplementations.Application
 namespace HenModel.RepoImplementations.Application
 {
-    #region public class ConnectionDataRepo
+    #region public class AppConnectionDataRepo
     /// <summary>
-    /// ConnectionData Repo Class
+    /// AppConnectionData Repo Class
     /// </summary>
-    public class ConnectionDataRepo : IConnectionDataRepo
+    public class AppConnectionDataRepo : IAppConnectionDataRepo
     {
         #region PRIVATE FIELDS
         private readonly IDbConnectionFactory _connectionFactory;
@@ -63,7 +63,7 @@ namespace HenModel.RepoImplementations.Application
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public ConnectionDataRepo(IDbConnectionFactory connectionFactory)
+        public AppConnectionDataRepo(IDbConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {
@@ -76,75 +76,17 @@ namespace HenModel.RepoImplementations.Application
 
         #region PRIVATE METHODS
 
-        #region GetConnectionStringBuilder()
-        /// <summary>
-        /// Creates a SQL connection string builder from the supplied connection string.
-        /// </summary>
-        /// <param name="connectionString">The database connection string.</param>
-        /// <returns>A <see cref="SqlConnectionStringBuilder"/> populated from the supplied connection string.</returns>
-        private static SqlConnectionStringBuilder GetConnectionStringBuilder(string connectionString)
-        {
-            return new SqlConnectionStringBuilder(connectionString);
-        }
-        #endregion      // GetConnectionStringBuilder()
-
-        #region GetUserId()
-        /// <summary>
-        /// Gets the user identifier from the SQL connection string.
-        /// </summary>
-        /// <param name="connectionString">The SQL Server connection string.</param>
-        /// <returns>The configured user identifier, or <c>Integrated Security</c> when integrated security is enabled.</returns>
-        private static string GetUserId(string connectionString)
-        {
-            SqlConnectionStringBuilder builder = GetConnectionStringBuilder(connectionString);
-
-            if (builder.IntegratedSecurity)
-            {
-                return "Integrated Security";
-            }
-
-            return builder.UserID;
-        }
-        #endregion      // GetUserId()
-
-        #region GetWorkstationId()
-        /// <summary>
-        /// Gets the workstation identifier from the SQL connection string.
-        /// </summary>
-        /// <param name="connectionString">The SQL Server connection string.</param>
-        /// <returns>The configured workstation identifier.</returns>
-        private static string GetWorkstationId(string connectionString)
-        {
-            SqlConnectionStringBuilder builder = GetConnectionStringBuilder(connectionString);
-
-            return builder.WorkstationID;
-        }
-        #endregion      // GetWorkstationId()
-
-        #region GetPacketSize()
-        /// <summary>
-        /// Gets the packet size from the SQL connection string.
-        /// </summary>
-        /// <param name="connectionString">The SQL Server connection string.</param>
-        /// <returns>The configured packet size.</returns>
-        private static int GetPacketSize(string connectionString)
-        {
-            SqlConnectionStringBuilder builder = GetConnectionStringBuilder(connectionString);
-
-            return builder.PacketSize;
-        }
-        #endregion      // GetPacketSize()
-
         #endregion      // PRIVATE METHODS
 
         #region METHODS
 
-        #region GetConnectionData()
+        #region GetAppConnectionData()
         /// <summary>
-        /// Retrieves database connection metadata for the current SQL Server connection.
+        /// Retrieves APPLICATION (HenStudio) SQLite database connection data.
         /// </summary>
-        /// <returns>A <see cref="ConnectionDataDto"/> object containing the current connection metadata.</returns>
-        public ConnectionDataDto GetConnectionData()
+        /// <returns>A <see cref="AppConnectionDataDto"/> object containing the 
+        /// APPLICATION (HenStudio) SQLite connection data.</returns>
+        public AppConnectionDataDto GetAppConnectionData()
         {
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -157,24 +99,14 @@ namespace HenModel.RepoImplementations.Application
 
                 dbConnection.Open();
 
-                return new ConnectionDataDto
-                {
-                    DataSource = dbConnection.DataSource,
-                    UserId = GetUserId(dbConnection.ConnectionString),
-                    WorkstationId = GetWorkstationId(dbConnection.ConnectionString),
-                    InitialCatalog = dbConnection.Database,
-                    Timeout = dbConnection.ConnectionTimeout,
-                    PacketSize = GetPacketSize(dbConnection.ConnectionString),
-                    ServerVersion = dbConnection.ServerVersion,
-                    ConnectionState = dbConnection.State.ToString()
-                };
+                return new AppConnectionDataDto();
             }
         }
-        #endregion      // GetConnectionData()
+        #endregion      // GetAppConnectionData()
 
         #endregion      // METHODS
     }
-    #endregion      // public class ConnectionDataRepo
+    #endregion      // public class AppConnectionDataRepo
 }
 #endregion      // namespace HenModel.RepoImplementations.Application
 

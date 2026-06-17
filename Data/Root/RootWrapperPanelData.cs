@@ -101,7 +101,7 @@ namespace HenStudio.Data.Root
         #endregion      // PanelData Objects
 
         #region VIEW MODEL Objects
-        public ApplicationViewModel SystemViewModelObj { get; set; }
+        public ApplicationViewModel ApplicationViewModelObj { get; set; }
         #endregion  //  VIEW MODEL Objects
 
         #endregion      // PROPERTIES
@@ -133,7 +133,7 @@ namespace HenStudio.Data.Root
             //-----------------------------------------------------------------------
             //--- Initialize ViewModel Objects to Avoid Null Reference Exceptions ---
             //-----------------------------------------------------------------------
-            SystemViewModelObj = new ApplicationViewModel();
+            ApplicationViewModelObj = new ApplicationViewModel();
         }
         #endregion  // InitializeWrapperData()
 
@@ -163,7 +163,7 @@ namespace HenStudio.Data.Root
             AppSettingsPanelDataObj.LoadAppSettingsData();
 
             DatabaseTablesPanelDataObj.LoadDatabaseTablesData();
-            DatabaseConnectionPanelDataObj.LoadDatabaseConnectionData();
+            DatabaseConnectionPanelDataObj.LoadAppDatabaseConnectionData();
 
             LicenseScorecardPanelDataObj.LoadScoreCardData();
             DeviceUserPanelDataObj.LoadDeviceUserData();

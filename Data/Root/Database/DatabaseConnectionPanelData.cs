@@ -59,9 +59,9 @@ namespace HenStudio.Data.Root.Database
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public ApplicationViewModel SystemViewModelObj { get; set; }
+        public ApplicationViewModel ApplicationViewModelObj { get; set; }
 
-        public ConnectionDataDto ConnectionDataDtoObj { get; set; }
+        public AppConnectionDataDto AppConnectionDataDtoObj { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -71,24 +71,26 @@ namespace HenStudio.Data.Root.Database
         /// </summary>
         public DatabaseConnectionPanelData()
         {
-            SystemViewModelObj = new ApplicationViewModel();
-            ConnectionDataDtoObj = new ConnectionDataDto();
+            ApplicationViewModelObj = new ApplicationViewModel();
+            AppConnectionDataDtoObj = new AppConnectionDataDto();
         }
         #endregion  // CTOR
 
-        #region LoadDatabaseConnectionData()
+        #region LoadAppDatabaseConnectionData()
         /// <summary>
-        /// Loads the database connection data from the SystemViewModel
-        /// and populates the ConnectionDataDtoObj property.
+        /// Loads the APPLICATION (HenStudio) SQLite Database Connection data 
+        /// from the ApplicationViewModelObj and populates the 
+        /// AppConnectionDataDtoObj property.
         /// </summary>
-        public void LoadDatabaseConnectionData()
+        public void LoadAppDatabaseConnectionData()
         {
-            //-------------------------------------
-            //--- Load Database Connection Data ---
-            //-------------------------------------
-            ConnectionDataDtoObj = SystemViewModelObj.GetDatabaseConnectionData();
+            //--------------------------------------------------------------------
+            //--- Load APPLICATION (HenStudio) SQLite Database Connection Data ---
+            //--------------------------------------------------------------------
+            AppConnectionDataDtoObj = 
+                ApplicationViewModelObj.GetDatabaseConnectionData();
         }
-        #endregion  // LoadDatabaseConnectionData()
+        #endregion  // LoadAppDatabaseConnectionData()
 
     }
     #endregion      // public class DatabaseTablesPanelData     

@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//####################################  I C o n n e c t i o n D a t a R e p o . c s  ##################################
+//###################################  A p p C o n n e c t i o n D a t a D t o . c s  #################################
 //#####################################################################################################################
-//  FILENAME:  IConnectionDataRepo.cs
-//  NAMESPACE: HenModel.RepoInterfaces.System
-//  INTERFACE: IConnectionDataRepo
+//  FILENAME:  AppConnectionDataDto.cs
+//  NAMESPACE: HenModel.Dto.System
+//  CLASS(S):  AppConnectionDataDto
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for database connection metadata queries.
+//    This file contains the DTO class for the APPLICATION (HenStudio) SQLite database connection parameters.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -32,26 +32,29 @@
 //#####################################################################################################################
 #endregion      // HEADER
 
-#region REFERENCES
-using HenModel.Dto.Application;
-#endregion      // REFERENCES
-
-#region namespace HenModel.RepoInterfaces.Application
-namespace HenModel.RepoInterfaces.Application
+#region namespace HenModel.Dto.Application
+namespace HenModel.Dto.Application
 {
-    #region public interface IConnectionDataRepo
+    #region public class AppConnectionDataDto
     /// <summary>
-    /// ConnectionData Repo Interface
+    /// ConnectionData DTO Class
     /// </summary>
-    public interface IConnectionDataRepo
+    public class AppConnectionDataDto
     {
-        #region METHODS
-        ConnectionDataDto GetConnectionData();
-        #endregion      // METHODS
+        //--- HenStudio: "Data Source=HenStudio.db;Cache=Shared;Mode=ReadWriteCreate;Pooling=True;"; ---
+
+        #region PROPERTIES
+        public string DataSource { get; set; } = "HenStudio.db";
+        public string Cache { get; set; } = "Shared";
+        public string Mode { get; set; } = "ReadWriteCreate";
+        public string Pooling { get; set; } = "True";
+        public string SQLiteVersion { get; set; }
+        public string ConnectionState { get; set; }
+        #endregion      // PROPERTIES
     }
-    #endregion      // public interface IConnectionDataRepo
+    #endregion      // public class AppConnectionDataDto
 }
-#endregion      // namespace HenModel.RepoInterfaces.Application
+#endregion      // namespace HenModel.Dto.Application
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

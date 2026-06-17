@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//######################################  C o n n e c t i o n D a t a D t o . c s  ####################################
+//#################################  I A p p C o n n e c t i o n D a t a R e p o . c s  ###############################
 //#####################################################################################################################
-//  FILENAME:  ConnectionDataDto.cs
-//  NAMESPACE: HenModel.Dto.System
-//  CLASS(S):  ConnectionDataDto
+//  FILENAME:  IConnectionDataRepo.cs
+//  NAMESPACE: HenModel.RepoInterfaces.System
+//  INTERFACE: IConnectionDataRepo
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the DTO class for database connection metadata query results.
+//    This file contains the repo interface for database connection metadata queries.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -32,29 +32,26 @@
 //#####################################################################################################################
 #endregion      // HEADER
 
-#region namespace HenModel.Dto.Application
-namespace HenModel.Dto.Application
+#region REFERENCES
+using HenModel.Dto.Application;
+#endregion      // REFERENCES
+
+#region namespace HenModel.RepoInterfaces.Application
+namespace HenModel.RepoInterfaces.Application
 {
-    #region public class ConnectionDataDto
+    #region public interface IConnectionDataRepo
     /// <summary>
-    /// ConnectionData DTO Class
+    /// AppConnectionData Repo Interface
     /// </summary>
-    public class ConnectionDataDto
+    public interface IAppConnectionDataRepo
     {
-        #region PROPERTIES
-        public string DataSource { get; set; }
-        public string UserId { get; set; }
-        public string WorkstationId { get; set; }
-        public string InitialCatalog { get; set; }
-        public int Timeout { get; set; }
-        public int PacketSize { get; set; }
-        public string ServerVersion { get; set; }
-        public string ConnectionState { get; set; }
-        #endregion      // PROPERTIES
+        #region METHODS
+        AppConnectionDataDto GetAppConnectionData();
+        #endregion      // METHODS
     }
-    #endregion      // public class ConnectionDataDto
+    #endregion      // public interface IConnectionDataRepo
 }
-#endregion      // namespace HenModel.Dto.Application
+#endregion      // namespace HenModel.RepoInterfaces.Application
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
