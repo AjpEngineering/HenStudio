@@ -21,10 +21,6 @@
   <Project Path="_HenModel/_HenModel.csproj" Id="42a404ca-256f-47c8-82fd-319c99292c74">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="_HenStudioDatabase/_HenStudioDatabase.sqlproj" Id="6d436111-d440-474c-ae5e-84cc10d29e47">
-    <Build />
-    <Deploy />
-  </Project>
   <Project Path="_HenViewModels/_HenViewModel.csproj" Id="58b4795c-8a98-4e0f-a07f-3769bba0079f">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
