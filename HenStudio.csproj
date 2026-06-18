@@ -108,8 +108,6 @@
     <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerParamsPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ProjectUnits\ProjectUnitsPanelData.cs" />
     <Compile Include="Data\Project\ProjectWrapperPanelData.cs" />
-    <Compile Include="Data\Root\Database\DatabaseConnectionPanelData.cs" />
-    <Compile Include="Data\Root\Database\DatabaseTablesPanelData.cs" />
     <Compile Include="Data\Root\FactorySettings\AppSettingsPanelData.cs" />
     <Compile Include="Data\Root\FactorySettings\AppComponentsPanelData.cs" />
     <Compile Include="Data\Root\FactorySettings\AppMetadataPanelData.cs" />

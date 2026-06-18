@@ -36,9 +36,9 @@
 using HenGlobal;
 
 using HenModel.Connection;
-using HenModel.RepoImplementations.Pinch.Plots;
-
 using HenModel.Dto.Pinch.Plots;
+using HenModel.RepoImplementations.Pinch.Plots;
+using HenModel.RepoImplementations.Profile.Streams;
 
 using System;
 using System.Collections.Generic;
@@ -57,24 +57,34 @@ namespace HenViewModel.Pinch.Plots
         public THDiagramRepo THDiagramRepoObj { get; set; }
         #endregion      // PROPERTIES
 
-        #region CTOR
+        #region Parameterized CTOR
         /// <summary>
-        /// Default CTOR
+        /// Parameterized CTOR
         /// </summary>
-        public THDiagramViewModel()
+        /// <param name="strProjectDatabaseName">Project Database Name</param>
+        public THDiagramViewModel(string strProjectDatabaseName)
         {
-            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
-            SQLiteConnectionFactory connFactoryObj =
-                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
-            //********************************************************************************
+            #region Get SQLiteConnectionFactory Object (connFactoryObj)
+            //-----------------------------------------------------
+            //--- Configure PROJECT database connection options ---
+            //-----------------------------------------------------
+            SQLiteConnectionOptions options = new SQLiteConnectionOptions
+            {
+                DbType = DatabaseType.PROJECT,
+                DatabasePath = strProjectDatabaseName
+            };
 
-            var thDiagramRepoObj = new THDiagramRepo(connFactoryObj);
+            //------------------------------------------------------------------
+            //--- Create the SQLite connection factory using PROJECT options ---
+            //------------------------------------------------------------------
+            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
+            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
 
-            THDiagramRepoObj = thDiagramRepoObj;
+            THDiagramRepoObj = new THDiagramRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
         }
-        #endregion  // CTOR
+        #endregion  // Parameterized CTOR
 
         #region GetTHDiagrams()
         /// <summary>

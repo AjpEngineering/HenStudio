@@ -173,7 +173,6 @@
     <Compile Include="Dto\Application\AppSettingsDto.cs" />
     <Compile Include="RepoInterfaces\Project\DefaultParameters\ProjectUnits\IProjectUnitsRepo.cs" />
     <Compile Include="RepoInterfaces\Application\IAppSettingsRepo.cs" />
-    <Compile Include="RepoInterfaces\Application\IAppConnectionDataRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepoImplementations\Hen\ExchangerRepo.cs" />
     <Compile Include="RepoImplementations\Hen\Plots\GridDiagramPointIDRepo.cs" />

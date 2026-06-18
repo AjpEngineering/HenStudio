@@ -57,24 +57,34 @@ namespace HenViewModel.Project.CostParameters
         public TotalAnnualizedCostRepo TotalAnnualizedCostRepoObj { get; set; }
         #endregion      // PROPERTIES
 
-        #region CTOR
+        #region Parameterized CTOR
         /// <summary>
-        /// Default CTOR
+        /// Parameterized CTOR
         /// </summary>
-        public TotalAnnualizedCostViewModel()
+        /// <param name="strProjectDatabaseName">Project Database Name</param>
+        public TotalAnnualizedCostViewModel(string strProjectDatabaseName)
         {
-            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
-            SQLiteConnectionFactory connFactoryObj =
-                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
-            //********************************************************************************
+            #region Get SQLiteConnectionFactory Object (connFactoryObj)
+            //-----------------------------------------------------
+            //--- Configure PROJECT database connection options ---
+            //-----------------------------------------------------
+            SQLiteConnectionOptions options = new SQLiteConnectionOptions
+            {
+                DbType = DatabaseType.PROJECT,
+                DatabasePath = strProjectDatabaseName
+            };
 
-            var totalAnnualizedCostRepoObj = new TotalAnnualizedCostRepo(connFactoryObj);
+            //------------------------------------------------------------------
+            //--- Create the SQLite connection factory using PROJECT options ---
+            //------------------------------------------------------------------
+            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
+            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
 
-            TotalAnnualizedCostRepoObj = totalAnnualizedCostRepoObj;
+            TotalAnnualizedCostRepoObj = new TotalAnnualizedCostRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
         }
-        #endregion  // CTOR
+        #endregion  // Parameterized CTOR
 
         #region PRIVATE DTO CONVERSION METHODS
 

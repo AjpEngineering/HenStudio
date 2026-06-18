@@ -64,7 +64,6 @@ using HenGlobal;
 using HenViewModel.Application;
 
 //using HenStudio.Data.Root.About;
-using HenStudio.Data.Root.Database;
 using HenStudio.Data.Root.FactorySettings;
 using HenStudio.Data.Root.License;
 #endregion      // REFERENCES
@@ -86,10 +85,6 @@ namespace HenStudio.Data.Root
         public AppMetadataPanelData AppMetadataPanelDataObj { get; set; }
         public AppComponentsPanelData AppComponentsPanelDataObj { get; set; }
         public AppSettingsPanelData AppSettingsPanelDataObj { get; set; }
-
-        //-------------------------------------------------------- DATABASE ---
-        public DatabaseTablesPanelData DatabaseTablesPanelDataObj { get; set; }
-        public DatabaseConnectionPanelData DatabaseConnectionPanelDataObj { get; set; }
 
         //--------------------------------------------------------- LICENSE ---
         public LicenseScorecardPanelData LicenseScorecardPanelDataObj { get; set; }
@@ -120,9 +115,6 @@ namespace HenStudio.Data.Root
             AppMetadataPanelDataObj = new AppMetadataPanelData();
             AppComponentsPanelDataObj = new AppComponentsPanelData();
             AppSettingsPanelDataObj = new AppSettingsPanelData();
-
-            DatabaseTablesPanelDataObj = new DatabaseTablesPanelData();
-            DatabaseConnectionPanelDataObj = new DatabaseConnectionPanelData();
 
             LicenseScorecardPanelDataObj = new LicenseScorecardPanelData(HenSettingsObj);
             DeviceUserPanelDataObj = new DeviceUserPanelData();
@@ -160,10 +152,7 @@ namespace HenStudio.Data.Root
             //------------------------------------
             AppMetadataPanelDataObj.LoadAppMetadataData();
             AppComponentsPanelDataObj.LoadAppComponentsData();
-            AppSettingsPanelDataObj.LoadAppSettingsData();
-
-            DatabaseTablesPanelDataObj.LoadDatabaseTablesData();
-            DatabaseConnectionPanelDataObj.LoadAppDatabaseConnectionData();
+            AppSettingsPanelDataObj.LoadApplicationData();
 
             LicenseScorecardPanelDataObj.LoadScoreCardData();
             DeviceUserPanelDataObj.LoadDeviceUserData();

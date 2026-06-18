@@ -79,11 +79,6 @@ namespace HenGlobal
         const string CLASS = "HenSettings";
         #endregion      // CONSTANTS
 
-        #region CONNECTION STRINGS
-        //public const string HenStudio = HenModel.Connection.ConnectionString;
-        //public const string HenStudio = "Server=localhost\\HENSTUDIO;Database=HenStudio;Trusted_Connection=True;";
-        #endregion  // CONNECTION STRINGS
-
         #region ROOT NAME
         const string ROOT_NAME = "HenStudio";
         #endregion  //// ROOT NAME
@@ -213,14 +208,13 @@ namespace HenGlobal
 
         #endregion  // LICENSE
 
-        #region SYSTEM DATA
-        //public List<AppGlobalSettingsDto> AppGlobalSettingsList { get; set; }
-        public AppConnectionDataDto AppConnectionDataDtoObj { get; set; }
-        public IList<DatabaseTableDto> DatabaseTableDtoList { get; set; }
-        public IList<AppSettingsDto> GlobalSettingsDtoList { get; set; }
-        #endregion  // SYSTEM DATA
+        #region APPLICATION DATA
+        public List<AppComponentsDto> AppComponentsDtoList { get; set; }
+        public IList<AppMetadataDto> AppMetadataDtoList { get; set; }
+        public IList<AppSettingsDto> AppSettingsDtoList { get; set; }
+        #endregion  // APPLICATION DATA
 
-        #region ROOT - PROJECT - PROFILE - STUDY ... STATE PROPERTIES
+        #region ROOT - PROJECT - PROFILE - STUDY - REPORT ... STATE PROPERTIES
 
         #region ExplorerSelectedNodeIdEnum
         /// <summary>
@@ -258,7 +252,14 @@ namespace HenGlobal
         public string CurrentStudyName { get; set; }  // Current Study Name
         #endregion  // CurrentStudyName
 
-        #endregion  // ROOT - PROJECT - PROFILE - STUDY ... STATE PROPERTIES
+        #region CurrentReportName
+        /// <summary>
+        /// Current Report Name
+        /// </summary>
+        public string CurrentReportName { get; set; }  // Current Report Name
+        #endregion  // CurrentReportName
+
+        #endregion  // ROOT - PROJECT - PROFILE - STUDY - REPORT ... STATE PROPERTIES
 
         #region STATUS BAR
 
@@ -340,20 +341,19 @@ namespace HenGlobal
                 #endregion  // LICENSE
 
                 #region APPLICATION (ROOT PANEL) DATA
-                //AppGlobalSettingsList = new List<AppGlobalSettingsDto>();
-                //AppConnectionDataDtoObj = new AppConnectionDataDto();
-
-                DatabaseTableDtoList = new List<DatabaseTableDto>();
-                GlobalSettingsDtoList = new List<AppSettingsDto>();
+                AppComponentsDtoList = new List<AppComponentsDto>();
+                AppMetadataDtoList = new List<AppMetadataDto>();
+                AppSettingsDtoList = new List<AppSettingsDto>();
                 #endregion  // APPLICATION (ROOT PANEL) DATA
 
-                #region INITIAL ROOT-PROJECT-PROFILE-STUDY STATE
+                #region INITIAL ROOT-PROJECT-PROFILE-STUDY-REPORT STATE
                 ExplorerSelectedNodeIdEnum = ExplorerNodeIdType.CATALOG;
                 CurrentRootName = ROOT_NAME;            // Initially set to ROOT_NAME ("HenStudio")
                 CurrentProjectName = string.Empty;      // Initially set to Empty
                 CurrentProfileName = string.Empty;      // Initially set to Empty
                 CurrentStudyName = string.Empty;        // Initially set to Empty
-                #endregion  // INITIAL ROOT-PROJECT-PROFILE-STUDY STATE
+                CurrentReportName = string.Empty;       // Initially set to Empty
+                #endregion  // INITIAL ROOT-PROJECT-PROFILE-STUDY-REPORT STATE
 
                 LogCurrentState();      // Log Current INITIAL State
             }

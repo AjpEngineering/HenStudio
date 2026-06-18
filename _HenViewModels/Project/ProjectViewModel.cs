@@ -57,24 +57,34 @@ namespace HenViewModel.Project
         public ProjectRepo ProjectRepoObj { get; set; }
         #endregion      // PROPERTIES
 
-        #region DEFAULT CTOR
+        #region Parameterized CTOR
         /// <summary>
-        /// Default CTOR
+        /// Parameterized CTOR
         /// </summary>
-        public ProjectViewModel()
+        /// <param name="strProjectDatabaseName">Project Database Name</param>
+        public ProjectViewModel(string strProjectDatabaseName)
         {
-            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
-            SQLiteConnectionFactory connFactoryObj =
-                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
-            //********************************************************************************
+            #region Get SQLiteConnectionFactory Object (connFactoryObj)
+            //-----------------------------------------------------
+            //--- Configure PROJECT database connection options ---
+            //-----------------------------------------------------
+            SQLiteConnectionOptions options = new SQLiteConnectionOptions
+            {
+                DbType = DatabaseType.PROJECT,
+                DatabasePath = strProjectDatabaseName
+            };
 
-            var projectRepoObj = new ProjectRepo(connFactoryObj);
+            //------------------------------------------------------------------
+            //--- Create the SQLite connection factory using PROJECT options ---
+            //------------------------------------------------------------------
+            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
+            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
 
-            ProjectRepoObj = projectRepoObj;
+            ProjectRepoObj = new ProjectRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
         }
-        #endregion  // DEFAULT CTOR
+        #endregion  // Parameterized CTOR
 
         #region PRIVATE DTO CONVERSION METHODS
 

@@ -36,10 +36,11 @@
 using HenGlobal;
 
 using HenModel.Connection;
-using HenModel.RepoImplementations.Profile.Streams;
-using HenModel.RepoInterfaces.Profile.Streams;
 using HenModel.Dto.Profile;
 using HenModel.Dto.Profile.Streams;
+using HenModel.RepoImplementations.Profile;
+using HenModel.RepoImplementations.Profile.Streams;
+using HenModel.RepoInterfaces.Profile.Streams;
 
 using System;
 using System.Collections.Generic;
@@ -58,24 +59,34 @@ namespace HenViewModel.Profile.Streams
         public UtilityStreamRepo UtilityStreamRepoObj { get; set; }
         #endregion      // PROPERTIES
 
-        #region CTOR
+        #region Parameterized CTOR
         /// <summary>
-        /// Default CTOR
+        /// Parameterized CTOR
         /// </summary>
-        public UtilityStreamViewModel()
+        /// <param name="strProjectDatabaseName">Project Database Name</param>
+        public UtilityStreamViewModel(string strProjectDatabaseName)
         {
-            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
-            SQLiteConnectionFactory connFactoryObj =
-                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
-            //********************************************************************************
+            #region Get SQLiteConnectionFactory Object (connFactoryObj)
+            //-----------------------------------------------------
+            //--- Configure PROJECT database connection options ---
+            //-----------------------------------------------------
+            SQLiteConnectionOptions options = new SQLiteConnectionOptions
+            {
+                DbType = DatabaseType.PROJECT,
+                DatabasePath = strProjectDatabaseName
+            };
 
-            var utilityStreamRepoObj = new UtilityStreamRepo(connFactoryObj);
+            //------------------------------------------------------------------
+            //--- Create the SQLite connection factory using PROJECT options ---
+            //------------------------------------------------------------------
+            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
+            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
 
-            UtilityStreamRepoObj = utilityStreamRepoObj;
+            UtilityStreamRepoObj = new UtilityStreamRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
         }
-        #endregion  // CTOR
+        #endregion  // Parameterized CTOR
 
         #region PRIVATE DTO CONVERSION METHODS
 

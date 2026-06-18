@@ -40,6 +40,7 @@ using HenModel.Dto.Project.CostParameters;
 using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.RepoImplementations.Project.CostParameters;
+using HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams;
 
 using System;
 using System.Collections.Generic;
@@ -58,24 +59,34 @@ namespace HenViewModel.Project.CostParameters
         public UtilityCostRepo UtilityCostRepoObj { get; set; }
         #endregion      // PROPERTIES
 
-        #region CTOR
+        #region Parameterized CTOR
         /// <summary>
-        /// Default CTOR
+        /// Parameterized CTOR
         /// </summary>
-        public UtilityCostViewModel()
+        /// <param name="strProjectDatabaseName">Project Database Name</param>
+        public UtilityCostViewModel(string strProjectDatabaseName)
         {
-            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
-            SQLiteConnectionFactory connFactoryObj =
-                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
-            //********************************************************************************
+            #region Get SQLiteConnectionFactory Object (connFactoryObj)
+            //-----------------------------------------------------
+            //--- Configure PROJECT database connection options ---
+            //-----------------------------------------------------
+            SQLiteConnectionOptions options = new SQLiteConnectionOptions
+            {
+                DbType = DatabaseType.PROJECT,
+                DatabasePath = strProjectDatabaseName
+            };
 
-            var utilityCostRepoObj = new UtilityCostRepo(connFactoryObj);
+            //------------------------------------------------------------------
+            //--- Create the SQLite connection factory using PROJECT options ---
+            //------------------------------------------------------------------
+            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
+            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
 
-            UtilityCostRepoObj = utilityCostRepoObj;
+            UtilityCostRepoObj = new UtilityCostRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
         }
-        #endregion  // CTOR
+        #endregion  // Parameterized CTOR
 
         #region PRIVATE DTO CONVERSION METHODS
 

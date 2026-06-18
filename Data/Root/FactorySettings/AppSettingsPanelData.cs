@@ -60,7 +60,9 @@ namespace HenStudio.Data.Root.FactorySettings
         #region PROPERTIES
         public ApplicationViewModel ApplicationViewModelObj { get; set; }
 
-        public List<AppSettingsDto> AppFactorySettingsList { get; set; }
+        public List<AppComponentsDto> AppComponentsList { get; set; }
+        public List<AppMetadataDto> AppMetadataList { get; set; }
+        public List<AppSettingsDto> AppAppSettingsList { get; set; }
         #endregion  // PROPERTIES
 
         #region CTOR
@@ -71,21 +73,26 @@ namespace HenStudio.Data.Root.FactorySettings
         public AppSettingsPanelData()
         {
             ApplicationViewModelObj = new ApplicationViewModel();
-            AppFactorySettingsList = new List<AppSettingsDto>();
+
+            AppComponentsList = new List<AppComponentsDto>();
+            AppMetadataList = new List<AppMetadataDto>();
+            AppAppSettingsList = new List<AppSettingsDto>();
         }
         #endregion  // CTOR
 
-        #region LoadAppSettingsData()
+        #region LoadApplicationData()
         /// <summary>
         /// Loads the app settings data by calling the GetAppGlobalSettings() method of the
         /// SystemViewModel object and assigns the result to the AppGlobalSettingsList property.
         /// </summary>
-        public void LoadAppSettingsData()
+        public void LoadApplicationData()
         {
-            //--------------------------------
-            //--- Load App Global Settings ---
-            //--------------------------------
-            AppFactorySettingsList = ApplicationViewModelObj.GetFactorySettingsList();
+            //-----------------------------
+            //--- Load Application Data ---
+            //-----------------------------
+            AppComponentsList = ApplicationViewModelObj.GetAppComponentsList();
+            AppMetadataList = ApplicationViewModelObj.GetAppMetadataList();
+            AppAppSettingsList = ApplicationViewModelObj.GetAppSettingsList();
         }
         #endregion  // LoadAppSettingsData()
 

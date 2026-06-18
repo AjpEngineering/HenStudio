@@ -65,7 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultProjectSettings.cs" />
     <Compile Include="HenFileSystem.cs" />
     <Compile Include="HenLogger.cs" />
     <Compile Include="HenMethods.cs" />

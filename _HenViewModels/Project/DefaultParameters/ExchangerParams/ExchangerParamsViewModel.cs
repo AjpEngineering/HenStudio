@@ -40,6 +40,7 @@ using HenModel.Connection;
 using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams;
+using HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams;
 
 using System;
 using System.Collections.Generic;
@@ -58,24 +59,34 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
         public ExchangerParamsRepo ExchangerParamsRepoObj { get; set; }
         #endregion      // PROPERTIES
 
-        #region DEFAULT CTOR
+        #region Parameterized CTOR
         /// <summary>
-        /// Default CTOR
+        /// Parameterized CTOR
         /// </summary>
-        public ExchangerParamsViewModel()
+        /// <param name="strProjectDatabaseName">Project Database Name</param>
+        public ExchangerParamsViewModel(string strProjectDatabaseName)
         {
-            //*************** TBD: CONNECT TO PROJECT DB NOT APPLICATION DB *****************
-            SQLiteConnectionFactory connFactoryObj =
-                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString());
-            //********************************************************************************
+            #region Get SQLiteConnectionFactory Object (connFactoryObj)
+            //-----------------------------------------------------
+            //--- Configure PROJECT database connection options ---
+            //-----------------------------------------------------
+            SQLiteConnectionOptions options = new SQLiteConnectionOptions
+            {
+                DbType = DatabaseType.PROJECT,
+                DatabasePath = strProjectDatabaseName
+            };
 
-            var exchangerParamsRepoObj = new ExchangerParamsRepo(connFactoryObj);
+            //------------------------------------------------------------------
+            //--- Create the SQLite connection factory using PROJECT options ---
+            //------------------------------------------------------------------
+            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
+            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
 
-            ExchangerParamsRepoObj = exchangerParamsRepoObj;
+            ExchangerParamsRepoObj = new ExchangerParamsRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
         }
-        #endregion  // DEFAULT CTOR
+        #endregion  // Parameterized CTOR
 
         #region PRIVATE DTO CONVERSION METHODS
 
