@@ -34,8 +34,6 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.RepoInterfaces.Project.CostParameters;
 using HenModel.Dto.Project.CostParameters;
 
@@ -54,7 +52,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
     public class FiredHeaterCapitalCostRepo : IFiredHeaterCapitalCostRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
 
         #region PRIVATE METHODS
@@ -106,7 +104,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public FiredHeaterCapitalCostRepo(IDbConnectionFactory connectionFactory)
+        public FiredHeaterCapitalCostRepo(IConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {

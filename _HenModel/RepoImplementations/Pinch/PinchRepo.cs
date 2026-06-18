@@ -34,8 +34,6 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.RepoInterfaces.Pinch;
 using HenModel.Dto.Pinch;
 
@@ -53,7 +51,7 @@ namespace HenModel.RepoImplementations.Pinch
     public class PinchRepo : IPinchRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
 
         #region CTOR
@@ -61,7 +59,7 @@ namespace HenModel.RepoImplementations.Pinch
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public PinchRepo(IDbConnectionFactory connectionFactory)
+        public PinchRepo(IConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {

@@ -34,7 +34,6 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.RepoInterfaces.Project.DefaultParameters.OptimizerParams;
 
@@ -53,7 +52,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
     public class OptimizerMILP_Repo : IOptimizerMILP_Repo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
 
         #region PRIVATE METHODS
@@ -109,7 +108,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public OptimizerMILP_Repo(IDbConnectionFactory connectionFactory)
+        public OptimizerMILP_Repo(IConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {

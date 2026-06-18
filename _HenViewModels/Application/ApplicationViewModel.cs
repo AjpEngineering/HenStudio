@@ -53,102 +53,118 @@ namespace HenViewModel.Application
     public class ApplicationViewModel : ViewModelBase
     {
         #region PROPERTIES
-        public AppConnectionDataRepo ConnectionDataRepoObj { get; set; }
+        public AppComponentsRepo AppComponentsRepoObj { get; set; }
+        public AppMetadataRepo AppMetadataRepoObj { get; set; }
         public AppSettingsRepo AppSettingsRepoObj { get; set; }
-        public DatabaseTableRepo DatabaseTableRepoObj { get; set; }
         #endregion      // PROPERTIES
 
         #region CTOR
         /// <summary>
-        /// Initializes a new instance of the ApplicationViewModel class 
+        /// Initializes a new instance of the ApplicationViewModel class
         /// and sets up APPLICATION repository dependencies.
         /// </summary>
-        /// <remarks>This constructor creates and configures repository objects using the default
-        /// connection string for the Hen Studio database. The repositories are initialized and ready for use after
-        /// construction.</remarks>
-        public ApplicationViewModel() 
+        /// <remarks>
+        /// This constructor configures the APPLICATION SQLite database connection
+        /// using SQLiteConnectionOptions and initializes all APPLICATION-level repositories.
+        /// </remarks>
+        public ApplicationViewModel()
         {
-            SQLiteConnectionFactory connFactoryObj = 
-                new SQLiteConnectionFactory(ConnectionString.GetSqliteAppConnectionString() );
+            //-----------------------------------------------------------------------------------------
+            // Configure APPLICATION database connection options
+            //-----------------------------------------------------------------------------------------
+            SQLiteConnectionOptions options = new SQLiteConnectionOptions
+            {
+                DbType = DatabaseType.APPLICATION,
+                DatabasePath = "HenStudio.db"
+            };
 
-            ConnectionDataRepoObj = new AppConnectionDataRepo(connFactoryObj);
+            //-----------------------------------------------------------------------------------------
+            // Create the SQLite connection factory using APPLICATION options
+            //-----------------------------------------------------------------------------------------
+            SQLiteConnectionFactory connFactoryObj =
+                new SQLiteConnectionFactory(options);
+
+            //-----------------------------------------------------------------------------------------
+            // Initialize APPLICATION-level repositories
+            //-----------------------------------------------------------------------------------------
+            AppComponentsRepoObj = new AppComponentsRepo(connFactoryObj);
+            AppMetadataRepoObj = new AppMetadataRepo(connFactoryObj);
             AppSettingsRepoObj = new AppSettingsRepo(connFactoryObj);
-            DatabaseTableRepoObj = new DatabaseTableRepo(connFactoryObj);
         }
-        #endregion  // CTOR
+        #endregion // CTOR
 
-        #region GetDatabaseConnectionData()
+        #region GetAppComponentsList()
         /// <summary>
         /// Gets APPLICATION (HenStudio SQLite database connection data as a 
         /// strongly-typed <see cref="AppConnectionDataRepo"/> object.
         /// </summary>
         /// <returns>Populated <see cref="AppConnectionDataDto"/> object.</returns>
         /// <exception cref="InvalidOperationException">Unrecognized connection data key encountered while mapping connection data.</exception>
-        public AppConnectionDataDto GetDatabaseConnectionData()
+        public List<AppComponentsDto> GetAppComponentsList()
         {
             try
             {
                 //-------------------------------------------------------------------------------------------
                 //--- No Conversion needed as the DTO is already in the desired format for the view model ---
                 //-------------------------------------------------------------------------------------------
-                return ConnectionDataRepoObj.GetAppConnectionData();
+                return AppComponentsRepoObj.GetAppComponentsList();
             }
             catch (Exception ex)
             {
-                // Handle exceptions (e.g., log the error, rethrow, or return null)
+                //--- Handle exceptions (e.g., log the error, rethrow, or return null) ---
                 Console.WriteLine($"Error retrieving profile: {ex.Message}");
                 return null;
             }
         }
-        #endregion  // GetDatabaseConnectionData()
+        #endregion  // GetAppComponentsList()
 
-        #region GetFactorySettingsList()
-        /// <summary>
-        /// Retrieves a list of all Application Factory Settings Name-Value pairs.
-        /// </summary>
-        /// <returns>A list of <see cref="AppSettingsDto"/> objects representing the available Global Settings, 
-        /// or an empty list if no Global Settings found.</returns>
-        public List<AppSettingsDto> GetFactorySettingsList()
-        {
-            try
-            {
-                //-------------------------------------------------------------------------------------------
-                //--- No Conversion needed as the DTO is already in the desired format for the view model ---
-                //-------------------------------------------------------------------------------------------
-                return AppSettingsRepoObj.GetAppSettingsList();
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions (e.g., log the error, rethrow, or return null)
-                Console.WriteLine($"Error retrieving profile: {ex.Message}");
-                return null;
-            }
-        }
-        #endregion  // GetFactorySettingsList()
+        //#region GetFactorySettingsList()
+        ///// <summary>
+        ///// Retrieves a list of all Application Factory Settings Name-Value pairs.
+        ///// </summary>
+        ///// <returns>A list of <see cref="AppSettingsDto"/> objects representing the available Global Settings, 
+        ///// or an empty list if no Global Settings found.</returns>
+        //public List<AppSettingsDto> GetFactorySettingsList()
+        //{
+        //    try
+        //    {
+        //        //-------------------------------------------------------------------------------------------
+        //        //--- No Conversion needed as the DTO is already in the desired format for the view model ---
+        //        //-------------------------------------------------------------------------------------------
+        //        return AppSettingsRepoObj.GetAppSettingsList();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Handle exceptions (e.g., log the error, rethrow, or return null)
+        //        Console.WriteLine($"Error retrieving profile: {ex.Message}");
+        //        return null;
+        //    }
+        //}
+        //#endregion  // GetFactorySettingsList()
 
-        #region GetDatabaseTables()
-        /// <summary>
-        /// Retrieves a list of all Database Tables.
-        /// </summary>
-        /// <returns>A list of <see cref="DatabaseTableDto"/> objects representing the available Database Tables, 
-        /// or an empty list if no Global Settings found.</returns>
-        public IList<DatabaseTableDto> GetDatabaseTables()
-        {
-            try
-            {
-                //-------------------------------------------------------------------------------------------
-                //--- No Conversion needed as the DTO is already in the desired format for the view model ---
-                //-------------------------------------------------------------------------------------------
-                return DatabaseTableRepoObj.GetDatabaseTables();
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions (e.g., log the error, rethrow, or return null)
-                Console.WriteLine($"Error retrieving profile: {ex.Message}");
-                return null;
-            }
-        }
-        #endregion  // GetDatabaseTables()
+        //#region GetDatabaseTables()
+        ///// <summary>
+        ///// Retrieves a list of all Database Tables.
+        ///// </summary>
+        ///// <returns>A list of <see cref="DatabaseTableDto"/> objects representing the available Database Tables, 
+        ///// or an empty list if no Global Settings found.</returns>
+        //public IList<DatabaseTableDto> GetDatabaseTables()
+        //{
+        //    try
+        //    {
+        //        //-------------------------------------------------------------------------------------------
+        //        //--- No Conversion needed as the DTO is already in the desired format for the view model ---
+        //        //-------------------------------------------------------------------------------------------
+        //        return DatabaseTableRepoObj.GetDatabaseTables();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Handle exceptions (e.g., log the error, rethrow, or return null)
+        //        Console.WriteLine($"Error retrieving profile: {ex.Message}");
+        //        return null;
+        //    }
+        //}
+        //#endregion  // GetDatabaseTables()
 
     }
     #endregion      // public class ApplicationViewModel

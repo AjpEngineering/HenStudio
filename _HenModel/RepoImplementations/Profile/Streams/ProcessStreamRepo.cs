@@ -34,8 +34,6 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.RepoInterfaces.Profile;
 using HenModel.RepoInterfaces.Profile.Streams;
 
@@ -57,7 +55,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
     public class ProcessStreamRepo : IProcessStreamRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
 
         #region PRIVATE METHODS
@@ -114,7 +112,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public ProcessStreamRepo(IDbConnectionFactory connectionFactory)
+        public ProcessStreamRepo(IConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {

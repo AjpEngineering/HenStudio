@@ -94,9 +94,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection\ConnectionString.cs" />
-    <Compile Include="Connection\Interface\IDbConnectionFactory.cs" />
+    <Compile Include="Connection\DatabaseInitializer.cs" />
+    <Compile Include="Connection\DatabaseType.cs" />
+    <Compile Include="Connection\IConnectionFactory.cs" />
     <Compile Include="Connection\SQLiteConnectionFactory.cs" />
+    <Compile Include="Connection\SQLiteConnectionOptions.cs" />
     <Compile Include="Database\HenStudio\SQLiteBootstrap.cs" />
     <Compile Include="Dto\Application\AppComponentsDto.cs" />
     <Compile Include="Dto\Application\AppMetadataDto.cs" />
@@ -168,12 +170,9 @@
     <Compile Include="RepoInterfaces\Hen\Plots\IGridDiagramPointIDRepo.cs" />
     <Compile Include="RepoInterfaces\Hen\Plots\IHeatReleaseCurveRepo.cs" />
     <Compile Include="RepoInterfaces\Hen\Plots\IHeatReleaseCurvePointIDRepo.cs" />
-    <Compile Include="Dto\Application\DatabaseTableDto.cs" />
     <Compile Include="Dto\Application\AppSettingsDto.cs" />
     <Compile Include="RepoInterfaces\Project\DefaultParameters\ProjectUnits\IProjectUnitsRepo.cs" />
-    <Compile Include="RepoInterfaces\Application\IDatabaseTableRepo.cs" />
     <Compile Include="RepoInterfaces\Application\IAppSettingsRepo.cs" />
-    <Compile Include="Dto\Application\AppConnectionDataDto.cs" />
     <Compile Include="RepoInterfaces\Application\IAppConnectionDataRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepoImplementations\Hen\ExchangerRepo.cs" />
@@ -201,8 +200,6 @@
     <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerParamsRepo.cs" />
     <Compile Include="RepoImplementations\Project\ProjectRepo.cs" />
     <Compile Include="RepoImplementations\Project\DefaultParameters\ProjectUnits\ProjectUnitsRepo.cs" />
-    <Compile Include="RepoImplementations\Application\AppConnectionDataRepo.cs" />
-    <Compile Include="RepoImplementations\Application\DatabaseTableRepo.cs" />
     <Compile Include="RepoImplementations\Application\AppSettingsRepo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -214,8 +211,8 @@
     <None Include="Database\HenStudio\Scripts\Seed\002_SeedAppComponents..sqlite" />
     <None Include="Database\HenStudio\Scripts\Seed\001_SeedAppMetadata.sqlite" />
     <None Include="Database\HenStudio\Scripts\Seed\003_SeedAppSettings.sqlite" />
-    <Content Include="Database\HenStudio\Scripts\Build\Output\00_create_all_henstudio.sql" />
-    <Content Include="Database\HenStudio\Scripts\Build\Output\01_seed_all_henstudio.sql" />
+    <EmbeddedResource Include="Database\HenStudio\Scripts\Build\Output\00_create_all_henstudio.sql" />
+    <EmbeddedResource Include="Database\HenStudio\Scripts\Build\Output\01_seed_all_henstudio.sql" />
     <Content Include="Database\Project\Tables\CompositeCurve.sqlite.sql" />
     <Content Include="Database\Project\Tables\CompositeCurvePointID.sqlite.sql" />
     <Content Include="Database\Project\Tables\CostMetaData.sqlite.sql" />

@@ -34,8 +34,6 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.RepoInterfaces.Project.DefaultParameters.ProjectUnits;
 using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
@@ -54,7 +52,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
     public class ProjectUnitsRepo : IProjectUnitsRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
 
         #region PRIVATE METHODS
@@ -116,7 +114,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public ProjectUnitsRepo(IDbConnectionFactory connectionFactory)
+        public ProjectUnitsRepo(IConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {

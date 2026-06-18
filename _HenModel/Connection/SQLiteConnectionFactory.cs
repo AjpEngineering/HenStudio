@@ -33,11 +33,12 @@
 #endregion
 
 #region REFERENCES
-using HenModel.Connection.Interface;
-
 using System;
 using System.Data;
+
 using Microsoft.Data.Sqlite;
+
+using HenModel.Database.HenStudio;
 #endregion  // REFERENCES
 
 #region namespace HenModel.Connection
@@ -47,27 +48,21 @@ namespace HenModel.Connection
     /// <summary>
     /// SQLite Connection Factory Class
     /// </summary>
-    public class SQLiteConnectionFactory : IDbConnectionFactory
+    public class SQLiteConnectionFactory : IConnectionFactory
     {
         #region PRIVATE FIELDS
-        private readonly string _connectionString;
+        private readonly SQLiteConnectionOptions _options;
+        private bool _initialized = false;
         #endregion      // PRIVATE FIELDS
-
-        public IDbConnection dbConnection { get; set; }
 
         #region CTOR
         /// <summary>
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionString">SQLite connection string (e.g. Data Source=path\file.db;)</param>
-        public SQLiteConnectionFactory(string connectionString)
+        public SQLiteConnectionFactory(SQLiteConnectionOptions options)
         {
-            if (String.IsNullOrWhiteSpace(connectionString))
-            {
-                throw new ArgumentException("Connection string cannot be null or whitespace.", nameof(connectionString));
-            }
-
-            _connectionString = connectionString;
+            _options = options;
         }
         #endregion      // CTOR
 
@@ -77,30 +72,16 @@ namespace HenModel.Connection
         /// The connection is not opened by this method.
         /// </summary>
         /// <returns>An <see cref="IDbConnection"/> instance.</returns>
-        public IDbConnection CreateConnection()
+        public SqliteConnection CreateConnection()
         {
-            dbConnection = new SqliteConnection(_connectionString);
-            return dbConnection;
+            if (!_initialized)
+            {
+                DatabaseInitializer.Initialize(_options);
+                _initialized = true;
+            }
+            return new SqliteConnection(_options.BuildConnectionString());
         }
         #endregion  // CreateConnection()
-
-        #region CloseConnection()
-        /// <summary>
-        /// Closes the specified database connection if it is not already closed.
-        /// </summary>
-        /// <param name="connection">The database connection to close.</param>
-        public void CloseConnection(IDbConnection connection)
-        {
-            if (connection == null)
-            {
-                throw new ArgumentNullException(nameof(connection));
-            }
-            if (connection.State != ConnectionState.Closed)
-            {
-                connection.Close();
-            }
-        }
-        #endregion  // CloseConnection()
     }
     #endregion  // public class SQLiteConnectionFactory
 }

@@ -34,8 +34,6 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.RepoInterfaces.Pinch.Plots;
 using HenModel.Dto.Pinch.Plots;
 
@@ -54,7 +52,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
     public class THDiagramRepo : ITHDiagramRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
 
         #region PRIVATE METHODS
@@ -104,7 +102,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public THDiagramRepo(IDbConnectionFactory connectionFactory)
+        public THDiagramRepo(IConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {

@@ -1,14 +1,17 @@
-#region HEADER
+﻿#region HEADER
 //#####################################################################################################################
-//####################################  I D a t a b a s e T a b l e R e p o . c s  ####################################
+//##########################################  D a t a b a s e T y p e . c s  ##########################################
 //#####################################################################################################################
-//  FILENAME:  IDatabaseTableRepo.cs
-//  NAMESPACE: HenModel.RepoInterfaces.System
-//  INTERFACE: IDatabaseTableRepo
+//  FILENAME:  DatabaseType.cs
+//  NAMESPACE: HenModel.Connection
+//  ENUM(S):   DatabaseType
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the repo interface for database table name queries.
+//    This file contains the database connection type for the MODEL layer SQLite DB connections.
+//    ENUMERATION: DatabaseType ... [UNKNOWN=-1, APPLICATION=0, PROJECT=1]
+//---------------------------------------------------------------------------------------------------------------------
+//    The Enumeration provides a clean switch point for Database Type connection logic.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,28 +36,23 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Dto.Application;
-
+using System;
 using System.Collections.Generic;
-#endregion      // REFERENCES
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+#endregion  // REFERENCES
 
-#region namespace HenModel.RepoInterfaces.Application
-namespace HenModel.RepoInterfaces.Application
+#region namespace HenModel.Connection
+namespace HenModel.Connection
 {
-    #region public interface IDatabaseTableRepo
-    /// <summary>
-    /// DatabaseTable Repo Interface
-    /// </summary>
-    public interface IDatabaseTableRepo
+    #region enum DatabaseType
+    public enum DatabaseType
     {
-        #region METHODS
-        IList<DatabaseTableDto> GetDatabaseTables();
-        #endregion      // METHODS
+        UNKNOWN = -1,
+        APPLICATION = 0,
+        PROJECT = 1
     }
-    #endregion      // public interface IDatabaseTableRepo
+    #endregion  // enum DatabaseType
 }
-#endregion      // namespace HenModel.RepoInterfaces.Application
-
-//=====================================================================================================================
-//---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
-//=====================================================================================================================
+#endregion  // namespace HenModel.Connection

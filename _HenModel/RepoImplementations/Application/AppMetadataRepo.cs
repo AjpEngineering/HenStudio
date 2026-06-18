@@ -8,7 +8,7 @@
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation for the AppMetadataRepo.
+//    Concrete repository implementation for the AppMetadata table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -34,16 +34,13 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.Dto.Application;
 using HenModel.RepoInterfaces.Application;
 
+using Microsoft.Data.Sqlite;
+
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Security.Claims;
-using System.Xml.Linq;
 #endregion      // REFERENCES
 
 #region namespace HenModel.RepoImplementations.Application
@@ -51,98 +48,80 @@ namespace HenModel.RepoImplementations.Application
 {
     #region public class AppMetadataRepo
     /// <summary>
-    /// AppMetadata Repo Class
+    /// Repository class for accessing application metadata records.
     /// </summary>
     public class AppMetadataRepo : IAppMetadataRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _factory;
         #endregion      // PRIVATE FIELDS
+
+        #region CTOR
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        /// <param name="factory">SQLite connection factory.</param>
+        public AppMetadataRepo(IConnectionFactory factory)
+        {
+            _factory = factory ?? throw new ArgumentNullException(nameof(factory));
+        }
+        #endregion      // CTOR
 
         #region PRIVATE METHODS
 
         #region MapMetadata()
         /// <summary>
-        /// Maps a data record from the application settings query result set to a <see cref="AppSettingsDto"/> instance.
+        /// Maps a SqliteDataReader record to an AppMetadataDto instance.
         /// </summary>
-        /// <param name="record">The data record containing the global settings column values.</param>
-        /// <param name="appMetadataIdOrdinal">The ordinal position of the <c>AppMetadataId</c> column.</param>
-        /// <param name="appMetadataNameOrdinal">The ordinal position of the <c>AppMetadataName</c> column.</param>
-        /// <param name="appMetadataValueOrdinal">The ordinal position of the <c>AppSettingValue</c> column.</param>
-        /// <returns>A <see cref="AppMetadataDto"/> populated from the supplied data record.</returns>
-        private static AppMetadataDto MapMetadata(IDataRecord record, 
-                                                  int appMetadataIdOrdinal, 
-                                                  int appMetadataNameOrdinal, 
-                                                  int appMetadataValueOrdinal)
+        private static AppMetadataDto MapMetadata(SqliteDataReader reader)
         {
+            int idOrdinal = reader.GetOrdinal("AppMetadataId");
+            int nameOrdinal = reader.GetOrdinal("AppMetadataName");
+            int valueOrdinal = reader.GetOrdinal("AppMetadataValue");
+
             return new AppMetadataDto
             {
-                AppMetadataId = record.GetInt32(appMetadataIdOrdinal),
-                AppMetadataName = record.IsDBNull(appMetadataNameOrdinal) ? null : record.GetString(appMetadataNameOrdinal),
-                AppMetadataValue = record.IsDBNull(appMetadataValueOrdinal) ? null : record.GetString(appMetadataValueOrdinal),
+                AppMetadataId = reader.GetInt32(idOrdinal),
+                AppMetadataName = reader.IsDBNull(nameOrdinal) ? null : reader.GetString(nameOrdinal),
+                AppMetadataValue = reader.IsDBNull(valueOrdinal) ? null : reader.GetString(valueOrdinal)
             };
         }
         #endregion  // MapMetadata()
 
         #endregion      // PRIVATE METHODS
 
-        #region CTOR
-        /// <summary>
-        /// Parameterized Constructor
-        /// </summary>
-        /// <param name="connectionFactory">Database connection factory.</param>
-        public AppMetadataRepo(IDbConnectionFactory connectionFactory)
-        {
-            if (connectionFactory == null)
-            {
-                throw new ArgumentNullException(nameof(connectionFactory));
-            }
-
-            _connectionFactory = connectionFactory;
-        }
-        #endregion      // CTOR
-
         #region METHODS
 
         #region GetAppMetadataList()
         /// <summary>
-        /// Retrieves all application metadata as a list of AppMetadataDto objects.
+        /// Retrieves all application metadata records.
         /// </summary>
-        /// <remarks>The settings are returned in ascending order by their setting key. This method is
-        /// typically used to access configuration values that apply across the entire application.</remarks>
-        /// <returns>A list of <see cref="AppSettingsDto"/> objects representing the global settings. The list is empty if no
-        /// settings are found.</returns>
+        /// <returns>List of AppMetadataDto objects.</returns>
         public List<AppMetadataDto> GetAppMetadataList()
         {
-            const string sql = @"SELECT AppMetadataId,
-                                        AppMetadataName,
-                                        AppMetadataValue
-                                 FROM dbo.AppMetadata
-                                 ORDER BY AppMetadataId;";
+            const string sql = @"
+                SELECT AppMetadataId,
+                       AppMetadataName,
+                       AppMetadataValue
+                FROM AppMetadata
+                ORDER BY AppMetadataId;
+            ";
 
             List<AppMetadataDto> metadata = new List<AppMetadataDto>();
 
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            using (SqliteConnection conn = _factory.CreateConnection())
             {
-                using (IDbCommand command = connection.CreateCommand())
+                conn.Open();
+
+                using (SqliteCommand cmd = conn.CreateCommand())
                 {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
 
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
+                    using (SqliteDataReader reader = cmd.ExecuteReader())
                     {
-                        int appMetadataIdOrdinal = reader.GetOrdinal("AppMetadataId");
-                        int appMetadataNameOrdinal = reader.GetOrdinal("AppMetadataName");
-                        int appMetadataValueOrdinal = reader.GetOrdinal("AppMetadataValue");
-
                         while (reader.Read())
                         {
-                            metadata.Add(MapMetadata(reader,
-                                                     appMetadataIdOrdinal,
-                                                     appMetadataNameOrdinal,
-                                                     appMetadataValueOrdinal));
+                            metadata.Add(MapMetadata(reader));
                         }
                     }
                 }
@@ -157,7 +136,3 @@ namespace HenModel.RepoImplementations.Application
     #endregion      // public class AppMetadataRepo
 }
 #endregion      // namespace HenModel.RepoImplementations.Application
-
-//=====================================================================================================================
-//---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
-//=====================================================================================================================

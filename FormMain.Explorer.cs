@@ -45,7 +45,6 @@
 using HenGlobal;
 
 using HenModel.Connection;
-using HenModel.Connection.Interface;
 
 using HenModel.Dto;
 using HenModel.Dto.Application;
@@ -453,11 +452,16 @@ namespace HenStudio
                 {
                     #region CATALOG (ROOT)
                     case ExplorerNodeIdType.CATALOG:
-                        //-------------------------------------------------
-                        //--- Populate Current ROOT (CATALOG) Panel ---
-                        //--- and Display Projects (CATALOG) Panel      ---
-                        //-------------------------------------------------
-                        HandleDBConnectionState();
+                        //--------------------------------------
+                        //--- Populate Current Profile Panel ---
+                        //--------------------------------------
+                        HenMsgDlg.DisplayWarningDlg("***** Populate Current ROOT Panel *****");
+
+
+                        //--------------------------------------
+                        //--- Display Root Application Panel ---
+                        //--------------------------------------
+                        this.panelSELECTED_ROOT.BringToFront();
                         break;
                     #endregion  // CATALOG (ROOT)
 
@@ -466,18 +470,18 @@ namespace HenStudio
                         //-------------------------------------------------------------------------
                         //--- Get Project Data from DB and Populate Project Panel and Subpanels ---
                         //-------------------------------------------------------------------------
-                        TreeNode selNode = treeViewCurrentProjectExplorer.SelectedNode;
+                        //TreeNode selNode = treeViewCurrentProjectExplorer.SelectedNode;
                         
-                        Guid projectID = ((DataTagDisplay)selNode.Tag).ProjectID;
-                        if (projectID == Guid.Empty) throw(new Exception("Invalid Project ID!"));
+                        //Guid projectID = ((DataTagDisplay)selNode.Tag).ProjectID;
+                        //if (projectID == Guid.Empty) throw(new Exception("Invalid Project ID!"));
 
-                        //---------------------------------------------------------
-                        //--- Get Project Data from DB using Project ViewModels ---
-                        //---------------------------------------------------------
-                        ProjectDto projectDtoObj = projectViewModelObj.GetProjectById(projectID);
-                        ProjectUnitsDto projectUnitsDto = projectUnitsViewModelObj.GetProjectUnitsByProjectId(projectID);
-                        ExchangerParamsDto exchangerParamsDto = exchangerParamsViewModelObj.GetExchangerParamsByProjectId(projectID);
-                        OptimizerParamsDto optimizerParamsDto = optimizerParamsViewModelObj.GetOptimizerParamsByProjectId(projectID);
+                        ////---------------------------------------------------------
+                        ////--- Get Project Data from DB using Project ViewModels ---
+                        ////---------------------------------------------------------
+                        //ProjectDto projectDtoObj = projectViewModelObj.GetProjectById(projectID);
+                        //ProjectUnitsDto projectUnitsDto = projectUnitsViewModelObj.GetProjectUnitsByProjectId(projectID);
+                        //ExchangerParamsDto exchangerParamsDto = exchangerParamsViewModelObj.GetExchangerParamsByProjectId(projectID);
+                        //OptimizerParamsDto optimizerParamsDto = optimizerParamsViewModelObj.GetOptimizerParamsByProjectId(projectID);
 
                         //--------------------------------------------------------------
                         //--- Populate Project Panel and Subpanels with Project Data ---

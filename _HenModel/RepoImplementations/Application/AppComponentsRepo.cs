@@ -8,7 +8,7 @@
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation for the AppMetadataRepo.
+//    Concrete repository implementation for the AppComponents table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -34,16 +34,13 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.Dto.Application;
 using HenModel.RepoInterfaces.Application;
 
+using Microsoft.Data.Sqlite;
+
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Security.Claims;
-using System.Xml.Linq;
 #endregion      // REFERENCES
 
 #region namespace HenModel.RepoImplementations.Application
@@ -51,98 +48,80 @@ namespace HenModel.RepoImplementations.Application
 {
     #region public class AppComponentsRepo
     /// <summary>
-    /// GlobalSettings Repo Class
+    /// Repository class for accessing application component records.
     /// </summary>
     public class AppComponentsRepo : IAppComponentsRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _factory;
         #endregion      // PRIVATE FIELDS
+
+        #region CTOR
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        /// <param name="factory">SQLite connection factory.</param>
+        public AppComponentsRepo(IConnectionFactory factory)
+        {
+            _factory = factory ?? throw new ArgumentNullException(nameof(factory));
+        }
+        #endregion      // CTOR
 
         #region PRIVATE METHODS
 
         #region MapAppComponents()
         /// <summary>
-        /// Maps a data record from the application settings query result set to a <see cref="AppSettingsDto"/> instance.
+        /// Maps a SqliteDataReader record to an AppComponentsDto instance.
         /// </summary>
-        /// <param name="record">The data record containing the global settings column values.</param>
-        /// <param name="appMetadataIdOrdinal">The ordinal position of the <c>AppMetadataId</c> column.</param>
-        /// <param name="appMetadataNameOrdinal">The ordinal position of the <c>AppMetadataName</c> column.</param>
-        /// <param name="appMetadataValueOrdinal">The ordinal position of the <c>AppSettingValue</c> column.</param>
-        /// <returns>A <see cref="AppComponentsDto"/> populated from the supplied data record.</returns>
-        private static AppComponentsDto MapAppComponents(IDataRecord record, 
-                                                         int componentIdOrdinal, 
-                                                         int componentNameOrdinal, 
-                                                         int componentTypeOrdinal)
+        private static AppComponentsDto MapAppComponents(SqliteDataReader reader)
         {
+            int idOrdinal = reader.GetOrdinal("ComponentId");
+            int nameOrdinal = reader.GetOrdinal("ComponentName");
+            int typeOrdinal = reader.GetOrdinal("ComponentType");
+
             return new AppComponentsDto
             {
-                ComponentId = record.GetInt32(componentIdOrdinal),
-                ComponentName = record.IsDBNull(componentNameOrdinal) ? null : record.GetString(componentNameOrdinal),
-                ComponentType = record.IsDBNull(componentTypeOrdinal) ? null : record.GetString(componentTypeOrdinal),
+                ComponentId = reader.GetInt32(idOrdinal),
+                ComponentName = reader.IsDBNull(nameOrdinal) ? null : reader.GetString(nameOrdinal),
+                ComponentType = reader.IsDBNull(typeOrdinal) ? null : reader.GetString(typeOrdinal)
             };
         }
         #endregion  // MapAppComponents()
 
         #endregion      // PRIVATE METHODS
 
-        #region CTOR
-        /// <summary>
-        /// Parameterized Constructor
-        /// </summary>
-        /// <param name="connectionFactory">Database connection factory.</param>
-        public AppComponentsRepo(IDbConnectionFactory connectionFactory)
-        {
-            if (connectionFactory == null)
-            {
-                throw new ArgumentNullException(nameof(connectionFactory));
-            }
-
-            _connectionFactory = connectionFactory;
-        }
-        #endregion      // CTOR
-
         #region METHODS
 
         #region GetAppComponentsList()
         /// <summary>
-        /// Retrieves all application components as a list of AppComponentsDto objects.
+        /// Retrieves all application components.
         /// </summary>
-        /// <remarks>The settings are returned in ascending order by their setting key. This method is
-        /// typically used to access configuration values that apply across the entire application.</remarks>
-        /// <returns>A list of <see cref="AppComponentsDto"/> objects. The list is empty if no
-        /// settings are found.</returns>
+        /// <returns>List of AppComponentsDto objects.</returns>
         public List<AppComponentsDto> GetAppComponentsList()
         {
-            const string sql = @"SELECT ComponentId,
-                                        ComponentName,
-                                        ComponentType
-                                 FROM dbo.AppComponents
-                                 ORDER BY ComponentId;";
+            const string sql = @"
+                SELECT ComponentId,
+                       ComponentName,
+                       ComponentType
+                FROM AppComponents
+                ORDER BY ComponentId;
+            ";
 
             List<AppComponentsDto> components = new List<AppComponentsDto>();
 
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            using (SqliteConnection conn = _factory.CreateConnection())
             {
-                using (IDbCommand command = connection.CreateCommand())
+                conn.Open();
+
+                using (SqliteCommand cmd = conn.CreateCommand())
                 {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
 
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
+                    using (SqliteDataReader reader = cmd.ExecuteReader())
                     {
-                        int componentIdOrdinal = reader.GetOrdinal("ComponentId");
-                        int componentNameOrdinal = reader.GetOrdinal("ComponentName");
-                        int componentTypeOrdinal = reader.GetOrdinal("ComponentType");
-
                         while (reader.Read())
                         {
-                            components.Add(MapAppComponents(reader,
-                                                            componentIdOrdinal,
-                                                            componentNameOrdinal,
-                                                            componentTypeOrdinal));
+                            components.Add(MapAppComponents(reader));
                         }
                     }
                 }
@@ -157,7 +136,3 @@ namespace HenModel.RepoImplementations.Application
     #endregion      // public class AppComponentsRepo
 }
 #endregion      // namespace HenModel.RepoImplementations.Application
-
-//=====================================================================================================================
-//---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
-//=====================================================================================================================

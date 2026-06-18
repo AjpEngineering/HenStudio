@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//###################################  A p p C o n n e c t i o n D a t a R e p o . c s  ###############################
+//#####################################  I C o n n e c t i o n F a c t o r y . c s  ###################################
 //#####################################################################################################################
-//  FILENAME:  AppConnectionDataRepo.cs
-//  NAMESPACE: HenModel.RepoImplementations.Application
-//  CLASS(S):  AppConnectionDataRepo
+//  FILENAME:  IConnectionFactory.cs
+//  NAMESPACE: HenModel.Connection
+//  INTERFACE: IConnectionFactory
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation for database connection metadata queries.
+//    This file contains the SQLite database connection factory interface (both APPLICATION and PROJECT).
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,82 +33,27 @@
 #endregion      // HEADER
 
 #region REFERENCES
-using HenModel.Connection;
-using HenModel.Connection.Interface;
+using Microsoft.Data.Sqlite;
 
-using HenModel.Dto.Application;
-using HenModel.RepoInterfaces.Application;
-
-using System;
 using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
 #endregion      // REFERENCES
 
-#region namespace HenModel.RepoImplementations.Application
-namespace HenModel.RepoImplementations.Application
+#region namespace HenModel.Connection
+namespace HenModel.Connection
 {
-    #region public class AppConnectionDataRepo
+    #region public interface IConnectionFactory
     /// <summary>
-    /// AppConnectionData Repo Class
+    /// SQLite (APPLICATION & PROJECT) Database Connection Factory Interface
     /// </summary>
-    public class AppConnectionDataRepo : IAppConnectionDataRepo
+    public interface IConnectionFactory
     {
-        #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
-        #endregion      // PRIVATE FIELDS
-
-        #region CTOR
-        /// <summary>
-        /// Parameterized Constructor
-        /// </summary>
-        /// <param name="connectionFactory">Database connection factory.</param>
-        public AppConnectionDataRepo(IDbConnectionFactory connectionFactory)
-        {
-            if (connectionFactory == null)
-            {
-                throw new ArgumentNullException(nameof(connectionFactory));
-            }
-
-            _connectionFactory = connectionFactory;
-        }
-        #endregion      // CTOR
-
-        #region PRIVATE METHODS
-
-        #endregion      // PRIVATE METHODS
-
         #region METHODS
-
-        #region GetAppConnectionData()
-        /// <summary>
-        /// Retrieves APPLICATION (HenStudio) SQLite database connection data.
-        /// </summary>
-        /// <returns>A <see cref="AppConnectionDataDto"/> object containing the 
-        /// APPLICATION (HenStudio) SQLite connection data.</returns>
-        public AppConnectionDataDto GetAppConnectionData()
-        {
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
-            {
-                DbConnection dbConnection = connection as DbConnection;
-
-                if (dbConnection == null)
-                {
-                    throw new InvalidOperationException("The configured connection factory did not return a DbConnection instance.");
-                }
-
-                dbConnection.Open();
-
-                return new AppConnectionDataDto();
-            }
-        }
-        #endregion      // GetAppConnectionData()
-
+        SqliteConnection CreateConnection();
         #endregion      // METHODS
     }
-    #endregion      // public class AppConnectionDataRepo
+    #endregion      // public interface IDbConnectionFactory
 }
-#endregion      // namespace HenModel.RepoImplementations.Application
+#endregion      // namespace HenModel.Connection
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

@@ -1,14 +1,14 @@
 #region HEADER
 //#####################################################################################################################
-//###################################  I D b C o n n e c t i o n F a c t o r y . c s  #################################
+//####################################  S q l i t e C o n n e c t i o n O p t i o n s . c s  ##########################
 //#####################################################################################################################
-//  FILENAME:  IDbConnectionFactory.cs
-//  NAMESPACE: HenModel.Connection.Interface
-//  INTERFACE: IDbConnectionFactory
+//  FILENAME:  SQLiteConnectionOptions.cs
+//  NAMESPACE: HenModel.Connection
+//  CLASS(S):  SQLiteConnectionOptions
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the database connection factory interface for the persistence layer.
+//    This file contains the SQLite Connection Options class.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -30,28 +30,33 @@
 //#####################################################################################################################
 //#####################################################################################################################
 //#####################################################################################################################
-#endregion      // HEADER
+#endregion
 
 #region REFERENCES
+using System;
 using System.Data;
-#endregion      // REFERENCES
+using Microsoft.Data.Sqlite;
+#endregion  // REFERENCES
 
-#region namespace HenModel.Connection.Interface
-namespace HenModel.Connection.Interface
+#region namespace HenModel.Connection
+namespace HenModel.Connection
 {
-    #region public interface IDbConnectionFactory
+    #region public class SQLiteConnectionOptions
     /// <summary>
-    /// Database Connection Factory Interface
+    /// SQLite Connection Options Class
     /// </summary>
-    public interface IDbConnectionFactory
+    public class SQLiteConnectionOptions
     {
-        #region METHODS
-        IDbConnection CreateConnection();
-        #endregion      // METHODS
+        public DatabaseType DbType { get; set; }
+        public string DatabasePath { get; set; }
+        public string BuildConnectionString()
+        {
+            return $"Data Source={DatabasePath};Cache=Shared;";
+        }
     }
-    #endregion      // public interface IDbConnectionFactory
+    #endregion  // public class SQLiteConnectionOptions
 }
-#endregion      // namespace HenModel.Connection.Interface
+#endregion  // namespace HenModel.Connection
 
 //=====================================================================================================================
 //---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------

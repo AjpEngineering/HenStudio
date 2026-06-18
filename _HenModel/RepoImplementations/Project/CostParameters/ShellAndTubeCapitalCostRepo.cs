@@ -34,8 +34,6 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.RepoInterfaces.Project.CostParameters;
 using HenModel.Dto.Project.CostParameters;
 
@@ -54,7 +52,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
     public class ShellAndTubeCapitalCostRepo : IShellAndTubeCapitalCostRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
 
         #region PRIVATE METHODS
@@ -107,7 +105,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public ShellAndTubeCapitalCostRepo(IDbConnectionFactory connectionFactory)
+        public ShellAndTubeCapitalCostRepo(IConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {

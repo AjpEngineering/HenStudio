@@ -34,8 +34,6 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.RepoInterfaces.Pinch.Plots;
 using HenModel.Dto.Pinch.Plots;
 
@@ -53,7 +51,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
     public class CompositeCurvePointIDRepo : ICompositeCurvePointIDRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
 
         #region CTOR
@@ -61,7 +59,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public CompositeCurvePointIDRepo(IDbConnectionFactory connectionFactory)
+        public CompositeCurvePointIDRepo(IConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {

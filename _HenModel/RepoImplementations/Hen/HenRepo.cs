@@ -34,8 +34,6 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.RepoInterface.Hen;
 using HenModel.Dto.Hen;
 
@@ -53,7 +51,7 @@ namespace HenModel.RepoImplementations.Hen
     public class HenRepo : IHenRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
 
         #region CTOR
@@ -61,7 +59,7 @@ namespace HenModel.RepoImplementations.Hen
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public HenRepo(IDbConnectionFactory connectionFactory)
+        public HenRepo(IConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {

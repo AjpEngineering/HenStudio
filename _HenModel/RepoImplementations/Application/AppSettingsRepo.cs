@@ -8,7 +8,7 @@
 //  COMPONENT: _HenModel.dll
 //=====================================================================================================================
 //  DESCRIPTION: 
-//    This file contains the concrete repo implementation for the GlobalSettings table.
+//    Concrete repository implementation for the AppSettings table.
 //=====================================================================================================================
 //  AUTHOR:
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -34,16 +34,13 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.Dto.Application;
 using HenModel.RepoInterfaces.Application;
 
+using Microsoft.Data.Sqlite;
+
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Security.Claims;
-using System.Xml.Linq;
 #endregion      // REFERENCES
 
 #region namespace HenModel.RepoImplementations.Application
@@ -51,98 +48,80 @@ namespace HenModel.RepoImplementations.Application
 {
     #region public class AppSettingsRepo
     /// <summary>
-    /// GlobalSettings Repo Class
+    /// Repository class for accessing application settings records.
     /// </summary>
     public class AppSettingsRepo : IAppSettingsRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _factory;
         #endregion      // PRIVATE FIELDS
+
+        #region CTOR
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        /// <param name="factory">SQLite connection factory.</param>
+        public AppSettingsRepo(IConnectionFactory factory)
+        {
+            _factory = factory ?? throw new ArgumentNullException(nameof(factory));
+        }
+        #endregion      // CTOR
 
         #region PRIVATE METHODS
 
         #region MapAppSettings()
         /// <summary>
-        /// Maps a data record from the application settings query result set to a <see cref="AppSettingsDto"/> instance.
+        /// Maps a SqliteDataReader record to an AppSettingsDto instance.
         /// </summary>
-        /// <param name="record">The data record containing the global settings column values.</param>
-        /// <param name="appSettingIdOrdinal">The ordinal position of the <c>AppSettingId</c> column.</param>
-        /// <param name="appSettingNameOrdinal">The ordinal position of the <c>AppSettingName</c> column.</param>
-        /// <param name="AppSettingValueOrdinal">The ordinal position of the <c>AppSettingValue</c> column.</param>
-        /// <returns>A <see cref="AppSettingsDto"/> populated from the supplied data record.</returns>
-        private static AppSettingsDto MapAppSettings(IDataRecord record, 
-                                                     int appSettingIdOrdinal, 
-                                                     int appSettingNameOrdinal, 
-                                                     int appSettingValueOrdinal)
+        private static AppSettingsDto MapAppSettings(SqliteDataReader reader)
         {
+            int idOrdinal = reader.GetOrdinal("AppSettingId");
+            int nameOrdinal = reader.GetOrdinal("AppSettingName");
+            int valueOrdinal = reader.GetOrdinal("AppSettingValue");
+
             return new AppSettingsDto
             {
-                AppSettingId = record.GetInt32(appSettingIdOrdinal),
-                AppSettingName = record.IsDBNull(appSettingNameOrdinal) ? null : record.GetString(appSettingNameOrdinal),
-                AppSettingValue = record.IsDBNull(appSettingValueOrdinal) ? null : record.GetString(appSettingValueOrdinal),
+                AppSettingId = reader.GetInt32(idOrdinal),
+                AppSettingName = reader.IsDBNull(nameOrdinal) ? null : reader.GetString(nameOrdinal),
+                AppSettingValue = reader.IsDBNull(valueOrdinal) ? null : reader.GetString(valueOrdinal)
             };
         }
         #endregion  // MapAppSettings()
 
         #endregion      // PRIVATE METHODS
 
-        #region CTOR
-        /// <summary>
-        /// Parameterized Constructor
-        /// </summary>
-        /// <param name="connectionFactory">Database connection factory.</param>
-        public AppSettingsRepo(IDbConnectionFactory connectionFactory)
-        {
-            if (connectionFactory == null)
-            {
-                throw new ArgumentNullException(nameof(connectionFactory));
-            }
-
-            _connectionFactory = connectionFactory;
-        }
-        #endregion      // CTOR
-
         #region METHODS
 
         #region GetAppSettingsList()
         /// <summary>
-        /// Retrieves all application settings as a list of AppSettingsDto objects.
+        /// Retrieves all application settings.
         /// </summary>
-        /// <remarks>The settings are returned in ascending order by their setting key. This method is
-        /// typically used to access configuration values that apply across the entire application.</remarks>
-        /// <returns>A list of <see cref="AppSettingsDto"/> objects representing the global settings. The list is empty if no
-        /// settings are found.</returns>
+        /// <returns>List of AppSettingsDto objects.</returns>
         public List<AppSettingsDto> GetAppSettingsList()
         {
-            const string sql = @"SELECT AppSettingId,
-                                        AppSettingName,
-                                        AppSettingValue
-                                 FROM dbo.AppSettings
-                                 ORDER BY AppSettingId;";
+            const string sql = @"
+                SELECT AppSettingId,
+                       AppSettingName,
+                       AppSettingValue
+                FROM AppSettings
+                ORDER BY AppSettingId;
+            ";
 
             List<AppSettingsDto> settings = new List<AppSettingsDto>();
 
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            using (SqliteConnection conn = _factory.CreateConnection())
             {
-                using (IDbCommand command = connection.CreateCommand())
+                conn.Open();
+
+                using (SqliteCommand cmd = conn.CreateCommand())
                 {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
 
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
+                    using (SqliteDataReader reader = cmd.ExecuteReader())
                     {
-                        int appSettingIdOrdinal = reader.GetOrdinal("AppSettingId");
-                        int appSettingNameOrdinal = reader.GetOrdinal("AppSettingName");
-                        int appSettingValueOrdinal = reader.GetOrdinal("AppSettingValue");
-
                         while (reader.Read())
                         {
-                            settings.Add(MapAppSettings(reader,
-                                                        appSettingIdOrdinal,
-                                                        appSettingNameOrdinal,
-                                                        appSettingValueOrdinal));
+                            settings.Add(MapAppSettings(reader));
                         }
                     }
                 }
@@ -150,14 +129,14 @@ namespace HenModel.RepoImplementations.Application
 
             return settings;
         }
-        #endregion  // GetGlobalSettings()
+        #endregion  // GetAppSettingsList()
 
         #region GetAppSettingsByName()
         /// <summary>
-        /// Retrieves a application setting using setting name.
+        /// Retrieves a single application setting by name.
         /// </summary>
-        /// <param name="settingKey">The unique key that identifies the global setting to retrieve.</param>
-        /// <returns>A <see cref="AppSettingsDto"/> object representing the requested setting, or <c>null</c> if no matching setting is found.</returns>
+        /// <param name="settingName">The setting name.</param>
+        /// <returns>AppSettingsDto or null if not found.</returns>
         public AppSettingsDto GetAppSettingsByName(string settingName)
         {
             if (String.IsNullOrWhiteSpace(settingName))
@@ -165,54 +144,39 @@ namespace HenModel.RepoImplementations.Application
                 throw new ArgumentException("Setting name cannot be null or whitespace.", nameof(settingName));
             }
 
-            const string sql = @"SELECT AppSettingId,
-                                        AppSettingName,
-                                        AppSettingValue
-                                 FROM dbo.AppSettings
-                                 WHERE AppSettingName = @SettingName;";
+            const string sql = @"
+                SELECT AppSettingId,
+                       AppSettingName,
+                       AppSettingValue
+                FROM AppSettings
+                WHERE AppSettingName = @SettingName;
+            ";
 
-            using (IDbConnection connection = _connectionFactory.CreateConnection())
+            using (SqliteConnection conn = _factory.CreateConnection())
             {
-                using (IDbCommand command = connection.CreateCommand())
+                conn.Open();
+
+                using (SqliteCommand cmd = conn.CreateCommand())
                 {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
+                    cmd.CommandText = sql;
+                    cmd.Parameters.Add(new SqliteParameter("@SettingName", settingName));
 
-                    IDbDataParameter parameter = command.CreateParameter();
-                    parameter.ParameterName = "@SettingName";
-                    parameter.DbType = DbType.String;
-                    parameter.Value = settingName;
-                    command.Parameters.Add(parameter);
-
-                    connection.Open();
-
-                    using (IDataReader reader = command.ExecuteReader())
+                    using (SqliteDataReader reader = cmd.ExecuteReader())
                     {
                         if (!reader.Read())
                         {
                             return null;
                         }
 
-                        int appSettingIdOrdinal = reader.GetOrdinal("AppSettingId");
-                        int appSettingNameOrdinal = reader.GetOrdinal("AppSettingName");
-                        int appSettingValueOrdinal = reader.GetOrdinal("AppSettingValue");
-
-                        return MapAppSettings(reader,
-                                              appSettingIdOrdinal,
-                                              appSettingNameOrdinal,
-                                              appSettingValueOrdinal);
+                        return MapAppSettings(reader);
                     }
                 }
             }
         }
-        #endregion  // GetGlobalSettingsByKey()
+        #endregion  // GetAppSettingsByName()
 
         #endregion      // METHODS
     }
-    #endregion      // public class GlobalSettingsRepo
+    #endregion      // public class AppSettingsRepo
 }
 #endregion      // namespace HenModel.RepoImplementations.Application
-
-//=====================================================================================================================
-//---------------------------------------------  E N D   O F   F I L E  -----------------------------------------------
-//=====================================================================================================================

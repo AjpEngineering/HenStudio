@@ -34,8 +34,6 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.RepoInterfaces.Project.DefaultParameters.ExchangerParams;
 using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 
@@ -54,7 +52,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
     public class ExchangerParamsRepo : IExchangerParamsRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
 
         #region PRIVATE METHODS
@@ -110,7 +108,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public ExchangerParamsRepo(IDbConnectionFactory connectionFactory)
+        public ExchangerParamsRepo(IConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {

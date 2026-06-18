@@ -34,8 +34,6 @@
 
 #region REFERENCES
 using HenModel.Connection;
-using HenModel.Connection.Interface;
-
 using HenModel.RepoInterface.Hen.Plots;
 using HenModel.Dto.Hen.Plots;
 
@@ -53,7 +51,7 @@ namespace HenModel.RepoImplementations.Hen.Plots
     public class HeatReleaseCurveRepo : IHeatReleaseCurveRepo
     {
         #region PRIVATE FIELDS
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IConnectionFactory _connectionFactory;
         #endregion      // PRIVATE FIELDS
 
         #region CTOR
@@ -61,7 +59,7 @@ namespace HenModel.RepoImplementations.Hen.Plots
         /// Parameterized Constructor
         /// </summary>
         /// <param name="connectionFactory">Database connection factory.</param>
-        public HeatReleaseCurveRepo(IDbConnectionFactory connectionFactory)
+        public HeatReleaseCurveRepo(IConnectionFactory connectionFactory)
         {
             if (connectionFactory == null)
             {
