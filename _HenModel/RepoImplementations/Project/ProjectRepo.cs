@@ -97,7 +97,7 @@ namespace HenModel.RepoImplementations.Project
         {
             return new ProjectDto
             {
-                Id = record.GetGuid(idOrdinal),
+                Id = record.GetInt32(idOrdinal),
                 Name = record.IsDBNull(nameOrdinal) ? null : record.GetString(nameOrdinal),
                 Description = record.IsDBNull(descriptionOrdinal) ? null : record.GetString(descriptionOrdinal),
                 DefaultOptimizer = record.IsDBNull(defaultOptimizerOrdinal) ? null : record.GetString(defaultOptimizerOrdinal),

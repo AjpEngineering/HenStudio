@@ -99,8 +99,8 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
         {
             return new OptimizerParamsDto
             {
-                Id = record.GetGuid(idOrdinal),
-                ProjectId = record.GetGuid(projectIdOrdinal),
+                Id = record.GetInt32(idOrdinal),
+                ProjectId = record.GetInt32(projectIdOrdinal),
                 Name = record.GetString(nameOrdinal),
                 Description = record.GetString(descriptionOrdinal),
                 OptimizerType = record.GetString(optimizerTypeOrdinal),

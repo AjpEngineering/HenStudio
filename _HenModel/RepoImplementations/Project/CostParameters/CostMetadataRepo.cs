@@ -85,8 +85,8 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         {
             return new CostMetadataDto
             {
-                Id = record.GetGuid(record.GetOrdinal("Id")),
-                ProjectId = record.GetGuid(record.GetOrdinal("ProjectId")),
+                Id = record.GetInt32(record.GetOrdinal("Id")),
+                ProjectId = record.GetInt32(record.GetOrdinal("ProjectId")),
                 CostIndexBaseYear = record.IsDBNull(record.GetOrdinal("CostIndexBaseYear")) ? null : record.GetString(record.GetOrdinal("CostIndexBaseYear")),
                 CostIndexName = record.IsDBNull(record.GetOrdinal("CostIndexName")) ? null : record.GetString(record.GetOrdinal("CostIndexName")),
                 CostIndexValue = record.GetDouble(record.GetOrdinal("CostIndexValue")),

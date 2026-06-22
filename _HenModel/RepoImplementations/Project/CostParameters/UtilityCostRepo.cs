@@ -85,8 +85,8 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         {
             return new UtilityCostDto
             {
-                Id = record.GetGuid(record.GetOrdinal("Id")),
-                ProjectId = record.GetGuid(record.GetOrdinal("ProjectId")),
+                Id = record.GetInt32(record.GetOrdinal("Id")),
+                ProjectId = record.GetInt32(record.GetOrdinal("ProjectId")),
                 HP_SteamCost_Metric = record.GetDouble(record.GetOrdinal("HP_SteamCost_Metric")),
                 MP_SteamCost_Metric = record.GetDouble(record.GetOrdinal("MP_SteamCost_Metric")),
                 LP_SteamCost_Metric = record.GetDouble(record.GetOrdinal("LP_SteamCost_Metric")),

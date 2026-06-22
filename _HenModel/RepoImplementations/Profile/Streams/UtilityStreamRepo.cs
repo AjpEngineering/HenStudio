@@ -85,8 +85,8 @@ namespace HenModel.RepoImplementations.Profile.Streams
         {
             return new UtilityStreamDto
             {
-                Id = record.GetGuid(record.GetOrdinal("Id")),
-                ProfileId = record.GetGuid(record.GetOrdinal("ProfileId")),
+                Id = record.GetInt32(record.GetOrdinal("Id")),
+                ProfileId = record.GetInt32(record.GetOrdinal("ProfileId")),
                 StreamCategory = record.IsDBNull(record.GetOrdinal("StreamCategory")) ? null : record.GetString(record.GetOrdinal("StreamCategory")),
                 StreamHeat = record.IsDBNull(record.GetOrdinal("StreamHeat")) ? null : record.GetString(record.GetOrdinal("StreamHeat")),
                 StreamId = record.IsDBNull(record.GetOrdinal("StreamId")) ? null : record.GetString(record.GetOrdinal("StreamId")),
@@ -202,9 +202,9 @@ namespace HenModel.RepoImplementations.Profile.Streams
         /// </summary>
         /// <param name="utilityStreamDto">The utility stream data to insert.</param>
         /// <returns>The unique identifier of the inserted utility stream.</returns>
-        public Guid AddUtilityStreams(List<UtilityStreamDto> utilityStreamDtos)
+        public int AddUtilityStreams(List<UtilityStreamDto> utilityStreamDtos)
         {
-            Guid profileId = new Guid();
+            int profileId = -1;
 
             if (utilityStreamDtos == null)
             {

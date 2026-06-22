@@ -85,8 +85,8 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         {
             return new TotalAnnualizedCostDto
             {
-                Id = record.GetGuid(record.GetOrdinal("Id")),
-                ProjectId = record.GetGuid(record.GetOrdinal("ProjectId")),
+                Id = record.GetInt32(record.GetOrdinal("Id")),
+                ProjectId = record.GetInt32(record.GetOrdinal("ProjectId")),
                 TAC_InterestRate = record.GetDouble(record.GetOrdinal("TAC_InterestRate")),
                 TAC_LifeYears= record.GetDouble(record.GetOrdinal("TAC_LifeYears")),
                 TAC_MaintenanceFraction = record.GetDouble(record.GetOrdinal("TAC_MaintenanceFraction")),

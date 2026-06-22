@@ -85,8 +85,8 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         {
             return new THDiagramDto
             {
-                Id = record.GetGuid(record.GetOrdinal("Id")),
-                ProfileId = record.GetGuid(record.GetOrdinal("ProfileId")),
+                Id = record.GetInt32(record.GetOrdinal("Id")),
+                ProfileId = record.GetInt32(record.GetOrdinal("ProfileId")),
                 DiagramType = record.IsDBNull(record.GetOrdinal("DiagramType")) ? null : record.GetString(record.GetOrdinal("DiagramType")),
                 Title = record.IsDBNull(record.GetOrdinal("Title")) ? null : record.GetString(record.GetOrdinal("Title")),
                 XAxisLabel = record.IsDBNull(record.GetOrdinal("XAxisLabel")) ? null : record.GetString(record.GetOrdinal("XAxisLabel")),

@@ -85,8 +85,8 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         {
             return new ShellAndTubeCapitalCostDto
             {
-                Id = record.GetGuid(record.GetOrdinal("Id")),
-                ProjectId = record.GetGuid(record.GetOrdinal("ProjectId")),
+                Id = record.GetInt32(record.GetOrdinal("Id")),
+                ProjectId = record.GetInt32(record.GetOrdinal("ProjectId")),
                 ParameterA = record.GetDouble(record.GetOrdinal("ParameterA")),
                 ParameterB_Metric = record.GetDouble(record.GetOrdinal("ParameterB_Metric")),
                 ParameterB_English = record.GetDouble(record.GetOrdinal("ParameterB_English")),

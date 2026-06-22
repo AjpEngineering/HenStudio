@@ -93,8 +93,8 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
         {
             return new ExchangerParamsDto
             {
-                Id = record.GetGuid(idOrdinal),
-                ProjectId = record.GetGuid(projectIdOrdinal),
+                Id = record.GetInt32(idOrdinal),
+                ProjectId = record.GetInt32(projectIdOrdinal),
                 DefaultHeatTransferCoefficient = record.GetDouble(defaultHeatTransferCoefficientOrdinal),
                 DefaultCorrectionFactor = record.GetDouble(defaultCorrectionFactorOrdinal),
             };

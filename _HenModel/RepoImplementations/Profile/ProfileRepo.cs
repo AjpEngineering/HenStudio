@@ -93,8 +93,8 @@ namespace HenModel.RepoImplementations.Profile
         {
             return new ProfileDto
             {
-                Id = record.GetGuid(idOrdinal),
-                ProjectId = record.GetGuid(projectIdOrdinal),
+                Id = record.GetInt32(idOrdinal),
+                ProjectId = record.GetInt32(projectIdOrdinal),
                 Name = record.IsDBNull(nameOrdinal) ? null : record.GetString(nameOrdinal),
                 Description = record.IsDBNull(descriptionOrdinal) ? null : record.GetString(descriptionOrdinal)
             };

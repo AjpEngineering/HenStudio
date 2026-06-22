@@ -85,8 +85,8 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         {
             return new THDiagramPointDto
             {
-                Id = record.GetGuid(record.GetOrdinal("Id")),
-                THDiagramId = record.GetGuid(record.GetOrdinal("THDiagramId")),
+                Id = record.GetInt32(record.GetOrdinal("Id")),
+                THDiagramId = record.GetInt32(record.GetOrdinal("THDiagramId")),
                 PointSequence = record.GetInt32(record.GetOrdinal("PointSequence")),
                 EnthalpyValue = record.GetDouble(record.GetOrdinal("EnthalpyValue")),
                 TemperatureValue = record.GetDouble(record.GetOrdinal("TemperatureValue"))

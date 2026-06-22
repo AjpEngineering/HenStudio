@@ -85,8 +85,8 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         {
             return new FiredHeaterCapitalCostDto
             {
-                Id = record.GetGuid(record.GetOrdinal("Id")),
-                ProjectId = record.GetGuid(record.GetOrdinal("ProjectId")),
+                Id = record.GetInt32(record.GetOrdinal("Id")),
+                ProjectId = record.GetInt32(record.GetOrdinal("ProjectId")),
                 ParameterAlpha_Metric = record.GetDouble(record.GetOrdinal("ParameterAlpha_Metric")),
                 ParameterAlpha_English = record.GetDouble(record.GetOrdinal("ParameterAlpha_English")),
                 ParameterBeta = record.GetDouble(record.GetOrdinal("ParameterBeta")),

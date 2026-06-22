@@ -97,8 +97,8 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
         {
             return new ProjectUnitsDto
             {
-                Id = record.GetGuid(idOrdinal),
-                ProjectId = record.GetGuid(projectIdOrdinal),
+                Id = record.GetInt32(idOrdinal),
+                ProjectId = record.GetInt32(projectIdOrdinal),
                 DefaultSystemUnits = record.IsDBNull(defaultSystemUnitsOrdinal) ? null : record.GetString(defaultSystemUnitsOrdinal),
                 DefaultMagnitudeUnits = record.IsDBNull(defaultMagnitudeUnitsOrdinal) ? null : record.GetString(defaultMagnitudeUnitsOrdinal),
                 DefaultTemperatureUnits = record.IsDBNull(defaultTemperatureUnitsOrdinal) ? null : record.GetString(defaultTemperatureUnitsOrdinal),
