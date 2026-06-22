@@ -261,7 +261,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// <param name="utilityCostId">The unique identifier of the utility cost entry to retrieve.</param>
         /// <returns>An <see cref="UtilityCostDto"/> object representing the requested utility cost entry, 
         /// or <c>null</c> if no matching entry is found.</returns>
-        public UtilityCostDto GetUtilityCostById(Guid utilityCostId)
+        public UtilityCostDto GetUtilityCostById(int utilityCostId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -423,7 +423,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// Deletes (DELETE) a utility cost entry from the data store by its project identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose utility cost entry to delete.</param>
-        public void DeleteUtilityCost(Guid projectId)
+        public void DeleteUtilityCost(int projectId)
         {
             const string sql = @"DELETE FROM UtilityCost
                                  WHERE ProjectId = @ProjectId;";

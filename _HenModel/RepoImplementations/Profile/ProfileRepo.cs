@@ -385,7 +385,7 @@ namespace HenModel.RepoImplementations.Profile
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.int32, profileDto.Id);
+                    AddParameter(command, "@Id", DbType.Int32, profileDto.Id);
                     AddParameter(command, "@ProjectId", DbType.Guid, profileDto.ProjectId);
                     AddParameter(command, "@Name", DbType.String, profileDto.Name);
                     AddParameter(command, "@Description", DbType.String, profileDto.Description);
