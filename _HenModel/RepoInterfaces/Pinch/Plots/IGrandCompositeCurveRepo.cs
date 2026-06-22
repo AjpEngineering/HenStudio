@@ -50,12 +50,12 @@ namespace HenModel.RepoInterfaces.Pinch.Plots
     {
         #region METHODS
         IList<GrandCompositeCurveDto> GetGrandCompositeCurves();
-        IList<GrandCompositeCurveDto> GetGrandCompositeCurvesByPinchId(Guid pinchId);
-        GrandCompositeCurveDto GetGrandCompositeCurveById(Guid grandCompositeCurveId);
-        GrandCompositeCurveDto GetGrandCompositeCurveByTitle(Guid pinchId, string title);
-        Guid AddGrandCompositeCurve(GrandCompositeCurveDto grandCompositeCurveDto);
+        IList<GrandCompositeCurveDto> GetGrandCompositeCurvesByPinchId(int pinchId);
+        GrandCompositeCurveDto GetGrandCompositeCurveById(int grandCompositeCurveId);
+        GrandCompositeCurveDto GetGrandCompositeCurveByTitle(int pinchId, string title);
+        int AddGrandCompositeCurve(GrandCompositeCurveDto grandCompositeCurveDto);
         void UpdateGrandCompositeCurve(GrandCompositeCurveDto grandCompositeCurveDto);
-        void DeleteGrandCompositeCurve(Guid grandCompositeCurveId);
+        void DeleteGrandCompositeCurve(int grandCompositeCurveId);
         #endregion      // METHODS
     }
     #endregion      // public interface IGrandCompositeCurveRepo

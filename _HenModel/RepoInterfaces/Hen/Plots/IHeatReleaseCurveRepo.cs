@@ -50,12 +50,12 @@ namespace HenModel.RepoInterface.Hen.Plots
     {
         #region METHODS
         IList<HeatReleaseCurveDto> GetHeatReleaseCurves();
-        IList<HeatReleaseCurveDto> GetHeatReleaseCurvesByExchangerId(Guid exchangerId);
-        HeatReleaseCurveDto GetHeatReleaseCurveById(Guid heatReleaseCurveId);
-        HeatReleaseCurveDto GetHeatReleaseCurveByTitle(Guid exchangerId, string title);
-        Guid AddHeatReleaseCurve(HeatReleaseCurveDto heatReleaseCurveDto);
+        IList<HeatReleaseCurveDto> GetHeatReleaseCurvesByExchangerId(int exchangerId);
+        HeatReleaseCurveDto GetHeatReleaseCurveById(int heatReleaseCurveId);
+        HeatReleaseCurveDto GetHeatReleaseCurveByTitle(int exchangerId, string title);
+        int AddHeatReleaseCurve(HeatReleaseCurveDto heatReleaseCurveDto);
         void UpdateHeatReleaseCurve(HeatReleaseCurveDto heatReleaseCurveDto);
-        void DeleteHeatReleaseCurve(Guid heatReleaseCurveId);
+        void DeleteHeatReleaseCurve(int heatReleaseCurveId);
         #endregion      // METHODS
     }
     #endregion      // public interface IHeatReleaseCurveRepo

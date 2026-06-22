@@ -49,12 +49,12 @@ namespace HenModel.RepoInterfaces.Project
     public interface IProjectRepo
     {
         #region METHODS
-        Guid AddProject(ProjectDto projectDto);
+        int AddProject(ProjectDto projectDto);
         IList<ProjectDto> GetProjects();
-        ProjectDto GetProjectById(Guid projectId);
+        ProjectDto GetProjectById(int projectId);
         ProjectDto GetProjectByName(string projectName);
         void UpdateProject(ProjectDto projectDto);
-        void DeleteProject(Guid projectId);
+        void DeleteProject(int projectId);
         #endregion      // METHODS
     }
     #endregion      // public interface IProjectRepo

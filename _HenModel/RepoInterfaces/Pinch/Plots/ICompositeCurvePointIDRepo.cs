@@ -50,12 +50,12 @@ namespace HenModel.RepoInterfaces.Pinch.Plots
     {
         #region METHODS
         IList<CompositeCurvePointIDDto> GetCompositeCurvePointIDs();
-        IList<CompositeCurvePointIDDto> GetCompositeCurvePointIDsByCompositeCurveId(Guid compositeCurveId);
-        CompositeCurvePointIDDto GetCompositeCurvePointIDById(Guid compositeCurvePointId);
-        CompositeCurvePointIDDto GetCompositeCurvePointIDByPointSequence(Guid compositeCurveId, string pointCurveType, int pointSequence);
-        Guid AddCompositeCurvePointID(CompositeCurvePointIDDto compositeCurvePointIdDto);
+        IList<CompositeCurvePointIDDto> GetCompositeCurvePointIDsByCompositeCurveId(int compositeCurveId);
+        CompositeCurvePointIDDto GetCompositeCurvePointIDById(int compositeCurvePointId);
+        CompositeCurvePointIDDto GetCompositeCurvePointIDByPointSequence(int compositeCurveId, string pointCurveType, int pointSequence);
+        int AddCompositeCurvePointID(CompositeCurvePointIDDto compositeCurvePointIdDto);
         void UpdateCompositeCurvePointID(CompositeCurvePointIDDto compositeCurvePointIdDto);
-        void DeleteCompositeCurvePointID(Guid compositeCurvePointId);
+        void DeleteCompositeCurvePointID(int compositeCurvePointId);
         #endregion      // METHODS
     }
     #endregion      // public interface ICompositeCurvePointIDRepo

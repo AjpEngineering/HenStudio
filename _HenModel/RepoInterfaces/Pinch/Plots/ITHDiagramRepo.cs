@@ -50,12 +50,12 @@ namespace HenModel.RepoInterfaces.Pinch.Plots
     {
         #region METHODS
         IList<THDiagramDto> GetTHDiagrams();
-        IList<THDiagramDto> GetTHDiagramsByProfileId(Guid profileId);
-        THDiagramDto GetTHDiagramById(Guid thDiagramId);
-        THDiagramDto GetTHDiagramByTitle(Guid profileId, string title);
-        Guid AddTHDiagram(THDiagramDto thDiagramDto);
+        IList<THDiagramDto> GetTHDiagramsByProfileId(int profileId);
+        THDiagramDto GetTHDiagramById(int thDiagramId);
+        THDiagramDto GetTHDiagramByTitle(int profileId, string title);
+        int AddTHDiagram(THDiagramDto thDiagramDto);
         void UpdateTHDiagram(THDiagramDto thDiagramDto);
-        void DeleteTHDiagram(Guid thDiagramId);
+        void DeleteTHDiagram(int thDiagramId);
         #endregion      // METHODS
     }
     #endregion      // public interface ITHDiagramRepo

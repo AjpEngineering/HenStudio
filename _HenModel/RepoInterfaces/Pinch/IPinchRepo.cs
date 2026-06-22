@@ -50,12 +50,12 @@ namespace HenModel.RepoInterfaces.Pinch
     {
         #region METHODS
         IList<PinchDto> GetPinches();
-        IList<PinchDto> GetPinchesByProfileId(Guid profileId);
-        PinchDto GetPinchById(Guid pinchId);
-        PinchDto GetPinchByName(Guid profileId, string pinchName);
+        IList<PinchDto> GetPinchesByProfileId(int profileId);
+        PinchDto GetPinchById(int pinchId);
+        PinchDto GetPinchByName(int profileId, string pinchName);
         Guid AddPinch(PinchDto pinchDto);
         void UpdatePinch(PinchDto pinchDto);
-        void DeletePinch(Guid pinchId);
+        void DeletePinch(int pinchId);
         #endregion      // METHODS
     }
     #endregion      // public interface IPinchRepo

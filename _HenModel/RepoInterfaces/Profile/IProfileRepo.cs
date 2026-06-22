@@ -49,13 +49,13 @@ namespace HenModel.RepoInterfaces.Profile
     public interface IProfileRepo
     {
         #region METHODS
-        Guid AddProfile(ProfileDto profileDto); 
+        int AddProfile(ProfileDto profileDto); 
         IList<ProfileDto> GetProfiles();
-        IList<ProfileDto> GetProfilesByProjectId(Guid projectId);
-        ProfileDto GetProfileById(Guid profileId);
-        ProfileDto GetProfileByName(Guid projectId, string profileName);
+        IList<ProfileDto> GetProfilesByProjectId(int projectId);
+        ProfileDto GetProfileById(int profileId);
+        ProfileDto GetProfileByName(int projectId, string profileName);
         void UpdateProfile(ProfileDto profileDto);
-        void DeleteProfile(Guid profileId);
+        void DeleteProfile(int profileId);
         #endregion      // METHODS
     }
     #endregion      // public interface IProfileRepo

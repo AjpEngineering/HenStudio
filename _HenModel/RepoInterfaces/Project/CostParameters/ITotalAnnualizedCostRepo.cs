@@ -49,12 +49,12 @@ namespace HenModel.RepoInterfaces.Project.CostParameters
     public interface ITotalAnnualizedCostRepo
     {
         #region METHODS
-        Guid AddTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto);
+        int AddTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto);
         IList<TotalAnnualizedCostDto> GetTotalAnnualizedCost();
-        TotalAnnualizedCostDto GetTotalAnnualizedCostById(Guid totalAnnualizedCostId);
-        TotalAnnualizedCostDto GetTotalAnnualizedCostByProjectId(Guid projectId);
+        TotalAnnualizedCostDto GetTotalAnnualizedCostById(int totalAnnualizedCostId);
+        TotalAnnualizedCostDto GetTotalAnnualizedCostByProjectId(int projectId);
         void UpdateTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto);
-        void DeleteTotalAnnualizedCost(Guid totalAnnualizedCostId);
+        void DeleteTotalAnnualizedCost(int totalAnnualizedCostId);
         #endregion      // METHODS
     }
     #endregion      // public interface ITotalAnnualizedCostRepo

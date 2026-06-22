@@ -49,11 +49,11 @@ namespace HenModel.RepoInterfaces.Project.DefaultParameters.ProjectUnits
     public interface IProjectUnitsRepo
     {
         #region METHODS
-        Guid AddProjectUnits(ProjectUnitsDto projectUnitsDto);
-        ProjectUnitsDto GetProjectUnitsById(Guid projectUnitsId);
-        ProjectUnitsDto GetProjectUnitsByProjectId(Guid projectId);
+        int AddProjectUnits(ProjectUnitsDto projectUnitsDto);
+        ProjectUnitsDto GetProjectUnitsById(int projectUnitsId);
+        ProjectUnitsDto GetProjectUnitsByProjectId(int projectId);
         void UpdateProjectUnits(ProjectUnitsDto projectUnitsDto);
-        void DeleteProjectUnits(Guid projectUnitsId);
+        void DeleteProjectUnits(int projectUnitsId);
         #endregion      // METHODS
     }
     #endregion      // public interface IProjectUnitsRepo

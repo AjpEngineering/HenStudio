@@ -102,9 +102,6 @@
     <Compile Include="Data\Project\CostParameters\CostMetadataPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ExchangerParams\ExchangerParamsPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ExchangerParams\HeatTransferCoeffPanelData.cs" />
-    <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerMILP_PanelData.cs" />
-    <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerGreedyPanelData.cs" />
-    <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerGeneticPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerParamsPanelData.cs" />
     <Compile Include="Data\Project\DefaultParameters\ProjectUnits\ProjectUnitsPanelData.cs" />
     <Compile Include="Data\Project\ProjectWrapperPanelData.cs" />

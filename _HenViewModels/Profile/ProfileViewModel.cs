@@ -177,9 +177,9 @@ namespace HenViewModel.Profile
         /// </summary>
         /// <param name="externalProfileDto">The profile data to add. Cannot be null.</param>
         /// <returns>A GUID representing the unique identifier of the newly added profile.</returns>
-        public Guid AddProfile(ProfileDto externalProfileDto)
+        public int AddProfile(ProfileDto externalProfileDto)
         {
-            Guid profileId = new Guid();
+            int profileId = -1;
             try
             {
                 //----------------------------------------------------------------
@@ -327,7 +327,7 @@ namespace HenViewModel.Profile
         /// </summary>
         /// <param name="profileId">The unique identifier of the Profile to retrieve.</param>
         /// <returns>A <see cref="ProfileDto"/> representing the Profile with the specified identifier. Returns null if no Profile is found.</returns>
-        public ProfileDto GetProfileById(Guid profileId)
+        public ProfileDto GetProfileById(int profileId)
         {
             //---------------------- Guard against empty or null profileId ------------------------
             //--- If the provided profileId is empty, return null to indicate that there is no  ---
@@ -337,7 +337,7 @@ namespace HenViewModel.Profile
             //--- An empty profileId is not valid for retrieval, so we return null to indicate  ---
             //---that the profiles cannot be found.                                             ---
             //-------------------------------------------------------------------------------------
-            if (profileId == Guid.Empty)
+            if (profileId == -1)
             {
                 return null; // Return null if the profileId is empty
             }
@@ -384,7 +384,7 @@ namespace HenViewModel.Profile
         /// <param name="profileName">The name of the profile to retrieve. Cannot be null or empty.</param>
         /// <returns>A <see cref="ProfileDto"/> representing the Profile with the specified project identifier and name. 
         /// Returns null if no Profile is found.</returns>
-        public ProfileDto GetProfileByName(Guid projectId, string profileName)
+        public ProfileDto GetProfileByName(int projectId, string profileName)
         {
             //----------------------------------------------------
             //--- Profile Dto to be Returned to the Caller     ---
@@ -460,7 +460,7 @@ namespace HenViewModel.Profile
         /// Deletes the profile with the specified unique identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile to delete.</param>
-        public void DeleteProfile(Guid profileId)
+        public void DeleteProfile(int profileId)
         {
             try
             {

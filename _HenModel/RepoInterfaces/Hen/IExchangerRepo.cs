@@ -50,12 +50,12 @@ namespace HenModel.RepoInterface.Hen
     {
         #region METHODS
         IList<ExchangerDto> GetExchangers();
-        IList<ExchangerDto> GetExchangersByHenId(Guid henId);
-        ExchangerDto GetExchangerById(Guid exchangerId);
-        ExchangerDto GetExchangerByExchangerId(Guid henId, string exchangerTag);
-        Guid AddExchanger(ExchangerDto exchangerDto);
+        IList<ExchangerDto> GetExchangersByHenId(int henId);
+        ExchangerDto GetExchangerById(int exchangerId);
+        ExchangerDto GetExchangerByExchangerId(int henId, string exchangerTag);
+        int AddExchanger(ExchangerDto exchangerDto);
         void UpdateExchanger(ExchangerDto exchangerDto);
-        void DeleteExchanger(Guid exchangerId);
+        void DeleteExchanger(int exchangerId);
         #endregion      // METHODS
     }
     #endregion      // public interface IExchangerRepo

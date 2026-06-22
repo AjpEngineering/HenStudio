@@ -49,12 +49,12 @@ namespace HenModel.RepoInterfaces.Project.CostParameters
     public interface ICostMetadataRepo
     {
         #region METHODS
-        Guid AddCostMetadata(CostMetadataDto costMetadataDto);
+        int AddCostMetadata(CostMetadataDto costMetadataDto);
         IList<CostMetadataDto> GetCostMetadata();
-        CostMetadataDto GetCostMetadataById(Guid costMetadataId);
-        CostMetadataDto GetCostMetadataByProjectId(Guid projectId);
+        CostMetadataDto GetCostMetadataById(int costMetadataId);
+        CostMetadataDto GetCostMetadataByProjectId(int projectId);
         void UpdateCostMetadata(CostMetadataDto costMetadataDto);
-        void DeleteCostMetadata(Guid costMetadataId);
+        void DeleteCostMetadata(int costMetadataId);
         #endregion      // METHODS
     }
     #endregion      // public interface ICostMetadataRepo

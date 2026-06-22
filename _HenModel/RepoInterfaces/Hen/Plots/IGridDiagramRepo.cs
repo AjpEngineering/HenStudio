@@ -50,12 +50,12 @@ namespace HenModel.RepoInterface.Hen.Plots
     {
         #region METHODS
         IList<GridDiagramDto> GetGridDiagrams();
-        IList<GridDiagramDto> GetGridDiagramsByHenId(Guid henId);
-        GridDiagramDto GetGridDiagramById(Guid gridDiagramId);
-        GridDiagramDto GetGridDiagramByTitle(Guid henId, string title);
-        Guid AddGridDiagram(GridDiagramDto gridDiagramDto);
+        IList<GridDiagramDto> GetGridDiagramsByHenId(int henId);
+        GridDiagramDto GetGridDiagramById(int gridDiagramId);
+        GridDiagramDto GetGridDiagramByTitle(int henId, string title);
+        int AddGridDiagram(GridDiagramDto gridDiagramDto);
         void UpdateGridDiagram(GridDiagramDto gridDiagramDto);
-        void DeleteGridDiagram(Guid gridDiagramId);
+        void DeleteGridDiagram(int gridDiagramId);
         #endregion      // METHODS
     }
     #endregion      // public interface IGridDiagramRepo

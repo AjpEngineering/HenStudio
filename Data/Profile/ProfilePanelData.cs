@@ -60,29 +60,16 @@ namespace HenStudio.Data.Profile
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public Guid ProjectId { get; set; } 
-        public Guid ProfileId { get; set; } 
+        public int ProjectId { get; set; } = -1;
+        public int ProfileId { get; set; } = -1;
 
-        public ProfileDto ProfileDtoObj { get; set; }  // Profile DTO Object ... EXTERN Units
+        public ProfileDto ProfileDtoObj { get; set; } = new ProfileDto();  // EXTERN Units
 
         #region VIEW MODEL Object
-        public ProfileViewModel ProfileViewModelObj { get; set; }
+        public ProfileViewModel ProfileViewModelObj { get; set; } = null;
         #endregion  // VIEW MODEL Objects
 
         #endregion  // PROPERTIES
-
-        #region INITIALIZE PANEL DATA
-        /// <summary>
-        /// Initializes the properties of the ProfilePanelData object to their default values.
-        /// </summary>
-        private void InitializePanelData()
-        {
-            ProjectId = new Guid(); // Project Unique Identifier
-            ProfileId = new Guid(); // Profile Unique Identifier
-            ProfileDtoObj = new ProfileDto(); // Profile DTO Object ... EXTERN Units
-            ProfileViewModelObj = new ProfileViewModel(); // ViewModel Object
-        }
-        #endregion  // INITIALIZE PANEL DATA
 
         #region CTOR
         /// <summary>
@@ -90,9 +77,9 @@ namespace HenStudio.Data.Profile
         /// Initializes the properties of the ProfilePanelData object to their 
         /// default values by calling the InitializePanelData method.
         /// </summary>
-        public ProfilePanelData()
+        public ProfilePanelData(string strProjectDbName)
         {
-            InitializePanelData();
+            ProfileViewModelObj = new ProfileViewModel(strProjectDbName); // ViewModel Object
         }
         #endregion  // CTOR
 
@@ -106,7 +93,7 @@ namespace HenStudio.Data.Profile
         /// <param name="profileDtoObj">The ProfileDto object containing the profile data.</param>
         /// <returns>The ID of the newly created profile.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the profileDtoObj is null.</exception>
-        public Guid CreateProfileData(ProfileDto profileDtoObj)
+        public int CreateProfileData(ProfileDto profileDtoObj)
         {
             if (profileDtoObj == null) throw new ArgumentNullException(
                             nameof(profileDtoObj),
@@ -136,7 +123,7 @@ namespace HenStudio.Data.Profile
         /// <param name="profileId">The ID of the profile to read.</param>
         /// <returns>Profile DTO object</returns>
         /// <exception cref="ArgumentNullException">Thrown when the profile ID is null.</exception>
-        public ProfileDto ReadProfileData(Guid profileId)
+        public ProfileDto ReadProfileData(int profileId)
         {
             if (profileId == null) throw new ArgumentNullException(
                              nameof(profileId), 
@@ -210,9 +197,9 @@ namespace HenStudio.Data.Profile
         /// </summary>
         /// <param name="profileId">The ID of the profile to delete.</param>
         /// <exception cref="ArgumentNullException">Thrown when the profile ID is null.</exception>
-        public void DeleteProfileData(Guid profileId)
+        public void DeleteProfileData(int profileId)
         {
-            if (profileId == null) throw new ArgumentNullException(
+            if (profileId == -1) throw new ArgumentNullException(
                              nameof(profileId), 
                              "Profile ID is null for DELETE Profile Panel data.");
             //------------------------------------------------------
@@ -239,11 +226,11 @@ namespace HenStudio.Data.Profile
         /// <returns>Profile DTO object containing new Name and Description</returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public ProfileDto RenameProfile(Guid profileId,
+        public ProfileDto RenameProfile(int profileId,
                                         string newName,
                                         string newDescription)
         {
-            if (profileId == null) throw new ArgumentNullException(
+            if (profileId == -1) throw new ArgumentNullException(
                  nameof(profileId), "Profile ID is null for READ Profile Panel data.");
 
             if (string.IsNullOrEmpty(newName)) throw new ArgumentException(

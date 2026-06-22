@@ -336,7 +336,7 @@ namespace HenViewModel.Profile.Streams
         /// </summary>
         /// <param name="externalUtilityStreamDtos">The list of utility stream data to add in external units.</param>
         /// <returns>A list of GUIDs representing the unique identifiers of the newly added utility streams.</returns>
-        public Guid AddUtilityStream(List<UtilityStreamDto> externalUtilityStreamDtos)
+        public int AddUtilityStream(List<UtilityStreamDto> externalUtilityStreamDtos)
         {
             //-------------------------- Null DTO Guard ---------------------------------
             //--- If the user provided DTO is null,                                   ---
@@ -346,14 +346,14 @@ namespace HenViewModel.Profile.Streams
             //---------------------------------------------------------------------------
             if (externalUtilityStreamDtos == null)
             {
-                return Guid.Empty;
+                return -1;
             }
             //------------------------------------------------------------------------------
             //--- Initialize a variable to hold the unique identifier of the newly added ---
             //--- utility stream. This variable will be assigned the value returned by   ---
             //--- the repository method after adding the utility stream.                 ---
             //------------------------------------------------------------------------------
-            Guid profileId = new Guid();
+            int profileId = -1;
             try
             {
                 //-------------------------------------------------------------------------------------------------

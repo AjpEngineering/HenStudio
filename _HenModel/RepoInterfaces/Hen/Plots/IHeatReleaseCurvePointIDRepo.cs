@@ -50,12 +50,12 @@ namespace HenModel.RepoInterface.Hen.Plots
     {
         #region METHODS
         IList<HeatReleaseCurvePointIDDto> GetHeatReleaseCurvePointIDs();
-        IList<HeatReleaseCurvePointIDDto> GetHeatReleaseCurvePointIDsByHeatReleaseCurveId(Guid heatReleaseCurveId);
-        HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDById(Guid heatReleaseCurvePointId);
-        HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDByPointSequence(Guid heatReleaseCurveId, int pointSequence);
-        Guid AddHeatReleaseCurvePointID(HeatReleaseCurvePointIDDto heatReleaseCurvePointIdDto);
+        IList<HeatReleaseCurvePointIDDto> GetHeatReleaseCurvePointIDsByHeatReleaseCurveId(int heatReleaseCurveId);
+        HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDById(int heatReleaseCurvePointId);
+        HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDByPointSequence(int heatReleaseCurveId, int pointSequence);
+        int AddHeatReleaseCurvePointID(HeatReleaseCurvePointIDDto heatReleaseCurvePointIdDto);
         void UpdateHeatReleaseCurvePointID(HeatReleaseCurvePointIDDto heatReleaseCurvePointIdDto);
-        void DeleteHeatReleaseCurvePointID(Guid heatReleaseCurvePointId);
+        void DeleteHeatReleaseCurvePointID(int heatReleaseCurvePointId);
         #endregion      // METHODS
     }
     #endregion      // public interface IHeatReleaseCurvePointIDRepo

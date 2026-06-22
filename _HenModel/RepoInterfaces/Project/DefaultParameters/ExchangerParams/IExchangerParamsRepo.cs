@@ -49,11 +49,11 @@ namespace HenModel.RepoInterfaces.Project.DefaultParameters.ExchangerParams
     public interface IExchangerParamsRepo
     {
         #region METHODS
-        Guid AddExchangerParams(ExchangerParamsDto exchangerParamsDto);
-        ExchangerParamsDto GetExchangerParamsById(Guid exchangeParamsId);
-        ExchangerParamsDto GetExchangerParamsByProjectId(Guid projectId);
+        int AddExchangerParams(ExchangerParamsDto exchangerParamsDto);
+        ExchangerParamsDto GetExchangerParamsById(int exchangeParamsId);
+        ExchangerParamsDto GetExchangerParamsByProjectId(int projectId);
         void UpdateExchangerParams(ExchangerParamsDto exchangerParamsDto);
-        void DeleteExchangerParams(Guid exchangerParamsId);
+        void DeleteExchangerParams(int exchangerParamsId);
         #endregion      // METHODS
     }
     #endregion      // public interface IExchangerParamsRepo

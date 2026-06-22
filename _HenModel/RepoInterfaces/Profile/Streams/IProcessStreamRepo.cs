@@ -49,13 +49,13 @@ namespace HenModel.RepoInterfaces.Profile.Streams
     public interface IProcessStreamRepo
     {
         #region METHODS
-        Guid AddProcessStream(ProcessStreamDto processStreamDto);
+        int AddProcessStream(ProcessStreamDto processStreamDto);
         IList<ProcessStreamDto> GetProcessStreams();
-        IList<ProcessStreamDto> GetProcessStreamsByProfileId(Guid profileId);
-        ProcessStreamDto GetProcessStreamById(Guid processStreamId);
-        ProcessStreamDto GetProcessStreamByStreamId(Guid profileId, string streamId);
+        IList<ProcessStreamDto> GetProcessStreamsByProfileId(int profileId);
+        ProcessStreamDto GetProcessStreamById(int processStreamId);
+        ProcessStreamDto GetProcessStreamByStreamId(int profileId, string streamId);
         void UpdateProcessStream(ProcessStreamDto processStreamDto);
-        void DeleteProcessStream(Guid processStreamId);
+        void DeleteProcessStream(int processStreamId);
         #endregion      // METHODS
     }
     #endregion      // public interface IProcessStreamRepo

@@ -50,12 +50,12 @@ namespace HenModel.RepoInterface.Hen
     {
         #region METHODS
         IList<HenDto> GetHens();
-        IList<HenDto> GetHensByPinchId(Guid pinchId);
-        HenDto GetHenById(Guid henId);
-        HenDto GetHenByName(Guid pinchId, string henName);
-        Guid AddHen(HenDto henDto);
+        IList<HenDto> GetHensByPinchId(int pinchId);
+        HenDto GetHenById(int henId);
+        HenDto GetHenByName(int pinchId, string henName);
+        int AddHen(HenDto henDto);
         void UpdateHen(HenDto henDto);
-        void DeleteHen(Guid henId);
+        void DeleteHen(int henId);
         #endregion      // METHODS
     }
     #endregion      // public interface IHenRepo

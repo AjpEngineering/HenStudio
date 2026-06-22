@@ -314,9 +314,9 @@ namespace HenViewModel.Profile.Streams
         /// </summary>
         /// <param name="externalProcessStreamDtos">The process stream data to add in external units.</param>
         /// <returns>A list of GUIDs representing the unique identifiers of the newly added process streams.</returns>
-        public Guid AddProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos)
+        public int AddProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos)
         {
-            Guid profileId = new Guid();
+            int profileId = -1;
             try
             {
                 //-------------------------------------------------------------------------------------------------

@@ -50,11 +50,11 @@ namespace HenModel.RepoInterfaces.Pinch
     {
         #region METHODS
         IList<TargetsDto> GetTargets();
-        IList<TargetsDto> GetTargetsByPinchId(Guid pinchId);
-        TargetsDto GetTargetsById(Guid targetsId);
-        Guid AddTargets(TargetsDto targetsDto);
+        IList<TargetsDto> GetTargetsByPinchId(int pinchId);
+        TargetsDto GetTargetsById(int targetsId);
+        int AddTargets(TargetsDto targetsDto);
         void UpdateTargets(TargetsDto targetsDto);
-        void DeleteTargets(Guid targetsId);
+        void DeleteTargets(int targetsId);
         #endregion      // METHODS
     }
     #endregion      // public interface ITargetsRepo

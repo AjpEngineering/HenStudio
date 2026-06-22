@@ -127,14 +127,14 @@ namespace HenModel.RepoImplementations.Profile
         /// </summary>
         /// <param name="profileDto">The profile data to insert.</param>
         /// <returns>The unique identifier of the inserted profile.</returns>
-        public Guid AddProfile(ProfileDto profileDto)
+        public int AddProfile(ProfileDto profileDto)
         {
             if (profileDto == null)
             {
                 throw new ArgumentNullException(nameof(profileDto));
             }
 
-            const string sql = @"INSERT INTO dbo.Profile
+            const string sql = @"INSERT INTO Profile
                                     (ProjectId,
                                      Name,
                                      Description)
@@ -150,13 +150,13 @@ namespace HenModel.RepoImplementations.Profile
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, profileDto.ProjectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, profileDto.ProjectId);
                     AddParameter(command, "@Name", DbType.String, profileDto.Name);
                     AddParameter(command, "@Description", DbType.String, profileDto.Description);
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -270,7 +270,7 @@ namespace HenModel.RepoImplementations.Profile
         /// <param name="profileId">The unique identifier of the profile to retrieve.</param>
         /// <returns>A <see cref="ProfileDto"/> object representing the requested profile, 
         /// or <c>null</c> if no matching profile is found.</returns>
-        public ProfileDto GetProfileById(Guid profileId)
+        public ProfileDto GetProfileById(int profileId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -316,7 +316,7 @@ namespace HenModel.RepoImplementations.Profile
         /// <param name="profileName">The profile name to retrieve.</param>
         /// <returns>A <see cref="ProfileDto"/> object representing the requested profile, 
         /// or <c>null</c> if no matching profile is found.</returns>
-        public ProfileDto GetProfileByName(Guid projectId, string profileName)
+        public ProfileDto GetProfileByName(int projectId, string profileName)
         {
             if (String.IsNullOrWhiteSpace(profileName))
             {
@@ -373,7 +373,7 @@ namespace HenModel.RepoImplementations.Profile
                 throw new ArgumentNullException(nameof(profileDto));
             }
 
-            const string sql = @"UPDATE dbo.Profile
+            const string sql = @"UPDATE Profile
                                  SET ProjectId = @ProjectId,
                                      Name = @Name,
                                      Description = @Description
@@ -402,9 +402,9 @@ namespace HenModel.RepoImplementations.Profile
         /// Deletes (DELETE) a profile from the data store by its identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile to delete.</param>
-        public void DeleteProfile(Guid profileId)
+        public void DeleteProfile(int profileId)
         {
-            const string sql = @"DELETE FROM dbo.Profile
+            const string sql = @"DELETE FROM Profile
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
