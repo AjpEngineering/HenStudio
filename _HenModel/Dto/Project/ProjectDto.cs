@@ -46,12 +46,12 @@ namespace HenModel.Dto.Project
     public class ProjectDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string DefaultOptimizer { get; set; }
-        public DateTime CreationDate { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public int Id { get; set; } = -1;
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string DefaultOptimizer { get; set; } = string.Empty;
+        public DateTime CreationDate { get; set; } = DateTime.Now;
+        public DateTime ModifiedDate { get; set; } = DateTime.Now;
         #endregion      // PROPERTIES
     }
     #endregion      // public class ProjectDto

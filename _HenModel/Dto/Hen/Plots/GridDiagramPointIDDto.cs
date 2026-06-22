@@ -46,12 +46,12 @@ namespace HenModel.Dto.Hen.Plots
     public class GridDiagramPointIDDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid GridDiagramId { get; set; }
-        public int PointSequence { get; set; }
-        public double XCoordinate { get; set; }
-        public double YCoordinate { get; set; }
-        public string Label { get; set; }
+        public int Id { get; set; } = -1;
+        public int GridDiagramId { get; set; } = -1;
+        public int PointSequence { get; set; } = 0;
+        public double XCoordinate { get; set; } = 0.00;
+        public double YCoordinate { get; set; } = 0.00;
+        public string Label { get; set; } = string.Empty;
         #endregion      // PROPERTIES
     }
     #endregion      // public class GridDiagramPointIDDto

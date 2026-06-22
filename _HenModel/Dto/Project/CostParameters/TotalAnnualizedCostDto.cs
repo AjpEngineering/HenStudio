@@ -46,12 +46,12 @@ namespace HenModel.Dto.Project.CostParameters
     public class TotalAnnualizedCostDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public double TAC_InterestRate { get; set; }
-        public double TAC_LifeYears { get; set; }
-        public double TAC_MaintenanceFraction { get; set; }
-        public double TAC_OperatingHours { get; set; }
+        public int Id { get; set; } = -1;
+        public int ProjectId { get; set; } = -1;
+        public double TAC_InterestRate { get; set; } = 0.00;
+        public double TAC_LifeYears { get; set; } = 0.00;
+        public double TAC_MaintenanceFraction { get; set; } = 0.00;
+        public double TAC_OperatingHours { get; set; } = 0.00;
         #endregion      // PROPERTIES
     }
     #endregion      // public class TotalAnnualizedCostDto

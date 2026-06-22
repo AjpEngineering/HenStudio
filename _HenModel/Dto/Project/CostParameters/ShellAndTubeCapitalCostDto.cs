@@ -34,6 +34,7 @@
 
 #region REFERENCES
 using System;
+using System.Web;
 #endregion      // REFERENCES
 
 #region namespace HenModel.Dto.Project.CostParameters
@@ -46,15 +47,15 @@ namespace HenModel.Dto.Project.CostParameters
     public class ShellAndTubeCapitalCostDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public double ParameterA { get; set; }
-        public double ParameterB_Metric { get; set; }
-        public double ParameterB_English { get; set; }
-        public double ParameterN { get; set; }
-        public double MaterialFactor { get; set; }
-        public string AreaUnits_Metric { get; set; }
-        public string AreaUnits_English { get; set; }
+        public int Id { get; set; } = -1;
+        public int ProjectId { get; set; } = -1;
+        public double ParameterA { get; set; } = 0.00;
+        public double ParameterB_Metric { get; set; } = 0.00;
+        public double ParameterB_English { get; set; } = 0.00;
+        public double ParameterN { get; set; } = 0.00;
+        public double MaterialFactor { get; set; } = 0.00;
+        public string AreaUnits_Metric { get; set; } = string.Empty;
+        public string AreaUnits_English { get; set; } = string.Empty;
         #endregion      // PROPERTIES
     }
     #endregion      // public class ShellAndTubeCapitalCostDto

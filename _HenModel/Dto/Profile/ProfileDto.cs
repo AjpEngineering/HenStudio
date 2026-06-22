@@ -46,10 +46,10 @@ namespace HenModel.Dto.Profile
     public class ProfileDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public int Id { get; set; } = -1;
+        public int ProjectId { get; set; } = -1;
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
         #endregion      // PROPERTIES
     }
     #endregion      // public class ProfileDto

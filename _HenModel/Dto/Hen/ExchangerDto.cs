@@ -46,29 +46,28 @@ namespace HenModel.Dto.Hen
     public class ExchangerDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid HenId { get; set; }
-        public string ExchangerId { get; set; }
-        public string Name { get; set; }
-        public bool IsUtility { get; set; }
-        public string ExchangerType { get; set; }
-        public int Shells { get; set; }
-        public double Area { get; set; }
-        public double HotTemperatureIn { get; set; }
-        public double HotTemperatureOut { get; set; }
-        public double HotPressureIn { get; set; }
-        public double HotPressureOut { get; set; }
-        public double ColdTemperatureIn { get; set; }
-        public double ColdTemperatureOut { get; set; }
-        public double ColdPressureIn { get; set; }
-        public double ColdPressureOut { get; set; }
-        public double PressureDrop { get; set; }
-        public double HeatDuty { get; set; }
-        public double LmtdCorrectionFactor { get; set; }
-        public double HeatTransferCoefficient { get; set; }
-        public double CapitalCost { get; set; }
-        public double AnnualizedCost { get; set; }
-        public double FoulingFactor { get; set; }
+        public int Id { get; set; } = -1;
+        public int HenId { get; set; } = -1;
+        public string ExchangerId { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string ExchangerType { get; set; } = string.Empty;
+        public int Shells { get; set; } = 0;
+        public double Area { get; set; } = 0.00;
+        public double HotTemperatureIn { get; set; } = 0.00;
+        public double HotTemperatureOut { get; set; } = 0.00;
+        public double HotPressureIn { get; set; } = 0.00;
+        public double HotPressureOut { get; set; } = 0.00;
+        public double ColdTemperatureIn { get; set; } = 0.00;
+        public double ColdTemperatureOut { get; set; } = 0.00;
+        public double ColdPressureIn { get; set; } = 0.00;
+        public double ColdPressureOut { get; set; } = 0.00;
+        public double PressureDrop { get; set; } = 0.00;
+        public double HeatDuty { get; set; } = 0.00;
+        public double LmtdCorrectionFactor { get; set; } = 0.00;
+        public double HeatTransferCoefficient { get; set; } = 0.00;
+        public double CapitalCost { get; set; } = 0.00;
+        public double AnnualizedCost { get; set; } = 0.00;
+        public double FoulingFactor { get; set; } = 0.00;
         #endregion      // PROPERTIES
     }
     #endregion      // public class ExchangerDto

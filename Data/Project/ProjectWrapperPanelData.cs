@@ -87,7 +87,7 @@ namespace HenStudio.Data.Project
         //--- all the IDs, and DTO Objects, for the     ---
         //--- Project Wrapper Panel. [INTRA-VIEW LAYER] ---
         //-------------------------------------------------
-        ProjectWrapperDto ProjectWrapperDtoObj { get; set; }
+        ProjectWrapperDto ProjectWrapperDtoObj { get; set; } = new ProjectWrapperDto();
         #endregion  // ProjectWrapperDto OBJECT
 
         #region SUB-PanelData OBJECTS
@@ -133,7 +133,7 @@ namespace HenStudio.Data.Project
             //--- Initialize ProjectWrapperPanelData Property to ---
             //--- Avoid Null Reference Exceptions                ---
             //------------------------------------------------------
-            ProjectWrapperDto projectWrapperDtoObj = new ProjectWrapperDto();
+            //ProjectWrapperDto projectWrapperDtoObj = new ProjectWrapperDto();
             //-----------------------------------------------------------------------
             //--- Initialize PanelData Objects to Avoid Null Reference Exceptions ---
             //-----------------------------------------------------------------------

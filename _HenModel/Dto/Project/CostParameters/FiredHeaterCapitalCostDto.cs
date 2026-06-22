@@ -46,14 +46,14 @@ namespace HenModel.Dto.Project.CostParameters
     public class FiredHeaterCapitalCostDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public double ParameterAlpha_Metric { get; set; }
-        public double ParameterAlpha_English { get; set; }
-        public double ParameterBeta { get; set; }
-        public double Efficiency { get; set; }
-        public string DutyUnits_Metric { get; set; }
-        public string DutyUnits_English { get; set; }
+        public int Id { get; set; } = -1;
+        public int ProjectId { get; set; } = -1;
+        public double ParameterAlpha_Metric { get; set; } = 0.00;
+        public double ParameterAlpha_English { get; set; } = 0.00;
+        public double ParameterBeta { get; set; } = 0.00;
+        public double Efficiency { get; set; } = 0.00;
+        public string DutyUnits_Metric { get; set; } = string.Empty;
+        public string DutyUnits_English { get; set; } = string.Empty;
         #endregion      // PROPERTIES
     }
     #endregion      // public class FiredHeaterCapitalCostDto

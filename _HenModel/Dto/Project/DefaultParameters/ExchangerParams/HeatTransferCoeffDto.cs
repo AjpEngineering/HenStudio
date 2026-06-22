@@ -46,21 +46,11 @@ namespace HenModel.Dto.Project.DefaultParameters.ExchangerParams
     public class HeatTransferCoeffDto
     {
         #region PROPERTIES
-        public string Id { get; set; }
-        public string Service { get; set; }
-        public string Range { get; set; }
-        public string Note { get; set; }
+        public string Id { get; set; } = string.Empty;
+        public string Service { get; set; } = string.Empty;
+        public string Range { get; set; } = string.Empty;
+        public string Note { get; set; } = string.Empty;
         #endregion      // PROPERTIES
-
-        #region CTOR
-        public HeatTransferCoeffDto() 
-        {
-            Id = string.Empty;
-            Service = string.Empty;
-            Range = string.Empty;
-            Note = string.Empty;
-        }
-        #endregion      // CTOR
     }
     #endregion      // public class HeatTransferCoeffDto
 }

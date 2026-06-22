@@ -46,12 +46,12 @@ namespace HenModel.Dto.Pinch.Plots
     public class THDiagramDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProfileId { get; set; }
-        public string DiagramType { get; set; }
-        public string Title { get; set; }
-        public string XAxisLabel { get; set; }
-        public string YAxisLabel { get; set; }
+        public int Id { get; set; } = -1;
+        public int ProfileId { get; set; } = -1;
+        public string DiagramType { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
+        public string XAxisLabel { get; set; } = "X";
+        public string YAxisLabel { get; set; } = "Y";
         #endregion      // PROPERTIES
     }
     #endregion      // public class THDiagramDto

@@ -50,61 +50,28 @@ namespace HenModel.Dto.Profile
     public class ProfileWrapperDto
     {
         #region PROPERTIES
-        //------------------------------------------------------------- IDs ---
-        public Guid ProjectId { get; set; }
-        public Guid ProfileId { get; set; }
+        //------------------------------------------------------- IDs ---
+        //--- Initialize IDs to -1 to Avoid Null Reference Exceptions ---
+        //---------------------------------------------------------------
+        public int ProjectId { get; set; } = -1;
+        public int ProfileId { get; set; } = -1;
 
-        public Guid ProcessStreamsId { get; set; }
-        public Guid UtilityStreamsId { get; set; }
+        public int ProcessStreamsId { get; set; } = -1;
+        public int UtilityStreamsId { get; set; } = -1;
 
-        //------------------------------------------------------------ DTOs ---
-        public ProfileDto ProfileDtoObj { get; set; }
-        public ProcessStreamDto ProcessStreamDtoObj { get; set; }
+        //------------------------------------------------- DTOs ---
+        //--- Initialize DTOs to Avoid Null Reference Exceptions ---
+        //----------------------------------------------------------
+        public ProfileDto ProfileDtoObj { get; set; } = new ProfileDto();
+        public ProcessStreamDto ProcessStreamDtoObj { get; set; } = new ProcessStreamDto();
 
-        public UtilityStreamDto UtilityStreamDtoObj { get; set; }
+        public UtilityStreamDto UtilityStreamDtoObj { get; set; } = new UtilityStreamDto();
 
-        public List<ProcessStreamDto> ProcessStreamDtoList { get; set; }
+        public List<ProcessStreamDto> ProcessStreamDtoList { get; set; } = new List<ProcessStreamDto>();
 
-        public List<UtilityStreamDto> UtilityStreamDtoList { get; set; }
+        public List<UtilityStreamDto> UtilityStreamDtoList { get; set; } = new List<UtilityStreamDto>();
 
         #endregion      // PROPERTIES
-
-        #region CTOR
-        /// <summary>
-        /// Default Constructor for ProfileWrapperDto Class
-        /// </summary>
-        public ProfileWrapperDto()
-        {
-            InitializeDto();
-        }
-        #endregion  // CTOR
-
-        #region INITIALIZE DTO
-        /// <summary>
-        /// Method to Initialize DTO Properties to Avoid Null Reference Exceptions
-        /// </summary>
-        private void InitializeDto()
-        {
-            //------------------------------------------------------------------------
-            //--- Initialize IDs to Empty GUIDs to Avoid Null Reference Exceptions ---
-            //------------------------------------------------------------------------
-            ProjectId = Guid.Empty;
-            ProfileId = Guid.Empty;
-            ProcessStreamsId = Guid.Empty;
-            UtilityStreamsId = Guid.Empty;
-            //----------------------------------------------------------
-            //--- Initialize DTOs to Avoid Null Reference Exceptions ---
-            //----------------------------------------------------------
-            ProfileDtoObj = new ProfileDto();
-
-            ProcessStreamDtoObj = new ProcessStreamDto();
-            UtilityStreamDtoObj = new UtilityStreamDto();
-
-            ProcessStreamDtoList = new List<ProcessStreamDto>();
-            UtilityStreamDtoList = new List<UtilityStreamDto>();
-        }
-        #endregion  // INITIALIZE DTO
-
     }
     #endregion      // public class ProfileWrapperDto
 }

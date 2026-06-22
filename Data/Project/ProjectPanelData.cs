@@ -56,7 +56,7 @@ namespace HenStudio.Data.Project
         #endregion      // CONSTANTS
 
         #region PROPERTIES
-        public Guid ProjectId { get; set; }
+        public int ProjectId { get; set; }
         public ProjectDto ProjectDtoObj { get; set; }
 
         #region VIEW MODEL Object
@@ -72,12 +72,14 @@ namespace HenStudio.Data.Project
         /// <remarks>All string properties are initialized to empty strings, date properties are set to
         /// the current date and time, and the ProjectDtoObj property is initialized with a new ProjectDto instance.
         /// This constructor ensures that the object is in a valid default state upon creation.</remarks>
-        public ProjectPanelData()
+        /// <param name="strProjectDbName">SQLite PROJECT Database Name</param>
+        /// <param name="nProjectId">Project Id</param>
+        public ProjectPanelData(string strProjectDbName, int nProjectId)
         {
-            ProjectId = new Guid();
+            ProjectId = nProjectId;
             ProjectDtoObj = new ProjectDto();
 
-            ProjectViewModelObj = new ProjectViewModel();
+            ProjectViewModelObj = new ProjectViewModel(strProjectDbName);
         }
         #endregion  // CTOR
 
@@ -91,7 +93,7 @@ namespace HenStudio.Data.Project
         /// <param name="projectDtoObj">Project DTO Object</param>
         /// <returns>The ID of the newly created project.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the project ID is null after creation.</exception>
-        public Guid CreateProjectData(ProjectDto projectDtoObj)
+        public int CreateProjectData(ProjectDto projectDtoObj)
         {
             if (projectDtoObj == null) throw new ArgumentNullException(
                                  nameof(projectDtoObj),

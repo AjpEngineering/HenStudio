@@ -46,12 +46,12 @@ namespace HenModel.Dto.Pinch.Plots
     public class CompositeCurvePointIDDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid CompositeCurveId { get; set; }
-        public string PointCurveType { get; set; }
-        public int PointSequence { get; set; }
-        public double EnthalpyValue { get; set; }
-        public double TemperatureValue { get; set; }
+        public int Id { get; set; } = -1;
+        public int CompositeCurveId { get; set; } = -1;
+        public string PointCurveType { get; set; } = string.Empty;
+        public int PointSequence { get; set; } = 0;
+        public double EnthalpyValue { get; set; } = 0.00;
+        public double TemperatureValue { get; set; } = 0.00;
         #endregion      // PROPERTIES
     }
     #endregion      // public class CompositeCurvePointIDDto

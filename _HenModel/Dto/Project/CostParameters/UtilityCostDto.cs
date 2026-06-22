@@ -46,22 +46,22 @@ namespace HenModel.Dto.Project.CostParameters
     public class UtilityCostDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public double HP_SteamCost_Metric { get; set; }
-        public double MP_SteamCost_Metric { get; set; }
-        public double LP_SteamCost_Metric { get; set; }
-        public double CoolingWaterCost_Metric { get; set; }
-        public double ChilledWaterCost_Metric { get; set; }
-        public double FuelGasCost_Metric { get; set; }
-        public double HP_SteamCost_English { get; set; }
-        public double MP_SteamCost_English { get; set; }
-        public double LP_SteamCost_English { get; set; }
-        public double CoolingWaterCost_English { get; set; }
-        public double ChilledWaterCost_English { get; set; }
-        public double FuelGasCost_English { get; set; }
-        public string DutyUnits_Metric { get; set; }
-        public string DutyUnits_English { get; set; }
+        public int Id { get; set; } = -1;
+        public int ProjectId { get; set; } = -1;
+        public double HP_SteamCost_Metric { get; set; } = 0.00;
+        public double MP_SteamCost_Metric { get; set; } = 0.00;
+        public double LP_SteamCost_Metric { get; set; } = 0.00;
+        public double CoolingWaterCost_Metric { get; set; } = 0.00;
+        public double ChilledWaterCost_Metric { get; set; } = 0.00;
+        public double FuelGasCost_Metric { get; set; } = 0.00;
+        public double HP_SteamCost_English { get; set; } = 0.00;
+        public double MP_SteamCost_English { get; set; } = 0.00;
+        public double LP_SteamCost_English { get; set; } = 0.00;
+        public double CoolingWaterCost_English { get; set; } = 0.00;
+        public double ChilledWaterCost_English { get; set; } = 0.00;
+        public double FuelGasCost_English { get; set; } = 0.00;
+        public string DutyUnits_Metric { get; set; } = string.Empty;
+        public string DutyUnits_English { get; set; } = string.Empty;
         #endregion      // PROPERTIES
     }
     #endregion      // public class UtilityCostDto

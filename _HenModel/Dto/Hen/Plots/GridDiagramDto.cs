@@ -46,9 +46,9 @@ namespace HenModel.Dto.Hen.Plots
     public class GridDiagramDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid HenId { get; set; }
-        public string Title { get; set; }
+        public int Id { get; set; } = -1;
+        public int HenId { get; set; } = -1;
+        public string Title { get; set; } = "TITLE";
         #endregion      // PROPERTIES
     }
     #endregion      // public class GridDiagramDto

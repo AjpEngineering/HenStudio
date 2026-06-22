@@ -46,11 +46,11 @@ namespace HenModel.Dto.Hen.Plots
     public class HeatReleaseCurvePointIDDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid HeatReleaseCurveId { get; set; }
-        public int PointSequence { get; set; }
-        public double DutyValue { get; set; }
-        public double TemperatureValue { get; set; }
+        public int Id { get; set; } = -1;
+        public int HeatReleaseCurveId { get; set; } = -1;
+        public int PointSequence { get; set; } = 0;
+        public double DutyValue { get; set; } = 0.00;
+        public double TemperatureValue { get; set; } = 0.00;
         #endregion      // PROPERTIES
     }
     #endregion      // public class HeatReleaseCurvePointIDDto

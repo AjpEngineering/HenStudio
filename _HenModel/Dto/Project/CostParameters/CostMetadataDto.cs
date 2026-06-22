@@ -46,13 +46,13 @@ namespace HenModel.Dto.Project.CostParameters
     public class CostMetadataDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public string CostIndexBaseYear { get; set; }
-        public string CostIndexName { get; set; }
-        public double CostIndexValue { get; set; }
-        public string CostIndexCurrency { get; set; }
-        public double CostIndexInstalledCost { get; set; }
+        public int Id { get; set; } = -1;
+        public int ProjectId { get; set; } = -1;
+        public string CostIndexBaseYear { get; set; } = string.Empty;
+        public string CostIndexName { get; set; } = string.Empty;
+        public double CostIndexValue { get; set; } = 0.00;
+        public string CostIndexCurrency { get; set; } = string.Empty;
+        public double CostIndexInstalledCost { get; set; } = 0.00;
         #endregion      // PROPERTIES
     }
     #endregion      // public class CostMetadataDto

@@ -46,14 +46,14 @@ namespace HenModel.Dto.Project.DefaultParameters.OptimizerParams
     public class OptimizerParamsDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string OptimizerType { get; set; }
-        public string DefaultObjective { get; set; }
-        public int DefaultMaxIterations { get; set; }
-        public double DefaultConvergenceTolerance { get; set; }
+        public int Id { get; set; } = -1;
+        public int ProjectId { get; set; } = -1;
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string OptimizerType { get; set; } = string.Empty;
+        public string DefaultObjective { get; set; } = string.Empty;
+        public int DefaultMaxIterations { get; set; } = 100;
+        public double DefaultConvergenceTolerance { get; set; } = 0.001;
         #endregion      // PROPERTIES
     }
     #endregion      // public class OptimizerParamsDto

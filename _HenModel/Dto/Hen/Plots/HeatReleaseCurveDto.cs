@@ -46,11 +46,11 @@ namespace HenModel.Dto.Hen.Plots
     public class HeatReleaseCurveDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ExchangerId { get; set; }
-        public string Title { get; set; }
-        public string XAxisLabel { get; set; }
-        public string YAxisLabel { get; set; }
+        public int Id { get; set; } = -01;
+        public int ExchangerId { get; set; } = -1;
+        public string Title { get; set; } = "TITLE";
+        public string XAxisLabel { get; set; } = "X";
+        public string YAxisLabel { get; set; } = "Y";
         #endregion      // PROPERTIES
     }
     #endregion      // public class HeatReleaseCurveDto

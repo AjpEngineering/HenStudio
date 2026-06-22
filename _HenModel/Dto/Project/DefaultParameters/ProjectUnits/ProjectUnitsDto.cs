@@ -46,12 +46,12 @@ namespace HenModel.Dto.Project.DefaultParameters.ProjectUnits
     public class ProjectUnitsDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public string DefaultSystemUnits { get; set; }
-        public string DefaultMagnitudeUnits { get; set; }
-        public string DefaultTemperatureUnits { get; set; }
-        public string DefaultPressureUnits { get; set; }
+        public int Id { get; set; } = -1;
+        public int ProjectId { get; set; } = -1;
+        public string DefaultSystemUnits { get; set; } = string.Empty;
+        public string DefaultMagnitudeUnits { get; set; } = string.Empty;
+        public string DefaultTemperatureUnits { get; set; } = string.Empty;
+        public string DefaultPressureUnits { get; set; } = string.Empty;
         #endregion      // PROPERTIES
     }
     #endregion      // public class ProjectUnitsDto

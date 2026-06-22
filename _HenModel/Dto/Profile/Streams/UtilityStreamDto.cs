@@ -46,20 +46,20 @@ namespace HenModel.Dto.Profile.Streams
     public class UtilityStreamDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProfileId { get; set; }
-        public string StreamCategory { get; set; }
-        public string StreamHeat { get; set; }
-        public string StreamId { get; set; }
-        public string Name { get; set; }
-        public string UtilityType { get; set; }
-        public string StreamSubtype { get; set; }
-        public double IsothermalTemperature { get; set; }
-        public double SupplyTemperature { get; set; }
-        public double TargetTemperature { get; set; }
-        public double SupplyPressure { get; set; }
-        public double TargetPressure { get; set; }
-        public double EnthalpyFlowRate { get; set; }
+        public int Id { get; set; } = -1;
+        public int ProfileId { get; set; } = -1;
+        public string StreamCategory { get; set; } = string.Empty;
+        public string StreamHeat { get; set; } = string.Empty;
+        public string StreamId { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string UtilityType { get; set; } = string.Empty;
+        public string StreamSubtype { get; set; } = string.Empty;
+        public double IsothermalTemperature { get; set; } = 0.00;
+        public double SupplyTemperature { get; set; } = 0.00;
+        public double TargetTemperature { get; set; } = 0.00;
+        public double SupplyPressure { get; set; } = 0.00;
+        public double TargetPressure { get; set; } = 0.00;
+        public double EnthalpyFlowRate { get; set; } = 0.00;
         #endregion      // PROPERTIES
     }
     #endregion      // public class UtilityStreamDto

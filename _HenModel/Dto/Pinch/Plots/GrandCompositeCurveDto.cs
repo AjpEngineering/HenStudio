@@ -46,12 +46,12 @@ namespace HenModel.Dto.Pinch.Plots
     public class GrandCompositeCurveDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid PinchId { get; set; }
-        public string CurveSubtype { get; set; }
-        public string Title { get; set; }
-        public string XAxisLabel { get; set; }
-        public string YAxisLabel { get; set; }
+        public int Id { get; set; } = -1;
+        public int PinchId { get; set; } = -1;
+        public string CurveSubtype { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
+        public string XAxisLabel { get; set; } = "X";
+        public string YAxisLabel { get; set; } = "Y";
         #endregion      // PROPERTIES
     }
     #endregion      // public class GrandCompositeCurveDto

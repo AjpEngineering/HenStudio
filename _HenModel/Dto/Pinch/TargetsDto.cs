@@ -46,13 +46,13 @@ namespace HenModel.Dto.Pinch
     public class TargetsDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid PinchId { get; set; }
-        public double MinimumHotUtilityLoad { get; set; }
-        public double MinimumColdUtilityLoad { get; set; }
-        public int MinimumNumberOfExchangers { get; set; }
-        public double HotPinchTargetTemperature { get; set; }
-        public double ColdPinchTargetTemperature { get; set; }
+        public int Id { get; set; } = -1;
+        public int PinchId { get; set; } = -1;
+        public double MinimumHotUtilityLoad { get; set; } = 0.00;
+        public double MinimumColdUtilityLoad { get; set; } = 0.00;
+        public int MinimumNumberOfExchangers { get; set; } = 1;
+        public double HotPinchTargetTemperature { get; set; } = 0.00;
+        public double ColdPinchTargetTemperature { get; set; } = 0.00;
         #endregion      // PROPERTIES
     }
     #endregion      // public class TargetsDto

@@ -111,9 +111,6 @@
     <Compile Include="Dto\Project\ProjectWrapperDto.cs" />
     <Compile Include="Dto\Project\ProjectDto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\OptimizerParamsDto.cs" />
-    <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\OptimizerGeneticDto.cs" />
-    <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\OptimizerGreedyDto.cs" />
-    <Compile Include="Dto\Project\DefaultParameters\OptimizerParams\OptimizerMILP_Dto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\ProjectUnits\ProjectUnitsDto.cs" />
     <Compile Include="Dto\Project\DefaultParameters\ExchangerParams\HeatTransferCoeffDto.cs" />
     <Compile Include="RepoImplementations\Application\AppComponentsRepo.cs" />
@@ -131,9 +128,6 @@
     <Compile Include="RepoInterfaces\Project\DefaultParameters\ExchangerParams\IExchangerParamsRepo.cs" />
     <Compile Include="RepoInterfaces\Project\IProjectRepo.cs" />
     <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IOptimizerParamRepo.cs" />
-    <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IOptimizerGeneticRepo.cs" />
-    <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IOptimizerGreedyRepo.cs" />
-    <Compile Include="RepoInterfaces\Project\DefaultParameters\OptimizerParams\IOptimizerMILP_Repo.cs" />
     <Compile Include="Dto\Profile\ProfileDto.cs" />
     <Compile Include="Dto\Project\CostParameters\CostMetadataDto.cs" />
     <Compile Include="Dto\Profile\Streams\ProcessStreamDto.cs" />
@@ -193,9 +187,6 @@
     <Compile Include="RepoImplementations\Profile\Streams\UtilityStreamRepo.cs" />
     <Compile Include="RepoImplementations\Project\CostParameters\CostMetadataRepo.cs" />
     <Compile Include="RepoImplementations\Project\DefaultParameters\ExchangerParams\ExchangerParamsRepo.cs" />
-    <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerGeneticRepo.cs" />
-    <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerGreedyRepo.cs" />
-    <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerMILP_Repo.cs" />
     <Compile Include="RepoImplementations\Project\DefaultParameters\OptimizerParams\OptimizerParamsRepo.cs" />
     <Compile Include="RepoImplementations\Project\ProjectRepo.cs" />
     <Compile Include="RepoImplementations\Project\DefaultParameters\ProjectUnits\ProjectUnitsRepo.cs" />

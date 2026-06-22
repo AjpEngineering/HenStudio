@@ -46,10 +46,10 @@ namespace HenModel.Dto.Project.DefaultParameters.ExchangerParams
     public class ExchangerParamsDto
     {
         #region PROPERTIES
-        public Guid Id { get; set; }
-        public Guid ProjectId { get; set; }
-        public double DefaultHeatTransferCoefficient { get; set; }
-        public double DefaultCorrectionFactor { get; set; }
+        public int Id { get; set; } = -1;
+        public int ProjectId { get; set; } = -1;
+        public double DefaultHeatTransferCoefficient { get; set; } = 0.00;
+        public double DefaultCorrectionFactor { get; set; } = 0.85;
         #endregion      // PROPERTIES
     }
     #endregion      // public class ExchangerParamsDto
