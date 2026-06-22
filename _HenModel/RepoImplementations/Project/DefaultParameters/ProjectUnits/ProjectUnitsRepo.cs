@@ -133,14 +133,14 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
         /// </summary>
         /// <param name="projectUnitsDto">The project units data to insert.</param>
         /// <returns>The unique identifier of the inserted project units.</returns>
-        public Guid AddProjectUnits(ProjectUnitsDto projectUnitsDto)
+        public int AddProjectUnits(ProjectUnitsDto projectUnitsDto)
         {
             if (projectUnitsDto == null)
             {
                 throw new ArgumentNullException(nameof(projectUnitsDto));
             }
 
-            const string sql = @"INSERT INTO dbo.ProjectUnits
+            const string sql = @"INSERT INTO ProjectUnits
                                     (ProjectId,
                                      DefaultSystemUnits,
                                      DefaultMagnitudeUnits,
@@ -168,7 +168,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -180,7 +180,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
         /// </summary>
         /// <param name="projectUnitsId">The unique identifier of the project units to retrieve.</param>
         /// <returns>A <see cref="ProjectUnitsDto"/> object representing the requested project units, or <c>null</c> if no matching project units is found.</returns>
-        public ProjectUnitsDto GetProjectUnitsById(Guid projectUnitsId)
+        public ProjectUnitsDto GetProjectUnitsById(int projectUnitsId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -188,7 +188,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                                         DefaultMagnitudeUnits,
                                         DefaultTemperatureUnits,
                                         DefaultPressureUnits
-                                 FROM dbo.ProjectUnits
+                                 FROM ProjectUnits
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -197,7 +197,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, projectUnitsId);
+                    AddParameter(command, "@Id", DbType.Int32, projectUnitsId);
 
                     connection.Open();
 
@@ -228,7 +228,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
         /// </summary>
         /// <param name="projectId">The unique identifier of the project to retrieve.</param>
         /// <returns>A <see cref="ProjectUnitsDto"/> object representing the requested project, or <c>null</c> if no matching project is found.</returns>
-        public ProjectUnitsDto GetProjectUnitsByProjectId(Guid projectId)
+        public ProjectUnitsDto GetProjectUnitsByProjectId(int projectId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -236,7 +236,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                                         DefaultMagnitudeUnits,
                                         DefaultTemperatureUnits,
                                         DefaultPressureUnits
-                                 FROM dbo.ProjectUnits
+                                 FROM ProjectUnits
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -245,7 +245,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, projectId);
+                    AddParameter(command, "@Id", DbType.Int32, projectId);
 
                     connection.Open();
 
@@ -282,7 +282,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                 throw new ArgumentNullException(nameof(projectUnitsDto));
             }
 
-            const string sql = @"UPDATE dbo.ProjectUnits
+            const string sql = @"UPDATE ProjectUnits
                                  SET ProjectId = @ProjectId,
                                      DefaultSystemUnits = @DefaultSystemUnits,
                                      DefaultMagnitudeUnits = @DefaultMagnitudeUnits,
@@ -296,7 +296,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, projectUnitsDto.Id);
+                    AddParameter(command, "@Id", DbType.Int32, projectUnitsDto.Id);
                     AddParameter(command, "@ProjectId", DbType.String, projectUnitsDto.ProjectId);
                     AddParameter(command, "@DefaultSystemUnits", DbType.String, projectUnitsDto.DefaultSystemUnits);
                     AddParameter(command, "@DefaultMagnitudeUnits", DbType.String, projectUnitsDto.DefaultMagnitudeUnits);
@@ -315,9 +315,9 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
         /// Deletes (DELETE) a project units from the data store by its project identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose project units to delete.</param>
-        public void DeleteProjectUnits(Guid projectId)
+        public void DeleteProjectUnits(int projectId)
         {
-            const string sql = @"DELETE FROM dbo.ProjectUnits
+            const string sql = @"DELETE FROM ProjectUnits
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -326,7 +326,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ProjectUnits
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

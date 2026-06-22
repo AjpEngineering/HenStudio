@@ -119,7 +119,8 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// <summary>
         /// Retrieves all T-H diagrams from the data store.
         /// </summary>
-        /// <returns>A list of <see cref="THDiagramDto"/> objects representing all T-H diagrams. The list is empty if no T-H diagrams are found.</returns>
+        /// <returns>A list of <see cref="THDiagramDto"/> objects representing 
+        /// all T-H diagrams. The list is empty if no T-H diagrams are found.</returns>
         public IList<THDiagramDto> GetTHDiagrams()
         {
             const string sql = @"SELECT Id,
@@ -128,7 +129,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                                         Title,
                                         XAxisLabel,
                                         YAxisLabel
-                                 FROM dbo.THDiagram
+                                 FROM THDiagram
                                  ORDER BY Title;";
 
             List<THDiagramDto> thDiagrams = new List<THDiagramDto>();
@@ -160,9 +161,11 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// <summary>
         /// Retrieves all T-H diagrams for the specified profile from the data store.
         /// </summary>
-        /// <param name="profileId">The unique identifier of the profile whose T-H diagrams are to be retrieved.</param>
-        /// <returns>A list of <see cref="THDiagramDto"/> objects representing the matching T-H diagrams. The list is empty if no T-H diagrams are found.</returns>
-        public IList<THDiagramDto> GetTHDiagramsByProfileId(Guid profileId)
+        /// <param name="profileId">The unique identifier of the profile whose 
+        /// T-H diagrams are to be retrieved.</param>
+        /// <returns>A list of <see cref="THDiagramDto"/> objects representing 
+        /// the matching T-H diagrams. The list is empty if no T-H diagrams are found.</returns>
+        public IList<THDiagramDto> GetTHDiagramsByProfileId(int profileId)
         {
             const string sql = @"SELECT Id,
                                         ProfileId,
@@ -170,7 +173,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                                         Title,
                                         XAxisLabel,
                                         YAxisLabel
-                                 FROM dbo.THDiagram
+                                 FROM THDiagram
                                  WHERE ProfileId = @ProfileId
                                  ORDER BY Title;";
 
@@ -182,7 +185,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
+                    AddParameter(command, "@ProfileId", DbType.Int32, profileId);
 
                     connection.Open();
 
@@ -204,9 +207,11 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// <summary>
         /// Retrieves a T-H diagram from the data store by its identifier.
         /// </summary>
-        /// <param name="thDiagramId">The unique identifier of the T-H diagram to retrieve.</param>
-        /// <returns>A <see cref="THDiagramDto"/> object representing the requested T-H diagram, or <c>null</c> if no matching T-H diagram is found.</returns>
-        public THDiagramDto GetTHDiagramById(Guid thDiagramId)
+        /// <param name="thDiagramId">The unique identifier of the 
+        /// T-H diagram to retrieve.</param>
+        /// <returns>A <see cref="THDiagramDto"/> object representing 
+        /// the requested T-H diagram, or <c>null</c> if no matching T-H diagram is found.</returns>
+        public THDiagramDto GetTHDiagramById(int thDiagramId)
         {
             const string sql = @"SELECT Id,
                                         ProfileId,
@@ -214,7 +219,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                                         Title,
                                         XAxisLabel,
                                         YAxisLabel
-                                 FROM dbo.THDiagram
+                                 FROM THDiagram
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -223,7 +228,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, thDiagramId);
+                    AddParameter(command, "@Id", DbType.Int32, thDiagramId);
 
                     connection.Open();
 
@@ -245,10 +250,12 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// <summary>
         /// Retrieves a T-H diagram from the data store by its profile identifier and title.
         /// </summary>
-        /// <param name="profileId">The unique identifier of the profile that owns the T-H diagram.</param>
+        /// <param name="profileId">The unique identifier of the profile that owns 
+        /// the T-H diagram.</param>
         /// <param name="title">The title to retrieve.</param>
-        /// <returns>A <see cref="THDiagramDto"/> object representing the requested T-H diagram, or <c>null</c> if no matching T-H diagram is found.</returns>
-        public THDiagramDto GetTHDiagramByTitle(Guid profileId, string title)
+        /// <returns>A <see cref="THDiagramDto"/> object representing the requested 
+        /// T-H diagram, or <c>null</c> if no matching T-H diagram is found.</returns>
+        public THDiagramDto GetTHDiagramByTitle(int profileId, string title)
         {
             if (String.IsNullOrWhiteSpace(title))
             {
@@ -261,7 +268,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                                         Title,
                                         XAxisLabel,
                                         YAxisLabel
-                                 FROM dbo.THDiagram
+                                 FROM THDiagram
                                  WHERE ProfileId = @ProfileId
                                    AND Title = @Title;";
 
@@ -271,7 +278,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
+                    AddParameter(command, "@ProfileId", DbType.Int32, profileId);
                     AddParameter(command, "@Title", DbType.String, title);
 
                     connection.Open();
@@ -296,14 +303,14 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// </summary>
         /// <param name="thDiagramDto">The T-H diagram data to insert.</param>
         /// <returns>The unique identifier of the inserted T-H diagram.</returns>
-        public Guid AddTHDiagram(THDiagramDto thDiagramDto)
+        public int AddTHDiagram(THDiagramDto thDiagramDto)
         {
             if (thDiagramDto == null)
             {
                 throw new ArgumentNullException(nameof(thDiagramDto));
             }
 
-            const string sql = @"INSERT INTO dbo.THDiagram
+            const string sql = @"INSERT INTO THDiagram
                                     (ProfileId,
                                      DiagramType,
                                      Title,
@@ -323,7 +330,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProfileId", DbType.Guid, thDiagramDto.ProfileId);
+                    AddParameter(command, "@ProfileId", DbType.Int32, thDiagramDto.ProfileId);
                     AddParameter(command, "@DiagramType", DbType.String, thDiagramDto.DiagramType);
                     AddParameter(command, "@Title", DbType.String, thDiagramDto.Title);
                     AddParameter(command, "@XAxisLabel", DbType.String, thDiagramDto.XAxisLabel);
@@ -331,7 +338,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -349,7 +356,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 throw new ArgumentNullException(nameof(thDiagramDto));
             }
 
-            const string sql = @"UPDATE dbo.THDiagram
+            const string sql = @"UPDATE THDiagram
                                  SET ProfileId = @ProfileId,
                                      DiagramType = @DiagramType,
                                      Title = @Title,
@@ -363,8 +370,8 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, thDiagramDto.Id);
-                    AddParameter(command, "@ProfileId", DbType.Guid, thDiagramDto.ProfileId);
+                    AddParameter(command, "@Id", DbType.Int32, thDiagramDto.Id);
+                    AddParameter(command, "@ProfileId", DbType.Int32, thDiagramDto.ProfileId);
                     AddParameter(command, "@DiagramType", DbType.String, thDiagramDto.DiagramType);
                     AddParameter(command, "@Title", DbType.String, thDiagramDto.Title);
                     AddParameter(command, "@XAxisLabel", DbType.String, thDiagramDto.XAxisLabel);
@@ -382,9 +389,9 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// Deletes a T-H diagram from the data store by its identifier.
         /// </summary>
         /// <param name="thDiagramId">The unique identifier of the T-H diagram to delete.</param>
-        public void DeleteTHDiagram(Guid thDiagramId)
+        public void DeleteTHDiagram(int thDiagramId)
         {
-            const string sql = @"DELETE FROM dbo.THDiagram
+            const string sql = @"DELETE FROM THDiagram
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -393,7 +400,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, thDiagramId);
+                    AddParameter(command, "@Id", DbType.Int32, thDiagramId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

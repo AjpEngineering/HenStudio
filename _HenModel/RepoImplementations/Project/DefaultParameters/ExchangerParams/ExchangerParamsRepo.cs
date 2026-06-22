@@ -127,14 +127,14 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
         /// </summary>
         /// <param name="exchangerParamsDto">The exchanger params data to insert.</param>
         /// <returns>The unique identifier of the inserted exchanger params.</returns>
-        public Guid AddExchangerParams(ExchangerParamsDto exchangerParamsDto)
+        public int AddExchangerParams(ExchangerParamsDto exchangerParamsDto)
         {
             if (exchangerParamsDto == null)
             {
                 throw new ArgumentNullException(nameof(exchangerParamsDto));
             }
 
-            const string sql = @"INSERT INTO dbo.ExchangerParams
+            const string sql = @"INSERT INTO ExchangerParams
                                     (ProjectId,
                                      DefaultHeatTransferCoefficient,
                                      DefaultCorrectionFactor)
@@ -150,13 +150,13 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId   ", DbType.String, exchangerParamsDto.ProjectId);
-                    AddParameter(command, "@DefaultHeatTransferCoefficient", DbType.String, exchangerParamsDto.DefaultHeatTransferCoefficient);
-                    AddParameter(command, "@DefaultCorrectionFactor", DbType.String, exchangerParamsDto.DefaultCorrectionFactor);
+                    AddParameter(command, "@ProjectId   ", DbType.Int32, exchangerParamsDto.ProjectId);
+                    AddParameter(command, "@DefaultHeatTransferCoefficient", DbType.Double, exchangerParamsDto.DefaultHeatTransferCoefficient);
+                    AddParameter(command, "@DefaultCorrectionFactor", DbType.Double, exchangerParamsDto.DefaultCorrectionFactor);
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -168,13 +168,13 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
         /// </summary>
         /// <param name="exchangeParamsId">The unique identifier of the exchanger parameters to retrieve.</param>
         /// <returns>A <see cref="ExchangerParamsDto"/> object representing the requested exchanger parameters, or <c>null</c> if no matching exchanger parameters is found.</returns>
-        public ExchangerParamsDto GetExchangerParamsById(Guid exchangerParamsId)
+        public ExchangerParamsDto GetExchangerParamsById(int exchangerParamsId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
                                         DefaultHeatTransferCoefficient,
                                         DefaultCorrectionFactor
-                                 FROM dbo.ExchangerParams
+                                 FROM ExchangerParams
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -183,7 +183,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, exchangerParamsId);
+                    AddParameter(command, "@Id", DbType.Int32, exchangerParamsId);
 
                     connection.Open();
 
@@ -212,13 +212,13 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
         /// </summary>
         /// <param name="projectId">The unique identifier of the project to retrieve.</param>
         /// <returns>A <see cref="ExchangerParamsDto"/> object representing the requested project, or <c>null</c> if no matching project is found.</returns>
-        public ExchangerParamsDto GetExchangerParamsByProjectId(Guid projectId)
+        public ExchangerParamsDto GetExchangerParamsByProjectId(int projectId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
                                         DefaultHeatTransferCoefficient,
                                         DefaultCorrectionFactor
-                                 FROM dbo.ExchangerParams
+                                 FROM ExchangerParams
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -227,7 +227,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, projectId);
+                    AddParameter(command, "@Id", DbType.Int32, projectId);
 
                     connection.Open();
 
@@ -262,7 +262,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
                 throw new ArgumentNullException(nameof(exchangerParamsDto));
             }
 
-            const string sql = @"UPDATE dbo.ExchangerParams
+            const string sql = @"UPDATE ExchangerParams
                                  SET ProjectId = @ProjectId,
                                      DefaultHeatTransferCoefficient = @DefaultHeatTransferCoefficient,
                                      DefaultCorrectionFactor = @DefaultCorrectionFactor
@@ -274,10 +274,10 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, exchangerParamsDto.Id);
+                    AddParameter(command, "@Id", DbType.Int32, exchangerParamsDto.Id);
                     AddParameter(command, "@ProjectId", DbType.String, exchangerParamsDto.ProjectId);
-                    AddParameter(command, "@DefaultHeatTransferCoefficient", DbType.String, exchangerParamsDto.DefaultHeatTransferCoefficient);
-                    AddParameter(command, "@DefaultCorrectionFactor", DbType.String, exchangerParamsDto.DefaultCorrectionFactor);
+                    AddParameter(command, "@DefaultHeatTransferCoefficient", DbType.Double, exchangerParamsDto.DefaultHeatTransferCoefficient);
+                    AddParameter(command, "@DefaultCorrectionFactor", DbType.Double, exchangerParamsDto.DefaultCorrectionFactor);
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
@@ -290,7 +290,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
         /// Deletes (DELETE) an exchanger params from the data store by its project identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose exchanger params to delete.</param>
-        public void DeleteExchangerParams(Guid projectId)
+        public void DeleteExchangerParams(int projectId)
         {
             const string sql = @"DELETE FROM dbo.ExchangerParams
                                  WHERE ProjectId = @ProjectId;";
@@ -301,7 +301,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.ExchangerParams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

@@ -131,14 +131,14 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// </summary>
         /// <param name="utilityCostDto">The utility cost data to insert.</param>
         /// <returns>The unique identifier of the inserted utility cost entry.</returns>
-        public Guid AddUtilityCost(UtilityCostDto utilityCostDto)
+        public int AddUtilityCost(UtilityCostDto utilityCostDto)
         {
             if (utilityCostDto == null)
             {
                 throw new ArgumentNullException(nameof(utilityCostDto));
             }
 
-            const string sql = @"INSERT INTO dbo.UtilityCost
+            const string sql = @"INSERT INTO UtilityCost
                                     (ProjectId,
                                      HP_SteamCost_Metric,
                                      MP_SteamCost_Metric,
@@ -178,7 +178,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, utilityCostDto.ProjectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, utilityCostDto.ProjectId);
                     AddParameter(command, "@HP_SteamCost_Metric", DbType.Double, utilityCostDto.HP_SteamCost_Metric);
                     AddParameter(command, "@MP_SteamCost_Metric", DbType.Double, utilityCostDto.MP_SteamCost_Metric);
                     AddParameter(command, "@LP_SteamCost_Metric", DbType.Double, utilityCostDto.LP_SteamCost_Metric);
@@ -196,7 +196,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -226,7 +226,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         FuelGasCost_English,
                                         DutyUnits_Metric,
                                         DutyUnits_English
-                                 FROM dbo.UtilityCost
+                                 FROM UtilityCost
                                  ORDER BY ProjectId;";
 
             List<UtilityCostDto> utilityCostList = new List<UtilityCostDto>();
@@ -279,7 +279,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         FuelGasCost_English,
                                         DutyUnits_Metric,
                                         DutyUnits_English
-                                 FROM dbo.UtilityCost
+                                 FROM UtilityCost
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -288,7 +288,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, utilityCostId);
+                    AddParameter(command, "@Id", DbType.Int32, utilityCostId);
 
                     connection.Open();
 
@@ -313,7 +313,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// <param name="utilityCostId">The unique identifier of the utility cost entry to retrieve.</param>
         /// <returns>An <see cref="UtilityCostDto"/> object representing the requested utility cost entry, 
         /// or <c>null</c> if no matching entry is found.</returns>
-        public UtilityCostDto GetUtilityCostByProjectId(Guid projectId)
+        public UtilityCostDto GetUtilityCostByProjectId(int projectId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -331,7 +331,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         FuelGasCost_English,
                                         DutyUnits_Metric,
                                         DutyUnits_English
-                                 FROM dbo.UtilityCost
+                                 FROM UtilityCost
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -340,7 +340,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
 
@@ -370,7 +370,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 throw new ArgumentNullException(nameof(utilityCostDto));
             }
 
-            const string sql = @"UPDATE dbo.UtilityCost
+            const string sql = @"UPDATE UtilityCost
                                  SET ProjectId = @ProjectId,
                                      HP_SteamCost_Metric = @HP_SteamCost_Metric,
                                      MP_SteamCost_Metric = @MP_SteamCost_Metric,
@@ -394,8 +394,8 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, utilityCostDto.Id);
-                    AddParameter(command, "@ProjectId", DbType.Guid, utilityCostDto.ProjectId);
+                    AddParameter(command, "@Id", DbType.Int32, utilityCostDto.Id);
+                    AddParameter(command, "@ProjectId", DbType.Int32, utilityCostDto.ProjectId);
                     AddParameter(command, "@HP_SteamCost_Metric", DbType.Double, utilityCostDto.HP_SteamCost_Metric);
                     AddParameter(command, "@MP_SteamCost_Metric", DbType.Double, utilityCostDto.MP_SteamCost_Metric);
                     AddParameter(command, "@LP_SteamCost_Metric", DbType.Double, utilityCostDto.LP_SteamCost_Metric);
@@ -425,7 +425,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// <param name="projectId">The unique identifier of the project whose utility cost entry to delete.</param>
         public void DeleteUtilityCost(Guid projectId)
         {
-            const string sql = @"DELETE FROM dbo.UtilityCost
+            const string sql = @"DELETE FROM UtilityCost
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -434,7 +434,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

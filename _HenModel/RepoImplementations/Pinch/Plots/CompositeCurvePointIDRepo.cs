@@ -76,22 +76,22 @@ namespace HenModel.RepoImplementations.Pinch.Plots
             throw new NotImplementedException();
         }
 
-        public IList<CompositeCurvePointIDDto> GetCompositeCurvePointIDsByCompositeCurveId(Guid compositeCurveId)
+        public IList<CompositeCurvePointIDDto> GetCompositeCurvePointIDsByCompositeCurveId(int compositeCurveId)
         {
             throw new NotImplementedException();
         }
 
-        public CompositeCurvePointIDDto GetCompositeCurvePointIDById(Guid compositeCurvePointId)
+        public CompositeCurvePointIDDto GetCompositeCurvePointIDById(int compositeCurvePointId)
         {
             throw new NotImplementedException();
         }
 
-        public CompositeCurvePointIDDto GetCompositeCurvePointIDByPointSequence(Guid compositeCurveId, string pointCurveType, int pointSequence)
+        public CompositeCurvePointIDDto GetCompositeCurvePointIDByPointSequence(int compositeCurveId, string pointCurveType, int pointSequence)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddCompositeCurvePointID(CompositeCurvePointIDDto compositeCurvePointIdDto)
+        public int AddCompositeCurvePointID(CompositeCurvePointIDDto compositeCurvePointIdDto)
         {
             throw new NotImplementedException();
         }
@@ -101,7 +101,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
             throw new NotImplementedException();
         }
 
-        public void DeleteCompositeCurvePointID(Guid compositeCurvePointId)
+        public void DeleteCompositeCurvePointID(int compositeCurvePointId)
         {
             throw new NotImplementedException();
         }

@@ -122,14 +122,14 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// </summary>
         /// <param name="costMetadataDto">The cost metadata data to insert.</param>
         /// <returns>The unique identifier of the inserted cost metadata entry.</returns>
-        public Guid AddCostMetadata(CostMetadataDto costMetadataDto)
+        public int AddCostMetadata(CostMetadataDto costMetadataDto)
         {
             if (costMetadataDto == null)
             {
                 throw new ArgumentNullException(nameof(costMetadataDto));
             }
 
-            const string sql = @"INSERT INTO dbo.CostMetadata
+            const string sql = @"INSERT INTO CostMetadata
                                     (ProfileId,
                                      CostIndexBaseYear,
                                      CostIndexName,
@@ -151,7 +151,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, costMetadataDto.ProjectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, costMetadataDto.ProjectId);
                     AddParameter(command, "@CostIndexBaseYear", DbType.String, costMetadataDto.CostIndexBaseYear);
                     AddParameter(command, "@CostIndexName", DbType.String, costMetadataDto.CostIndexName);
                     AddParameter(command, "@CostIndexValue", DbType.Double, costMetadataDto.CostIndexValue);
@@ -160,7 +160,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -181,7 +181,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         CostIndexValue,
                                         CostIndexCurrency,
                                         CostIndexInstalledCost
-                                 FROM dbo.CostMetadata
+                                 FROM CostMetadata
                                  ORDER BY CostIndexName;";
 
             List<CostMetadataDto> costMetadataList = new List<CostMetadataDto>();
@@ -215,7 +215,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// </summary>
         /// <param name="costMetadataId">The unique identifier of the cost metadata entry to retrieve.</param>
         /// <returns>An <see cref="CostMetadataDto"/> object representing the requested cost metadata entry, or <c>null</c> if no matching entry is found.</returns>
-        public CostMetadataDto GetCostMetadataById(Guid costMetadataId)
+        public CostMetadataDto GetCostMetadataById(int costMetadataId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -233,7 +233,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, costMetadataId);
+                    AddParameter(command, "@Id", DbType.Int32, costMetadataId);
 
                     connection.Open();
 
@@ -257,7 +257,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose cost metadata are to be retrieved.</param>
         /// <returns>A list of <see cref="CostMetadataDto"/> objects representing the matching cost metadata. The list is empty if no cost metadata are found.</returns>
-        public CostMetadataDto GetCostMetadataByProjectId(Guid projectId)
+        public CostMetadataDto GetCostMetadataByProjectId(int projectId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -266,7 +266,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         CostIndexValue,
                                         CostIndexCurrency,
                                         CostIndexInstalledCost
-                                 FROM dbo.CostMetadata
+                                 FROM CostMetadata
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -275,7 +275,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
 
@@ -305,7 +305,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 throw new ArgumentNullException(nameof(costMetadataDto));
             }
 
-            const string sql = @"UPDATE dbo.CostMetadata
+            const string sql = @"UPDATE CostMetadata
                                  SET ProfileId = @ProfileId,
                                      CostIndexBaseYear = @CostIndexBaseYear,
                                      CostIndexName = @CostIndexName,
@@ -320,7 +320,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, costMetadataDto.Id);
+                    AddParameter(command, "@Id", DbType.Int32, costMetadataDto.Id);
                     AddParameter(command, "@ProjectId", DbType.Guid, costMetadataDto.ProjectId);
                     AddParameter(command, "@CostIndexBaseYear", DbType.String, costMetadataDto.CostIndexBaseYear);
                     AddParameter(command, "@CostIndexName", DbType.String, costMetadataDto.CostIndexName);
@@ -340,9 +340,9 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// Deletes (DELETE) a cost metadata entry from the data store by its project identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose cost metadata entry to delete.</param>
-        public void DeleteCostMetadata(Guid projectId)
+        public void DeleteCostMetadata(int projectId)
         {
-            const string sql = @"DELETE FROM dbo.CostMetadata
+            const string sql = @"DELETE FROM CostMetadata
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -351,7 +351,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

@@ -76,22 +76,22 @@ namespace HenModel.RepoImplementations.Hen
             throw new NotImplementedException();
         }
 
-        public IList<ExchangerDto> GetExchangersByHenId(Guid henId)
+        public IList<ExchangerDto> GetExchangersByHenId(int henId)
         {
             throw new NotImplementedException();
         }
 
-        public ExchangerDto GetExchangerById(Guid exchangerId)
+        public ExchangerDto GetExchangerById(int exchangerId)
         {
             throw new NotImplementedException();
         }
 
-        public ExchangerDto GetExchangerByExchangerId(Guid henId, string exchangerTag)
+        public ExchangerDto GetExchangerByExchangerId(int henId, string exchangerTag)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddExchanger(ExchangerDto exchangerDto)
+        public int AddExchanger(ExchangerDto exchangerDto)
         {
             throw new NotImplementedException();
         }
@@ -101,7 +101,7 @@ namespace HenModel.RepoImplementations.Hen
             throw new NotImplementedException();
         }
 
-        public void DeleteExchanger(Guid exchangerId)
+        public void DeleteExchanger(int exchangerId)
         {
             throw new NotImplementedException();
         }

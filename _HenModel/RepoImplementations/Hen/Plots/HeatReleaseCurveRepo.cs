@@ -76,22 +76,22 @@ namespace HenModel.RepoImplementations.Hen.Plots
             throw new NotImplementedException();
         }
 
-        public IList<HeatReleaseCurveDto> GetHeatReleaseCurvesByExchangerId(Guid exchangerId)
+        public IList<HeatReleaseCurveDto> GetHeatReleaseCurvesByExchangerId(int exchangerId)
         {
             throw new NotImplementedException();
         }
 
-        public HeatReleaseCurveDto GetHeatReleaseCurveById(Guid heatReleaseCurveId)
+        public HeatReleaseCurveDto GetHeatReleaseCurveById(int heatReleaseCurveId)
         {
             throw new NotImplementedException();
         }
 
-        public HeatReleaseCurveDto GetHeatReleaseCurveByTitle(Guid exchangerId, string title)
+        public HeatReleaseCurveDto GetHeatReleaseCurveByTitle(int exchangerId, string title)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddHeatReleaseCurve(HeatReleaseCurveDto heatReleaseCurveDto)
+        public int AddHeatReleaseCurve(HeatReleaseCurveDto heatReleaseCurveDto)
         {
             throw new NotImplementedException();
         }
@@ -101,7 +101,7 @@ namespace HenModel.RepoImplementations.Hen.Plots
             throw new NotImplementedException();
         }
 
-        public void DeleteHeatReleaseCurve(Guid heatReleaseCurveId)
+        public void DeleteHeatReleaseCurve(int heatReleaseCurveId)
         {
             throw new NotImplementedException();
         }

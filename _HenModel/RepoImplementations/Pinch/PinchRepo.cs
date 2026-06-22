@@ -76,17 +76,17 @@ namespace HenModel.RepoImplementations.Pinch
             throw new NotImplementedException();
         }
 
-        public IList<PinchDto> GetPinchesByProfileId(Guid profileId)
+        public IList<PinchDto> GetPinchesByProfileId(int profileId)
         {
             throw new NotImplementedException();
         }
 
-        public PinchDto GetPinchById(Guid pinchId)
+        public PinchDto GetPinchById(int pinchId)
         {
             throw new NotImplementedException();
         }
 
-        public PinchDto GetPinchByName(Guid profileId, string pinchName)
+        public PinchDto GetPinchByName(int profileId, string pinchName)
         {
             throw new NotImplementedException();
         }
@@ -101,7 +101,7 @@ namespace HenModel.RepoImplementations.Pinch
             throw new NotImplementedException();
         }
 
-        public void DeletePinch(Guid pinchId)
+        public void DeletePinch(int pinchId)
         {
             throw new NotImplementedException();
         }

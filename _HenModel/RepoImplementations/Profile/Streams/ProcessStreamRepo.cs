@@ -133,14 +133,14 @@ namespace HenModel.RepoImplementations.Profile.Streams
         /// </summary>
         /// <param name="processStreamDto">The process stream data to insert.</param>
         /// <returns>The unique identifier of the inserted process stream.</returns>
-        public Guid AddProcessStream(ProcessStreamDto processStreamDto)
+        public int AddProcessStream(ProcessStreamDto processStreamDto)
         {
             if (processStreamDto == null)
             {
                 throw new ArgumentNullException(nameof(processStreamDto));
             }
 
-            const string sql = @"INSERT INTO dbo.ProcessStream
+            const string sql = @"INSERT INTO ProcessStream
                                     (ProfileId,
                                      StreamCategory,
                                      StreamHeat,
@@ -177,7 +177,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProfileId", DbType.Guid, processStreamDto.ProfileId);
+                    AddParameter(command, "@ProfileId", DbType.Int32, processStreamDto.ProfileId);
                     AddParameter(command, "@StreamCategory", DbType.String, processStreamDto.StreamCategory);
                     AddParameter(command, "@StreamHeat", DbType.String, processStreamDto.StreamHeat);
                     AddParameter(command, "@StreamId", DbType.String, processStreamDto.StreamId);
@@ -192,7 +192,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -213,7 +213,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 throw new ArgumentNullException(nameof(processStreamDtos));
             }
 
-            const string sql = @"INSERT INTO dbo.ProcessStream
+            const string sql = @"INSERT INTO ProcessStream
                                     (ProfileId,
                                      StreamCategory,
                                      StreamHeat,
@@ -256,7 +256,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                     {
                         command.CommandText = sql;
                         command.CommandType = CommandType.Text;
-                        AddParameter(command, "@ProfileId", DbType.Guid, processStreamDto.ProfileId);
+                        AddParameter(command, "@ProfileId", DbType.Int32, processStreamDto.ProfileId);
                         AddParameter(command, "@StreamCategory", DbType.String, processStreamDto.StreamCategory);
                         AddParameter(command, "@StreamHeat", DbType.String, processStreamDto.StreamHeat);
                         AddParameter(command, "@StreamId", DbType.String, processStreamDto.StreamId);
@@ -302,7 +302,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                                         TargetTemperature,
                                         TargetPressure,
                                         HeatCapacityFlowRate,
-                                 FROM dbo.ProcessStream
+                                 FROM ProcessStream
                                  ORDER BY StreamId;";
 
             List<ProcessStreamDto> processStreams = new List<ProcessStreamDto>();
@@ -337,7 +337,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
         /// <param name="profileId">The unique identifier of the profile whose process streams are to be retrieved.</param>
         /// <returns>A list of <see cref="ProcessStreamDto"/> objects representing the matching process streams. 
         /// The list is empty if no process streams are found.</returns>
-        public IList<ProcessStreamDto> GetProcessStreamsByProfileId(Guid profileId)
+        public IList<ProcessStreamDto> GetProcessStreamsByProfileId(int profileId)
         {
             const string sql = @"SELECT Id,
                                         ProfileId,
@@ -354,7 +354,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                                         TargetPressure,
                                         HeatCapacityFlowRate,
                                         HeatTransferCoefficient
-                                 FROM dbo.ProcessStream
+                                 FROM ProcessStream
                                  WHERE ProfileId = @ProfileId
                                  ORDER BY StreamId;";
 
@@ -366,7 +366,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
+                    AddParameter(command, "@ProfileId", DbType.Int32, profileId);
 
                     connection.Open();
 
@@ -391,7 +391,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
         /// <param name="processStreamId">The unique identifier of the process stream to retrieve.</param>
         /// <returns>A <see cref="ProcessStreamDto"/> object representing the requested process stream, 
         /// or <c>null</c> if no matching process stream is found.</returns>
-        public ProcessStreamDto GetProcessStreamById(Guid processStreamId)
+        public ProcessStreamDto GetProcessStreamById(int processStreamId)
         {
             const string sql = @"SELECT Id,
                                         ProfileId,
@@ -408,7 +408,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                                         TargetPressure,
                                         HeatCapacityFlowRate,
                                         HeatTransferCoefficient
-                                 FROM dbo.ProcessStream
+                                 FROM ProcessStream
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -417,7 +417,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, processStreamId);
+                    AddParameter(command, "@Id", DbType.Int32, processStreamId);
 
                     connection.Open();
 
@@ -443,7 +443,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
         /// <param name="streamId">The stream identifier to retrieve.</param>
         /// <returns>A <see cref="ProcessStreamDto"/> object representing the requested process stream, 
         /// or <c>null</c> if no matching process stream is found.</returns>
-        public ProcessStreamDto GetProcessStreamByStreamId(Guid profileId, string streamId)
+        public ProcessStreamDto GetProcessStreamByStreamId(int profileId, string streamId)
         {
             if (String.IsNullOrWhiteSpace(streamId))
             {
@@ -465,7 +465,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                                         TargetPressure,
                                         HeatCapacityFlowRate,
                                         HeatTransferCoefficient
-                                 FROM dbo.ProcessStream
+                                 FROM ProcessStream
                                  WHERE ProfileId = @ProfileId
                                    AND StreamId = @StreamId;";
 
@@ -475,7 +475,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProfileId", DbType.Guid, profileId);
+                    AddParameter(command, "@ProfileId", DbType.Int32, profileId);
                     AddParameter(command, "@StreamId", DbType.String, streamId);
 
                     connection.Open();
@@ -510,7 +510,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 throw new ArgumentNullException(nameof(processStreamDto));
             }
 
-            const string sql = @"UPDATE dbo.ProcessStream
+            const string sql = @"UPDATE ProcessStream
                                  SET ProfileId = @ProfileId,
                                      StreamCategory = @StreamCategory,
                                      StreamHeat = @StreamHeat,
@@ -533,8 +533,8 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, processStreamDto.Id);
-                    AddParameter(command, "@ProfileId", DbType.Guid, processStreamDto.ProfileId);
+                    AddParameter(command, "@Id", DbType.Int32, processStreamDto.Id);
+                    AddParameter(command, "@ProfileId", DbType.Int32, processStreamDto.ProfileId);
                     AddParameter(command, "@StreamCategory", DbType.String, processStreamDto.StreamCategory);
                     AddParameter(command, "@StreamHeat", DbType.String, processStreamDto.StreamHeat);
                     AddParameter(command, "@StreamId", DbType.String, processStreamDto.StreamId);
@@ -566,7 +566,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 throw new ArgumentNullException(nameof(processStreamDtos));
             }
 
-            const string sql = @"UPDATE dbo.ProcessStream
+            const string sql = @"UPDATE ProcessStream
                                  SET ProfileId = @ProfileId,
                                      StreamCategory = @StreamCategory,
                                      StreamHeat = @StreamHeat,
@@ -593,8 +593,8 @@ namespace HenModel.RepoImplementations.Profile.Streams
                     {
                         command.CommandText = sql;
                         command.CommandType = CommandType.Text;
-                        AddParameter(command, "@Id", DbType.Guid, processStreamDto.Id);
-                        AddParameter(command, "@ProfileId", DbType.Guid, processStreamDto.ProfileId);
+                        AddParameter(command, "@Id", DbType.Int32, processStreamDto.Id);
+                        AddParameter(command, "@ProfileId", DbType.Int32, processStreamDto.ProfileId);
                         AddParameter(command, "@StreamCategory", DbType.String, processStreamDto.StreamCategory);
                         AddParameter(command, "@StreamHeat", DbType.String, processStreamDto.StreamHeat);
                         AddParameter(command, "@StreamId", DbType.String, processStreamDto.StreamId);
@@ -623,9 +623,9 @@ namespace HenModel.RepoImplementations.Profile.Streams
         /// Deletes (DELETE) a SINGLE process stream from the data store by its identifier.
         /// </summary>
         /// <param name="processStreamId">The unique identifier of the process stream to delete.</param>
-        public void DeleteProcessStream(Guid processStreamId)
+        public void DeleteProcessStream(int processStreamId)
         {
-            const string sql = @"DELETE FROM dbo.ProcessStream
+            const string sql = @"DELETE FROM ProcessStream
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -634,7 +634,7 @@ namespace HenModel.RepoImplementations.Profile.Streams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, processStreamId);
+                    AddParameter(command, "@Id", DbType.Int32, processStreamId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

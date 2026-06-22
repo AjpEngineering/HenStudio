@@ -76,22 +76,22 @@ namespace HenModel.RepoImplementations.Hen.Plots
             throw new NotImplementedException();
         }
 
-        public IList<HeatReleaseCurvePointIDDto> GetHeatReleaseCurvePointIDsByHeatReleaseCurveId(Guid heatReleaseCurveId)
+        public IList<HeatReleaseCurvePointIDDto> GetHeatReleaseCurvePointIDsByHeatReleaseCurveId(int heatReleaseCurveId)
         {
             throw new NotImplementedException();
         }
 
-        public HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDById(Guid heatReleaseCurvePointId)
+        public HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDById(int heatReleaseCurvePointId)
         {
             throw new NotImplementedException();
         }
 
-        public HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDByPointSequence(Guid heatReleaseCurveId, int pointSequence)
+        public HeatReleaseCurvePointIDDto GetHeatReleaseCurvePointIDByPointSequence(int heatReleaseCurveId, int pointSequence)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddHeatReleaseCurvePointID(HeatReleaseCurvePointIDDto heatReleaseCurvePointIdDto)
+        public int AddHeatReleaseCurvePointID(HeatReleaseCurvePointIDDto heatReleaseCurvePointIdDto)
         {
             throw new NotImplementedException();
         }
@@ -101,7 +101,7 @@ namespace HenModel.RepoImplementations.Hen.Plots
             throw new NotImplementedException();
         }
 
-        public void DeleteHeatReleaseCurvePointID(Guid heatReleaseCurvePointId)
+        public void DeleteHeatReleaseCurvePointID(int heatReleaseCurvePointId)
         {
             throw new NotImplementedException();
         }

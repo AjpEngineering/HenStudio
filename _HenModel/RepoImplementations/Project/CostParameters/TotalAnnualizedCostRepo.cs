@@ -121,14 +121,14 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// </summary>
         /// <param name="totalAnnualizedCostDto">The total annualized cost data to insert.</param>
         /// <returns>The unique identifier of the inserted total annualized cost entry.</returns>
-        public Guid AddTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto)
+        public int AddTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto)
         {
             if (totalAnnualizedCostDto == null)
             {
                 throw new ArgumentNullException(nameof(totalAnnualizedCostDto));
             }
 
-            const string sql = @"INSERT INTO dbo.TotalAnnualizedCost
+            const string sql = @"INSERT INTO TotalAnnualizedCost
                                     (ProjectId,
                                      TAC_InterestRate,
                                      TAC_LifeYears,
@@ -148,7 +148,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, totalAnnualizedCostDto.ProjectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, totalAnnualizedCostDto.ProjectId);
                     AddParameter(command, "@TAC_InterestRate", DbType.Double, totalAnnualizedCostDto.TAC_InterestRate);
                     AddParameter(command, "@TAC_LifeYears", DbType.Double, totalAnnualizedCostDto.TAC_LifeYears);
                     AddParameter(command, "@TAC_MaintenanceFraction", DbType.Double, totalAnnualizedCostDto.TAC_MaintenanceFraction);
@@ -156,7 +156,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -176,7 +176,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         TAC_LifeYears,
                                         TAC_MaintenanceFraction,
                                         TAC_OperatingHours
-                                 FROM dbo.TotalAnnualizedCost
+                                 FROM TotalAnnualizedCost
                                  ORDER BY ProjectId;";
 
             List<TotalAnnualizedCostDto> totalAnnualizedCostList = new List<TotalAnnualizedCostDto>();
@@ -211,7 +211,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// <param name="totalAnnualizedCostId">The unique identifier of the total annualized cost entry to retrieve.</param>
         /// <returns>An <see cref="TotalAnnualizedCostDto"/> object representing the requested total annualized cost entry, 
         /// or <c>null</c> if no matching entry is found.</returns>
-        public TotalAnnualizedCostDto GetTotalAnnualizedCostById(Guid totalAnnualizedCostId)
+        public TotalAnnualizedCostDto GetTotalAnnualizedCostById(int totalAnnualizedCostId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -219,7 +219,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         TAC_LifeYears,
                                         TAC_MaintenanceFraction,
                                         TAC_OperatingHours
-                                 FROM dbo.TotalAnnualizedCost
+                                 FROM TotalAnnualizedCost
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -228,7 +228,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, totalAnnualizedCostId);
+                    AddParameter(command, "@Id", DbType.Int32, totalAnnualizedCostId);
 
                     connection.Open();
 
@@ -253,7 +253,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// <param name="totalAnnualizedCostId">The unique identifier of the total annualized cost entry to retrieve.</param>
         /// <returns>An <see cref="TotalAnnualizedCostDto"/> object representing the requested total annualized cost entry, 
         /// or <c>null</c> if no matching entry is found.</returns>
-        public TotalAnnualizedCostDto GetTotalAnnualizedCostByProjectId(Guid projectId)
+        public TotalAnnualizedCostDto GetTotalAnnualizedCostByProjectId(int projectId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -261,7 +261,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         TAC_LifeYears,
                                         TAC_MaintenanceFraction,
                                         TAC_OperatingHours
-                                 FROM dbo.TotalAnnualizedCost
+                                 FROM TotalAnnualizedCost
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -270,7 +270,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjecId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjecId", DbType.Int32, projectId);
 
                     connection.Open();
 
@@ -300,7 +300,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 throw new ArgumentNullException(nameof(totalAnnualizedCostDto));
             }
 
-            const string sql = @"UPDATE dbo.TotalAnnualizedCost
+            const string sql = @"UPDATE TotalAnnualizedCost
                                  SET TAC_InterestRate = @TAC_InterestRate,
                                      TAC_LifeYears = @TAC_LifeYears,
                                      TAC_MaintenanceFraction = @TAC_MaintenanceFraction,
@@ -313,7 +313,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, totalAnnualizedCostDto.Id);
+                    AddParameter(command, "@Id", DbType.Int32, totalAnnualizedCostDto.Id);
                     AddParameter(command, "@TAC_InterestRate", DbType.Double, totalAnnualizedCostDto.TAC_InterestRate);
                     AddParameter(command, "@TAC_LifeYears", DbType.Double, totalAnnualizedCostDto.TAC_LifeYears);
                     AddParameter(command, "@TAC_MaintenanceFraction", DbType.Double, totalAnnualizedCostDto.TAC_MaintenanceFraction);
@@ -331,9 +331,9 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// Deletes (DELETE) a total annualized cost (TAC) entry from the data store by its project identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose total annualized cost (TAC) entry to delete.</param>
-        public void DeleteTotalAnnualizedCost(Guid projectId)
+        public void DeleteTotalAnnualizedCost(int projectId)
         {
-            const string sql = @"DELETE FROM dbo.TotalAnnualizedCost
+            const string sql = @"DELETE FROM TotalAnnualizedCost
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -342,7 +342,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

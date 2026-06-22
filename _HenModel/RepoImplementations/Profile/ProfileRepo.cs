@@ -174,7 +174,7 @@ namespace HenModel.RepoImplementations.Profile
                                         ProjectId,
                                         Name,
                                         Description
-                                 FROM dbo.Profile
+                                 FROM Profile
                                  ORDER BY Name;";
 
             List<ProfileDto> profiles = new List<ProfileDto>();
@@ -218,13 +218,13 @@ namespace HenModel.RepoImplementations.Profile
         /// <param name="projectId">The unique identifier of the project whose profiles are to be retrieved.</param>
         /// <returns>A list of <see cref="ProfileDto"/> objects representing the matching profiles. 
         /// The list is empty if no profiles are found.</returns>
-        public IList<ProfileDto> GetProfilesByProjectId(Guid projectId)
+        public IList<ProfileDto> GetProfilesByProjectId(int projectId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
                                         Name,
                                         Description
-                                 FROM dbo.Profile
+                                 FROM Profile
                                  WHERE ProjectId = @ProjectId
                                  ORDER BY Name;";
 
@@ -236,7 +236,7 @@ namespace HenModel.RepoImplementations.Profile
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
 
@@ -276,7 +276,7 @@ namespace HenModel.RepoImplementations.Profile
                                         ProjectId,
                                         Name,
                                         Description
-                                 FROM dbo.Profile
+                                 FROM Profile
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -285,7 +285,7 @@ namespace HenModel.RepoImplementations.Profile
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, profileId);
+                    AddParameter(command, "@Id", DbType.Int32, profileId);
 
                     connection.Open();
 
@@ -327,7 +327,7 @@ namespace HenModel.RepoImplementations.Profile
                                         ProjectId,
                                         Name,
                                         Description
-                                 FROM dbo.Profile
+                                 FROM Profile
                                  WHERE ProjectId = @ProjectId
                                    AND Name = @Name;";
 
@@ -337,7 +337,7 @@ namespace HenModel.RepoImplementations.Profile
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
                     AddParameter(command, "@Name", DbType.String, profileName);
 
                     connection.Open();
@@ -385,7 +385,7 @@ namespace HenModel.RepoImplementations.Profile
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, profileDto.Id);
+                    AddParameter(command, "@Id", DbType.int32, profileDto.Id);
                     AddParameter(command, "@ProjectId", DbType.Guid, profileDto.ProjectId);
                     AddParameter(command, "@Name", DbType.String, profileDto.Name);
                     AddParameter(command, "@Description", DbType.String, profileDto.Description);
@@ -413,7 +413,7 @@ namespace HenModel.RepoImplementations.Profile
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, profileId);
+                    AddParameter(command, "@Id", DbType.Int32, profileId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

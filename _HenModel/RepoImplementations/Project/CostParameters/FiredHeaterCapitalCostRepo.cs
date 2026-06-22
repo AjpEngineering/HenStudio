@@ -123,14 +123,14 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// </summary>
         /// <param name="firedHeaterCapitalCostDto">The fired heater capital cost data to insert.</param>
         /// <returns>The unique identifier of the inserted fired heater capital cost entry.</returns>
-        public Guid AddFiredHeaterCapitalCost(FiredHeaterCapitalCostDto firedHeaterCapitalCostDto)
+        public int AddFiredHeaterCapitalCost(FiredHeaterCapitalCostDto firedHeaterCapitalCostDto)
         {
             if (firedHeaterCapitalCostDto == null)
             {
                 throw new ArgumentNullException(nameof(firedHeaterCapitalCostDto));
             }
 
-            const string sql = @"INSERT INTO dbo.FiredHeaterCapitalCost
+            const string sql = @"INSERT INTO FiredHeaterCapitalCost
                                     (ProjectId,
                                      ParameterAlpha_Metric,
                                      ParameterAlpha_English,
@@ -154,7 +154,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, firedHeaterCapitalCostDto.ProjectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, firedHeaterCapitalCostDto.ProjectId);
                     AddParameter(command, "@ParameterAlpha_Metric", DbType.Double, firedHeaterCapitalCostDto.ParameterAlpha_Metric);
                     AddParameter(command, "@ParameterAlpha_English", DbType.Double, firedHeaterCapitalCostDto.ParameterAlpha_English);
                     AddParameter(command, "@ParameterBeta", DbType.Double, firedHeaterCapitalCostDto.ParameterBeta);
@@ -164,7 +164,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -186,7 +186,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         Efficiency,
                                         DutyUnits_Metric,
                                         DutyUnits_English
-                                 FROM dbo.FiredHeaterCapitalCost
+                                 FROM FiredHeaterCapitalCost
                                  ORDER BY ProjectId;";
 
             List<FiredHeaterCapitalCostDto> firedHeaterCapitalCostList = new List<FiredHeaterCapitalCostDto>();
@@ -221,7 +221,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// <param name="firedHeaterCapitalCostId">The unique identifier of the fired heater capital cost entry to retrieve.</param>
         /// <returns>An <see cref="FiredHeaterCapitalCostDto"/> object representing the requested fired heater capital cost entry, 
         /// or <c>null</c> if no matching entry is found.</returns>
-        public FiredHeaterCapitalCostDto GetFiredHeaterCapitalCostById(Guid firedHeaterCapitalCostId)
+        public FiredHeaterCapitalCostDto GetFiredHeaterCapitalCostById(int firedHeaterCapitalCostId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -231,7 +231,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         Efficiency,
                                         DutyUnits_Metric,
                                         DutyUnits_English
-                                 FROM dbo.FiredHeaterCapitalCost
+                                 FROM FiredHeaterCapitalCost
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -240,7 +240,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, firedHeaterCapitalCostId);
+                    AddParameter(command, "@Id", DbType.Int32, firedHeaterCapitalCostId);
 
                     connection.Open();
 
@@ -265,7 +265,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// <param name="projectId">The unique identifier of the project whose fired heater capital cost entry is to be retrieved.</param>
         /// <returns>A <see cref="FiredHeaterCapitalCostDto"/> object representing the matching fired heater capital cost entry. 
         /// <c>null</c> if no matching entry is found.</returns>
-        public FiredHeaterCapitalCostDto GetFiredHeaterCapitalCostByProjectId(Guid projectId)
+        public FiredHeaterCapitalCostDto GetFiredHeaterCapitalCostByProjectId(int projectId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -275,7 +275,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         Efficiency,
                                         DutyUnits_Metric,
                                         DutyUnits_English
-                                 FROM dbo.FiredHeaterCapitalCost
+                                 FROM FiredHeaterCapitalCost
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -284,7 +284,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
 
@@ -314,7 +314,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 throw new ArgumentNullException(nameof(firedHeaterCapitalCostDto));
             }
 
-            const string sql = @"UPDATE dbo.FiredHeaterCapitalCost
+            const string sql = @"UPDATE FiredHeaterCapitalCost
                                  SET ParameterAlpha_Metric = @ParameterAlpha_Metric,
                                      ParameterAlpha_English = @ParameterAlpha_English,
                                      ParameterBeta = @ParameterBeta,
@@ -329,7 +329,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, firedHeaterCapitalCostDto.Id);
+                    AddParameter(command, "@Id", DbType.Int32, firedHeaterCapitalCostDto.Id);
                     AddParameter(command, "@ParameterAlpha_Metric", DbType.Double, firedHeaterCapitalCostDto.ParameterAlpha_Metric);
                     AddParameter(command, "@ParameterAlpha_English", DbType.Double, firedHeaterCapitalCostDto.ParameterAlpha_English);
                     AddParameter(command, "@ParameterBeta", DbType.Double, firedHeaterCapitalCostDto.ParameterBeta);
@@ -349,9 +349,9 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// Deletes (DELETE) a fired heater capital cost entry from the data store by its project identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose fired heater capital cost entry to delete.</param>
-        public void DeleteFiredHeaterCapitalCost(Guid projectId)
+        public void DeleteFiredHeaterCapitalCost(int projectId)
         {
-            const string sql = @"DELETE FROM dbo.FiredHeaterCapitalCost
+            const string sql = @"DELETE FROM FiredHeaterCapitalCost
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -360,7 +360,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

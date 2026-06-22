@@ -76,22 +76,22 @@ namespace HenModel.RepoImplementations.Pinch.Plots
             throw new NotImplementedException();
         }
 
-        public IList<GrandCompositeCurvePointIDDto> GetGrandCompositeCurvePointIDsByGrandCompositeCurveId(Guid grandCompositeCurveId)
+        public IList<GrandCompositeCurvePointIDDto> GetGrandCompositeCurvePointIDsByGrandCompositeCurveId(int grandCompositeCurveId)
         {
             throw new NotImplementedException();
         }
 
-        public GrandCompositeCurvePointIDDto GetGrandCompositeCurvePointIDById(Guid grandCompositeCurvePointId)
+        public GrandCompositeCurvePointIDDto GetGrandCompositeCurvePointIDById(int grandCompositeCurvePointId)
         {
             throw new NotImplementedException();
         }
 
-        public GrandCompositeCurvePointIDDto GetGrandCompositeCurvePointIDByPointSequence(Guid grandCompositeCurveId, int pointSequence)
+        public GrandCompositeCurvePointIDDto GetGrandCompositeCurvePointIDByPointSequence(int grandCompositeCurveId, int pointSequence)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddGrandCompositeCurvePointID(GrandCompositeCurvePointIDDto grandCompositeCurvePointIdDto)
+        public int AddGrandCompositeCurvePointID(GrandCompositeCurvePointIDDto grandCompositeCurvePointIdDto)
         {
             throw new NotImplementedException();
         }
@@ -101,7 +101,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
             throw new NotImplementedException();
         }
 
-        public void DeleteGrandCompositeCurvePointID(Guid grandCompositeCurvePointId)
+        public void DeleteGrandCompositeCurvePointID(int grandCompositeCurvePointId)
         {
             throw new NotImplementedException();
         }

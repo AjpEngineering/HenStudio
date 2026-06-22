@@ -124,14 +124,14 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// </summary>
         /// <param name="shellAndTubeCapitalCostDto">The shell and tube capital cost data to insert.</param>
         /// <returns>The unique identifier of the inserted shell and tube capital cost entry.</returns>
-        public Guid AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDto)
+        public int AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDto)
         {
             if (shellAndTubeCapitalCostDto == null)
             {
                 throw new ArgumentNullException(nameof(shellAndTubeCapitalCostDto));
             }
 
-            const string sql = @"INSERT INTO dbo.ShellAndTubeCapitalCost
+            const string sql = @"INSERT INTO ShellAndTubeCapitalCost
                                     (ProjectId,
                                      ParameterA,
                                      ParameterB_Metric,
@@ -156,7 +156,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, shellAndTubeCapitalCostDto.ProjectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, shellAndTubeCapitalCostDto.ProjectId);
                     AddParameter(command, "@ParameterA", DbType.Double, shellAndTubeCapitalCostDto.ParameterA);
                     AddParameter(command, "@ParameterB_Metric", DbType.Double, shellAndTubeCapitalCostDto.ParameterB_Metric);
                     AddParameter(command, "@ParameterB_English", DbType.Double, shellAndTubeCapitalCostDto.ParameterB_English);
@@ -167,7 +167,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -190,7 +190,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         MaterialFactor,
                                         AreaUnits_Metric,
                                         AreaUnits_English
-                                 FROM dbo.ShellAndTubeCapitalCost
+                                 FROM ShellAndTubeCapitalCost
                                  ORDER BY ProjectId;";
 
             List<ShellAndTubeCapitalCostDto> shellAndTubeCapitalCostList = new List<ShellAndTubeCapitalCostDto>();
@@ -225,7 +225,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// <param name="shellAndTubeCapitalCostId">The unique identifier of the shell and tube capital cost entry to be retrieved.</param>
         /// <returns>A <see cref="ShellAndTubeCapitalCostDto"/> object representing the matching shell and tube capital cost entry. 
         /// <c>null</c> if no matching entry is found.</returns>
-        public ShellAndTubeCapitalCostDto GetShellAndTubeCapitalCostById(Guid shellAndTubeCapitalCostId)
+        public ShellAndTubeCapitalCostDto GetShellAndTubeCapitalCostById(int shellAndTubeCapitalCostId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -236,7 +236,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         MaterialFactor,
                                         AreaUnits_Metric,
                                         AreaUnits_English
-                                 FROM dbo.ShellAndTubeCapitalCost
+                                 FROM ShellAndTubeCapitalCost
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -245,7 +245,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, shellAndTubeCapitalCostId);
+                    AddParameter(command, "@Id", DbType.Int32, shellAndTubeCapitalCostId);
 
                     connection.Open();
 
@@ -270,7 +270,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// <param name="projectId">The unique identifier of the project whose shell and tube capital cost entry is to be retrieved.</param>
         /// <returns>A <see cref="ShellAndTubeCapitalCostDto"/> object representing the requested shell and tube capital cost entry, 
         /// or <c>null</c> if no matching entry is found.</returns>
-        public ShellAndTubeCapitalCostDto GetShellAndTubeCapitalCostByProjectId(Guid projectId)
+        public ShellAndTubeCapitalCostDto GetShellAndTubeCapitalCostByProjectId(int projectId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -281,7 +281,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                                         MaterialFactor,
                                         AreaUnits_Metric,
                                         AreaUnits_English
-                                 FROM dbo.ShellAndTubeCapitalCost
+                                 FROM ShellAndTubeCapitalCost
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -290,7 +290,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
 
@@ -320,7 +320,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 throw new ArgumentNullException(nameof(shellAndTubeCapitalCostDto));
             }
 
-            const string sql = @"UPDATE dbo.ShellAndTubeCapitalCost
+            const string sql = @"UPDATE ShellAndTubeCapitalCost
                                  SET ParameterA = @ParameterA,
                                      ParameterB_Metric = @ParameterB_Metric,
                                      ParameterB_English = @ParameterB_English,
@@ -336,7 +336,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, shellAndTubeCapitalCostDto.Id);
+                    AddParameter(command, "@Id", DbType.Int32, shellAndTubeCapitalCostDto.Id);
                     AddParameter(command, "@ParameterA", DbType.Double, shellAndTubeCapitalCostDto.ParameterA);
                     AddParameter(command, "@ParameterB_Metric", DbType.Double, shellAndTubeCapitalCostDto.ParameterB_Metric);
                     AddParameter(command, "@ParameterB_English", DbType.Double, shellAndTubeCapitalCostDto.ParameterB_English);
@@ -357,9 +357,9 @@ namespace HenModel.RepoImplementations.Project.CostParameters
         /// Deletes (DELETE) a shell and tube capital cost entry from the data store by its project identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose shell and tube capital cost entry to delete.</param>
-        public void DeleteShellAndTubeCapitalCost(Guid projectId)
+        public void DeleteShellAndTubeCapitalCost(int projectId)
         {
-            const string sql = @"DELETE FROM dbo.ShellAndTubeCapitalCost
+            const string sql = @"DELETE FROM ShellAndTubeCapitalCost
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -368,7 +368,7 @@ namespace HenModel.RepoImplementations.Project.CostParameters
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

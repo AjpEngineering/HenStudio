@@ -76,22 +76,22 @@ namespace HenModel.RepoImplementations.Hen.Plots
             throw new NotImplementedException();
         }
 
-        public IList<GridDiagramPointIDDto> GetGridDiagramPointIDsByGridDiagramId(Guid gridDiagramId)
+        public IList<GridDiagramPointIDDto> GetGridDiagramPointIDsByGridDiagramId(int gridDiagramId)
         {
             throw new NotImplementedException();
         }
 
-        public GridDiagramPointIDDto GetGridDiagramPointIDById(Guid gridDiagramPointId)
+        public GridDiagramPointIDDto GetGridDiagramPointIDById(int gridDiagramPointId)
         {
             throw new NotImplementedException();
         }
 
-        public GridDiagramPointIDDto GetGridDiagramPointIDByPointSequence(Guid gridDiagramId, int pointSequence)
+        public GridDiagramPointIDDto GetGridDiagramPointIDByPointSequence(int gridDiagramId, int pointSequence)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddGridDiagramPointID(GridDiagramPointIDDto gridDiagramPointIdDto)
+        public int AddGridDiagramPointID(GridDiagramPointIDDto gridDiagramPointIdDto)
         {
             throw new NotImplementedException();
         }
@@ -101,7 +101,7 @@ namespace HenModel.RepoImplementations.Hen.Plots
             throw new NotImplementedException();
         }
 
-        public void DeleteGridDiagramPointID(Guid gridDiagramPointId)
+        public void DeleteGridDiagramPointID(int gridDiagramPointId)
         {
             throw new NotImplementedException();
         }

@@ -118,7 +118,8 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// <summary>
         /// Retrieves all T-H diagram points from the data store.
         /// </summary>
-        /// <returns>A list of <see cref="THDiagramPointDto"/> objects representing all T-H diagram points. The list is empty if no T-H diagram points are found.</returns>
+        /// <returns>A list of <see cref="THDiagramPointDto"/> objects representing 
+        /// all T-H diagram points. The list is empty if no T-H diagram points are found.</returns>
         public IList<THDiagramPointDto> GetTHDiagramPoints()
         {
             const string sql = @"SELECT Id,
@@ -126,7 +127,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                                         PointSequence,
                                         EnthalpyValue,
                                         TemperatureValue
-                                 FROM dbo.THDiagramPoint
+                                 FROM THDiagramPoint
                                  ORDER BY THDiagramId,
                                           PointSequence;";
 
@@ -159,16 +160,18 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// <summary>
         /// Retrieves all T-H diagram points for the specified T-H diagram from the data store.
         /// </summary>
-        /// <param name="thDiagramId">The unique identifier of the T-H diagram whose points are to be retrieved.</param>
-        /// <returns>A list of <see cref="THDiagramPointDto"/> objects representing the matching T-H diagram points. The list is empty if no T-H diagram points are found.</returns>
-        public IList<THDiagramPointDto> GetTHDiagramPointsByTHDiagramId(Guid thDiagramId)
+        /// <param name="thDiagramId">The unique identifier of the T-H diagram whose points 
+        /// are to be retrieved.</param>
+        /// <returns>A list of <see cref="THDiagramPointDto"/> objects representing the 
+        /// matching T-H diagram points. The list is empty if no T-H diagram points are found.</returns>
+        public IList<THDiagramPointDto> GetTHDiagramPointsByTHDiagramId(int thDiagramId)
         {
             const string sql = @"SELECT Id,
                                         THDiagramId,
                                         PointSequence,
                                         EnthalpyValue,
                                         TemperatureValue
-                                 FROM dbo.THDiagramPoint
+                                 FROM THDiagramPoint
                                  WHERE THDiagramId = @THDiagramId
                                  ORDER BY PointSequence;";
 
@@ -180,7 +183,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@THDiagramId", DbType.Guid, thDiagramId);
+                    AddParameter(command, "@THDiagramId", DbType.Int32, thDiagramId);
 
                     connection.Open();
 
@@ -204,14 +207,14 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// </summary>
         /// <param name="thDiagramPointId">The unique identifier of the T-H diagram point to retrieve.</param>
         /// <returns>A <see cref="THDiagramPointDto"/> object representing the requested T-H diagram point, or <c>null</c> if no matching T-H diagram point is found.</returns>
-        public THDiagramPointDto GetTHDiagramPointById(Guid thDiagramPointId)
+        public THDiagramPointDto GetTHDiagramPointById(int thDiagramPointId)
         {
             const string sql = @"SELECT Id,
                                         THDiagramId,
                                         PointSequence,
                                         EnthalpyValue,
                                         TemperatureValue
-                                 FROM dbo.THDiagramPoint
+                                 FROM THDiagramPoint
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -220,7 +223,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, thDiagramPointId);
+                    AddParameter(command, "@Id", DbType.Int32, thDiagramPointId);
 
                     connection.Open();
 
@@ -245,14 +248,14 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// <param name="thDiagramId">The unique identifier of the T-H diagram that owns the point.</param>
         /// <param name="pointSequence">The point sequence number to retrieve.</param>
         /// <returns>A <see cref="THDiagramPointDto"/> object representing the requested T-H diagram point, or <c>null</c> if no matching T-H diagram point is found.</returns>
-        public THDiagramPointDto GetTHDiagramPointByPointSequence(Guid thDiagramId, int pointSequence)
+        public THDiagramPointDto GetTHDiagramPointByPointSequence(int thDiagramId, int pointSequence)
         {
             const string sql = @"SELECT Id,
                                         THDiagramId,
                                         PointSequence,
                                         EnthalpyValue,
                                         TemperatureValue
-                                 FROM dbo.THDiagramPoint
+                                 FROM THDiagramPoint
                                  WHERE THDiagramId = @THDiagramId
                                    AND PointSequence = @PointSequence;";
 
@@ -262,7 +265,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@THDiagramId", DbType.Guid, thDiagramId);
+                    AddParameter(command, "@THDiagramId", DbType.Int32, thDiagramId);
                     AddParameter(command, "@PointSequence", DbType.Int32, pointSequence);
 
                     connection.Open();
@@ -287,14 +290,14 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// </summary>
         /// <param name="thDiagramPointDto">The T-H diagram point data to insert.</param>
         /// <returns>The unique identifier of the inserted T-H diagram point.</returns>
-        public Guid AddTHDiagramPoint(THDiagramPointDto thDiagramPointDto)
+        public int AddTHDiagramPoint(THDiagramPointDto thDiagramPointDto)
         {
             if (thDiagramPointDto == null)
             {
                 throw new ArgumentNullException(nameof(thDiagramPointDto));
             }
 
-            const string sql = @"INSERT INTO dbo.THDiagramPoint
+            const string sql = @"INSERT INTO THDiagramPoint
                                     (THDiagramId,
                                      PointSequence,
                                      EnthalpyValue,
@@ -312,14 +315,14 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@THDiagramId", DbType.Guid, thDiagramPointDto.THDiagramId);
+                    AddParameter(command, "@THDiagramId", DbType.Int32, thDiagramPointDto.THDiagramId);
                     AddParameter(command, "@PointSequence", DbType.Int32, thDiagramPointDto.PointSequence);
                     AddParameter(command, "@EnthalpyValue", DbType.Double, thDiagramPointDto.EnthalpyValue);
                     AddParameter(command, "@TemperatureValue", DbType.Double, thDiagramPointDto.TemperatureValue);
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -337,7 +340,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 throw new ArgumentNullException(nameof(thDiagramPointDto));
             }
 
-            const string sql = @"UPDATE dbo.THDiagramPoint
+            const string sql = @"UPDATE THDiagramPoint
                                  SET THDiagramId = @THDiagramId,
                                      PointSequence = @PointSequence,
                                      EnthalpyValue = @EnthalpyValue,
@@ -350,8 +353,8 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, thDiagramPointDto.Id);
-                    AddParameter(command, "@THDiagramId", DbType.Guid, thDiagramPointDto.THDiagramId);
+                    AddParameter(command, "@Id", DbType.Int32, thDiagramPointDto.Id);
+                    AddParameter(command, "@THDiagramId", DbType.Int32, thDiagramPointDto.THDiagramId);
                     AddParameter(command, "@PointSequence", DbType.Int32, thDiagramPointDto.PointSequence);
                     AddParameter(command, "@EnthalpyValue", DbType.Double, thDiagramPointDto.EnthalpyValue);
                     AddParameter(command, "@TemperatureValue", DbType.Double, thDiagramPointDto.TemperatureValue);
@@ -367,8 +370,9 @@ namespace HenModel.RepoImplementations.Pinch.Plots
         /// <summary>
         /// Deletes a T-H diagram point from the data store by its identifier.
         /// </summary>
-        /// <param name="thDiagramPointId">The unique identifier of the T-H diagram point to delete.</param>
-        public void DeleteTHDiagramPoint(Guid thDiagramPointId)
+        /// <param name="thDiagramPointId">The unique identifier of 
+        /// the T-H diagram point to delete.</param>
+        public void DeleteTHDiagramPoint(int thDiagramPointId)
         {
             const string sql = @"DELETE FROM dbo.THDiagramPoint
                                  WHERE Id = @Id;";
@@ -379,7 +383,7 @@ namespace HenModel.RepoImplementations.Pinch.Plots
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, thDiagramPointId);
+                    AddParameter(command, "@Id", DbType.Int32, thDiagramPointId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

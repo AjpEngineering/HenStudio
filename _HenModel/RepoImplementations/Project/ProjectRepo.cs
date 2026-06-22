@@ -133,14 +133,14 @@ namespace HenModel.RepoImplementations.Project
         /// </summary>
         /// <param name="projectDto">The project data to insert.</param>
         /// <returns>The unique identifier of the inserted project.</returns>
-        public Guid AddProject(ProjectDto projectDto)
+        public int AddProject(ProjectDto projectDto)
         {
             if (projectDto == null)
             {
                 throw new ArgumentNullException(nameof(projectDto));
             }
 
-            const string sql = @"INSERT INTO dbo.Project
+            const string sql = @"INSERT INTO Project
                                     (Name,
                                      Description,
                                      DefaultOptimizer,
@@ -168,7 +168,7 @@ namespace HenModel.RepoImplementations.Project
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -187,7 +187,7 @@ namespace HenModel.RepoImplementations.Project
                                         DefaultOptimizer,
                                         CreationDate,
                                         ModifiedDate
-                                 FROM dbo.Project
+                                 FROM Project
                                  ORDER BY Name;";
 
             List<ProjectDto> projects = new List<ProjectDto>();
@@ -234,7 +234,7 @@ namespace HenModel.RepoImplementations.Project
         /// </summary>
         /// <param name="projectId">The unique identifier of the project to retrieve.</param>
         /// <returns>A <see cref="ProjectDto"/> object representing the requested project, or <c>null</c> if no matching project is found.</returns>
-        public ProjectDto GetProjectById(Guid projectId)
+        public ProjectDto GetProjectById(int projectId)
         {
             const string sql = @"SELECT Id,
                                         Name,
@@ -242,7 +242,7 @@ namespace HenModel.RepoImplementations.Project
                                         DefaultOptimizer,
                                         CreationDate,
                                         ModifiedDate
-                                 FROM dbo.Project
+                                 FROM Project
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -251,7 +251,7 @@ namespace HenModel.RepoImplementations.Project
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, projectId);
+                    AddParameter(command, "@Id", DbType.Int32, projectId);
 
                     connection.Open();
 
@@ -295,7 +295,7 @@ namespace HenModel.RepoImplementations.Project
                                         DefaultOptimizer,
                                         CreationDate,
                                         ModifiedDate
-                                 FROM dbo.Project
+                                 FROM Project
                                  WHERE Name = @Name;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -341,7 +341,7 @@ namespace HenModel.RepoImplementations.Project
                 throw new ArgumentNullException(nameof(projectDto));
             }
 
-            const string sql = @"UPDATE dbo.Project
+            const string sql = @"UPDATE Project
                                  SET Name = @Name,
                                      Description = @Description,
                                      DefaultOptimizer = @DefaultOptimizer,
@@ -354,7 +354,7 @@ namespace HenModel.RepoImplementations.Project
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, projectDto.Id);
+                    AddParameter(command, "@Id", DbType.Int32, projectDto.Id);
                     AddParameter(command, "@Name", DbType.String, projectDto.Name);
                     AddParameter(command, "@Description", DbType.String, projectDto.Description);
                     AddParameter(command, "@DefaultOptimizer", DbType.String, projectDto.DefaultOptimizer);
@@ -372,7 +372,7 @@ namespace HenModel.RepoImplementations.Project
         /// Deletes (DELETE) a project from the data store by its identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project to delete.</param>
-        public void DeleteProject(Guid projectId)
+        public void DeleteProject(int projectId)
         {
             const string sql = @"DELETE FROM dbo.Project
                                  WHERE Id = @Id;";
@@ -383,7 +383,7 @@ namespace HenModel.RepoImplementations.Project
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, projectId);
+                    AddParameter(command, "@Id", DbType.Int32, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();

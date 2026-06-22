@@ -76,22 +76,22 @@ namespace HenModel.RepoImplementations.Hen
             throw new NotImplementedException();
         }
 
-        public IList<HenDto> GetHensByPinchId(Guid pinchId)
+        public IList<HenDto> GetHensByPinchId(int pinchId)
         {
             throw new NotImplementedException();
         }
 
-        public HenDto GetHenById(Guid henId)
+        public HenDto GetHenById(int henId)
         {
             throw new NotImplementedException();
         }
 
-        public HenDto GetHenByName(Guid pinchId, string henName)
+        public HenDto GetHenByName(int pinchId, string henName)
         {
             throw new NotImplementedException();
         }
 
-        public Guid AddHen(HenDto henDto)
+        public int AddHen(HenDto henDto)
         {
             throw new NotImplementedException();
         }
@@ -101,7 +101,7 @@ namespace HenModel.RepoImplementations.Hen
             throw new NotImplementedException();
         }
 
-        public void DeleteHen(Guid henId)
+        public void DeleteHen(int henId)
         {
             throw new NotImplementedException();
         }

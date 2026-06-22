@@ -138,14 +138,14 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
         /// <param name="optimizerParamsDto">The optimizer parameters to add.</param>
         /// <returns>The unique identifier of the inserted optimizer params.</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public Guid AddOptimizerParams(OptimizerParamsDto optimizerParamsDto)
+        public int AddOptimizerParams(OptimizerParamsDto optimizerParamsDto)
         {
             if (optimizerParamsDto == null)
             {
                 throw new ArgumentNullException(nameof(optimizerParamsDto));
             }
 
-            const string sql = @"INSERT INTO dbo.OptimizerParams
+            const string sql = @"INSERT INTO OptimizerParams
                                     (ProjectId,
                                      Name,
                                      Description,
@@ -169,7 +169,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId   ", DbType.String, optimizerParamsDto.ProjectId);
+                    AddParameter(command, "@ProjectId   ", DbType.Int32, optimizerParamsDto.ProjectId);
                     AddParameter(command, "@Name", DbType.String, optimizerParamsDto.Name);
                     AddParameter(command, "@Description", DbType.String, optimizerParamsDto.Description);
                     AddParameter(command, "@OptimizerType", DbType.String, optimizerParamsDto.OptimizerType);
@@ -179,7 +179,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
 
                     connection.Open();
 
-                    return (Guid)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -201,7 +201,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
                                         DefaultObjective,
                                         DefaultMaxIterations,
                                         DefaultConvergenceTolerance
-                                 FROM dbo.OptimizerParams
+                                 FROM OptimizerParams
                                  ORDER BY Name;";
 
             List<OptimizerParamsDto> optimizerParamsList = new List<OptimizerParamsDto>();
@@ -252,7 +252,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
         /// </summary>
         /// <param name="projectId">The unique identifier of the project to retrieve optimizer parameters for.</param>
         /// <returns>A <see cref="OptimizerParamsDto"/> object representing the requested optimizer parameters, or <c>null</c> if no matching optimizer parameters is found.</returns>
-        public OptimizerParamsDto GetOptimizerParamsByProjectId(Guid projectId)
+        public OptimizerParamsDto GetOptimizerParamsByProjectId(int projectId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -262,7 +262,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
                                         DefaultObjective,
                                         DefaultMaxIterations,
                                         DefaultConvergenceTolerance
-                                 FROM dbo.OptimizerParams
+                                 FROM OptimizerParams
                                  WHERE ProjectId = @ProjectId;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -271,7 +271,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
 
@@ -305,7 +305,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
         /// <param name="optimizerParamId">The unique identifier of the optimizer parameters to retrieve.</param>
         /// <returns>A <see cref="OptimizerParamsDto"/> object representing the requested optimizer parameters, 
         /// or <c>null</c> if no matching optimizer parameters is found.</returns>
-        public OptimizerParamsDto GetOptimizerParamsById(Guid optimizerParamId)
+        public OptimizerParamsDto GetOptimizerParamsById(int optimizerParamId)
         {
             const string sql = @"SELECT Id,
                                         ProjectId,
@@ -315,7 +315,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
                                         DefaultObjective,
                                         DefaultMaxIterations,
                                         DefaultConvergenceTolerance
-                                 FROM dbo.OptimizerParams
+                                 FROM OptimizerParams
                                  WHERE Id = @Id;";
 
             using (IDbConnection connection = _connectionFactory.CreateConnection())
@@ -324,7 +324,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, optimizerParamId);
+                    AddParameter(command, "@Id", DbType.Int32, optimizerParamId);
 
                     connection.Open();
 
@@ -363,7 +363,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
                 throw new ArgumentNullException(nameof(optimizerParamsDto));
             }
 
-            const string sql = @"UPDATE dbo.OptimizerParams
+            const string sql = @"UPDATE OptimizerParams
                                  SET ProjectId = @ProjectId,
                                      Name = @Name,
                                      Description = @Description,
@@ -379,8 +379,8 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@Id", DbType.Guid, optimizerParamsDto.Id);
-                    AddParameter(command, "@ProjectId", DbType.String, optimizerParamsDto.ProjectId);
+                    AddParameter(command, "@Id", DbType.Int32, optimizerParamsDto.Id);
+                    AddParameter(command, "@ProjectId", DbType.Int32, optimizerParamsDto.ProjectId);
                     AddParameter(command, "@Name", DbType.String, optimizerParamsDto.Name);
                     AddParameter(command, "@Description", DbType.String, optimizerParamsDto.Description);
                     AddParameter(command, "@OptimizerType", DbType.String, optimizerParamsDto.OptimizerType);
@@ -399,9 +399,9 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
         /// Deletes (DELETE) an optimizer params from the data store by its projectidentifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project whose optimizer params to delete.</param>
-        public void DeleteOptimizerParams(Guid projectId)
+        public void DeleteOptimizerParams(int projectId)
         {
-            const string sql = @"DELETE FROM dbo.OptimizerParams
+            const string sql = @"DELETE FROM OptimizerParams
                                  WHERE ProjectId = @ProjectId;";
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -409,7 +409,7 @@ namespace HenModel.RepoImplementations.Project.DefaultParameters.OptimizerParams
                 {
                     command.CommandText = sql;
                     command.CommandType = CommandType.Text;
-                    AddParameter(command, "@ProjectId", DbType.Guid, projectId);
+                    AddParameter(command, "@ProjectId", DbType.Int32, projectId);
 
                     connection.Open();
                     command.ExecuteNonQuery();
