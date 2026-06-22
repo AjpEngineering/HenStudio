@@ -258,7 +258,7 @@ namespace HenViewModel.Profile
         }
         #endregion  // GetProfiles() ... READ
 
-        #region GetProfilesByProjectId(Guid projectId) ... READ
+        #region GetProfilesByProjectId(int projectId) ... READ
         /// <summary>
         /// Retrieves (READ) a list of all Profiles associated with the specified project identifier.
         /// </summary>
@@ -266,7 +266,7 @@ namespace HenViewModel.Profile
         /// <returns>A list of <see cref="ProfileDto"/> objects representing the matching profiles, 
         /// or an empty list if no profiles found.
         /// </returns>
-        public IList<ProfileDto> GetProfilesByProjectId(Guid projectId)
+        public IList<ProfileDto> GetProfilesByProjectId(int projectId)
         {
             //---------------------- Guard against empty or null projectId ------------------------
             //--- If the provided projectId is empty, return null to indicate that there is no  ---
@@ -276,7 +276,7 @@ namespace HenViewModel.Profile
             //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
             //---that the profiles cannot be found.                                             ---
             //-------------------------------------------------------------------------------------
-            if (projectId == Guid.Empty)
+            if (projectId == -1)
             {
                 return null; // Return null if the projectId is empty
             }
@@ -319,9 +319,9 @@ namespace HenViewModel.Profile
             //-------------------------------------------------------------------------
             return externalProfiles;
         }
-        #endregion  // GetProfilesByProjectId(Guid projectId) ... READ
+        #endregion  // GetProfilesByProjectId(int projectId) ... READ
 
-        #region GetProfileById(Guid profileId) ... READ
+        #region GetProfileById(int profileId) ... READ
         /// <summary>
         /// Retrieves (READ) the Profile Dto associated with the specified unique identifier.
         /// </summary>
@@ -374,9 +374,9 @@ namespace HenViewModel.Profile
             //-------------------------------------------------------------------------------
             return externalProfileDto;
         }
-        #endregion  // GetProfileById(Guid profileId) ... READ
+        #endregion  // GetProfileById(int profileId) ... READ
 
-        #region GetProfileByName(Guid projectId, string profileName) ... READ
+        #region GetProfileByName(int projectId, string profileName) ... READ
         /// <summary>
         /// Retrieves (READ) the Profile Dto associated with the specified project identifier and profile name.
         /// </summary>
@@ -420,7 +420,7 @@ namespace HenViewModel.Profile
             //-------------------------------------------------------------------------------
             return externalProfileDto;
         }
-        #endregion  // GetProfileByName(Guid projectId, string profileName) ... READ
+        #endregion  // GetProfileByName(int projectId, string profileName) ... READ
 
         #region UpdateProfile(ProfileDto profileDto) ... UPDATE
         /// <summary>
@@ -455,7 +455,7 @@ namespace HenViewModel.Profile
         }
         #endregion  // UpdateProfile(ProfileDto profileDto) ... UPDATE
 
-        #region DeleteProfile(Guid profileId)
+        #region DeleteProfile(int profileId)
         /// <summary>
         /// Deletes the profile with the specified unique identifier.
         /// </summary>
@@ -475,7 +475,7 @@ namespace HenViewModel.Profile
                 Console.WriteLine($"Error deleting profile: {ex.Message}");
             }
         }
-        #endregion  // DeleteProfile(Guid profileId)
+        #endregion  // DeleteProfile(int profileId)
 
         #endregion  // PROFILE CRUD METHODS
 

@@ -181,15 +181,15 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         /// <summary>
         /// Adds (CREATE) a new optimizer params to the database using the specified optimizer params data transfer object.
         /// </summary>
-        /// <remarks>The method converts the provided optimizer params data from external to internal units before
-        /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
-        /// an empty GUID.</remarks>
+        /// <remarks>The method converts the provided optimizer params data from external to 
+        /// internal units before storing it in the database. If an error occurs during the operation, 
+        /// the method logs the error and returns -1.</remarks>
         /// <param name="externalOptimizerParamsDto">The optimizer params data to add. The object must contain 
         /// all required optimizer params fields in external units. Cannot be null.</param>
-        /// <returns>A GUID representing the unique identifier of the newly added optimizer params.</returns>
-        public Guid AddOptimizerParams(OptimizerParamsDto externalOptimizerParamsDto)
+        /// <returns>An INT representing the unique identifier of the newly added optimizer params.</returns>
+        public int AddOptimizerParams(OptimizerParamsDto externalOptimizerParamsDto)
         {
-            Guid optimizerParamsID = new Guid();
+            int optimizerParamsID = -1;
             try
             {
                 //------------------------------------------------------------------------
@@ -210,12 +210,13 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
             {
                 // Handle exceptions (e.g., log the error, rethrow, or return null)
                 Console.WriteLine($"Error retrieving optimizer params: {ex.Message}");
+                optimizerParamsID = -1;
             }
             return optimizerParamsID; // Return Optimizer Params ID (PK) from the Optimizer Params Table database addition
         }
         #endregion  // AddOptimizerParams(OptimizerParamsDto externalOptimizerParamsDto) ... CREATE
 
-        #region GetOptimizerParamsByProjectId(Guid projectId) ... READ
+        #region GetOptimizerParamsByProjectId(int projectId) ... READ
         /// <summary>
         /// Retrieves (READ) the OptimizerParams Dto associated with the specified unique identifier.
         /// The OptimizerParams retrieved from the Database is in INTERNAL Units, 
@@ -226,7 +227,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="OptimizerParamsDto"/> representing the OptimizerParams with the specified identifier. 
         /// Returns null if no OptimizerParams is found.</returns>
-        public OptimizerParamsDto GetOptimizerParamsByProjectId(Guid projectId)
+        public OptimizerParamsDto GetOptimizerParamsByProjectId(int projectId)
         {
             OptimizerParamsDto externalOptimizerParamsDto = new OptimizerParamsDto();
             try
@@ -239,7 +240,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
                 //---that the optimizerParams cannot be found.                                      ---
                 //-------------------------------------------------------------------------------------
-                if (projectId == Guid.Empty)
+                if (projectId == -1)
                 {
                     return null; // Return null if the projectId is empty
                 }
@@ -264,7 +265,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
 
             return externalOptimizerParamsDto;
         }
-        #endregion  // GetOptimizerParamsByProjectId(Guid projectId) ... READ
+        #endregion  // GetOptimizerParamsByProjectId(int projectId) ... READ
 
         #region UpdateOptimizerParams(OptimizerParamsDto externalOptimizerParamsDto) ... UPDATE
         /// <summary>
@@ -303,12 +304,12 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         }
         #endregion  // UpdateOptimizerParams(OptimizerParamsDto externalOptimizerParamsDto) ... UPDATE
 
-        #region DeleteOptimizerParams(Guid optimizerParamsId) ... DELETE
+        #region DeleteOptimizerParams(int optimizerParamsId) ... DELETE
         /// <summary>
         /// Deletes (DELETE) the optimizer params with the specified unique identifier.
         /// </summary>
         /// <param name="optimizerParamsId">The unique identifier of the optimizer params to delete.</param>
-        public void DeleteOptimizerParams(Guid optimizerParamsId)
+        public void DeleteOptimizerParams(int optimizerParamsId)
         {
             try
             {
@@ -324,7 +325,7 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
                 Console.WriteLine($"Error deleting optimizer params: {ex.Message}");
             }
         }
-        #endregion  // DeleteOptimizerParams(Guid optimizerParamsId) ... DELETE
+        #endregion  // DeleteOptimizerParams(int optimizerParamsId) ... DELETE
 
         #endregion  // OPTIMIZER PARAMS CRUD METHODS
 

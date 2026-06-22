@@ -105,13 +105,13 @@ namespace HenViewModel.Pinch.Plots
         }
         #endregion  // GetTHDiagrams()
 
-        #region GetTHDiagramsByProfileId(Guid profileId)
+        #region GetTHDiagramsByProfileId(int profileId)
         /// <summary>
         /// Retrieves a list of all T-H diagrams associated with the specified profile identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile whose T-H diagrams are to be retrieved.</param>
         /// <returns>A list of <see cref="THDiagramDto"/> objects representing the matching T-H diagrams, or an empty list if none are found.</returns>
-        public IList<THDiagramDto> GetTHDiagramsByProfileId(Guid profileId)
+        public IList<THDiagramDto> GetTHDiagramsByProfileId(int profileId)
         {
             try
             {
@@ -123,15 +123,15 @@ namespace HenViewModel.Pinch.Plots
                 return null;
             }
         }
-        #endregion  // GetTHDiagramsByProfileId(Guid profileId)
+        #endregion  // GetTHDiagramsByProfileId(int profileId)
 
-        #region GetTHDiagramById(Guid thDiagramId)
+        #region GetTHDiagramById(int thDiagramId)
         /// <summary>
         /// Retrieves the THDiagram DTO associated with the specified unique identifier.
         /// </summary>
         /// <param name="thDiagramId">The unique identifier of the T-H diagram to retrieve.</param>
         /// <returns>A <see cref="THDiagramDto"/> representing the T-H diagram with the specified identifier. Returns null if none is found.</returns>
-        public THDiagramDto GetTHDiagramById(Guid thDiagramId)
+        public THDiagramDto GetTHDiagramById(int thDiagramId)
         {
             try
             {
@@ -143,16 +143,16 @@ namespace HenViewModel.Pinch.Plots
                 return null;
             }
         }
-        #endregion  // GetTHDiagramById(Guid thDiagramId)
+        #endregion  // GetTHDiagramById(int thDiagramId)
 
-        #region GetTHDiagramByTitle(Guid profileId, string title)
+        #region GetTHDiagramByTitle(int profileId, string title)
         /// <summary>
         /// Retrieves a T-H diagram by its profile identifier and title.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile that owns the T-H diagram.</param>
         /// <param name="title">The title of the T-H diagram to retrieve.</param>
         /// <returns>A <see cref="THDiagramDto"/> containing the T-H diagram details if found; otherwise, null.</returns>
-        public THDiagramDto GetTHDiagramByTitle(Guid profileId, string title)
+        public THDiagramDto GetTHDiagramByTitle(int profileId, string title)
         {
             try
             {
@@ -172,9 +172,9 @@ namespace HenViewModel.Pinch.Plots
         /// </summary>
         /// <param name="thDiagramDto">The T-H diagram data to add.</param>
         /// <returns>A GUID representing the unique identifier of the newly added T-H diagram.</returns>
-        public Guid AddTHDiagram(THDiagramDto thDiagramDto)
+        public int AddTHDiagram(THDiagramDto thDiagramDto)
         {
-            Guid thDiagramId = new Guid();
+            int thDiagramId = -1;
             try
             {
                 thDiagramId = THDiagramRepoObj.AddTHDiagram(thDiagramDto);
@@ -205,12 +205,12 @@ namespace HenViewModel.Pinch.Plots
         }
         #endregion  // UpdateTHDiagram(THDiagramDto thDiagramDto)
 
-        #region DeleteTHDiagram(Guid thDiagramId)
+        #region DeleteTHDiagram(int thDiagramId)
         /// <summary>
         /// Deletes the T-H diagram with the specified unique identifier.
         /// </summary>
         /// <param name="thDiagramId">The unique identifier of the T-H diagram to delete.</param>
-        public void DeleteTHDiagram(Guid thDiagramId)
+        public void DeleteTHDiagram(int thDiagramId)
         {
             try
             {
@@ -221,7 +221,7 @@ namespace HenViewModel.Pinch.Plots
                 Console.WriteLine($"Error retrieving T-H diagram: {ex.Message}");
             }
         }
-        #endregion  // DeleteTHDiagram(Guid thDiagramId)
+        #endregion  // DeleteTHDiagram(int thDiagramId)
     }
     #endregion      // public class THDiagramViewModel
 }

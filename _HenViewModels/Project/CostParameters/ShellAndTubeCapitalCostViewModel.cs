@@ -184,9 +184,9 @@ namespace HenViewModel.Project.CostParameters
         /// </summary>
         /// <param name="externalShellAndTubeCapitalCostDto">The shell and tube capital cost data to add.</param>
         /// <returns>A GUID representing the unique identifier of the newly added shell and tube capital cost.</returns>
-        public Guid AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto externalShellAndTubeCapitalCostDto)
+        public int AddShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto externalShellAndTubeCapitalCostDto)
         {
-            Guid shellAndTubeCapitalCostId = new Guid();
+            int shellAndTubeCapitalCostId = -1;
             try
             {
                 //----------------------------------------------------------------------------------
@@ -207,6 +207,7 @@ namespace HenViewModel.Project.CostParameters
             catch (Exception ex)
             {
                 Console.WriteLine($"Error adding shell and tube capital cost: {ex.Message}");
+                shellAndTubeCapitalCostId = -1;
             }
             //----------------------------------------------------------------------------------------------
             //--- Return the ShellAndTubeCapitalCost ID (PK) from the Database addition                  ---
@@ -229,7 +230,7 @@ namespace HenViewModel.Project.CostParameters
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="ShellAndTubeCapitalCostDto"/> representing the ShellAndTubeCapitalCost with the specified identifier. 
         /// Returns null if no ShellAndTubeCapitalCost is found.</returns>
-        public ShellAndTubeCapitalCostDto GetShellAndTubeCapitalCostByProjectId(Guid projectId)
+        public ShellAndTubeCapitalCostDto GetShellAndTubeCapitalCostByProjectId(int projectId)
         {
             ShellAndTubeCapitalCostDto externalShellAndTubeCapitalCostDto = new ShellAndTubeCapitalCostDto();
             try
@@ -242,7 +243,7 @@ namespace HenViewModel.Project.CostParameters
                 //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
                 //---that the ShellAndTubeCapitalCost cannot be found.                              ---
                 //-------------------------------------------------------------------------------------
-                if (projectId == Guid.Empty)
+                if (projectId == -1)
                 {
                     return null; // Return null if the projectId is empty
                 }
@@ -312,12 +313,12 @@ namespace HenViewModel.Project.CostParameters
         }
         #endregion  // UpdateShellAndTubeCapitalCost(ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDto) ... UPDATE
 
-        #region DeleteShellAndTubeCapitalCost(Guid shellAndTubeCapitalCostId) ... DELETE
+        #region DeleteShellAndTubeCapitalCost(int shellAndTubeCapitalCostId) ... DELETE
         /// <summary>
         /// Deletes (DELETE) the shell and tube capital cost with the specified unique identifier.
         /// </summary>
         /// <param name="shellAndTubeCapitalCostId">The unique identifier of the shell and tube capital cost to delete.</param>
-        public void DeleteShellAndTubeCapitalCost(Guid shellAndTubeCapitalCostId)
+        public void DeleteShellAndTubeCapitalCost(int shellAndTubeCapitalCostId)
         {
             try
             {
@@ -334,7 +335,7 @@ namespace HenViewModel.Project.CostParameters
                 Console.WriteLine($"Error deleting shell and tube capital cost: {ex.Message}");
             }
         }
-        #endregion  // DeleteShellAndTubeCapitalCost(Guid shellAndTubeCapitalCostId) ... DELETE
+        #endregion  // DeleteShellAndTubeCapitalCost(int shellAndTubeCapitalCostId) ... DELETE
 
         #endregion  // SHELL AND TUBE CAPITAL COST CRUD METHODS
 

@@ -175,14 +175,13 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
         /// Adds (CREATE) a new exchanger params to the database using the specified exchanger params data transfer object.
         /// </summary>
         /// <remarks>The method converts the provided exchanger params data from external to internal units before
-        /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
-        /// an empty GUID.</remarks>
+        /// storing it in the database. If an error occurs during the operation, the method logs the error and returns -1.</remarks>
         /// <param name="externalExchangerParamsDto">The exchanger params data to add. The object must contain all required 
         /// exchanger params fields in external units. Cannot be null.</param>
-        /// <returns>A GUID representing the unique identifier of the newly added exchanger params.</returns>
-        public Guid AddExchangerParams(ExchangerParamsDto externalExchangerParamsDto)
+        /// <returns>An INT representing the unique identifier of the newly added exchanger params.</returns>
+        public int AddExchangerParams(ExchangerParamsDto externalExchangerParamsDto)
         {
-            Guid exchangerParamsID = new Guid();
+            int exchangerParamsID = -1;
             try
             {
                 //------------------------------------------------------------------------
@@ -213,7 +212,7 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
         }
         #endregion  // AddExchangerParams(ExchangerParamsDto externalExchangerParamsDto) ... CREATE
 
-        #region GetExchangerParamsByProjectId(Guid projectId) ... READ
+        #region GetExchangerParamsByProjectId(int projectId) ... READ
         /// <summary>
         /// Retrieves (READ) the Exchanger Params Dto associated with the specified unique identifier.
         /// The exchanger params retrieved from the Database are in INTERNAL Units, 
@@ -224,7 +223,7 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="ExchangerParamsDto"/> representing the Project with the specified identifier. 
         /// Returns null if no Project is found.</returns>
-        public ExchangerParamsDto GetExchangerParamsByProjectId(Guid projectId)
+        public ExchangerParamsDto GetExchangerParamsByProjectId(int projectId)
         {
             ExchangerParamsDto externalExchangerParamsDto = new ExchangerParamsDto();
             try
@@ -237,7 +236,7 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
                 //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
                 //---that the exchangerParams cannot be found.                                      ---
                 //-------------------------------------------------------------------------------------
-                if (projectId == Guid.Empty)
+                if (projectId == -1)
                 {
                     return null; // Return null if the projectId is empty
                 }
@@ -271,7 +270,7 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
             //-----------------------------------------------------------------------------------------------
             return externalExchangerParamsDto;
         }
-        #endregion  // GetExchangerParamsByProjectId(Guid projectId) ... READ
+        #endregion  // GetExchangerParamsByProjectId(int projectId) ... READ
 
         #region UpdateExchangerParams(ExchangerParamsDto externalExchangerParamsDto) ... UPDATE
         /// <summary>
@@ -308,12 +307,12 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
         }
         #endregion  // UpdateExchangerParams(ExchangerParamsDto externalExchangerParamsDto) ... UPDATE
 
-        #region DeleteExchangerParams(Guid exchangerParamsId) ... DELETE
+        #region DeleteExchangerParams(int exchangerParamsId) ... DELETE
         /// <summary>
         /// Deletes (DELETE) the exchanger params with the specified unique identifier.
         /// </summary>
         /// <param name="exchangerParamsId">The unique identifier of the exchanger params to delete.</param>
-        public void DeleteExchangerParams(Guid exchangerParamsId)
+        public void DeleteExchangerParams(int exchangerParamsId)
         {
             try
             {
@@ -328,7 +327,7 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
                 Console.WriteLine($"Error deleting exchanger params: {ex.Message}");
             }
         }
-        #endregion  // DeleteExchangerParams(Guid exchangerParamsId) ... DELETE
+        #endregion  // DeleteExchangerParams(int exchangerParamsId) ... DELETE
 
         #endregion  // EXCHANGER PARAMS CRUD METHODS
 

@@ -178,14 +178,14 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
         /// Adds (CREATE) a new project units to the database using the specified project data transfer object.
         /// </summary>
         /// <remarks>The method converts the provided project data from external to internal units before
-        /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
-        /// an empty GUID.</remarks>
+        /// storing it in the database. If an error occurs during the operation, the method logs the error and 
+        /// returns -1.</remarks>
         /// <param name="externalProjectUnitsDto">The project units data to add. The object must contain all 
         /// required project units fields in external units. Cannot be null.</param>
-        /// <returns>A GUID representing the unique identifier of the newly added project.</returns>
-        public Guid AddProjectUnits(ProjectUnitsDto externalProjectUnitsDto)
+        /// <returns>An INT representing the unique identifier of the newly added project.</returns>
+        public int AddProjectUnits(ProjectUnitsDto externalProjectUnitsDto)
         {
-            Guid projectUnitsID = new Guid();
+            int projectUnitsID = -1;
             try
             {
                 //---------------------------------------------------------------------
@@ -204,21 +204,18 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
             {
                 // Handle exceptions (e.g., log the error, rethrow, or return null)
                 Console.WriteLine($"Error retrieving project units: {ex.Message}");
+                projectUnitsID = -1;
             }
             //---------------------------------------------------------------------------------------
             //--- Return the ProjectUnits ID (PK) from the ProjectUnits Table database addition   ---
             //---------------------------------------------------------------------------------------
-            //--- If an error occurs, the returned GUID will be empty (default value) to          ---
-            //--- indicate failure.                                                               ---
-            //--- If the operation is successful, the returned GUID will be the unique identifier ---
-            //--- The caller can check for an empty GUID to determine if the operation was        ---
-            //--- successful or if an error occurred.                                             ---
+            //--- If an error occurs, -1 is returned                                              ---
             //---------------------------------------------------------------------------------------
             return projectUnitsID;
         }
         #endregion  // AddProjectUnits(ProjectUnitsDto externalProjectUnitsDto) ... CREATE
 
-        #region GetProjectUnitsByProjectId(Guid projectId) ... READ
+        #region GetProjectUnitsByProjectId(int projectId) ... READ
         /// <summary>
         /// Retrieves (READ) the Project Units Dto associated with the specified unique identifier.
         /// The project retrieved from the Database is in INTERNAL Units, 
@@ -229,7 +226,7 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="ProjectUnitsDto"/> representing the Project with the specified identifier. 
         /// Returns null if no Project is found.</returns>
-        public ProjectUnitsDto GetProjectUnitsByProjectId(Guid projectId)
+        public ProjectUnitsDto GetProjectUnitsByProjectId(int projectId)
         {
             ProjectUnitsDto externalProjectUnitsDto = new ProjectUnitsDto();
             try
@@ -242,7 +239,7 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
                 //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
                 //---that the project units cannot be found.                                        ---
                 //-------------------------------------------------------------------------------------
-                if (projectId == Guid.Empty)
+                if (projectId == -1)
                 {
                     return null; // Return null if the projectId is empty
                 }
@@ -271,7 +268,7 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
             //-------------------------------------------------------------------------------------------
             return externalProjectUnitsDto;
         }
-        #endregion  // GetProjectUnitsByProjectId(Guid projectId) ... READ
+        #endregion  // GetProjectUnitsByProjectId(int projectId) ... READ
 
         #region UpdateProjectUnits(ProjectUnitsDto externalProjectUnitsDto) ... UPDATE
         /// <summary>
@@ -308,12 +305,12 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
         }
         #endregion  // UpdateProjectUnits(ProjectDto projectDto) ... UPDATE
 
-        #region DeleteProjectUnits(Guid projectUnitsId) ... DELETE
+        #region DeleteProjectUnits(int projectUnitsId) ... DELETE
         /// <summary>
         /// Deletes (DELETE) the project units with the specified unique identifier.
         /// </summary>
         /// <param name="projectUnitsId">The unique identifier of the project units to delete.</param>
-        public void DeleteProjectUnits(Guid projectUnitsId)
+        public void DeleteProjectUnits(int projectUnitsId)
         {
             try
             {
@@ -328,7 +325,7 @@ namespace HenViewModel.Project.DefaultParameters.ProjectUnits
                 Console.WriteLine($"Error deleting project units: {ex.Message}");
             }
         }
-        #endregion  // DeleteProjectUnits(Guid projectUnitsId) ... DELETE
+        #endregion  // DeleteProjectUnits(int projectUnitsId) ... DELETE
 
         #endregion  // PROJECT UNITS CRUD METHODS
     }

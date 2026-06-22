@@ -105,13 +105,13 @@ namespace HenViewModel.Pinch.Plots
         }
         #endregion  // GetTHDiagramPoints()
 
-        #region GetTHDiagramPointsByTHDiagramId(Guid thDiagramId)
+        #region GetTHDiagramPointsByTHDiagramId(int thDiagramId)
         /// <summary>
         /// Retrieves a list of all T-H diagram points associated with the specified T-H diagram identifier.
         /// </summary>
         /// <param name="thDiagramId">The unique identifier of the T-H diagram whose points are to be retrieved.</param>
         /// <returns>A list of <see cref="THDiagramPointDto"/> objects representing the matching T-H diagram points, or an empty list if none are found.</returns>
-        public IList<THDiagramPointDto> GetTHDiagramPointsByTHDiagramId(Guid thDiagramId)
+        public IList<THDiagramPointDto> GetTHDiagramPointsByTHDiagramId(int thDiagramId)
         {
             try
             {
@@ -123,15 +123,15 @@ namespace HenViewModel.Pinch.Plots
                 return null;
             }
         }
-        #endregion  // GetTHDiagramPointsByTHDiagramId(Guid thDiagramId)
+        #endregion  // GetTHDiagramPointsByTHDiagramId(int thDiagramId)
 
-        #region GetTHDiagramPointById(Guid thDiagramPointId)
+        #region GetTHDiagramPointById(int thDiagramPointId)
         /// <summary>
         /// Retrieves the THDiagramPoint DTO associated with the specified unique identifier.
         /// </summary>
         /// <param name="thDiagramPointId">The unique identifier of the T-H diagram point to retrieve.</param>
         /// <returns>A <see cref="THDiagramPointDto"/> representing the T-H diagram point with the specified identifier. Returns null if none is found.</returns>
-        public THDiagramPointDto GetTHDiagramPointById(Guid thDiagramPointId)
+        public THDiagramPointDto GetTHDiagramPointById(int thDiagramPointId)
         {
             try
             {
@@ -143,16 +143,16 @@ namespace HenViewModel.Pinch.Plots
                 return null;
             }
         }
-        #endregion  // GetTHDiagramPointById(Guid thDiagramPointId)
+        #endregion  // GetTHDiagramPointById(int thDiagramPointId)
 
-        #region GetTHDiagramPointByPointSequence(Guid thDiagramId, int pointSequence)
+        #region GetTHDiagramPointByPointSequence(int thDiagramId, int pointSequence)
         /// <summary>
         /// Retrieves a T-H diagram point by its T-H diagram identifier and point sequence.
         /// </summary>
         /// <param name="thDiagramId">The unique identifier of the T-H diagram that owns the point.</param>
         /// <param name="pointSequence">The point sequence to retrieve.</param>
         /// <returns>A <see cref="THDiagramPointDto"/> containing the T-H diagram point details if found; otherwise, null.</returns>
-        public THDiagramPointDto GetTHDiagramPointByPointSequence(Guid thDiagramId, int pointSequence)
+        public THDiagramPointDto GetTHDiagramPointByPointSequence(int thDiagramId, int pointSequence)
         {
             try
             {
@@ -164,7 +164,7 @@ namespace HenViewModel.Pinch.Plots
                 return null;
             }
         }
-        #endregion  // GetTHDiagramPointByPointSequence(Guid thDiagramId, int pointSequence)
+        #endregion  // GetTHDiagramPointByPointSequence(int thDiagramId, int pointSequence)
 
         #region AddTHDiagramPoint(THDiagramPointDto thDiagramPointDto)
         /// <summary>
@@ -172,9 +172,9 @@ namespace HenViewModel.Pinch.Plots
         /// </summary>
         /// <param name="thDiagramPointDto">The T-H diagram point data to add.</param>
         /// <returns>A GUID representing the unique identifier of the newly added T-H diagram point.</returns>
-        public Guid AddTHDiagramPoint(THDiagramPointDto thDiagramPointDto)
+        public int AddTHDiagramPoint(THDiagramPointDto thDiagramPointDto)
         {
-            Guid thDiagramPointId = new Guid();
+            int thDiagramPointId = -1;
             try
             {
                 thDiagramPointId = THDiagramPointRepoObj.AddTHDiagramPoint(thDiagramPointDto);
@@ -205,12 +205,12 @@ namespace HenViewModel.Pinch.Plots
         }
         #endregion  // UpdateTHDiagramPoint(THDiagramPointDto thDiagramPointDto)
 
-        #region DeleteTHDiagramPoint(Guid thDiagramPointId)
+        #region DeleteTHDiagramPoint(int thDiagramPointId)
         /// <summary>
         /// Deletes the T-H diagram point with the specified unique identifier.
         /// </summary>
         /// <param name="thDiagramPointId">The unique identifier of the T-H diagram point to delete.</param>
-        public void DeleteTHDiagramPoint(Guid thDiagramPointId)
+        public void DeleteTHDiagramPoint(int thDiagramPointId)
         {
             try
             {
@@ -221,7 +221,7 @@ namespace HenViewModel.Pinch.Plots
                 Console.WriteLine($"Error retrieving T-H diagram point: {ex.Message}");
             }
         }
-        #endregion  // DeleteTHDiagramPoint(Guid thDiagramPointId)
+        #endregion  // DeleteTHDiagramPoint(int thDiagramPointId)
     }
     #endregion      // public class THDiagramPointViewModel
 }

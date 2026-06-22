@@ -177,14 +177,14 @@ namespace HenViewModel.Project
         /// Adds (CREATE) a new project to the database using the specified project data transfer object.
         /// </summary>
         /// <remarks>The method converts the provided project data from external to internal units before
-        /// storing it in the database. If an error occurs during the operation, the method logs the error and returns
-        /// an empty GUID.</remarks>
+        /// storing it in the database. If an error occurs during the operation, the method logs the error 
+        /// and returns -1.</remarks>
         /// <param name="externalProjectDto">The project data to add. The object must contain all required project fields 
         /// in external units. Cannot be null.</param>
-        /// <returns>A GUID representing the unique identifier of the newly added project.</returns>
-        public Guid AddProject(ProjectDto externalProjectDto)
+        /// <returns>An INT representing the unique identifier of the newly added project.</returns>
+        public int AddProject(ProjectDto externalProjectDto)
         {
-            Guid projectID = new Guid();
+            int projectID = -1;
             try
             {
                 //----------------------------------------------------------------
@@ -205,6 +205,7 @@ namespace HenViewModel.Project
             {
                 // Handle exceptions (e.g., log the error, rethrow, or return null)
                 Console.WriteLine($"Error retrieving project: {ex.Message}");
+                projectID = -1;
             }
             return projectID; // Return Project ID (PK) from the Project Table database addition
         }
@@ -254,7 +255,7 @@ namespace HenViewModel.Project
         }
         #endregion  // GetProjects() ... READ
 
-        #region GetProjectById(Guid projectId) ... READ
+        #region GetProjectById(int projectId) ... READ
         /// <summary>
         /// Retrieves (READ) the Project Dto associated with the specified unique identifier.
         /// The project retrieved from the Database is in INTERNAL Units, 
@@ -265,7 +266,7 @@ namespace HenViewModel.Project
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="ProjectDto"/> representing the Project with the specified identifier. 
         /// Returns null if no Project is found.</returns>
-        public ProjectDto GetProjectById(Guid projectId)
+        public ProjectDto GetProjectById(int projectId)
         {
             ProjectDto externalProjectDto = new ProjectDto();
             try
@@ -278,7 +279,7 @@ namespace HenViewModel.Project
                 //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
                 //---that the project cannot be found.                                              ---
                 //-------------------------------------------------------------------------------------
-                if (projectId == Guid.Empty)
+                if (projectId == -1)
                 {
                     return null; // Return null if the projectId is empty
                 }
@@ -310,7 +311,7 @@ namespace HenViewModel.Project
             //--------------------------------------------------------------
             return externalProjectDto;
         }
-        #endregion  // GetProjectById(Guid projectId) ... READ
+        #endregion  // GetProjectById(int projectId) ... READ
 
         #region GetProjectByName(string projectName) ... READ
         /// <summary>
@@ -393,12 +394,12 @@ namespace HenViewModel.Project
         }
         #endregion  // UpdateProject(ProjectDto projectDto) ... UPDATE
 
-        #region DeleteProject(Guid projectId) ... DELETE
+        #region DeleteProject(int projectId) ... DELETE
         /// <summary>
         /// Deletes (DELETE) the project with the specified unique identifier.
         /// </summary>
         /// <param name="projectId">The unique identifier of the project to delete.</param>
-        public void DeleteProject(Guid projectId)
+        public void DeleteProject(int projectId)
         {
             try
             {
@@ -413,7 +414,7 @@ namespace HenViewModel.Project
                 Console.WriteLine($"Error deleting project: {ex.Message}");
             }
         }
-        #endregion  // DeleteProject(Guid projectId) ... DELETE
+        #endregion  // DeleteProject(int projectId) ... DELETE
 
         #endregion  // PROJECT CRUD METHODS
 

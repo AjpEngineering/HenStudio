@@ -182,9 +182,9 @@ namespace HenViewModel.Project.CostParameters
         /// </summary>
         /// <param name="firedHeaterCapitalCostDto">The fired heater capital cost data to add.</param>
         /// <returns>A GUID representing the unique identifier of the newly added fired heater capital cost.</returns>
-        public Guid AddFiredHeaterCapitalCost(FiredHeaterCapitalCostDto firedHeaterCapitalCostDto)
+        public int AddFiredHeaterCapitalCost(FiredHeaterCapitalCostDto firedHeaterCapitalCostDto)
         {
-            Guid firedHeaterCapitalCostId = new Guid();
+            int firedHeaterCapitalCostId = -1;
             try
             {
                 //----------------------------------------------------------------------------------
@@ -207,6 +207,7 @@ namespace HenViewModel.Project.CostParameters
             catch (Exception ex)
             {
                 Console.WriteLine($"Error adding fired heater capital cost: {ex.Message}");
+                firedHeaterCapitalCostId = -1;
             }
             //----------------------------------------------------------------------------------
             //--- Return the FiredHeaterCapitalCost ID (PK) from the Database Addition       ---
@@ -229,7 +230,7 @@ namespace HenViewModel.Project.CostParameters
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="FiredHeaterCapitalCostDto"/> representing the FiredHeaterCapitalCost with the specified identifier. 
         /// Returns null if no FiredHeaterCapitalCost is found.</returns>
-        public FiredHeaterCapitalCostDto GetFiredHeaterCapitalCostByProjectId(Guid projectId)
+        public FiredHeaterCapitalCostDto GetFiredHeaterCapitalCostByProjectId(int projectId)
         {
             FiredHeaterCapitalCostDto externalFiredHeaterCapitalCostDto = new FiredHeaterCapitalCostDto();
             try
@@ -242,7 +243,7 @@ namespace HenViewModel.Project.CostParameters
                 //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
                 //---that the fired heater capital cost cannot be found.                            ---
                 //-------------------------------------------------------------------------------------
-                if (projectId == Guid.Empty)
+                if (projectId == -1)
                 {
                     return null; // Return null if the projectId is empty
                 }
@@ -271,7 +272,7 @@ namespace HenViewModel.Project.CostParameters
             //--------------------------------------------------------------------------------------
             return externalFiredHeaterCapitalCostDto;
         }
-        #endregion  // GetFiredHeaterCapitalCostByProjectId(Guid projectId) ... READ
+        #endregion  // GetFiredHeaterCapitalCostByProjectId(int projectId) ... READ
 
         #region UpdateFiredHeaterCapitalCost(FiredHeaterCapitalCostDto externalFiredHeaterCapitalCostDto) ... UPDATE
         /// <summary>
@@ -312,12 +313,12 @@ namespace HenViewModel.Project.CostParameters
         }
         #endregion  // UpdateFiredHeaterCapitalCost(FiredHeaterCapitalCostDto firedHeaterCapitalCostDto) ... UPDATE
 
-        #region DeleteFiredHeaterCapitalCost(Guid firedHeaterCapitalCostId) ... DELETE
+        #region DeleteFiredHeaterCapitalCost(int firedHeaterCapitalCostId) ... DELETE
         /// <summary>
         /// Deletes (DELETE) the fired heater capital cost with the specified unique identifier.
         /// </summary>
         /// <param name="firedHeaterCapitalCostId">The unique identifier of the fired heater capital cost to delete.</param>
-        public void DeleteFiredHeaterCapitalCost(Guid firedHeaterCapitalCostId)
+        public void DeleteFiredHeaterCapitalCost(int firedHeaterCapitalCostId)
         {
             try
             {
@@ -334,7 +335,7 @@ namespace HenViewModel.Project.CostParameters
                 Console.WriteLine($"Error deleting fired heater capital cost: {ex.Message}");
             }
         }
-        #endregion  // DeleteFiredHeaterCapitalCost(Guid firedHeaterCapitalCostId) ... DELETE
+        #endregion  // DeleteFiredHeaterCapitalCost(int firedHeaterCapitalCostId) ... DELETE
 
         #endregion  // FIRED HEATER CAPITAL COST CRUD METHODS
 

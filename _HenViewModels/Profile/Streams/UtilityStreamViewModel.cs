@@ -283,7 +283,7 @@ namespace HenViewModel.Profile.Streams
         /// </summary>
         /// <param name="externalUtilityStreamDto">The utility stream data to add in external units.</param>
         /// <returns>A GUID representing the unique identifier of the newly added utility stream.</returns>
-        public Guid AddUtilityStream(UtilityStreamDto externalUtilityStreamDto)
+        public int AddUtilityStream(UtilityStreamDto externalUtilityStreamDto)
         {
             //-------------------------- Null DTO Guard ---------------------------------
             //--- If the user provided DTO is null,                                   ---
@@ -293,14 +293,14 @@ namespace HenViewModel.Profile.Streams
             //---------------------------------------------------------------------------
             if (externalUtilityStreamDto == null)
             {
-                return Guid.Empty;
+                return -1;
             }
             //------------------------------------------------------------------------------
             //--- Initialize a variable to hold the unique identifier of the newly added ---
             //--- utility stream. This variable will be assigned the value returned by   ---
             //--- the repository method after adding the utility stream.                 ---
             //------------------------------------------------------------------------------
-            Guid utilityStreamId = new Guid();
+            int utilityStreamId = -1;
             try
             {
                 //-------------------------------------------------------------------------------
@@ -436,13 +436,13 @@ namespace HenViewModel.Profile.Streams
         }
         #endregion  // GetUtilityStreams() ... READ ALL STREAMS
 
-        #region GetUtilityStreamsByProfileId(Guid profileId) ... READ MULTIPLE STREAMS
+        #region GetUtilityStreamsByProfileId(int profileId) ... READ MULTIPLE STREAMS
         /// <summary>
         /// Retrieves (READ) a List of all UtilityStreams associated with the specified profile identifier in external units.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile whose utility streams are to be retrieved.</param>
         /// <returns>A list of <see cref="UtilityStreamDto"/> objects representing the matching utility streams, or an empty list if none are found.</returns>
-        public List<UtilityStreamDto> GetUtilityStreamsByProfileId(Guid profileId)
+        public List<UtilityStreamDto> GetUtilityStreamsByProfileId(int profileId)
         {
             //---------------------------- Null Guid Guard -----------------------------------
             //--- If the provided profileId is an empty GUID,
@@ -451,7 +451,7 @@ namespace HenViewModel.Profile.Streams
             //--- This prevents unnecessary database queries and potential errors when     ---
             //--- trying to retrieve a utility stream with an invalid identifier.          ---
             //--------------------------------------------------------------------------------
-            if ((profileId == Guid.Empty) || (profileId == null))
+            if (profileId == -1)
             {
                 return null;
             }
@@ -499,15 +499,15 @@ namespace HenViewModel.Profile.Streams
             //--------------------------------------------------------------
             return externalUtilityStreams;
         }
-        #endregion  // GetUtilityStreamsByProfileId(Guid profileId) ... READ MULTIPLE STREAMS
+        #endregion  // GetUtilityStreamsByProfileId(int profileId) ... READ MULTIPLE STREAMS
 
-        #region GetUtilityStreamById(Guid utilityStreamId) ... READ SINGLE STREAM
+        #region GetUtilityStreamById(int utilityStreamId) ... READ SINGLE STREAM
         /// <summary>
         /// Retrieves (READ) the SINGLE UtilityStream DTO associated with the specified unique identifier.
         /// </summary>
         /// <param name="utilityStreamId">The unique identifier of the utility stream to retrieve.</param>
         /// <returns>A <see cref="UtilityStreamDto"/> representing the utility stream with the specified identifier. Returns null if none is found.</returns>
-        public UtilityStreamDto GetUtilityStreamById(Guid utilityStreamId)
+        public UtilityStreamDto GetUtilityStreamById(int utilityStreamId)
         {
             try
             {
@@ -517,7 +517,7 @@ namespace HenViewModel.Profile.Streams
                 //--- This prevents unnecessary database queries and potential errors when     ---
                 //--- trying to retrieve a utility stream with an invalid identifier.          ---
                 //--------------------------------------------------------------------------------
-                if ((utilityStreamId == Guid.Empty) || (utilityStreamId == null))
+                if (utilityStreamId == -1)
                 {
                     return null;
                 }
@@ -552,16 +552,16 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetUtilityStreamById(Guid utilityStreamId) ... READ SINGLE STREAM
+        #endregion  // GetUtilityStreamById(int utilityStreamId) ... READ SINGLE STREAM
 
-        #region GetUtilityStreamByStreamId(Guid profileId, string streamId) ... READ SINGLE STREAM
+        #region GetUtilityStreamByStreamId(int profileId, string streamId) ... READ SINGLE STREAM
         /// <summary>
         /// Retrieves (READ) a SINGLE utility stream by its profile identifier and stream identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile that owns the utility stream.</param>
         /// <param name="streamId">The stream identifier of the utility stream to retrieve.</param>
         /// <returns>A <see cref="UtilityStreamDto"/> containing the utility stream details if found; otherwise, null.</returns>
-        public UtilityStreamDto GetUtilityStreamByStreamId(Guid profileId, string streamId)
+        public UtilityStreamDto GetUtilityStreamByStreamId(int profileId, string streamId)
         {
             //----------------------- Null Guid and Empty String Guard -----------------------
             //--- If the provided profileId is an empty GUID or null, or streamId is empty ---
@@ -570,7 +570,7 @@ namespace HenViewModel.Profile.Streams
             //--- This prevents unnecessary database queries and potential errors when     ---
             //--- trying to retrieve a utility stream with an invalid identifier.          ---
             //--------------------------------------------------------------------------------
-            if ((profileId == Guid.Empty) || (profileId == null) || string.IsNullOrEmpty(streamId))
+            if ((profileId == -1) || string.IsNullOrEmpty(streamId))
             {
                 return null;
             }
@@ -608,7 +608,7 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetUtilityStreamByStreamId(Guid profileId, string streamId) ... READ SINGLE STREAM
+        #endregion  // GetUtilityStreamByStreamId(int profileId, string streamId) ... READ SINGLE STREAM
 
         #endregion  // READ METHODS
 
@@ -712,12 +712,12 @@ namespace HenViewModel.Profile.Streams
 
         #region DELETE METHODS
 
-        #region DeleteUtilityStream(Guid utilityStreamId) ... DELETE
+        #region DeleteUtilityStream(int utilityStreamId) ... DELETE
         /// <summary>
         /// Deletes (DELETE) the utility stream with the specified unique identifier.
         /// </summary>
         /// <param name="utilityStreamId">The unique identifier of the utility stream to delete.</param>
-        public void DeleteUtilityStream(Guid utilityStreamId)
+        public void DeleteUtilityStream(int utilityStreamId)
         {
             //---------------------------- Null Guid Guard --------------------------------
             //--- If the provided utilityStreamId is an empty GUID,                     ---
@@ -725,7 +725,7 @@ namespace HenViewModel.Profile.Streams
             //--- This prevents unnecessary database queries and potential errors when  ---
             //--- trying to retrieve a utility stream with an invalid identifier.       ---
             //-----------------------------------------------------------------------------
-            if ((utilityStreamId == Guid.Empty) || (utilityStreamId == null))
+            if (utilityStreamId == -1)
             {
                 return;
             }
@@ -743,7 +743,7 @@ namespace HenViewModel.Profile.Streams
                 Console.WriteLine($"Error deleting utility stream: {ex.Message}");
             }
         }
-        #endregion  // DeleteUtilityStream(Guid utilityStreamId) ... DELETE
+        #endregion  // DeleteUtilityStream(int utilityStreamId) ... DELETE
 
         #endregion  // DELETE METHODS
 

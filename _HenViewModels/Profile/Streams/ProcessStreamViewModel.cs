@@ -278,14 +278,14 @@ namespace HenViewModel.Profile.Streams
         /// </summary>
         /// <param name="externalProcessStreamDto">The process stream data to add in external units.</param>
         /// <returns>A GUID representing the unique identifier of the newly added process stream.</returns>
-        public Guid AddProcessStream(ProcessStreamDto externalProcessStreamDto)
+        public int AddProcessStream(ProcessStreamDto externalProcessStreamDto)
         {
             //-------------------------------------------------------------------------------------------------------------------
             //--- Initialize a variable to hold the unique identifier of the newly added process stream.                      ---
             //--- This variable will be assigned the value returned by the repository method after adding the process stream. ---
             //--- It is initialized to a new GUID to ensure it has a valid value even if the addition fails.                  ---
             //-------------------------------------------------------------------------------------------------------------------
-            Guid processStreamId = new Guid();
+            int processStreamId = -1;
             try
             {
                 //---------------------------------------------------------------------------------------
@@ -303,6 +303,7 @@ namespace HenViewModel.Profile.Streams
             catch (Exception ex)
             {
                 Console.WriteLine($"Error adding process stream: {ex.Message}");
+                processStreamId = -1;
             }
             return processStreamId;
         }
@@ -385,14 +386,14 @@ namespace HenViewModel.Profile.Streams
         }
         #endregion  // GetProcessStreams() ... READ ALL PROCESS STREAMS
 
-        #region GetProcessStreamsByProfileId(Guid profileId) ... READ PROCESS STREAMS BY PROFILE ID
+        #region GetProcessStreamsByProfileId(int profileId) ... READ PROCESS STREAMS BY PROFILE ID
         /// <summary>
         /// Retrieves (READ) a LIST of all ProcessStreams associated with the specified profile identifier in external units.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile whose process streams are to be retrieved.</param>
         /// <returns>A list of <see cref="ProcessStreamDto"/> objects representing the matching process streams, 
         /// or an empty list if none are found.</returns>
-        public List<ProcessStreamDto> GetProcessStreamsByProfileId(Guid profileId)
+        public List<ProcessStreamDto> GetProcessStreamsByProfileId(int profileId)
         {
             //------------------------------------------------------------------------------------------------------
             //--- Initialize a list to hold the process stream DTOs in EXTERNAL units.                           ---
@@ -430,15 +431,15 @@ namespace HenViewModel.Profile.Streams
             }
             return externalProcessStreams;
         }
-        #endregion  // GetProcessStreamsByProfileId(Guid profileId) ... READ PROCESS STREAMS BY PROFILE ID
+        #endregion  // GetProcessStreamsByProfileId(int profileId) ... READ PROCESS STREAMS BY PROFILE ID
 
-        #region GetProcessStreamById(Guid processStreamId) ... READ SINGLE PROCESS STREAM BY ID
+        #region GetProcessStreamById(int processStreamId) ... READ SINGLE PROCESS STREAM BY ID
         /// <summary>
         /// Retrieves (READ) a SINGLE ProcessStream DTO associated with the specified unique identifier.
         /// </summary>
         /// <param name="processStreamId">The unique identifier of the process stream to retrieve.</param>
         /// <returns>A <see cref="ProcessStreamDto"/> representing the process stream with the specified identifier. Returns null if none is found.</returns>
-        public ProcessStreamDto GetProcessStreamById(Guid processStreamId)
+        public ProcessStreamDto GetProcessStreamById(int processStreamId)
         {
             try
             {
@@ -472,16 +473,16 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetProcessStreamById(Guid processStreamId) ... READ SINGLE PROCESS STREAM BY ID
+        #endregion  // GetProcessStreamById(int processStreamId) ... READ SINGLE PROCESS STREAM BY ID
 
-        #region GetProcessStreamByStreamId(Guid profileId, string streamId) ... READ SINGLE PROCESS STREAM BY STREAM ID
+        #region GetProcessStreamByStreamId(int profileId, string streamId) ... READ SINGLE PROCESS STREAM BY STREAM ID
         /// <summary>
         /// Retrieves (READ) a SINGLE process stream by its profile identifier and stream identifier.
         /// </summary>
         /// <param name="profileId">The unique identifier of the profile that owns the process stream.</param>
         /// <param name="streamId">The stream identifier of the process stream to retrieve.</param>
         /// <returns>A <see cref="ProcessStreamDto"/> containing the process stream details if found; otherwise, null.</returns>
-        public ProcessStreamDto GetProcessStreamByStreamId(Guid profileId, string streamId)
+        public ProcessStreamDto GetProcessStreamByStreamId(int profileId, string streamId)
         {
             //----------------------- Null Guid and Empty String Guard -----------------------
             //--- If the provided profileId is an empty GUID or null, or streamId is empty ---
@@ -490,7 +491,7 @@ namespace HenViewModel.Profile.Streams
             //--- This prevents unnecessary database queries and potential errors when     ---
             //--- trying to retrieve a utility stream with an invalid identifier.          ---
             //--------------------------------------------------------------------------------
-            if ((profileId == Guid.Empty) || (profileId == null) || string.IsNullOrEmpty(streamId))
+            if ((profileId == -1) || string.IsNullOrEmpty(streamId))
             {
                 return null;
             }
@@ -525,7 +526,7 @@ namespace HenViewModel.Profile.Streams
                 return null;
             }
         }
-        #endregion  // GetProcessStreamByStreamId(Guid profileId, string streamId) ... READ SINGLE PROCESS STREAM BY STREAM ID
+        #endregion  // GetProcessStreamByStreamId(int profileId, string streamId) ... READ SINGLE PROCESS STREAM BY STREAM ID
 
         #endregion  // READ METHODS
 
@@ -601,12 +602,12 @@ namespace HenViewModel.Profile.Streams
 
         #region DELETE METHODS
 
-        #region DeleteProcessStream(Guid processStreamId) ... DELETE SINGLE STREAM
+        #region DeleteProcessStream(int processStreamId) ... DELETE SINGLE STREAM
         /// <summary>
         /// Deletes (DELETE) SINGLE process stream with the specified unique identifier.
         /// </summary>
         /// <param name="processStreamId">The unique identifier of the process stream to delete.</param>
-        public void DeleteProcessStream(Guid processStreamId)
+        public void DeleteProcessStream(int processStreamId)
         {
             try
             {
@@ -634,7 +635,7 @@ namespace HenViewModel.Profile.Streams
                 Console.WriteLine($"Error deleting process stream: {ex.Message}");
             }
         }
-        #endregion  // DeleteProcessStream(Guid processStreamId) ... DELETE SINGLE STREAM
+        #endregion  // DeleteProcessStream(int processStreamId) ... DELETE SINGLE STREAM
 
         #endregion  // DELETE METHODS
 

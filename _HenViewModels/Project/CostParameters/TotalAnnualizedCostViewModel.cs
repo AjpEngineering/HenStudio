@@ -178,9 +178,9 @@ namespace HenViewModel.Project.CostParameters
         /// </summary>
         /// <param name="externalTotalAnnualizedCostDto">The total annualized cost data to add.</param>
         /// <returns>A GUID representing the unique identifier of the newly added total annualized cost.</returns>
-        public Guid AddTotalAnnualizedCost(TotalAnnualizedCostDto externalTotalAnnualizedCostDto)
+        public int AddTotalAnnualizedCost(TotalAnnualizedCostDto externalTotalAnnualizedCostDto)
         {
-            Guid totalAnnualizedCostId = new Guid();
+            int totalAnnualizedCostId = -1;
             try
             {
                 //----------------------------------------------------------------------------------
@@ -200,6 +200,7 @@ namespace HenViewModel.Project.CostParameters
             catch (Exception ex)
             {
                 Console.WriteLine($"Error adding total annualized cost: {ex.Message}");
+                totalAnnualizedCostId = -1;
             }
             //----------------------------------------------------------------------------------
             //--- Return the TotalAnnualizedCost ID (PK) from the TotalAnnualizedCost Table  ---
@@ -210,8 +211,8 @@ namespace HenViewModel.Project.CostParameters
             return totalAnnualizedCostId;
         }
         #endregion  // AddTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto) ... CREATE
-        
-        #region GetTotalAnnualizedCostByProjectId(Guid projectId) ... READ
+
+        #region GetTotalAnnualizedCostByProjectId(int projectId) ... READ
         /// <summary>
         /// Retrieves (READ) the TotalAnnualizedCost Dto associated with the specified unique identifier.
         /// The TotalAnnualizedCost retrieved from the Database is in INTERNAL Units, 
@@ -222,7 +223,7 @@ namespace HenViewModel.Project.CostParameters
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="TotalAnnualizedCostDto"/> representing the TotalAnnualizedCost with the specified identifier. 
         /// Returns null if no TotalAnnualizedCost is found.</returns>
-        public TotalAnnualizedCostDto GetTotalAnnualizedCostByProjectId(Guid projectId)
+        public TotalAnnualizedCostDto GetTotalAnnualizedCostByProjectId(int projectId)
         {
             TotalAnnualizedCostDto externalTotalAnnualizedCostDto = new TotalAnnualizedCostDto();
             try
@@ -235,7 +236,7 @@ namespace HenViewModel.Project.CostParameters
                 //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
                 //---that the TotalAnnualizedCost cannot be found.                                  ---
                 //-------------------------------------------------------------------------------------
-                if (projectId == Guid.Empty)
+                if (projectId == -1)
                 {
                     return null; // Return null if the projectId is empty
                 }
@@ -264,7 +265,7 @@ namespace HenViewModel.Project.CostParameters
             //--------------------------------------------------------------------
             return externalTotalAnnualizedCostDto;
         }
-        #endregion  // GetTotalAnnualizedCostByProjectId(Guid projectId) ... READ
+        #endregion  // GetTotalAnnualizedCostByProjectId(int projectId) ... READ
 
         #region UpdateTotalAnnualizedCost(TotalAnnualizedCostDto externalTotalAnnualizedCostDto) ... UPDATE
         /// <summary>
@@ -304,12 +305,12 @@ namespace HenViewModel.Project.CostParameters
         }
         #endregion  // UpdateTotalAnnualizedCost(TotalAnnualizedCostDto totalAnnualizedCostDto) ... UPDATE
 
-        #region DeleteTotalAnnualizedCost(Guid totalAnnualizedCostId) ... DELETE
+        #region DeleteTotalAnnualizedCost(int totalAnnualizedCostId) ... DELETE
         /// <summary>
         /// Deletes (DELETE) the total annualized cost with the specified unique identifier.
         /// </summary>
         /// <param name="totalAnnualizedCostId">The unique identifier of the total annualized cost to delete.</param>
-        public void DeleteTotalAnnualizedCost(Guid totalAnnualizedCostId)
+        public void DeleteTotalAnnualizedCost(int totalAnnualizedCostId)
         {
             try
             {
@@ -326,7 +327,7 @@ namespace HenViewModel.Project.CostParameters
                 Console.WriteLine($"Error deleting total annualized cost: {ex.Message}");
             }
         }
-        #endregion  // DeleteTotalAnnualizedCost(Guid totalAnnualizedCostId) ... DELETE
+        #endregion  // DeleteTotalAnnualizedCost(int totalAnnualizedCostId) ... DELETE
 
         #endregion  // TOTAL ANNUALIZED COST CRUD METHODS
 

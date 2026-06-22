@@ -197,10 +197,10 @@ namespace HenViewModel.Project.CostParameters
         /// Adds (CREATE) a new utility cost to the database using the specified DTO.
         /// </summary>
         /// <param name="externalUtilityCostDto">The utility cost data to add.</param>
-        /// <returns>A GUID representing the unique identifier of the newly added utility cost.</returns>
-        public Guid AddUtilityCost(UtilityCostDto externalUtilityCostDto)
+        /// <returns>An INT representing the unique identifier of the newly added utility cost.</returns>
+        public int AddUtilityCost(UtilityCostDto externalUtilityCostDto)
         {
-            Guid utilityCostId = new Guid();
+            int utilityCostId = -1;
             try
             {
                 //-----------------------------------------------------------------------
@@ -220,6 +220,7 @@ namespace HenViewModel.Project.CostParameters
             catch (Exception ex)
             {
                 Console.WriteLine($"Error adding utility cost: {ex.Message}");
+                utilityCostId = -1;
             }
             //------------------------------------------------------------------------------------
             //--- Return the UtilityCost ID (PK) from the Database addition of the provided    ---
@@ -232,8 +233,8 @@ namespace HenViewModel.Project.CostParameters
             return utilityCostId;
         }
         #endregion  // AddUtilityCost(UtilityCostDto utilityCostDto) ... CREATE
-        
-        #region GetUtilityCostByProjectId(Guid projectId) ... READ
+
+        #region GetUtilityCostByProjectId(int projectId) ... READ
         /// <summary>
         /// Retrieves (READ) the UtilityCost Dto associated with the specified unique identifier.
         /// The UtilityCost retrieved from the Database is in INTERNAL Units, 
@@ -244,7 +245,7 @@ namespace HenViewModel.Project.CostParameters
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="UtilityCostDto"/> representing the UtilityCost with the specified identifier. 
         /// Returns null if no UtilityCost is found.</returns>
-        public UtilityCostDto GetUtilityCostByProjectId(Guid projectId)
+        public UtilityCostDto GetUtilityCostByProjectId(int projectId)
         {
             UtilityCostDto externalUtilityCostDto = new UtilityCostDto();
             try
@@ -257,7 +258,7 @@ namespace HenViewModel.Project.CostParameters
                 //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
                 //---that the UtilityCost cannot be found.                                          ---
                 //-------------------------------------------------------------------------------------
-                if (projectId == Guid.Empty)
+                if (projectId == -1)
                 {
                     return null; // Return null if the projectId is empty
                 }
@@ -286,7 +287,7 @@ namespace HenViewModel.Project.CostParameters
             //-------------------------------------------------------------------
             return externalUtilityCostDto;
         }
-        #endregion  // GetUtilityCostByProjectId(Guid projectId) ... READ
+        #endregion  // GetUtilityCostByProjectId(int projectId) ... READ
 
         #region UpdateUtilityCost(UtilityCostDto externalUtilityCostDto) ... UPDATE
         /// <summary>
@@ -324,12 +325,12 @@ namespace HenViewModel.Project.CostParameters
         }
         #endregion  // UpdateUtilityCost(UtilityCostDto externalUtilityCostDto) ... UPDATE
 
-        #region DeleteUtilityCost(Guid utilityCostId) ... DELETE
+        #region DeleteUtilityCost(int utilityCostId) ... DELETE
         /// <summary>
         /// Deletes (DELETE) the utility cost with the specified unique identifier.
         /// </summary>
         /// <param name="utilityCostId">The unique identifier of the utility cost to delete.</param>
-        public void DeleteUtilityCost(Guid utilityCostId)
+        public void DeleteUtilityCost(int utilityCostId)
         {
             try
             {
@@ -344,7 +345,7 @@ namespace HenViewModel.Project.CostParameters
                 Console.WriteLine($"Error deleting utility cost: {ex.Message}");
             }
         }
-        #endregion  // DeleteUtilityCost(Guid utilityCostId) ... DELETE
+        #endregion  // DeleteUtilityCost(int utilityCostId) ... DELETE
 
         #endregion  // UTILITY COST CRUD METHODS
 
