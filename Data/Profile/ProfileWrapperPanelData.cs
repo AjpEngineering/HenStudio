@@ -156,7 +156,7 @@ namespace HenStudio.Data.Profile
         /// <summary>
         /// Parameterized Constructor for ProfileWrapperPanelData Class
         /// </summary>
-        public ProfileWrapperPanelData(Guid projectId, Guid profileId)
+        public ProfileWrapperPanelData(int projectId, int profileId)
         {
             try
             {
@@ -168,11 +168,11 @@ namespace HenStudio.Data.Profile
                 //--------------------------------------------------------------------------
                 //--- Null Guard on User Supplied Ids to Avoid Null Reference Exceptions ---
                 //--------------------------------------------------------------------------   
-                if (projectId == null) throw new ArgumentNullException(
+                if (projectId == -1) throw new ArgumentNullException(
                                              nameof(projectId), "Project ID cannot be null.");
                 else ProfileWrapperDtoObj.ProjectId = projectId;
 
-                if (profileId == null) throw new ArgumentNullException(
+                if (profileId == -1) throw new ArgumentNullException(
                                              nameof(profileId), "Profile ID cannot be null.");
                 else ProfileWrapperDtoObj.ProfileId = profileId;
                 //---------------------------------------------

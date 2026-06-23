@@ -54,6 +54,7 @@ namespace HenModel.Dto.Project
     public class ProjectWrapperDto
     {
         #region PROPERTIES
+        public string ProjectDbName { get; set; } = string.Empty;
         //------------------------------------------------------- IDs ---
         //--- Initialize IDs to -1 to Avoid Null Reference Exceptions ---
         //---------------------------------------------------------------
@@ -85,15 +86,6 @@ namespace HenModel.Dto.Project
         public UtilityCostDto UtilityCostDtoObj { get; set; } = new UtilityCostDto();
 
         #endregion      // PROPERTIES
-
-        //#region CTOR
-        ///// <summary>
-        ///// Default Constructor for ProjectWrapperDto Class
-        ///// </summary>
-        //public ProjectWrapperDto()
-        //{
-        //}
-        //#endregion  // CTOR
 
     }
     #endregion      // public class ProjectWrapperDto

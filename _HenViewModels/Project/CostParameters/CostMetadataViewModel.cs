@@ -180,9 +180,9 @@ namespace HenViewModel.Project.CostParameters
         /// </summary>
         /// <param name="externalCostMetadataDto">The cost metadata data to add.</param>
         /// <returns>A GUID representing the unique identifier of the newly added cost metadata.</returns>
-        public Guid AddCostMetadata(CostMetadataDto externalCostMetadataDto)
+        public int AddCostMetadata(CostMetadataDto externalCostMetadataDto)
         {
-            Guid costMetadataId = new Guid();
+            int costMetadataId = -1;
             try
             {
                 //------------------------------------------------------------------------
@@ -202,6 +202,7 @@ namespace HenViewModel.Project.CostParameters
             catch (Exception ex)
             {
                 Console.WriteLine($"Error adding cost metadata: {ex.Message}");
+                costMetadataId = -1;
             }
             //------------------------------------------------------------------------------------
             //--- Return the CostMetadata ID (PK) from the Database addition.                  ---
@@ -212,7 +213,7 @@ namespace HenViewModel.Project.CostParameters
         }
         #endregion  // AddCostMetadata(CostMetadataDto costMetadataDto) ... CREATE
 
-        #region GetCostMetadataByProjectId(Guid projectId) ... READ
+        #region GetCostMetadataByProjectId(int projectId) ... READ
         /// <summary>
         /// Retrieves (READ) the CostMetadata Dto associated with the specified unique identifier.
         /// The CostMetadata retrieved from the Database is in INTERNAL Units, database access 
@@ -223,7 +224,7 @@ namespace HenViewModel.Project.CostParameters
         /// <param name="projectId">The unique identifier of the Project to retrieve.</param>
         /// <returns>A <see cref="CostMetadataDto"/> representing the CostMetadata with the specified identifier. 
         /// Returns null if no CostMetadata is found.</returns>
-        public CostMetadataDto GetCostMetadataByProjectId(Guid projectId)
+        public CostMetadataDto GetCostMetadataByProjectId(int projectId)
         {
             CostMetadataDto externalCostMetadataDto = new CostMetadataDto();
             try
@@ -236,7 +237,7 @@ namespace HenViewModel.Project.CostParameters
                 //--- An empty projectId is not valid for retrieval, so we return null to indicate  ---
                 //---that the cost metadata cannot be found.                                        ---
                 //-------------------------------------------------------------------------------------
-                if (projectId == Guid.Empty)
+                if (projectId == -1)
                 {
                     return null; // Return null if the projectId is empty
                 }
@@ -264,7 +265,7 @@ namespace HenViewModel.Project.CostParameters
             //--------------------------------------------------------------------
             return externalCostMetadataDto;
         }
-        #endregion  // GetCostMetadataByProjectId(Guid projectId) ... READ
+        #endregion  // GetCostMetadataByProjectId(int projectId) ... READ
 
         #region UpdateCostMetadata(CostMetadataDto externalCostMetadataDto) ... UPDATE
         /// <summary>
@@ -303,12 +304,12 @@ namespace HenViewModel.Project.CostParameters
         }
         #endregion  // UpdateCostMetadata(CostMetadataDto costMetadataDto) ... UPDATE
 
-        #region DeleteCostMetadata(Guid costMetadataId) ... DELETE
+        #region DeleteCostMetadata(int costMetadataId) ... DELETE
         /// <summary>
         /// Deletes (DELETE) the cost metadata with the specified unique identifier.
         /// </summary>
         /// <param name="costMetadataId">The unique identifier of the cost metadata to delete.</param>
-        public void DeleteCostMetadata(Guid costMetadataId)
+        public void DeleteCostMetadata(int costMetadataId)
         {
             try
             {
@@ -325,7 +326,7 @@ namespace HenViewModel.Project.CostParameters
                 Console.WriteLine($"Error deleting cost metadata: {ex.Message}");
             }
         }
-        #endregion  // DeleteCostMetadata(Guid costMetadataId) ... DELETE
+        #endregion  // DeleteCostMetadata(int costMetadataId) ... DELETE
 
         #endregion  // COST METADATA CRUD METHODS
 

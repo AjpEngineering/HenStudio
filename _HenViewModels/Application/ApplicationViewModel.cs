@@ -70,7 +70,7 @@ namespace HenViewModel.Application
         public ApplicationViewModel()
         {
             //-----------------------------------------------------------------------------------------
-            // Configure APPLICATION database connection options
+            //--- Configure APPLICATION database connection options
             //-----------------------------------------------------------------------------------------
             SQLiteConnectionOptions options = new SQLiteConnectionOptions
             {
@@ -79,12 +79,12 @@ namespace HenViewModel.Application
             };
 
             //-----------------------------------------------------------------------------------------
-            // Create the SQLite connection factory using APPLICATION options
+            //--- Create the SQLite connection factory using APPLICATION options
             //-----------------------------------------------------------------------------------------
             SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
 
             //-----------------------------------------------------------------------------------------
-            // Initialize APPLICATION-level repositories
+            //--- Initialize APPLICATION-level repositories
             //-----------------------------------------------------------------------------------------
             AppComponentsRepoObj = new AppComponentsRepo(connFactoryObj);
             AppMetadataRepoObj = new AppMetadataRepo(connFactoryObj);
