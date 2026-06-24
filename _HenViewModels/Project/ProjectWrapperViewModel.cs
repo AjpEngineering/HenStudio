@@ -34,7 +34,16 @@
 
 #region REFERENCES
 
+#region HEN STUDIO REFERENCES
+
 using HenGlobal;
+
+using HenModel.Dto.Project;
+using HenModel.Dto.Project.CostParameters;
+using HenModel.Dto.Project.DefaultParameters;
+using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
+using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
+using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
 using HenModel.Dto.Profile;
 using HenModel.Dto.Profile.Streams;
@@ -45,28 +54,15 @@ using HenViewModel.Project.DefaultParameters;
 using HenViewModel.Project.DefaultParameters.ExchangerParams;
 using HenViewModel.Project.DefaultParameters.OptimizerParams;
 using HenViewModel.Project.DefaultParameters.ProjectUnits;
-
-#region HEN STUDIO REFERENCES
-using HenModel.Dto.Project;
-using HenModel.Dto.Project.CostParameters;
-using HenModel.Dto.Project.DefaultParameters;
-using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
-using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
-using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
-
-using HenStudio.Data.Project;
-using HenStudio.Data.Project.CostParameters;
-using HenStudio.Data.Project.DefaultParameters;
-using HenStudio.Data.Project.DefaultParameters.ExchangerParams;
-using HenStudio.Data.Project.DefaultParameters.OptimizerParams;
-using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
 #endregion  // HEN STUDIO REFERENCES
 
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Linq;
+
+using HenModel.Connection;
+using HenModel.RepoInterfaces.Project.DefaultParameters.ExchangerParams;
 
 #endregion      // REFERENCES
 
@@ -85,7 +81,10 @@ namespace HenViewModel.Project
         #endregion  // CONSTANTS
 
         #region PROPERTIES
+
+        #region PROJECT Database Name
         string ProjectDbName { get; set; } = string.Empty;
+        #endregion  // PROJECT Database Name
 
         #region ProjectWrapperDto OBJECT
         //-----------------------------------------------------------------------------
@@ -96,6 +95,18 @@ namespace HenViewModel.Project
         //-----------------------------------------------------------------------------
         ProjectWrapperDto ProjectWrapperDtoObj { get; set; } = new ProjectWrapperDto();
         #endregion  // ProjectWrapperDto OBJECT
+
+        #region HenProjectUnits OBJECT
+        //------------------------------------------------------------------------
+        //--- HenProjectUnits Holds PROJECT Units Data (INTERNAL & EXTERNAL)   ---
+        //------------------------------------------------------------------------
+        //--- Object contains methods to retrieve the following PROJECT UNITS: ---
+        //--- SystemUnits, MagnitudeUnits, AreaUnits, TemperatureUnits,        ---
+        //--- PressureUnits, HeatFlowRateUnits, HeatCapacityFlowRateUnits,     ---
+        //--- Overall HeatTransferCoefficientUnits                             ---
+        //------------------------------------------------------------------------
+        public HenProjectUnits HenProjectUnitsObj { get; set; } = new HenProjectUnits();
+        #endregion  // HenProjectUnits OBJECT
 
         #region SUB-Panel ViewModel OBJECTS
         //----------------------------------------------- Project Sub-Panel ---
@@ -116,47 +127,58 @@ namespace HenViewModel.Project
 
         #endregion  // SUB-Panel ViewModel OBJECTS
 
-        #region HenProjectUnits OBJECT
-        //------------------------------------------------------------------------
-        //--- HenProjectUnits Holds PROJECT Units Data (INTERNAL & EXTERNAL)   ---
-        //------------------------------------------------------------------------
-        //--- Object contains methods to retrieve the following PROJECT UNITS: ---
-        //--- SystemUnits, MagnitudeUnits, AreaUnits, TemperatureUnits,        ---
-        //--- PressureUnits, HeatFlowRateUnits, HeatCapacityFlowRateUnits,     ---
-        //--- Overall HeatTransferCoefficientUnits                             ---
-        //------------------------------------------------------------------------
-        public HenProjectUnits HenProjectUnitsObj { get; set; } = new HenProjectUnits();
-        #endregion  // HenProjectUnits OBJECT
 
         #endregion      // PROPERTIES
 
         #region Parameterized CTOR
         /// <summary>
-        /// Parameterized Constructor for ProjectWrapperData Class
+        /// Parameterized Constructor for ProjectWrapperViewModel Class
         /// </summary>
-        /// <param name="projectWrapperDtoObj">Project Wrapper DTO Object</param>
-        public ProjectWrapperViewModel(ProjectWrapperDto projectWrapperDtoObj)
+        /// <param name="strProjectDbNameOnly">Project Db Name... NO ".db" extension</param>
+        public ProjectWrapperViewModel(string strProjectDbNameOnly)
         {
-            //--------------------------------------------- Project Wrapper DTO ---
-            ProjectWrapperDtoObj = projectWrapperDtoObj;
+            #region PROJECT Database Name
+            if (strProjectDbNameOnly == string.Empty) throw new ArgumentNullException(
+                           nameof(strProjectDbNameOnly),
+                           "Project DB Name can not be empty");
 
+            //---------------------------------------------------
+            //--- Add File Extension ".db" to Project Db Name ---
+            //---------------------------------------------------
+            ProjectDbName = string.Format("{0].db", strProjectDbNameOnly);
+            #endregion  // PROJECT Database Name
+
+            #region PROJECT Database Connection
+            //-----------------------------------------------------------------------------------------
+            //--- Configure PROJECT database connection options
+            //-----------------------------------------------------------------------------------------
+            SQLiteConnectionOptions options = new SQLiteConnectionOptions
+            {
+                DbType = DatabaseType.PROJECT,
+                DatabasePath = ProjectDbName
+            };
+
+            //-----------------------------------------------------------------------------------------
+            //--- Create the SQLite connection factory using APPLICATION options
+            //-----------------------------------------------------------------------------------------
+            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
+            #endregion  // PROJECT Database Connection
+
+            #region Initialize PROJECT-level ViewModel Objects
             //----------------------------------------------- Project Sub-Panel ---
-            ProjectViewModelObj = new ProjectViewModel(ProjectWrapperDtoObj.ProjectDbName);
+            ProjectViewModelObj = new ProjectViewModel(connFactoryObj);
 
             //------------------------------- Project Default Params Sub-Panels ---
-            ProjectUnitsViewModelObj = new ProjectUnitsViewModel(ProjectWrapperDtoObj.ProjectDbName);
-            ExchangerParamsViewModelObj = new ExchangerParamsViewModel(ProjectWrapperDtoObj.ProjectDbName);
-            OptimizerParamsViewModelObj = new OptimizerParamsViewModel(ProjectWrapperDtoObj.ProjectDbName);
-            
-            HeatTransferCoeffViewModelObj = new HeatTransferCoeffViewModel(
-                ProjectWrapperDtoObj.ProjectUnitsDtoObj.DefaultSystemUnits);
+            ProjectUnitsViewModelObj = new ProjectUnitsViewModel(connFactoryObj);
+            ExchangerParamsViewModelObj = new ExchangerParamsViewModel(connFactoryObj);
+            OptimizerParamsViewModelObj = new OptimizerParamsViewModel(connFactoryObj);
 
             //---------------------------------- Project Cost Params Sub-Panels ---
-            CostMetadataViewModelObj = new CostMetadataViewModel(ProjectWrapperDtoObj.ProjectDbName);
-            FiredHeaterCapitalCostViewModelObj = new FiredHeaterCapitalCostViewModel(ProjectWrapperDtoObj.ProjectDbName);
-            ShellAndTubeCapitalCostViewModelObj = new ShellAndTubeCapitalCostViewModel(ProjectWrapperDtoObj.ProjectDbName);
-            TotalAnnualizedCostViewModelObj = new TotalAnnualizedCostViewModel(ProjectWrapperDtoObj.ProjectDbName);
-            UtilityCostPViewModelObj = new UtilityCostViewModel(ProjectWrapperDtoObj.ProjectDbName);
+            CostMetadataViewModelObj = new CostMetadataViewModel(connFactoryObj);
+            FiredHeaterCapitalCostViewModelObj = new FiredHeaterCapitalCostViewModel(connFactoryObj);
+            ShellAndTubeCapitalCostViewModelObj = new ShellAndTubeCapitalCostViewModel(connFactoryObj);
+            TotalAnnualizedCostViewModelObj = new TotalAnnualizedCostViewModel(connFactoryObj);
+            UtilityCostPViewModelObj = new UtilityCostViewModel(connFactoryObj);
 
             //-----------------------------------------------------------------------------------
             //--- Initialize Heat Transfer Coefficient Panel Data based on Project Units      ---
@@ -166,7 +188,10 @@ namespace HenViewModel.Project
             //--- calculated based on the Project Units.                                      ---
             //-----------------------------------------------------------------------------------
             HeatTransferCoeffViewModelObj = new HeatTransferCoeffViewModel(
-                ProjectWrapperDtoObj.ProjectUnitsDtoObj.DefaultSystemUnits);
+                ProjectWrapperDtoObj.ProjectUnitsDtoObj.DefaultSystemUnits);  // Data Source is NOT DB
+
+            #endregion  // Initialize PROJECT-level ViewModel Objects
+
         }
         #endregion  // Parameterized CTOR
 

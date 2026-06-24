@@ -155,10 +155,15 @@ namespace HenStudio.Data.Project
         /// Parameterized Constructor for ProjectWrapperData Class
         /// Project Wrapper DTO MUST contain ProjectDbName
         /// </summary>
-        public ProjectWrapperPanelData()
+        /// <param name="strProjectDbNameOnly">Project Db Name... NO ".db" extension</param>
+        public ProjectWrapperPanelData(string strProjectDbNameOnly)
         {
-            ProjectWrapperDtoObj = null;
-            ProjectWrapperViewModelObj = null;
+            if (strProjectDbNameOnly == string.Empty) throw new ArgumentNullException(
+               nameof(strProjectDbNameOnly),
+               "Project DB Name can not be empty");
+
+            ProjectWrapperDtoObj = new ProjectWrapperDto();
+            ProjectWrapperViewModelObj = new ProjectWrapperViewModel(strProjectDbNameOnly);
             HenProjectUnitsObj = new HenProjectUnits();
         }
         #endregion  // Parameterized CTOR

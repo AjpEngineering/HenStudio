@@ -63,28 +63,13 @@ namespace HenViewModel.Project.DefaultParameters.ExchangerParams
         /// <summary>
         /// Parameterized CTOR
         /// </summary>
-        /// <param name="strProjectDatabaseName">Project Database Name</param>
-        public ExchangerParamsViewModel(string strProjectDatabaseName)
+        /// <param name="connFactoryObj">SQLite Connection Factory Object</param>
+        public ExchangerParamsViewModel(SQLiteConnectionFactory connFactoryObj)
         {
-            #region Get SQLiteConnectionFactory Object (connFactoryObj)
-            //-----------------------------------------------------
-            //--- Configure PROJECT database connection options ---
-            //-----------------------------------------------------
-            SQLiteConnectionOptions options = new SQLiteConnectionOptions
-            {
-                DbType = DatabaseType.PROJECT,
-                DatabasePath = strProjectDatabaseName
-            };
-
-            //------------------------------------------------------------------
-            //--- Create the SQLite connection factory using PROJECT options ---
-            //------------------------------------------------------------------
-            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
-            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
-
-            ExchangerParamsRepoObj = new ExchangerParamsRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
+
+            ExchangerParamsRepoObj = new ExchangerParamsRepo(connFactoryObj);
         }
         #endregion  // Parameterized CTOR
 

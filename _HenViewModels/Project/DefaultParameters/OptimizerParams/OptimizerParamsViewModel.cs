@@ -62,28 +62,13 @@ namespace HenViewModel.Project.DefaultParameters.OptimizerParams
         /// <summary>
         /// Parameterized CTOR
         /// </summary>
-        /// <param name="strProjectDatabaseName">Project Database Name</param>
-        public OptimizerParamsViewModel(string strProjectDatabaseName)
+        /// <param name="connFactoryObj">SQLite Connection Factory Object</param>
+        public OptimizerParamsViewModel(SQLiteConnectionFactory connFactoryObj)
         {
-            #region Get SQLiteConnectionFactory Object (connFactoryObj)
-            //-----------------------------------------------------
-            //--- Configure PROJECT database connection options ---
-            //-----------------------------------------------------
-            SQLiteConnectionOptions options = new SQLiteConnectionOptions
-            {
-                DbType = DatabaseType.PROJECT,
-                DatabasePath = strProjectDatabaseName
-            };
-
-            //------------------------------------------------------------------
-            //--- Create the SQLite connection factory using PROJECT options ---
-            //------------------------------------------------------------------
-            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
-            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
-
-            OptimizerParamsRepoObj = new OptimizerParamsRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
+
+            OptimizerParamsRepoObj = new OptimizerParamsRepo(connFactoryObj);
         }
         #endregion  // Parameterized CTOR
 

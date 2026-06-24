@@ -61,28 +61,13 @@ namespace HenViewModel.Project.CostParameters
         /// <summary>
         /// Parameterized CTOR
         /// </summary>
-        /// <param name="strProjectDatabaseName">Project Database Name</param>
-        public ShellAndTubeCapitalCostViewModel(string strProjectDatabaseName)
+        /// <param name="connFactoryObj">SQLite Connection Factory Object</param>
+        public ShellAndTubeCapitalCostViewModel(SQLiteConnectionFactory connFactoryObj)
         {
-            #region Get SQLiteConnectionFactory Object (connFactoryObj)
-            //-----------------------------------------------------
-            //--- Configure PROJECT database connection options ---
-            //-----------------------------------------------------
-            SQLiteConnectionOptions options = new SQLiteConnectionOptions
-            {
-                DbType = DatabaseType.PROJECT,
-                DatabasePath = strProjectDatabaseName
-            };
-
-            //------------------------------------------------------------------
-            //--- Create the SQLite connection factory using PROJECT options ---
-            //------------------------------------------------------------------
-            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
-            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
-
-            ShellAndTubeCapitalCostRepoObj = new ShellAndTubeCapitalCostRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
+
+            ShellAndTubeCapitalCostRepoObj = new ShellAndTubeCapitalCostRepo(connFactoryObj);
         }
         #endregion  // Parameterized CTOR
 
