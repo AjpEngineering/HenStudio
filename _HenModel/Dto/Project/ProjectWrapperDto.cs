@@ -42,6 +42,7 @@ using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 using HenModel.Dto.Project.CostParameters;
 
 using System;
+using System.Collections.Generic;
 #endregion      // REFERENCES
 
 #region namespace HenModel.Dto.Project
@@ -77,6 +78,7 @@ namespace HenModel.Dto.Project
 
         public ProjectUnitsDto ProjectUnitsDtoObj { get; set; } = new ProjectUnitsDto();
         public ExchangerParamsDto ExchangerParamsDtoObj{ get; set; } = new ExchangerParamsDto();
+        public List<HeatTransferCoeffDto> HeatTransferCoeffDtoList { get; set; } = new List<HeatTransferCoeffDto>();
         public OptimizerParamsDto OptimizerParamsDtoObj { get; set; } = new OptimizerParamsDto();
 
         public CostMetadataDto CostMetadataDtoObj { get; set; } = new CostMetadataDto();

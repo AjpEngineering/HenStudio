@@ -273,9 +273,6 @@ namespace HenViewModel.Project
                 #endregion  // PROJECT UNITS DATA
 
                 #region EXCHANGER PARAMS DATA
-                //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-                //--------------------- EXCHANGER PARAMS DATA ----------------------
-                //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
                 if (ProjectWrapperDtoObj.ExchangerParamsDtoObj == null) throw new ArgumentNullException(
                                  nameof(ProjectWrapperDtoObj.ExchangerParamsDtoObj),
                                  "Exchanger Params DTO Object cannot be null.");
@@ -292,6 +289,18 @@ namespace HenViewModel.Project
                 externalExchangerParamsDto.Id = exchangerParamsId;                        // Assign ExchangerParams DTO ExchangerParams ID (PK)
                 ProjectWrapperDtoObj.ExchangerParamsDtoObj = externalExchangerParamsDto;  // Assign WRAPPER ExchangerParams DTO
                 #endregion  // EXCHANGER PARAMS DATA
+
+                #region HEAT TRANSFER COEFFICIENT LIST
+                //------------------------------------------------------
+                //--- Create Heat Transfer Coeff ViewModel Object    ---
+                //--- CTOR load List of HeatTransferCoeffDto Objects ---
+                //--- List is assigned to Project WRAPPER DTO        ---  
+                //------------------------------------------------------
+                HeatTransferCoeffViewModelObj = new HeatTransferCoeffViewModel(
+                    ProjectWrapperDtoObj.ProjectUnitsDtoObj.DefaultSystemUnits);  // Data Source is NOT DB
+                ProjectWrapperDtoObj.HeatTransferCoeffDtoList = 
+                                     HeatTransferCoeffViewModelObj.HeatTransferCoeffDtoList;
+                #endregion  // HEAT TRANSFER COEFFICIENT LIST
 
                 #region OPTIMIZER PARAMS DATA
                 if (ProjectWrapperDtoObj.OptimizerParamsDtoObj == null) throw new ArgumentNullException(
@@ -447,9 +456,7 @@ namespace HenViewModel.Project
 
         #region --> READ ..... ReadProjectWrapperData(int projectId)
         /// <summary>
-        /// Read (GET) the Project Wrapper Data from the HENSTUDIO DB 
-        /// using the specified Project ID.
-        /// NOTE: WRAPPER DTO data should match PANEL DATA DTO data
+        /// Read (GET) the Project Wrapper Data using the specified Project ID.
         /// </summary>
         /// <param name="projectId">The ID of the project-related data to READ.</param>
         /// <returns>Project WRAPPER DTO object</returns>
@@ -459,12 +466,12 @@ namespace HenViewModel.Project
             string strMethod = "ReadProjectWrapperData";
 
             if (projectId == -1) throw new ArgumentNullException(
-                             nameof(projectId), 
-                             "Project ID cannot be -1.");
-            //---------------------------------
-            //--- Assign WRAPPER Project ID ---
-            //---------------------------------
-            ProjectWrapperDtoObj.ProjectId = projectId;
+                                       nameof(projectId), 
+                                      "Project ID cannot be -1.");
+            //---------------------------------------------
+            //--- Initialize Project WRAPPER DTO Object ---
+            //---------------------------------------------
+            ProjectWrapperDtoObj = new ProjectWrapperDto();
             try
             {
                 #region TRANSACTION
@@ -475,84 +482,68 @@ namespace HenViewModel.Project
 
                 #region PROJECT PANEL DATA
                 //--------------------------------------------------------
-                //--- READ Project Data from DB using PanelData Object ---
-                //--- NOTE: PanelData Object returns Project DTO       ---
+                //--- READ Project Data from DB using ViewModel Object ---
+                //--- NOTE: ViewModel Object returns Project DTO       ---
                 //--------------------------------------------------------
-                ProjectDto projectDtoObj = ProjectPanelDataObj.ReadProjectData(projectId);
+                ProjectWrapperDtoObj.ProjectDtoObj = ProjectViewModelObj.GetProjectById(projectId);
 
-            if (projectDtoObj == null) throw new ArgumentNullException(
-                             nameof(projectDtoObj),
-                             "Project DTO cannot be null.");
-            //----------------------------------
-            //--- Assign WRAPPER Project DTO ---
-            //----------------------------------
-            ProjectWrapperDtoObj.ProjectDtoObj = projectDtoObj;
-            #endregion  // PROJECT PANEL DATA
+                if (ProjectWrapperDtoObj.ProjectDtoObj == null) throw new ArgumentNullException(
+                                  nameof(ProjectWrapperDtoObj.ProjectDtoObj),
+                                 "Project DTO cannot be null.");
+                #endregion  // PROJECT PANEL DATA
 
                 #region PROJECT DEFAULT PARAMETERS PANELS DATA
 
                 #region PROJECT UNITS PANEL DATA
                 //-------------------------------------------------------------
-                //--- READ ProjectUnits Data from DB using PanelData Object ---
-                //--- NOTE: PanelData Object returns ProjectUnits DTO       ---
+                //--- READ ProjectUnits Data from DB using ViewModel Object ---
+                //--- NOTE: ViewModel Object returns ProjectUnits DTO       ---
                 //-------------------------------------------------------------
-                ProjectUnitsDto projectUnitsDtoObj = 
-                                ProjectUnitsPanelDataObj.ReadProjectUnitsData(projectId);
+                ProjectWrapperDtoObj.ProjectUnitsDtoObj =
+                                ProjectUnitsViewModelObj.GetProjectUnitsByProjectId(projectId);
 
-                if (projectUnitsDtoObj == null) throw new ArgumentNullException(
-                                 nameof(projectUnitsDtoObj),
+                if (ProjectWrapperDtoObj.ProjectUnitsDtoObj == null) throw new ArgumentNullException(
+                                  nameof(ProjectWrapperDtoObj.ProjectUnitsDtoObj),
                                  "Project Units DTO cannot be null.");
-                //----------------------------------------
-                //--- Assign WRAPPER Project Units DTO ---
-                //----------------------------------------
-                ProjectWrapperDtoObj.ProjectUnitsDtoObj = projectUnitsDtoObj;
                 #endregion  // PROJECT UNITS PANEL DATA
 
                 #region EXCHANGER PARAMS PANEL DATA
                 //----------------------------------------------------------------
-                //--- READ ExchangerParams Data from DB using PanelData Object ---
-                //--- NOTE: PanelData Object returns ExchangerParams DTO       ---
+                //--- READ ExchangerParams Data from DB using ViewModel Object ---
+                //--- NOTE: ViewModel Object returns ExchangerParams DTO       ---
                 //----------------------------------------------------------------
-                ExchangerParamsDto exchangerParamsDtoObj =
-                    ExchangerParamsPanelDataObj.ReadExchangerParamsData(ProjectWrapperDtoObj.ProjectId);
+                ProjectWrapperDtoObj.ExchangerParamsDtoObj =
+                          ExchangerParamsViewModelObj.GetExchangerParamsByProjectId(projectId);
 
-                if (exchangerParamsDtoObj == null) throw new ArgumentNullException(
-                                 nameof(exchangerParamsDtoObj),
-                                 "Exchanger Params DTO cannot be null.");
-                //-------------------------------------------
-                //--- Assign WRAPPER Exchanger Params DTO ---
-                //-------------------------------------------
-                ProjectWrapperDtoObj.ExchangerParamsDtoObj = exchangerParamsDtoObj;
+                if (ProjectWrapperDtoObj.ExchangerParamsDtoObj == null) throw new ArgumentNullException(
+                                   nameof(ProjectWrapperDtoObj.ExchangerParamsDtoObj),
+                                  "Exchanger Params DTO cannot be null.");
                 #endregion  // EXCHANGER PARAMS PANEL DATA
+
+                #region HEAT TRANSFER COEFFICIENT LIST
+                //------------------------------------------------------
+                //--- Create Heat Transfer Coeff ViewModel Object    ---
+                //--- CTOR load List of HeatTransferCoeffDto Objects ---
+                //--- List is assigned to Project WRAPPER DTO        ---  
+                //------------------------------------------------------
+                HeatTransferCoeffViewModelObj = new HeatTransferCoeffViewModel(
+                    ProjectWrapperDtoObj.ProjectUnitsDtoObj.DefaultSystemUnits);  // Data Source is NOT DB
+                ProjectWrapperDtoObj.HeatTransferCoeffDtoList =
+                                     HeatTransferCoeffViewModelObj.HeatTransferCoeffDtoList;
+                #endregion  // HEAT TRANSFER COEFFICIENT LIST
 
                 #region OPTIMIZER PARAMS PANEL DATA
                 //----------------------------------------------------------------
-                //--- READ OptimizerParams Data from DB using PanelData Object ---
-                //--- NOTE: PanelData Object returns OptimizerParams DTO       ---
+                //--- READ OptimizerParams Data from DB using ViewModel Object ---
+                //--- NOTE: ViewModel Object returns OptimizerParams DTO       ---
                 //----------------------------------------------------------------
-                OptimizerParamsDto optimizerParamsDtoObj =
-                    OptimizerParamsPanelDataObj.ReadOptimizerParamsData(ProjectWrapperDtoObj.ProjectId);
+                ProjectWrapperDtoObj.OptimizerParamsDtoObj =
+                    OptimizerParamsViewModelObj.GetOptimizerParamsByProjectId(projectId);
 
-                if (optimizerParamsDtoObj == null) throw new ArgumentNullException(
-                                 nameof(optimizerParamsDtoObj),
-                                 "Optimizer Params DTO cannot be null.");
-                //-------------------------------------------
-                //--- Assign WRAPPER Optimizer Params DTO ---
-                //-------------------------------------------
-                ProjectWrapperDtoObj.OptimizerParamsDtoObj = optimizerParamsDtoObj;
+                if (ProjectWrapperDtoObj.OptimizerParamsDtoObj == null) throw new ArgumentNullException(
+                                   nameof(ProjectWrapperDtoObj.OptimizerParamsDtoObj),
+                                  "Optimizer Params DTO cannot be null.");
                 #endregion  // OPTIMIZER PARAMS PANEL DATA
-
-                #region HEAT TRANSFER COEFFICIENT PANEL DATA
-                //----------------------------------------------------------------------------------
-                //--- Initialize Heat Transfer Coefficient Panel Data based on Project Units     ---
-                //--- NOTE: Heat Transfer Coefficient Panel Data is Dependent on Project Units,  ---
-                //--- so it is initialized here after the Project Units data is retrieved.       ---
-                //--- NOTE: Heat Transfer Coefficient Panel Data is NOT stored in the DB, but is ---
-                //--- calculated based on the Project Units.                                     ---
-                //----------------------------------------------------------------------------------
-                HeatTransferCoeffPanelDataObj = new HeatTransferCoeffPanelData(
-                                 ProjectUnitsPanelDataObj.ProjectUnitsDtoObj.DefaultSystemUnits);
-                #endregion  // HEAT TRANSFER COEFFICIENT PANEL DATA
 
                 #endregion  // PROJECT DEFAULT PARAMETERS PANELS DATA
 
@@ -560,91 +551,67 @@ namespace HenViewModel.Project
 
                 #region COST METADATA PANEL DATA
                 //-------------------------------------------------------------
-                //--- READ CostMetadata Data from DB using PanelData Object ---
-                //--- NOTE: PanelData Object returns CostMetadata DTO       ---
+                //--- READ CostMetadata Data from DB using ViewModel Object ---
+                //--- NOTE: ViewModel Object returns CostMetadata DTO       ---
                 //-------------------------------------------------------------
-                CostMetadataDto costMetadataDtoObj =
-                    CostMetadataPanelDataObj.ReadCostMetadataData(ProjectWrapperDtoObj.ProjectId);
+                ProjectWrapperDtoObj.CostMetadataDtoObj =
+                                     CostMetadataViewModelObj.GetCostMetadataByProjectId(projectId);
 
-                if (costMetadataDtoObj == null) throw new ArgumentNullException(
-                                 nameof(costMetadataDtoObj),
-                                 "CostMetadataDtoObj DTO cannot be null.");
-                //----------------------------------------
-                //--- Assign WRAPPER Cost Metadata DTO ---
-                //----------------------------------------
-                ProjectWrapperDtoObj.CostMetadataDtoObj = costMetadataDtoObj;
+                if (ProjectWrapperDtoObj.CostMetadataDtoObj == null) throw new ArgumentNullException(
+                                nameof(ProjectWrapperDtoObj.CostMetadataDtoObj),
+                               "Cost Metadata DTO cannot be null.");
                 #endregion  // COST METADATA PANEL DATA
 
                 #region FIRED HEATER CAPITAL COST PANEL DATA
                 //-----------------------------------------------------------------------
-                //--- READ FiredHeaterCapitalCost Data from DB using PanelData Object ---
-                //--- NOTE: PanelData Object returns FiredHeaterCapitalCost DTO       ---
+                //--- READ FiredHeaterCapitalCost Data from DB using ViewModel Object ---
+                //--- NOTE: ViewModel Object returns FiredHeaterCapitalCost DTO       ---
                 //-----------------------------------------------------------------------
-                FiredHeaterCapitalCostDto firedHeaterCapitalCostDtoObj =
-                    FiredHeaterCapitalCostPanelDataObj.ReadFiredHeaterCapitalCostData(ProjectWrapperDtoObj.ProjectId);
+                ProjectWrapperDtoObj.FiredHeaterCapitalCostDtoObj =
+                     FiredHeaterCapitalCostViewModelObj.GetFiredHeaterCapitalCostByProjectId(projectId);
 
-                if (firedHeaterCapitalCostDtoObj == null) throw new ArgumentNullException(
-                                 nameof(firedHeaterCapitalCostDtoObj),
-                                 "FiredHeaterCapitalCostDtoObj DTO cannot be null.");
-                //----------------------------------------------------
-                //--- Assign WRAPPER Fired Heater Capital Cost DTO ---
-                //----------------------------------------------------
-                ProjectWrapperDtoObj.FiredHeaterCapitalCostDtoObj = 
-                                     firedHeaterCapitalCostDtoObj;
+                if (ProjectWrapperDtoObj.FiredHeaterCapitalCostDtoObj == null) throw new ArgumentNullException(
+                                nameof(ProjectWrapperDtoObj.FiredHeaterCapitalCostDtoObj),
+                               "Fired Heater Capital Cost DTO cannot be null.");
                 #endregion  // FIRED HEATER CAPITAL COST PANEL DATA
 
                 #region SHELL AND TUBE CAPITAL COST PANEL DATA
                 //------------------------------------------------------------------------
-                //--- READ ShellAndTubeCapitalCost Data from DB using PanelData Object ---
-                //--- NOTE: PanelData Object returns ShellAndTubeCapitalCost DTO       ---
+                //--- READ ShellAndTubeCapitalCost Data from DB using ViewModel Object ---
+                //--- NOTE: ViewModel Object returns ShellAndTubeCapitalCost DTO       ---
                 //------------------------------------------------------------------------
-                ShellAndTubeCapitalCostDto shellAndTubeCapitalCostDtoObj =
-                    ShellAndTubeCapitalCostPanelDataObj.ReadShellAndTubeCapitalCostData(ProjectWrapperDtoObj.ProjectId);
-
-                if (shellAndTubeCapitalCostDtoObj == null) throw new ArgumentNullException(
-                                 nameof(shellAndTubeCapitalCostDtoObj),
-                                 "shellAndTubeCapitalCostDtoObj DTO cannot be null.");
-                //------------------------------------------------------
-                //--- Assign WRAPPER shell And Tube Capital Cost DTO ---
-                //------------------------------------------------------
                 ProjectWrapperDtoObj.ShellAndTubeCapitalCostDtoObj =
-                                     shellAndTubeCapitalCostDtoObj;
+                     ShellAndTubeCapitalCostViewModelObj.GetShellAndTubeCapitalCostByProjectId(projectId);
+
+                if (ProjectWrapperDtoObj.ShellAndTubeCapitalCostDtoObj == null) throw new ArgumentNullException(
+                                nameof(ProjectWrapperDtoObj.ShellAndTubeCapitalCostDtoObj),
+                               "Shell And Tube Capital Cost DTO cannot be null.");
                 #endregion  // SHELL AND TUBE CAPITAL COST PANEL DATA
 
                 #region TOTAL ANNUALIZED COST PANEL DATA
                 //--------------------------------------------------------------------
-                //--- READ TotalAnnualizedCost Data from DB using PanelData Object ---
-                //--- NOTE: PanelData Object returns TotalAnnualizedCost DTO       ---
+                //--- READ TotalAnnualizedCost Data from DB using ViewModel Object ---
+                //--- NOTE: ViewModel Object returns TotalAnnualizedCost DTO       ---
                 //--------------------------------------------------------------------
-                TotalAnnualizedCostDto totalAnnualizedCostDtoObj =
-                     TotalAnnualizedCostPanelDataObj.ReadTotalAnnualizedCostData(ProjectWrapperDtoObj.ProjectId);
-
-                if (totalAnnualizedCostDtoObj == null) throw new ArgumentNullException(
-                                 nameof(totalAnnualizedCostDtoObj),
-                                 "totalAnnualizedCostDtoObj DTO cannot be null.");
-                //------------------------------------------------
-                //--- Assign WRAPPER Total Annualized Cost DTO ---
-                //------------------------------------------------
                 ProjectWrapperDtoObj.TotalAnnualizedCostDtoObj =
-                                     totalAnnualizedCostDtoObj;
+                     TotalAnnualizedCostViewModelObj.GetTotalAnnualizedCostByProjectId(projectId);
+
+                if (ProjectWrapperDtoObj.TotalAnnualizedCostDtoObj == null) throw new ArgumentNullException(
+                                nameof(ProjectWrapperDtoObj.TotalAnnualizedCostDtoObj),
+                               "Total Annualized Cost DTO cannot be null.");
                 #endregion  // TOTAL ANNUALIZED COST PANEL DATA
 
                 #region UTILITY COST PANEL DATA
                 //------------------------------------------------------------
-                //--- READ UtilityCost Data from DB using PanelData Object ---
-                //--- NOTE: PanelData Object returns UtilityCost DTO       ---
+                //--- READ UtilityCost Data from DB using ViewModel Object ---
+                //--- NOTE: ViewModel Object returns UtilityCost DTO       ---
                 //------------------------------------------------------------
-                UtilityCostDto utilityCostDtoObj =
-                     UtilityCostPanelDataObj.ReadUtilityCostData(ProjectWrapperDtoObj.ProjectId);
-
-                if (utilityCostDtoObj == null) throw new ArgumentNullException(
-                                 nameof(utilityCostDtoObj),
-                                 "utilityCostDtoObj DTO cannot be null.");
-                //---------------------------------------
-                //--- Assign WRAPPER Utility Cost DTO ---
-                //---------------------------------------
                 ProjectWrapperDtoObj.UtilityCostDtoObj =
-                                     utilityCostDtoObj;
+                     UtilityCostViewModelObj.GetUtilityCostByProjectId(projectId);
+
+                if (ProjectWrapperDtoObj.UtilityCostDtoObj == null) throw new ArgumentNullException(
+                                nameof(ProjectWrapperDtoObj.UtilityCostDtoObj),
+                               "Utility Cost DTO cannot be null.");
                 #endregion  // UTILITY COST PANEL DATA
 
                 #endregion  // PROJECT COST PARAMETERS PANELS DATA
@@ -675,9 +642,11 @@ namespace HenViewModel.Project
                 HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
                 HenLogger.WriteSeparatorLine('*');
             }
-            //--------------------------------------------
-            //--- Return Populated Project WRAPPER DTO ---
-            //--------------------------------------------
+            //-----------------------------------------------
+            //--- Assign Project Id to ProjectWRAPPER DTO ---
+            //--- Return Populated Project WRAPPER DTO    ---
+            //-----------------------------------------------
+            ProjectWrapperDtoObj.ProjectId = projectId;
             return ProjectWrapperDtoObj;
         }
         #endregion  // --> READ ..... ReadProjectWrapperData(Guid projectId)
