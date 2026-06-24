@@ -192,7 +192,6 @@ namespace HenStudio.Data.Project
         public ProjectWrapperDto AddProjectWrapperData(ProjectWrapperDto projectWrapperDtoObj)
         {
             string strMethod = "AddProjectWrapperData";
-            int nProjectId = -1;
 
             if (projectWrapperDtoObj == null) throw new ArgumentNullException(
                                         nameof(projectWrapperDtoObj),
@@ -203,16 +202,11 @@ namespace HenStudio.Data.Project
                                        "Project DB Name can not be empty");
             try
             {
-                ProjectWrapperDtoObj = projectWrapperDtoObj;
                 //-------------------------------------------------------------------
                 //--- Project Wrapper ViewModel CreateProjectWrapperData() Method ---
                 //------------------------------------------------------------------- 
-                nProjectId = ProjectWrapperViewModelObj.CreateProjectWrapperData(
-                             projectWrapperDtoObj);
-                //-------------------------------------------------------
-                //--- Assign Project Id to Project WRAPPER DTO Object ---
-                //-------------------------------------------------------
-                ProjectWrapperDtoObj.ProjectId = nProjectId;
+                ProjectWrapperDtoObj = ProjectWrapperViewModelObj.CreateProjectWrapperData(
+                                       projectWrapperDtoObj);
             }
             catch (Exception ex)
             {
