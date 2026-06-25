@@ -34,10 +34,9 @@
 
 #region REFERENCES
 
-using HenGlobal;
+#region HEN STUDIO REFERENCES
 
-using HenModel.Dto.Profile;
-using HenModel.Dto.Profile.Streams;
+using HenGlobal;
 
 using HenViewModel.Project;
 using HenViewModel.Project.CostParameters;
@@ -46,7 +45,6 @@ using HenViewModel.Project.DefaultParameters.ExchangerParams;
 using HenViewModel.Project.DefaultParameters.OptimizerParams;
 using HenViewModel.Project.DefaultParameters.ProjectUnits;
 
-#region HEN STUDIO REFERENCES
 using HenModel.Dto.Project;
 using HenModel.Dto.Project.CostParameters;
 using HenModel.Dto.Project.DefaultParameters;
@@ -54,12 +52,9 @@ using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 
-using HenStudio.Data.Project;
-using HenStudio.Data.Project.CostParameters;
-using HenStudio.Data.Project.DefaultParameters;
-using HenStudio.Data.Project.DefaultParameters.ExchangerParams;
-using HenStudio.Data.Project.DefaultParameters.OptimizerParams;
-using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
+using HenModel.Dto.Profile;
+using HenModel.Dto.Profile.Streams;
+
 #endregion  // HEN STUDIO REFERENCES
 
 using System;
@@ -80,12 +75,11 @@ namespace HenStudio.Data.Project
     public class ProjectWrapperPanelData
     {
         #region CONSTANTS
-        const string NAMESPACE = "HenStudio";
+        const string NAMESPACE = "HenStudio.Data.Project";
         const string CLASS = "ProjectWrapperPanelData";
         #endregion  // CONSTANTS
 
         #region PROPERTIES
-        string ProjectDbName { get; set; } = string.Empty;
 
         #region ProjectWrapperDto OBJECT
         ProjectWrapperDto ProjectWrapperDtoObj { get; set; } = new ProjectWrapperDto();
@@ -108,47 +102,6 @@ namespace HenStudio.Data.Project
         #endregion  // HenProjectUnits OBJECT
 
         #endregion      // PROPERTIES
-
-        #region InitializeWrapperData() ... DEPECRATE
-        ///// <summary>
-        ///// Initialize the Project Wrapper Data Object with Default Values 
-        ///// to Avoid Null Reference Exceptions.
-        ///// NOTE: ProjectWrapperPanelData Object contains all the IDs, and 
-        ///// DTO Objects, for the Project Wrapper Panel. [INTRA-VIEW LAYER]
-        ///// </summary>
-        //private void InitializeWrapperData(string strProjectDbName)
-        //{
-        //    //------------------------------------------------------
-        //    //--- Initialize ProjectWrapperPanelData Property to ---
-        //    //--- Avoid Null Reference Exceptions                ---
-        //    //------------------------------------------------------
-        //    //ProjectWrapperDto projectWrapperDtoObj = new ProjectWrapperDto();
-        //    //-----------------------------------------------------------------------
-        //    //--- Initialize PanelData Objects to Avoid Null Reference Exceptions ---
-        //    //-----------------------------------------------------------------------
-        //    ProjectPanelDataObj = new ProjectPanelData();
-
-        //    ProjectUnitsPanelDataObj = new ProjectUnitsPanelData();
-        //    ExchangerParamsPanelDataObj = new ExchangerParamsPanelData();
-        //    HeatTransferCoeffPanelDataObj = new HeatTransferCoeffPanelData("English");
-        //    OptimizerParamsPanelDataObj = new OptimizerParamsPanelData();
-
-        //    CostMetadataPanelDataObj = new CostMetadataPanelData();
-        //    FiredHeaterCapitalCostPanelDataObj = new FiredHeaterCapitalCostPanelData();
-        //    ShellAndTubeCapitalCostPanelDataObj = new ShellAndTubeCapitalCostPanelData();
-        //    TotalAnnualizedCostPanelDataObj = new TotalAnnualizedCostPanelData();
-        //    UtilityCostPanelDataObj = new UtilityCostPanelData();
-        //    //----------------------------------------------------------------------------
-        //    //--- Initialize HenProjectUnits Object to Avoid Null Reference Exceptions ---
-        //    //----------------------------------------------------------------------------
-        //    //--- Object contains methods to retrieve the following PROJECT UNITS:     ---
-        //    //--- SystemUnits, MagnitudeUnits, AreaUnits, TemperatureUnits,            ---
-        //    //--- PressureUnits, HeatFlowRateUnits, HeatCapacityFlowRateUnits,         ---
-        //    //--- Overall HeatTransferCoefficientUnits                                 ---
-        //    //----------------------------------------------------------------------------
-        //    HenProjectUnitsObj = new HenProjectUnits();
-        //}
-        #endregion  // InitializeWrapperData()
 
         #region CTOR
         /// <summary>

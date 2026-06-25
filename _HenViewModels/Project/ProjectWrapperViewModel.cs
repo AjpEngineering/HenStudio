@@ -38,6 +38,8 @@
 
 using HenGlobal;
 
+using HenModel.Connection;
+
 using HenModel.Dto.Project;
 using HenModel.Dto.Project.CostParameters;
 using HenModel.Dto.Project.DefaultParameters;
@@ -60,9 +62,6 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Xml.Linq;
-
-using HenModel.Connection;
-using HenModel.RepoInterfaces.Project.DefaultParameters.ExchangerParams;
 
 #endregion      // REFERENCES
 
@@ -126,7 +125,6 @@ namespace HenViewModel.Project
         public UtilityCostViewModel UtilityCostViewModelObj { get; set; }
 
         #endregion  // SUB-Panel ViewModel OBJECTS
-
 
         #endregion      // PROPERTIES
 

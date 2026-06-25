@@ -61,28 +61,13 @@ namespace HenViewModel.Profile.Streams
         /// <summary>
         /// Parameterized CTOR
         /// </summary>
-        /// <param name="strProjectDatabaseName">Project Database Name</param>
-        public ProcessStreamViewModel(string strProjectDatabaseName)
+        /// <param name="connFactoryObj">SQLite Connection Factory Object</param>
+        public ProcessStreamViewModel(SQLiteConnectionFactory connFactoryObj)
         {
-            #region Get SQLiteConnectionFactory Object (connFactoryObj)
-            //-----------------------------------------------------
-            //--- Configure PROJECT database connection options ---
-            //-----------------------------------------------------
-            SQLiteConnectionOptions options = new SQLiteConnectionOptions
-            {
-                DbType = DatabaseType.PROJECT,
-                DatabasePath = strProjectDatabaseName
-            };
-
-            //------------------------------------------------------------------
-            //--- Create the SQLite connection factory using PROJECT options ---
-            //------------------------------------------------------------------
-            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
-            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
-
-            ProcessStreamRepoObj = new ProcessStreamRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
+
+            ProcessStreamRepoObj = new ProcessStreamRepo(connFactoryObj);
         }
         #endregion  // Parameterized CTOR
 
@@ -309,13 +294,13 @@ namespace HenViewModel.Profile.Streams
         }
         #endregion  // AddProcessStream(ProcessStreamDto externalProcessStreamDto) ... CREATE SINGLE STREAM
 
-        #region AddProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos) ... CREATE MULTIPLE STREAMS
+        #region AddProcessStreams(List<ProcessStreamDto> externalProcessStreamDtoList) ... CREATE MULTIPLE STREAMS
         /// <summary>
         /// Adds (CREATE) LIST of new process streams to the database using the specified List of DTOs in external units.
         /// </summary>
         /// <param name="externalProcessStreamDtos">The process stream data to add in external units.</param>
-        /// <returns>A list of GUIDs representing the unique identifiers of the newly added process streams.</returns>
-        public int AddProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos)
+        /// <returns>Profile ID representing the unique identifiers of the newly added process streams.</returns>
+        public int AddProcessStreams(List<ProcessStreamDto> externalProcessStreamDtoList)
         {
             int profileId = -1;
             try
@@ -325,12 +310,12 @@ namespace HenViewModel.Profile.Streams
                 //--- The repository methods expect DTOs in INTERNAL units, so the conversion is                ---
                 //--- necessary before calling the add method.                                                  ---
                 //-------------------------------------------------------------------------------------------------
-                List<ProcessStreamDto> internalProcessStreamDtos = ConvertToInternalDtos(externalProcessStreamDtos);
+                List<ProcessStreamDto> internalProcessStreamDtoList = ConvertToInternalDtos(externalProcessStreamDtoList);
                 //------------------------------------------------------------------------------------------------------------
                 //--- Add the process streams using the repository method and capture the returned unique identifier.      ---
                 //--- The repository method will handle the actual database insertion and return the ID of the new record. ---
                 //------------------------------------------------------------------------------------------------------------
-                profileId = ProcessStreamRepoObj.AddProcessStreams(internalProcessStreamDtos);
+                profileId = ProcessStreamRepoObj.AddProcessStreams(internalProcessStreamDtoList);
             }
             catch (Exception ex)
             {
@@ -338,7 +323,7 @@ namespace HenViewModel.Profile.Streams
             }
             return profileId;
         }
-        #endregion  // AddProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos) ... CREATE MULTIPLE STREAMS
+        #endregion  // AddProcessStreams(List<ProcessStreamDto> externalProcessStreamDtoList) ... CREATE MULTIPLE STREAMS
 
         #endregion  // CREATE METHODS
 
@@ -573,8 +558,8 @@ namespace HenViewModel.Profile.Streams
         /// <summary>
         /// Updates (UPDATE) multiple existing process streams in the database using the specified DTOs in external units.
         /// </summary>
-        /// <param name="externalProcessStreamDtos">The list of process stream DTOs containing updated information in external units.</param>
-        public void UpdateProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos)
+        /// <param name="externalProcessStreamDtoList">The list of process stream DTOs containing updated information in external units.</param>
+        public void UpdateProcessStreams(List<ProcessStreamDto> externalProcessStreamDtoList)
         {
             try
             {
@@ -583,20 +568,20 @@ namespace HenViewModel.Profile.Streams
                 //--- The repository methods expect DTOs in INTERNAL units, so the conversion is                ---
                 //--- necessary before calling the update method.                                               ---
                 //-------------------------------------------------------------------------------------------------
-                List<ProcessStreamDto> internalProcessStreamDtos = ConvertToInternalDtos(externalProcessStreamDtos);
+                List<ProcessStreamDto> internalProcessStreamDtoList = ConvertToInternalDtos(externalProcessStreamDtoList);
                 //----------------------------------------------------------------------------------------------------------
                 //--- Update the process streams using the repository method with the converted INTERNAL DTO List.       ---
                 //--- The repository method will handle the actual database update based on the information in the DTOs. ---
                 //--- If the repository update fails, the catch block will handle the exception.                         ---
                 //----------------------------------------------------------------------------------------------------------
-                ProcessStreamRepoObj.UpdateProcessStreams(internalProcessStreamDtos);
+                ProcessStreamRepoObj.UpdateProcessStreams(internalProcessStreamDtoList);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error updating process stream: {ex.Message}");
             }
         }
-        #endregion  // UpdateProcessStreams(List<ProcessStreamDto> externalProcessStreamDtos) ... UPDATE MULTIPLE STREAMS
+        #endregion  // UpdateProcessStreams(List<ProcessStreamDto> externalProcessStreamDtoList) ... UPDATE MULTIPLE STREAMS
 
         #endregion  // UPDATE METHODS
 

@@ -63,28 +63,13 @@ namespace HenViewModel.Profile.Streams
         /// <summary>
         /// Parameterized CTOR
         /// </summary>
-        /// <param name="strProjectDatabaseName">Project Database Name</param>
-        public UtilityStreamViewModel(string strProjectDatabaseName)
+        /// <param name="connFactoryObj">SQLite Connection Factory Object</param>
+        public UtilityStreamViewModel(SQLiteConnectionFactory connFactoryObj)
         {
-            #region Get SQLiteConnectionFactory Object (connFactoryObj)
-            //-----------------------------------------------------
-            //--- Configure PROJECT database connection options ---
-            //-----------------------------------------------------
-            SQLiteConnectionOptions options = new SQLiteConnectionOptions
-            {
-                DbType = DatabaseType.PROJECT,
-                DatabasePath = strProjectDatabaseName
-            };
-
-            //------------------------------------------------------------------
-            //--- Create the SQLite connection factory using PROJECT options ---
-            //------------------------------------------------------------------
-            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
-            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
-
-            UtilityStreamRepoObj = new UtilityStreamRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
+
+            UtilityStreamRepoObj = new UtilityStreamRepo(connFactoryObj);
         }
         #endregion  // Parameterized CTOR
 
@@ -330,13 +315,13 @@ namespace HenViewModel.Profile.Streams
         }
         #endregion  // AddUtilityStream(UtilityStreamDto externalUtilityStreamDto) ... CREATE SINGLE STREAM
 
-        #region AddUtilityStream(List<UtilityStreamDto> externalUtilityStreamDtos) ... CREATE MULTIPLE STREAMS
+        #region AddUtilityStreams(List<UtilityStreamDto> externalUtilityStreamDtos) ... CREATE MULTIPLE STREAMS
         /// <summary>
         /// Adds (CREATE) List of new utility streams to the database using the specified DTOs in external units.
         /// </summary>
-        /// <param name="externalUtilityStreamDtos">The list of utility stream data to add in external units.</param>
-        /// <returns>A list of GUIDs representing the unique identifiers of the newly added utility streams.</returns>
-        public int AddUtilityStream(List<UtilityStreamDto> externalUtilityStreamDtos)
+        /// <param name="externalUtilityStreamDtoList">The list of utility stream data to add in external units.</param>
+        /// <returns>Profile ID representing the unique identifiers of the newly added utility streams.</returns>
+        public int AddUtilityStreams(List<UtilityStreamDto> externalUtilityStreamDtoList)
         {
             //-------------------------- Null DTO Guard ---------------------------------
             //--- If the user provided DTO is null,                                   ---
@@ -344,7 +329,7 @@ namespace HenViewModel.Profile.Streams
             //--- This prevents potential null reference exceptions when trying       ---
             //--- to access properties of a null object.                              ---
             //---------------------------------------------------------------------------
-            if (externalUtilityStreamDtos == null)
+            if (externalUtilityStreamDtoList == null)
             {
                 return -1;
             }
@@ -361,12 +346,12 @@ namespace HenViewModel.Profile.Streams
                 //--- The repository methods expect DTOs in INTERNAL units, so the conversion is                ---
                 //--- necessary before calling the add method.                                                  ---
                 //-------------------------------------------------------------------------------------------------
-                List<UtilityStreamDto> internalUtilityStreamDtos = ConvertToInternalDtos(externalUtilityStreamDtos);
+                List<UtilityStreamDto> internalUtilityStreamDtoList = ConvertToInternalDtos(externalUtilityStreamDtoList);
                 //------------------------------------------------------------------------------------------------------------
                 //--- Add the utility streams using the repository method and capture the returned unique identifier.      ---
                 //--- The repository method will handle the actual database insertion and return the ID of the new record. ---
                 //------------------------------------------------------------------------------------------------------------
-                profileId = UtilityStreamRepoObj.AddUtilityStreams(internalUtilityStreamDtos);
+                profileId = UtilityStreamRepoObj.AddUtilityStreams(internalUtilityStreamDtoList);
             }
             catch (Exception ex)
             {
@@ -378,7 +363,7 @@ namespace HenViewModel.Profile.Streams
             return profileId;
             ;
         }
-        #endregion  // AddUtilityStream(List<UtilityStreamDto> externalUtilityStreamDtos) ... CREATE MULTIPLE STREAMS
+        #endregion  // AddUtilityStreams(List<UtilityStreamDto> externalUtilityStreamDtoList) ... CREATE MULTIPLE STREAMS
 
         #endregion  // CREATE METHODS
 

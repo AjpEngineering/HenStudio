@@ -94,6 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Profile\ProfileWrapperViewModel.cs" />
     <Compile Include="Project\CostParameters\UtilityCostViewModel.cs" />
     <Compile Include="Project\CostParameters\TotalAnnualizedCostViewModel.cs" />
     <Compile Include="Project\CostParameters\ShellAndTubeCapitalCostViewModel.cs" />

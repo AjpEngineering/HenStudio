@@ -58,6 +58,9 @@ using HenStudio.Data.Profile.Streams;
 
 using System;
 using System.Collections.Generic;
+
+using HenViewModel.Project;
+using HenViewModel.Profile;
 #endregion      // REFERENCES
 
 #region HenStudio.Data.Profile
@@ -69,6 +72,11 @@ namespace HenStudio.Data.Profile
     /// </summary>
     public class ProfileWrapperPanelData
     {
+        #region CONSTANTS
+        const string NAMESPACE = "HenStudio.Data.Profile";
+        const string CLASS = "ProfileWrapperPanelData";
+        #endregion  // CONSTANTS
+
         #region PROPERTIES
 
         #region ProfileWrapperDto OBJECT
@@ -79,6 +87,10 @@ namespace HenStudio.Data.Profile
         //-------------------------------------------------
         ProfileWrapperDto ProfileWrapperDtoObj { get; set; }
         #endregion  // ProfileWrapperDto OBJECT
+
+        #region Profile Wrapper ViewModel OBJECT
+        ProfileWrapperViewModel ProfileWrapperViewModelObj { get; set; }
+        #endregion  // Profile Wrapper ViewModel OBJECT
 
         #region SUB-PanelData OBJECTS
         public ProjectPanelData ProjectPanelDataObj { get; set; }

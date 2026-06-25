@@ -50,6 +50,7 @@ namespace HenModel.Dto.Profile
     public class ProfileWrapperDto
     {
         #region PROPERTIES
+        public string ProjectDbName { get; set; } = string.Empty;
         //------------------------------------------------------- IDs ---
         //--- Initialize IDs to -1 to Avoid Null Reference Exceptions ---
         //---------------------------------------------------------------
@@ -63,9 +64,6 @@ namespace HenModel.Dto.Profile
         //--- Initialize DTOs to Avoid Null Reference Exceptions ---
         //----------------------------------------------------------
         public ProfileDto ProfileDtoObj { get; set; } = new ProfileDto();
-        public ProcessStreamDto ProcessStreamDtoObj { get; set; } = new ProcessStreamDto();
-
-        public UtilityStreamDto UtilityStreamDtoObj { get; set; } = new UtilityStreamDto();
 
         public List<ProcessStreamDto> ProcessStreamDtoList { get; set; } = new List<ProcessStreamDto>();
 

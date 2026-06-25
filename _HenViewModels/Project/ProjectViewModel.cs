@@ -36,7 +36,6 @@
 using HenGlobal;
 
 using HenModel.Connection;
-using HenModel.Dto.Profile.Streams;
 using HenModel.Dto.Project;
 using HenModel.RepoImplementations.Project;
 

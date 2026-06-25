@@ -37,11 +37,10 @@ using HenGlobal;
 
 using HenModel.Connection;
 using HenModel.Dto.Profile;
-using HenModel.Dto.Project;
-using HenModel.Dto.Project.CostParameters;
-using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
+using HenModel.Dto.Profile.Streams;
+
 using HenModel.RepoImplementations.Profile;
-using HenModel.RepoImplementations.Project.CostParameters;
+using HenModel.RepoImplementations.Profile.Streams;
 
 using System;
 using System.Collections.Generic;
@@ -64,28 +63,13 @@ namespace HenViewModel.Profile
         /// <summary>
         /// Parameterized CTOR
         /// </summary>
-        /// <param name="strProjectDatabaseName">Project Database Name</param>
-        public ProfileViewModel(string strProjectDatabaseName)
+        /// <param name="connFactoryObj">SQLite Connection Factory Object</param>
+        public ProfileViewModel(SQLiteConnectionFactory connFactoryObj)
         {
-            #region Get SQLiteConnectionFactory Object (connFactoryObj)
-            //-----------------------------------------------------
-            //--- Configure PROJECT database connection options ---
-            //-----------------------------------------------------
-            SQLiteConnectionOptions options = new SQLiteConnectionOptions
-            {
-                DbType = DatabaseType.PROJECT,
-                DatabasePath = strProjectDatabaseName
-            };
-
-            //------------------------------------------------------------------
-            //--- Create the SQLite connection factory using PROJECT options ---
-            //------------------------------------------------------------------
-            SQLiteConnectionFactory connFactoryObj = new SQLiteConnectionFactory(options);
-            #endregion  // Get SQLiteConnectionFactory Object (connFactoryObj)
-
-            ProfileRepoObj = new ProfileRepo(connFactoryObj);
             ExternalUnitsObj = new HenProjectUnits();
             InternalUnitsObj = new HenProjectUnits();
+
+            ProfileRepoObj = new ProfileRepo(connFactoryObj);
         }
         #endregion  // Parameterized CTOR
 
