@@ -50,11 +50,6 @@ using HenViewModel.Project.DefaultParameters.OptimizerParams;
 using HenViewModel.Project.DefaultParameters.ProjectUnits;
 
 using HenStudio.Data.Project;
-using HenStudio.Data.Project.CostParameters;
-using HenStudio.Data.Project.DefaultParameters;
-using HenStudio.Data.Project.DefaultParameters.ExchangerParams;
-using HenStudio.Data.Project.DefaultParameters.OptimizerParams;
-using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
 #endregion  // HEN STUDIO REFERENCES
 
 using System;

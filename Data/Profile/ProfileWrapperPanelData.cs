@@ -50,10 +50,7 @@ using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
 using HenModel.Dto.Profile;
 using HenModel.Dto.Profile.Streams;
 
-using HenStudio.Data.Project;
-using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
 using HenStudio.Data.Profile;
-using HenStudio.Data.Profile.Streams;
 #endregion  // HEN STUDIO REFERENCES
 
 using System;

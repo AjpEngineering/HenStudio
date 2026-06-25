@@ -92,11 +92,6 @@ using HenViewModel.Hen;
 
 using HenStudio.Properties;
 using HenStudio.Data.Project;
-using HenStudio.Data.Project.DefaultParameters;
-using HenStudio.Data.Project.DefaultParameters.ExchangerParams;
-using HenStudio.Data.Project.DefaultParameters.OptimizerParams;
-using HenStudio.Data.Project.DefaultParameters.ProjectUnits;
-using HenStudio.Data.Project.CostParameters;
 using HenStudio.Data.Tag;
 
 #endregion  // AJP HEN NAMESPACES
@@ -1174,14 +1169,8 @@ namespace HenStudio
         /// <summary>
         /// Populate the Project Panel and Subpanels with Project ViewData Objects
         /// </summary>
-        /// <param name="projectPanelDataObj">Project Panel Data Object</param>
-        /// <param name="projectUnitsPanelDataObj">Project Units Panel Data Object</param>
-        /// <param name="optimizerParamsPanelDataObj">Optimizer Parameters Panel Data Object</param>
-        /// <param name="exchangerParamsPanelDataObj">Exchanger Parameters Panel Data Object</param>
-        private void PopulateProjectPanel(ProjectPanelData projectPanelDataObj,
-                                          ProjectUnitsPanelData projectUnitsPanelDataObj,
-                                          OptimizerParamsPanelData optimizerParamsPanelDataObj,
-                                          ExchangerParamsPanelData exchangerParamsPanelDataObj)
+        /// <param name="projectWrapperPanelDataObj">ProjectWrapperPanelData Object</param>
+        private void PopulateProjectPanel(ProjectWrapperPanelData projectWrapperPanelDataObj)
         {
             //this.textBoxProjectGUID.Text = projectPanelData.Id.ToString();
             //this.textBoxProjectNameValue.Text = projectPanelData.Name;

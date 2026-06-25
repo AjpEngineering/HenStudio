@@ -92,18 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Profile\ProfileWrapperPanelData.cs" />
-    <Compile Include="Data\Profile\Streams\UtilityStreamPanelData.cs" />
-    <Compile Include="Data\Profile\Streams\ProcessStreamPanelData.cs" />
-    <Compile Include="Data\Profile\ProfilePanelData.cs" />
-    <Compile Include="Data\Project\CostParameters\TotalAnnualizedCostPanelData.cs" />
-    <Compile Include="Data\Project\CostParameters\UtilityCostPanelData.cs" />
-    <Compile Include="Data\Project\CostParameters\ShellAndTubeCapitalCostPanelData.cs" />
-    <Compile Include="Data\Project\CostParameters\FiredHeaterCapitalCostPanelData.cs" />
-    <Compile Include="Data\Project\CostParameters\CostMetadataPanelData.cs" />
-    <Compile Include="Data\Project\DefaultParameters\ExchangerParams\ExchangerParamsPanelData.cs" />
-    <Compile Include="Data\Project\DefaultParameters\ExchangerParams\HeatTransferCoeffPanelData.cs" />
-    <Compile Include="Data\Project\DefaultParameters\OptimizerParams\OptimizerParamsPanelData.cs" />
-    <Compile Include="Data\Project\DefaultParameters\ProjectUnits\ProjectUnitsPanelData.cs" />
     <Compile Include="Data\Project\ProjectWrapperPanelData.cs" />
     <Compile Include="Data\Root\FactorySettings\AppSettingsPanelData.cs" />
     <Compile Include="Data\Root\FactorySettings\AppComponentsPanelData.cs" />
@@ -135,12 +123,6 @@
     <Compile Include="FormRename.Designer.cs">
       <DependentUpon>FormRename.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormProjectNewModify.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormProjectNewModify.Designer.cs">
-      <DependentUpon>FormProjectNewModify.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormUserLicenseAgreement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,7 +130,6 @@
       <DependentUpon>FormUserLicenseAgreement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Data\Project\ProjectPanelData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormBusinessCard.resx">
       <DependentUpon>FormBusinessCard.cs</DependentUpon>
@@ -159,9 +140,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRename.resx">
       <DependentUpon>FormRename.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormProjectNewModify.resx">
-      <DependentUpon>FormProjectNewModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserLicenseAgreement.resx">
       <DependentUpon>FormUserLicenseAgreement.cs</DependentUpon>
@@ -193,10 +171,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\Connection\" />
-    <Folder Include="Data\Hen\Plots\" />
-    <Folder Include="Data\Pinch\Plots\" />
+    <Folder Include="Data\Report\Plots\" />
     <Folder Include="Data\Root\About\" />
+    <Folder Include="Data\Study\Plots\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
