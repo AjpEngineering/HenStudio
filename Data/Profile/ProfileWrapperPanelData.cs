@@ -92,129 +92,23 @@ namespace HenStudio.Data.Profile
         ProfileWrapperViewModel ProfileWrapperViewModelObj { get; set; }
         #endregion  // Profile Wrapper ViewModel OBJECT
 
-        #region SUB-PanelData OBJECTS
-        public ProjectPanelData ProjectPanelDataObj { get; set; }
-        public ProjectUnitsPanelData ProjectUnitsPanelDataObj { get; set; }
-
-        public ProfilePanelData ProfilePanelDataObj { get; set; }
-        public ProcessStreamPanelData ProcessStreamPanelDataObj { get; set; }
-        public UtilityStreamPanelData UtilityStreamPanelDataObj { get; set; }
-        #endregion  // SUB-PanelData OBJECTS
-
-        #region HenProjectUnits OBJECT
-        //------------------------------------------------------------------------
-        //--- HenProjectUnits Holds PROJECT Units Data (INTERNAL & EXTERNAL)   ---
-        //------------------------------------------------------------------------
-        //--- Object contains methods to retrieve the following PROJECT UNITS: ---
-        //--- SystemUnits, MagnitudeUnits, AreaUnits, TemperatureUnits,        ---
-        //--- PressureUnits, HeatFlowRateUnits, HeatCapacityFlowRateUnits,     ---
-        //--- Overall HeatTransferCoefficientUnits                             ---
-        //------------------------------------------------------------------------
-        public HenProjectUnits HenProjectUnitsObj { get; set; }
-        #endregion  // HenProjectUnits OBJECT
-
         #endregion      // PROPERTIES
-
-        #region InitializeWrapperData()
-        /// <summary>
-        /// Initialize the Profile Wrapper Data Object with Default Values 
-        /// to Avoid Null Reference Exceptions.
-        /// NOTE: ProfileWrapperPanelData Object contains all the IDs, 
-        /// and DTO Objects, for the Profile Wrapper Panel. [INTRA-VIEW LAYER]
-        /// </summary>
-        private void InitializeWrapperData()
-        {
-            //------------------------------------------------------
-            //--- Initialize ProfileWrapperDtoObj Property to    ---
-            //--- Avoid Null Reference Exceptions                ---
-            //------------------------------------------------------
-            ProfileWrapperDtoObj = new ProfileWrapperDto();
-            //-----------------------------------------------------------------------
-            //--- Initialize PanelData Objects to Avoid Null Reference Exceptions ---
-            //-----------------------------------------------------------------------
-            ProjectPanelDataObj = new ProjectPanelData();
-            ProjectUnitsPanelDataObj = new ProjectUnitsPanelData();
-
-            ProfilePanelDataObj = new ProfilePanelData();
-            ProcessStreamPanelDataObj = new ProcessStreamPanelData();
-            UtilityStreamPanelDataObj = new UtilityStreamPanelData();
-            //----------------------------------------------------------------------------
-            //--- Initialize HenProjectUnits Object to Avoid Null Reference Exceptions ---
-            //----------------------------------------------------------------------------
-            //--- Object contains methods to retrieve the following PROJECT UNITS:     ---
-            //--- SystemUnits, MagnitudeUnits, AreaUnits, TemperatureUnits,            ---
-            //--- PressureUnits, HeatFlowRateUnits, HeatCapacityFlowRateUnits,         ---
-            //--- Overall HeatTransferCoefficientUnits                                 ---
-            //----------------------------------------------------------------------------
-            HenProjectUnitsObj = new HenProjectUnits();
-        }
-        #endregion  // InitializeWrapperData()
-
-        #region Default CTOR
-        /// <summary>
-        /// Default Constructor for ProfileWrapperData Class
-        /// </summary>
-        public ProfileWrapperPanelData()
-        {
-            //-----------------------------------------------------------
-            // --- Initialize the Profile Wrapper Data Object with    ---
-            // --- Default Values to Avoid Null Reference Exceptions. ---
-            //-----------------------------------------------------------
-            InitializeWrapperData();
-        }
-        #endregion  // Default CTOR
 
         #region Parameterized CTOR
         /// <summary>
         /// Parameterized Constructor for ProfileWrapperPanelData Class
         /// </summary>
-        public ProfileWrapperPanelData(int projectId, int profileId)
+        /// <param name="strProjectDbNameOnly">Project Db Name... NO ".db" extension</param>
+        public ProfileWrapperPanelData(string strProjectDbNameOnly)
         {
             try
             {
-                //-----------------------------------------------------------
-                // --- Initialize the Profile Wrapper Data Object with    ---
-                // --- Default Values to Avoid Null Reference Exceptions. ---
-                //-----------------------------------------------------------
-                InitializeWrapperData();
-                //--------------------------------------------------------------------------
-                //--- Null Guard on User Supplied Ids to Avoid Null Reference Exceptions ---
-                //--------------------------------------------------------------------------   
-                if (projectId == -1) throw new ArgumentNullException(
-                                             nameof(projectId), "Project ID cannot be null.");
-                else ProfileWrapperDtoObj.ProjectId = projectId;
+                if (strProjectDbNameOnly == string.Empty) throw new ArgumentNullException(
+                   nameof(strProjectDbNameOnly),
+                   "Project DB Name can not be empty");
 
-                if (profileId == -1) throw new ArgumentNullException(
-                                             nameof(profileId), "Profile ID cannot be null.");
-                else ProfileWrapperDtoObj.ProfileId = profileId;
-                //---------------------------------------------
-                //--- Assign PanelData Object Id Properties ---
-                //---------------------------------------------
-                ProjectPanelDataObj.ProjectId = ProfileWrapperDtoObj.ProjectId;
-
-                ProjectUnitsPanelDataObj.ProjectId = ProfileWrapperDtoObj.ProjectId;
-
-                ProfilePanelDataObj.ProjectId = ProfileWrapperDtoObj.ProjectId;
-                ProfilePanelDataObj.ProfileId = ProfileWrapperDtoObj.ProfileId;
-
-                ProcessStreamPanelDataObj.ProjectId = ProfileWrapperDtoObj.ProjectId;
-                ProcessStreamPanelDataObj.ProfileId = ProfileWrapperDtoObj.ProfileId;
-
-                UtilityStreamPanelDataObj.ProjectId = ProfileWrapperDtoObj.ProjectId;
-                UtilityStreamPanelDataObj.ProfileId = ProfileWrapperDtoObj.ProfileId;
-                //--------------------------------------------------
-                //--- Initialize Property HenProjectUnits Object ---
-                //--------------------------------------------------
-                ProjectUnitsPanelDataObj.ReadProjectUnitsData(projectId);
-                ProjectUnitsDto projectUnitsDtoObj = ProjectUnitsPanelDataObj.ProjectUnitsDtoObj;
-
-                if (projectUnitsDtoObj == null)
-                    throw new Exception("Project Units DTO Object is null for Project ID: " + projectId);
-
-                HenProjectUnitsObj = new HenProjectUnits(projectUnitsDtoObj.DefaultSystemUnits,
-                                                         projectUnitsDtoObj.DefaultMagnitudeUnits,
-                                                         projectUnitsDtoObj.DefaultTemperatureUnits,
-                                                         projectUnitsDtoObj.DefaultPressureUnits);
+                ProfileWrapperDtoObj = new ProfileWrapperDto();
+                ProfileWrapperViewModelObj = new ProfileWrapperViewModel(strProjectDbNameOnly);
             }
             catch (Exception ex)
             {
@@ -226,318 +120,215 @@ namespace HenStudio.Data.Profile
 
         #region CRUD Methods
 
-        #region --> CREATE ... CreateProfileWrapperData(Guid projectId, ProfileWrapperDto profileWrapperDtoObj)
+        #region --> CREATE ... AddProfileWrapperData(ProfileWrapperDto profileWrapperDtoObj)
         /// <summary>
-        /// Add (CREATE) the Profile Data to the DB.  Client VIEW Objects populate the Wrapper DTO.
-        /// The WRAPPER DTO contains all the DTOs for the SubPanel Data objects and lists
-        /// This Wrapper DTO contains the following SubPanel DTOs,
-        ///   + Profile DTO, 
-        ///   + Process Stream DTO, 
-        ///   + Utility Stream DTO 
-        /// Wrapper DTO Data is for a given Project ID.
+        /// Add (CREATE) the Profile data contained in the WRAPPER DTO to the SQLite PROJECT DB
+        /// Returns Profile WRAPPER DTO object; contains Profile Id associated with added data
+        /// ---------------------------------------------------------------------------------------
+        /// -------------------------------------- USE CASE ---------------------------------------
+        /// ---------------------------------------------------------------------------------------
+        ///   1. User scrapes Control contents and assigns the DTO objects in WRAPPER DTO
+        ///   2. User assigns Project Database name in WRAPPER DTO
+        ///   3. User invokes this method, passing in the fully populated WRAPPER DTO object
+        ///   4. Method invokes Wrapper ViewModel passing in the WRAPPER DTO object
+        ///   5. Wrapper ViewModel ADDs all the Profile Data, and returns the unique Profile Id
+        ///   6. Method ensures Profile Id is assigned to WRAPPER DTO
+        ///   7. Method returns the WRAPPER DTO object
+        /// ---------------------------------------------------------------------------------------
         /// </summary>
-        /// <param name="projectId">The ID of the project for which to create ALL the profile wrapper data.</param>
-        /// <param name="profileWrapperDtoObj">The ProfileWrapperDto object.</param>
-        /// <returns>The ID of the profile for which the profile wrapper data was created.</returns>
-        /// <exception cref="ArgumentNullException">Thrown when the provided project ID is null.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when the provided Profile Wrapper DTO is null.</exception>
-        public Guid CreateProfileWrapperData(Guid projectId, 
-                                             ProfileWrapperDto profileWrapperDtoObj)
+        /// <returns>Profile WRAPPER DTO object containing the newly created Profile-related data,
+        /// also include Project DB Name, Project and Profile Ids, on success; null otherwise.</returns>
+        /// <exception cref="ArgumentNullException">Check for Null Project Wrapper Dto Object</exception>
+        public ProfileWrapperDto AddProfileWrapperData(ProfileWrapperDto profileWrapperDtoObj)
         {
-            if (projectId == null) throw new ArgumentNullException(
-                             nameof(projectId), 
-                             "Project ID cannot be null.");
+            string strMethod = "AddProfileWrapperData";
 
             if (profileWrapperDtoObj == null) throw new ArgumentNullException(
-                              nameof(profileWrapperDtoObj),
-                              "Profile Wrapper DTO can not be null");
+                                        nameof(profileWrapperDtoObj),
+                                        "Profile Wrapper DTO can not be null");
 
-            Guid profileId = Guid.Empty; // Initialize Profile ID
-            //----------------------------------------------------------------------------
-            //--- Get DTO Data for Adding to DB ... VIEW Objects populatle WRAPPER DTO ---
-            //----------------------------------------------------------------------------
-            ProfileWrapperDtoObj = profileWrapperDtoObj;
-            ProfileDto profileDtoObj = ProfileWrapperDtoObj.ProfileDtoObj;
-            List<ProcessStreamDto> processStreamList = ProfileWrapperDtoObj.ProcessStreamDtoList;
-            List<UtilityStreamDto> utilityStreamList = ProfileWrapperDtoObj.UtilityStreamDtoList;
-
-            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-            //-------------------------- PROFILE DATA --------------------------
-            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-            if (profileDtoObj == null) throw new ArgumentNullException(
-                             nameof(profileDtoObj),
-                             "Profile DTO Object cannot be null.");
-            //--------------------------------------------------------------
-            //--- Add Profile Data to DB using PanelData Object          ---
-            //--- Returns Profile ID for Foreign Key Relationships in DB ---
-            //--------------------------------------------------------------
-            profileId = ProfilePanelDataObj.CreateProfileData(ProfileWrapperDtoObj.ProfileDtoObj);
-
-            if (profileId == null) throw new ArgumentNullException(
-                             nameof(profileId), "Profile ID is null for ADD Profile Panel data.");
-
-            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-            //---------------------- PROCESS STREAM DATA -----------------------
-            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-            if (processStreamList == null) throw new ArgumentNullException(
-                            nameof(processStreamList),
-                            "Process Stream DTO List cannot be null.");
-            //-------------------------------------------------------------------
-            //--- Add Process Stream Panel data to DB using PanelData Object  ---
-            //--- Returns Profile ID for Foreign Key Relationships in DB      ---
-            //-------------------------------------------------------------------
-            ProcessStreamPanelDataObj.ProjectId = projectId;
-            profileId = ProcessStreamPanelDataObj.CreateProcessStreamsData();
-
-            if (profileId == null) throw new ArgumentNullException(
-                             nameof(profileId), "Profile ID is null for ADD Process Stream Panel data.");
-
-            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-            //---------------------- UTILITY STREAM DATA -----------------------
-            //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-            if (utilityStreamList == null) throw new ArgumentNullException(
-                            nameof(utilityStreamList),
-                            "Utility Stream DTO List cannot be null.");
-            //-------------------------------------------------------------------
-            //--- Add Utility Stream Panel data to DB using PanelData Object  ---
-            //--- Returns Profile ID for Foreign Key Relationships in DB      ---
-            //-------------------------------------------------------------------
-            UtilityStreamPanelDataObj.ProjectId = projectId;
-            profileId = UtilityStreamPanelDataObj.CreateUtilityStreamsData();
-
-            if (profileId == null) throw new ArgumentNullException(
-                             nameof(profileId), "Profile ID is null for ADD Utility Stream Panel data.");
-            //-----------------------------------------------
-            //--- Assign projectId to all Profile Objects ---
-            //-----------------------------------------------
-            ProfileWrapperDtoObj.ProjectId = projectId;
-            
-            ProjectPanelDataObj.ProjectId = projectId;
-            ProfilePanelDataObj.ProfileDtoObj.ProjectId = projectId;
-
-            ProjectUnitsPanelDataObj.ProjectId = projectId;
-            ProjectUnitsPanelDataObj.ProjectUnitsDtoObj.ProjectId = projectId;
-
-            ProfilePanelDataObj.ProjectId = projectId;
-            ProfilePanelDataObj.ProfileDtoObj.ProjectId = projectId;
-
-            ProcessStreamPanelDataObj.ProjectId = projectId;
-            UtilityStreamPanelDataObj.ProjectId = projectId;
-            //-----------------------------------------------
-            //--- Assign profileId to all Profile Objects ---
-            //-----------------------------------------------
-            ProfileWrapperDtoObj.ProfileId = profileId;
-
-            ProfilePanelDataObj.ProfileId = profileId;
-            ProfilePanelDataObj.ProfileDtoObj.Id = profileId;
-
-            ProcessStreamPanelDataObj.ProfileId = profileId;
-            UtilityStreamPanelDataObj.ProfileId = profileId;
-            //-------------------------
-            //--- Return Profile ID ---
-            //-------------------------
-            return profileId;
-        }
-        #endregion  // --> CREATE ... CreateProfileWrapperData(Guid projectId, ProfileWrapperDto profileWrapperDtoObj)
-
-        #region --> READ ..... ReadProfileWrapperData(Guid projectId, Guid profileId)
-        /// <summary>
-        /// Retrieve (READ) the Profile Wrapper Data for a Given Project & Profile IDs. 
-        /// This method will be used to Populate the Profile Wrapper Data Object 
-        /// with Data from the DB.
-        /// </summary>
-        /// <param name="projectId">The ID of the project-related data to READ.</param>
-        /// <param name="profileId">The ID of the profile-related data to READ.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the provided project ID is null.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when the provided profile ID is null.</exception>
-        public ProfileWrapperDto ReadProfileWrapperData(Guid projectId, 
-                                                        Guid profileId)
-        {
-            if (projectId == null) throw new ArgumentNullException(
-                             nameof(projectId), 
-                             "Project ID cannot be null.");
-
-            if (profileId == null) throw new ArgumentNullException(
-                             nameof(profileId), 
-                             "Profile ID cannot be null.");
-            //--------------------------
-            //--- Assign Wrapper Ids ---
-            //--------------------------
-            ProfileWrapperDtoObj.ProjectId = projectId;
-            ProfileWrapperDtoObj.ProfileId = profileId;
-            //----------------------------------------------------------
-            //--- READ Project Data from DB using Project ViewModels ---
-            //----------------------------------------------------------
-            ProjectPanelDataObj.ProjectId = projectId;
-            ProjectPanelDataObj.ReadProjectData(projectId);
-
-            ProjectUnitsPanelDataObj.ProjectId = projectId;
-            ProjectUnitsPanelDataObj.ReadProjectUnitsData(projectId);
-            //--------------------------------------------------------
-            //--- READ Profile Data from DB using PanelData Object ---
-            //--- Results are assign to WRAPPER DTO objects        ---
-            //--------------------------------------------------------
-            ProfilePanelDataObj.ProjectId = projectId;
-            ProfilePanelDataObj.ProfileId = profileId;
-            ProfileWrapperDtoObj.ProfileDtoObj = ProfilePanelDataObj.ReadProfileData(profileId);
-
-            ProcessStreamPanelDataObj.ProjectId = projectId;
-            ProcessStreamPanelDataObj.ProfileId = profileId;
-            ProfileWrapperDtoObj.ProcessStreamDtoList = 
-                                 ProcessStreamPanelDataObj.ReadProcessStreamData(profileId);
-
-            UtilityStreamPanelDataObj.ProjectId = projectId;
-            UtilityStreamPanelDataObj.ProfileId = profileId;
-            ProfileWrapperDtoObj.UtilityStreamDtoList =
-                                 UtilityStreamPanelDataObj.ReadUtilityStreamData(profileId);
-            //---------------------------------
-            //--- Results in WRAPPER Object ---
-            //---------------------------------
+            if (profileWrapperDtoObj.ProjectDbName == string.Empty) throw new ArgumentNullException(
+                                       nameof(profileWrapperDtoObj.ProjectDbName),
+                                       "Project DB Name can not be empty");
+            try
+            {
+                //-------------------------------------------------------------------
+                //--- Profile Wrapper ViewModel CreateProfileWrapperData() Method ---
+                //------------------------------------------------------------------- 
+                ProfileWrapperDtoObj = ProfileWrapperViewModelObj.CreateProfileWrapperData(
+                                       profileWrapperDtoObj);
+            }
+            catch (Exception ex)
+            {
+                //---------------------
+                //--- Log Exception ---
+                //---------------------
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            //-----------------------------------------------------------------
+            //--- Return Profile Wrapper DTO Object ... contains Profile ID ---
+            //-----------------------------------------------------------------
             return ProfileWrapperDtoObj;
         }
-        #endregion  // --> READ ..... ReadProfileWrapperData(Guid projectId, Guid profileId) 
+        #endregion  // --> CREATE ... AddProfileWrapperData(ProfileWrapperDto profileWrapperDtoObj)
 
-        #region --> UPDATE ... UpdateProfileWrapperData(Guid projectId, Guid profileId, ProfileWrapperDto ProfileWrapperDtoObj)
+        #region --> READ ..... GetProfileWrapperData(int profileId)
         /// <summary>
-        /// Scrap Screen data and Populate the Profile Wrapper Object
-        /// then use this method to UPDATE ALL the Profile Wrapper Data for a Given Project & Profile IDs.
+        /// Get (READ) the Profile data associated with the user supplied Profile Id
+        /// Returns a populated Profile WRAPPER DTO object.
+        /// ---------------------------------------------------------------------------------------
+        /// -------------------------------------- USE CASE ---------------------------------------
+        /// ---------------------------------------------------------------------------------------
+        ///   1. User invokes this method, passing in the Profile Id
+        ///   2  Method ensures Profile Id is assigned to Profile WRAPPER DTO object Property
+        ///   2. Method invokes Wrapper ViewModel passing in the Profile Id
+        ///   3. Wrapper ViewModel GETs all the Profile Data and populates the Profile WRAPPER DTO
+        ///   4. Method assigns the Profile WRAPPER DTO property with the DTO returned
+        ///   5. Method returns the WRAPPER DTO object
+        /// ---------------------------------------------------------------------------------------
         /// </summary>
-        /// <param name="projectId">The ID of the project-related data to UPDATE.</param>
-        /// <param name="profileId">The ID of the profile-related data to UPDATE.</param>
-        /// <param name="profileWrapperDtoObj">The Profile Wrapper data to UPDATE.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the provided project ID is null.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when the provided profile ID is null.</exception>
-        /// <returns>ProfileWapperDto UPDATE data </returns>
-        public ProfileWrapperDto UpdateProfileWrapperData(Guid projectId, 
-                                                          Guid profileId, 
-                                                          ProfileWrapperDto profileWrapperDtoObj)
+        /// <param name="profileId">Unique Profile Id</param>
+        /// <returns>Profile WRAPPER DTO object containing the newly created Profile-related data,
+        /// also include Project DB Name and Profile Id, on success; null otherwise.</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public ProfileWrapperDto GetProfileWrapperData(int profileId)
         {
-            if (projectId == null) throw new ArgumentNullException(
-                             nameof(projectId), 
-                             "Project ID cannot be null.");
+            string strMethod = "GetProfileWrapperData";
 
-            if (profileId == null) throw new ArgumentNullException(
-                             nameof(profileId), 
-                             "Profile ID cannot be null.");
+            if (profileId == -1) throw new ArgumentNullException(
+                                       nameof(profileId),
+                                       "Profile ID cannot be -1.");
+            try
+            {
+                //---------------------------------
+                //--- Assign WRAPPER Profile ID ---
+                //---------------------------------
+                ProfileWrapperDtoObj.ProfileId = profileId;
+
+                //-----------------------------------------------------------------
+                //--- Profile Wrapper ViewModel ReadProfileWrapperData() Method ---
+                //----------------------------------------------------------------- 
+                ProfileWrapperDtoObj = ProfileWrapperViewModelObj.ReadProfileWrapperData(profileId);
+            }
+            catch (Exception ex)
+            {
+                //---------------------
+                //--- Log Exception ---
+                //---------------------
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
+            //--------------------------------------------
+            //--- Return Populated Profile WRAPPER DTO ---
+            //--------------------------------------------
+            return ProfileWrapperDtoObj;
+        }
+        #endregion  // --> READ ..... GetProfileWrapperData(int profileId)
+
+        #region --> UPDATE ... ModifyProfileWrapperData(ProfileWrapperDto profileWrapperDtoObj)
+        /// <summary>
+        /// Modify (UPDATE) the Profile data associated with the user supplied Profile Id
+        /// Returns a populated Profile WRAPPER DTO object.
+        /// NOTE: The Profile ID used is assigned in the Profile WRAPPER DTO Object
+        /// ---------------------------------------------------------------------------------------
+        /// -------------------------------------- USE CASE ---------------------------------------
+        /// ---------------------------------------------------------------------------------------
+        ///   1. User scrapes the Controls, assigns Profile Data to Profile WRAPPER DTO Object
+        ///   2. User invokes this method, passing in the populated Profile WRAPPER DTO Object
+        ///   3. Method assigns the Profile WRAPPER DTO Property
+        ///   4. Method invokes Wrapper ViewModel passing in the Profile WRAPPER DTO Object
+        ///   5. Wrapper ViewModel MODIFIES all the Profile Data 
+        ///   6. Method returns void
+        /// ---------------------------------------------------------------------------------------
+        /// </summary>
+        /// <param name="profileWrapperDtoObj">Profile WRAPPER DTO object containing data to update.</param>
+        /// <returns>Profile WRAPPER DTO including data updated</returns>
+        public void ModifyProfileWrapperData(ProfileWrapperDto profileWrapperDtoObj)
+        {
+            string strMethod = "ModifyProfileWrapperData";
 
             if (profileWrapperDtoObj == null) throw new ArgumentNullException(
-                             nameof(profileWrapperDtoObj), 
-                             "Profile Wrapper DTO cannot be null.");
-            //-------------------------------------------------------------------------------
-            //--- Get DTO Data for Updating the DB ... VIEW Objects Populatle WRAPPER DTO ---
-            //-------------------------------------------------------------------------------
-            ProfileWrapperDtoObj = profileWrapperDtoObj;
-            ProfileWrapperDtoObj.ProjectId = projectId;
-            ProfileWrapperDtoObj.ProfileId = profileId;
+                                        nameof(profileWrapperDtoObj),
+                                        "Project Wrapper DTO cannot be null.");
 
-            ProfileDto profileDtoObj = ProfileWrapperDtoObj.ProfileDtoObj;
-            List<ProcessStreamDto> processStreamList = ProfileWrapperDtoObj.ProcessStreamDtoList;
-            List<UtilityStreamDto> utilityStreamList = ProfileWrapperDtoObj.UtilityStreamDtoList;
-            //------------------------------------------
-            //--- Assign Project & ProjectUnits Data ---
-            //------------------------------------------
-            ProjectPanelDataObj.ProjectId = projectId;
+            if (profileWrapperDtoObj.ProfileId == -1) throw new ArgumentNullException(
+                                        nameof(profileWrapperDtoObj.ProfileId),
+                                        "Profile ID cannot be -1.");
+            try
+            {
+                //--------------------------------------------------
+                //--- Assign Profile WRAPPER DTO Object Property ---
+                //--------------------------------------------------
+                ProfileWrapperDtoObj = profileWrapperDtoObj;
 
-            ProjectUnitsPanelDataObj.ProjectId = projectId;
-            ProjectUnitsPanelDataObj.ProjectUnitsDtoObj.ProjectId = projectId;
-            //---------------------------------------------------------
-            //--- UPDATE Profile Data in DB using PanelData Objects ---
-            //---------------------------------------------------------
-            ProfilePanelDataObj.ProjectId = projectId;
-            ProfilePanelDataObj.ProfileId = profileId;
-            ProfilePanelDataObj.ProfileDtoObj.ProjectId = projectId;
-            ProfilePanelDataObj.ProfileDtoObj.Id = profileId;
-            ProfilePanelDataObj.UpdateProfileData(profileDtoObj);
-            //----------------------------------------------------------------
-            //--- UPDATE Process Stream Data in DB using PanelData Objects ---
-            //----------------------------------------------------------------
-            ProcessStreamPanelDataObj.ProjectId = projectId;
-            ProcessStreamPanelDataObj.ProfileId = profileId;
-            ProcessStreamPanelDataObj.UpdateProcessStreamData(processStreamList);
-            //----------------------------------------------------------------
-            //--- UPDATE Utility Stream Data in DB using PanelData Objects ---
-            //----------------------------------------------------------------
-            UtilityStreamPanelDataObj.ProjectId = projectId;
-            UtilityStreamPanelDataObj.ProfileId = profileId;
-            UtilityStreamPanelDataObj.UpdateUtilityStreamData(utilityStreamList);
-            //-----------------------------------------
-            //--- Return Profile Wrapper Dto Object ---
-            //-----------------------------------------
-            return ProfileWrapperDtoObj;
+                //-------------------------------------------------------------------
+                //--- Profile Wrapper ViewModel UpdateProfileWrapperData() Method ---
+                //-------------------------------------------------------------------
+                ProfileWrapperViewModelObj.UpdateProfileWrapperData(profileWrapperDtoObj);
+            }
+            catch (Exception ex)
+            {
+                //---------------------
+                //--- Log Exception ---
+                //---------------------
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
         }
-        #endregion  // --> UPDATE ... UpdateProfileWrapperData(Guid projectId, Guid profileId, ProfileWrapperDto ProfileWrapperDtoObj)
+        #endregion  // --> UPDATE ... ModifyProfileWrapperData(ProfileWrapperDto profileWrapperDtoObj)
 
         #region --> DELETE ... DeleteProfileWrapperData(Guid projectId, Guid profileId)
         /// <summary>
-        /// Use the specified Profile ID and ViewModel object 
-        /// to DELETE ALL the Profile Subpanel data in the HENSTUDIO DB.
-        /// Cascading Delete is Controlled in SQL, so Deleting the Profile 
-        /// will also Delete the Process Stream and Utility Stream data 
-        /// for the Given Profile ID.
+        /// Delete (DELETE) the Profile data associated with the user supplied Profile Id
+        /// Returns void.
+        /// ---------------------------------------------------------------------------------------
+        /// -------------------------------------- USE CASE ---------------------------------------
+        /// ---------------------------------------------------------------------------------------
+        ///   1. User invokes this method, passing in the Profile Id
+        ///   2. Method assigns the Profile Id in the Profile WRAPPER DTO Property
+        ///   3. Method invokes Wrapper ViewModel passing in the Profile Id
+        ///   4. Wrapper ViewModel DELETES all the Profile Data associated with the Profile Id 
+        ///   5. Method returns void
+        /// ---------------------------------------------------------------------------------------
+        /// NOTE: Cascading Delete is Controlled in SQL.
         /// </summary>
-        /// <param name="projectId">The Project ID of the profile-related data to DELETE.</param>
-        /// <param name="profileId">The Profile ID of the profile-related data to DELETE.</param>
-        public void DeleteProfileWrapperData(Guid projectId, Guid profileId)
+        /// <param name="profileId">The ID of the project-related data to DELETE.</param>
+        public void DeleteProfileWrapperData(int profileId)
         {
-            if (projectId == null) throw new ArgumentNullException(
-                             nameof(projectId),
-                             "Project ID cannot be null.");
+            string strMethod = "DeleteProfileWrapperData";
 
-            if (profileId == null) throw new ArgumentNullException(
-                             nameof(profileId),
-                             "Profile ID cannot be null.");
-            //----------------------------------------------
-            //--- Assign Wrapper Project and Profile IDs ---
-            //----------------------------------------------
-            ProfileWrapperDtoObj.ProjectId = projectId;
-            ProfileWrapperDtoObj.ProfileId = profileId;
-            //----------------------------------------------------
-            //--- Use PanelData to DELETE Data from DB         ---
-            //--- NOTE: Cascading Delete is controlled in SQL. ---
-            //----------------------------------------------------
-            ProfilePanelDataObj.DeleteProfileData(profileId);
+            if (profileId == -1) throw new ArgumentNullException(
+                                       nameof(profileId),
+                                       "Profile ID cannot be -1.");
+            try
+            {
+                //--------------------------------------------------------------------
+                //--- Assign Profile Id in the Profile WRAPPER DTO Object Property ---
+                //--------------------------------------------------------------------
+                ProfileWrapperDtoObj.ProfileId = profileId;
+
+                //-------------------------------------------------------------------
+                //--- Profile Wrapper ViewModel DeleteProfileWrapperData() Method ---
+                //-------------------------------------------------------------------
+                ProfileWrapperViewModelObj.DeleteProfileWrapperData(profileId);
+            }
+            catch (Exception ex)
+            {
+                //---------------------
+                //--- Log Exception ---
+                //---------------------
+                HenLogger.WriteSeparatorLine('*');
+                HenLogger.LogError(NAMESPACE, CLASS, strMethod, String.Format("EXCEPTION: {0}", ex.Message));
+                HenLogger.WriteSeparatorLine('*');
+            }
         }
         #endregion  // --> DELETE ... DeleteProfileWrapperData(Guid projectId, Guid profileId)
 
         #endregion  // CRUD Methods
-
-        #region RENAME PROFILE METHOD
-        /// <summary>
-        /// Use the specified Profile ID and the new profile name and 
-        /// description to RENAME the profile in the HENSTUDIO DB.
-        /// </summary>
-        /// <param name="profileId">Profile ID of profile to rename</param>
-        /// <param name="newName">New Name</param>
-        /// <param name="newDescription">New Description</param>
-        /// <returns>Profile DTO of renamed Profile</returns>
-        /// <exception cref="ArgumentNullException">Check for null profile id</exception>
-        /// <exception cref="ArgumentException">Check for empty name</exception>
-        public ProfileDto RenameProfile(Guid profileId,
-                                        string newName,
-                                        string newDescription)
-        {
-            if (profileId == null) throw new ArgumentNullException(
-                             nameof(profileId), 
-                             "Profile ID is null for READ Profile Panel data.");
-
-            if (string.IsNullOrEmpty(newName)) throw new ArgumentException(
-                             nameof(newName), 
-                             "New profile name is null or empty for RENAME Profile Panel data.");
-            //------------------------------------------------
-            //--- Update Project Wrapper  Panel Project ID ---
-            //------------------------------------------------
-            ProfileWrapperDtoObj.ProfileId = profileId;
-            //--------------------------------------------
-            //--- Return the Profile DTO Updated in DB ---
-            //--------------------------------------------
-            return ProfilePanelDataObj.RenameProfile(profileId,
-                                                     newName,
-                                                     newDescription);
-        }
-        #endregion  // RENAME PROFILE METHOD
     }
     #endregion      // public class ProfileWrapperDto
 }

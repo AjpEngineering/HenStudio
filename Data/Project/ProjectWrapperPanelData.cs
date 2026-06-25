@@ -51,8 +51,6 @@ using HenModel.Dto.Project.DefaultParameters;
 using HenModel.Dto.Project.DefaultParameters.ExchangerParams;
 using HenModel.Dto.Project.DefaultParameters.OptimizerParams;
 using HenModel.Dto.Project.DefaultParameters.ProjectUnits;
-
-using HenModel.Dto.Profile;
 using HenModel.Dto.Profile.Streams;
 
 #endregion  // HEN STUDIO REFERENCES
@@ -103,7 +101,7 @@ namespace HenStudio.Data.Project
 
         #endregion      // PROPERTIES
 
-        #region CTOR
+        #region Parameterized CTOR
         /// <summary>
         /// Parameterized Constructor for ProjectWrapperData Class
         /// Project Wrapper DTO MUST contain ProjectDbName
@@ -126,7 +124,7 @@ namespace HenStudio.Data.Project
         #region --> CREATE ... AddProjectWrapperData(ProjectWrapperDto projecteWrapperDtoObj)
         /// <summary>
         /// Add (CREATE) the Project data contained in the WRAPPER DTO to the SQLite PROJECT DB
-        /// Returns Project WRAPPER DTO object; containds Project Id associated with added data
+        /// Returns Project WRAPPER DTO object; contains Project Id associated with added data
         /// ---------------------------------------------------------------------------------------
         /// -------------------------------------- USE CASE ---------------------------------------
         /// ---------------------------------------------------------------------------------------
@@ -267,9 +265,9 @@ namespace HenStudio.Data.Project
                 //--------------------------------------------------
                 ProjectWrapperDtoObj = projectWrapperDtoObj;
 
-                //-----------------------------------------------------------------
+                //-------------------------------------------------------------------
                 //--- Project Wrapper ViewModel UpdateProjectWrapperData() Method ---
-                //----------------------------------------------------------------- 
+                //------------------------------------------------------------------- 
                 ProjectWrapperViewModelObj.UpdateProjectWrapperData(projectWrapperDtoObj);
             }
             catch (Exception ex)
