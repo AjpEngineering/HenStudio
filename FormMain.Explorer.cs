@@ -345,55 +345,55 @@ namespace HenStudio
                 //-------------------------------------------------
                 TreeNode rootNode = GetRootNode();
 
-                //----------------------------------------------------------------
-                //--- GetProject ViewModel Object to Retrieve Projects from DB ---
-                //----------------------------------------------------------------
-                var ProjectViewModelObj = new ProjectViewModel();
+                ////----------------------------------------------------------------
+                ////--- GetProject ViewModel Object to Retrieve Projects from DB ---
+                ////----------------------------------------------------------------
+                //var ProjectViewModelObj = new ProjectViewModel();
 
-                //-----------------------------------------------
-                //--- Get All Projects from Project ViewModel ---
-                //-----------------------------------------------
-                IList<ProjectDto> projects = ProjectViewModelObj.GetProjects();
+                ////-----------------------------------------------
+                ////--- Get All Projects from Project ViewModel ---
+                ////-----------------------------------------------
+                //IList<ProjectDto> projects = ProjectViewModelObj.GetProjects();
 
-                //---------------------------------------------------------------
-                //--- Check for at least One Project to add Root Node to Tree ---
-                //--- (otherwise Tree will be Empty with just Root Node)      ---
-                //---------------------------------------------------------------
-                if (projects != null)
-                {
-                    //----------------------------------------------
-                    //--- Add Project Nodes to Root Node         ---
-                    //--- Assign Tag Object with Node Attributes ---
-                    //----------------------------------------------
-                    string strProjectName = string.Empty;   // Project name from DB
-                    string strNodeName = string.Empty;      // Node name with Prefix (e.g., "Project: *") for display in Tree Node
-                    foreach (var project in projects)
-                    {
-                        //--------------------------------------
-                        //--- Create Project Node Tag Object ---
-                        //--------------------------------------
-                        strProjectName = project.Name;
-                        strNodeName = string.Format("Project: {0}", strProjectName.Trim());
-                        DataTagDisplay DataTagDisplayObj = 
-                            new DataTagDisplay(ExplorerNodeIdType.PROJECT, strProjectName.Trim()) { ProjectID = project.Id };
+                ////---------------------------------------------------------------
+                ////--- Check for at least One Project to add Root Node to Tree ---
+                ////--- (otherwise Tree will be Empty with just Root Node)      ---
+                ////---------------------------------------------------------------
+                //if (projects != null)
+                //{
+                //    //----------------------------------------------
+                //    //--- Add Project Nodes to Root Node         ---
+                //    //--- Assign Tag Object with Node Attributes ---
+                //    //----------------------------------------------
+                //    string strProjectName = string.Empty;   // Project name from DB
+                //    string strNodeName = string.Empty;      // Node name with Prefix (e.g., "Project: *") for display in Tree Node
+                //    foreach (var project in projects)
+                //    {
+                //        //--------------------------------------
+                //        //--- Create Project Node Tag Object ---
+                //        //--------------------------------------
+                //        strProjectName = project.Name;
+                //        strNodeName = string.Format("Project: {0}", strProjectName.Trim());
+                //        DataTagDisplay DataTagDisplayObj = 
+                //            new DataTagDisplay(ExplorerNodeIdType.PROJECT, strProjectName.Trim()) { ProjectID = project.Id };
 
-                        //-----------------------------------------------------------------
-                        //--- Create Project Node and Assign Tag Object, and Set Images ---
-                        //-----------------------------------------------------------------
-                        TreeNode projectNode = new TreeNode(strNodeName) { Tag = DataTagDisplayObj };
+                //        //-----------------------------------------------------------------
+                //        //--- Create Project Node and Assign Tag Object, and Set Images ---
+                //        //-----------------------------------------------------------------
+                //        TreeNode projectNode = new TreeNode(strNodeName) { Tag = DataTagDisplayObj };
                     
-                        projectNode.ImageIndex = 1;
-                        projectNode.SelectedImageIndex = 2;
+                //        projectNode.ImageIndex = 1;
+                //        projectNode.SelectedImageIndex = 2;
 
-                        rootNode.Nodes.Add(projectNode);
-                    }
+                //        rootNode.Nodes.Add(projectNode);
+                //    }
 
-                    //--------------------------------------------------------
-                    //--- Add Root Node and Project Children Nodes to Tree ---
-                    //--------------------------------------------------------
-                    treeViewCurrentProjectExplorer.Nodes.Clear();
-                    treeViewCurrentProjectExplorer.Nodes.Add(rootNode);
-                }
+                //    //--------------------------------------------------------
+                //    //--- Add Root Node and Project Children Nodes to Tree ---
+                //    //--------------------------------------------------------
+                //    treeViewCurrentProjectExplorer.Nodes.Clear();
+                //    treeViewCurrentProjectExplorer.Nodes.Add(rootNode);
+                //}
 
                 //------------------------------
                 //--- Collapse | Expand Tree ---
@@ -425,129 +425,129 @@ namespace HenStudio
             ExplorerNodeIdType explorerNodeIdType = ExplorerNodeIdType.UNKNOWN;
             try
             {
-                //----------------------------------------------------------------
-                //--- GetProject ViewModel Object to Retrieve Projects from DB ---
-                //----------------------------------------------------------------
-                var projectViewModelObj = new ProjectViewModel();
-                var projectUnitsViewModelObj = new ProjectUnitsViewModel();
-                var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
-                var optimizerParamsViewModelObj = new OptimizerParamsViewModel();
+                ////----------------------------------------------------------------
+                ////--- GetProject ViewModel Object to Retrieve Projects from DB ---
+                ////----------------------------------------------------------------
+                //var projectViewModelObj = new ProjectViewModel();
+                //var projectUnitsViewModelObj = new ProjectUnitsViewModel();
+                //var exchangerParamsViewModelObj = new ExchangerParamsViewModel();
+                //var optimizerParamsViewModelObj = new OptimizerParamsViewModel();
 
-                //--------------------------
-                //--- Get Node and Level ---
-                //--------------------------
-                TreeNode node = treeViewCurrentProjectExplorer.SelectedNode;
-                if (node == null) return;  // Null Guard
+                ////--------------------------
+                ////--- Get Node and Level ---
+                ////--------------------------
+                //TreeNode node = treeViewCurrentProjectExplorer.SelectedNode;
+                //if (node == null) return;  // Null Guard
 
-                DataTagDisplay dataTagDisplayObj = ((DataTagDisplay)node.Tag);
-                if(dataTagDisplayObj == null ) return;  // Null Guard
+                //DataTagDisplay dataTagDisplayObj = ((DataTagDisplay)node.Tag);
+                //if(dataTagDisplayObj == null ) return;  // Null Guard
 
-                explorerNodeIdType = dataTagDisplayObj.NodeIdEnum;
+                //explorerNodeIdType = dataTagDisplayObj.NodeIdEnum;
 
-                #region Popluate and Display Panels
-                //-----------------------------------
-                //--- Popluate and Display Panels ---
-                //-----------------------------------
-                switch (explorerNodeIdType)
-                {
-                    #region CATALOG (ROOT)
-                    case ExplorerNodeIdType.CATALOG:
-                        //--------------------------------------
-                        //--- Populate Current Profile Panel ---
-                        //--------------------------------------
-                        HenMsgDlg.DisplayWarningDlg("***** Populate Current ROOT Panel *****");
+                //#region Popluate and Display Panels
+                ////-----------------------------------
+                ////--- Popluate and Display Panels ---
+                ////-----------------------------------
+                //switch (explorerNodeIdType)
+                //{
+                //    #region CATALOG (ROOT)
+                //    case ExplorerNodeIdType.CATALOG:
+                //        //--------------------------------------
+                //        //--- Populate Current Profile Panel ---
+                //        //--------------------------------------
+                //        HenMsgDlg.DisplayWarningDlg("***** Populate Current ROOT Panel *****");
 
 
-                        //--------------------------------------
-                        //--- Display Root Application Panel ---
-                        //--------------------------------------
-                        this.panelSELECTED_ROOT.BringToFront();
-                        break;
-                    #endregion  // CATALOG (ROOT)
+                //        //--------------------------------------
+                //        //--- Display Root Application Panel ---
+                //        //--------------------------------------
+                //        this.panelSELECTED_ROOT.BringToFront();
+                //        break;
+                //    #endregion  // CATALOG (ROOT)
 
-                    #region PROJECT
-                    case ExplorerNodeIdType.PROJECT:
-                        //-------------------------------------------------------------------------
-                        //--- Get Project Data from DB and Populate Project Panel and Subpanels ---
-                        //-------------------------------------------------------------------------
-                        //TreeNode selNode = treeViewCurrentProjectExplorer.SelectedNode;
+                //    #region PROJECT
+                //    case ExplorerNodeIdType.PROJECT:
+                //        //-------------------------------------------------------------------------
+                //        //--- Get Project Data from DB and Populate Project Panel and Subpanels ---
+                //        //-------------------------------------------------------------------------
+                //        //TreeNode selNode = treeViewCurrentProjectExplorer.SelectedNode;
                         
-                        //Guid projectID = ((DataTagDisplay)selNode.Tag).ProjectID;
-                        //if (projectID == Guid.Empty) throw(new Exception("Invalid Project ID!"));
+                //        //Guid projectID = ((DataTagDisplay)selNode.Tag).ProjectID;
+                //        //if (projectID == Guid.Empty) throw(new Exception("Invalid Project ID!"));
 
-                        ////---------------------------------------------------------
-                        ////--- Get Project Data from DB using Project ViewModels ---
-                        ////---------------------------------------------------------
-                        //ProjectDto projectDtoObj = projectViewModelObj.GetProjectById(projectID);
-                        //ProjectUnitsDto projectUnitsDto = projectUnitsViewModelObj.GetProjectUnitsByProjectId(projectID);
-                        //ExchangerParamsDto exchangerParamsDto = exchangerParamsViewModelObj.GetExchangerParamsByProjectId(projectID);
-                        //OptimizerParamsDto optimizerParamsDto = optimizerParamsViewModelObj.GetOptimizerParamsByProjectId(projectID);
+                //        ////---------------------------------------------------------
+                //        ////--- Get Project Data from DB using Project ViewModels ---
+                //        ////---------------------------------------------------------
+                //        //ProjectDto projectDtoObj = projectViewModelObj.GetProjectById(projectID);
+                //        //ProjectUnitsDto projectUnitsDto = projectUnitsViewModelObj.GetProjectUnitsByProjectId(projectID);
+                //        //ExchangerParamsDto exchangerParamsDto = exchangerParamsViewModelObj.GetExchangerParamsByProjectId(projectID);
+                //        //OptimizerParamsDto optimizerParamsDto = optimizerParamsViewModelObj.GetOptimizerParamsByProjectId(projectID);
 
-                        //--------------------------------------------------------------
-                        //--- Populate Project Panel and Subpanels with Project Data ---
-                        //--------------------------------------------------------------
-                        //ProjectPanelData projectPanelDataObj = new ProjectPanelData();
-                        //projectPanelDataObj = projectPanelDataObj.ConvertToPanelData(projectDtoObj);
+                //        //--------------------------------------------------------------
+                //        //--- Populate Project Panel and Subpanels with Project Data ---
+                //        //--------------------------------------------------------------
+                //        //ProjectPanelData projectPanelDataObj = new ProjectPanelData();
+                //        //projectPanelDataObj = projectPanelDataObj.ConvertToPanelData(projectDtoObj);
 
-                        //ProjectUnitsPanelData projectUnitsPanelDataObj = new ProjectUnitsPanelData();
-                        //projectUnitsPanelDataObj = projectUnitsPanelDataObj.ConvertToPanelData(projectUnitsDto);
+                //        //ProjectUnitsPanelData projectUnitsPanelDataObj = new ProjectUnitsPanelData();
+                //        //projectUnitsPanelDataObj = projectUnitsPanelDataObj.ConvertToPanelData(projectUnitsDto);
 
-                        //OptimizerParamsPanelData optimizerParamsPanelDataObj = new OptimizerParamsPanelData();
-                        //optimizerParamsPanelDataObj = optimizerParamsPanelDataObj.ConvertToPanelData(optimizerParamsDto);
+                //        //OptimizerParamsPanelData optimizerParamsPanelDataObj = new OptimizerParamsPanelData();
+                //        //optimizerParamsPanelDataObj = optimizerParamsPanelDataObj.ConvertToPanelData(optimizerParamsDto);
 
-                        //ExchangerParamsPanelData exchangerParamsPanelDataObj = new ExchangerParamsPanelData();
-                        //exchangerParamsPanelDataObj = exchangerParamsPanelDataObj.ConvertToPanelData(exchangerParamsDto);
-
-
-                        //PopulateProjectPanel(projectPanelDataObj,
-                        //                     projectUnitsPanelDataObj,
-                        //                     optimizerParamsPanelDataObj,
-                        //                     exchangerParamsPanelDataObj);
-
-                        //-----------------------------
-                        //--- Display Project Panel ---
-                        //-----------------------------
-                        this.panelSELECTED_PROJECT.BringToFront();
-                        break;
-                    #endregion  // PROJECT
-
-                    #region PROFILE
-                    case ExplorerNodeIdType.PROFILE:
-                        //--------------------------------------
-                        //--- Populate Current Profile Panel ---
-                        //--------------------------------------
-                        HenMsgDlg.DisplayWarningDlg("***** Populate Current PROFILE Panel *****");
+                //        //ExchangerParamsPanelData exchangerParamsPanelDataObj = new ExchangerParamsPanelData();
+                //        //exchangerParamsPanelDataObj = exchangerParamsPanelDataObj.ConvertToPanelData(exchangerParamsDto);
 
 
-                        //-----------------------------
-                        //--- Display Profile Panel ---
-                        //-----------------------------
-                        this.panelSELECTED_PROFILE.BringToFront();
-                        break;
-                    #endregion  // PROFILE
+                //        //PopulateProjectPanel(projectPanelDataObj,
+                //        //                     projectUnitsPanelDataObj,
+                //        //                     optimizerParamsPanelDataObj,
+                //        //                     exchangerParamsPanelDataObj);
 
-                    #region STUDY
-                    case ExplorerNodeIdType.STUDY:
-                        //------------------------------------
-                        //--- Populate Current Study Panel ---
-                        //------------------------------------
-                        HenMsgDlg.DisplayWarningDlg("***** Populate Current STUDY Panel *****");
+                //        //-----------------------------
+                //        //--- Display Project Panel ---
+                //        //-----------------------------
+                //        this.panelSELECTED_PROJECT.BringToFront();
+                //        break;
+                //    #endregion  // PROJECT
+
+                //    #region PROFILE
+                //    case ExplorerNodeIdType.PROFILE:
+                //        //--------------------------------------
+                //        //--- Populate Current Profile Panel ---
+                //        //--------------------------------------
+                //        HenMsgDlg.DisplayWarningDlg("***** Populate Current PROFILE Panel *****");
 
 
-                        //---------------------------
-                        //--- Display Study Panel ---
-                        //---------------------------
-                        //this.panelSELECTED_STUDY.BringToFront();
-                        break;
-                    #endregion  // STUDY
+                //        //-----------------------------
+                //        //--- Display Profile Panel ---
+                //        //-----------------------------
+                //        this.panelSELECTED_PROFILE.BringToFront();
+                //        break;
+                //    #endregion  // PROFILE
 
-                    #region UNKNOWN
-                    default:
-                        throw new Exception("INVALID Explorer Level!");
-                    #endregion  // UNKNOWN
+                //    #region STUDY
+                //    case ExplorerNodeIdType.STUDY:
+                //        //------------------------------------
+                //        //--- Populate Current Study Panel ---
+                //        //------------------------------------
+                //        HenMsgDlg.DisplayWarningDlg("***** Populate Current STUDY Panel *****");
+
+
+                //        //---------------------------
+                //        //--- Display Study Panel ---
+                //        //---------------------------
+                //        //this.panelSELECTED_STUDY.BringToFront();
+                //        break;
+                //    #endregion  // STUDY
+
+                //    #region UNKNOWN
+                //    default:
+                //        throw new Exception("INVALID Explorer Level!");
+                //    #endregion  // UNKNOWN
                
-                }
-                #endregion  // Popluate and Display Panels
+                //}
+                //#endregion  // Popluate and Display Panels
             }
             catch (Exception ex)
             {
